@@ -17,15 +17,19 @@ const dtoFields = [
 ];
 
 export default () => ({
-  toContentManagerModel(contentType: Struct.ComponentSchema) {
+  toContentManagerModel(contentType: Struct.Schema) {
+    const baseAttributes: Record<string, { type: string }> = {
+      id: { type: 'integer' },
+    };
+    if ('modelType' in contentType && contentType.modelType === 'contentType') {
+      baseAttributes.documentId = { type: 'string' };
+    }
     return {
       ...contentType,
       apiID: contentType.modelName,
       isDisplayed: isVisible(contentType),
       attributes: {
-        id: {
-          type: 'integer',
-        },
+        ...baseAttributes,
         ...formatAttributes(contentType),
       },
     };
@@ -34,7 +38,7 @@ export default () => ({
   toDto: pick(dtoFields),
 });
 
-const formatAttributes = (contentType: Struct.ComponentSchema) => {
+const formatAttributes = (contentType: Struct.Schema) => {
   const { getVisibleAttributes, getTimestamps, getCreatorFields } = contentTypesUtils;
 
   // only get attributes that can be seen in the auto generated Edit view or List view
@@ -73,5 +77,5 @@ const toRelation = (attribute: Schema.Attribute.Relation) => {
   };
 };
 
-const isVisible = (model: Struct.ComponentSchema): boolean =>
+const isVisible = (model: Struct.Schema): boolean =>
   getOr(true, 'pluginOptions.content-manager.visible', model) === true;

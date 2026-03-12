@@ -47,10 +47,11 @@ const getPathParams = (routePath: string): OpenAPIV3.ParameterObject[] => {
     acc.push({
       name: `${param.name}`,
       in: 'path',
-      description: '',
+      description:
+        'documentId (CUID2 string). Use the documentId from the list response, not the numeric id.',
       deprecated: false,
       required: true,
-      schema: { type: 'number' },
+      schema: { type: 'string' },
     });
 
     return acc;

@@ -27,6 +27,11 @@ const isHidden = (schema: any, name: any) => {
 };
 
 const isListable = (schema: any, name: any) => {
+  // documentId is a system field for content types (not in schema.attributes)
+  if (name === 'documentId' && schema.modelType === 'contentType') {
+    return true;
+  }
+
   if (!_.has(schema.attributes, name)) {
     return false;
   }

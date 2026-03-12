@@ -10,11 +10,7 @@ import {
 } from './attributes';
 
 function createDefaultMetadatas(schema: any) {
-  return {
-    ...Object.keys(schema.attributes).reduce((acc: any, name) => {
-      acc[name] = createDefaultMetadata(schema, name);
-      return acc;
-    }, {}),
+  const systemFields: Record<string, any> = {
     id: {
       edit: {},
       list: {
@@ -23,6 +19,23 @@ function createDefaultMetadatas(schema: any) {
         sortable: true,
       },
     },
+  };
+  if (schema.modelType === 'contentType') {
+    systemFields.documentId = {
+      edit: {},
+      list: {
+        label: 'documentId',
+        searchable: true,
+        sortable: true,
+      },
+    };
+  }
+  return {
+    ...Object.keys(schema.attributes).reduce((acc: any, name) => {
+      acc[name] = createDefaultMetadata(schema, name);
+      return acc;
+    }, {}),
+    ...systemFields,
   };
 }
 

@@ -37,9 +37,13 @@ async function createDefaultLayouts(schema: any) {
 }
 
 function createDefaultListLayout(schema: any) {
-  return Object.keys(schema.attributes)
+  const attrKeys = Object.keys(schema.attributes || {})
     .filter((name) => isListable(schema, name))
     .slice(0, DEFAULT_LIST_LENGTH);
+  if (schema.modelType === 'contentType') {
+    return ['documentId', ...attrKeys].slice(0, DEFAULT_LIST_LENGTH + 1);
+  }
+  return attrKeys;
 }
 
 const rowSize = (els: any) => els.reduce((sum: any, el: any) => sum + el.size, 0);
@@ -58,6 +62,11 @@ function syncLayouts(configuration: any, schema: any) {
   const { list = [], editRelations = [], edit = [] } = configuration.layouts || {};
 
   let cleanList = list.filter((attr: any) => isListable(schema, attr));
+
+  // Ensure documentId is shown for content types (used for API single-entity queries)
+  if (schema.modelType === 'contentType' && !cleanList.includes('documentId')) {
+    cleanList = ['documentId', ...cleanList];
+  }
 
   // TODO V5: remove editRelations
   const cleanEditRelations = editRelations.filter((attr: any) =>
