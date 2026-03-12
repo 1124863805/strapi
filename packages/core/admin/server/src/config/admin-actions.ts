@@ -1,11 +1,11 @@
 export const actions = [
   {
-    uid: 'marketplace.read',
-    displayName: 'Access the marketplace',
+    uid: 'plugins.read',
+    displayName: 'List installed plugins',
     pluginName: 'admin',
     section: 'settings',
-    category: 'plugins and marketplace',
-    subCategory: 'marketplace',
+    category: 'plugins',
+    subCategory: 'plugins',
   },
   {
     uid: 'webhooks.create',

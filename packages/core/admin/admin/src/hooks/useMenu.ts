@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Cog, ShoppingCart, House } from '@strapi/icons';
+import { Cog, House } from '@strapi/icons';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { useTypedSelector } from '../core/store/hooks';
@@ -34,16 +34,6 @@ const useMenu = (shouldUpdateStrapi: boolean) => {
         to: '/',
         permissions: [],
         position: 0,
-      },
-      {
-        icon: ShoppingCart,
-        intlLabel: {
-          id: 'global.marketplace',
-          defaultMessage: 'Marketplace',
-        },
-        to: '/marketplace',
-        permissions: permissions.marketplace?.main ?? [],
-        position: 7,
       },
       {
         icon: Cog,

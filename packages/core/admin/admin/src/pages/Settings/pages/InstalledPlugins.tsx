@@ -119,7 +119,7 @@ const ProtectedInstalledPlugins = () => {
   const permissions = useTypedSelector((state) => state.admin_app.permissions);
 
   return (
-    <Page.Protect permissions={permissions.marketplace?.main}>
+    <Page.Protect permissions={permissions.plugins?.main}>
       <Page.Title>
         {formatMessage({
           id: 'global.plugins',

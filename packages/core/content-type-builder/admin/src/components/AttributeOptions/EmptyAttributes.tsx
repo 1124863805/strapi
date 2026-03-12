@@ -1,7 +1,6 @@
 import { Box, Flex, Typography, LinkButton } from '@strapi/design-system';
 import { Plus } from '@strapi/icons';
 import { EmptyDocuments } from '@strapi/icons/symbols';
-import * as qs from 'qs';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
@@ -62,7 +61,7 @@ export const EmptyAttributes = () => {
           </Box>
           <LinkButton
             tag={Link}
-            to={`/marketplace?${qs.stringify({ categories: ['Custom fields'] })}`}
+            to="/settings/list-plugins"
             variant="secondary"
             startIcon={<Plus />}
           >

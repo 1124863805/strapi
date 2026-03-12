@@ -25,7 +25,6 @@ interface PermissionMap {
     singleTypesConfigurations: Permission[];
     componentsConfigurations: Permission[];
   };
-  marketplace: Pick<CRUDPermissions, 'main' | 'read'>;
   settings: Record<SettingsPermissions, CRUDPermissions> &
     Partial<Record<EESettingsPermissions, CRUDPermissions>> & {
       plugins: Pick<CRUDPermissions, 'read' | 'main'>;

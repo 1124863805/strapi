@@ -24,9 +24,9 @@ export const ADMIN_PERMISSIONS_CE = {
       },
     ],
   },
-  marketplace: {
-    main: [{ action: 'admin::marketplace.read', subject: null }],
-    read: [{ action: 'admin::marketplace.read', subject: null }],
+  plugins: {
+    main: [{ action: 'admin::plugins.read', subject: null }],
+    read: [{ action: 'admin::plugins.read', subject: null }],
   },
   settings: {
     roles: {
@@ -91,8 +91,8 @@ export const ADMIN_PERMISSIONS_CE = {
       update: [{ action: 'admin::project-settings.update', subject: null }],
     },
     plugins: {
-      main: [{ action: 'admin::marketplace.read', subject: null }],
-      read: [{ action: 'admin::marketplace.read', subject: null }],
+      main: [{ action: 'admin::plugins.read', subject: null }],
+      read: [{ action: 'admin::plugins.read', subject: null }],
     },
   },
 } satisfies Partial<PermissionMap>;

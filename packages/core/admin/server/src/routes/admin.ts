@@ -62,7 +62,7 @@ export default [
     config: {
       policies: [
         'admin::isAuthenticatedAdmin',
-        { name: 'admin::hasPermissions', config: { actions: ['admin::marketplace.read'] } },
+        { name: 'admin::hasPermissions', config: { actions: ['admin::plugins.read'] } },
       ],
     },
   },
