@@ -31,7 +31,7 @@ const enableMaximumUserCount = async (numberOfUsersToEnable: number) => {
   });
 };
 
-const disableUsersAboveLicenseLimit = async (numberOfUsersToDisable: number) => {
+const disableUsersAboveSeatLimit = async (numberOfUsersToDisable: number) => {
   const currentlyDisabledUsers: any = (await getDisabledUserList()) ?? [];
 
   const usersToDisable = [];
@@ -102,7 +102,7 @@ const seatEnforcementWorkflow = async () => {
   if (adminSeatsLeft > 0) {
     await enableMaximumUserCount(adminSeatsLeft);
   } else if (adminSeatsLeft < 0) {
-    await disableUsersAboveLicenseLimit(-adminSeatsLeft);
+    await disableUsersAboveSeatLimit(-adminSeatsLeft);
   }
 };
 

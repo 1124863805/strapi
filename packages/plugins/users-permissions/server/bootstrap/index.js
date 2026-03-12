@@ -48,7 +48,7 @@ const initEmails = async (pluginStore) => {
         options: {
           from: {
             name: 'Administration Panel',
-            email: 'no-reply@strapi.io',
+            email: 'no-reply@example.com',
           },
           response_email: '',
           object: 'Reset password',
@@ -66,7 +66,7 @@ const initEmails = async (pluginStore) => {
         options: {
           from: {
             name: 'Administration Panel',
-            email: 'no-reply@strapi.io',
+            email: 'no-reply@example.com',
           },
           response_email: '',
           object: 'Account confirmation',
@@ -117,7 +117,7 @@ module.exports = async ({ strapi }) => {
     if (process.env.NODE_ENV !== 'development') {
       throw new Error(
         `Missing jwtSecret. Please, set configuration variable "jwtSecret" for the users-permissions plugin in config/plugins.js (ex: you can generate one using Node with \`crypto.randomBytes(16).toString('base64')\`).
-For security reasons, prefer storing the secret in an environment variable and read it in config/plugins.js. See https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/configurations/optional/environment.html#configuration-using-environment-variables.`
+For security reasons, prefer storing the secret in an environment variable and read it in config/plugins.js.`
       );
     }
 

@@ -21,7 +21,6 @@ const getPlugin = () => {
 
   return {
     // Always return contentTypes to avoid losing data when the feature is disabled
-    // or downgrading the license
     contentTypes,
   };
 };

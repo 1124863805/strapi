@@ -238,7 +238,7 @@ const initProviders = ({ baseURL, purest }) => ({
         .request()
         .then(({ body }) => ({
           username: body.username,
-          email: `${body.username}@strapi.io`, // dummy email as Instagram does not provide user email
+          email: `${body.username}@example.com`, // dummy email as Instagram does not provide user email
         }));
     },
   },
@@ -387,7 +387,7 @@ const initProviders = ({ baseURL, purest }) => ({
         .request()
         .then(({ body }) => ({
           username: body.name,
-          email: `${body.name}@strapi.io`, // dummy email as Reddit does not provide user email
+          email: `${body.name}@example.com`, // dummy email as Reddit does not provide user email
         }));
     },
   },
@@ -412,7 +412,7 @@ const initProviders = ({ baseURL, purest }) => ({
         .request()
         .then(({ body }) => {
           const username = body.username || body.nickname || body.name || body.email.split('@')[0];
-          const email = body.email || `${username.replace(/\s+/g, '.')}@strapi.io`;
+          const email = body.email || `${username.replace(/\s+/g, '.')}@example.com`;
 
           return {
             username,

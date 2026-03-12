@@ -30,9 +30,4 @@ module.exports = () => ({
       testConf: 3,
     },
   },
-  // NOTE: set enabled:true to test with a pre-built plugin. Make sure to run yarn build in the plugin folder first
-  todo: {
-    enabled: false,
-    resolve: `../plugins/todo-example`, // From the /examples/plugins folder
-  },
 });

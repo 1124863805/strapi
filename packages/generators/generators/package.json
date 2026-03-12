@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git://github.com/strapi/strapi.git"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "UNLICENSED",
   "author": {
     "name": "Strapi Solutions SAS",
     "email": "hi@strapi.io",
@@ -39,9 +39,6 @@
     "clean": "run -T rimraf ./dist",
     "copy-files": "copyfiles -u 1 -a 'src/templates/**/*' 'src/files/**/*' dist",
     "lint": "run -T eslint .",
-    "test:ts": "run -T tsc --noEmit",
-    "test:unit": "run -T jest",
-    "test:unit:watch": "run -T jest --watch",
     "watch": "pack-up watch"
   },
   "dependencies": {

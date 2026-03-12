@@ -5,16 +5,16 @@ import { Mail, WarningCircle } from '@strapi/icons';
 import isNil from 'lodash/isNil';
 import { useIntl } from 'react-intl';
 
-import { useLicenseLimits } from '../../../../../hooks/useLicenseLimits';
+import { useEEInfo } from '../../../../../hooks/useEEInfo';
 
 import type { CreateActionCEProps } from '../../../../../../../../admin/src/pages/Settings/pages/Users/components/CreateActionCE';
 
 export const CreateActionEE = React.forwardRef<HTMLButtonElement, CreateActionCEProps>(
   (props, ref) => {
     const { formatMessage } = useIntl();
-    const { license, isError, isLoading } = useLicenseLimits();
+    const { info, isError, isLoading } = useEEInfo();
 
-    const { permittedSeats, shouldStopCreate } = license ?? {};
+    const { permittedSeats, shouldStopCreate } = info ?? {};
 
     if (isError || isLoading) {
       return null;

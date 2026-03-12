@@ -7,7 +7,7 @@
     "url": "https://github.com/strapi/strapi.git",
     "directory": "packages/plugins/sentry"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "UNLICENSED",
   "author": {
     "name": "Strapi Solutions SAS",
     "email": "hi@strapi.io",
@@ -45,8 +45,6 @@
     "build": "strapi-plugin build",
     "clean": "run -T rimraf dist",
     "lint": "run -T eslint .",
-    "test:unit": "run -T jest",
-    "test:unit:watch": "run -T jest --watch",
     "watch": "strapi-plugin watch"
   },
   "dependencies": {

@@ -14,7 +14,7 @@ const defaults: Config = {
     useDefaults: true,
     directives: {
       'connect-src': ["'self'", 'https:'],
-      'img-src': ["'self'", 'data:', 'blob:', 'https://market-assets.strapi.io'],
+      'img-src': ["'self'", 'data:', 'blob:'],
       'media-src': ["'self'", 'data:', 'blob:'],
       upgradeInsecureRequests: null,
     },
@@ -51,7 +51,7 @@ export const security: Core.MiddlewareFactory<Config> =
       'frame-src': string[];
     } = {
       'script-src': ["'self'", "'unsafe-inline'", 'cdn.jsdelivr.net'],
-      'img-src': ["'self'", 'data:', 'cdn.jsdelivr.net', 'strapi.io'],
+      'img-src': ["'self'", 'data:', 'cdn.jsdelivr.net'],
       'manifest-src': [],
       'frame-src': [],
     };

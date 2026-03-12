@@ -316,7 +316,7 @@ const checkSaltIsDefined = () => {
     process.emitWarning(
       `Missing transfer.token.salt: Data transfer features have been disabled.
 Please set transfer.token.salt in config/admin.js (ex: you can generate one using Node with \`crypto.randomBytes(16).toString('base64')\`)
-For security reasons, prefer storing the secret in an environment variable and read it in config/admin.js. See https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/configurations/optional/environment.html#configuration-using-environment-variables.`
+For security reasons, prefer storing the secret in an environment variable and read it in config/admin.js.`
     );
   }
 };

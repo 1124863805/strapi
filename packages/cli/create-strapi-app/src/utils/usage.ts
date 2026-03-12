@@ -37,7 +37,6 @@ const getProperties = (scope: Scope, error?: TrackError) => {
     /** @deprecated */
     useTypescriptOnAdmin: boolToString(scope.useTypescript),
     useTypescript: boolToString(scope.useTypescript),
-    isHostedOnStrapiCloud: process.env.STRAPI_HOSTING === 'strapi.cloud',
     noRun: boolToString(scope.runApp),
     projectId: scope.uuid,
     useExample: boolToString(scope.useExample),
@@ -52,28 +51,9 @@ const getProperties = (scope: Scope, error?: TrackError) => {
   };
 };
 
-function trackEvent(event: string, payload: Record<string, unknown>) {
-  if (process.env.NODE_ENV === 'test') {
-    return;
-  }
-
-  try {
-    return fetch('https://analytics.strapi.io/api/v2/track', {
-      method: 'POST',
-      body: JSON.stringify({
-        event,
-        ...payload,
-      }),
-      signal: AbortSignal.timeout(1000),
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Strapi-Event': event,
-      },
-    }).catch(() => {});
-  } catch (err) {
-    /** ignore errors */
-    return Promise.resolve();
-  }
+function trackEvent(_event: string, _payload: Record<string, unknown>) {
+  // Disabled: no analytics sent to external servers
+  return Promise.resolve();
 }
 
 export async function trackError({ scope, error }: { scope: Scope; error?: TrackError }) {

@@ -7,7 +7,7 @@
     "url": "https://github.com/strapi/strapi.git",
     "directory": "packages/plugins/graphql"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "UNLICENSED",
   "author": {
     "name": "Strapi Solutions SAS",
     "email": "hi@strapi.io",

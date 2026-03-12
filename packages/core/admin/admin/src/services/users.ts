@@ -8,7 +8,7 @@ import type { Data } from '@strapi/types';
 
 const usersService = adminApi
   .enhanceEndpoints({
-    addTagTypes: ['LicenseLimits', 'User', 'Role', 'RolePermissions'],
+    addTagTypes: ['EEInfo', 'User', 'Role', 'RolePermissions'],
   })
   .injectEndpoints({
     endpoints: (builder) => ({
@@ -22,7 +22,7 @@ const usersService = adminApi
           data: body,
         }),
         transformResponse: (response: Users.Create.Response) => response.data,
-        invalidatesTags: ['LicenseLimits', { type: 'User', id: 'LIST' }],
+        invalidatesTags: ['EEInfo', { type: 'User', id: 'LIST' }],
       }),
       updateUser: builder.mutation<
         Users.Update.Response['data'],
@@ -91,7 +91,7 @@ const usersService = adminApi
           data: body,
         }),
         transformResponse: (res: Users.DeleteMany.Response) => res.data,
-        invalidatesTags: ['LicenseLimits', { type: 'User', id: 'LIST' }],
+        invalidatesTags: ['EEInfo', { type: 'User', id: 'LIST' }],
       }),
       /**
        * roles

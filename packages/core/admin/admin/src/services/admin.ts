@@ -5,7 +5,7 @@ import {
   type GetProjectSettings,
   type UpdateProjectSettings,
   type Plugins,
-  type GetLicenseLimitInformation,
+  type GetEEInfo,
 } from '../../../shared/contracts/admin';
 import { prefixFileUrlWithBackendUrl } from '../utils/urls';
 
@@ -21,7 +21,7 @@ interface ConfigurationLogo {
 
 const admin = adminApi
   .enhanceEndpoints({
-    addTagTypes: ['ProjectSettings', 'LicenseLimits'],
+    addTagTypes: ['ProjectSettings', 'EEInfo'],
   })
   .injectEndpoints({
     endpoints: (builder) => ({
@@ -100,12 +100,12 @@ const admin = adminApi
           method: 'GET',
         }),
       }),
-      getLicenseLimits: builder.query<GetLicenseLimitInformation.Response, void>({
+      getEEInfo: builder.query<GetEEInfo.Response, void>({
         query: () => ({
-          url: '/admin/license-limit-information',
+          url: '/admin/ee-info',
           method: 'GET',
         }),
-        providesTags: ['LicenseLimits'],
+        providesTags: ['EEInfo'],
       }),
     }),
     overrideExisting: false,
@@ -118,7 +118,7 @@ const {
   useProjectSettingsQuery,
   useUpdateProjectSettingsMutation,
   useGetPluginsQuery,
-  useGetLicenseLimitsQuery,
+  useGetEEInfoQuery,
 } = admin;
 
 export {
@@ -128,7 +128,7 @@ export {
   useProjectSettingsQuery,
   useUpdateProjectSettingsMutation,
   useGetPluginsQuery,
-  useGetLicenseLimitsQuery,
+  useGetEEInfoQuery,
 };
 
 export type { ConfigurationLogo };

@@ -333,7 +333,7 @@ const LAYOUT = [
       name: 'email',
       placeholder: {
         id: 'Auth.form.email.placeholder',
-        defaultMessage: 'e.g. kai.doe@strapi.io',
+        defaultMessage: 'e.g. kai.doe@example.com',
       },
       type: 'email' as const,
       size: 6,

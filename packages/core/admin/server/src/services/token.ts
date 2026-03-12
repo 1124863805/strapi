@@ -70,7 +70,7 @@ const checkSecretIsDefined = () => {
   if (strapi.config.get('admin.serveAdminPanel') && !strapi.config.get('admin.auth.secret')) {
     throw new Error(
       `Missing auth.secret. Please set auth.secret in config/admin.js (ex: you can generate one using Node with \`crypto.randomBytes(16).toString('base64')\`).
-For security reasons, prefer storing the secret in an environment variable and read it in config/admin.js. See https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/configurations/optional/environment.html#configuration-using-environment-variables.`
+For security reasons, prefer storing the secret in an environment variable and read it in config/admin.js.`
     );
   }
 };

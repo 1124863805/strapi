@@ -2,7 +2,7 @@
 
 /**
  * Converts the standard Strapi REST query params to a more usable format for querying
- * You can read more here: https://docs.strapi.io/developer-docs/latest/developer-resources/database-apis-reference/rest-api.html#filters
+ * See REST API filters documentation for more details.
  */
 
 import _ from 'lodash';

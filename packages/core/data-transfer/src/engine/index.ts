@@ -768,7 +768,7 @@ class TransferEngine<
   }
 
   async beforeTransfer(): Promise<void> {
-    const runWithDiagnostic = async (provider: IProvider) => {
+    const runWithDiagnostic = async (provider: IProvider, origin: 'source' | 'destination') => {
       try {
         await provider.beforeTransfer?.();
       } catch (error) {
@@ -781,14 +781,14 @@ class TransferEngine<
           this.panic(error);
         } else {
           this.panic(
-            new Error(`Unknwon error when executing "beforeTransfer" on the ${origin} provider`)
+            new Error(`Unknown error when executing "beforeTransfer" on the ${origin} provider`)
           );
         }
       }
     };
 
-    await runWithDiagnostic(this.sourceProvider);
-    await runWithDiagnostic(this.destinationProvider);
+    await runWithDiagnostic(this.sourceProvider, 'source');
+    await runWithDiagnostic(this.destinationProvider, 'destination');
   }
 
   async transferSchemas(): Promise<void> {

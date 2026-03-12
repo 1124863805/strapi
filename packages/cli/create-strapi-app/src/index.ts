@@ -6,7 +6,6 @@ import crypto from 'crypto';
 import fse from 'fs-extra';
 
 import * as prompts from './prompts';
-import { handleCloudLogin } from './cloud';
 import { createStrapi } from './create-strapi';
 import { checkNodeRequirements } from './utils/check-requirements';
 import { checkInstallPath } from './utils/check-install-path';
@@ -38,9 +37,6 @@ const command = new commander.Command('create-strapi-app')
   // dependencies options
   .option('--install', 'Install dependencies')
   .option('--no-install', 'Do not install dependencies')
-
-  // Cloud options
-  .option('--skip-cloud', 'Skip cloud login and project creation')
 
   // Example app
   .option('--example', 'Use an example app')
@@ -118,10 +114,6 @@ async function run(args: string[]): Promise<void> {
 
   const rootPath = await checkInstallPath(appDirectory);
 
-  if (!options.skipCloud) {
-    await handleCloudLogin();
-  }
-
   const tmpPath = join(os.tmpdir(), `strapi${crypto.randomBytes(6).toString('hex')}`);
 
   const scope: Scope = {
@@ -148,7 +140,6 @@ async function run(args: string[]): Promise<void> {
     dependencies: {
       '@strapi/strapi': version,
       '@strapi/plugin-users-permissions': version,
-      '@strapi/plugin-cloud': version,
       // third party
       react: '^18.0.0',
       'react-dom': '^18.0.0',

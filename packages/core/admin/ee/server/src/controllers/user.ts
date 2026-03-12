@@ -32,7 +32,7 @@ const hasAdminSeatsAvaialble = async () => {
 export default {
   async create(ctx: Context) {
     if (!(await hasAdminSeatsAvaialble())) {
-      throw new ForbiddenError('License seat limit reached. You cannot create a new user');
+      throw new ForbiddenError('Seat limit reached. You cannot create a new user');
     }
 
     const { body } = ctx.request;
@@ -83,7 +83,7 @@ export default {
     const user = await getService('user').findOne(id, null);
 
     if (!(await hasAdminSeatsAvaialble()) && !user.isActive && input.isActive) {
-      throw new ForbiddenError('License seat limit reached. You cannot active this user');
+      throw new ForbiddenError('Seat limit reached. You cannot activate this user');
     }
 
     const updatedUser = await getService('user').updateById(id, input);

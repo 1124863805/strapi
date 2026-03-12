@@ -128,8 +128,8 @@ export const HOOKS = {
 };
 
 export interface SettingsMenuLink
-  extends Omit<StrapiAppSettingLink, 'Component' | 'permissions' | 'licenseOnly'> {
-  licenseOnly?: boolean;
+  extends Omit<StrapiAppSettingLink, 'Component' | 'permissions' | 'eeOnly'> {
+  eeOnly?: boolean;
 }
 
 export type SettingsMenu = {
@@ -167,7 +167,7 @@ export const SETTINGS_LINKS_CE = (): SettingsMenu => ({
       to: '/settings/list-plugins',
       id: 'plugins',
     },
-    // If the Enterprise/Cloud feature is not enabled and if the config doesn't disable it, we promote the Enterprise/Cloud feature by displaying them in the settings menu.
+    // If the Enterprise feature is not enabled and if the config doesn't disable it, we promote the Enterprise feature by displaying them in the settings menu.
     // Disable this by adding "promoteEE: false" to your `./config/admin.js` file
     ...(!window.strapi.features.isEnabled(window.strapi.features.SSO) &&
     window.strapi?.flags?.promoteEE
@@ -176,7 +176,7 @@ export const SETTINGS_LINKS_CE = (): SettingsMenu => ({
             intlLabel: { id: 'Settings.sso.title', defaultMessage: 'Single Sign-On' },
             to: '/settings/purchase-single-sign-on',
             id: 'sso-purchase-page',
-            licenseOnly: true,
+            eeOnly: true,
           },
         ]
       : []),
@@ -201,7 +201,7 @@ export const SETTINGS_LINKS_CE = (): SettingsMenu => ({
             intlLabel: { id: 'global.auditLogs', defaultMessage: 'Audit Logs' },
             to: '/settings/purchase-audit-logs',
             id: 'auditLogs-purchase-page',
-            licenseOnly: true,
+            eeOnly: true,
           },
         ]
       : []),

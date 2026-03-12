@@ -43,8 +43,8 @@ const adminSlice = createSlice({
   initialState: () => {
     return {
       language: {
-        locale: 'en',
-        localeNames: { en: 'English' },
+        locale: 'zh-Hans',
+        localeNames: { 'zh-Hans': '中文 (简体)', en: 'English' },
       },
       permissions: {},
       theme: {

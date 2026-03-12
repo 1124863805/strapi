@@ -97,7 +97,6 @@ export default async ({ strapi }: { strapi: Core.Strapi }) => {
   // Schema customization
   extendReviewWorkflowContentTypes({ strapi });
 
-  // License limits
   const reviewWorkflowsOptions = defaultsDeep(
     {
       numberOfWorkflows: MAX_WORKFLOWS,

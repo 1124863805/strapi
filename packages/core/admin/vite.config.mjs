@@ -24,7 +24,6 @@ export default defineConfig({
       entry: {
         index: './admin/src/index.ts',
         ee: './admin/src/ee.ts',
-        test: './admin/tests/index.ts',
       },
     },
     rollupOptions: {

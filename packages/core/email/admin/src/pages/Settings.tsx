@@ -178,7 +178,7 @@ const SettingsPage = () => {
                           file: './config/plugins.js',
                           link: (
                             <DocumentationLink
-                              href="https://docs.strapi.io/developer-docs/latest/plugins/email.html"
+                              href="#"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -205,7 +205,7 @@ const SettingsPage = () => {
                         <TextInput
                           placeholder={formatMessage({
                             id: 'email.Settings.email.plugin.placeholder.defaultFrom',
-                            defaultMessage: "ex: Strapi No-Reply '<'no-reply@strapi.io'>'",
+                            defaultMessage: "ex: No-Reply <no-reply@example.com>",
                           })}
                           disabled
                           value={data.settings.defaultFrom}
@@ -224,7 +224,7 @@ const SettingsPage = () => {
                         <TextInput
                           placeholder={formatMessage({
                             id: 'email.Settings.email.plugin.placeholder.defaultReplyTo',
-                            defaultMessage: `ex: Strapi '<'example@strapi.io'>'`,
+                            defaultMessage: `ex: <example@example.com>`,
                           })}
                           disabled
                           value={data.settings.defaultReplyTo}

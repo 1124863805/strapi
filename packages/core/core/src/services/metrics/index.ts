@@ -1,6 +1,6 @@
 /**
  * Strapi telemetry package.
- * You can learn more at https://docs.strapi.io/developer-docs/latest/getting-started/usage-information.html
+ * Usage information can be configured in your project settings.
  */
 
 import { Job, scheduleJob } from 'node-schedule';

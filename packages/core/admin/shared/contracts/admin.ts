@@ -102,7 +102,6 @@ export declare namespace TelemetryProperties {
     data: {
       useTypescriptOnServer: boolean;
       useTypescriptOnAdmin: boolean;
-      isHostedOnStrapiCloud: boolean;
       numberOfAllContentTypes: number;
       numberOfComponents: number;
       numberOfDynamicZones: number;
@@ -153,10 +152,6 @@ export declare namespace ProvidersOptions {
   }
 }
 
-/**
- * /license-limit-information – get license limit information
- */
-
 export interface SSOFeature {
   name: 'sso';
 }
@@ -187,11 +182,7 @@ export interface ContentHistoryFeature {
   };
 }
 
-/**
- * TODO: this response needs refactoring because we're mixing the admin seat limit info with
- * regular EE feature info.
- */
-export declare namespace GetLicenseLimitInformation {
+export declare namespace GetEEInfo {
   export interface Request {
     body: {};
     query: {};
@@ -207,8 +198,6 @@ export declare namespace GetLicenseLimitInformation {
         | ContentReleasesFeature
         | ContentHistoryFeature
       )[];
-      isHostedOnStrapiCloud: boolean;
-      licenseLimitStatus: unknown;
       permittedSeats: number;
       shouldNotify: boolean;
       shouldStopCreate: boolean;

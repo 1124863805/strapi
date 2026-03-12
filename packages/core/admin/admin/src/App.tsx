@@ -21,7 +21,7 @@ interface AppProps {
 
 const App = ({ strapi, store }: AppProps) => {
   useEffect(() => {
-    const language = localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY) || 'en';
+    const language = localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY) || 'zh-Hans';
 
     if (language) {
       document.documentElement.lang = language;

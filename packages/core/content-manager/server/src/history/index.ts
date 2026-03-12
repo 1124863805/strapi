@@ -30,7 +30,6 @@ const getFeature = (): Partial<Plugin.LoadedPlugin> => {
 
   /**
    * Keep registering the model to avoid losing the data if the feature is disabled,
-   * or if the license expires.
    */
   return {
     register({ strapi }) {

@@ -100,7 +100,7 @@ class StrapiApp {
   configurations = {
     authLogo: Logo,
     head: { favicon: '' },
-    locales: ['en'],
+    locales: ['zh-Hans', 'en'],
     menuLogo: Logo,
     notifications: { releases: true },
     themes: { light: lightTheme, dark: darkTheme },
@@ -251,8 +251,9 @@ class StrapiApp {
   createCustomConfigurations = (customConfig: NonNullable<StrapiAppConstructorArgs['config']>) => {
     if (customConfig.locales) {
       this.configurations.locales = [
+        'zh-Hans',
         'en',
-        ...(customConfig.locales?.filter((loc) => loc !== 'en') || []),
+        ...(customConfig.locales?.filter((loc) => loc !== 'zh-Hans' && loc !== 'en') || []),
       ];
     }
 
@@ -274,7 +275,7 @@ class StrapiApp {
 
       if (!darkTheme && !lightTheme) {
         console.warn(
-          `[deprecated] In future versions, Strapi will stop supporting this theme customization syntax. The theme configuration accepts a light and a dark key to customize each theme separately. See https://docs.strapi.io/developer-docs/latest/development/admin-customization.html#theme-extension.`.trim()
+          `[deprecated] In future versions, the theme customization syntax will change. The theme configuration accepts a light and a dark key to customize each theme separately.`.trim()
         );
         merge(this.configurations.themes.light, customConfig.theme);
       }
@@ -434,7 +435,7 @@ class StrapiApp {
   render() {
     const localeNames = pick(languageNativeNames, this.configurations.locales || []);
     const locale = (localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY) ||
-      'en') as keyof typeof localeNames;
+      'zh-Hans') as keyof typeof localeNames;
 
     this.store = configureStore(
       {
@@ -445,7 +446,7 @@ class StrapiApp {
             currentTheme: (localStorage.getItem(THEME_LOCAL_STORAGE_KEY) || 'system') as ThemeName,
           },
           language: {
-            locale: localeNames[locale] ? locale : 'en',
+            locale: localeNames[locale] ? locale : 'zh-Hans',
             localeNames,
           },
           token: getStoredToken(),

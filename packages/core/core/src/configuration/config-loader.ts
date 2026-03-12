@@ -16,7 +16,6 @@ const RESTRICTED_FILENAMES = [
   // existing env vars
   'uuid',
   'hosting',
-  'license',
   'enforce',
   'disable',
   'enable',

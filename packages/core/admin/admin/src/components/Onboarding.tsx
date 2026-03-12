@@ -29,8 +29,8 @@ const Onboarding = () => {
       label: { id: 'Settings.application.get-help', defaultMessage: 'Get help' },
       icon: Message,
       href: communityEdition
-        ? 'https://discord.strapi.io'
-        : 'https://support.strapi.io/support/home',
+        ? '#'
+        : '#',
     },
   ];
 
@@ -259,7 +259,7 @@ const WATCH_MORE = {
 const DOCUMENTATION_LINKS = [
   {
     label: { id: 'global.documentation', defaultMessage: 'documentation' },
-    href: 'https://docs.strapi.io',
+    href: '#',
     icon: Book,
   },
   {

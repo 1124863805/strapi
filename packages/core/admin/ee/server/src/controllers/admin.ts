@@ -1,5 +1,4 @@
 import { isNil } from 'lodash/fp';
-import { env } from '@strapi/utils';
 import { getService } from '../utils';
 
 export default {
@@ -13,32 +12,14 @@ export default {
     }
   },
 
-  async licenseLimitInformation() {
+  async getEEInfo() {
     const permittedSeats = strapi.ee.seats;
-
-    let shouldNotify = false;
-    let licenseLimitStatus = null;
-    let enforcementUserCount;
-
     const currentActiveUserCount = await getService('user').getCurrentActiveUserCount();
-
     const eeDisabledUsers = await getService('seat-enforcement').getDisabledUserList();
-
-    if (eeDisabledUsers) {
-      enforcementUserCount = currentActiveUserCount + eeDisabledUsers.length;
-    } else {
-      enforcementUserCount = currentActiveUserCount;
-    }
-
-    if (!isNil(permittedSeats) && enforcementUserCount > permittedSeats) {
-      shouldNotify = true;
-      licenseLimitStatus = 'OVER_LIMIT';
-    }
-
-    if (!isNil(permittedSeats) && enforcementUserCount === permittedSeats) {
-      shouldNotify = true;
-      licenseLimitStatus = 'AT_LIMIT';
-    }
+    const enforcementUserCount = eeDisabledUsers
+      ? currentActiveUserCount + eeDisabledUsers.length
+      : currentActiveUserCount;
+    const shouldNotify = false;
 
     const data = {
       enforcementUserCount,
@@ -46,8 +27,6 @@ export default {
       permittedSeats,
       shouldNotify,
       shouldStopCreate: isNil(permittedSeats) ? false : currentActiveUserCount >= permittedSeats,
-      licenseLimitStatus,
-      isHostedOnStrapiCloud: env('STRAPI_HOSTING', null) === 'strapi.cloud',
       features: strapi.ee.features.list() ?? [],
     };
 

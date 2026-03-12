@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { useNotification, useAPIErrorHandler, useQueryParams } from '@strapi/admin/strapi-admin';
-import { useLicenseLimits } from '@strapi/admin/strapi-admin/ee';
+import { useEEInfo } from '@strapi/admin/strapi-admin/ee';
 import { unstable_useDocument } from '@strapi/content-manager/strapi-admin';
 import {
   SingleSelect,
@@ -68,7 +68,7 @@ export const StageSelect = () => {
 
   const { meta, stages = [] } = data ?? {};
 
-  const { getFeature } = useLicenseLimits();
+  const { getFeature } = useEEInfo();
   const [showLimitModal, setShowLimitModal] = React.useState<'stage' | 'workflow' | null>(null);
 
   const limits = getFeature<string>('review-workflows') ?? {};

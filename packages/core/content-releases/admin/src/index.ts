@@ -105,7 +105,7 @@ const admin: Plugin.Config.AdminInput = {
           const { PurchaseContentReleases } = await import('./pages/PurchaseContentReleases');
           return { default: PurchaseContentReleases };
         },
-        licenseOnly: true,
+        eeOnly: true,
       });
     }
   },

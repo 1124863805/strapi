@@ -33,7 +33,7 @@ const PageHeader = ({ isOnline, npmPackageType = 'plugin' }: PageHeaderProps) =>
           <LinkButton
             startIcon={<Upload />}
             variant="tertiary"
-            href={`https://market.strapi.io/submit-${npmPackageType}`}
+            href="#"
             onClick={() => trackUsage(tracking)}
             isExternal
           >

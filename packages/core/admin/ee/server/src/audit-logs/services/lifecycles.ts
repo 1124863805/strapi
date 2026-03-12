@@ -46,22 +46,20 @@ const getEventMap = (defaultEvents: any) => {
 
 const getRetentionDays = (strapi: Core.Strapi) => {
   const featureConfig = strapi.ee.features.get('audit-logs');
-  const licenseRetentionDays =
+  const featureRetentionDays =
     typeof featureConfig === 'object' && featureConfig?.options.retentionDays;
   const userRetentionDays = strapi.config.get('admin.auditLogs.retentionDays');
 
   // For enterprise plans, use 90 days by default, but allow users to override it
-  if (licenseRetentionDays == null) {
+  if (featureRetentionDays == null) {
     return userRetentionDays ?? DEFAULT_RETENTION_DAYS;
   }
 
-  // Allow users to override the license retention days, but not to increase it
-  if (userRetentionDays && userRetentionDays < licenseRetentionDays) {
+  if (userRetentionDays && userRetentionDays < featureRetentionDays) {
     return userRetentionDays;
   }
 
-  // User didn't provide a retention days value, use the license one
-  return licenseRetentionDays;
+  return featureRetentionDays;
 };
 
 /**
@@ -118,11 +116,11 @@ const createAuditLogsLifecycleService = (strapi: Core.Strapi) => {
 
   return {
     async register() {
-      // Handle license being enabled
+      // Handle EE being enabled
       if (!state.eeEnableUnsubscribe) {
         // @ts-expect-error- update event hub to receive callback argument
         state.eeEnableUnsubscribe = strapi.eventHub.on('ee.enable', () => {
-          // Recreate the service to use the new license info
+          // Recreate the service
           this.destroy();
           this.register();
         });
@@ -132,21 +130,21 @@ const createAuditLogsLifecycleService = (strapi: Core.Strapi) => {
       if (!state.eeUpdateUnsubscribe) {
         // @ts-expect-error- update event hub to receive callback argument
         state.eeUpdateUnsubscribe = strapi.eventHub.on('ee.update', () => {
-          // Recreate the service to use the new license info
+          // Recreate the service
           this.destroy();
           this.register();
         });
       }
 
-      // Handle license being disabled
+      // Handle EE being disabled
       // @ts-expect-error- update event hub to receive callback argument
       state.eeDisableUnsubscribe = strapi.eventHub.on('ee.disable', () => {
-        // Turn off service when the license gets disabled
+        // Turn off service
         // Only ee.enable and ee.update listeners remain active to recreate the service
         this.destroy();
       });
 
-      // Check current state of license
+      // Check current state
       if (!strapi.ee.features.isEnabled('audit-logs')) {
         return this;
       }

@@ -5,7 +5,7 @@ export interface Config {
 }
 
 const defaults: Config = {
-  poweredBy: 'Strapi <strapi.io>',
+  poweredBy: '',
 };
 
 export const poweredBy: Core.MiddlewareFactory<Partial<Config>> = (config) => {

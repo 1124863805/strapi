@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import axios, { AxiosResponse } from 'axios';
-
 import { useInitQuery, useTelemetryPropertiesQuery } from '../services/admin';
 
 import { useAppInfo } from './AppInfo';
@@ -10,7 +8,6 @@ import { useAuth } from './Auth';
 export interface TelemetryProperties {
   useTypescriptOnServer?: boolean;
   useTypescriptOnAdmin?: boolean;
-  isHostedOnStrapiCloud?: boolean;
   numberOfAllContentTypes?: number;
   numberOfComponents?: number;
   numberOfDynamicZones?: number;
@@ -46,29 +43,7 @@ const TrackingProvider = ({ children }: TrackingProviderProps) => {
     skip: !initData?.uuid || !token,
   });
 
-  React.useEffect(() => {
-    if (uuid && data) {
-      const event = 'didInitializeAdministration';
-      try {
-        fetch('https://analytics.strapi.io/api/v2/track', {
-          method: 'POST',
-          body: JSON.stringify({
-            // This event is anonymous
-            event,
-            userId: '',
-            eventPropeties: {},
-            groupProperties: { ...data, projectId: uuid },
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Strapi-Event': event,
-          },
-        });
-      } catch {
-        // silence is golden
-      }
-    }
-  }, [data, uuid]);
+  // Telemetry disabled: no analytics sent to external servers
 
   const value = React.useMemo(
     () => ({
@@ -110,7 +85,6 @@ interface EventWithoutProperties {
     | 'didClickonBlogSection'
     | 'didClickonCodeExampleSection'
     | 'didClickonReadTheDocumentationSection'
-    | 'didClickOnTryStrapiCloudSection'
     | 'didClickonTutorialSection'
     | 'didCreateGuidedTourCollectionType'
     | 'didCreateGuidedTourEntry'
@@ -373,16 +347,16 @@ export interface UseTrackingReturn {
   trackUsage<TEvent extends TrackingEvent>(
     event: TEvent['name'],
     properties: TEvent['properties']
-  ): Promise<null | AxiosResponse<string>>;
+  ): Promise<null>;
   trackUsage<TEvent extends Extract<TrackingEvent, { properties?: never }>>(
     event: TEvent['name'],
     properties?: never
-  ): Promise<null | AxiosResponse<string>>;
+  ): Promise<null>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   trackUsage<TEvent extends Extract<TrackingEvent, { properties: object }>>(
     event: TEvent['name'],
     properties: TEvent['properties']
-  ): Promise<null | AxiosResponse<string>>;
+  ): Promise<null>;
 }
 
 /**
@@ -408,41 +382,10 @@ const useTracking = (): UseTrackingReturn => {
   const userId = useAppInfo('useTracking', (state) => state.userId);
   const trackUsage = React.useCallback(
     async <TEvent extends TrackingEvent>(
-      event: TEvent['name'],
-      properties?: TEvent['properties']
-    ) => {
-      try {
-        if (uuid && !window.strapi.telemetryDisabled) {
-          const res = await axios.post<string>(
-            'https://analytics.strapi.io/api/v2/track',
-            {
-              event,
-              userId,
-              eventProperties: { ...properties },
-              userProperties: {},
-              groupProperties: {
-                ...telemetryProperties,
-                projectId: uuid,
-                projectType: window.strapi.projectType,
-              },
-            },
-            {
-              headers: {
-                'Content-Type': 'application/json',
-                'X-Strapi-Event': event,
-              },
-            }
-          );
-
-          return res;
-        }
-      } catch (err) {
-        // Silence is golden
-      }
-
-      return null;
-    },
-    [telemetryProperties, userId, uuid]
+      _event: TEvent['name'],
+      _properties?: TEvent['properties']
+    ) => null,
+    []
   );
 
   return { trackUsage };

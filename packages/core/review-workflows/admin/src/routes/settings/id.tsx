@@ -11,7 +11,7 @@ import {
   FormProps,
   FormHelpers,
 } from '@strapi/admin/strapi-admin';
-import { useLicenseLimits } from '@strapi/admin/strapi-admin/ee';
+import { useEEInfo } from '@strapi/admin/strapi-admin/ee';
 import { Button, Dialog, Flex, Typography } from '@strapi/design-system';
 import { Check } from '@strapi/icons';
 import { generateNKeysBetween } from 'fractional-indexing';
@@ -134,7 +134,7 @@ const EditPage = () => {
     hasDeletedServerStages?: boolean;
     hasReassignedContentTypes?: boolean;
   }>({});
-  const { getFeature, isLoading: isLicenseLoading } = useLicenseLimits();
+  const { getFeature, isLoading: isInfoLoading } = useEEInfo();
   const [showLimitModal, setShowLimitModal] = React.useState<'workflow' | 'stage' | null>(null);
 
   const currentWorkflow = workflows?.find((workflow) => workflow.id === parseInt(id, 10));
@@ -270,7 +270,7 @@ const EditPage = () => {
    *
    */
   React.useEffect(() => {
-    if (!isLoadingWorkflow && !isLicenseLoading) {
+    if (!isLoadingWorkflow && !isInfoLoading) {
       if (meta && numberOfWorkflows && meta?.workflowCount > parseInt(numberOfWorkflows, 10)) {
         setShowLimitModal('workflow');
       } else if (
@@ -284,7 +284,7 @@ const EditPage = () => {
     }
   }, [
     currentWorkflow,
-    isLicenseLoading,
+    isInfoLoading,
     isLoadingWorkflow,
     limits,
     meta,

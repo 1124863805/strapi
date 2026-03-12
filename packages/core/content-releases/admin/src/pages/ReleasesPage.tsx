@@ -11,7 +11,7 @@ import {
   isFetchError,
   Layouts,
 } from '@strapi/admin/strapi-admin';
-import { useLicenseLimits } from '@strapi/admin/strapi-admin/ee';
+import { useEEInfo } from '@strapi/admin/strapi-admin/ee';
 import {
   Alert,
   Badge,
@@ -189,7 +189,7 @@ const ReleasesPage = () => {
   const response = useGetReleasesQuery(query);
   const { data, isLoading: isLoadingSettings } = useGetReleaseSettingsQuery();
   const [createRelease, { isLoading: isSubmittingForm }] = useCreateReleaseMutation();
-  const { getFeature } = useLicenseLimits();
+  const { getFeature } = useEEInfo();
   const { maximumReleases = 3 } = getFeature('cms-content-releases') as {
     maximumReleases: number;
   };
@@ -308,7 +308,7 @@ const ReleasesPage = () => {
             <StyledAlert
               marginBottom={6}
               action={
-                <Link href="https://strapi.io/pricing-cloud" isExternal>
+                <Link href="#" isExternal>
                   {formatMessage({
                     id: 'content-releases.pages.Releases.max-limit-reached.action',
                     defaultMessage: 'Explore plans',

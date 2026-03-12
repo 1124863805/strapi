@@ -31,12 +31,7 @@ const ApplicationInfoPage = () => {
   const { settings } = useSelector(selectAdminPermissions);
 
   const communityEdition = useAppInfo('ApplicationInfoPage', (state) => state.communityEdition);
-  const latestStrapiReleaseTag = useAppInfo(
-    'ApplicationInfoPage',
-    (state) => state.latestStrapiReleaseTag
-  );
   const nodeVersion = useAppInfo('ApplicationInfoPage', (state) => state.nodeVersion);
-  const shouldUpdateStrapi = useAppInfo('ApplicationInfoPage', (state) => state.shouldUpdateStrapi);
   const strapiVersion = useAppInfo('ApplicationInfoPage', (state) => state.strapiVersion);
 
   const AdminSeatInfo = useEnterprise(
@@ -161,17 +156,6 @@ const ApplicationInfoPage = () => {
                     </Typography>
                     <Flex gap={3} direction="column" alignItems="start" tag="dd">
                       <Typography>v{strapiVersion}</Typography>
-                      {shouldUpdateStrapi && (
-                        <Link
-                          href={`https://github.com/strapi/strapi/releases/tag/${latestStrapiReleaseTag}`}
-                          endIcon={<ExternalLink />}
-                        >
-                          {formatMessage({
-                            id: 'Settings.application.link-upgrade',
-                            defaultMessage: 'Upgrade your admin panel',
-                          })}
-                        </Link>
-                      )}
                     </Flex>
                   </Grid.Item>
                   <Grid.Item col={6} s={12} direction="column" alignItems="start">
@@ -192,7 +176,7 @@ const ApplicationInfoPage = () => {
                           { communityEdition }
                         )}
                       </Typography>
-                      <Link href="https://strapi.io/pricing-self-hosted" endIcon={<ExternalLink />}>
+                      <Link href="#" endIcon={<ExternalLink />}>
                         {formatMessage({
                           id: 'Settings.application.link-pricing',
                           defaultMessage: 'See all pricing plans',

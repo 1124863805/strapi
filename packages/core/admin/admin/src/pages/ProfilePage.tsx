@@ -328,7 +328,7 @@ const PreferencesSection = ({ localeNames }: PreferencesSectionProps) => {
                     color="primary600"
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://docs.strapi.io/developer-docs/latest/development/admin-customization.html#locales"
+                    href="#"
                   >
                     {formatMessage({
                       id: 'Settings.profile.form.section.experience.here',

@@ -297,6 +297,11 @@ const Register = ({ hasAdmin }: RegisterProps) => {
 
   const schema = isAdminRegistration ? REGISTER_ADMIN_SCHEMA : REGISTER_USER_SCHEMA;
 
+  const titleId = isAdminRegistration ? 'Auth.form.register-admin.title' : 'Auth.form.welcome.title';
+  const subtitleId = isAdminRegistration
+    ? 'Auth.form.register-admin.subtitle'
+    : 'Auth.form.register.subtitle';
+
   return (
     <UnauthenticatedLayout>
       <LayoutContent>
@@ -305,15 +310,16 @@ const Register = ({ hasAdmin }: RegisterProps) => {
 
           <Typography tag="h1" variant="alpha" textAlign="center">
             {formatMessage({
-              id: 'Auth.form.welcome.title',
-              defaultMessage: 'Welcome to Strapi!',
+              id: titleId,
+              defaultMessage: isAdminRegistration ? '创建管理员账户' : '欢迎使用 Strapi!',
             })}
           </Typography>
           <Typography variant="epsilon" textColor="neutral600" textAlign="center">
             {formatMessage({
-              id: 'Auth.form.register.subtitle',
-              defaultMessage:
-                'Credentials are only used to authenticate in Strapi. All saved data will be stored in your database.',
+              id: subtitleId,
+              defaultMessage: isAdminRegistration
+                ? '设置您的第一个管理员账户，用于登录管理后台。'
+                : '凭证仅用于在 Strapi 中进行身份验证。所有保存的数据都将存储在您的数据库中。',
             })}
           </Typography>
           {apiError ? (
@@ -382,102 +388,101 @@ const Register = ({ hasAdmin }: RegisterProps) => {
         >
           <Flex direction="column" alignItems="stretch" gap={6} marginTop={7}>
             <Grid.Root gap={4}>
-              {[
-                {
-                  label: formatMessage({
+              <Grid.Item col={6} direction="column" alignItems="stretch">
+                <InputRenderer
+                  label={formatMessage({
                     id: 'Auth.form.firstname.label',
-                    defaultMessage: 'Firstname',
-                  }),
-                  name: 'firstname',
-                  required: true,
-                  size: 6,
-                  type: 'string' as const,
-                },
-                {
-                  label: formatMessage({
+                    defaultMessage: '名字',
+                  })}
+                  name="firstname"
+                  required
+                  type="string"
+                />
+              </Grid.Item>
+              <Grid.Item col={6} direction="column" alignItems="stretch">
+                <InputRenderer
+                  label={formatMessage({
                     id: 'Auth.form.lastname.label',
-                    defaultMessage: 'Lastname',
-                  }),
-                  name: 'lastname',
-                  size: 6,
-                  type: 'string' as const,
-                },
-                {
-                  disabled: !isAdminRegistration,
-                  label: formatMessage({
+                    defaultMessage: '姓氏',
+                  })}
+                  name="lastname"
+                  type="string"
+                />
+              </Grid.Item>
+              <Grid.Item col={12} direction="column" alignItems="stretch">
+                <InputRenderer
+                  disabled={!isAdminRegistration}
+                  label={formatMessage({
                     id: 'Auth.form.email.label',
-                    defaultMessage: 'Email',
-                  }),
-                  name: 'email',
-                  required: true,
-                  size: 12,
-                  type: 'email' as const,
-                },
-                {
-                  hint: formatMessage({
+                    defaultMessage: '电子邮件',
+                  })}
+                  name="email"
+                  required
+                  type="email"
+                />
+              </Grid.Item>
+              <Grid.Item col={12} direction="column" alignItems="stretch">
+                <InputRenderer
+                  hint={formatMessage({
                     id: 'Auth.form.password.hint',
-                    defaultMessage:
-                      'Must be at least 8 characters, 1 uppercase, 1 lowercase & 1 number',
-                  }),
-                  label: formatMessage({
+                    defaultMessage: '至少 8 个字符，包含 1 个大写、1 个小写和 1 个数字',
+                  })}
+                  label={formatMessage({
                     id: 'global.password',
-                    defaultMessage: 'Password',
-                  }),
-                  name: 'password',
-                  required: true,
-                  size: 12,
-                  type: 'password' as const,
-                },
-                {
-                  label: formatMessage({
+                    defaultMessage: '密码',
+                  })}
+                  name="password"
+                  required
+                  type="password"
+                />
+              </Grid.Item>
+              <Grid.Item col={12} direction="column" alignItems="stretch">
+                <InputRenderer
+                  label={formatMessage({
                     id: 'Auth.form.confirmPassword.label',
-                    defaultMessage: 'Confirm Password',
-                  }),
-                  name: 'confirmPassword',
-                  required: true,
-                  size: 12,
-                  type: 'password' as const,
-                },
-                {
-                  label: formatMessage(
+                    defaultMessage: '确认密码',
+                  })}
+                  name="confirmPassword"
+                  required
+                  type="password"
+                />
+              </Grid.Item>
+              <Grid.Item col={12} direction="column" alignItems="stretch">
+                <InputRenderer
+                  label={formatMessage(
                     {
                       id: 'Auth.form.register.news.label',
                       defaultMessage:
-                        'Keep me updated about new features & upcoming improvements (by doing this you accept the {terms} and the {policy}).',
+                        '接收新功能与改进更新（即表示接受{terms}和{policy}）',
                     },
                     {
                       terms: (
-                        <A target="_blank" href="https://strapi.io/terms" rel="noreferrer">
+                        <A target="_blank" href="#" rel="noreferrer">
                           {formatMessage({
                             id: 'Auth.privacy-policy-agreement.terms',
-                            defaultMessage: 'terms',
+                            defaultMessage: '条款',
                           })}
                         </A>
                       ),
                       policy: (
-                        <A target="_blank" href="https://strapi.io/privacy" rel="noreferrer">
+                        <A target="_blank" href="#" rel="noreferrer">
                           {formatMessage({
                             id: 'Auth.privacy-policy-agreement.policy',
-                            defaultMessage: 'policy',
+                            defaultMessage: '隐私政策',
                           })}
                         </A>
                       ),
                     }
-                  ),
-                  name: 'news',
-                  size: 12,
-                  type: 'checkbox' as const,
-                },
-              ].map(({ size, ...field }) => (
-                <Grid.Item key={field.name} col={size} direction="column" alignItems="stretch">
-                  <InputRenderer {...field} />
-                </Grid.Item>
-              ))}
+                  )}
+                  name="news"
+                  type="checkbox"
+                />
+              </Grid.Item>
             </Grid.Root>
             <Button fullWidth size="L" type="submit">
               {formatMessage({
                 id: 'Auth.form.button.register',
-                defaultMessage: "Let's start",
+                defaultMessage: '开始使用',
               })}
             </Button>
           </Flex>
@@ -488,7 +493,7 @@ const Register = ({ hasAdmin }: RegisterProps) => {
               <Link tag={NavLink} to="/auth/login">
                 {formatMessage({
                   id: 'Auth.link.signin.account',
-                  defaultMessage: 'Already have an account?',
+                  defaultMessage: '已有账户？去登录',
                 })}
               </Link>
             </Flex>

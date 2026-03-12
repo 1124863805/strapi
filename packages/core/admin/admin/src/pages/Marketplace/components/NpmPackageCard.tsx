@@ -10,7 +10,6 @@ import {
 } from '@strapi/design-system';
 import { CheckCircle, ExternalLink, Download, Star, Check, Duplicate } from '@strapi/icons';
 import { GitHub } from '@strapi/icons/symbols';
-import pluralize from 'pluralize';
 import { useIntl } from 'react-intl';
 import * as semver from 'semver';
 import { styled } from 'styled-components';
@@ -61,9 +60,7 @@ const NpmPackageCard = ({
     defaultMessage: 'Made by Strapi',
   });
 
-  const npmPackageHref = `https://market.strapi.io/${pluralize.plural(npmPackageType)}/${
-    attributes.slug
-  }`;
+  const npmPackageHref = '#';
 
   const versionRange = semver.validRange(attributes.strapiVersion);
 

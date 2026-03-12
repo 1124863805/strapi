@@ -1,7 +1,7 @@
 import sso from './sso';
-import licenseLimit from './license-limit';
+import eeInfo from './ee-info';
 
 export default {
   sso,
-  'license-limit': licenseLimit,
+  'ee-info': eeInfo,
 };

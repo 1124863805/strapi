@@ -92,7 +92,7 @@ type UseDocument = (
  * }
  * ```
  *
- * @see {@link https://contributor.strapi.io/docs/core/content-manager/hooks/use-document} for more information
+ * @see use-document hook documentation for more information
  */
 const useDocument: UseDocument = (args, opts) => {
   const { toggleNotification } = useNotification();

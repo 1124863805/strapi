@@ -101,8 +101,6 @@ export default {
     const useTypescriptOnAdmin = await isUsingTypeScript(
       path.join(strapi.dirs.app.root, 'src', 'admin')
     );
-    const isHostedOnStrapiCloud = env('STRAPI_HOSTING', null) === 'strapi.cloud';
-
     const numberOfAllContentTypes = _.size(strapi.contentTypes);
     const numberOfComponents = _.size(strapi.components);
 
@@ -119,7 +117,6 @@ export default {
       data: {
         useTypescriptOnServer,
         useTypescriptOnAdmin,
-        isHostedOnStrapiCloud,
         numberOfAllContentTypes, // TODO: V5: This event should be renamed numberOfContentTypes in V5 as the name is already taken to describe the number of content types using i18n.
         numberOfComponents,
         numberOfDynamicZones: getNumberOfDynamicZones(),

@@ -50,7 +50,7 @@
     "type": "git",
     "url": "git://github.com/strapi/strapi.git"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "UNLICENSED",
   "author": {
     "name": "Strapi Solutions SAS",
     "email": "hi@strapi.io",
@@ -78,13 +78,6 @@
       "require": "./dist/admin.js",
       "default": "./dist/admin.js"
     },
-    "./admin/test": {
-      "types": "./dist/admin-test.d.ts",
-      "source": "./src/admin-test.ts",
-      "import": "./dist/admin-test.mjs",
-      "require": "./dist/admin-test.js",
-      "default": "./dist/admin-test.js"
-    },
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
@@ -103,14 +96,11 @@
     "clean": "run -T rimraf ./dist",
     "copy-files": "copyfiles -u 1 -a 'src/**/*.html' 'src/**/*.png'  dist",
     "lint": "run -T eslint .",
-    "test:unit": "run -T jest",
-    "test:unit:watch": "run -T jest --watch",
     "watch": "pack-up watch"
   },
   "dependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.15",
     "@strapi/admin": "workspace:*",
-    "@strapi/cloud-cli": "workspace:*",
     "@strapi/content-manager": "workspace:*",
     "@strapi/content-releases": "workspace:*",
     "@strapi/content-type-builder": "workspace:*",
@@ -176,14 +166,13 @@
   },
   "devDependencies": {
     "@strapi/ts-zen": "^0.2.0",
+    "@types/cli-progress": "^3.11.6",
     "@types/fs-extra": "11.0.4",
-    "@types/jest": "29.5.2",
     "@types/lodash": "^4.14.191",
     "@types/node": "18.19.24",
     "@types/webpack-bundle-analyzer": "4.7.0",
     "@types/webpack-hot-middleware": "2.25.9",
     "eslint-config-custom": "workspace:*",
-    "jest": "29.6.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "tsconfig": "workspace:*"

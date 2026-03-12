@@ -11,7 +11,7 @@
     "url": "git://github.com/strapi/strapi.git",
     "directory": "packages/utils/typescript"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "UNLICENSED",
   "author": {
     "name": "Strapi Solutions SAS",
     "email": "hi@strapi.io",
@@ -30,9 +30,7 @@
     "lib": "./lib"
   },
   "scripts": {
-    "lint": "run -T eslint .",
-    "test": "run -T jest",
-    "test:watch": "run -T jest --watch"
+    "lint": "run -T eslint ."
   },
   "dependencies": {
     "chalk": "4.1.2",

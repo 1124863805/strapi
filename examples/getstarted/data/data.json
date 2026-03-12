@@ -52,13 +52,13 @@
   "authors": [
     {
       "name": "David Doe",
-      "email": "daviddoe@strapi.io",
-      "avatar": "daviddoe@strapi.io.jpg"
+      "email": "daviddoe@example.com",
+      "avatar": "daviddoe@example.com.jpg"
     },
     {
       "name": "Sarah Baker",
-      "email": "sarahbaker@strapi.io",
-      "avatar": "sarahbaker@strapi.io.jpg"
+      "email": "sarahbaker@example.com",
+      "avatar": "sarahbaker@example.com.jpg"
     }
   ],
   "articles": [

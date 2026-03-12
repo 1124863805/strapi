@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 import { Page, useTracking, ConfirmDialog, useRBAC, Table } from '@strapi/admin/strapi-admin';
-import { useLicenseLimits } from '@strapi/admin/strapi-admin/ee';
+import { useEEInfo } from '@strapi/admin/strapi-admin/ee';
 import { Flex, IconButton, TFooter, Typography, LinkButton, Dialog } from '@strapi/design-system';
 import { Pencil, Plus, Trash } from '@strapi/icons';
 import { useIntl } from 'react-intl';
@@ -25,7 +25,7 @@ export const ReviewWorkflowsListView = () => {
   const [showLimitModal, setShowLimitModal] = React.useState<boolean>(false);
   const { data, isLoading: isLoadingModels } = useGetContentTypesQuery();
   const { meta, workflows, isLoading, delete: deleteAction } = useReviewWorkflows();
-  const { getFeature, isLoading: isLicenseLoading } = useLicenseLimits();
+  const { getFeature, isLoading: isInfoLoading } = useEEInfo();
   const permissions = useTypedSelector(
     (state) => state.admin_app.permissions.settings?.['review-workflows']
   );
@@ -87,12 +87,12 @@ export const ReviewWorkflowsListView = () => {
    *
    */
   React.useEffect(() => {
-    if (!isLoading && !isLicenseLoading) {
+    if (!isLoading && !isInfoLoading) {
       if (numberOfWorkflows && meta && meta?.workflowCount > parseInt(numberOfWorkflows, 10)) {
         setShowLimitModal(true);
       }
     }
-  }, [isLicenseLoading, isLoading, meta, meta?.workflowCount, numberOfWorkflows]);
+  }, [isInfoLoading, isLoading, meta, meta?.workflowCount, numberOfWorkflows]);
 
   const headers = [
     {

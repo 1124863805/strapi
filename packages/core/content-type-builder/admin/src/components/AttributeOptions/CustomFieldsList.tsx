@@ -33,7 +33,7 @@ export const CustomFieldsList = () => {
           ))}
         </Grid.Root>
         <Link
-          href="https://docs.strapi.io/developer-docs/latest/development/custom-fields.html"
+          href="#"
           isExternal
         >
           {formatMessage({

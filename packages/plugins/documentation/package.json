@@ -7,7 +7,7 @@
     "url": "https://github.com/strapi/strapi.git",
     "directory": "packages/plugins/documentation"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "UNLICENSED",
   "author": {
     "name": "Strapi Solutions SAS",
     "email": "hi@strapi.io",
@@ -45,12 +45,6 @@
     "build": "strapi-plugin build",
     "clean": "run -T rimraf ./dist",
     "lint": "run -T eslint .",
-    "test:front": "run -T cross-env IS_EE=true jest --config ./jest.config.front.js",
-    "test:front:watch": "run -T cross-env IS_EE=true jest --config ./jest.config.front.js --watchAll",
-    "test:ts:front": "run -T tsc -p admin/tsconfig.json",
-    "test:ts:back": "run -T tsc --noEmit -p server/tsconfig.json",
-    "test:unit": "run -T jest --verbose",
-    "test:unit:watch": "run -T jest --watch",
     "watch": "strapi-plugin watch"
   },
   "dependencies": {
@@ -74,13 +68,10 @@
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "^10.1.0",
-    "@strapi/admin-test-utils": "workspace:*",
     "@strapi/pack-up": "5.0.0",
     "@strapi/sdk-plugin": "^5.0.0",
     "@strapi/strapi": "workspace:*",
     "@strapi/types": "workspace:*",
-    "@testing-library/react": "15.0.7",
-    "@testing-library/user-event": "14.5.2",
     "@types/fs-extra": "11.0.4",
     "@types/koa": "2.13.4",
     "@types/koa-session": "6.4.1",
@@ -88,7 +79,6 @@
     "koa": "2.15.2",
     "koa-body": "6.0.1",
     "koa-session": "6.4.0",
-    "msw": "1.3.0",
     "openapi-types": "12.1.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",

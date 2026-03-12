@@ -11,8 +11,7 @@
     "../shared",
     "./module.d.ts",
     "../ee/admin",
-    "../package.json",
-    "./tests"
+    "../package.json"
   ],
   "exclude": [
     "**/__mocks__",

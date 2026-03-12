@@ -152,21 +152,19 @@ export const createServiceUtils = ({ strapi }: { strapi: Core.Strapi }) => {
   /**
    *
    * @description
-   * Gets the number of retention days defined on the license or configured by the user
+   * Gets the number of retention days from feature config or user
    */
   const getRetentionDays = () => {
     const featureConfig = strapi.ee.features.get('cms-content-history');
-    const licenseRetentionDays =
+    const featureRetentionDays =
       typeof featureConfig === 'object' && featureConfig?.options.retentionDays;
     const userRetentionDays: number = strapi.config.get('admin.history.retentionDays');
 
-    // Allow users to override the license retention days, but not to increase it
-    if (userRetentionDays && userRetentionDays < licenseRetentionDays) {
+    if (userRetentionDays && userRetentionDays < featureRetentionDays) {
       return userRetentionDays;
     }
 
-    // User didn't provide retention days value, use the license or fallback to default
-    return Math.min(licenseRetentionDays, DEFAULT_RETENTION_DAYS);
+    return Math.min(featureRetentionDays, DEFAULT_RETENTION_DAYS);
   };
 
   const getVersionStatus = async (

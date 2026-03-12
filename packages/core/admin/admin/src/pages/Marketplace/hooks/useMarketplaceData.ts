@@ -7,7 +7,7 @@ import { useNotification } from '../../../features/Notifications';
 
 import type { MarketplacePageQuery, NpmPackageType, TabQuery } from '../MarketplacePage';
 
-const MARKETPLACE_API_URL = 'https://market-api.strapi.io';
+const MARKETPLACE_API_URL = '#';
 
 interface UseMarketplaceDataParams {
   npmPackageType: NpmPackageType;

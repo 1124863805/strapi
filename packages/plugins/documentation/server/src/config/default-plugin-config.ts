@@ -24,7 +24,7 @@ export const defaultConfig: PluginConfig = {
   servers: [],
   externalDocs: {
     description: 'Find out more',
-    url: 'https://docs.strapi.io/developer-docs/latest/getting-started/introduction.html',
+    url: '#',
   },
   security: [
     {

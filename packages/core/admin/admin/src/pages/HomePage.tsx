@@ -41,8 +41,6 @@ import { useContentTypes } from '../hooks/useContentTypes';
 import { useEnterprise } from '../hooks/useEnterprise';
 
 import cornerOrnamentPath from './assets/corner-ornament.svg';
-import cloudIconBackgroundImage from './assets/strapi-cloud-background.png';
-import cloudFlagsImage from './assets/strapi-cloud-flags.svg';
 
 /* -------------------------------------------------------------------------------------------------
  * HomePageCE
@@ -118,7 +116,7 @@ const HomePageCE = () => {
                           })}
                     </WordWrap>
                     {hasAlreadyCreatedContentTypes ? (
-                      <Link isExternal href="https://strapi.io/blog">
+                      <Link isExternal href="#">
                         {formatMessage({
                           id: 'app.components.HomePage.button.blog',
                           defaultMessage: 'See more on the blog',
@@ -176,58 +174,7 @@ const ContentBlocks = () => {
   return (
     <Flex direction="column" alignItems="stretch" gap={5}>
       <BlockLink
-        href="https://cloud.strapi.io"
-        target="_blank"
-        rel="noopener noreferrer nofollow"
-        onClick={() => {
-          trackUsage('didClickOnTryStrapiCloudSection');
-        }}
-      >
-        <Flex
-          shadow="tableShadow"
-          hasRadius
-          padding={6}
-          background="neutral0"
-          position="relative"
-          gap={6}
-        >
-          <CloudCustomWrapper hasRadius padding={3}>
-            <CloudIconWrapper
-              width="3.2rem"
-              height="3.2rem"
-              justifyContent="center"
-              hasRadius
-              alignItems="center"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="15" fill="none">
-                <path
-                  fill="#fff"
-                  fillRule="evenodd"
-                  d="M4.39453 13.8298C1.93859 13.6455 0 11.468 0 8.80884 0 6.0289 2.11876 3.7753 4.73238 3.7753c.46775 0 .91964.07218 1.34638.20664C7.21234 1.62909 9.66469 0 12.5073 0c2.5102 0 4.7161 1.27036 5.9782 3.18766a4.54297 4.54297 0 0 1 .6132-.04144C21.8056 3.14622 24 5.54066 24 8.49436c0 2.89194-2.1036 5.24784-4.7323 5.34504v.0031l-1.8948.278a38.18054 38.18054 0 0 1-11.08354 0l-1.89483-.278v-.0127Z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </CloudIconWrapper>
-          </CloudCustomWrapper>
-          <Flex gap={1} direction="column" alignItems="start">
-            <Typography fontWeight="semiBold" variant="pi" textColor="neutral800">
-              {formatMessage({
-                id: 'app.components.BlockLink.cloud',
-                defaultMessage: 'Strapi Cloud',
-              })}
-            </Typography>
-            <Typography textColor="neutral600">
-              {formatMessage({
-                id: 'app.components.BlockLink.cloud.content',
-                defaultMessage: 'Fully-managed cloud hosting for your Strapi project.',
-              })}
-            </Typography>
-            <Box src={cloudFlagsImage} position="absolute" top={0} right={0} tag="img" />
-          </Flex>
-        </Flex>
-      </BlockLink>
-      <BlockLink
-        href="https://strapi.io/resource-center"
+        href="#"
         target="_blank"
         rel="noopener noreferrer nofollow"
         onClick={() => trackUsage('didClickonReadTheDocumentationSection')}
@@ -246,7 +193,7 @@ const ContentBlocks = () => {
         />
       </BlockLink>
       <BlockLink
-        href="https://strapi.io/starters"
+        href="#"
         target="_blank"
         rel="noopener noreferrer nofollow"
         onClick={() => trackUsage('didClickonCodeExampleSection')}
@@ -265,7 +212,7 @@ const ContentBlocks = () => {
         />
       </BlockLink>
       <BlockLink
-        href="https://strapi.io/blog/categories/tutorials"
+        href="#"
         target="_blank"
         rel="noopener noreferrer nofollow"
         onClick={() => trackUsage('didClickonTutorialSection')}
@@ -284,7 +231,7 @@ const ContentBlocks = () => {
         />
       </BlockLink>
       <BlockLink
-        href="https://strapi.io/blog"
+        href="#"
         target="_blank"
         rel="noopener noreferrer nofollow"
         onClick={() => trackUsage('didClickonBlogSection')}
@@ -310,14 +257,6 @@ const BlockLink = styled.a`
   text-decoration: none;
 `;
 
-const CloudCustomWrapper = styled<BoxComponent>(Box)`
-  background-image: url(${cloudIconBackgroundImage});
-`;
-
-const CloudIconWrapper = styled<FlexComponent>(Flex)`
-  background: rgba(255, 255, 255, 0.3);
-`;
-
 /* -------------------------------------------------------------------------------------------------
  * SocialLinks
  * -----------------------------------------------------------------------------------------------*/
@@ -330,9 +269,7 @@ const SocialLinks = () => {
     ...SOCIAL_LINKS,
     {
       icon: <StyledStrapi />,
-      link: communityEdition
-        ? 'https://discord.strapi.io'
-        : 'https://support.strapi.io/support/home',
+      link: '#',
       name: {
         id: 'Settings.application.get-help',
         defaultMessage: 'Get help',
@@ -370,7 +307,7 @@ const SocialLinks = () => {
             })}
           </Typography>
         </Flex>
-        <Link href="https://feedback.strapi.io/" isExternal endIcon={<ExternalLink />}>
+        <Link href="#" isExternal endIcon={<ExternalLink />}>
           {formatMessage({
             id: 'app.components.HomePage.roadmap',
             defaultMessage: 'See our road map',
@@ -479,37 +416,37 @@ const GridGap = styled(Grid.Root)`
 const SOCIAL_LINKS = [
   {
     name: { id: 'app.components.HomePage.community.links.github', defaultMessage: 'Github' },
-    link: 'https://github.com/strapi/strapi/',
+    link: '#',
     icon: <StyledGithub />,
     alt: 'github',
   },
   {
     name: { id: 'app.components.HomePage.community.links.discord', defaultMessage: 'Discord' },
-    link: 'https://discord.strapi.io/',
+    link: '#',
     icon: <StyledDiscord />,
     alt: 'discord',
   },
   {
     name: { id: 'app.components.HomePage.community.links.reddit', defaultMessage: 'Reddit' },
-    link: 'https://www.reddit.com/r/Strapi/',
+    link: '#',
     icon: <StyledReddit />,
     alt: 'reddit',
   },
   {
     name: { id: 'app.components.HomePage.community.links.twitter', defaultMessage: 'Twitter' },
-    link: 'https://twitter.com/strapijs',
+    link: '#',
     icon: <StyledTwitter />,
     alt: 'twitter',
   },
   {
     name: { id: 'app.components.HomePage.community.links.forum', defaultMessage: 'Forum' },
-    link: 'https://forum.strapi.io',
+    link: '#',
     icon: <StyledDiscourse />,
     alt: 'forum',
   },
   {
     name: { id: 'app.components.HomePage.community.links.blog', defaultMessage: 'Blog' },
-    link: 'https://strapi.io/blog?utm_source=referral&utm_medium=admin&utm_campaign=career%20page',
+    link: '#',
     icon: <StyledStrapi />,
     alt: 'blog',
   },
@@ -518,7 +455,7 @@ const SOCIAL_LINKS = [
       id: 'app.components.HomePage.community.links.career',
       defaultMessage: 'We are hiring!',
     },
-    link: 'https://strapi.io/careers?utm_source=referral&utm_medium=admin&utm_campaign=blog',
+    link: '#',
     icon: <StyledStrapi />,
     alt: 'career',
   },

@@ -438,10 +438,6 @@ class Strapi extends Container implements Core.Strapi {
 
     await this.db.schema.sync();
 
-    if (this.EE) {
-      await utils.ee.checkLicense({ strapi: this });
-    }
-
     await this.hook('strapi::content-types.afterSync').call({
       oldContentTypes,
       contentTypes: this.contentTypes,

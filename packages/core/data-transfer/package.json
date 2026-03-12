@@ -11,7 +11,7 @@
     "backup",
     "restore"
   ],
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "UNLICENSED",
   "author": {
     "name": "Strapi Solutions SAS",
     "email": "hi@strapi.io",
@@ -35,8 +35,6 @@
     "build": "pack-up build",
     "clean": "rimraf ./dist",
     "lint": "run -T eslint .",
-    "test:unit": "run -T jest",
-    "test:unit:watch": "run -T jest --watch",
     "watch": "pack-up watch"
   },
   "dependencies": {
@@ -62,7 +60,6 @@
     "@strapi/database": "workspace:*",
     "@strapi/pack-up": "5.0.0",
     "@types/fs-extra": "11.0.4",
-    "@types/jest": "29.5.2",
     "@types/koa": "2.13.4",
     "@types/lodash": "^4.14.191",
     "@types/node": "18.19.24",

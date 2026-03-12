@@ -28,7 +28,7 @@ interface MenuItem {
   Component?: React.LazyExoticComponent<React.ComponentType>;
   exact?: boolean;
   position?: number;
-  licenseOnly?: boolean;
+  eeOnly?: boolean;
 }
 
 interface StrapiAppSettingLink extends Omit<MenuItem, 'icon' | 'notificationCount'> {

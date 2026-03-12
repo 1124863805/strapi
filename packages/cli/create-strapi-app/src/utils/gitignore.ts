@@ -123,13 +123,11 @@ coverage
 ############################
 
 .env
-license.txt
 exports
 .strapi
 dist
 build
 .strapi-updater.json
-.strapi-cloud.json
 `;
 
 export const gitIgnore = baseGitIgnore.trim();

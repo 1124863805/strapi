@@ -16,7 +16,7 @@
     "type": "git",
     "url": "git://github.com/strapi/strapi.git"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "UNLICENSED",
   "author": {
     "name": "Strapi Solutions SAS",
     "email": "hi@strapi.io",
@@ -40,8 +40,6 @@
     "build": "pack-up build",
     "clean": "run -T rimraf ./dist",
     "lint": "run -T eslint .",
-    "test:unit": "run -T jest",
-    "test:unit:watch": "run -T jest --watch",
     "watch": "pack-up watch"
   },
   "dependencies": {
@@ -53,7 +51,6 @@
   },
   "devDependencies": {
     "@strapi/pack-up": "5.0.0",
-    "@types/jest": "29.5.2",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"
   },

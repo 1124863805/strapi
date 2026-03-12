@@ -46,7 +46,7 @@ const renderAdmin = async (
       AUDIT_LOGS: 'audit-logs',
       REVIEW_WORKFLOWS: 'review-workflows',
       /**
-       * If we don't get the license then we know it's not EE
+       * If we don't get features then we know it's not EE
        * so no feature is enabled.
        */
       isEnabled: () => false,

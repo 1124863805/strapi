@@ -81,7 +81,7 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }: LeftMenuProps) =
         {listLinks.length > 0
           ? listLinks.map((link) => {
               const LinkIcon = link.icon;
-              const badgeContentLock = link?.licenseOnly ? (
+              const badgeContentLock = link?.eeOnly ? (
                 <Lightning fill="warning500" />
               ) : undefined;
 

@@ -182,26 +182,7 @@ const NpsSurvey = () => {
     npsSurveyFeedback: NpsSurveyMutationBody['comment'];
   }) => {
     try {
-      const body = {
-        email: typeof user === 'object' && user.email ? user.email : '',
-        rating: npsSurveyRating,
-        comment: npsSurveyFeedback,
-        environment: currentEnvironment,
-        version: strapiVersion ?? undefined,
-        license: window.strapi.projectType,
-      };
-      const res = await fetch('https://analytics.strapi.io/submit-nps', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(body),
-      });
-
-      if (!res.ok) {
-        throw new Error('Failed to submit NPS survey');
-      }
-
+      // Disabled: no NPS data sent to external servers
       setNpsSurveySettings((settings) => ({
         ...settings,
         lastResponseDate: new Date().toString(),

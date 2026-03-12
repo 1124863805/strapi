@@ -280,7 +280,7 @@ const DocumentationLink = (children: React.ReactNode) => (
     textColor="primary600"
     target="_blank"
     rel="noopener noreferrer"
-    href="https://docs.strapi.io/developer-docs/latest/developer-resources/database-apis-reference/rest-api.html#api-parameters"
+    href="#"
   >
     {children}
   </Typography>

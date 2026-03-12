@@ -79,25 +79,10 @@ const UseCasePage = () => {
   const { hasAdmin } = parse(location.search, { ignoreQueryPrefix: true });
   const isOther = role === 'other';
 
-  const handleSubmit = async (event: React.FormEvent, skipPersona: boolean) => {
+  const handleSubmit = async (event: React.FormEvent, _skipPersona: boolean) => {
     event.preventDefault();
     try {
-      await fetch('https://analytics.strapi.io/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          username: firstname,
-          firstAdmin: Boolean(!hasAdmin),
-          persona: {
-            role: skipPersona ? undefined : role,
-            otherRole: skipPersona ? undefined : otherRole,
-          },
-        }),
-      });
-
+      // Disabled: no analytics sent to external servers
       toggleNotification({
         type: 'success',
         message: formatMessage({

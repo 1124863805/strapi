@@ -16,10 +16,10 @@ interface LanguageProviderProps {
 
 const LanguageProvider = ({ children, messages }: LanguageProviderProps) => {
   const locale = useTypedSelector((state) => state.admin_app.language.locale);
-  const appMessages = defaultsDeep(messages[locale], messages.en);
+  const appMessages = defaultsDeep(messages[locale], messages['zh-Hans'], messages.en);
 
   return (
-    <IntlProvider locale={locale} defaultLocale="en" messages={appMessages} textComponent="span">
+    <IntlProvider locale={locale} defaultLocale="zh-Hans" messages={appMessages} textComponent="span">
       {children}
     </IntlProvider>
   );

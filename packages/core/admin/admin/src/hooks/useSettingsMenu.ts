@@ -33,7 +33,7 @@ interface SettingsMenuLinkWithPermissions extends SettingsMenuLink {
 }
 
 interface StrapiAppSettingsLink extends IStrapiAppSettingLink {
-  licenseOnly?: never;
+  eeOnly?: never;
   hasNotification?: never;
 }
 

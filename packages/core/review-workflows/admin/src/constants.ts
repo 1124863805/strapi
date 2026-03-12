@@ -2,7 +2,7 @@ import { lightTheme } from '@strapi/design-system';
 
 const PLUGIN_ID = 'review-workflows';
 /**
- * The name of the feature in the license.
+ * EE feature name.
  */
 const FEATURE_ID = 'review-workflows';
 

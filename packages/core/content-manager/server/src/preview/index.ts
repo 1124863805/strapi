@@ -15,7 +15,6 @@ const getFeature = (): Partial<Plugin.LoadedPlugin> => {
     return {};
   }
 
-  // TODO: Add license registry check when it's available
   // if (!strapi.ee.features.isEnabled('cms-content-preview')) {
   //   return {};
   // }
