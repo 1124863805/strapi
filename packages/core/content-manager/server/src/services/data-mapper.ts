@@ -3,6 +3,8 @@ import { contentTypes as contentTypesUtils } from '@strapi/utils';
 
 import type { Schema, Struct } from '@strapi/types';
 
+import { SYSTEM_FIELDS, SYSTEM_FIELD_ATTRIBUTES } from './utils/configuration/constants';
+
 const dtoFields = [
   'uid',
   'isDisplayed',
@@ -19,10 +21,11 @@ const dtoFields = [
 export default () => ({
   toContentManagerModel(contentType: Struct.Schema) {
     const baseAttributes: Record<string, { type: string }> = {
-      id: { type: 'integer' },
+      [SYSTEM_FIELDS.ID]: SYSTEM_FIELD_ATTRIBUTES[SYSTEM_FIELDS.ID],
     };
     if ('modelType' in contentType && contentType.modelType === 'contentType') {
-      baseAttributes.documentId = { type: 'string' };
+      baseAttributes[SYSTEM_FIELDS.DOCUMENT_ID] =
+        SYSTEM_FIELD_ATTRIBUTES[SYSTEM_FIELDS.DOCUMENT_ID];
     }
     return {
       ...contentType,

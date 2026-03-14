@@ -8,30 +8,23 @@ import {
   isRelation,
   getDefaultMainField,
 } from './attributes';
+import {
+  SYSTEM_FIELDS,
+  CONTENT_TYPE_SYSTEM_FIELDS,
+  SYSTEM_FIELD_METADATAS,
+} from './constants';
 
 function createDefaultMetadatas(schema: any) {
-  const systemFields: Record<string, any> = {
-    id: {
-      edit: {},
-      list: {
-        label: 'id',
-        searchable: true,
-        sortable: true,
-      },
-    },
-  };
-  if (schema.modelType === 'contentType') {
-    systemFields.documentId = {
-      edit: {},
-      list: {
-        label: 'documentId',
-        searchable: true,
-        sortable: true,
-      },
-    };
-  }
+  const systemFieldKeys =
+    schema.modelType === 'contentType' ? CONTENT_TYPE_SYSTEM_FIELDS : [SYSTEM_FIELDS.ID];
+  const systemFields = Object.fromEntries(
+    systemFieldKeys.map((k) => [k, SYSTEM_FIELD_METADATAS[k]])
+  );
+  const schemaKeys = Object.keys(schema.attributes).filter(
+    (k) => !systemFieldKeys.includes(k as any)
+  );
   return {
-    ...Object.keys(schema.attributes).reduce((acc: any, name) => {
+    ...schemaKeys.reduce((acc: any, name) => {
       acc[name] = createDefaultMetadata(schema, name);
       return acc;
     }, {}),
@@ -96,8 +89,12 @@ async function syncMetadatas(configuration: any, schema: any) {
     return createDefaultMetadatas(schema);
   }
 
-  // remove old keys
-  const metasWithValidKeys = _.pick(configuration.metadatas, Object.keys(schema.attributes));
+  // include schema attributes + content-type system fields (id, documentId)
+  const validKeys = new Set([
+    ...Object.keys(schema.attributes),
+    ...(schema.modelType === 'contentType' ? CONTENT_TYPE_SYSTEM_FIELDS : [SYSTEM_FIELDS.ID]),
+  ]);
+  const metasWithValidKeys = _.pick(configuration.metadatas, [...validKeys]);
 
   // add new keys and missing fields
   const metasWithDefaults = _.merge({}, createDefaultMetadatas(schema), metasWithValidKeys);
@@ -108,6 +105,10 @@ async function syncMetadatas(configuration: any, schema: any) {
     const attr = schema.attributes[key];
 
     const updatedMeta = { edit, list };
+
+    if (!attr && (key === SYSTEM_FIELDS.ID || key === SYSTEM_FIELDS.DOCUMENT_ID)) {
+      return acc;
+    }
     // update sortable attr
     if (list.sortable && !isSortable(schema, key)) {
       _.set(updatedMeta, ['list', 'sortable'], false);
@@ -121,15 +122,13 @@ async function syncMetadatas(configuration: any, schema: any) {
 
     if (!_.has(edit, 'mainField')) return acc;
 
-    // remove mainField if the attribute is not a relation anymore
-    if (!isRelation(attr)) {
+    if (!attr || !isRelation(attr)) {
       _.set(updatedMeta, 'edit', _.omit(edit, ['mainField']));
       _.set(acc, [key], updatedMeta);
       return acc;
     }
 
-    // if the mainField is id you can keep it
-    if (edit.mainField === 'id') return acc;
+    if (edit.mainField === SYSTEM_FIELDS.ID) return acc;
 
     // check the mainField in the targetModel
     const targetSchema = getTargetSchema(attr.targetModel);

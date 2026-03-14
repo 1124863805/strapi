@@ -5,7 +5,7 @@ import { lazy, Suspense, useEffect, useRef } from 'react';
 
 import { Page, useGuidedTour, Layouts } from '@strapi/admin/strapi-admin';
 import { useIntl } from 'react-intl';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { AutoReloadOverlayBlockerProvider } from '../../components/AutoReloadOverlayBlocker';
 import { ContentTypeBuilderNav } from '../../components/ContentTypeBuilderNav/ContentTypeBuilderNav';
@@ -14,8 +14,6 @@ import { FormModalNavigationProvider } from '../../components/FormModalNavigatio
 import { PERMISSIONS } from '../../constants';
 import { pluginId } from '../../pluginId';
 import { RecursivePath } from '../RecursivePath/RecursivePath';
-
-const ListView = lazy(() => import('../ListView/ListView'));
 
 const App = () => {
   const { formatMessage } = useIntl();
@@ -44,7 +42,7 @@ const App = () => {
             <Layouts.Root sideNav={<ContentTypeBuilderNav />}>
               <Suspense fallback={<Page.Loading />}>
                 <Routes>
-                  <Route path="content-types/:uid" element={<ListView />} />
+                  <Route path="content-types/:uid" element={<Navigate to="/admin" replace />} />
                   <Route path={`component-categories/:categoryUid/*`} element={<RecursivePath />} />
                 </Routes>
               </Suspense>

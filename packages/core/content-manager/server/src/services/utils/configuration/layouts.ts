@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import { getService } from '../../../utils';
-import { isListable, hasEditableAttribute, hasRelationAttribute } from './attributes';
+import { isListable, hasEditableAttribute } from './attributes';
+import { SYSTEM_FIELDS } from './constants';
 
 const DEFAULT_LIST_LENGTH = 4;
 const MAX_ROW_SIZE = 12;
@@ -41,7 +42,7 @@ function createDefaultListLayout(schema: any) {
     .filter((name) => isListable(schema, name))
     .slice(0, DEFAULT_LIST_LENGTH);
   if (schema.modelType === 'contentType') {
-    return ['documentId', ...attrKeys].slice(0, DEFAULT_LIST_LENGTH + 1);
+    return [SYSTEM_FIELDS.DOCUMENT_ID, ...attrKeys].slice(0, DEFAULT_LIST_LENGTH + 1);
   }
   return attrKeys;
 }
@@ -59,23 +60,17 @@ function createDefaultEditLayout(schema: any) {
 function syncLayouts(configuration: any, schema: any) {
   if (_.isEmpty(configuration.layouts)) return createDefaultLayouts(schema);
 
-  const { list = [], editRelations = [], edit = [] } = configuration.layouts || {};
+  const { list = [], edit = [] } = configuration.layouts || {};
 
   let cleanList = list.filter((attr: any) => isListable(schema, attr));
-
-  // Ensure documentId is shown for content types (used for API single-entity queries)
-  if (schema.modelType === 'contentType' && !cleanList.includes('documentId')) {
-    cleanList = ['documentId', ...cleanList];
+  if (
+    schema.modelType === 'contentType' &&
+    !cleanList.includes(SYSTEM_FIELDS.DOCUMENT_ID)
+  ) {
+    cleanList = [SYSTEM_FIELDS.DOCUMENT_ID, ...cleanList];
   }
 
-  // TODO V5: remove editRelations
-  const cleanEditRelations = editRelations.filter((attr: any) =>
-    hasRelationAttribute(schema, attr)
-  );
-
-  // backward compatibility with when relations were on the side of the layout
-  // it migrates the displayed relations to the main edit layout
-  const elementsToReAppend = [...cleanEditRelations];
+  const elementsToReAppend: string[] = [];
   let cleanEdit: unknown[] = [];
   for (const row of edit) {
     const newRow: unknown[] = [];
@@ -148,6 +143,7 @@ const appendToEditLayout = (layout: any = [], keysToAppend: any, schema: any) =>
 
   for (const key of keysToAppend) {
     const attribute = schema.attributes[key];
+    if (!attribute) continue;
 
     const attributeSize = getDefaultFieldSize(attribute);
     const currenRowSize = rowSize(layout[currentRowIndex]);

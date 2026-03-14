@@ -435,16 +435,15 @@ const convertListLayoutToFieldLayouts = (
   },
   schemas: Schema[] = []
 ) => {
-  // documentId is a system field for content types (may not be in schema.attributes from init)
-  const documentIdAttribute = { type: 'string' as const };
+  const SYSTEM_ATTRS: Record<string, { type: string }> = {
+    id: { type: 'integer' },
+    documentId: { type: 'string' },
+  };
 
   return columns
     .map((name) => {
-      const attribute = attributes[name] ?? (name === 'documentId' ? documentIdAttribute : undefined);
-
-      if (!attribute) {
-        return null;
-      }
+      const attribute = attributes[name] ?? SYSTEM_ATTRS[name];
+      if (!attribute) return null;
 
       const metadata = metadatas[name];
 

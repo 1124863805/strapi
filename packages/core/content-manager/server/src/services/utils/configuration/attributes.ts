@@ -2,6 +2,8 @@ import _ from 'lodash';
 import { intersection } from 'lodash/fp';
 import { contentTypes as contentTypesUtils } from '@strapi/utils';
 
+import { SYSTEM_FIELDS } from './constants';
+
 const { getNonVisibleAttributes, getWritableAttributes } = contentTypesUtils;
 const { PUBLISHED_AT_ATTRIBUTE, CREATED_BY_ATTRIBUTE, UPDATED_BY_ATTRIBUTE } =
   contentTypesUtils.constants;
@@ -27,8 +29,10 @@ const isHidden = (schema: any, name: any) => {
 };
 
 const isListable = (schema: any, name: any) => {
-  // documentId is a system field for content types (not in schema.attributes)
-  if (name === 'documentId' && schema.modelType === 'contentType') {
+  if (
+    name === SYSTEM_FIELDS.DOCUMENT_ID &&
+    schema.modelType === 'contentType'
+  ) {
     return true;
   }
 
@@ -57,7 +61,7 @@ const isSortable = (schema: any, name: any) => {
     return false;
   }
 
-  if (schema.modelType === 'component' && name === 'id') return false;
+  if (schema.modelType === 'component' && name === SYSTEM_FIELDS.ID) return false;
 
   const attribute = schema.attributes[name];
   if (NON_SORTABLES.includes(attribute.type)) {
@@ -84,7 +88,11 @@ const isVisible = (schema: any, name: any) => {
     return false;
   }
 
-  if (isTimestamp(schema, name) || name === 'id') {
+  if (
+    isTimestamp(schema, name) ||
+    name === SYSTEM_FIELDS.ID ||
+    name === SYSTEM_FIELDS.DOCUMENT_ID
+  ) {
     return false;
   }
 
@@ -168,17 +176,15 @@ const hasEditableAttribute = (schema: any, name: any) => {
 const findFirstStringAttribute = (schema: any) => {
   return Object.keys(schema.attributes || {}).find((key) => {
     const { type } = schema.attributes[key];
-    return type === 'string' && key !== 'id';
+    return type === 'string' && key !== SYSTEM_FIELDS.ID;
   });
 };
 
-const getDefaultMainField = (schema: any) => findFirstStringAttribute(schema) || 'id';
+const getDefaultMainField = (schema: any) =>
+  findFirstStringAttribute(schema) || SYSTEM_FIELDS.ID;
 
 /**
  * Returns list of all sortable attributes for a given content type schema
- * TODO V5: Refactor non visible fields to be a part of content-manager schema so we can use isSortable instead
- * @param {*} schema
- * @returns
  */
 const getSortableAttributes = (schema: any) => {
   const validAttributes = Object.keys(schema.attributes).filter((key) => isListable(schema, key));
@@ -190,7 +196,7 @@ const getSortableAttributes = (schema: any) => {
   );
 
   return [
-    'id',
+    SYSTEM_FIELDS.ID,
     ...validAttributes,
     ...nonVisibleWritableAttributes,
     CREATED_BY_ATTRIBUTE,

@@ -198,24 +198,35 @@ interface BackButtonProps extends Pick<LinkProps, 'disabled'> {}
  */
 const BackButton = React.forwardRef<HTMLAnchorElement, BackButtonProps>(({ disabled }, ref) => {
   const { formatMessage } = useIntl();
+  const navigate = useNavigate();
 
   const canGoBack = useHistory('BackButton', (state) => state.canGoBack);
   const goBack = useHistory('BackButton', (state) => state.goBack);
   const history = useHistory('BackButton', (state) => state.history);
+  const currentLocationIndex = useHistory('BackButton', (state) => state.currentLocationIndex);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    goBack();
+    if (canGoBack) {
+      goBack();
+    } else {
+      navigate('/admin');
+    }
   };
+
+  const fallbackTo = '/admin';
+  const to = canGoBack
+    ? (history[currentLocationIndex - 2] ?? fallbackTo)
+    : fallbackTo;
 
   return (
     <Link
       ref={ref}
       tag={NavLink}
-      to={history.at(-1) ?? ''}
+      to={to}
       onClick={handleClick}
-      disabled={disabled || !canGoBack}
-      aria-disabled={disabled || !canGoBack}
+      disabled={disabled}
+      aria-disabled={disabled}
       startIcon={<ArrowLeft />}
     >
       {formatMessage({

@@ -12,6 +12,13 @@ import { hasFindMethod } from './utils/routes';
 
 import type { Api, ApiInfo } from '../../types';
 
+/** Content API single-entity path param: route uses :id but value is documentId (CUID2) */
+const CONTENT_API_PATH_PARAM_SCHEMA = {
+  description:
+    'documentId (CUID2 string). Use the documentId from the list response, not the numeric id.',
+  schema: { type: 'string' as const },
+};
+
 /**
  * @description Parses a route with ':variable'
  *
@@ -47,11 +54,10 @@ const getPathParams = (routePath: string): OpenAPIV3.ParameterObject[] => {
     acc.push({
       name: `${param.name}`,
       in: 'path',
-      description:
-        'documentId (CUID2 string). Use the documentId from the list response, not the numeric id.',
+      description: CONTENT_API_PATH_PARAM_SCHEMA.description,
       deprecated: false,
       required: true,
-      schema: { type: 'string' },
+      schema: CONTENT_API_PATH_PARAM_SCHEMA.schema,
     });
 
     return acc;
