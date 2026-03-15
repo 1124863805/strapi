@@ -964,7 +964,7 @@ const ListItem = ({ data, index, style }: ListItemProps) => {
 
   return (
     <Box
-      style={style}
+      style={style as React.CSSProperties}
       tag="li"
       ref={dropRef}
       aria-describedby={ariaDescribedBy}
