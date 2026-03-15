@@ -4,7 +4,7 @@ import * as Users from '../../../shared/contracts/user';
 
 import { adminApi } from './api';
 
-import type { Data } from '@leao/types';
+import type { Data } from '@leao1/types';
 
 const usersService = adminApi
   .enhanceEndpoints({

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useField, useNotification, useForm } from '@leao/admin/leao-admin';
+import { useField, useNotification, useForm } from '@leao1/admin/leao-admin';
 import {
   Box,
   Flex,
@@ -11,8 +11,8 @@ import {
   useComposedRefs,
   Grid,
   BoxComponent,
-} from '@leao/design-system';
-import { Plus, Drag, Trash } from '@leao/icons';
+} from '@leao1/design-system';
+import { Plus, Drag, Trash } from '@leao1/icons';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';
 import { useLocation } from 'react-router-dom';
@@ -31,7 +31,7 @@ import { ComponentProvider, useComponent } from '../ComponentContext';
 import { Initializer } from './Initializer';
 
 import type { ComponentInputProps } from './Input';
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 /* -------------------------------------------------------------------------------------------------
  * RepeatableComponent

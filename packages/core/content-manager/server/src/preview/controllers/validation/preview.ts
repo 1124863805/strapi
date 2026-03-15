@@ -1,8 +1,8 @@
 import * as yup from 'yup';
 import { pick } from 'lodash/fp';
 
-import type { Core, UID } from '@leao/types';
-import { validateYupSchema, errors } from '@leao/utils';
+import type { Core, UID } from '@leao1/types';
+import { validateYupSchema, errors } from '@leao1/utils';
 
 import { Preview } from '../../../../../shared/contracts';
 import type { HandlerParams } from '../../services/preview-config';

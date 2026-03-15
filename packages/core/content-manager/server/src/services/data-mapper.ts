@@ -1,7 +1,7 @@
 import { pick, getOr } from 'lodash/fp';
-import { contentTypes as contentTypesUtils } from '@leao/utils';
+import { contentTypes as contentTypesUtils } from '@leao1/utils';
 
-import type { Schema, Struct } from '@leao/types';
+import type { Schema, Struct } from '@leao1/types';
 
 import { SYSTEM_FIELDS, SYSTEM_FIELD_ATTRIBUTES } from './utils/configuration/constants';
 

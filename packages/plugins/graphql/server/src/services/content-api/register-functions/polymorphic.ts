@@ -1,5 +1,5 @@
 import { unionType } from 'nexus';
-import type { Struct } from '@leao/types';
+import type { Struct } from '@leao1/types';
 import type { Context } from '../../types';
 
 const registerPolymorphicContentType = (

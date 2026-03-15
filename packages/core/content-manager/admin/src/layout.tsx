@@ -2,7 +2,7 @@
 // @ts-nocheck
 import * as React from 'react';
 
-import { Page, useGuidedTour, Layouts } from '@leao/admin/leao-admin';
+import { Page, useGuidedTour, Layouts } from '@leao1/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { Navigate, Outlet, useLocation, useMatch } from 'react-router-dom';
 

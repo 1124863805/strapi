@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 import { hasStageAttribute } from '../utils/review-workflows';
 import { STAGE_TRANSITION_UID } from '../constants/workflows';
 

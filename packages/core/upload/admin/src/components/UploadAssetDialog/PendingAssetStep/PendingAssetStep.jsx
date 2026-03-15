@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 
-import { Button, Flex, Grid, KeyboardNavigable, Modal, Typography } from '@leao/design-system';
+import { Button, Flex, Grid, KeyboardNavigable, Modal, Typography } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

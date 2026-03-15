@@ -1,6 +1,6 @@
 import { objectType, nonNull } from 'nexus';
 import { defaultTo, prop, pipe } from 'lodash/fp';
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 import type { Context } from '../types';
 
 export default ({ leao }: Context) => {

@@ -1,5 +1,5 @@
-import { UID } from '@leao/types';
-import { async } from '@leao/utils';
+import { UID } from '@leao1/types';
+import { async } from '@leao1/utils';
 
 import { getService } from '../../utils';
 

@@ -10,8 +10,8 @@ import {
   Textarea,
   TextInput,
   Typography,
-} from '@leao/design-system';
-import { Check } from '@leao/icons';
+} from '@leao1/design-system';
+import { Check } from '@leao1/icons';
 import { format } from 'date-fns';
 import { Formik, Form, FormikHelpers } from 'formik';
 import { useIntl } from 'react-intl';

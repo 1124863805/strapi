@@ -3,8 +3,8 @@ import { dirname, join, resolve } from 'path';
 import { statSync, existsSync } from 'fs';
 import _ from 'lodash';
 import { get, pickBy, defaultsDeep, map, prop, pipe } from 'lodash/fp';
-import { strings } from '@leao/utils';
-import type { Core } from '@leao/types';
+import { strings } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 import { getUserPluginsConfig } from './get-user-plugins-config';
 
 interface PluginMeta {
@@ -34,13 +34,13 @@ interface PluginDeclaration {
  *       See admin.ts server controller on the content-manager plugin for more details.
  */
 const INTERNAL_PLUGINS = [
-  '@leao/content-manager',
-  '@leao/content-type-builder',
-  '@leao/email',
-  '@leao/upload',
-  '@leao/i18n',
-  '@leao/content-releases',
-  '@leao/review-workflows',
+  '@leao1/content-manager',
+  '@leao1/content-type-builder',
+  '@leao1/email',
+  '@leao1/upload',
+  '@leao1/i18n',
+  '@leao1/content-releases',
+  '@leao1/review-workflows',
 ];
 
 const isLeaoPlugin = (info: PluginInfo) => get('leao.kind', info) === 'plugin';
@@ -94,7 +94,7 @@ export const getEnabledPlugins = async (leao: Core.Leao, { client } = { client: 
 
     // NOTE: internal plugins should be resolved from the leao package
     const packageModulePath = require.resolve(packagePath, {
-      paths: [require.resolve('@leao/leao/package.json'), process.cwd()],
+      paths: [require.resolve('@leao1/leao/package.json'), process.cwd()],
     });
 
     const packageInfo = require(packageModulePath);

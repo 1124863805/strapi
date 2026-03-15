@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, Popover, Tag } from '@leao/design-system';
-import { Plus, Filter as FilterIcon, Cross } from '@leao/icons';
-import { Schema } from '@leao/types';
+import { Box, Button, Flex, Popover, Tag } from '@leao1/design-system';
+import { Plus, Filter as FilterIcon, Cross } from '@leao1/icons';
+import { Schema } from '@leao1/types';
 import { useIntl } from 'react-intl';
 
 import {

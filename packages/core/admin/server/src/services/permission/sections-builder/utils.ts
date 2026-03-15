@@ -1,5 +1,5 @@
 import { curry, matchesProperty, pick } from 'lodash/fp';
-import type { Internal, Struct } from '@leao/types';
+import type { Internal, Struct } from '@leao1/types';
 
 const isOfKind = (kind: unknown) => matchesProperty('kind', kind);
 

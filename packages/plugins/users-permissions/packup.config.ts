@@ -1,4 +1,4 @@
-import { Config, defineConfig } from '@leao/pack-up';
+import { Config, defineConfig } from '@leao1/pack-up';
 import { transformWithEsbuild } from 'vite';
 
 const config: Config = defineConfig({

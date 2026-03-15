@@ -1,5 +1,5 @@
 import pluginPkg from '../../package.json';
 
-const pluginId = pluginPkg.name.replace(/^@leao\/plugin-/i, '');
+const pluginId = pluginPkg.name.replace(/^@leao1\/plugin-/i, '');
 
 export default pluginId;

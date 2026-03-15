@@ -1,15 +1,15 @@
 import * as React from 'react';
 
-import { useClipboard, useNotification } from '@leao/admin/leao-admin';
-import { Button, Flex, IconButton } from '@leao/design-system';
-import { Link as LinkIcon } from '@leao/icons';
-import { UID } from '@leao/types';
+import { useClipboard, useNotification } from '@leao1/admin/leao-admin';
+import { Button, Flex, IconButton } from '@leao1/design-system';
+import { Link as LinkIcon } from '@leao1/icons';
+import { UID } from '@leao1/types';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 
 import { useGetPreviewUrlQuery } from '../services/preview';
 
-import type { PanelComponent } from '@leao/content-manager/leao-admin';
+import type { PanelComponent } from '@leao1/content-manager/leao-admin';
 
 const PreviewSidePanel: PanelComponent = ({ model, documentId, document }) => {
   const { formatMessage } = useIntl();

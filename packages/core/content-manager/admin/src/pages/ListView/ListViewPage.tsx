@@ -13,9 +13,9 @@ import {
   useRBAC,
   Layouts,
   useTable,
-} from '@leao/admin/leao-admin';
-import { Button, Flex, Typography, ButtonProps } from '@leao/design-system';
-import { Plus } from '@leao/icons';
+} from '@leao1/admin/leao-admin';
+import { Button, Flex, Typography, ButtonProps } from '@leao1/design-system';
+import { Plus } from '@leao1/icons';
 import isEqual from 'lodash/isEqual';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
@@ -45,7 +45,7 @@ import { TableActions } from './components/TableActions';
 import { CellContent } from './components/TableCells/CellContent';
 import { ViewSettingsMenu } from './components/ViewSettingsMenu';
 
-import type { Modules } from '@leao/types';
+import type { Modules } from '@leao1/types';
 
 const { INJECT_COLUMN_IN_TABLE } = HOOKS;
 

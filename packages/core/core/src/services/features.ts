@@ -4,7 +4,7 @@
  * which are enabled and disabled.
  */
 
-import type { Core, Modules } from '@leao/types';
+import type { Core, Modules } from '@leao1/types';
 
 type FeatureName = keyof Modules.Features.FeaturesConfig['future'];
 

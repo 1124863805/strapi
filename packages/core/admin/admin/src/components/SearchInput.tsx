@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { IconButton, Searchbar, SearchForm } from '@leao/design-system';
-import { Search as SearchIcon } from '@leao/icons';
+import { IconButton, Searchbar, SearchForm } from '@leao1/design-system';
+import { Search as SearchIcon } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 
 import { useQueryParams } from '../hooks/useQueryParams';

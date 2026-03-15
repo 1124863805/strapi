@@ -1,6 +1,6 @@
 import { merge, isEmpty, set, propEq } from 'lodash/fp';
-import leaoUtils from '@leao/utils';
-import { UID, Schema, Modules } from '@leao/types';
+import leaoUtils from '@leao1/utils';
+import { UID, Schema, Modules } from '@leao1/types';
 import { getService } from '../../utils';
 
 const { isVisibleAttribute, isScalarAttribute, getDoesAttributeRequireValidation } =
@@ -15,7 +15,7 @@ const isRelation = propEq('type', 'relation');
 const isComponent = propEq('type', 'component');
 const isDynamicZone = propEq('type', 'dynamiczone');
 
-// TODO: Import from @leao/types when it's available there
+// TODO: Import from @leao1/types when it's available there
 type Model = Parameters<typeof isVisibleAttribute>[0];
 export type Populate = Modules.EntityService.Params.Populate.Any<UID.Schema>;
 

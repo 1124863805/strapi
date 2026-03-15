@@ -6,10 +6,10 @@ import {
   useQueryParams,
   useRBAC,
   Layouts,
-} from '@leao/admin/leao-admin';
-import { Button, Typography, Flex, Link, Dialog } from '@leao/design-system';
-import { ArrowLeft, WarningCircle } from '@leao/icons';
-import { UID } from '@leao/types';
+} from '@leao1/admin/leao-admin';
+import { Button, Typography, Flex, Link, Dialog } from '@leao1/design-system';
+import { ArrowLeft, WarningCircle } from '@leao1/icons';
+import { UID } from '@leao1/types';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { NavLink, useNavigate, useParams, type To } from 'react-router-dom';

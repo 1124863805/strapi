@@ -1,4 +1,4 @@
-import { useFetchClient } from '@leao/admin/leao-admin';
+import { useFetchClient } from '@leao1/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { useQuery } from 'react-query';
 

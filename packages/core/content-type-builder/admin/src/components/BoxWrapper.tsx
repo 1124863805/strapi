@@ -1,4 +1,4 @@
-import { Box } from '@leao/design-system';
+import { Box } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
 export const BoxWrapper = styled(Box)`

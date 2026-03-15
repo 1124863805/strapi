@@ -1,5 +1,5 @@
 import { merge } from 'lodash/fp';
-import { async } from '@leao/utils';
+import { async } from '@leao1/utils';
 
 import type { Context } from 'koa';
 

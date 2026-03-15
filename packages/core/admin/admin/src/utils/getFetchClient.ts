@@ -85,7 +85,7 @@ type FetchClient = {
  * to the Leao backend.
  * @example
  * ```tsx
- * import { getFetchClient } from '@leao/admin/admin';
+ * import { getFetchClient } from '@leao1/admin/admin';
  *
  * const myFunct = () => {
  *   const { get } = getFetchClient();

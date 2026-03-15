@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Flex } from '@leao/design-system';
+import { Flex } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
 import { useFolderCard } from '../contexts/FolderCard';

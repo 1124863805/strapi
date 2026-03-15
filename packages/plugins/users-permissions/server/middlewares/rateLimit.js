@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const utils = require('@leao/utils');
+const utils = require('@leao1/utils');
 const { isString, has, toLower } = require('lodash/fp');
 
 const { RateLimitError } = utils.errors;

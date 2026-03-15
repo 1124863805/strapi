@@ -2,7 +2,7 @@ import { pruneSchema } from '@graphql-tools/utils';
 import { makeSchema } from 'nexus';
 import { prop, startsWith } from 'lodash/fp';
 import type * as Nexus from 'nexus';
-import type { Core, Struct } from '@leao/types';
+import type { Core, Struct } from '@leao1/types';
 
 import { wrapResolvers } from './wrap-resolvers';
 import {

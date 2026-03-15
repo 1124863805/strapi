@@ -1,4 +1,4 @@
-import { UID } from '@leao/types';
+import { UID } from '@leao1/types';
 import { LongHandDocument } from './types';
 
 export const isLocalizedContentType = (uid: UID.Schema) => {

@@ -1,6 +1,6 @@
 import { join } from 'path';
-import { strings, errors } from '@leao/utils';
-import type { Struct } from '@leao/types';
+import { strings, errors } from '@leao1/utils';
+import type { Struct } from '@leao1/types';
 import createBuilder from './schema-builder';
 
 type Infos = {

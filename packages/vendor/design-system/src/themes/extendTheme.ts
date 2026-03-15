@@ -11,7 +11,7 @@ ${customMessage}
 The following is an example:
 
 
-import { lightTheme, extendTheme } from '@leao/design-system';
+import { lightTheme, extendTheme } from '@leao1/design-system';
 
 const myCustomTheme = extendTheme(lightTheme, {
     ${Object.keys(lightTheme)

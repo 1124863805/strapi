@@ -1,4 +1,4 @@
-import '@leao/types';
+import '@leao1/types';
 import passport from '../../../../../server/src/services/passport';
 import createProviderRegistry from './provider-registry';
 

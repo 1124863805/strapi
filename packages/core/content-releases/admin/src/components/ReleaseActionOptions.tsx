@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { VisuallyHidden, Field, Flex } from '@leao/design-system';
+import { VisuallyHidden, Field, Flex } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
 interface FieldWrapperProps extends Field.Props {

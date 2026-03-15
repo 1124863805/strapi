@@ -1,4 +1,4 @@
-import type { Permission as LeaoPermission } from '@leao/admin/leao-admin';
+import type { Permission as LeaoPermission } from '@leao1/admin/leao-admin';
 
 export const PERMISSIONS = {
   main: [

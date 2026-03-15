@@ -1,7 +1,7 @@
 import { join } from 'path';
 import _ from 'lodash';
 
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import createSchemaHandler from './schema-handler';
 import createComponentBuilder from './component-builder';
 import createContentTypeBuilder from './content-type-builder';

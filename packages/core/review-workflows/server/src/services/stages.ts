@@ -1,5 +1,5 @@
-import type { Core, UID } from '@leao/types';
-import { async, errors } from '@leao/utils';
+import type { Core, UID } from '@leao1/types';
+import { async, errors } from '@leao1/utils';
 import { map, pick, isEqual } from 'lodash/fp';
 import { STAGE_MODEL_UID, ENTITY_STAGE_ATTRIBUTE, ERRORS } from '../constants/workflows';
 import { WORKFLOW_UPDATE_STAGE } from '../constants/webhook-events';

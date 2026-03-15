@@ -1,5 +1,5 @@
-import type { errors } from '@leao/utils';
-import type { FetchError } from '@leao/admin/leao-admin';
+import type { errors } from '@leao1/utils';
+import type { FetchError } from '@leao1/admin/leao-admin';
 
 type ApiError = InstanceType<(typeof errors)[keyof typeof errors]>;
 

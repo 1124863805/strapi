@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import * as Checkbox from '@radix-ui/react-checkbox';
-import { Minus } from '@leao/icons';
+import { Minus } from '@leao1/icons';
 import { styled, useTheme } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';

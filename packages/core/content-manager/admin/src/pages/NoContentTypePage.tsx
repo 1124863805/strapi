@@ -1,7 +1,7 @@
-import { Page, Layouts } from '@leao/admin/leao-admin';
-import { EmptyStateLayout, LinkButton } from '@leao/design-system';
-import { Plus } from '@leao/icons';
-import { EmptyDocuments } from '@leao/icons/symbols';
+import { Page, Layouts } from '@leao1/admin/leao-admin';
+import { EmptyStateLayout, LinkButton } from '@leao1/design-system';
+import { Plus } from '@leao1/icons';
+import { EmptyDocuments } from '@leao1/icons/symbols';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 

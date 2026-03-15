@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@leao/design-system';
+import { Box, Grid, Typography } from '@leao1/design-system';
 import get from 'lodash/get';
 import { useIntl } from 'react-intl';
 

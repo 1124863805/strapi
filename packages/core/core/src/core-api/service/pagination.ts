@@ -1,6 +1,6 @@
 import { omit, has, toNumber, isNil } from 'lodash/fp';
 
-import { errors, pagination } from '@leao/utils';
+import { errors, pagination } from '@leao1/utils';
 
 interface BasePaginationParams {
   withCount?: boolean | 't' | '1' | 'true' | 'f' | '0' | 'false' | 0 | 1;

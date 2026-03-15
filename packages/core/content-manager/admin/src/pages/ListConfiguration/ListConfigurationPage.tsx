@@ -7,8 +7,8 @@ import {
   useAPIErrorHandler,
   Page,
   Layouts,
-} from '@leao/admin/leao-admin';
-import { Divider, Flex, Main } from '@leao/design-system';
+} from '@leao1/admin/leao-admin';
+import { Divider, Flex, Main } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { Navigate } from 'react-router-dom';
 

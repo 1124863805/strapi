@@ -9,7 +9,7 @@ import depthLimit from 'graphql-depth-limit';
 import bodyParser from 'koa-bodyparser';
 import cors from '@koa/cors';
 
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import type { BaseContext, DefaultContextExtends, DefaultStateExtends } from 'koa';
 
 import { formatGraphqlError } from './format-graphql-error';

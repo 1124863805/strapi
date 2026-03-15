@@ -1,10 +1,10 @@
-import * as tsUtils from '@leao/typescript-utils';
-import { strings } from '@leao/utils';
+import * as tsUtils from '@leao1/typescript-utils';
+import { strings } from '@leao1/utils';
 import chokidar from 'chokidar';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import cluster from 'node:cluster';
-import { createLeao } from '@leao/core';
+import { createLeao } from '@leao1/core';
 
 import type { CLIContext } from '../cli/types';
 import { checkRequiredDependencies } from './core/dependencies';

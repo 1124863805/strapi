@@ -1,5 +1,5 @@
 import { sortBy, map, isUndefined } from 'lodash/fp';
-import { strings, setCreatorFields } from '@leao/utils';
+import { strings, setCreatorFields } from '@leao1/utils';
 import { FOLDER_MODEL_UID, FILE_MODEL_UID } from '../constants';
 import { getService } from '../utils';
 

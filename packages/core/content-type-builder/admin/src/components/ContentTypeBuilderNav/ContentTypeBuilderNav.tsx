@@ -9,8 +9,8 @@ import {
   SubNavLinkSection,
   SubNavSection,
   SubNavSections,
-} from '@leao/design-system';
-import { Plus } from '@leao/icons';
+} from '@leao1/design-system';
+import { Plus } from '@leao1/icons';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';

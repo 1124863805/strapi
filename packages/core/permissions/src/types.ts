@@ -1,7 +1,7 @@
 /**
- * These were imported from `@leao/types` but if we do that
+ * These were imported from `@leao1/types` but if we do that
  * it becomes a circular dependency. This is the source of truth,
- * they're re-exported from `@leao/types` for convenience.
+ * they're re-exported from `@leao1/types` for convenience.
  */
 import type { Subject } from '@casl/ability';
 

@@ -1,4 +1,4 @@
-import { createContext } from '@leao/admin/leao-admin';
+import { createContext } from '@leao1/admin/leao-admin';
 
 interface ComponentContextValue {
   /**

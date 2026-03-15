@@ -9,7 +9,7 @@ import {
   Typography,
   Breadcrumbs,
   Crumb,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import * as yup from 'yup';
 
@@ -26,7 +26,7 @@ import { translatedErrors } from '../../../../../utils/translatedErrors';
 import { MagicLinkCE } from './MagicLinkCE';
 import { SelectRoles } from './SelectRoles';
 
-import type { Data } from '@leao/types';
+import type { Data } from '@leao1/types';
 
 interface ModalFormProps {
   onToggle: () => void;

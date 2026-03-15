@@ -1,4 +1,4 @@
-import type { sanitize } from '@leao/utils';
+import type { sanitize } from '@leao1/utils';
 
 export interface SanitizersRegistry {
   get(path: string): sanitize.Sanitizer[];

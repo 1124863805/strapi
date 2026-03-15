@@ -1,5 +1,5 @@
-import { UID, Utils, Modules, Core } from '@leao/types';
-import { sanitize } from '@leao/utils';
+import { UID, Utils, Modules, Core } from '@leao1/types';
+import { sanitize } from '@leao1/utils';
 
 import { getDeepPopulate } from './utils/populate';
 

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
 
-import { Box, VisuallyHidden } from '@leao/design-system';
+import { Box, VisuallyHidden } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 
 // According to MDN

@@ -1,4 +1,4 @@
-import type { Plugin } from '@leao/types';
+import type { Plugin } from '@leao1/types';
 import history from './history';
 
 const destroy: Plugin.LoadedPlugin['destroy'] = async ({ leao }) => {

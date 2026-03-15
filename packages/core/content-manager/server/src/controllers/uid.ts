@@ -1,4 +1,4 @@
-import type { UID } from '@leao/types';
+import type { UID } from '@leao1/types';
 import { getService } from '../utils';
 import { getDocumentLocaleAndStatus } from './validation/dimensions';
 

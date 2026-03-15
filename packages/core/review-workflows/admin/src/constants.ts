@@ -1,4 +1,4 @@
-import { lightTheme } from '@leao/design-system';
+import { lightTheme } from '@leao1/design-system';
 
 const PLUGIN_ID = 'review-workflows';
 /**

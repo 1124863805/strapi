@@ -1,4 +1,4 @@
-import type { Modules, UID } from '@leao/types';
+import type { Modules, UID } from '@leao1/types';
 
 type Fields = Modules.Documents.Params.Pick<UID.Schema, 'fields'>['fields'];
 

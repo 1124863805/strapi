@@ -1,5 +1,5 @@
 import type { ComponentsDictionary, Document } from '../../../hooks/useDocument';
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 type AnyData = Omit<Document, 'id'>;
 

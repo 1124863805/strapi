@@ -1,5 +1,5 @@
-import type { Data, UID } from '@leao/types';
-import { type errors } from '@leao/utils';
+import type { Data, UID } from '@leao1/types';
+import { type errors } from '@leao1/utils';
 
 /**
  * GET /content-manager/preview/url/:uid

@@ -1,8 +1,8 @@
 import type { Entity } from '../types';
 import type { ReleaseAction } from './release-actions';
 import type { UserInfo } from '../types';
-import { errors } from '@leao/utils';
-import type { SanitizedAdminUser } from '@leao/admin/leao-admin';
+import { errors } from '@leao1/utils';
+import type { SanitizedAdminUser } from '@leao1/admin/leao-admin';
 
 export interface Release extends Entity {
   name: string;

@@ -3,8 +3,8 @@
  * E.g the size optimization flag, the responsive dimensions flag and the auto orientation.
  */
 
-import { errors } from '@leao/utils';
-import { Utils } from '@leao/types';
+import { errors } from '@leao1/utils';
+import { Utils } from '@leao1/types';
 
 export interface Settings {
   data: {

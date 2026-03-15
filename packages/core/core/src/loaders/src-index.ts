@@ -1,8 +1,8 @@
 import { resolve } from 'path';
 import { statSync, existsSync } from 'fs';
-import { yup, importDefault } from '@leao/utils';
+import { yup, importDefault } from '@leao1/utils';
 
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 const srcSchema = yup
   .object()

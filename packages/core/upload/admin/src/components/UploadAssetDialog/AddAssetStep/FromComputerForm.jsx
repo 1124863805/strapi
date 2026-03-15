@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useRef, useState } from 'react';
 
-import { Box, Button, Flex, Modal, Typography } from '@leao/design-system';
-import { PlusCircle as PicturePlus } from '@leao/icons';
+import { Box, Button, Flex, Modal, Typography } from '@leao1/design-system';
+import { PlusCircle as PicturePlus } from '@leao1/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

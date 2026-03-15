@@ -1,5 +1,5 @@
 import { set } from 'lodash/fp';
-import leaoUtils from '@leao/utils';
+import leaoUtils from '@leao1/utils';
 import { ProhibitedCloningField } from '../../../../shared/contracts/collection-types';
 
 const { isVisibleAttribute } = leaoUtils.contentTypes;

@@ -1,4 +1,4 @@
-// import type { Core } from '@leao/leao';
+// import type { Core } from '@leao1/leao';
 
 export default {
   /**

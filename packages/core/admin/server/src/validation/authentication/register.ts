@@ -1,4 +1,4 @@
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 import validators from '../common-validators';
 
 const registrationSchema = yup

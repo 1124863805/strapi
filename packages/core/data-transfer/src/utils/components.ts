@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import { get, has, omit, pipe, assign } from 'lodash/fp';
 
-import { contentTypes as contentTypesUtils, async, errors } from '@leao/utils';
-import type { Modules, UID, Data, Utils, Schema, Core } from '@leao/types';
+import { contentTypes as contentTypesUtils, async, errors } from '@leao1/utils';
+import type { Modules, UID, Data, Utils, Schema, Core } from '@leao1/types';
 
 type LoadedComponents<TUID extends UID.Schema> = Data.Entity<
   TUID,

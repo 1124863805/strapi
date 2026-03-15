@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Typography, TypographyComponent } from '@leao/design-system';
-import { Bold, Italic, Underline, StrikeThrough, Code } from '@leao/icons';
+import { Typography, TypographyComponent } from '@leao1/design-system';
+import { Bold, Italic, Underline, StrikeThrough, Code } from '@leao1/icons';
 import { type MessageDescriptor } from 'react-intl';
 import { Editor, Text, Transforms } from 'slate';
 import { styled, css } from 'styled-components';

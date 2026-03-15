@@ -4,7 +4,7 @@ import path from 'path';
 import _ from 'lodash';
 import { omit } from 'lodash/fp';
 import dotenv from 'dotenv';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import { getConfigUrls, getAbsoluteAdminUrl, getAbsoluteServerUrl } from './urls';
 import loadConfigDir from './config-loader';

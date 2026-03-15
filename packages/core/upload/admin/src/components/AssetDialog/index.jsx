@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { Page } from '@leao/admin/leao-admin';
-import { Badge, Button, Divider, Flex, Loader, Modal, Tabs } from '@leao/design-system';
+import { Page } from '@leao1/admin/leao-admin';
+import { Badge, Button, Divider, Flex, Loader, Modal, Tabs } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

@@ -1,7 +1,7 @@
-import { Layouts } from '@leao/admin/leao-admin';
-import { Box, Main, EmptyStateLayout, LinkButton } from '@leao/design-system';
-import { ExternalLink } from '@leao/icons';
-import { EmptyPermissions } from '@leao/icons/symbols';
+import { Layouts } from '@leao1/admin/leao-admin';
+import { Box, Main, EmptyStateLayout, LinkButton } from '@leao1/design-system';
+import { ExternalLink } from '@leao1/icons';
+import { EmptyPermissions } from '@leao1/icons/symbols';
 import { useIntl } from 'react-intl';
 
 const PurchaseContentReleases = () => {

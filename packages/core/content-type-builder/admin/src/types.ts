@@ -1,4 +1,4 @@
-import type { Internal, Schema } from '@leao/types';
+import type { Internal, Schema } from '@leao1/types';
 
 export type IntlLabel = {
   id: string;

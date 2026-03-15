@@ -6,7 +6,7 @@ import { styled } from 'styled-components';
 import { PreviewWysiwyg } from './PreviewWysiwyg';
 import { newlineAndIndentContinueMarkdownList } from './utils/continueList';
 
-import type { FieldValue, InputProps } from '@leao/admin/leao-admin';
+import type { FieldValue, InputProps } from '@leao1/admin/leao-admin';
 
 import 'codemirror5/addon/display/placeholder';
 

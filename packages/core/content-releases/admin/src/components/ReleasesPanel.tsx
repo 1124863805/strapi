@@ -1,6 +1,6 @@
-import { useRBAC, useQueryParams } from '@leao/admin/leao-admin';
-import { unstable_useDocumentLayout as useDocumentLayout } from '@leao/content-manager/leao-admin';
-import { Box, Flex, Typography } from '@leao/design-system';
+import { useRBAC, useQueryParams } from '@leao1/admin/leao-admin';
+import { unstable_useDocumentLayout as useDocumentLayout } from '@leao1/content-manager/leao-admin';
+import { Box, Flex, Typography } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { PERMISSIONS } from '../constants';
@@ -9,7 +9,7 @@ import { getTimezoneOffset } from '../utils/time';
 
 import { ReleaseActionMenu } from './ReleaseActionMenu';
 
-import type { PanelComponent, PanelComponentProps } from '@leao/content-manager/leao-admin';
+import type { PanelComponent, PanelComponentProps } from '@leao1/content-manager/leao-admin';
 
 const Panel: PanelComponent = ({
   model,

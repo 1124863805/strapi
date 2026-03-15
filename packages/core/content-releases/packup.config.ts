@@ -1,4 +1,4 @@
-import { defineConfig } from '@leao/pack-up';
+import { defineConfig } from '@leao1/pack-up';
 
 export default defineConfig({
   bundles: [

@@ -6,7 +6,7 @@ import {
   useTable,
   getYupValidationErrors,
   FormErrors,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import {
   Box,
   Button,
@@ -17,8 +17,8 @@ import {
   Tooltip,
   Loader,
   TypographyComponent,
-} from '@leao/design-system';
-import { Pencil, CrossCircle, CheckCircle, ArrowsCounterClockwise } from '@leao/icons';
+} from '@leao1/design-system';
+import { Pencil, CrossCircle, CheckCircle, ArrowsCounterClockwise } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { Link, useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';

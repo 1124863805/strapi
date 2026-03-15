@@ -1,4 +1,4 @@
-import { useFetchClient, FetchClient } from '@leao/admin/leao-admin';
+import { useFetchClient, FetchClient } from '@leao1/admin/leao-admin';
 import { useMutation, useQueryClient } from 'react-query';
 import { CreateFolders, UpdateFolder } from '../../../shared/contracts/folders';
 

@@ -9,7 +9,7 @@ import {
   Popover,
   SingleSelect,
   Field,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import {
   Bold,
   BulletList,
@@ -22,7 +22,7 @@ import {
   Quotes,
   StrikeThrough,
   Underline,
-} from '@leao/icons';
+} from '@leao1/icons';
 import { EditorFromTextArea } from 'codemirror5';
 import { useIntl } from 'react-intl';
 

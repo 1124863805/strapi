@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Clock } from '@leao/icons';
+import { Clock } from '@leao1/icons';
 
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';

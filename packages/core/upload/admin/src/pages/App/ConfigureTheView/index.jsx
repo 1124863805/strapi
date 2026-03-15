@@ -5,9 +5,9 @@ import {
   useNotification,
   Page,
   Layouts,
-} from '@leao/admin/leao-admin';
-import { Button, Dialog, Link } from '@leao/design-system';
-import { ArrowLeft, Check } from '@leao/icons';
+} from '@leao1/admin/leao-admin';
+import { Button, Dialog, Link } from '@leao1/design-system';
+import { ArrowLeft, Check } from '@leao1/icons';
 import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';

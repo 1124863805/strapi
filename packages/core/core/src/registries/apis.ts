@@ -1,5 +1,5 @@
 import { has } from 'lodash/fp';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 const apisRegistry = (leao: Core.Leao) => {
   const apis: Record<string, unknown> = {};

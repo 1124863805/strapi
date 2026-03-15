@@ -11,9 +11,9 @@ import {
   contentTypes as contentTypesUtils,
   errors,
   file as fileUtils,
-} from '@leao/utils';
+} from '@leao1/utils';
 
-import type { Core, UID } from '@leao/types';
+import type { Core, UID } from '@leao1/types';
 
 import { FILE_MODEL_UID, ALLOWED_WEBHOOK_EVENTS } from '../constants';
 import { getService } from '../utils';

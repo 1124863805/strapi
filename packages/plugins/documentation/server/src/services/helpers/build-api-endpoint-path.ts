@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import * as pathToRegexp from 'path-to-regexp';
 
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import type { OpenAPIV3 } from 'openapi-types';
 
 import pascalCase from './utils/pascal-case';

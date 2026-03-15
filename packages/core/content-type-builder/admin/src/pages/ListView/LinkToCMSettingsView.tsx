@@ -1,8 +1,8 @@
 import { memo } from 'react';
 
-import { type Permission, useRBAC } from '@leao/admin/leao-admin';
-import { Button } from '@leao/design-system';
-import { ListPlus } from '@leao/icons';
+import { type Permission, useRBAC } from '@leao1/admin/leao-admin';
+import { Button } from '@leao1/design-system';
+import { ListPlus } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
 

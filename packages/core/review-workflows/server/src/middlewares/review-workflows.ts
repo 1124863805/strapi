@@ -1,5 +1,5 @@
 import type { Context } from 'koa';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import { set } from 'lodash/fp';
 

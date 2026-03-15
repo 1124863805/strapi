@@ -1,4 +1,4 @@
-import { providerFactory } from '@leao/utils';
+import { providerFactory } from '@leao1/utils';
 import domain from '.';
 import type { CreateConditionPayload } from '.';
 

@@ -13,8 +13,8 @@ import {
   useFilter,
   LinkButton,
   Dialog,
-} from '@leao/design-system';
-import { Plus } from '@leao/icons';
+} from '@leao1/design-system';
+import { Plus } from '@leao1/icons';
 import {
   ConfirmDialog,
   Page,
@@ -24,7 +24,7 @@ import {
   useFetchClient,
   useRBAC,
   Layouts,
-} from '@leao/leao/admin';
+} from '@leao1/leao/admin';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery } from 'react-query';
 import { NavLink } from 'react-router-dom';

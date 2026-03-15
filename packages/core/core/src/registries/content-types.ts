@@ -1,5 +1,5 @@
 import { pickBy, has } from 'lodash/fp';
-import type { UID, Struct } from '@leao/types';
+import type { UID, Struct } from '@leao1/types';
 import { createContentType, ContentTypeDefinition } from '../domain/content-type';
 import { addNamespace, hasNamespace } from './namespace';
 

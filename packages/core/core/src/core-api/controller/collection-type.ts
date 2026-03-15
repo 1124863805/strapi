@@ -1,6 +1,6 @@
 import { isObject } from 'lodash/fp';
-import { errors } from '@leao/utils';
-import type { Core, Struct, Utils, UID } from '@leao/types';
+import { errors } from '@leao1/utils';
+import type { Core, Struct, Utils, UID } from '@leao1/types';
 import type Koa from 'koa';
 
 interface Options {

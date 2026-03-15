@@ -1,9 +1,9 @@
 import { join, extname, basename } from 'path';
 import fse, { existsSync } from 'fs-extra';
 import _ from 'lodash';
-import { strings, importDefault } from '@leao/utils';
+import { strings, importDefault } from '@leao1/utils';
 import { isEmpty } from 'lodash/fp';
-import type { Core, Struct } from '@leao/types';
+import type { Core, Struct } from '@leao1/types';
 import { getGlobalId, type ContentTypeDefinition } from '../domain/content-type';
 
 interface API {

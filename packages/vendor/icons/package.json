@@ -1,6 +1,6 @@
 {
-  "name": "@leao/icons",
-  "version": "2.0.0-rc.11",
+  "name": "@leao1/icons",
+  "version": "1.0.0",
   "license": "MIT",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -29,7 +29,7 @@
     "src"
   ],
   "devDependencies": {
-    "@leao/pack-up": "workspace:*",
+    "@leao1/pack-up": "^1.0.0",
     "@svgr/cli": "8.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",

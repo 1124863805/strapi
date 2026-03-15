@@ -1,5 +1,5 @@
 import { getOr, toNumber, isString } from 'lodash/fp';
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 import bcrypt from 'bcryptjs';
 
 type Transforms = {

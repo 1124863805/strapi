@@ -1,4 +1,4 @@
-import type { Internal, Struct } from '@leao/types';
+import type { Internal, Struct } from '@leao1/types';
 import { get, has } from 'lodash';
 
 import { formatAttributes, replaceTemporaryUIDs } from '../utils/attributes';

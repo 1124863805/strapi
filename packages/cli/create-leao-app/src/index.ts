@@ -137,9 +137,9 @@ async function run(args: string[]): Promise<void> {
     gitInit: true,
     devDependencies: {},
     dependencies: {
-      '@leao/leao': version,
-      '@leao/plugin-documentation': version,
-      '@leao/plugin-users-permissions': version,
+      '@leao1/leao': version,
+      '@leao1/plugin-documentation': version,
+      '@leao1/plugin-users-permissions': version,
       // third party
       react: '^18.0.0',
       'react-dom': '^18.0.0',

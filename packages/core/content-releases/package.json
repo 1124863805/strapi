@@ -1,6 +1,6 @@
 {
-  "name": "@leao/content-releases",
-  "version": "5.0.6",
+  "name": "@leao1/content-releases",
+  "version": "1.0.0",
   "description": "Leao plugin for organizing and releasing content",
   "repository": {
     "type": "git",
@@ -47,11 +47,11 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
-    "@leao/database": "workspace:*",
-    "@leao/design-system": "workspace:*",
-    "@leao/icons": "workspace:*",
-    "@leao/types": "workspace:*",
-    "@leao/utils": "workspace:*",
+    "@leao1/database": "^1.0.0",
+    "@leao1/design-system": "^1.0.0",
+    "@leao1/icons": "^1.0.0",
+    "@leao1/types": "^1.0.0",
+    "@leao1/utils": "^1.0.0",
     "@reduxjs/toolkit": "1.9.7",
     "date-fns": "2.30.0",
     "date-fns-tz": "2.0.1",
@@ -63,9 +63,9 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@leao/admin": "workspace:*",
-    "@leao/content-manager": "workspace:*",
-    "@leao/pack-up": "workspace:*",
+    "@leao1/admin": "^1.0.0",
+    "@leao1/content-manager": "^1.0.0",
+    "@leao1/pack-up": "^1.0.0",
     "@types/koa": "2.13.4",
     "koa": "2.15.2",
     "react": "18.3.1",
@@ -76,8 +76,8 @@
     "typescript": "5.3.2"
   },
   "peerDependencies": {
-    "@leao/admin": "^5.0.0",
-    "@leao/content-manager": "^5.0.0",
+    "@leao1/admin": "^1.0.0",
+    "@leao1/content-manager": "^1.0.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^6.0.0",

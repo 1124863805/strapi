@@ -1,7 +1,7 @@
 import { Context } from 'koa';
 
-import { leao as dataTransferLeao } from '@leao/data-transfer';
-import { errors } from '@leao/utils';
+import { leao as dataTransferLeao } from '@leao1/data-transfer';
+import { errors } from '@leao1/utils';
 import dataTransferAuthStrategy from '../../strategies/data-transfer';
 
 const {

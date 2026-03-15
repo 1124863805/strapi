@@ -1,4 +1,4 @@
-import { TemplateFile } from '@leao/pack-up';
+import { TemplateFile } from '@leao1/pack-up';
 import { outdent } from 'outdent';
 
 interface TsConfigFiles {

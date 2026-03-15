@@ -1,4 +1,4 @@
-import type { Plugin } from '@leao/types';
+import type { Plugin } from '@leao1/types';
 import { createPreviewController } from './preview';
 
 export const controllers = {

@@ -11,7 +11,7 @@ const action = async (options: DevelopCLIOptions) => {
     if (cluster.isPrimary) {
       if (options.bundler === 'webpack') {
         options.logger.warn(
-          '[@leao/leao]: Using webpack as a bundler is deprecated. You should migrate to vite.'
+          '[@leao1/leao]: Using webpack as a bundler is deprecated. You should migrate to vite.'
         );
       }
     }

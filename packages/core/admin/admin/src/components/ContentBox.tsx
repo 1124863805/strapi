@@ -4,7 +4,7 @@ import {
   FlexProps,
   Typography,
   TypographyComponent,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import { styled } from 'styled-components';
 
 interface ContentBoxProps {

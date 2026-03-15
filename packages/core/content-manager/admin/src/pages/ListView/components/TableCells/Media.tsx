@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { Avatar, Flex, Tooltip, Typography, TypographyComponent } from '@leao/design-system';
+import { Avatar, Flex, Tooltip, Typography, TypographyComponent } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
 import { prefixFileUrlWithBackendUrl } from '../../../../utils/urls';
 
-import type { Data } from '@leao/types';
+import type { Data } from '@leao1/types';
 
 interface MediaFile {
   id?: Data.ID;

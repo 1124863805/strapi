@@ -1,5 +1,5 @@
-import { SanitizedAdminUser } from '@leao/admin/leao-admin';
-import { Box, Flex, Typography } from '@leao/design-system';
+import { SanitizedAdminUser } from '@leao1/admin/leao-admin';
+import { Box, Flex, Typography } from '@leao1/design-system';
 
 import { STAGE_COLOR_DEFAULT } from '../../../../constants';
 import { getStageColorByHex } from '../../../../utils/colors';

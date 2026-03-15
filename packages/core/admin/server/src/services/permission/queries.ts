@@ -1,6 +1,6 @@
 import { isNil, isArray, prop, xor, eq, map, differenceWith } from 'lodash/fp';
 import pmap from 'p-map';
-import type { Data } from '@leao/types';
+import type { Data } from '@leao1/types';
 import { getService } from '../../utils';
 import permissionDomain, { CreatePermissionPayload } from '../../domain/permission';
 import type { AdminUser, Permission } from '../../../../shared/contracts/shared';

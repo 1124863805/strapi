@@ -1,6 +1,6 @@
 import { isEmpty, isArray } from 'lodash/fp';
 import koaSession from 'koa-session';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 const defaultConfig = {
   key: 'koa.sess',

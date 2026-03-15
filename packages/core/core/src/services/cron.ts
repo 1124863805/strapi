@@ -1,6 +1,6 @@
 import { Job, Spec } from 'node-schedule';
 import { isFunction } from 'lodash/fp';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 interface JobSpec {
   job: Job;

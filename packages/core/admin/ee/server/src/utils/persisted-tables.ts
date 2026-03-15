@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import { differenceWith, isEqual } from 'lodash/fp';
 
 interface PersistedTable {

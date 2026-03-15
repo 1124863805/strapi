@@ -1,6 +1,6 @@
 import { merge, map, difference, uniq } from 'lodash/fp';
-import type { Core } from '@leao/types';
-import { async } from '@leao/utils';
+import type { Core } from '@leao1/types';
+import { async } from '@leao1/utils';
 import { getService } from './utils';
 import adminActions from './config/admin-actions';
 import adminConditions from './config/admin-conditions';

@@ -1,4 +1,4 @@
-import type { validate } from '@leao/utils';
+import type { validate } from '@leao1/utils';
 
 export interface ValidatorsRegistry {
   get(path: string): validate.Validator[];

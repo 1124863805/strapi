@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Divider, Modal, Tabs } from '@leao/design-system';
+import { Box, Divider, Modal, Tabs } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

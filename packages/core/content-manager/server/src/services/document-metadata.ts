@@ -1,7 +1,7 @@
 import { groupBy, pick } from 'lodash/fp';
 
-import { async, contentTypes, traverseEntity } from '@leao/utils';
-import type { Core, UID, Modules } from '@leao/types';
+import { async, contentTypes, traverseEntity } from '@leao1/utils';
+import type { Core, UID, Modules } from '@leao1/types';
 
 import type { DocumentMetadata } from '../../../shared/contracts/collection-types';
 import { getValidatableFieldsPopulate } from './utils/populate';

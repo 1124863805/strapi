@@ -2,10 +2,10 @@ import * as globalAgent from 'global-agent';
 import path from 'path';
 import _ from 'lodash';
 import { isFunction } from 'lodash/fp';
-import { Logger, createLogger } from '@leao/logger';
-import { Database } from '@leao/database';
+import { Logger, createLogger } from '@leao1/logger';
+import { Database } from '@leao1/database';
 
-import type { Core, Modules, UID, Schema } from '@leao/types';
+import type { Core, Modules, UID, Schema } from '@leao1/types';
 
 import { loadConfiguration } from './configuration';
 

@@ -1,7 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
-const { NotFoundError } = require('@leao/utils').errors;
+const { NotFoundError } = require('@leao1/utils').errors;
 const { getService } = require('../utils');
 
 module.exports = ({ leao }) => ({

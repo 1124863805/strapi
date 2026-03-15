@@ -1,13 +1,13 @@
 import { isObject, isString, isFinite, toNumber } from 'lodash/fp';
 import fs from 'fs-extra';
 import chalk from 'chalk';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import {
   engine as engineDataTransfer,
   leao as leaoDataTransfer,
   file as fileDataTransfer,
-} from '@leao/data-transfer';
+} from '@leao1/data-transfer';
 
 import {
   getDefaultExportName,

@@ -2,8 +2,8 @@
 import * as React from 'react';
 
 import { NumberFormatter, NumberParser } from '@internationalized/number';
-import { CaretDown } from '@leao/icons';
-import { useCallbackRef } from '@leao/ui-primitives';
+import { CaretDown } from '@leao1/icons';
+import { useCallbackRef } from '@leao1/ui-primitives';
 import { styled } from 'styled-components';
 
 import { KeyboardKeys } from '../../helpers/keyboardKeys';

@@ -2,7 +2,7 @@
 
 import { REVIEW_WORKFLOW_COLUMNS } from '../routes/content-manager/[model]/constants';
 
-import type { ListFieldLayout, ListLayout } from '@leao/content-manager/leao-admin';
+import type { ListFieldLayout, ListLayout } from '@leao1/content-manager/leao-admin';
 
 /* -------------------------------------------------------------------------------------------------
  * addColumnToTableHook

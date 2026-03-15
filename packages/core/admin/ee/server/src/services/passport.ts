@@ -1,4 +1,4 @@
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import createLocalStrategy from '../../../../server/src/services/passport/local-strategy';
 import sso from './passport/sso';
 import { isSsoLocked } from '../utils/sso-lock';

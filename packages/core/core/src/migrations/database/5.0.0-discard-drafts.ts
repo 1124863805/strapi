@@ -12,9 +12,9 @@
  */
 
 /* eslint-disable no-continue */
-import type { UID } from '@leao/types';
-import type { Database, Migration } from '@leao/database';
-import { async, contentTypes } from '@leao/utils';
+import type { UID } from '@leao1/types';
+import type { Database, Migration } from '@leao1/database';
+import { async, contentTypes } from '@leao1/utils';
 import { createDocumentService } from '../../services/document-service';
 
 type DocumentVersion = { documentId: string; locale: string };

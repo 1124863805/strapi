@@ -1,7 +1,7 @@
 import { prop } from 'lodash/fp';
-import { contentTypes as contentTypesUtils } from '@leao/utils';
+import { contentTypes as contentTypesUtils } from '@leao1/utils';
 
-import type { Core, Struct } from '@leao/types';
+import type { Core, Struct } from '@leao1/types';
 import { getService } from '../utils';
 
 export default ({ leao }: { leao: Core.Leao }) => ({

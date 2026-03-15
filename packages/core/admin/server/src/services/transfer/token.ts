@@ -1,8 +1,8 @@
 import crypto from 'crypto';
 import assert from 'assert';
 import { map, isArray, omit, uniq, isNil, difference, isEmpty, isNumber } from 'lodash/fp';
-import { errors } from '@leao/utils';
-import '@leao/types';
+import { errors } from '@leao1/utils';
+import '@leao1/types';
 import constants from '../constants';
 import { getService } from '../../utils';
 import {

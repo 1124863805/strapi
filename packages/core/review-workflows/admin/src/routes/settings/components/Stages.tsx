@@ -7,7 +7,7 @@ import {
   useNotification,
   InputRenderer as AdminInputRenderer,
   InputProps,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import {
   Box,
   Flex,
@@ -26,8 +26,8 @@ import {
   MenuItem,
   Field,
   Dialog,
-} from '@leao/design-system';
-import { Duplicate, Drag, More, EyeStriked } from '@leao/icons';
+} from '@leao1/design-system';
+import { Duplicate, Drag, More, EyeStriked } from '@leao1/icons';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

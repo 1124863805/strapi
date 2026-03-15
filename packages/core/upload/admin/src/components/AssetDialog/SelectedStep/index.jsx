@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Flex, Typography } from '@leao/design-system';
+import { Flex, Typography } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

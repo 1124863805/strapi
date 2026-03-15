@@ -4,8 +4,8 @@ import {
   SubNavLink,
   SubNavSection,
   SubNavSections,
-} from '@leao/design-system';
-import { Lightning } from '@leao/icons';
+} from '@leao1/design-system';
+import { Lightning } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';

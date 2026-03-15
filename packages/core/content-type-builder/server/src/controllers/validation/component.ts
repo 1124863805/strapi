@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 
-import type { Struct } from '@leao/types';
+import type { Struct } from '@leao1/types';
 import { modelTypes, DEFAULT_TYPES } from '../../services/constants';
 import { isValidCategoryName, isValidIcon } from './common';
 import { createSchema } from './model-schema';

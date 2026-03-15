@@ -1,5 +1,5 @@
 import { map, values, sumBy, pipe, flatMap } from 'lodash/fp';
-import type { Schema, UID } from '@leao/types';
+import type { Schema, UID } from '@leao1/types';
 
 const getNumberOfDynamicZones = () => {
   const contentTypes: Record<UID.ContentType, Schema.ContentType> = leao.contentTypes;

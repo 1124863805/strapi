@@ -1,9 +1,9 @@
 'use strict';
 
 const _ = require('lodash');
-const { contentTypes: contentTypesUtils } = require('@leao/utils');
+const { contentTypes: contentTypesUtils } = require('@leao1/utils');
 const { ApplicationError, ValidationError, NotFoundError, ForbiddenError } =
-  require('@leao/utils').errors;
+  require('@leao1/utils').errors;
 const { validateCreateUserBody, validateUpdateUserBody } = require('./validation/user');
 
 const { UPDATED_BY_ATTRIBUTE, CREATED_BY_ATTRIBUTE } = contentTypesUtils.constants;

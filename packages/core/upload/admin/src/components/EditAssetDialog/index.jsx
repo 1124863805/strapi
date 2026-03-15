@@ -15,7 +15,7 @@ import {
   Modal,
   TextInput,
   VisuallyHidden,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import { Form, Formik } from 'formik';
 import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';

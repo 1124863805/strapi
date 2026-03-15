@@ -1,4 +1,4 @@
-import type { errors } from '@leao/utils';
+import type { errors } from '@leao1/utils';
 import { Entity, Permission } from './shared';
 
 export interface Action {

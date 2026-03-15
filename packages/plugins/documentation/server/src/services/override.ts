@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import { getPluginsThatNeedDocumentation } from './utils/get-plugins-that-need-documentation';
 import type { PluginConfig } from '../types';

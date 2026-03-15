@@ -1,4 +1,4 @@
-import type { UID } from '@leao/types';
+import type { UID } from '@leao1/types';
 
 import { curry, assoc } from 'lodash/fp';
 

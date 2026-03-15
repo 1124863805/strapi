@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Box, Button, Field, Modal, Textarea } from '@leao/design-system';
+import { Box, Button, Field, Modal, Textarea } from '@leao1/design-system';
 import { Form, Formik } from 'formik';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';

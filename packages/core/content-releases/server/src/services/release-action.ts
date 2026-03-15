@@ -1,6 +1,6 @@
-import { errors, async } from '@leao/utils';
+import { errors, async } from '@leao1/utils';
 
-import type { Core, Internal, Struct, Modules } from '@leao/types';
+import type { Core, Internal, Struct, Modules } from '@leao1/types';
 
 import _ from 'lodash/fp';
 

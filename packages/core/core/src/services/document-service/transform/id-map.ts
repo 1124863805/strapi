@@ -1,5 +1,5 @@
-import { Core, Data, UID } from '@leao/types';
-import { async, contentTypes } from '@leao/utils';
+import { Core, Data, UID } from '@leao1/types';
+import { async, contentTypes } from '@leao1/utils';
 
 const hasDraftAndPublish = (uid: UID.CollectionType) => {
   const model = leao.getModel(uid);

@@ -1,8 +1,8 @@
 import type { Context, Next } from 'koa';
 import path from 'path';
-import utils from '@leao/utils';
+import utils from '@leao1/utils';
 import { isString, has, toLower, get } from 'lodash/fp';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 const { RateLimitError } = utils.errors;
 

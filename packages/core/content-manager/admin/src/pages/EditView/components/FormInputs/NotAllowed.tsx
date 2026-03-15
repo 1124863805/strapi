@@ -1,9 +1,9 @@
-import { Field, TextInput } from '@leao/design-system';
-import { EyeStriked } from '@leao/icons';
+import { Field, TextInput } from '@leao1/design-system';
+import { EyeStriked } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 
-import type { InputProps } from '@leao/admin/leao-admin';
-import type { Schema } from '@leao/types';
+import type { InputProps } from '@leao1/admin/leao-admin';
+import type { Schema } from '@leao1/types';
 
 interface NotAllowedInputProps extends Omit<InputProps, 'type'> {
   type: Schema.Attribute.Kind;

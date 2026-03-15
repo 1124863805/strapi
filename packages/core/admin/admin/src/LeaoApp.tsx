@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { darkTheme, lightTheme } from '@leao/design-system';
+import { darkTheme, lightTheme } from '@leao1/design-system';
 import invariant from 'invariant';
 import isFunction from 'lodash/isFunction';
 import merge from 'lodash/merge';

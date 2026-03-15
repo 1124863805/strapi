@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Button } from '@leao/design-system';
-import { Plus } from '@leao/icons';
-import { EmptyPermissions } from '@leao/icons/symbols';
+import { Button } from '@leao1/design-system';
+import { Plus } from '@leao1/icons';
+import { EmptyPermissions } from '@leao1/icons/symbols';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

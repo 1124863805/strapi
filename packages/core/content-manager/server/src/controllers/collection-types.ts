@@ -1,7 +1,7 @@
 import { isNil } from 'lodash/fp';
 
-import { setCreatorFields, async, errors } from '@leao/utils';
-import type { Modules, UID } from '@leao/types';
+import { setCreatorFields, async, errors } from '@leao1/utils';
+import type { Modules, UID } from '@leao1/types';
 
 import { getService } from '../utils';
 import { validateBulkActionInput } from './validation';

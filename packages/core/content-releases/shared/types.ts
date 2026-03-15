@@ -1,4 +1,4 @@
-import type { Data } from '@leao/types';
+import type { Data } from '@leao1/types';
 
 // @TODO: Probably user & role types should be imported from a common package
 interface RoleInfo extends Omit<Entity, 'createdAt' | 'updatedAt'> {

@@ -1,4 +1,4 @@
-import type { Struct } from '@leao/types';
+import type { Struct } from '@leao1/types';
 
 import { FOLDER_MODEL_UID, FILE_MODEL_UID } from '../constants';
 

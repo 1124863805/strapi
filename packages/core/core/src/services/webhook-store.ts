@@ -2,9 +2,9 @@
  * Webhook store is the implementation of webhook storage over the core_store
  */
 
-import { errors } from '@leao/utils';
-import type { Model, Database } from '@leao/database';
-import type { Modules } from '@leao/types';
+import { errors } from '@leao1/utils';
+import type { Model, Database } from '@leao1/database';
+import type { Modules } from '@leao1/types';
 
 const { ValidationError } = errors;
 

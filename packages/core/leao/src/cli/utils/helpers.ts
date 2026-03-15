@@ -122,8 +122,8 @@ const assertCwdContainsLeaoProject = (name: string) => {
   try {
     const pkgJSON = require(`${process.cwd()}/package.json`);
     if (
-      !has('dependencies.@leao/leao', pkgJSON) &&
-      !has('devDependencies.@leao/leao', pkgJSON)
+      !has('dependencies.@leao1/leao', pkgJSON) &&
+      !has('devDependencies.@leao1/leao', pkgJSON)
     ) {
       logErrorAndExit();
     }

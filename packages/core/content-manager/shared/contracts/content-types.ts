@@ -1,5 +1,5 @@
-import type { Struct } from '@leao/types';
-import { errors } from '@leao/utils';
+import type { Struct } from '@leao1/types';
+import { errors } from '@leao1/utils';
 import { ComponentConfiguration } from './components';
 
 export type Settings = {

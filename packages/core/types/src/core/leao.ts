@@ -1,5 +1,5 @@
-import type { Logger } from '@leao/logger';
-import type { Database } from '@leao/database';
+import type { Logger } from '@leao1/logger';
+import type { Database } from '@leao1/database';
 
 import type { PropertyPath } from 'lodash';
 import type * as Core from '.';

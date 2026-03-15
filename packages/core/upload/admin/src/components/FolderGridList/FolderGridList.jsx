@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Grid, KeyboardNavigable, Typography } from '@leao/design-system';
+import { Box, Grid, KeyboardNavigable, Typography } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 
 export const FolderGridList = ({ title, children }) => {

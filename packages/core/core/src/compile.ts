@@ -1,4 +1,4 @@
-import tsUtils from '@leao/typescript-utils';
+import tsUtils from '@leao1/typescript-utils';
 
 interface Options {
   appDir?: string;

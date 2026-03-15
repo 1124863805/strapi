@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import passport from 'koa-passport';
 import { getService } from '../../utils';
 import utils from './utils';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Main } from '@leao/design-system';
+import { Main } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { Layouts } from '../components/Layouts/Layout';

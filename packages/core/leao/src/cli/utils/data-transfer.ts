@@ -1,12 +1,12 @@
 import chalk from 'chalk';
 import Table from 'cli-table3';
 import { Command, Option } from 'commander';
-import { configs, createLogger, type winston } from '@leao/logger';
-import { createLeao, compileLeao } from '@leao/core';
+import { configs, createLogger, type winston } from '@leao1/logger';
+import { createLeao, compileLeao } from '@leao1/core';
 import ora from 'ora';
 import { merge } from 'lodash/fp';
-import type { Core } from '@leao/types';
-import { engine as engineDataTransfer, leao as leaoDataTransfer } from '@leao/data-transfer';
+import type { Core } from '@leao1/types';
+import { engine as engineDataTransfer, leao as leaoDataTransfer } from '@leao1/data-transfer';
 
 import { readableBytes, exitWith } from './helpers';
 import { getParseListWithChoices, parseInteger, confirmMessage } from './commander';

@@ -8,7 +8,7 @@ import {
   useAPIErrorHandler,
   FormErrors,
   useForm,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import {
   type DocumentActionComponent,
   type DocumentActionProps,
@@ -16,7 +16,7 @@ import {
   unstable_useDocumentActions as useDocumentActions,
   buildValidParams,
   HeaderActionProps,
-} from '@leao/content-manager/leao-admin';
+} from '@leao1/content-manager/leao-admin';
 import {
   Flex,
   Status,
@@ -28,9 +28,9 @@ import {
   SingleSelectOption,
   Dialog,
   type StatusVariant,
-} from '@leao/design-system';
-import { WarningCircle, ListPlus, Trash, Download, Cross, Plus } from '@leao/icons';
-import { Modules } from '@leao/types';
+} from '@leao1/design-system';
+import { WarningCircle, ListPlus, Trash, Download, Cross, Plus } from '@leao1/icons';
+import { Modules } from '@leao1/types';
 import { useIntl } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';

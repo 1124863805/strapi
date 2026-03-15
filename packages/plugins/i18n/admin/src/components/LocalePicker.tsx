@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { useQueryParams } from '@leao/admin/leao-admin';
-import { SingleSelect, SingleSelectOption } from '@leao/design-system';
+import { useQueryParams } from '@leao1/admin/leao-admin';
+import { SingleSelect, SingleSelectOption } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { useI18n } from '../hooks/useI18n';

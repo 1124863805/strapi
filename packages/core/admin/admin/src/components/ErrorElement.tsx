@@ -6,8 +6,8 @@ import {
   Typography,
   Link,
   TypographyComponent,
-} from '@leao/design-system';
-import { Duplicate, WarningCircle } from '@leao/icons';
+} from '@leao1/design-system';
+import { Duplicate, WarningCircle } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { useRouteError } from 'react-router-dom';
 import { styled } from 'styled-components';

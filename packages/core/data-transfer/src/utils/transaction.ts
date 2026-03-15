@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events';
 import { randomUUID } from 'crypto';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import { Transaction, TransactionCallback } from '../../types/utils';
 

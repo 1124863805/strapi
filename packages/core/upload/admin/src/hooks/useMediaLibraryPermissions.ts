@@ -1,4 +1,4 @@
-import { useRBAC } from '@leao/admin/leao-admin';
+import { useRBAC } from '@leao1/admin/leao-admin';
 
 // TODO: replace this import with the import from constants file when it will be migrated to TS
 import { PERMISSIONS } from '../newConstants';

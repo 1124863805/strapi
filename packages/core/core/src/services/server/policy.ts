@@ -1,5 +1,5 @@
-import { policy as policyUtils, errors } from '@leao/utils';
-import type { Core } from '@leao/types';
+import { policy as policyUtils, errors } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 
 const createPolicicesMiddleware = (route: Core.Route, leao: Core.Leao) => {
   const policiesConfig = route?.config?.policies ?? [];

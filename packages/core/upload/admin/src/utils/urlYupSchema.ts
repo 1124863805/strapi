@@ -1,4 +1,4 @@
-import { translatedErrors as errorsTrads } from '@leao/admin/leao-admin';
+import { translatedErrors as errorsTrads } from '@leao1/admin/leao-admin';
 import * as yup from 'yup';
 
 import { getTrad } from './getTrad';

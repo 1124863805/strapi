@@ -1,5 +1,5 @@
 import { isObject } from 'lodash/fp';
-import { engine as engineDataTransfer, leao as leaoDataTransfer } from '@leao/data-transfer';
+import { engine as engineDataTransfer, leao as leaoDataTransfer } from '@leao1/data-transfer';
 
 import {
   buildTransferTable,

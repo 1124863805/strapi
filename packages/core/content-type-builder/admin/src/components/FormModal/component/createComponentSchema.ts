@@ -1,4 +1,4 @@
-import { translatedErrors as errorsTrads } from '@leao/admin/leao-admin';
+import { translatedErrors as errorsTrads } from '@leao1/admin/leao-admin';
 import { snakeCase } from 'lodash/fp';
 import * as yup from 'yup';
 

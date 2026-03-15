@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import { sanitize, validate } from '@leao/utils';
+import { sanitize, validate } from '@leao1/utils';
 
-import type { Core, UID } from '@leao/types';
+import type { Core, UID } from '@leao1/types';
 
 import instantiatePermissionsUtilities from './permissions';
 

@@ -1,4 +1,4 @@
-import { Box } from '@leao/design-system';
+import { Box } from '@leao1/design-system';
 
 const RequiredSign = () => (
   <Box color="danger700" paddingLeft={1}>

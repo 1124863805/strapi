@@ -1,5 +1,5 @@
 import { isUndefined, get, isNil } from 'lodash/fp';
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 import { getService } from '../../../utils';
 import { FOLDER_MODEL_UID } from '../../../constants';
 import { folderExists } from './utils';

@@ -1,4 +1,4 @@
-import type { Logger } from '@leao/logger';
+import type { Logger } from '@leao1/logger';
 
 import { getDefaultEEInfo } from './features';
 

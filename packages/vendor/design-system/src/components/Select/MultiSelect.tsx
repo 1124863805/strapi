@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import * as React from 'react';
 
-import { Cross } from '@leao/icons';
+import { Cross } from '@leao1/icons';
 
 import { stripReactIdOfColon } from '../../helpers/strings';
 import { useId } from '../../hooks/useId';

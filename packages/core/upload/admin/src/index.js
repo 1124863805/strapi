@@ -1,4 +1,4 @@
-import { Images } from '@leao/icons';
+import { Images } from '@leao1/icons';
 
 import pluginPkg from '../../package.json';
 

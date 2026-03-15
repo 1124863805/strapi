@@ -1,6 +1,6 @@
 import open from 'open';
 
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 export const openBrowser = async (config: Core.ConfigProvider) => {
   const url = config.get<string>('admin.absoluteUrl');

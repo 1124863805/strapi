@@ -1,6 +1,6 @@
 {
-  "name": "@leao/content-manager",
-  "version": "5.0.6",
+  "name": "@leao1/content-manager",
+  "version": "1.0.0",
   "description": "A powerful UI to easily manage your data.",
   "repository": {
     "type": "git",
@@ -52,11 +52,11 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
-    "@leao/admin": "workspace:*",
-    "@leao/design-system": "workspace:*",
-    "@leao/icons": "workspace:*",
-    "@leao/types": "workspace:*",
-    "@leao/utils": "workspace:*",
+    "@leao1/admin": "^1.0.0",
+    "@leao1/design-system": "^1.0.0",
+    "@leao1/icons": "^1.0.0",
+    "@leao1/types": "^1.0.0",
+    "@leao1/utils": "^1.0.0",
     "@radix-ui/react-toolbar": "1.0.4",
     "@reduxjs/toolkit": "1.9.7",
     "@sindresorhus/slugify": "1.1.0",
@@ -93,8 +93,8 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@leao/database": "workspace:*",
-    "@leao/pack-up": "workspace:*",
+    "@leao1/database": "^1.0.0",
+    "@leao1/pack-up": "^1.0.0",
     "@types/lodash": "^4.14.191",
     "koa-body": "6.0.1",
     "react": "18.3.1",
@@ -103,7 +103,7 @@
     "styled-components": "6.1.8"
   },
   "peerDependencies": {
-    "@leao/admin": "^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc",
+    "@leao1/admin": "^1.0.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^6.0.0",

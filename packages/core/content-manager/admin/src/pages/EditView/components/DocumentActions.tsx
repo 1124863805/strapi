@@ -6,7 +6,7 @@ import {
   NotificationConfig,
   useAPIErrorHandler,
   useQueryParams,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import {
   Button,
   Dialog,
@@ -17,8 +17,8 @@ import {
   VisuallyHidden,
   Menu,
   ButtonProps,
-} from '@leao/design-system';
-import { Cross, More, WarningCircle } from '@leao/icons';
+} from '@leao1/design-system';
+import { Cross, More, WarningCircle } from '@leao1/icons';
 import mapValues from 'lodash/fp/mapValues';
 import { useIntl } from 'react-intl';
 import { useMatch, useNavigate } from 'react-router-dom';

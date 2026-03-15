@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { DesignSystemProvider } from '@leao/design-system';
+import { DesignSystemProvider } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { useDispatch } from 'react-redux';
 import { DefaultTheme, createGlobalStyle } from 'styled-components';

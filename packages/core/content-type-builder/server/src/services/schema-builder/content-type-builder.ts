@@ -1,8 +1,8 @@
 import path from 'path';
 import _ from 'lodash';
 
-import { strings, errors } from '@leao/utils';
-import type { Schema, Internal } from '@leao/types';
+import { strings, errors } from '@leao1/utils';
+import type { Schema, Internal } from '@leao1/types';
 import { isRelation, isConfigurable } from '../../utils/attributes';
 import { typeKinds } from '../constants';
 import createSchemaHandler from './schema-handler';

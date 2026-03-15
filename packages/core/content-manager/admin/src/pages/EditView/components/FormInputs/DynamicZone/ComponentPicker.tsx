@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, Flex, Accordion, Typography } from '@leao/design-system';
+import { Box, Flex, Accordion, Typography } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { getTranslation } from '../../../../../utils/translations';

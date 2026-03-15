@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Flex, Loader, Main, Typography, Link } from '@leao/design-system';
+import { Box, Button, Divider, Flex, Loader, Main, Typography, Link } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';

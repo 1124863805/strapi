@@ -1,5 +1,5 @@
-import type { Core, Data, Schema, Struct } from '@leao/types';
-import { async, errors } from '@leao/utils';
+import type { Core, Data, Schema, Struct } from '@leao1/types';
+import { async, errors } from '@leao1/utils';
 import { omit } from 'lodash/fp';
 
 import { FIELDS_TO_IGNORE, HISTORY_VERSION_UID } from '../constants';

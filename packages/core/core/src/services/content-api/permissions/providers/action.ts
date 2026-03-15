@@ -1,4 +1,4 @@
-import { providerFactory } from '@leao/utils';
+import { providerFactory } from '@leao1/utils';
 
 export default (options = {}) => {
   const provider = providerFactory(options);

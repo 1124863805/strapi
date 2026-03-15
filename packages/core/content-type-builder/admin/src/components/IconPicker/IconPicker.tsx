@@ -10,8 +10,8 @@ import {
   Tooltip,
   Typography,
   VisuallyHidden,
-} from '@leao/design-system';
-import { Search, Trash } from '@leao/icons';
+} from '@leao1/design-system';
+import { Search, Trash } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

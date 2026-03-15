@@ -23,7 +23,7 @@ export const dirContainsLeaoProject = (dir: string) => {
     const packageJsonPath = path.join(dir, 'package.json');
     const pkgJSON = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
     return Boolean(
-      pkgJSON.dependencies?.['@leao/leao'] || pkgJSON.devDependencies?.['@leao/leao']
+      pkgJSON.dependencies?.['@leao1/leao'] || pkgJSON.devDependencies?.['@leao1/leao']
     );
   } catch (err) {
     return false;

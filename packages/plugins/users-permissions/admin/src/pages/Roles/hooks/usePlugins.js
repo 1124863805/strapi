@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { useAPIErrorHandler, useNotification, useFetchClient } from '@leao/leao/admin';
+import { useAPIErrorHandler, useNotification, useFetchClient } from '@leao1/leao/admin';
 import { useQueries } from 'react-query';
 
 import { cleanPermissions, getTrad } from '../../../utils';

@@ -4,8 +4,8 @@
  *
  */
 
-import { Box, Flex, Typography } from '@leao/design-system';
-import { Sparkle } from '@leao/icons';
+import { Box, Flex, Typography } from '@leao1/design-system';
+import { Sparkle } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 
 import { useFormModalNavigation } from '../../hooks/useFormModalNavigation';

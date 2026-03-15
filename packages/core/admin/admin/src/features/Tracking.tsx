@@ -339,7 +339,7 @@ export interface UseTrackingReturn {
  *
  * @example
  * ```tsx
- * import { useTracking } from '@leao/leao/admin';
+ * import { useTracking } from '@leao1/leao/admin';
  *
  * const MyComponent = () => {
  *  const { trackUsage } = useTracking();

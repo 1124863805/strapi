@@ -1,5 +1,5 @@
-import { UID, Schema } from '@leao/types';
-import { contentTypes } from '@leao/utils';
+import { UID, Schema } from '@leao1/types';
+import { contentTypes } from '@leao1/utils';
 import type { Document } from '../document-manager';
 
 const { isVisibleAttribute } = contentTypes;

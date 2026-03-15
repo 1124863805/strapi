@@ -1,4 +1,4 @@
-import type { Struct } from '@leao/types';
+import type { Struct } from '@leao1/types';
 import type { OpenAPIV3 } from 'openapi-types';
 
 import getSchemaData from './get-schema-data';

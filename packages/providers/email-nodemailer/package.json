@@ -1,6 +1,6 @@
 {
-  "name": "@leao/provider-email-nodemailer",
-  "version": "5.0.6",
+  "name": "@leao1/provider-email-nodemailer",
+  "version": "1.0.0",
   "description": "Nodemailer provider for Leao 3",
   "keywords": [
     "leao",
@@ -59,7 +59,7 @@
     "nodemailer": "6.9.1"
   },
   "devDependencies": {
-    "@leao/pack-up": "workspace:*",
+    "@leao1/pack-up": "^1.0.0",
     "@types/nodemailer": "6.4.7",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"

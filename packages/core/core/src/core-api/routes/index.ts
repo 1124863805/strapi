@@ -1,5 +1,5 @@
-import { contentTypes as contentTypeUtils } from '@leao/utils';
-import type { Schema } from '@leao/types';
+import { contentTypes as contentTypeUtils } from '@leao1/utils';
+import type { Schema } from '@leao1/types';
 
 export const createRoutes = ({ contentType }: { contentType: Schema.ContentType }) => {
   if (contentTypeUtils.isSingleType(contentType)) {

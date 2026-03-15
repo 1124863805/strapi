@@ -1,8 +1,8 @@
 import type { Context } from 'koa';
 import { update, map, property } from 'lodash/fp';
 
-import type { Core } from '@leao/types';
-import { async } from '@leao/utils';
+import type { Core } from '@leao1/types';
+import { async } from '@leao1/utils';
 
 import { getService } from '../utils';
 import { validateWorkflowCreate, validateWorkflowUpdate } from '../validation/review-workflows';

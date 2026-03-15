@@ -1,7 +1,7 @@
 import type { Context } from 'koa';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
-import { async, validate } from '@leao/utils';
+import { async, validate } from '@leao1/utils';
 import { getService } from '../utils';
 import { validateUpdateStageOnEntity, validateLocale } from '../validation/review-workflows';
 import {

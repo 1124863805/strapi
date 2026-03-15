@@ -1,6 +1,6 @@
 {
-  "name": "@leao/plugin-users-permissions",
-  "version": "5.0.6",
+  "name": "@leao1/plugin-users-permissions",
+  "version": "1.0.0",
   "description": "Protect your API with a full-authentication process based on JWT",
   "repository": {
     "type": "git",
@@ -40,9 +40,9 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
-    "@leao/design-system": "workspace:*",
-    "@leao/icons": "workspace:*",
-    "@leao/utils": "workspace:*",
+    "@leao1/design-system": "^1.0.0",
+    "@leao1/icons": "^1.0.0",
+    "@leao1/utils": "^1.0.0",
     "bcryptjs": "2.4.3",
     "formik": "2.4.5",
     "grant-koa": "5.4.8",
@@ -61,15 +61,15 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@leao/leao": "workspace:*",
-    "@leao/pack-up": "workspace:*",
+    "@leao1/leao": "^1.0.0",
+    "@leao1/pack-up": "^1.0.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-router-dom": "6.22.3",
     "styled-components": "6.1.8"
   },
   "peerDependencies": {
-    "@leao/leao": "^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc",
+    "@leao1/leao": "^1.0.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^6.0.0",

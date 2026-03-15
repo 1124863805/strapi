@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button, Checkbox, Dialog, Field, Flex, Typography } from '@leao/design-system';
-import { WarningCircle } from '@leao/icons';
+import { Button, Checkbox, Dialog, Field, Flex, Typography } from '@leao1/design-system';
+import { WarningCircle } from '@leao1/icons';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

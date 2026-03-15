@@ -1,5 +1,5 @@
 import { Writable } from 'stream';
-import type { Core, UID } from '@leao/types';
+import type { Core, UID } from '@leao1/types';
 
 import { last } from 'lodash/fp';
 

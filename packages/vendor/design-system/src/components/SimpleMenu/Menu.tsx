@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { CaretDown, ChevronRight } from '@leao/icons';
+import { CaretDown, ChevronRight } from '@leao1/icons';
 import { styled, css, type DefaultTheme } from 'styled-components';
 
 import { extractStyleFromTheme } from '../../helpers/theme';

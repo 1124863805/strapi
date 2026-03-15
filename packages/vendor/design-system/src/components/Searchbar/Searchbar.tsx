@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Search, Cross } from '@leao/icons';
+import { Search, Cross } from '@leao1/icons';
 import { styled } from 'styled-components';
 
 import { composeRefs } from '../../hooks/useComposeRefs';

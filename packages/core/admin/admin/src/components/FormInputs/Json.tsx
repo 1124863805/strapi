@@ -5,7 +5,7 @@ import {
   useComposedRefs,
   Field,
   JSONInputRef,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 
 import { useFocusInputField } from '../../hooks/useFocusInputField';
 import { useField } from '../Form';

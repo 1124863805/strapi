@@ -1,6 +1,6 @@
-import type { Modules } from '@leao/types';
+import type { Modules } from '@leao1/types';
 
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 
 type Document = Modules.Documents.Document<any>;
 type AT_FIELDS = 'updatedAt' | 'createdAt' | 'publishedAt';

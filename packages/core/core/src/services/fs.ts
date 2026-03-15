@@ -1,7 +1,7 @@
 import path from 'path';
 import fse from 'fs-extra';
 
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 interface LeaoFS {
   writeAppFile(optPath: string | string[], data: string): Promise<void>;

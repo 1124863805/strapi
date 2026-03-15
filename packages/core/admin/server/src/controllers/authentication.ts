@@ -1,8 +1,8 @@
 import type { Context, Next } from 'koa';
 import passport from 'koa-passport';
 import compose from 'koa-compose';
-import '@leao/types';
-import { errors } from '@leao/utils';
+import '@leao1/types';
+import { errors } from '@leao1/utils';
 import { getService } from '../utils';
 import {
   validateRegistrationInput,

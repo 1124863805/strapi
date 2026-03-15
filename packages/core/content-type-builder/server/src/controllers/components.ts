@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import type { Context } from 'koa';
-import type { UID } from '@leao/types';
+import type { UID } from '@leao1/types';
 import { getService } from '../utils';
 import { validateComponentInput, validateUpdateComponentInput } from './validation/component';
 

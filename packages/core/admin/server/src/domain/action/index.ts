@@ -1,4 +1,4 @@
-import type { Utils } from '@leao/types';
+import type { Utils } from '@leao1/types';
 
 import { curry, pipe, merge, set, pick, omit, includes, isArray, prop } from 'lodash/fp';
 

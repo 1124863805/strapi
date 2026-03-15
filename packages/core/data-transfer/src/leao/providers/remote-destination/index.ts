@@ -2,7 +2,7 @@ import { randomUUID } from 'crypto';
 import { Writable } from 'stream';
 import { WebSocket } from 'ws';
 import { once } from 'lodash/fp';
-import type { Struct, Utils } from '@leao/types';
+import type { Struct, Utils } from '@leao1/types';
 
 import { createDispatcher, connectToWebsocket, trimTrailingSlash } from '../utils';
 

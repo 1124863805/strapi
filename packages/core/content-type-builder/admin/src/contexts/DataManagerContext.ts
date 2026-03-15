@@ -2,7 +2,7 @@
 import { createContext } from 'react';
 
 import type { SchemaType, Component } from '../types';
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 // TODO V5 Convert this any types to real types
 export interface CustomFieldAttributeParams {

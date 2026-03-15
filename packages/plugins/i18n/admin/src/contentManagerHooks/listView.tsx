@@ -3,7 +3,7 @@ import { LocaleListCell } from '../components/LocaleListCell';
 import { doesPluginOptionsHaveI18nLocalized } from '../utils/fields';
 import { getTranslation } from '../utils/getTranslation';
 
-import type { ListFieldLayout, ListLayout } from '@leao/content-manager/leao-admin';
+import type { ListFieldLayout, ListLayout } from '@leao1/content-manager/leao-admin';
 
 /* -------------------------------------------------------------------------------------------------
  * addColumnToTableHook

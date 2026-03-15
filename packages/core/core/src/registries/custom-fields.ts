@@ -1,6 +1,6 @@
 import { has, isPlainObject } from 'lodash/fp';
 
-import type { Core, Modules } from '@leao/types';
+import type { Core, Modules } from '@leao1/types';
 
 const ALLOWED_TYPES = [
   'biginteger',

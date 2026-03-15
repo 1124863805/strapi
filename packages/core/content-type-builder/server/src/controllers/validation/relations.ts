@@ -1,7 +1,7 @@
 import { isUndefined } from 'lodash/fp';
-import { yup } from '@leao/utils';
+import { yup } from '@leao1/utils';
 import type { TestContext, TestFunction } from 'yup';
-import type { Schema, UID } from '@leao/types';
+import type { Schema, UID } from '@leao1/types';
 import { typeKinds, coreUids } from '../../services/constants';
 import { isValidName } from './common';
 

@@ -1,6 +1,6 @@
-import { Box, Main, EmptyStateLayout, LinkButton } from '@leao/design-system';
-import { ExternalLink } from '@leao/icons';
-import { EmptyPermissions } from '@leao/icons/symbols';
+import { Box, Main, EmptyStateLayout, LinkButton } from '@leao1/design-system';
+import { ExternalLink } from '@leao1/icons';
+import { EmptyPermissions } from '@leao1/icons/symbols';
 import { useIntl } from 'react-intl';
 
 import { Layouts } from '../../../components/Layouts/Layout';

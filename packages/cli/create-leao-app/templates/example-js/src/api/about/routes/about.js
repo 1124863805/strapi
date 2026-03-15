@@ -4,6 +4,6 @@
  * about router.
  */
 
-const { createCoreRouter } = require('@leao/leao').factories;
+const { createCoreRouter } = require('@leao1/leao').factories;
 
 module.exports = createCoreRouter('api::about.about');

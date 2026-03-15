@@ -1,4 +1,4 @@
-import { Box, Flex, Typography } from '@leao/design-system';
+import { Box, Flex, Typography } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { Wrapper } from './Styles';

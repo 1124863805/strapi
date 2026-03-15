@@ -1,4 +1,4 @@
-import { Field, SingleSelect, SingleSelectOption } from '@leao/design-system';
+import { Field, SingleSelect, SingleSelectOption } from '@leao1/design-system';
 import { PrimitiveType, useIntl } from 'react-intl';
 
 type SelectDateTypeProps = {

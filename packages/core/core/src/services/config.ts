@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import { get, set, has, isString, isNumber, isArray, type PropertyPath } from 'lodash';
 
 type State = {

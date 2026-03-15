@@ -1,5 +1,5 @@
 import { curry, isArray, isEmpty, difference } from 'lodash/fp';
-import permissions, { type engine } from '@leao/permissions';
+import permissions, { type engine } from '@leao1/permissions';
 import type { Ability } from '@casl/ability';
 import permissionDomain from '../../domain/permission';
 import { getService } from '../../utils';

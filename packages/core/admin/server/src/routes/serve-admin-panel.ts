@@ -2,7 +2,7 @@ import type { Context, Next } from 'koa';
 import { resolve, join, extname, basename } from 'path';
 import fse from 'fs-extra';
 import koaStatic from 'koa-static';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 const registerAdminPanelRoute = ({ leao }: { leao: Core.Leao }) => {
   let buildDir = resolve(leao.dirs.dist.root, 'build');

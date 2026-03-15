@@ -1,6 +1,6 @@
 import type Koa from 'koa';
 
-import { async } from '@leao/utils';
+import { async } from '@leao1/utils';
 import {
   validateReleaseAction,
   validateReleaseActionUpdateSchema,

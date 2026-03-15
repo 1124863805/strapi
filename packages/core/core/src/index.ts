@@ -1,5 +1,5 @@
 import * as qs from 'qs';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import Leao, { type LeaoOptions } from './Leao';
 import { destroyOnSignal, resolveWorkingDirectories, createUpdateNotifier } from './utils';

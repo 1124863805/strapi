@@ -1,4 +1,4 @@
-import type { errors } from '@leao/utils';
+import type { errors } from '@leao1/utils';
 import type { SanitizedAdminUser, Permission } from './shared';
 
 /**

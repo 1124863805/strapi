@@ -5,9 +5,9 @@
  *
  */
 
-import { EmptyStateLayout, LinkButton } from '@leao/design-system';
-import { ArrowRight } from '@leao/icons';
-import { EmptyPictures } from '@leao/icons/symbols';
+import { EmptyStateLayout, LinkButton } from '@leao1/design-system';
+import { ArrowRight } from '@leao1/icons';
+import { EmptyPictures } from '@leao1/icons/symbols';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 

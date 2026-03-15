@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, Flex, Typography } from '@leao/design-system';
+import { Box, Flex, Typography } from '@leao1/design-system';
 
 interface DynamicZoneLabelProps {
   label?: React.ReactNode;

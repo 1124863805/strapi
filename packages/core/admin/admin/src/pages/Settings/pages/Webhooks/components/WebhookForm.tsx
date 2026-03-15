@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, Grid, TextInput } from '@leao/design-system';
-import { Check, Play as Publish } from '@leao/icons';
+import { Box, Button, Flex, Grid, TextInput } from '@leao1/design-system';
+import { Check, Play as Publish } from '@leao1/icons';
 import { IntlShape, useIntl } from 'react-intl';
 import * as yup from 'yup';
 
@@ -16,7 +16,7 @@ import { EventTableCE } from './EventsTable';
 import { HeadersInput } from './HeadersInput';
 import { TriggerContainer } from './TriggerContainer';
 
-import type { Modules } from '@leao/types';
+import type { Modules } from '@leao1/types';
 
 interface WebhookFormValues {
   name: Modules.WebhookStore.Webhook['name'];

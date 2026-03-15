@@ -25,8 +25,8 @@ import {
   TextInput,
   TextInputProps,
   Typography,
-} from '@leao/design-system';
-import { PlusCircle, Plus, ArrowClockwise } from '@leao/icons';
+} from '@leao1/design-system';
+import { PlusCircle, Plus, ArrowClockwise } from '@leao1/icons';
 import axios, { AxiosError } from 'axios';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

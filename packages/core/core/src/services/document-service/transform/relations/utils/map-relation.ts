@@ -1,8 +1,8 @@
 /* eslint-disable node/no-callback-literal */
 import { isObject, curry, isNil } from 'lodash/fp';
 
-import type { UID } from '@leao/types';
-import { traverseEntity, async } from '@leao/utils';
+import type { UID } from '@leao1/types';
+import { traverseEntity, async } from '@leao1/utils';
 
 import { Relation } from './types';
 

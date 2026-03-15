@@ -29,7 +29,7 @@ import { getTranslation } from './utils/getTranslation';
 import { prefixPluginTranslations } from './utils/prefixPluginTranslations';
 import { mutateCTBContentTypeSchema } from './utils/schemas';
 
-import type { DocumentActionComponent } from '@leao/content-manager/leao-admin';
+import type { DocumentActionComponent } from '@leao1/content-manager/leao-admin';
 
 // eslint-disable-next-line import/no-default-export
 export default {

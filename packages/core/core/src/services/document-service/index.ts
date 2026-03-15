@@ -1,4 +1,4 @@
-import type { Core, Modules, UID } from '@leao/types';
+import type { Core, Modules, UID } from '@leao1/types';
 
 import { createMiddlewareManager, databaseErrorsMiddleware } from './middlewares';
 import { createContentTypeRepository } from './repository';

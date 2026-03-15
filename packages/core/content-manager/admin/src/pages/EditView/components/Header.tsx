@@ -8,7 +8,7 @@ import {
   useNotification,
   useLeaoApp,
   useQueryParams,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import {
   Box,
   Flex,
@@ -17,8 +17,8 @@ import {
   Typography,
   IconButton,
   Dialog,
-} from '@leao/design-system';
-import { ListPlus, Pencil, Trash, WarningCircle } from '@leao/icons';
+} from '@leao1/design-system';
+import { ListPlus, Pencil, Trash, WarningCircle } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { useMatch, useNavigate } from 'react-router-dom';
 

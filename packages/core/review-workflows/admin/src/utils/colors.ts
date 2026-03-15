@@ -1,4 +1,4 @@
-import { lightTheme } from '@leao/design-system';
+import { lightTheme } from '@leao1/design-system';
 import { DefaultTheme } from 'styled-components';
 
 const STAGE_COLORS: Record<string, string> = {

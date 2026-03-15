@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Flex, Typography } from '@leao/design-system';
-import { ChevronDown, ChevronUp } from '@leao/icons';
+import { Flex, Typography } from '@leao1/design-system';
+import { ChevronDown, ChevronUp } from '@leao1/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { components } from 'react-select';

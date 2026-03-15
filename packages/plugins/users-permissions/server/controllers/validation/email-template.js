@@ -3,7 +3,7 @@
 const { trim } = require('lodash/fp');
 const {
   template: { createLooseInterpolationRegExp, createStrictInterpolationRegExp },
-} = require('@leao/utils');
+} = require('@leao1/utils');
 
 const invalidPatternsRegexes = [
   // Ignore "evaluation" patterns: <% ... %>

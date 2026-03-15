@@ -1,6 +1,6 @@
 import { randomUUID } from 'crypto';
 import { Writable, PassThrough } from 'stream';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import type { TransferFlow, Step } from '../flows';
 import type { TransferStage, IAsset, Protocol } from '../../../../types';

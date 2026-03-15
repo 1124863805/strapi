@@ -1,6 +1,6 @@
 import { pick, uniq, prop, getOr, flatten, pipe, map } from 'lodash/fp';
-import { contentTypes as contentTypesUtils, errors } from '@leao/utils';
-import type { Core } from '@leao/types';
+import { contentTypes as contentTypesUtils, errors } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 import { getService } from '../utils';
 import { validateGetNonLocalizedAttributesInput } from '../validation/content-types';
 

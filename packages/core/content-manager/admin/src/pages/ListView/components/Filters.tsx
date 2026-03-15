@@ -7,8 +7,8 @@ import {
   useAuth,
   useQueryParams,
   useAdminUsers,
-} from '@leao/admin/leao-admin';
-import { Combobox, ComboboxOption, useCollator } from '@leao/design-system';
+} from '@leao1/admin/leao-admin';
+import { Combobox, ComboboxOption, useCollator } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { CREATOR_FIELDS } from '../../../constants/attributes';

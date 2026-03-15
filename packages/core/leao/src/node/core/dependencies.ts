@@ -9,7 +9,7 @@ import type { BuildOptions } from '../build';
 import { getPackageManager } from './managers';
 
 /**
- * From V5 this will be imported from the package.json of `@leao/leao`.
+ * From V5 this will be imported from the package.json of `@leao1/leao`.
  */
 const PEER_DEPS = {
   react: '^18.0.0',

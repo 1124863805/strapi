@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { errors, async } from '@leao/utils';
+import { errors, async } from '@leao1/utils';
 
 import type { Context } from 'koa';
 

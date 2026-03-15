@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Layouts } from '@leao/admin/leao-admin';
+import { Layouts } from '@leao1/admin/leao-admin';
 import {
   IconButton,
   Table,
@@ -12,15 +12,15 @@ import {
   Typography,
   VisuallyHidden,
   useCollator,
-} from '@leao/design-system';
-import { Pencil } from '@leao/icons';
+} from '@leao1/design-system';
+import { Pencil } from '@leao1/icons';
 import {
   Page,
   useAPIErrorHandler,
   useNotification,
   useFetchClient,
   useRBAC,
-} from '@leao/leao/admin';
+} from '@leao1/leao/admin';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery, useQueryClient } from 'react-query';

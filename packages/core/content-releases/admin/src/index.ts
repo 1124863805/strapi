@@ -1,4 +1,4 @@
-import { PaperPlane } from '@leao/icons';
+import { PaperPlane } from '@leao1/icons';
 
 import { ReleaseAction } from './components/ReleaseAction';
 import { ReleaseActionModalForm } from './components/ReleaseActionModal';
@@ -8,12 +8,12 @@ import { PERMISSIONS } from './constants';
 import { pluginId } from './pluginId';
 import { prefixPluginTranslations } from './utils/prefixPluginTranslations';
 
-import type { LeaoApp } from '@leao/admin/leao-admin';
+import type { LeaoApp } from '@leao1/admin/leao-admin';
 import type {
   DocumentActionComponent,
   BulkActionComponent,
-} from '@leao/content-manager/leao-admin';
-import type { Plugin } from '@leao/types';
+} from '@leao1/content-manager/leao-admin';
+import type { Plugin } from '@leao1/types';
 
 // eslint-disable-next-line import/no-default-export
 const admin: Plugin.Config.AdminInput = {

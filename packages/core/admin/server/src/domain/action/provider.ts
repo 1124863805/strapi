@@ -1,4 +1,4 @@
-import { providerFactory, hooks, errors } from '@leao/utils';
+import { providerFactory, hooks, errors } from '@leao1/utils';
 import { validateRegisterProviderAction } from '../../validation/action-provider';
 
 import domain from './index';

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { Box, Flex, Typography } from '@leao/design-system';
-import { Plus } from '@leao/icons';
+import { Box, Flex, Typography } from '@leao1/design-system';
+import { Plus } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 
@@ -12,7 +12,7 @@ import { ComponentCard } from './ComponentCard';
 import { ComponentList } from './ComponentList';
 import { Tr } from './Tr';
 
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 interface DynamicZoneListProps {
   addComponent: (name?: string) => void;

@@ -4,7 +4,7 @@ import { PreviewSidePanel } from './components/PreviewSidePanel';
 import { FEATURE_ID } from './constants';
 
 import type { ContentManagerPlugin } from '../content-manager';
-import type { PluginDefinition } from '@leao/admin/leao-admin';
+import type { PluginDefinition } from '@leao1/admin/leao-admin';
 
 const previewAdmin = {
   bootstrap(app) {

@@ -1,8 +1,8 @@
 import { Kind, valueFromASTUntyped } from 'graphql';
 import { omit } from 'lodash/fp';
 import { unionType, scalarType } from 'nexus';
-import { errors } from '@leao/utils';
-import type { Internal, Schema } from '@leao/types';
+import { errors } from '@leao1/utils';
+import type { Internal, Schema } from '@leao1/types';
 
 import type { Context } from '../types';
 

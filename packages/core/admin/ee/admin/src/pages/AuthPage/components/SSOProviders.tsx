@@ -1,4 +1,4 @@
-import { Flex, Grid, Tooltip, Typography } from '@leao/design-system';
+import { Flex, Grid, Tooltip, Typography } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';

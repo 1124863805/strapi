@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, Flex, SkipToContent } from '@leao/design-system';
+import { Box, Flex, SkipToContent } from '@leao1/design-system';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';

@@ -1,6 +1,6 @@
-import { async } from '@leao/utils';
+import { async } from '@leao1/utils';
 
-import type { Migration, Database } from '@leao/database';
+import type { Migration, Database } from '@leao1/database';
 
 type Knex = Parameters<Migration['up']>[0];
 

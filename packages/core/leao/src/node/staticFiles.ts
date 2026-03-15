@@ -3,7 +3,7 @@ import path from 'node:path';
 import outdent from 'outdent';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { DefaultDocument } from '@leao/admin/_internal';
+import { DefaultDocument } from '@leao1/admin/_internal';
 
 import type { BuildContext } from './create-build-context';
 
@@ -22,7 +22,7 @@ const getEntryModule = (ctx: BuildContext): string => {
          * Any modifications made will be discarded.
          */
         ${pluginsImport}
-        import { renderAdmin } from "@leao/leao/admin"
+        import { renderAdmin } from "@leao1/leao/admin"
 
         ${
           ctx.customisations?.modulePath

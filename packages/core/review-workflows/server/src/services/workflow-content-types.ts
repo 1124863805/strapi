@@ -1,5 +1,5 @@
-import type { Core } from '@leao/types';
-import { async } from '@leao/utils';
+import type { Core } from '@leao1/types';
+import { async } from '@leao1/utils';
 import { difference, merge } from 'lodash/fp';
 import { getService } from '../utils';
 import { WORKFLOW_MODEL_UID } from '../constants/workflows';

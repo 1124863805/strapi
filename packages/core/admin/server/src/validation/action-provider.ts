@@ -1,4 +1,4 @@
-import { yup, validateYupSchemaSync } from '@leao/utils';
+import { yup, validateYupSchemaSync } from '@leao1/utils';
 import validators from './common-validators';
 
 const registerProviderActionSchema = yup

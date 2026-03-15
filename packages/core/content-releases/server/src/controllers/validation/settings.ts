@@ -1,4 +1,4 @@
-import { validateYupSchema } from '@leao/utils';
+import { validateYupSchema } from '@leao1/utils';
 import * as yup from 'yup';
 
 export const SETTINGS_SCHEMA = yup

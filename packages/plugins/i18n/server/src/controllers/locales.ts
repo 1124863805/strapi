@@ -1,6 +1,6 @@
-import * as utils from '@leao/utils';
+import * as utils from '@leao1/utils';
 import { pick } from 'lodash/fp';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import { getService } from '../utils';
 import { validateCreateLocaleInput, validateUpdateLocaleInput } from '../validation/locales';
 import { formatLocale } from '../domain/locale';

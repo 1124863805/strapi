@@ -1,4 +1,4 @@
-import { Typography } from '@leao/design-system';
+import { Typography } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { getTrad } from '../utils/getTrad';

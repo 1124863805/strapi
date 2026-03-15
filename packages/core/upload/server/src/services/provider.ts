@@ -1,6 +1,6 @@
 import { isFunction } from 'lodash/fp';
-import { file as fileUtils } from '@leao/utils';
-import type { Core } from '@leao/types';
+import { file as fileUtils } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 
 import { Config, UploadableFile } from '../types';
 

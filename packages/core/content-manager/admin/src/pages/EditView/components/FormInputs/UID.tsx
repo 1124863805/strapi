@@ -8,7 +8,7 @@ import {
   useAPIErrorHandler,
   useQueryParams,
   useFocusInputField,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import {
   Field,
   Flex,
@@ -16,8 +16,8 @@ import {
   TextInput,
   Typography,
   useComposedRefs,
-} from '@leao/design-system';
-import { CheckCircle, WarningCircle, Loader, ArrowClockwise } from '@leao/icons';
+} from '@leao1/design-system';
+import { CheckCircle, WarningCircle, Loader, ArrowClockwise } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { useMatch } from 'react-router-dom';
 import { styled, keyframes } from 'styled-components';
@@ -33,7 +33,7 @@ import {
 import { buildValidParams } from '../../../../utils/api';
 
 import type { CheckUIDAvailability } from '../../../../../../shared/contracts/uid';
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 /* -------------------------------------------------------------------------------------------------
  * InputUID

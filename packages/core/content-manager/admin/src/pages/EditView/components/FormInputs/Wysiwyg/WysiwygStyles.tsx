@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react';
-import { Button, IconButton, IconButtonComponent, IconButtonGroup } from '@leao/design-system';
+import { Button, IconButton, IconButtonComponent, IconButtonGroup } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
 // NAV BUTTONS - explicit type avoids portable inference from vendor styled-components

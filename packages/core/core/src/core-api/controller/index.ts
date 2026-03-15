@@ -1,7 +1,7 @@
 import { prop } from 'lodash/fp';
 import type Koa from 'koa';
-import { contentTypes as contentTypeUtils } from '@leao/utils';
-import type { Core, Struct } from '@leao/types';
+import { contentTypes as contentTypeUtils } from '@leao1/utils';
+import type { Core, Struct } from '@leao1/types';
 
 import { transformResponse } from './transform';
 import { createSingleTypeController } from './single-type';

@@ -9,8 +9,8 @@ import {
   FocusTrap,
   Portal,
   Typography,
-} from '@leao/design-system';
-import { Collapse } from '@leao/icons';
+} from '@leao1/design-system';
+import { Collapse } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

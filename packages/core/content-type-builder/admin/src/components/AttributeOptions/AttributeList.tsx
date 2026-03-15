@@ -1,4 +1,4 @@
-import { Flex, Grid, KeyboardNavigable } from '@leao/design-system';
+import { Flex, Grid, KeyboardNavigable } from '@leao1/design-system';
 
 import { IconByType } from '../AttributeIcon';
 

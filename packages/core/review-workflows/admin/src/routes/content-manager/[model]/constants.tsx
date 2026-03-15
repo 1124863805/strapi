@@ -3,8 +3,8 @@ import { AssigneeFilter } from './components/AssigneeFilter';
 import { StageFilter } from './components/StageFilter';
 import { AssigneeColumn, StageColumn } from './components/TableColumns';
 
-import type { Filters } from '@leao/admin/leao-admin';
-import type { ListFieldLayout } from '@leao/content-manager/leao-admin';
+import type { Filters } from '@leao1/admin/leao-admin';
+import type { ListFieldLayout } from '@leao1/content-manager/leao-admin';
 import type { MessageDescriptor } from 'react-intl';
 
 export const REVIEW_WORKFLOW_COLUMNS = [

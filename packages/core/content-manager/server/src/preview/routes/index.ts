@@ -1,4 +1,4 @@
-import type { Plugin } from '@leao/types';
+import type { Plugin } from '@leao1/types';
 import { previewRouter } from './preview';
 
 /**

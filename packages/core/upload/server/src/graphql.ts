@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import { FILE_MODEL_UID } from './constants';
 

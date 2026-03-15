@@ -10,7 +10,7 @@ import {
   useAPIErrorHandler,
   useNotification,
   useAuth,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import {
   Box,
   Button,
@@ -25,8 +25,8 @@ import {
   Tabs,
   Typography,
   useId,
-} from '@leao/design-system';
-import { Check, Plus } from '@leao/icons';
+} from '@leao1/design-system';
+import { Check, Plus } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import * as yup from 'yup';
 

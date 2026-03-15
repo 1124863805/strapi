@@ -1,4 +1,4 @@
-import { SingleSelectOption, SingleSelect, Typography, Field } from '@leao/design-system';
+import { SingleSelectOption, SingleSelect, Typography, Field } from '@leao1/design-system';
 import { MessageDescriptor, useIntl } from 'react-intl';
 
 import { getDateOfExpiration } from '../../pages/ApiTokens/EditView/utils/getDateOfExpiration';

@@ -9,8 +9,8 @@ import {
 
 import { contentManagerApi } from './api';
 
-import type { Modules } from '@leao/types';
-import type { errors } from '@leao/utils';
+import type { Modules } from '@leao1/types';
+import type { errors } from '@leao1/utils';
 
 interface RelationResult extends RelResult {
   __temp_key__: string;

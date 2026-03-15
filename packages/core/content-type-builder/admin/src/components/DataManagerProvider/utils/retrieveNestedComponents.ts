@@ -1,5 +1,5 @@
 import type { Components, AttributeType } from '../../../types';
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 export type NestedComponent = {
   component: Internal.UID.Component;

@@ -1,6 +1,6 @@
 import { defaultsDeep } from 'lodash/fp';
 import koaStatic from 'koa-static';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 type Config = koaStatic.Options;
 

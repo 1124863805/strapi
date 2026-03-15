@@ -1,6 +1,6 @@
 import { Readable } from 'stream';
 import { chain } from 'stream-chain';
-import type { Core, Struct } from '@leao/types';
+import type { Core, Struct } from '@leao1/types';
 
 import type { IMetadata, ISourceProvider, ProviderType } from '../../../../types';
 import { createEntitiesStream, createEntitiesTransformStream } from './entities';

@@ -1,5 +1,5 @@
-import { Field, MultiSelect, MultiSelectOption } from '@leao/design-system';
-import { Loader as LoadingIcon } from '@leao/icons';
+import { Field, MultiSelect, MultiSelectOption } from '@leao1/design-system';
+import { Loader as LoadingIcon } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { styled, keyframes } from 'styled-components';
 

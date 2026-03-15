@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DateTimePicker, SingleSelectOption, SingleSelect } from '@leao/design-system';
+import { DateTimePicker, SingleSelectOption, SingleSelect } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

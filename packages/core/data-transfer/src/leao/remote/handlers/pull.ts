@@ -1,6 +1,6 @@
 import { Readable } from 'stream';
 import { randomUUID } from 'crypto';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import { Handler } from './abstract';
 import { handlerControllerFactory, isDataTransferMessage } from './utils';

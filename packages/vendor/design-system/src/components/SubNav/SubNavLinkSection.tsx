@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { CaretDown } from '@leao/icons';
+import { CaretDown } from '@leao1/icons';
 import { styled } from 'styled-components';
 
 import { useId } from '../../hooks/useId';

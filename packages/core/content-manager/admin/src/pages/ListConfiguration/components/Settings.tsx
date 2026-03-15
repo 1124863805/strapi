@@ -1,8 +1,8 @@
 // @ts-nocheck
 import * as React from 'react';
 
-import { useForm, InputRenderer, type InputProps } from '@leao/admin/leao-admin';
-import { Flex, Grid, Typography, useCollator } from '@leao/design-system';
+import { useForm, InputRenderer, type InputProps } from '@leao1/admin/leao-admin';
+import { Flex, Grid, Typography, useCollator } from '@leao1/design-system';
 import { type MessageDescriptor, useIntl } from 'react-intl';
 
 import { useDoc } from '../../../hooks/useDocument';

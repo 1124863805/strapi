@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Avatar, Box, Flex } from '@leao/design-system';
-import { Folder } from '@leao/icons';
+import { Avatar, Box, Flex } from '@leao1/design-system';
+import { Folder } from '@leao1/icons';
 import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 

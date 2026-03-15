@@ -1,4 +1,4 @@
-import type { Core, Modules } from '@leao/types';
+import type { Core, Modules } from '@leao1/types';
 
 const createCustomFields = (leao: Core.Leao): Modules.CustomFields.CustomFields => {
   return {

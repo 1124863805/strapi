@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Flex, Typography, Status, IconButton, Dialog } from '@leao/design-system';
-import { Pencil, Trash } from '@leao/icons';
+import { Flex, Typography, Status, IconButton, Dialog } from '@leao1/design-system';
+import { Pencil, Trash } from '@leao1/icons';
 import * as qs from 'qs';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';

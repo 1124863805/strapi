@@ -1,14 +1,14 @@
 /* eslint-disable check-file/filename-naming-convention */
 import * as React from 'react';
 
-import { Flex, VisuallyHidden } from '@leao/design-system';
-import { Earth, EarthStriked } from '@leao/icons';
+import { Flex, VisuallyHidden } from '@leao1/design-system';
+import { Earth, EarthStriked } from '@leao1/icons';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 
 import { getTranslation } from '../utils/getTranslation';
 
-import type { EditFieldLayout, EditLayout } from '@leao/content-manager/leao-admin';
+import type { EditFieldLayout, EditLayout } from '@leao1/content-manager/leao-admin';
 
 interface MutateEditViewArgs {
   layout: EditLayout;

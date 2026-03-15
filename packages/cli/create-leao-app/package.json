@@ -1,6 +1,6 @@
 {
   "name": "create-leao-app",
-  "version": "5.0.6",
+  "version": "1.0.0",
   "description": "Generate a new Leao application.",
   "keywords": [
     "create-leao-app",
@@ -60,7 +60,7 @@
     "sort-package-json": "2.10.0"
   },
   "devDependencies": {
-    "@leao/pack-up": "workspace:*",
+    "@leao1/pack-up": "^1.0.0",
     "@types/fs-extra": "11.0.4",
     "@types/inquirer": "8.2.5",
     "eslint-config-custom": "workspace:*",

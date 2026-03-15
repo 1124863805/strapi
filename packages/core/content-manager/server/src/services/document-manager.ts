@@ -1,7 +1,7 @@
 import { omit, pipe } from 'lodash/fp';
 
-import { contentTypes, errors, pagination } from '@leao/utils';
-import type { Core, Modules, UID } from '@leao/types';
+import { contentTypes, errors, pagination } from '@leao1/utils';
+import type { Core, Modules, UID } from '@leao1/types';
 
 import { buildDeepPopulate, getDeepPopulate, getDeepPopulateDraftCount } from './utils/populate';
 import { sumDraftCounts } from './utils/draft';

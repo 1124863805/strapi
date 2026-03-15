@@ -9,8 +9,8 @@ import {
   useRBAC,
   isFetchError,
   Layouts,
-} from '@leao/admin/leao-admin';
-import { useEEInfo } from '@leao/admin/leao-admin/ee';
+} from '@leao1/admin/leao-admin';
+import { useEEInfo } from '@leao1/admin/leao-admin/ee';
 import {
   Alert,
   Badge,
@@ -24,9 +24,9 @@ import {
   Tabs,
   Typography,
   Link,
-} from '@leao/design-system';
-import { Plus } from '@leao/icons';
-import { EmptyDocuments } from '@leao/icons/symbols';
+} from '@leao1/design-system';
+import { Plus } from '@leao1/icons';
+import { EmptyDocuments } from '@leao1/icons/symbols';
 import { format } from 'date-fns';
 import { useIntl } from 'react-intl';
 import { useNavigate, useLocation, NavLink } from 'react-router-dom';

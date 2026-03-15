@@ -1,5 +1,5 @@
 import path from 'path';
-import type { Internal, Struct } from '@leao/types';
+import type { Internal, Struct } from '@leao1/types';
 import fse from 'fs-extra';
 import _ from 'lodash';
 

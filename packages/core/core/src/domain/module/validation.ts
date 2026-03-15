@@ -1,4 +1,4 @@
-import { yup } from '@leao/utils';
+import { yup } from '@leao1/utils';
 
 const leaoServerSchema = yup
   .object()

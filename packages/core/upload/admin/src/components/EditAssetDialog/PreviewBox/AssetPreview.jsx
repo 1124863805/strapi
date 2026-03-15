@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { forwardRef } from 'react';
 
-import { Flex } from '@leao/design-system';
-import { File, FilePdf } from '@leao/icons';
+import { Flex } from '@leao1/design-system';
+import { File, FilePdf } from '@leao1/icons';
 import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 

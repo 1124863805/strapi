@@ -1,7 +1,7 @@
 'use strict';
 
 const { curry } = require('lodash/fp');
-const { traverseEntity, async } = require('@leao/utils');
+const { traverseEntity, async } = require('@leao1/utils');
 
 const { removeUserRelationFromRoleEntities } = require('./visitors');
 

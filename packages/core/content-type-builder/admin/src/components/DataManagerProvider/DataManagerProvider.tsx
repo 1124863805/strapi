@@ -8,7 +8,7 @@ import {
   useAppInfo,
   useFetchClient,
   useAuth,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import get from 'lodash/get';
 import groupBy from 'lodash/groupBy';
 import set from 'lodash/set';
@@ -56,7 +56,7 @@ import { serverRestartWatcher } from './utils/serverRestartWatcher';
 import { validateSchema } from './utils/validateSchema';
 
 import type { ContentType, SchemaType, Components } from '../../types';
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 interface DataManagerProviderProps {
   children: ReactNode;

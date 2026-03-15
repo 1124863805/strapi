@@ -41,7 +41,7 @@ const TYPESCRIPT = (pluginId: string): TemplateFile[] => [
   {
     name: 'server/src/bootstrap.ts',
     contents: outdent`
-    import type { Core } from '@leao/leao';
+    import type { Core } from '@leao1/leao';
 
     const bootstrap = ({ leao }: { leao: Core.Leao }) => {
       // bootstrap phase
@@ -53,7 +53,7 @@ const TYPESCRIPT = (pluginId: string): TemplateFile[] => [
   {
     name: 'server/src/destroy.ts',
     contents: outdent`
-    import type { Core } from '@leao/leao';
+    import type { Core } from '@leao1/leao';
 
     const destroy = ({ leao }: { leao: Core.Leao }) => {
       // destroy phase
@@ -65,7 +65,7 @@ const TYPESCRIPT = (pluginId: string): TemplateFile[] => [
   {
     name: 'server/src/register.ts',
     contents: outdent`
-    import type { Core } from '@leao/leao';
+    import type { Core } from '@leao1/leao';
 
     const register = ({ leao }: { leao: Core.Leao }) => {
       // register phase
@@ -102,7 +102,7 @@ const TYPESCRIPT = (pluginId: string): TemplateFile[] => [
   {
     name: 'server/src/controllers/controller.ts',
     contents: outdent`
-    import type { Core } from '@leao/leao';
+    import type { Core } from '@leao1/leao';
 
     const controller = ({ leao }: { leao: Core.Leao }) => ({
       index(ctx) {
@@ -184,7 +184,7 @@ const TYPESCRIPT = (pluginId: string): TemplateFile[] => [
   {
     name: 'server/src/services/service.ts',
     contents: outdent`
-    import type { Core } from '@leao/leao';
+    import type { Core } from '@leao1/leao';
 
     const service = ({ leao }: { leao: Core.Leao }) => ({
         getWelcomeMessage() {

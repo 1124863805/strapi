@@ -1,4 +1,4 @@
-import type { Plugin } from '@leao/types';
+import type { Plugin } from '@leao1/types';
 
 import { FEATURE_ID } from './constants';
 import { routes } from './routes';

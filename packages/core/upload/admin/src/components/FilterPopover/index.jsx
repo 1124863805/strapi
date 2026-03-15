@@ -13,8 +13,8 @@ import {
   SingleSelectOption,
   Popover,
   SingleSelect,
-} from '@leao/design-system';
-import { Plus } from '@leao/icons';
+} from '@leao1/design-system';
+import { Plus } from '@leao1/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

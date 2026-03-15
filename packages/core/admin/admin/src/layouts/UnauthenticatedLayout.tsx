@@ -7,7 +7,7 @@ import {
   FlexComponent,
   SingleSelect,
   SingleSelectOption,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

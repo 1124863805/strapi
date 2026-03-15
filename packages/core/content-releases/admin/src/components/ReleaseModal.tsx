@@ -13,7 +13,7 @@ import {
   Combobox,
   ComboboxOption,
   Field,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import { formatISO } from 'date-fns';
 import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz';
 import { Formik, Form, useFormikContext } from 'formik';

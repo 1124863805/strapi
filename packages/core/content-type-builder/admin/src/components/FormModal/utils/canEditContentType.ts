@@ -3,7 +3,7 @@ import get from 'lodash/get';
 import { getRelationType } from '../../../utils/getRelationType';
 
 import type { AttributeType } from '../../../types';
-import type { Internal, Struct } from '@leao/types';
+import type { Internal, Struct } from '@leao1/types';
 
 export type EditableContentTypeSchema = {
   kind: Struct.ContentTypeKind;

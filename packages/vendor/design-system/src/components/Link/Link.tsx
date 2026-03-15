@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ExternalLink } from '@leao/icons';
+import { ExternalLink } from '@leao1/icons';
 import { styled } from 'styled-components';
 
 import { Typography } from '../../primitives/Typography';

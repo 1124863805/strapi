@@ -1,7 +1,7 @@
 import { join, extname, basename } from 'path';
 import fse from 'fs-extra';
-import { importDefault } from '@leao/utils';
-import type { Core } from '@leao/types';
+import { importDefault } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 import { middlewares as internalMiddlewares } from '../middlewares';
 
 // TODO:: allow folders with index.js inside for bigger policies

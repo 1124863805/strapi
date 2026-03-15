@@ -1,8 +1,8 @@
-import type { Schema, Modules, UID, Struct } from '@leao/types';
+import type { Schema, Modules, UID, Struct } from '@leao1/types';
 import type { Release, Pagination } from './releases';
 import type { Entity } from '../types';
 
-import type { errors } from '@leao/utils';
+import type { errors } from '@leao1/utils';
 
 type ReleaseActionEntryType = 'single-types' | 'collection-types';
 

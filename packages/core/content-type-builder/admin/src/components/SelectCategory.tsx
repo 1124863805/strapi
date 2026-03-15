@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { ComboboxOption, Combobox, Field } from '@leao/design-system';
+import { ComboboxOption, Combobox, Field } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { useDataManager } from '../hooks/useDataManager';

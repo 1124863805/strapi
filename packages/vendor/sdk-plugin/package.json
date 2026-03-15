@@ -1,6 +1,6 @@
 {
-  "name": "@leao/sdk-plugin",
-  "version": "6.0.1",
+  "name": "@leao1/sdk-plugin",
+  "version": "1.0.0",
   "description": "Simple tools for developing Leao plugins",
   "keywords": [
     "leao",

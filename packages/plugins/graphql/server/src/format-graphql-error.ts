@@ -1,5 +1,5 @@
 import { toUpper, snakeCase, pick, isEmpty } from 'lodash/fp';
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import { unwrapResolverError } from '@apollo/server/errors';
 import { GraphQLError, type GraphQLFormattedError } from 'graphql';
 

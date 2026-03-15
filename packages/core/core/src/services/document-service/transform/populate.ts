@@ -1,5 +1,5 @@
-import { traverse } from '@leao/utils';
-import type { UID } from '@leao/types';
+import { traverse } from '@leao1/utils';
+import type { UID } from '@leao1/types';
 
 import { type Data } from './types';
 import { transformFields } from './fields';

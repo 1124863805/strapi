@@ -1,4 +1,4 @@
-import { yup } from '@leao/utils';
+import { yup } from '@leao1/utils';
 import _ from 'lodash';
 import { isEmpty, has, isNil, isArray } from 'lodash/fp';
 import { getService } from '../utils';

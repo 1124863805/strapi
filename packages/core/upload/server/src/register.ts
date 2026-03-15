@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-import { errors, file } from '@leao/utils';
-import type { Core } from '@leao/types';
+import { errors, file } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 
 import registerUploadMiddleware from './middlewares/upload';
 import spec from '../../documentation/content-api.json';
@@ -42,7 +42,7 @@ const createProvider = (config: Config) => {
 
   let modulePath;
   try {
-    modulePath = require.resolve(`@leao/provider-upload-${providerName}`);
+    modulePath = require.resolve(`@leao1/provider-upload-${providerName}`);
   } catch (error) {
     if (
       typeof error === 'object' &&

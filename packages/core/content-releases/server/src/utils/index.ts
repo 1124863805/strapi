@@ -1,4 +1,4 @@
-import type { UID, Data, Core } from '@leao/types';
+import type { UID, Data, Core } from '@leao1/types';
 
 import type { SettingsService } from '../services/settings';
 import type { ReleaseService } from '../services/release';

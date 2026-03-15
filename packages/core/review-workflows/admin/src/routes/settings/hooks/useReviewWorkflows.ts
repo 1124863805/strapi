@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useAPIErrorHandler, useNotification } from '@leao/admin/leao-admin';
+import { useAPIErrorHandler, useNotification } from '@leao1/admin/leao-admin';
 import { type MessageDescriptor, useIntl } from 'react-intl';
 
 import {

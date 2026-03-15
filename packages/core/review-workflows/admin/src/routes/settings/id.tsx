@@ -10,10 +10,10 @@ import {
   Page,
   FormProps,
   FormHelpers,
-} from '@leao/admin/leao-admin';
-import { useEEInfo } from '@leao/admin/leao-admin/ee';
-import { Button, Dialog, Flex, Typography } from '@leao/design-system';
-import { Check } from '@leao/icons';
+} from '@leao1/admin/leao-admin';
+import { useEEInfo } from '@leao1/admin/leao-admin/ee';
+import { Button, Dialog, Flex, Typography } from '@leao1/design-system';
+import { Check } from '@leao1/icons';
 import { generateNKeysBetween } from 'fractional-indexing';
 import { useIntl } from 'react-intl';
 import { useNavigate, useParams } from 'react-router-dom';

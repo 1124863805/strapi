@@ -1,4 +1,4 @@
-import { SingleSelectOption, SingleSelect, Field } from '@leao/design-system';
+import { SingleSelectOption, SingleSelect, Field } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 type SelectNumberProps = {

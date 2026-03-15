@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Link, LinkProps } from '@leao/design-system';
-import { ArrowLeft } from '@leao/icons';
+import { Link, LinkProps } from '@leao1/design-system';
+import { ArrowLeft } from '@leao1/icons';
 import { produce } from 'immer';
 import { useIntl } from 'react-intl';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';

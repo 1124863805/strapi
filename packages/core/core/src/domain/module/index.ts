@@ -1,6 +1,6 @@
 import _, { type PropertyPath, flatten } from 'lodash';
-import { yup } from '@leao/utils';
-import type { Core, UID, Struct } from '@leao/types';
+import { yup } from '@leao1/utils';
+import type { Core, UID, Struct } from '@leao1/types';
 
 import { removeNamespace } from '../../registries/namespace';
 import { validateModule } from './validation';

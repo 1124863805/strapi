@@ -9,7 +9,7 @@ import {
   Grid,
   Modal,
   Typography,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import get from 'lodash/get';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

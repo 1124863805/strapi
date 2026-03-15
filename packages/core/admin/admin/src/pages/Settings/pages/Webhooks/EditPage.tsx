@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Main } from '@leao/design-system';
-import { Modules } from '@leao/types';
+import { Main } from '@leao1/design-system';
+import { Modules } from '@leao1/types';
 import { useIntl } from 'react-intl';
 import { useNavigate, useMatch } from 'react-router-dom';
 

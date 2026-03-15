@@ -9,10 +9,10 @@ import {
   Toggle,
   Typography,
   Field,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 // Leao Icons
-import { Check, Eye as Show, EyeStriked as Hide } from '@leao/icons';
-import { translatedErrors, useRBAC, Layouts } from '@leao/leao/admin';
+import { Check, Eye as Show, EyeStriked as Hide } from '@leao1/icons';
+import { translatedErrors, useRBAC, Layouts } from '@leao1/leao/admin';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

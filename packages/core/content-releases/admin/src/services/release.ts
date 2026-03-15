@@ -1,4 +1,4 @@
-import { adminApi } from '@leao/admin/leao-admin';
+import { adminApi } from '@leao1/admin/leao-admin';
 
 import {
   CreateReleaseAction,

@@ -1,6 +1,6 @@
 {
-  "name": "@leao/provider-upload-aws-s3",
-  "version": "5.0.6",
+  "name": "@leao1/provider-upload-aws-s3",
+  "version": "1.0.0",
   "description": "AWS S3 provider for leao upload",
   "keywords": [
     "upload",
@@ -50,7 +50,7 @@
     "lodash": "4.17.21"
   },
   "devDependencies": {
-    "@leao/pack-up": "workspace:*",
+    "@leao1/pack-up": "^1.0.0",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"
   },

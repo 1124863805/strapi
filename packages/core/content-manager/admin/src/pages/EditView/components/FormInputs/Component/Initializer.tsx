@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { useField } from '@leao/admin/leao-admin';
-import { Box, Flex, Typography } from '@leao/design-system';
-import { PlusCircle } from '@leao/icons';
+import { useField } from '@leao1/admin/leao-admin';
+import { Box, Flex, Typography } from '@leao1/design-system';
+import { PlusCircle } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

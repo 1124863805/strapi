@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Cog, House } from '@leao/icons';
+import { Cog, House } from '@leao1/icons';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { useTypedSelector } from '../core/store/hooks';

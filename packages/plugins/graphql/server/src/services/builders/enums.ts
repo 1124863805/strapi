@@ -1,6 +1,6 @@
 import { enumType } from 'nexus';
 import { set } from 'lodash/fp';
-import { strings } from '@leao/utils';
+import { strings } from '@leao1/utils';
 
 interface Definition {
   enum: string[];

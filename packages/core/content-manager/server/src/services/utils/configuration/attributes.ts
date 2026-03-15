@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { intersection } from 'lodash/fp';
-import { contentTypes as contentTypesUtils } from '@leao/utils';
+import { contentTypes as contentTypesUtils } from '@leao1/utils';
 
 import { SYSTEM_FIELDS } from './constants';
 

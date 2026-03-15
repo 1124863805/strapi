@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Flex, Grid, Typography } from '@leao/design-system';
+import { Flex, Grid, Typography } from '@leao1/design-system';
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import without from 'lodash/without';

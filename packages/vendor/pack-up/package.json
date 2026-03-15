@@ -1,6 +1,6 @@
 {
-  "name": "@leao/pack-up",
-  "version": "5.1.1",
+  "name": "@leao1/pack-up",
+  "version": "1.0.0",
   "description": "Simple tools for creating interoperable CJS & ESM packages.",
   "keywords": [
     "leao",
@@ -52,7 +52,6 @@
     "build": "node -r esbuild-register scripts/build",
     "check": "node -r esbuild-register scripts/check",
     "lint": "eslint .",
-    "prepare": "husky",
     "prerelease:enter": "changeset pre enter",
     "prerelease:exit": "changeset pre exit",
     "prettier:check": "prettier --check .",

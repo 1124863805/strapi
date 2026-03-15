@@ -1,5 +1,5 @@
-import { yup } from '@leao/utils';
-import type { Core } from '@leao/types';
+import { yup } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 import { resolveMiddlewares } from './middleware';
 
 type MiddlewareConfig = (string | { name?: string; resolve?: string; config?: unknown })[];

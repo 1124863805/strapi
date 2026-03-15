@@ -1,4 +1,4 @@
-import { env } from '@leao/utils';
+import { env } from '@leao1/utils';
 
 export interface Config {
   validator: (config: Record<string, unknown>) => void;

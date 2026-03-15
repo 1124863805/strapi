@@ -1,4 +1,4 @@
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 
 import type {
   AdminUserCreationPayload,
@@ -6,7 +6,7 @@ import type {
   Pagination,
   SanitizedAdminUser,
 } from './shared';
-import type { Data, Modules } from '@leao/types';
+import type { Data, Modules } from '@leao1/types';
 
 /**
  * /create - Create an admin user

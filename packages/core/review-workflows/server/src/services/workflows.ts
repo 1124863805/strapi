@@ -1,6 +1,6 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import { set, isString, map, get } from 'lodash/fp';
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import { WORKFLOW_MODEL_UID, WORKFLOW_POPULATE } from '../constants/workflows';
 import { getService } from '../utils';
 import { getWorkflowContentTypeFilter } from '../utils/review-workflows';

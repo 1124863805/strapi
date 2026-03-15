@@ -1,4 +1,4 @@
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import type { File } from 'formidable';
 
 export interface Logo {

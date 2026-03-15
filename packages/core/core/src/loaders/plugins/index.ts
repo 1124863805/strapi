@@ -3,8 +3,8 @@ import fse from 'fs-extra';
 import { defaultsDeep, defaults, getOr, get } from 'lodash/fp';
 import * as resolve from 'resolve.exports';
 
-import { env } from '@leao/utils';
-import type { Core, Plugin, Struct } from '@leao/types';
+import { env } from '@leao1/utils';
+import type { Core, Plugin, Struct } from '@leao1/types';
 import { loadConfigFile } from '../../utils/load-config-file';
 import { loadFiles } from '../../utils/load-files';
 import { getEnabledPlugins } from './get-enabled-plugins';

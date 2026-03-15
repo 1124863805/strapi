@@ -82,7 +82,7 @@ export interface SchemaInfo {
 
   /**
    * Specifies the visual identifier - an icon, for the schema inside the admin panel. It eases
-   * recognition and improves navigation. The value should be any valid @leao/icon name. This
+   * recognition and improves navigation. The value should be any valid @leao1/icon name. This
    * property is optional, and if omitted, a default icon might be used by the interface.
    */
   icon?: string;
@@ -149,7 +149,7 @@ export interface SchemaOptions {
  * Using `SchemaPluginOptions` in the schema definition:
  *
  * ```typescript
- * import type { Struct } from '@leao/types';
+ * import type { Struct } from '@leao1/types';
  *
  * const leaoPluginOptions: Struct.SchemaPluginOptions = {
  *   'plugin-foo': {

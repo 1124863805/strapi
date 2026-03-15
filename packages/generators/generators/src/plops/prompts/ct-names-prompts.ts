@@ -1,6 +1,6 @@
 import pluralize from 'pluralize';
 import slugify from '@sindresorhus/slugify';
-import { strings } from '@leao/utils';
+import { strings } from '@leao1/utils';
 
 import type { PromptQuestion } from 'node-plop';
 

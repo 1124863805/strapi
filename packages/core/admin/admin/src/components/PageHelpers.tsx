@@ -8,9 +8,9 @@ import {
   Loader,
   Main,
   MainProps,
-} from '@leao/design-system';
-import { WarningCircle } from '@leao/icons';
-import { EmptyPermissions, EmptyDocuments } from '@leao/icons/symbols';
+} from '@leao1/design-system';
+import { WarningCircle } from '@leao1/icons';
+import { EmptyPermissions, EmptyDocuments } from '@leao1/icons/symbols';
 import { useIntl } from 'react-intl';
 
 import { useAuth, Permission } from '../features/Auth';

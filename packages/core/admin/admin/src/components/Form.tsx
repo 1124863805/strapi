@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button, Dialog, useCallbackRef, useComposedRefs } from '@leao/design-system';
-import { WarningCircle } from '@leao/icons';
+import { Button, Dialog, useCallbackRef, useComposedRefs } from '@leao1/design-system';
+import { WarningCircle } from '@leao1/icons';
 import { generateNKeysBetween } from 'fractional-indexing';
 import { produce } from 'immer';
 import isEqual from 'lodash/isEqual';

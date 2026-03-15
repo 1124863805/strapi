@@ -6,9 +6,9 @@ import {
   useAuth,
   useRBAC,
   isFetchError,
-} from '@leao/admin/leao-admin';
-import { Flex, Typography, Menu, AccessibleIcon } from '@leao/design-system';
-import { Cross, More, Pencil } from '@leao/icons';
+} from '@leao1/admin/leao-admin';
+import { Flex, Typography, Menu, AccessibleIcon } from '@leao1/design-system';
+import { Cross, More, Pencil } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';

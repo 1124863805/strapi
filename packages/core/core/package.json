@@ -1,6 +1,6 @@
 {
-  "name": "@leao/core",
-  "version": "5.0.6",
+  "name": "@leao1/core",
+  "version": "1.0.0",
   "description": "Core of Leao",
   "homepage": "https://leao.io",
   "bugs": {
@@ -51,15 +51,15 @@
   "dependencies": {
     "@koa/cors": "5.0.0",
     "@koa/router": "12.0.2",
-    "@leao/admin": "workspace:*",
-    "@leao/database": "workspace:*",
-    "@leao/generators": "workspace:*",
-    "@leao/logger": "workspace:*",
-    "@leao/pack-up": "workspace:*",
-    "@leao/permissions": "workspace:*",
-    "@leao/types": "workspace:*",
-    "@leao/typescript-utils": "workspace:*",
-    "@leao/utils": "workspace:*",
+    "@leao1/admin": "^1.0.0",
+    "@leao1/database": "^1.0.0",
+    "@leao1/generators": "^1.0.0",
+    "@leao1/logger": "^1.0.0",
+    "@leao1/pack-up": "^1.0.0",
+    "@leao1/permissions": "^1.0.0",
+    "@leao1/types": "^1.0.0",
+    "@leao1/typescript-utils": "^1.0.0",
+    "@leao1/utils": "^1.0.0",
     "@paralleldrive/cuid2": "2.2.2",
     "bcryptjs": "2.4.3",
     "boxen": "5.1.2",
@@ -104,7 +104,7 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@leao/pack-up": "workspace:*",
+    "@leao1/pack-up": "^1.0.0",
     "@types/bcryptjs": "2.4.3",
     "@types/configstore": "5.0.1",
     "@types/delegates": "1.0.0",

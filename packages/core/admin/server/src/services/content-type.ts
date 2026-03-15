@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { uniq, startsWith, intersection } from 'lodash/fp';
-import { contentTypes as contentTypesUtils } from '@leao/utils';
-import type { Modules, Struct } from '@leao/types';
+import { contentTypes as contentTypesUtils } from '@leao1/utils';
+import type { Modules, Struct } from '@leao1/types';
 import { getService } from '../utils';
 import actionDomain from '../domain/action';
 import permissionDomain from '../domain/permission';

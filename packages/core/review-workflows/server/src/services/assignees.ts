@@ -1,5 +1,5 @@
-import type { Core, UID } from '@leao/types';
-import { errors } from '@leao/utils';
+import type { Core, UID } from '@leao1/types';
+import { errors } from '@leao1/utils';
 import { isNil } from 'lodash/fp';
 import { ENTITY_ASSIGNEE_ATTRIBUTE } from '../constants/workflows';
 import { getAdminService } from '../utils';

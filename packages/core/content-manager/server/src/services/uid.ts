@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import slugify from '@sindresorhus/slugify';
 
-import type { Core, Schema, UID } from '@leao/types';
+import type { Core, Schema, UID } from '@leao1/types';
 
 export default ({ leao }: { leao: Core.Leao }) => ({
   async generateUIDField({

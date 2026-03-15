@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ConfirmDialog } from '@leao/admin/leao-admin';
-import { Dialog } from '@leao/design-system';
+import { ConfirmDialog } from '@leao1/admin/leao-admin';
+import { Dialog } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 
 export const RemoveFolderDialog = ({ onClose, onConfirm, open }) => {

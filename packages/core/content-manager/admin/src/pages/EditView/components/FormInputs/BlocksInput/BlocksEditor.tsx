@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { createContext, type FieldValue } from '@leao/admin/leao-admin';
-import { IconButton, Divider, VisuallyHidden } from '@leao/design-system';
-import { Expand } from '@leao/icons';
+import { createContext, type FieldValue } from '@leao1/admin/leao-admin';
+import { IconButton, Divider, VisuallyHidden } from '@leao1/design-system';
+import { Expand } from '@leao1/icons';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { Editor, type Descendant, createEditor } from 'slate';
 import { withHistory } from 'slate-history';
@@ -26,7 +26,7 @@ import { withImages } from './plugins/withImages';
 import { withLinks } from './plugins/withLinks';
 import { withLeaoSchema } from './plugins/withLeaoSchema';
 
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 /* -------------------------------------------------------------------------------------------------
  * BlocksEditorProvider

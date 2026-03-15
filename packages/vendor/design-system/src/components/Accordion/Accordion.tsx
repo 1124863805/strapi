@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import * as RadixAccordion from '@radix-ui/react-accordion';
-import { CaretDown } from '@leao/icons';
+import { CaretDown } from '@leao1/icons';
 import { css, keyframes, styled } from 'styled-components';
 
 import { createContext } from '../../helpers/context';

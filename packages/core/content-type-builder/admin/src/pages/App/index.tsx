@@ -3,7 +3,7 @@
 /* eslint-disable check-file/no-index */
 import { lazy, Suspense, useEffect, useRef } from 'react';
 
-import { Page, useGuidedTour, Layouts } from '@leao/admin/leao-admin';
+import { Page, useGuidedTour, Layouts } from '@leao1/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { Navigate, Route, Routes } from 'react-router-dom';
 

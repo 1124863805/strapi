@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import type { EmailConfig, SendOptions } from './types';
 
 interface EmailProvider {
@@ -20,7 +20,7 @@ const createProvider = (emailConfig: EmailConfig) => {
 
   let modulePath: string;
   try {
-    modulePath = require.resolve(`@leao/provider-email-${providerName}`);
+    modulePath = require.resolve(`@leao1/provider-email-${providerName}`);
   } catch (error) {
     if (
       error !== null &&

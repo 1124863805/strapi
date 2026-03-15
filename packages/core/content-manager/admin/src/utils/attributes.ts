@@ -1,5 +1,5 @@
 import type { ComponentsDictionary, Schema } from '../hooks/useDocument';
-import type { Schema as SchemaUtils } from '@leao/types';
+import type { Schema as SchemaUtils } from '@leao1/types';
 
 const checkIfAttributeIsDisplayable = (attribute: SchemaUtils.Attribute.AnyAttribute) => {
   const { type } = attribute;

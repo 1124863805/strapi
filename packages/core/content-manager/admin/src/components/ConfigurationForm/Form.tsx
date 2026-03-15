@@ -7,8 +7,8 @@ import {
   InputRenderer,
   BackButton,
   Layouts,
-} from '@leao/admin/leao-admin';
-import { Button, Divider, Flex, Grid, Main, Typography } from '@leao/design-system';
+} from '@leao1/admin/leao-admin';
+import { Button, Divider, Flex, Grid, Main, Typography } from '@leao1/design-system';
 import { generateNKeysBetween } from 'fractional-indexing';
 import pipe from 'lodash/fp/pipe';
 import { useIntl } from 'react-intl';

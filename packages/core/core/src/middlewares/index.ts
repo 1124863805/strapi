@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import { compression } from './compression';
 import { cors } from './cors';
 import { errors } from './errors';

@@ -1,5 +1,5 @@
 import { omit } from 'lodash/fp';
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 import type { Context } from '../../types';
 
 export default ({ leao }: Context) => ({

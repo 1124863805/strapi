@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import * as Switch from '@radix-ui/react-switch';
-import { composeEventHandlers } from '@leao/ui-primitives';
+import { composeEventHandlers } from '@leao1/ui-primitives';
 import { styled } from 'styled-components';
 
 import { useControllableState } from '../../hooks/useControllableState';

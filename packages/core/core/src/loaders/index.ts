@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import loadSrcIndex from './src-index';
 import loadAPIs from './apis';

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { policy } from '@leao/utils';
+import { policy } from '@leao1/utils';
 import { validateHasPermissionsInput } from '../validation/policies/hasPermissions';
 
 const { createPolicy } = policy;

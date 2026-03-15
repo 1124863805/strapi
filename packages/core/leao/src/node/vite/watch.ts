@@ -1,7 +1,7 @@
 import path from 'node:path';
 import http from 'node:http';
 import fs from 'node:fs/promises';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import { mergeConfigWithUserConfig, resolveDevelopmentConfig } from './config';
 

@@ -1,5 +1,5 @@
-import permissions from '@leao/permissions';
-import { providerFactory, sanitize, validate } from '@leao/utils';
+import permissions from '@leao1/permissions';
+import { providerFactory, sanitize, validate } from '@leao1/utils';
 
 import type { Route } from '../core';
 

@@ -1,6 +1,6 @@
-import type { Utils } from '@leao/types';
+import type { Utils } from '@leao1/types';
 
-import { providerFactory } from '@leao/utils';
+import { providerFactory } from '@leao1/utils';
 import {
   pipe,
   set,

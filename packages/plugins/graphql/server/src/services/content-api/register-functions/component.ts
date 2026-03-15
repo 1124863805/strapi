@@ -1,4 +1,4 @@
-import type { Core, Struct } from '@leao/types';
+import type { Core, Struct } from '@leao1/types';
 import type { TypeRegistry } from '../../type-registry';
 
 const registerComponent = (

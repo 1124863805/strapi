@@ -1,5 +1,5 @@
-import { Box, Flex, IconButton, Typography } from '@leao/design-system';
-import { Cross, Drag } from '@leao/icons';
+import { Box, Flex, IconButton, Typography } from '@leao1/design-system';
+import { Cross, Drag } from '@leao1/icons';
 
 import { DocumentStatus } from '../../pages/EditView/components/DocumentStatus';
 import {
@@ -8,7 +8,7 @@ import {
   FlexWrapper,
 } from '../../pages/EditView/components/FormInputs/Relations';
 
-import type { Data } from '@leao/types';
+import type { Data } from '@leao1/types';
 
 interface RelationDragPreviewProps {
   status?: string;

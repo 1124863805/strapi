@@ -1,5 +1,5 @@
-import { errors } from '@leao/utils';
-import type { Modules } from '@leao/types';
+import { errors } from '@leao1/utils';
+import type { Modules } from '@leao1/types';
 
 /**
  * /webhooks - GET all webhooks

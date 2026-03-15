@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['@leao/eslint-config/front/typescript'],
+  extends: ['@leao1/eslint-config/front/typescript'],
   overrides: [
     {
       files: ['**/*.test.[j|t]s', '**/*.test.[j|t]sx', '**/__mocks__/**/*'],

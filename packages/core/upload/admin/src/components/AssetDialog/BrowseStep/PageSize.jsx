@@ -6,7 +6,7 @@
 
 import React from 'react';
 
-import { Box, Flex, SingleSelectOption, SingleSelect, Typography } from '@leao/design-system';
+import { Box, Flex, SingleSelectOption, SingleSelect, Typography } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

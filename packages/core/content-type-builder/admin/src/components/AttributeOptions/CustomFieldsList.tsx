@@ -1,5 +1,5 @@
-import { useLeaoApp } from '@leao/admin/leao-admin';
-import { Flex, Grid, KeyboardNavigable, Link } from '@leao/design-system';
+import { useLeaoApp } from '@leao1/admin/leao-admin';
+import { Flex, Grid, KeyboardNavigable, Link } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { getTrad } from '../../utils';

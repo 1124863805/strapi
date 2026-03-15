@@ -8,7 +8,7 @@ const chalk = require('chalk');
 
 const { factory } = ts;
 
-const MODULE_DECLARATION = '@leao/leao';
+const MODULE_DECLARATION = '@leao1/leao';
 const PUBLIC_NAMESPACE = 'Public';
 
 /**

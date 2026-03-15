@@ -1,7 +1,7 @@
 import path from 'path';
 import { isArray } from 'lodash/fp';
-import { importDefault } from '@leao/utils';
-import type { Core } from '@leao/types';
+import { importDefault } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 
 const instantiateMiddleware = (
   middlewareFactory: Core.MiddlewareFactory,

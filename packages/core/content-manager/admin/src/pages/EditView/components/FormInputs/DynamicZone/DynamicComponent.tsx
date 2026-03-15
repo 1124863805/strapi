@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useForm, useField } from '@leao/admin/leao-admin';
+import { useForm, useField } from '@leao1/admin/leao-admin';
 import {
   Accordion,
   Box,
@@ -12,8 +12,8 @@ import {
   Menu,
   MenuItem,
   BoxComponent,
-} from '@leao/design-system';
-import { Drag, More, Trash } from '@leao/icons';
+} from '@leao1/design-system';
+import { Drag, More, Trash } from '@leao1/icons';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

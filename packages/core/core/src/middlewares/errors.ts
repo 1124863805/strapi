@@ -1,5 +1,5 @@
-import { errors } from '@leao/utils';
-import type { Core } from '@leao/types';
+import { errors } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 
 import { formatApplicationError, formatHttpError, formatInternalError } from '../services/errors';
 

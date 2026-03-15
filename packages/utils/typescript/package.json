@@ -1,6 +1,6 @@
 {
-  "name": "@leao/typescript-utils",
-  "version": "5.0.6",
+  "name": "@leao1/typescript-utils",
+  "version": "1.0.0",
   "description": "Typescript support for Leao",
   "keywords": [
     "leao",

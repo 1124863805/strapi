@@ -7,8 +7,8 @@ import {
   useRBAC,
   useNotification,
   useQueryParams,
-} from '@leao/admin/leao-admin';
-import { Grid, Main, Tabs } from '@leao/design-system';
+} from '@leao1/admin/leao-admin';
+import { Grid, Main, Tabs } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { useLocation, useParams } from 'react-router-dom';
 import { styled } from 'styled-components';

@@ -1,7 +1,7 @@
 import { curry } from 'lodash/fp';
 
-import type { UID } from '@leao/types';
-import { errors } from '@leao/utils';
+import type { UID } from '@leao1/types';
+import { errors } from '@leao1/utils';
 
 import { ID, LongHandDocument } from '../utils/types';
 import { IdMap } from '../../id-map';

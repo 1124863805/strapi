@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import fs from 'fs-extra';
 import _ from 'lodash';
 import koaStatic from 'koa-static';
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 
 import type Koa from 'koa';
 import type {} from 'koa-body';

@@ -7,7 +7,7 @@
  */
 
 const _ = require('lodash');
-const utils = require('@leao/utils');
+const utils = require('@leao1/utils');
 const { getService } = require('../utils');
 const { validateCreateUserBody, validateUpdateUserBody } = require('./validation/user');
 

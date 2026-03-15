@@ -1,5 +1,5 @@
-import { async } from '@leao/utils';
-import type { Core, UID, Modules } from '@leao/types';
+import { async } from '@leao1/utils';
+import type { Core, UID, Modules } from '@leao1/types';
 
 const ACTIONS = {
   read: 'plugin::content-manager.explorer.read',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Checkbox, Box } from '@leao/design-system';
+import { Checkbox, Box } from '@leao1/design-system';
 
 import { useFolderCard } from '../contexts/FolderCard';
 

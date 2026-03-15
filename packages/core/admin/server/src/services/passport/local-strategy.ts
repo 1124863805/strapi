@@ -1,6 +1,6 @@
 import { toLower } from 'lodash/fp';
 import { Strategy as LocalStrategy } from 'passport-local';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import { getService } from '../../utils';
 
 const createLocalStrategy = (leao: Core.Leao, middleware?: any) => {

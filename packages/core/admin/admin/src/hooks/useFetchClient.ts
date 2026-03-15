@@ -12,7 +12,7 @@ import { getFetchClient } from '../utils/getFetchClient';
  * @example
  * ```tsx
  * import * as React from 'react';
- * import { useFetchClient } from '@leao/admin/admin';
+ * import { useFetchClient } from '@leao1/admin/admin';
  *
  * const MyComponent = () => {
  *   const [items, setItems] = React.useState([]);

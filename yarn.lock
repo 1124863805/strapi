@@ -3807,20 +3807,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@leao/admin@workspace:*, @leao/admin@workspace:packages/core/admin":
+"@leao1/admin@workspace:*, @leao1/admin@workspace:packages/core/admin":
   version: 0.0.0-use.local
-  resolution: "@leao/admin@workspace:packages/core/admin"
+  resolution: "@leao1/admin@workspace:packages/core/admin"
   dependencies:
     "@casl/ability": "npm:6.5.0"
     "@internationalized/date": "npm:3.5.4"
-    "@leao/data-transfer": "workspace:*"
-    "@leao/design-system": "workspace:*"
-    "@leao/icons": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/permissions": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/typescript-utils": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/data-transfer": "workspace:*"
+    "@leao1/design-system": "workspace:*"
+    "@leao1/icons": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/permissions": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/typescript-utils": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@radix-ui/react-context": "npm:1.0.1"
     "@radix-ui/react-toolbar": "npm:1.0.4"
     "@reduxjs/toolkit": "npm:1.9.7"
@@ -3896,7 +3896,7 @@ __metadata:
     yup: "npm:0.32.9"
     zod: "npm:^3.22.4"
   peerDependencies:
-    "@leao/data-transfer": ^5.0.0 ||  ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
+    "@leao1/data-transfer": ^5.0.0 ||  ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     react-router-dom: ^6.0.0
@@ -3904,17 +3904,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/content-manager@workspace:*, @leao/content-manager@workspace:packages/core/content-manager":
+"@leao1/content-manager@workspace:*, @leao1/content-manager@workspace:packages/core/content-manager":
   version: 0.0.0-use.local
-  resolution: "@leao/content-manager@workspace:packages/core/content-manager"
+  resolution: "@leao1/content-manager@workspace:packages/core/content-manager"
   dependencies:
-    "@leao/admin": "workspace:*"
-    "@leao/database": "workspace:*"
-    "@leao/design-system": "workspace:*"
-    "@leao/icons": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/admin": "workspace:*"
+    "@leao1/database": "workspace:*"
+    "@leao1/design-system": "workspace:*"
+    "@leao1/icons": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@radix-ui/react-toolbar": "npm:1.0.4"
     "@reduxjs/toolkit": "npm:1.9.7"
     "@sindresorhus/slugify": "npm:1.1.0"
@@ -3956,7 +3956,7 @@ __metadata:
     styled-components: "npm:6.1.8"
     yup: "npm:0.32.9"
   peerDependencies:
-    "@leao/admin": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
+    "@leao1/admin": ^1.0.0
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     react-router-dom: ^6.0.0
@@ -3964,18 +3964,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/content-releases@workspace:*, @leao/content-releases@workspace:packages/core/content-releases":
+"@leao1/content-releases@workspace:*, @leao1/content-releases@workspace:packages/core/content-releases":
   version: 0.0.0-use.local
-  resolution: "@leao/content-releases@workspace:packages/core/content-releases"
+  resolution: "@leao1/content-releases@workspace:packages/core/content-releases"
   dependencies:
-    "@leao/admin": "workspace:*"
-    "@leao/content-manager": "workspace:*"
-    "@leao/database": "workspace:*"
-    "@leao/design-system": "workspace:*"
-    "@leao/icons": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/admin": "workspace:*"
+    "@leao1/content-manager": "workspace:*"
+    "@leao1/database": "workspace:*"
+    "@leao1/design-system": "workspace:*"
+    "@leao1/icons": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@reduxjs/toolkit": "npm:1.9.7"
     "@types/koa": "npm:2.13.4"
     date-fns: "npm:2.30.0"
@@ -3994,8 +3994,8 @@ __metadata:
     typescript: "npm:5.3.2"
     yup: "npm:0.32.9"
   peerDependencies:
-    "@leao/admin": ^5.0.0
-    "@leao/content-manager": ^5.0.0
+    "@leao1/admin": ^1.0.0
+    "@leao1/content-manager": ^1.0.0
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     react-router-dom: ^6.0.0
@@ -4003,17 +4003,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/content-type-builder@workspace:*, @leao/content-type-builder@workspace:packages/core/content-type-builder":
+"@leao1/content-type-builder@workspace:*, @leao1/content-type-builder@workspace:packages/core/content-type-builder":
   version: 0.0.0-use.local
-  resolution: "@leao/content-type-builder@workspace:packages/core/content-type-builder"
+  resolution: "@leao1/content-type-builder@workspace:packages/core/content-type-builder"
   dependencies:
-    "@leao/admin": "workspace:*"
-    "@leao/design-system": "workspace:*"
-    "@leao/generators": "workspace:*"
-    "@leao/icons": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/admin": "workspace:*"
+    "@leao1/design-system": "workspace:*"
+    "@leao1/generators": "workspace:*"
+    "@leao1/icons": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@reduxjs/toolkit": "npm:1.9.7"
     "@sindresorhus/slugify": "npm:1.1.0"
     "@types/fs-extra": "npm:11.0.4"
@@ -4036,7 +4036,7 @@ __metadata:
     styled-components: "npm:6.1.8"
     yup: "npm:0.32.9"
   peerDependencies:
-    "@leao/admin": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
+    "@leao1/admin": ^1.0.0
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     react-router-dom: ^6.0.0
@@ -4044,21 +4044,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/core@workspace:*, @leao/core@workspace:packages/core/core":
+"@leao1/core@workspace:*, @leao1/core@workspace:packages/core/core":
   version: 0.0.0-use.local
-  resolution: "@leao/core@workspace:packages/core/core"
+  resolution: "@leao1/core@workspace:packages/core/core"
   dependencies:
     "@koa/cors": "npm:5.0.0"
     "@koa/router": "npm:12.0.2"
-    "@leao/admin": "workspace:*"
-    "@leao/database": "workspace:*"
-    "@leao/generators": "workspace:*"
-    "@leao/logger": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/permissions": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/typescript-utils": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/admin": "workspace:*"
+    "@leao1/database": "workspace:*"
+    "@leao1/generators": "workspace:*"
+    "@leao1/logger": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/permissions": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/typescript-utils": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@paralleldrive/cuid2": "npm:2.2.2"
     "@types/bcryptjs": "npm:2.4.3"
     "@types/configstore": "npm:5.0.1"
@@ -4122,15 +4122,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/data-transfer@workspace:*, @leao/data-transfer@workspace:packages/core/data-transfer":
+"@leao1/data-transfer@workspace:*, @leao1/data-transfer@workspace:packages/core/data-transfer":
   version: 0.0.0-use.local
-  resolution: "@leao/data-transfer@workspace:packages/core/data-transfer"
+  resolution: "@leao1/data-transfer@workspace:packages/core/data-transfer"
   dependencies:
-    "@leao/database": "workspace:*"
-    "@leao/logger": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/database": "workspace:*"
+    "@leao1/logger": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@types/fs-extra": "npm:11.0.4"
     "@types/koa": "npm:2.13.4"
     "@types/lodash": "npm:^4.14.191"
@@ -4162,12 +4162,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/database@workspace:*, @leao/database@workspace:packages/core/database":
+"@leao1/database@workspace:*, @leao1/database@workspace:packages/core/database":
   version: 0.0.0-use.local
-  resolution: "@leao/database@workspace:packages/core/database"
+  resolution: "@leao1/database@workspace:packages/core/database"
   dependencies:
-    "@leao/pack-up": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@paralleldrive/cuid2": "npm:2.2.2"
     "@types/debug": "npm:4.1.12"
     "@types/fs-extra": "npm:11.0.4"
@@ -4184,17 +4184,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/design-system@workspace:*, @leao/design-system@workspace:packages/vendor/design-system":
+"@leao1/design-system@workspace:*, @leao1/design-system@workspace:packages/vendor/design-system":
   version: 0.0.0-use.local
-  resolution: "@leao/design-system@workspace:packages/vendor/design-system"
+  resolution: "@leao1/design-system@workspace:packages/vendor/design-system"
   dependencies:
     "@codemirror/lang-json": "npm:6.0.1"
     "@floating-ui/react-dom": "npm:2.1.0"
     "@internationalized/date": "npm:3.5.4"
     "@internationalized/number": "npm:3.5.3"
-    "@leao/icons": "npm:2.0.0-rc.11"
-    "@leao/pack-up": "workspace:*"
-    "@leao/ui-primitives": "npm:2.0.0-rc.11"
+    "@leao1/icons": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/ui-primitives": "workspace:*"
     "@radix-ui/react-accordion": "npm:1.1.2"
     "@radix-ui/react-alert-dialog": "npm:1.0.5"
     "@radix-ui/react-avatar": "npm:1.0.4"
@@ -4219,24 +4219,24 @@ __metadata:
     styled-components: "npm:6.1.11"
     typescript: "npm:5.4.5"
   peerDependencies:
-    "@leao/icons": ^2.0.0 || ^2.0.0-beta || ^2.0.0-alpha
+    "@leao1/icons": ^1.0.0
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     styled-components: ^6.0.0
   languageName: unknown
   linkType: soft
 
-"@leao/email@workspace:*, @leao/email@workspace:packages/core/email":
+"@leao1/email@workspace:*, @leao1/email@workspace:packages/core/email":
   version: 0.0.0-use.local
-  resolution: "@leao/email@workspace:packages/core/email"
+  resolution: "@leao1/email@workspace:packages/core/email"
   dependencies:
-    "@leao/admin": "workspace:*"
-    "@leao/design-system": "workspace:*"
-    "@leao/icons": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/provider-email-sendmail": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/admin": "workspace:*"
+    "@leao1/design-system": "workspace:*"
+    "@leao1/icons": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/provider-email-sendmail": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@types/koa": "npm:2.13.4"
     "@types/lodash": "npm:^4.14.191"
     koa: "npm:2.15.2"
@@ -4250,7 +4250,7 @@ __metadata:
     styled-components: "npm:6.1.8"
     yup: "npm:0.32.9"
   peerDependencies:
-    "@leao/admin": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
+    "@leao1/admin": ^1.0.0
     koa: 2.13.4
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
@@ -4259,13 +4259,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/generators@workspace:*, @leao/generators@workspace:packages/generators/generators":
+"@leao1/generators@workspace:*, @leao1/generators@workspace:packages/generators/generators":
   version: 0.0.0-use.local
-  resolution: "@leao/generators@workspace:packages/generators/generators"
+  resolution: "@leao1/generators@workspace:packages/generators/generators"
   dependencies:
-    "@leao/pack-up": "workspace:*"
-    "@leao/typescript-utils": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/typescript-utils": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@sindresorhus/slugify": "npm:1.1.0"
     "@types/fs-extra": "npm:11.0.4"
     chalk: "npm:4.1.2"
@@ -4279,17 +4279,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/i18n@workspace:*, @leao/i18n@workspace:packages/plugins/i18n":
+"@leao1/i18n@workspace:*, @leao1/i18n@workspace:packages/plugins/i18n":
   version: 0.0.0-use.local
-  resolution: "@leao/i18n@workspace:packages/plugins/i18n"
+  resolution: "@leao1/i18n@workspace:packages/plugins/i18n"
   dependencies:
-    "@leao/admin": "workspace:*"
-    "@leao/content-manager": "workspace:*"
-    "@leao/design-system": "workspace:*"
-    "@leao/icons": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/admin": "workspace:*"
+    "@leao1/content-manager": "workspace:*"
+    "@leao1/design-system": "workspace:*"
+    "@leao1/icons": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@reduxjs/toolkit": "npm:1.9.7"
     lodash: "npm:4.17.21"
     qs: "npm:6.11.1"
@@ -4302,8 +4302,8 @@ __metadata:
     styled-components: "npm:6.1.8"
     yup: "npm:0.32.9"
   peerDependencies:
-    "@leao/admin": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
-    "@leao/content-manager": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
+    "@leao1/admin": ^1.0.0
+    "@leao1/content-manager": ^1.0.0
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     react-router-dom: ^6.0.0
@@ -4311,11 +4311,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/icons@npm:2.0.0-rc.11, @leao/icons@workspace:*, @leao/icons@workspace:packages/vendor/icons":
+"@leao1/icons@workspace:*, @leao1/icons@workspace:packages/vendor/icons":
   version: 0.0.0-use.local
-  resolution: "@leao/icons@workspace:packages/vendor/icons"
+  resolution: "@leao1/icons@workspace:packages/vendor/icons"
   dependencies:
-    "@leao/pack-up": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
     "@svgr/cli": "npm:8.1.0"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
@@ -4328,28 +4328,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/leao@workspace:*, @leao/leao@workspace:packages/core/leao":
+"@leao1/leao@workspace:*, @leao1/leao@workspace:packages/core/leao":
   version: 0.0.0-use.local
-  resolution: "@leao/leao@workspace:packages/core/leao"
+  resolution: "@leao1/leao@workspace:packages/core/leao"
   dependencies:
-    "@leao/admin": "workspace:*"
-    "@leao/content-manager": "workspace:*"
-    "@leao/content-releases": "workspace:*"
-    "@leao/content-type-builder": "workspace:*"
-    "@leao/core": "workspace:*"
-    "@leao/data-transfer": "workspace:*"
-    "@leao/database": "workspace:*"
-    "@leao/email": "workspace:*"
-    "@leao/generators": "workspace:*"
-    "@leao/i18n": "workspace:*"
-    "@leao/logger": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/permissions": "workspace:*"
-    "@leao/review-workflows": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/typescript-utils": "workspace:*"
-    "@leao/upload": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/admin": "workspace:*"
+    "@leao1/content-manager": "workspace:*"
+    "@leao1/content-releases": "workspace:*"
+    "@leao1/content-type-builder": "workspace:*"
+    "@leao1/core": "workspace:*"
+    "@leao1/data-transfer": "workspace:*"
+    "@leao1/database": "workspace:*"
+    "@leao1/email": "workspace:*"
+    "@leao1/generators": "workspace:*"
+    "@leao1/i18n": "workspace:*"
+    "@leao1/logger": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/permissions": "workspace:*"
+    "@leao1/review-workflows": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/typescript-utils": "workspace:*"
+    "@leao1/upload": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@pmmmwh/react-refresh-webpack-plugin": "npm:0.5.15"
     "@types/cli-progress": "npm:^3.11.6"
     "@types/fs-extra": "npm:11.0.4"
@@ -4416,11 +4416,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/logger@workspace:*, @leao/logger@workspace:packages/utils/logger":
+"@leao1/logger@workspace:*, @leao1/logger@workspace:packages/utils/logger":
   version: 0.0.0-use.local
-  resolution: "@leao/logger@workspace:packages/utils/logger"
+  resolution: "@leao1/logger@workspace:packages/utils/logger"
   dependencies:
-    "@leao/pack-up": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
     eslint-config-custom: "workspace:*"
     lodash: "npm:4.17.21"
     tsconfig: "workspace:*"
@@ -4428,9 +4428,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/pack-up@workspace:*, @leao/pack-up@workspace:packages/vendor/pack-up":
+"@leao1/pack-up@workspace:*, @leao1/pack-up@workspace:packages/vendor/pack-up":
   version: 0.0.0-use.local
-  resolution: "@leao/pack-up@workspace:packages/vendor/pack-up"
+  resolution: "@leao1/pack-up@workspace:packages/vendor/pack-up"
   dependencies:
     "@types/git-url-parse": "npm:9.0.3"
     "@types/ini": "npm:4.1.0"
@@ -4460,13 +4460,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/permissions@workspace:*, @leao/permissions@workspace:packages/core/permissions":
+"@leao1/permissions@workspace:*, @leao1/permissions@workspace:packages/core/permissions":
   version: 0.0.0-use.local
-  resolution: "@leao/permissions@workspace:packages/core/permissions"
+  resolution: "@leao1/permissions@workspace:packages/core/permissions"
   dependencies:
     "@casl/ability": "npm:6.5.0"
-    "@leao/pack-up": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/utils": "workspace:*"
     eslint-config-custom: "workspace:*"
     lodash: "npm:4.17.21"
     qs: "npm:6.11.1"
@@ -4475,14 +4475,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/plugin-color-picker@workspace:*, @leao/plugin-color-picker@workspace:packages/plugins/color-picker":
+"@leao1/plugin-color-picker@workspace:*, @leao1/plugin-color-picker@workspace:packages/plugins/color-picker":
   version: 0.0.0-use.local
-  resolution: "@leao/plugin-color-picker@workspace:packages/plugins/color-picker"
+  resolution: "@leao1/plugin-color-picker@workspace:packages/plugins/color-picker"
   dependencies:
-    "@leao/design-system": "workspace:*"
-    "@leao/icons": "workspace:*"
-    "@leao/leao": "workspace:*"
-    "@leao/sdk-plugin": "workspace:*"
+    "@leao1/design-system": "workspace:*"
+    "@leao1/icons": "workspace:*"
+    "@leao1/leao": "workspace:*"
+    "@leao1/sdk-plugin": "workspace:*"
     react: "npm:18.3.1"
     react-colorful: "npm:5.6.1"
     react-dom: "npm:18.3.1"
@@ -4491,7 +4491,7 @@ __metadata:
     styled-components: "npm:6.1.8"
     typescript: "npm:5.3.2"
   peerDependencies:
-    "@leao/leao": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
+    "@leao1/leao": ^1.0.0
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     react-router-dom: ^6.0.0
@@ -4499,19 +4499,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/plugin-documentation@workspace:*, @leao/plugin-documentation@workspace:packages/plugins/documentation":
+"@leao1/plugin-documentation@workspace:*, @leao1/plugin-documentation@workspace:packages/plugins/documentation":
   version: 0.0.0-use.local
-  resolution: "@leao/plugin-documentation@workspace:packages/plugins/documentation"
+  resolution: "@leao1/plugin-documentation@workspace:packages/plugins/documentation"
   dependencies:
     "@apidevtools/swagger-parser": "npm:^10.1.0"
-    "@leao/admin": "workspace:*"
-    "@leao/design-system": "workspace:*"
-    "@leao/icons": "workspace:*"
-    "@leao/leao": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/sdk-plugin": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/admin": "workspace:*"
+    "@leao1/design-system": "workspace:*"
+    "@leao1/icons": "workspace:*"
+    "@leao1/leao": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/sdk-plugin": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@reduxjs/toolkit": "npm:1.9.7"
     "@types/fs-extra": "npm:11.0.4"
     "@types/koa": "npm:2.13.4"
@@ -4525,7 +4525,7 @@ __metadata:
     koa: "npm:2.15.2"
     koa-body: "npm:6.0.1"
     koa-session: "npm:6.4.0"
-    koa-static: "npm:^5.0.0"
+    koa-static: "npm:^1.0.0"
     lodash: "npm:4.17.21"
     openapi-types: "npm:12.1.3"
     path-to-regexp: "npm:6.3.0"
@@ -4538,7 +4538,7 @@ __metadata:
     yaml: "npm:1.10.2"
     yup: "npm:0.32.9"
   peerDependencies:
-    "@leao/leao": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
+    "@leao1/leao": ^1.0.0
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     react-router-dom: ^6.0.0
@@ -4546,21 +4546,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/plugin-graphql@workspace:*, @leao/plugin-graphql@workspace:packages/plugins/graphql":
+"@leao1/plugin-graphql@workspace:*, @leao1/plugin-graphql@workspace:packages/plugins/graphql":
   version: 0.0.0-use.local
-  resolution: "@leao/plugin-graphql@workspace:packages/plugins/graphql"
+  resolution: "@leao1/plugin-graphql@workspace:packages/plugins/graphql"
   dependencies:
     "@apollo/server": "npm:4.11.0"
     "@as-integrations/koa": "npm:1.1.1"
     "@graphql-tools/schema": "npm:10.0.3"
     "@graphql-tools/utils": "npm:^10.1.3"
     "@koa/cors": "npm:5.0.0"
-    "@leao/design-system": "workspace:*"
-    "@leao/icons": "workspace:*"
-    "@leao/leao": "workspace:*"
-    "@leao/sdk-plugin": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/design-system": "workspace:*"
+    "@leao1/icons": "workspace:*"
+    "@leao1/leao": "workspace:*"
+    "@leao1/sdk-plugin": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@types/graphql-depth-limit": "npm:1.1.5"
     "@types/koa-bodyparser": "npm:4.3.12"
     "@types/koa__cors": "npm:5.0.0"
@@ -4583,7 +4583,7 @@ __metadata:
     tsconfig: "workspace:*"
     typescript: "npm:5.3.2"
   peerDependencies:
-    "@leao/leao": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
+    "@leao1/leao": ^1.0.0
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     react-router-dom: ^6.0.0
@@ -4591,15 +4591,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/plugin-users-permissions@workspace:*, @leao/plugin-users-permissions@workspace:packages/plugins/users-permissions":
+"@leao1/plugin-users-permissions@workspace:*, @leao1/plugin-users-permissions@workspace:packages/plugins/users-permissions":
   version: 0.0.0-use.local
-  resolution: "@leao/plugin-users-permissions@workspace:packages/plugins/users-permissions"
+  resolution: "@leao1/plugin-users-permissions@workspace:packages/plugins/users-permissions"
   dependencies:
-    "@leao/design-system": "workspace:*"
-    "@leao/icons": "workspace:*"
-    "@leao/leao": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/design-system": "workspace:*"
+    "@leao1/icons": "workspace:*"
+    "@leao1/leao": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/utils": "workspace:*"
     bcryptjs: "npm:2.4.3"
     formik: "npm:2.4.5"
     grant-koa: "npm:5.4.8"
@@ -4621,7 +4621,7 @@ __metadata:
     url-join: "npm:4.0.1"
     yup: "npm:0.32.9"
   peerDependencies:
-    "@leao/leao": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
+    "@leao1/leao": ^1.0.0
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     react-router-dom: ^6.0.0
@@ -4629,24 +4629,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/provider-email-amazon-ses@workspace:packages/providers/email-amazon-ses":
+"@leao1/provider-email-amazon-ses@workspace:packages/providers/email-amazon-ses":
   version: 0.0.0-use.local
-  resolution: "@leao/provider-email-amazon-ses@workspace:packages/providers/email-amazon-ses"
+  resolution: "@leao1/provider-email-amazon-ses@workspace:packages/providers/email-amazon-ses"
   dependencies:
-    "@leao/pack-up": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/utils": "workspace:*"
     eslint-config-custom: "workspace:*"
     node-ses: "npm:^3.0.3"
     tsconfig: "workspace:*"
   languageName: unknown
   linkType: soft
 
-"@leao/provider-email-mailgun@workspace:packages/providers/email-mailgun":
+"@leao1/provider-email-mailgun@workspace:packages/providers/email-mailgun":
   version: 0.0.0-use.local
-  resolution: "@leao/provider-email-mailgun@workspace:packages/providers/email-mailgun"
+  resolution: "@leao1/provider-email-mailgun@workspace:packages/providers/email-mailgun"
   dependencies:
-    "@leao/pack-up": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/utils": "workspace:*"
     eslint-config-custom: "workspace:*"
     form-data: "npm:^4.0.0"
     mailgun.js: "npm:10.2.1"
@@ -4654,11 +4654,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/provider-email-nodemailer@workspace:packages/providers/email-nodemailer":
+"@leao1/provider-email-nodemailer@workspace:packages/providers/email-nodemailer":
   version: 0.0.0-use.local
-  resolution: "@leao/provider-email-nodemailer@workspace:packages/providers/email-nodemailer"
+  resolution: "@leao1/provider-email-nodemailer@workspace:packages/providers/email-nodemailer"
   dependencies:
-    "@leao/pack-up": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
     "@types/nodemailer": "npm:6.4.7"
     eslint-config-custom: "workspace:*"
     lodash: "npm:4.17.21"
@@ -4667,24 +4667,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/provider-email-sendgrid@workspace:packages/providers/email-sendgrid":
+"@leao1/provider-email-sendgrid@workspace:packages/providers/email-sendgrid":
   version: 0.0.0-use.local
-  resolution: "@leao/provider-email-sendgrid@workspace:packages/providers/email-sendgrid"
+  resolution: "@leao1/provider-email-sendgrid@workspace:packages/providers/email-sendgrid"
   dependencies:
-    "@leao/pack-up": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@sendgrid/mail": "npm:8.1.3"
     eslint-config-custom: "workspace:*"
     tsconfig: "workspace:*"
   languageName: unknown
   linkType: soft
 
-"@leao/provider-email-sendmail@workspace:*, @leao/provider-email-sendmail@workspace:packages/providers/email-sendmail":
+"@leao1/provider-email-sendmail@workspace:*, @leao1/provider-email-sendmail@workspace:packages/providers/email-sendmail":
   version: 0.0.0-use.local
-  resolution: "@leao/provider-email-sendmail@workspace:packages/providers/email-sendmail"
+  resolution: "@leao1/provider-email-sendmail@workspace:packages/providers/email-sendmail"
   dependencies:
-    "@leao/pack-up": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@types/sendmail": "npm:1.4.4"
     eslint-config-custom: "workspace:*"
     sendmail: "npm:^1.6.1"
@@ -4692,27 +4692,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/provider-upload-aws-s3@workspace:packages/providers/upload-aws-s3":
+"@leao1/provider-upload-aws-s3@workspace:packages/providers/upload-aws-s3":
   version: 0.0.0-use.local
-  resolution: "@leao/provider-upload-aws-s3@workspace:packages/providers/upload-aws-s3"
+  resolution: "@leao1/provider-upload-aws-s3@workspace:packages/providers/upload-aws-s3"
   dependencies:
     "@aws-sdk/client-s3": "npm:3.600.0"
     "@aws-sdk/lib-storage": "npm:3.433.0"
     "@aws-sdk/s3-request-presigner": "npm:3.433.0"
     "@aws-sdk/types": "npm:3.433.0"
-    "@leao/pack-up": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
     eslint-config-custom: "workspace:*"
     lodash: "npm:4.17.21"
     tsconfig: "workspace:*"
   languageName: unknown
   linkType: soft
 
-"@leao/provider-upload-cloudinary@workspace:packages/providers/upload-cloudinary":
+"@leao1/provider-upload-cloudinary@workspace:packages/providers/upload-cloudinary":
   version: 0.0.0-use.local
-  resolution: "@leao/provider-upload-cloudinary@workspace:packages/providers/upload-cloudinary"
+  resolution: "@leao1/provider-upload-cloudinary@workspace:packages/providers/upload-cloudinary"
   dependencies:
-    "@leao/pack-up": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/utils": "workspace:*"
     cloudinary: "npm:^1.41.0"
     eslint-config-custom: "workspace:*"
     into-stream: "npm:^5.1.0"
@@ -4720,13 +4720,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/provider-upload-local@workspace:*, @leao/provider-upload-local@workspace:packages/providers/upload-local":
+"@leao1/provider-upload-local@workspace:*, @leao1/provider-upload-local@workspace:packages/providers/upload-local":
   version: 0.0.0-use.local
-  resolution: "@leao/provider-upload-local@workspace:packages/providers/upload-local"
+  resolution: "@leao1/provider-upload-local@workspace:packages/providers/upload-local"
   dependencies:
-    "@leao/pack-up": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@types/fs-extra": "npm:11.0.4"
     eslint-config-custom: "workspace:*"
     fs-extra: "npm:11.2.0"
@@ -4735,17 +4735,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/review-workflows@workspace:*, @leao/review-workflows@workspace:packages/core/review-workflows":
+"@leao1/review-workflows@workspace:*, @leao1/review-workflows@workspace:packages/core/review-workflows":
   version: 0.0.0-use.local
-  resolution: "@leao/review-workflows@workspace:packages/core/review-workflows"
+  resolution: "@leao1/review-workflows@workspace:packages/core/review-workflows"
   dependencies:
-    "@leao/admin": "workspace:*"
-    "@leao/content-manager": "workspace:*"
-    "@leao/design-system": "workspace:*"
-    "@leao/icons": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/admin": "workspace:*"
+    "@leao1/content-manager": "workspace:*"
+    "@leao1/design-system": "workspace:*"
+    "@leao1/icons": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@reduxjs/toolkit": "npm:1.9.7"
     fractional-indexing: "npm:3.2.0"
     react: "npm:18.3.1"
@@ -4759,8 +4759,8 @@ __metadata:
     styled-components: "npm:6.1.8"
     yup: "npm:0.32.9"
   peerDependencies:
-    "@leao/admin": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
-    "@leao/content-manager": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
+    "@leao1/admin": ^1.0.0
+    "@leao1/content-manager": ^1.0.0
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     react-router-dom: ^6.0.0
@@ -4768,9 +4768,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/sdk-plugin@workspace:*, @leao/sdk-plugin@workspace:packages/vendor/sdk-plugin":
+"@leao1/sdk-plugin@workspace:*, @leao1/sdk-plugin@workspace:packages/vendor/sdk-plugin":
   version: 0.0.0-use.local
-  resolution: "@leao/sdk-plugin@workspace:packages/vendor/sdk-plugin"
+  resolution: "@leao1/sdk-plugin@workspace:packages/vendor/sdk-plugin"
   dependencies:
     "@types/prompts": "npm:2.4.9"
     "@vitejs/plugin-react": "npm:^4.3.4"
@@ -4797,18 +4797,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/types@workspace:*, @leao/types@workspace:packages/core/types":
+"@leao1/types@workspace:*, @leao1/types@workspace:packages/core/types":
   version: 0.0.0-use.local
-  resolution: "@leao/types@workspace:packages/core/types"
+  resolution: "@leao1/types@workspace:packages/core/types"
   dependencies:
     "@casl/ability": "npm:6.5.0"
     "@koa/cors": "npm:5.0.0"
     "@koa/router": "npm:12.0.2"
-    "@leao/database": "workspace:*"
-    "@leao/logger": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/permissions": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/database": "workspace:*"
+    "@leao1/logger": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/permissions": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@types/koa": "npm:2.13.4"
     "@types/koa__router": "npm:12.0.0"
     "@types/node-schedule": "npm:2.1.7"
@@ -4824,9 +4824,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/typescript-utils@workspace:*, @leao/typescript-utils@workspace:packages/utils/typescript":
+"@leao1/typescript-utils@workspace:*, @leao1/typescript-utils@workspace:packages/utils/typescript":
   version: 0.0.0-use.local
-  resolution: "@leao/typescript-utils@workspace:packages/utils/typescript"
+  resolution: "@leao1/typescript-utils@workspace:packages/utils/typescript"
   dependencies:
     "@types/fs-extra": "npm:11.0.4"
     chalk: "npm:4.1.2"
@@ -4838,11 +4838,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/ui-primitives@npm:2.0.0-rc.11, @leao/ui-primitives@workspace:packages/vendor/primitives":
+"@leao1/ui-primitives@workspace:*, @leao1/ui-primitives@workspace:packages/vendor/primitives":
   version: 0.0.0-use.local
-  resolution: "@leao/ui-primitives@workspace:packages/vendor/primitives"
+  resolution: "@leao1/ui-primitives@workspace:packages/vendor/primitives"
   dependencies:
-    "@leao/pack-up": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
     "@radix-ui/number": "npm:1.0.1"
     "@radix-ui/primitive": "npm:1.0.1"
     "@radix-ui/react-collection": "npm:1.0.3"
@@ -4875,17 +4875,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/upload@workspace:*, @leao/upload@workspace:packages/core/upload":
+"@leao1/upload@workspace:*, @leao1/upload@workspace:packages/core/upload":
   version: 0.0.0-use.local
-  resolution: "@leao/upload@workspace:packages/core/upload"
+  resolution: "@leao1/upload@workspace:packages/core/upload"
   dependencies:
-    "@leao/admin": "workspace:*"
-    "@leao/design-system": "workspace:*"
-    "@leao/icons": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/provider-upload-local": "workspace:*"
-    "@leao/types": "workspace:*"
-    "@leao/utils": "workspace:*"
+    "@leao1/admin": "workspace:*"
+    "@leao1/design-system": "workspace:*"
+    "@leao1/icons": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
+    "@leao1/provider-upload-local": "workspace:*"
+    "@leao1/types": "workspace:*"
+    "@leao1/utils": "workspace:*"
     "@types/byte-size": "npm:8.1.2"
     "@types/fs-extra": "npm:11.0.4"
     "@types/koa": "npm:2.13.4"
@@ -4918,7 +4918,7 @@ __metadata:
     styled-components: "npm:6.1.8"
     yup: "npm:0.32.9"
   peerDependencies:
-    "@leao/admin": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
+    "@leao1/admin": ^1.0.0
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     react-router-dom: ^6.0.0
@@ -4926,11 +4926,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/utils@workspace:*, @leao/utils@workspace:packages/core/utils":
+"@leao1/utils@workspace:*, @leao1/utils@workspace:packages/core/utils":
   version: 0.0.0-use.local
-  resolution: "@leao/utils@workspace:packages/core/utils"
+  resolution: "@leao1/utils@workspace:packages/core/utils"
   dependencies:
-    "@leao/pack-up": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
     "@sindresorhus/slugify": "npm:1.1.0"
     "@types/http-errors": "npm:2.0.4"
     "@types/koa": "npm:2.13.4"
@@ -12182,7 +12182,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "create-leao-app@workspace:packages/cli/create-leao-app"
   dependencies:
-    "@leao/pack-up": "workspace:*"
+    "@leao1/pack-up": "workspace:*"
     "@types/fs-extra": "npm:11.0.4"
     "@types/inquirer": "npm:8.2.5"
     chalk: "npm:4.1.2"
@@ -12503,7 +12503,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^3.1.0, debug@npm:^3.2.7":
+"debug@npm:^3.1.0, debug@npm:^3.2.5, debug@npm:^3.2.7":
   version: 3.2.7
   resolution: "debug@npm:3.2.7"
   dependencies:
@@ -15446,12 +15446,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "getstarted@workspace:examples/getstarted"
   dependencies:
-    "@leao/icons": "workspace:*"
-    "@leao/leao": "workspace:*"
-    "@leao/plugin-color-picker": "workspace:*"
-    "@leao/plugin-documentation": "workspace:*"
-    "@leao/plugin-graphql": "workspace:*"
-    "@leao/plugin-users-permissions": "workspace:*"
+    "@leao1/icons": "workspace:*"
+    "@leao1/leao": "workspace:*"
+    "@leao1/plugin-color-picker": "workspace:*"
+    "@leao1/plugin-documentation": "workspace:*"
+    "@leao1/plugin-graphql": "workspace:*"
+    "@leao1/plugin-users-permissions": "workspace:*"
     better-sqlite3: "npm:11.3.0"
     lodash: "npm:4.17.21"
     react: "npm:18.3.1"
@@ -18315,6 +18315,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"koa-send@npm:~2.0.1":
+  version: 2.0.3
+  resolution: "koa-send@npm:2.0.3"
+  dependencies:
+    debug: "npm:^3.2.5"
+    mz: "npm:^2.0.0"
+    resolve-path: "npm:^1.2.1"
+  checksum: 10c0/63e60330727749984e14eb5aa9200cf3cb6b9a4963c9157cf6e60730b34733f2489a9e52e42ba03f40191e32fb9b336164615adb358ae8b1aca13abbf6e36c02
+  languageName: node
+  linkType: hard
+
 "koa-session@npm:6.4.0":
   version: 6.4.0
   resolution: "koa-session@npm:6.4.0"
@@ -18327,13 +18338,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"koa-static@npm:5.0.0, koa-static@npm:^5.0.0":
+"koa-static@npm:5.0.0":
   version: 5.0.0
   resolution: "koa-static@npm:5.0.0"
   dependencies:
     debug: "npm:^3.1.0"
     koa-send: "npm:^5.0.0"
   checksum: 10c0/4cb7a4e98506d54274658eb3565b24fcbe606bbb6916cb5ef226b2613d3ffd417dec3404000baa171f2206f2a6d29117bbe881fd26b27d54ef746d9de6de3e91
+  languageName: node
+  linkType: hard
+
+"koa-static@npm:^1.0.0":
+  version: 1.5.3
+  resolution: "koa-static@npm:1.5.3"
+  dependencies:
+    debug: "npm:^3.2.5"
+    koa-send: "npm:~2.0.1"
+  checksum: 10c0/989f351e8557c548ceb037557754e9fb69776fd731a12c5ac16567ff9894deebb6dedcee61c815f3a69e5320435b5295c4ae5bb635409a831c710c3b7c851651
   languageName: node
   linkType: hard
 
@@ -19489,9 +19510,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "my-demo@workspace:examples/my-demo"
   dependencies:
-    "@leao/leao": "workspace:*"
-    "@leao/plugin-documentation": "workspace:*"
-    "@leao/plugin-users-permissions": "workspace:*"
+    "@leao1/leao": "workspace:*"
+    "@leao1/plugin-documentation": "workspace:*"
+    "@leao1/plugin-users-permissions": "workspace:*"
     "@types/node": "npm:^20"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
@@ -19506,7 +19527,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"mz@npm:^2.7.0":
+"mz@npm:^2.0.0, mz@npm:^2.7.0":
   version: 2.7.0
   resolution: "mz@npm:2.7.0"
   dependencies:
@@ -22198,7 +22219,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve-path@npm:^1.4.0":
+"resolve-path@npm:^1.2.1, resolve-path@npm:^1.4.0":
   version: 1.4.0
   resolution: "resolve-path@npm:1.4.0"
   dependencies:

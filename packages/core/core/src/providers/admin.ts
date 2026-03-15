@@ -4,7 +4,7 @@ import loadAdmin from '../loaders/admin';
 export default defineProvider({
   init(leao) {
     // eslint-disable-next-line node/no-missing-require
-    leao.add('admin', () => require('@leao/admin/leao-server'));
+    leao.add('admin', () => require('@leao1/admin/leao-server'));
   },
 
   async register(leao) {

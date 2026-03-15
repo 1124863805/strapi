@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Divider, Flex, FlexComponent, useCollator } from '@leao/design-system';
-import { Lightning } from '@leao/icons';
+import { Divider, Flex, FlexComponent, useCollator } from '@leao1/design-system';
+import { Lightning } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';

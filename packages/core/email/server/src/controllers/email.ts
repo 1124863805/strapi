@@ -1,5 +1,5 @@
 import { pick } from 'lodash/fp';
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 
 import type Koa from 'koa';
 import type {} from 'koa-body';

@@ -1,6 +1,6 @@
-import { setCreatorFields, errors } from '@leao/utils';
+import { setCreatorFields, errors } from '@leao1/utils';
 
-import type { Core, Struct, UID, Data } from '@leao/types';
+import type { Core, Struct, UID, Data } from '@leao1/types';
 
 import { ALLOWED_WEBHOOK_EVENTS, RELEASE_ACTION_MODEL_UID, RELEASE_MODEL_UID } from '../constants';
 import type {

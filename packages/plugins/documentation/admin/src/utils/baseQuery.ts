@@ -1,5 +1,5 @@
 import { SerializedError } from '@reduxjs/toolkit';
-import { type UnknownApiError, type ApiError } from '@leao/leao/admin';
+import { type UnknownApiError, type ApiError } from '@leao1/leao/admin';
 
 type BaseQueryError = ApiError | UnknownApiError | SerializedError;
 

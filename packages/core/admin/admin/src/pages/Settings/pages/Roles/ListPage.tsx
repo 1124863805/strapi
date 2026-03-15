@@ -11,8 +11,8 @@ import {
   Tr,
   Typography,
   VisuallyHidden,
-} from '@leao/design-system';
-import { Duplicate, Pencil, Plus, Trash } from '@leao/icons';
+} from '@leao1/design-system';
+import { Duplicate, Pencil, Plus, Trash } from '@leao1/icons';
 import { produce } from 'immer';
 import { useIntl } from 'react-intl';
 import { useNavigate } from 'react-router-dom';

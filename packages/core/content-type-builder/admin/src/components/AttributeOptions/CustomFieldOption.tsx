@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { LeaoAppContextValue } from '@leao/admin/leao-admin';
-import { Box, Flex, Typography } from '@leao/design-system';
+import { LeaoAppContextValue } from '@leao1/admin/leao-admin';
+import { Box, Flex, Typography } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { useFormModalNavigation } from '../../hooks/useFormModalNavigation';

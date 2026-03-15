@@ -1,6 +1,6 @@
 import { get } from 'lodash/fp';
-import { async, errors } from '@leao/utils';
-import type { Internal } from '@leao/types';
+import { async, errors } from '@leao1/utils';
+import type { Internal } from '@leao1/types';
 
 import type { Context } from '../../types';
 

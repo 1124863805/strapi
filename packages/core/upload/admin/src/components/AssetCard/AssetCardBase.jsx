@@ -13,8 +13,8 @@ import {
   CardTitle,
   Flex,
   IconButton,
-} from '@leao/design-system';
-import { Pencil, Trash } from '@leao/icons';
+} from '@leao1/design-system';
+import { Pencil, Trash } from '@leao1/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

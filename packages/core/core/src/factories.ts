@@ -1,5 +1,5 @@
 import { pipe, omit, pick } from 'lodash/fp';
-import type { Core, UID, Utils } from '@leao/types';
+import type { Core, UID, Utils } from '@leao1/types';
 
 import { createController } from './core-api/controller';
 import { createService } from './core-api/service';

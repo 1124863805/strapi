@@ -1,7 +1,7 @@
 import { extendType, nonNull } from 'nexus';
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import type * as Nexus from 'nexus';
-import type { Struct } from '@leao/types';
+import type { Struct } from '@leao1/types';
 import type { Context } from '../../types';
 
 const { NotFoundError } = errors;

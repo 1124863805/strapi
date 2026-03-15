@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import type { Settings } from '../../../shared/contracts/settings';
 

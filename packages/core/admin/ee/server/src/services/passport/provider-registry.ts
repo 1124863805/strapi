@@ -1,4 +1,4 @@
-import '@leao/types';
+import '@leao1/types';
 
 export default () => {
   const registry = new Map();

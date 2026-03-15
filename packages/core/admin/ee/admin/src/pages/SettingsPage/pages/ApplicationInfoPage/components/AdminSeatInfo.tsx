@@ -1,4 +1,4 @@
-import { Flex, Typography, Grid } from '@leao/design-system';
+import { Flex, Typography, Grid } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 

@@ -1,7 +1,7 @@
 import { createCommand } from 'commander';
 import fs from 'fs';
-import tsUtils from '@leao/typescript-utils';
-import { createLeao } from '@leao/core';
+import tsUtils from '@leao1/typescript-utils';
+import { createLeao } from '@leao1/core';
 
 import type { LeaoCommand } from '../types';
 import { runAction } from '../utils/helpers';

@@ -4,8 +4,8 @@ import {
   useQueryParams,
   useLeaoApp,
   DescriptionComponentRenderer,
-} from '@leao/admin/leao-admin';
-import { Flex, Typography } from '@leao/design-system';
+} from '@leao1/admin/leao-admin';
+import { Flex, Typography } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { useMatch } from 'react-router-dom';
 

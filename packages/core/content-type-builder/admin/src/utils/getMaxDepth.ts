@@ -1,6 +1,6 @@
 import type { ComponentWithChildren } from '../components/DataManagerProvider/utils/retrieveComponentsThatHaveComponents';
 import type { NestedComponent } from '../components/DataManagerProvider/utils/retrieveNestedComponents';
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 const findComponent = <T extends { component: Internal.UID.Component }>(
   componentUid: Internal.UID.Schema,

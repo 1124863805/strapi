@@ -1,4 +1,4 @@
-import { translatedErrors as errorsTrads } from '@leao/admin/leao-admin';
+import { translatedErrors as errorsTrads } from '@leao1/admin/leao-admin';
 import uniq from 'lodash/uniq';
 import * as yup from 'yup';
 
@@ -15,7 +15,7 @@ import {
   validators,
 } from './validation/common';
 
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 export const attributeTypes = {
   date(usedAttributeNames: Array<string>, reservedNames: Array<string>) {

@@ -1,7 +1,7 @@
 import { difference, omit } from 'lodash/fp';
-import type { Struct, UID } from '@leao/types';
-import { Core, Data, Modules, Schema } from '@leao/types';
-import { contentTypes } from '@leao/utils';
+import type { Struct, UID } from '@leao1/types';
+import { Core, Data, Modules, Schema } from '@leao1/types';
+import { contentTypes } from '@leao1/utils';
 import { CreateHistoryVersion } from '../../../../shared/contracts/history-versions';
 import { FIELDS_TO_IGNORE } from '../constants';
 import { HistoryVersions } from '../../../../shared/contracts';

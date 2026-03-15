@@ -1,5 +1,5 @@
-import type { UID, Modules } from '@leao/types';
-import { async } from '@leao/utils';
+import type { UID, Modules } from '@leao1/types';
+import { async } from '@leao1/utils';
 import { assoc, omit } from 'lodash/fp';
 
 import * as components from './components';

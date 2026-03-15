@@ -1,6 +1,6 @@
 {
-  "name": "@leao/provider-email-mailgun",
-  "version": "5.0.6",
+  "name": "@leao1/provider-email-mailgun",
+  "version": "1.0.0",
   "description": "Mailgun provider for leao email plugin",
   "keywords": [
     "email",
@@ -42,12 +42,12 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
-    "@leao/utils": "workspace:*",
+    "@leao1/utils": "^1.0.0",
     "form-data": "^4.0.0",
     "mailgun.js": "10.2.1"
   },
   "devDependencies": {
-    "@leao/pack-up": "workspace:*",
+    "@leao1/pack-up": "^1.0.0",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"
   },

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { useQueryParams } from '@leao/admin/leao-admin';
-import { Box, Flex, Typography, type BoxProps } from '@leao/design-system';
+import { useQueryParams } from '@leao1/admin/leao-admin';
+import { Box, Flex, Typography, type BoxProps } from '@leao1/design-system';
 import { stringify } from 'qs';
 import { type MessageDescriptor, useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';

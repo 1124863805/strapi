@@ -1,5 +1,5 @@
-import { Flex, FlexComponent, IconButton, Typography } from '@leao/design-system';
-import { CaretDown, Drag, Trash } from '@leao/icons';
+import { Flex, FlexComponent, IconButton, Typography } from '@leao1/design-system';
+import { CaretDown, Drag, Trash } from '@leao1/icons';
 import { styled } from 'styled-components';
 
 interface ComponentDragPreviewProps {

@@ -1,5 +1,5 @@
 import type { Context } from 'koa';
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import {
   validateRoleUpdateInput,
   validateRoleCreateInput,

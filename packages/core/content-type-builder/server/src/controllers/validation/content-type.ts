@@ -1,9 +1,9 @@
 /* eslint-disable no-template-curly-in-string */ // yup templates need to be in this format
 
 import { flatMap, getOr, has, snakeCase } from 'lodash/fp';
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 
-import type { Struct, Internal } from '@leao/types';
+import type { Struct, Internal } from '@leao1/types';
 import { getService } from '../../utils';
 import { modelTypes, DEFAULT_TYPES, typeKinds } from '../../services/constants';
 import { createSchema } from './model-schema';

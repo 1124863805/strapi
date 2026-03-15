@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   extends: [
-    '@leao/eslint-config/back/typescript' /*'plugin:@typescript-eslint/recommended-requiring-type-checking'*/,
+    '@leao1/eslint-config/back/typescript' /*'plugin:@typescript-eslint/recommended-requiring-type-checking'*/,
   ],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'eslint-plugin-rxjs'],
@@ -16,7 +16,7 @@ module.exports = {
     'rxjs/finnish': 'error',
     'node/no-unsupported-features/es-syntax': 'off',
     'node/no-missing-import': 'off',
-    // TODO: The following rules from @leao/eslint-config/back/typescript are disabled because they're causing problems we need to solve or fix
+    // TODO: The following rules from @leao1/eslint-config/back/typescript are disabled because they're causing problems we need to solve or fix
     // to be solved in configuration
     'node/no-unsupported-features/es-syntax': 'off',
     'import/prefer-default-export': 'off',

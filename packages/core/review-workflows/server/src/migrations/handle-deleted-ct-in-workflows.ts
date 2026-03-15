@@ -1,5 +1,5 @@
 import { difference, keys } from 'lodash/fp';
-import { async } from '@leao/utils';
+import { async } from '@leao1/utils';
 import { WORKFLOW_MODEL_UID } from '../constants/workflows';
 import { getWorkflowContentTypeFilter } from '../utils/review-workflows';
 

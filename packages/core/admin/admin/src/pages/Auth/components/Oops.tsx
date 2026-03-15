@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, Flex, Main, Typography, Link } from '@leao/design-system';
+import { Box, Flex, Main, Typography, Link } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { NavLink, useLocation } from 'react-router-dom';
 

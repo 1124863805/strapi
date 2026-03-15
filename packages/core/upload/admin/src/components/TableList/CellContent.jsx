@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Typography } from '@leao/design-system';
+import { Typography } from '@leao1/design-system';
 import parseISO from 'date-fns/parseISO';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';

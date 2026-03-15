@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-import { Box } from '@leao/design-system';
+import { Box } from '@leao1/design-system';
 import sortBy from 'lodash/sortBy';
 import PropTypes from 'prop-types';
 

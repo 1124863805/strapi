@@ -1,5 +1,5 @@
-import { errors } from '@leao/utils';
-import type { Modules, Struct, UID } from '@leao/types';
+import { errors } from '@leao1/utils';
+import type { Modules, Struct, UID } from '@leao1/types';
 
 type PaginatedDocuments = Modules.Documents.PaginatedResult<UID.Schema>;
 type PaginationQuery = Modules.Documents.Params.Pagination.PageNotation;

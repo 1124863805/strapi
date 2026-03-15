@@ -1,5 +1,5 @@
-import type { errors } from '@leao/utils';
-import type { Core } from '@leao/types';
+import type { errors } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 
 /**
  * GET /content-api/permissions - Get the permissions of all content types

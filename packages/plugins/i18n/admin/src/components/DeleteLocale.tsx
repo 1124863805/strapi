@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { ConfirmDialog, useAPIErrorHandler, useNotification } from '@leao/admin/leao-admin';
-import { Dialog, IconButton } from '@leao/design-system';
-import { Trash } from '@leao/icons';
+import { ConfirmDialog, useAPIErrorHandler, useNotification } from '@leao1/admin/leao-admin';
+import { Dialog, IconButton } from '@leao1/design-system';
+import { Trash } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 
 import { useDeleteLocaleMutation } from '../services/locales';

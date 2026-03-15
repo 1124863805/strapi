@@ -8,7 +8,7 @@ import { pluginId } from '../../../pluginId';
 import { makeUnique } from '../../../utils/makeUnique';
 
 import type { Components, Component, AttributeType, ContentTypes } from '../../../types';
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 const getCreatedAndModifiedComponents = (
   allComponents: Components,

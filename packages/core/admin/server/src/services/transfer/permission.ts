@@ -1,5 +1,5 @@
-import permissions from '@leao/permissions';
-import { providerFactory } from '@leao/utils';
+import permissions from '@leao1/permissions';
+import { providerFactory } from '@leao1/utils';
 
 const DEFAULT_TRANSFER_ACTIONS = ['push', 'pull'];
 

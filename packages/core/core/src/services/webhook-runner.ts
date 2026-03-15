@@ -4,9 +4,9 @@
 
 import createdDebugger from 'debug';
 import _ from 'lodash';
-import type { Logger } from '@leao/logger';
+import type { Logger } from '@leao1/logger';
 
-import type { Modules } from '@leao/types';
+import type { Modules } from '@leao1/types';
 import WorkerQueue from './worker-queue';
 import type { EventHub } from './event-hub';
 import type { Fetch } from '../utils/fetch';

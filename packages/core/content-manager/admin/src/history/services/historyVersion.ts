@@ -1,4 +1,4 @@
-import { Data } from '@leao/types';
+import { Data } from '@leao1/types';
 
 import {
   GetHistoryVersions,

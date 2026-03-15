@@ -6,8 +6,8 @@
 
 import { useState } from 'react';
 
-import { ConfirmDialog } from '@leao/admin/leao-admin';
-import { Button, Checkbox, CheckboxProps, Dialog, Field } from '@leao/design-system';
+import { ConfirmDialog } from '@leao1/admin/leao-admin';
+import { Button, Checkbox, CheckboxProps, Dialog, Field } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { getTrad } from '../utils';

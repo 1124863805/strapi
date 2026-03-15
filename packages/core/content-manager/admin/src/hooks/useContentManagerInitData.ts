@@ -6,8 +6,8 @@ import {
   useNotification,
   useLeaoApp,
   useAPIErrorHandler,
-} from '@leao/admin/leao-admin';
-import { useNotifyAT } from '@leao/design-system';
+} from '@leao1/admin/leao-admin';
+import { useNotifyAT } from '@leao1/design-system';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 

@@ -1,4 +1,4 @@
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 
 const providerOptionsUpdateSchema = yup.object().shape({
   autoRegister: yup.boolean().required(),

@@ -6,7 +6,7 @@ import {
   useQueryParams,
   useRBAC,
   isFetchError,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import {
   Box,
   Button,
@@ -15,8 +15,8 @@ import {
   SingleSelectOption,
   Modal,
   Field,
-} from '@leao/design-system';
-import { UID } from '@leao/types';
+} from '@leao1/design-system';
+import { UID } from '@leao1/types';
 import { Formik, Form } from 'formik';
 import { useIntl } from 'react-intl';
 
@@ -32,7 +32,7 @@ import {
 } from './ReleaseActionModal';
 import { ReleaseActionOptions } from './ReleaseActionOptions';
 
-import type { BulkActionComponent } from '@leao/content-manager/leao-admin';
+import type { BulkActionComponent } from '@leao1/content-manager/leao-admin';
 
 const getContentPermissions = (subject: string) => {
   const permissions = {

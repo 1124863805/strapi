@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import inquirer from 'inquirer';
 import { createCommand } from 'commander';
-import { createLeao, compileLeao } from '@leao/core';
+import { createLeao, compileLeao } from '@leao1/core';
 
 import type { LeaoCommand } from '../../types';
 import { runAction } from '../../utils/helpers';

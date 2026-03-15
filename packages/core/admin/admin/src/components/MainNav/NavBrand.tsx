@@ -1,4 +1,4 @@
-import { Box, Flex, type FlexComponent, VisuallyHidden } from '@leao/design-system';
+import { Box, Flex, type FlexComponent, VisuallyHidden } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

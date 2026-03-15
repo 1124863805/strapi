@@ -1,5 +1,5 @@
 import { isNil, isPlainObject } from 'lodash/fp';
-import type { UID, Struct, Data } from '@leao/types';
+import type { UID, Struct, Data } from '@leao1/types';
 
 type TransformedEntry = {
   id: string;

@@ -1,9 +1,9 @@
 import _ from 'lodash';
-import type { Core, Struct } from '@leao/types';
+import type { Core, Struct } from '@leao1/types';
 import { getGlobalId } from '../domain/content-type';
 
 export default async function loadAdmin(leao: Core.Leao) {
-  // leao.admin = require('@leao/admin/leao-server');
+  // leao.admin = require('@leao1/admin/leao-server');
 
   leao.get('services').add(`admin::`, leao.admin?.services);
   leao.get('controllers').add(`admin::`, leao.admin?.controllers);

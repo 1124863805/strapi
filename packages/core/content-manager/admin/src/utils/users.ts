@@ -1,4 +1,4 @@
-import type { SanitizedAdminUser } from '@leao/admin/leao-admin';
+import type { SanitizedAdminUser } from '@leao1/admin/leao-admin';
 
 /**
  * Retrieves the display name of an admin panel user

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { join } from 'path';
 import sharp from 'sharp';
-import { file as fileUtils } from '@leao/utils';
+import { file as fileUtils } from '@leao1/utils';
 
 import { getService } from '../utils';
 

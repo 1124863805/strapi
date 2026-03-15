@@ -1,5 +1,5 @@
 import { Readable, Transform } from 'stream';
-import type { Core, Struct } from '@leao/types';
+import type { Core, Struct } from '@leao1/types';
 
 import * as shared from '../../queries';
 import { IEntity } from '../../../../types';

@@ -1,4 +1,4 @@
-import type { UID, Core, Struct } from '@leao/types';
+import type { UID, Core, Struct } from '@leao1/types';
 import type { Context, Next } from 'koa';
 import isNil from 'lodash/isNil';
 

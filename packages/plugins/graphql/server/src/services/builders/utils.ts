@@ -1,7 +1,7 @@
 import { entries, mapValues, omit } from 'lodash/fp';
 import { idArg, nonNull } from 'nexus';
-import { pagination } from '@leao/utils';
-import type { Core, Struct } from '@leao/types';
+import { pagination } from '@leao1/utils';
+import type { Core, Struct } from '@leao1/types';
 
 const { withDefaultPagination } = pagination;
 

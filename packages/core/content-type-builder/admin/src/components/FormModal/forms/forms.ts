@@ -15,7 +15,7 @@ import { addItemsToFormSection, FormTypeOptions } from './utils/addItemsToFormSe
 import { createComponentCollectionName } from './utils/createCollectionName';
 import { Attribute, getUsedAttributeNames, SchemaData } from './utils/getUsedAttributeNames';
 
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 type ContentType = {
   schema: {

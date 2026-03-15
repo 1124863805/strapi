@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useNotification } from '@leao/admin/leao-admin';
+import { useNotification } from '@leao1/admin/leao-admin';
 import {
   Button,
   Field,
@@ -10,7 +10,7 @@ import {
   Modal,
   TextInput,
   Typography,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import { Form, Formik } from 'formik';
 import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';

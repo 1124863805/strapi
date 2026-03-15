@@ -1,4 +1,4 @@
-import { Page, Layouts } from '@leao/admin/leao-admin';
+import { Page, Layouts } from '@leao1/admin/leao-admin';
 import { useIntl } from 'react-intl';
 
 import { getTranslation } from '../utils/translations';

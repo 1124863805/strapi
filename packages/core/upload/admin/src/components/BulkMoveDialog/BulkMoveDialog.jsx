@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Flex, Grid, Field, Loader, Modal, Typography } from '@leao/design-system';
+import { Button, Flex, Grid, Field, Loader, Modal, Typography } from '@leao1/design-system';
 import { Form, Formik } from 'formik';
 import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';

@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { useNotification, useAPIErrorHandler, useQueryParams } from '@leao/admin/leao-admin';
-import { useEEInfo } from '@leao/admin/leao-admin/ee';
-import { unstable_useDocument } from '@leao/content-manager/leao-admin';
+import { useNotification, useAPIErrorHandler, useQueryParams } from '@leao1/admin/leao-admin';
+import { useEEInfo } from '@leao1/admin/leao-admin/ee';
+import { unstable_useDocument } from '@leao1/content-manager/leao-admin';
 import {
   SingleSelect,
   SingleSelectOption,
@@ -10,7 +10,7 @@ import {
   Flex,
   Loader,
   Typography,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { useParams } from 'react-router-dom';
 
@@ -25,7 +25,7 @@ import { getStageColorByHex } from '../../../../../utils/colors';
 
 import { STAGE_ATTRIBUTE_NAME } from './constants';
 
-import type { Data } from '@leao/types';
+import type { Data } from '@leao1/types';
 
 export const StageSelect = () => {
   const {

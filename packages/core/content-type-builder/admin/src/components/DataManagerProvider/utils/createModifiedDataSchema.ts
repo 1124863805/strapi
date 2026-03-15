@@ -1,7 +1,7 @@
 import get from 'lodash/get';
 
 import type { ContentType, Components } from '../../../types';
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 export const createModifiedDataSchema = (
   contentTypeSchema: ContentType,

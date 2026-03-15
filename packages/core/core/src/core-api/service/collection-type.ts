@@ -1,4 +1,4 @@
-import type { Core, Struct, Modules } from '@leao/types';
+import type { Core, Struct, Modules } from '@leao1/types';
 
 import {
   getPaginationInfo,

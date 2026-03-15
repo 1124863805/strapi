@@ -1,5 +1,5 @@
 import { prop } from 'lodash/fp';
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 
 import { isoLocales } from '../constants';
 

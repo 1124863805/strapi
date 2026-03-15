@@ -1,6 +1,6 @@
 import { forwardRef, memo } from 'react';
 
-import { NumberInput, useComposedRefs, Field } from '@leao/design-system';
+import { NumberInput, useComposedRefs, Field } from '@leao1/design-system';
 
 import { useFocusInputField } from '../../hooks/useFocusInputField';
 import { useField } from '../Form';

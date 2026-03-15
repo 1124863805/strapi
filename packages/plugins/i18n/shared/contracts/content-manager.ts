@@ -1,5 +1,5 @@
-import { Data, Modules } from '@leao/types';
-import { errors } from '@leao/utils';
+import { Data, Modules } from '@leao1/types';
+import { errors } from '@leao1/utils';
 
 /**
  * POST /i18n/content-manager/actions/get-non-localized-fields - Get the localized fields

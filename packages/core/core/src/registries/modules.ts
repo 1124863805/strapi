@@ -1,5 +1,5 @@
 import { pickBy, has } from 'lodash/fp';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import { createModule, RawModule, Module } from '../domain/module';
 
 type ModuleMap = { [namespace: string]: Module };

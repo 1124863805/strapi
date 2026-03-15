@@ -7,7 +7,7 @@ import {
   useNotification,
   useField,
   useRBAC,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import {
   Button,
   Combobox,
@@ -16,8 +16,8 @@ import {
   Flex,
   Grid,
   Typography,
-} from '@leao/design-system';
-import { Check } from '@leao/icons';
+} from '@leao1/design-system';
+import { Check } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 
 import { useTypedSelector } from '../modules/hooks';

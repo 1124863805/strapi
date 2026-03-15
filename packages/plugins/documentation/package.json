@@ -1,6 +1,6 @@
 {
-  "name": "@leao/plugin-documentation",
-  "version": "5.0.6",
+  "name": "@leao1/plugin-documentation",
+  "version": "1.0.0",
   "description": "Create an OpenAPI Document and visualize your API with SWAGGER UI.",
   "repository": {
     "type": "git",
@@ -48,17 +48,17 @@
     "watch": "leao-plugin watch"
   },
   "dependencies": {
-    "@leao/admin": "workspace:*",
-    "@leao/design-system": "workspace:*",
-    "@leao/icons": "workspace:*",
-    "@leao/utils": "workspace:*",
+    "@leao1/admin": "^1.0.0",
+    "@leao1/design-system": "^1.0.0",
+    "@leao1/icons": "^1.0.0",
+    "@leao1/utils": "^1.0.0",
     "@reduxjs/toolkit": "1.9.7",
     "bcryptjs": "2.4.3",
     "cheerio": "^1.0.0-rc.12",
     "formik": "2.4.5",
     "fs-extra": "11.2.0",
     "immer": "9.0.21",
-    "koa-static": "^5.0.0",
+    "koa-static": "^1.0.0",
     "lodash": "4.17.21",
     "path-to-regexp": "6.3.0",
     "react-intl": "6.6.2",
@@ -68,10 +68,10 @@
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "^10.1.0",
-    "@leao/leao": "workspace:*",
-    "@leao/pack-up": "workspace:*",
-    "@leao/sdk-plugin": "workspace:*",
-    "@leao/types": "workspace:*",
+    "@leao1/leao": "^1.0.0",
+    "@leao1/pack-up": "^1.0.0",
+    "@leao1/sdk-plugin": "^1.0.0",
+    "@leao1/types": "^1.0.0",
     "@types/fs-extra": "11.0.4",
     "@types/koa": "2.13.4",
     "@types/koa-session": "6.4.1",
@@ -86,7 +86,7 @@
     "styled-components": "6.1.8"
   },
   "peerDependencies": {
-    "@leao/leao": "^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc",
+    "@leao1/leao": "^1.0.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^6.0.0",

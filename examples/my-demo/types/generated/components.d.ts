@@ -1,4 +1,4 @@
-import type { Struct, Schema } from '@leao/leao';
+import type { Struct, Schema } from '@leao1/leao';
 
 export interface SharedSlider extends Struct.ComponentSchema {
   collectionName: 'components_shared_sliders';
@@ -62,7 +62,7 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
-declare module '@leao/leao' {
+declare module '@leao1/leao' {
   export module Public {
     export interface ComponentSchemas {
       'shared.slider': SharedSlider;

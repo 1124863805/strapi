@@ -10,7 +10,7 @@ import {
   Tr,
   Typography,
   VisuallyHidden,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { getTranslation } from '../utils/getTranslation';

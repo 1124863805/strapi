@@ -1,6 +1,6 @@
 import { assign, isArray, isEmpty, isObject, map, omit, size } from 'lodash/fp';
 
-import type { Core, UID, Data, Struct } from '@leao/types';
+import type { Core, UID, Data, Struct } from '@leao1/types';
 import * as componentsService from '../../utils/components';
 
 const sanitizeComponentLikeAttributes = <T extends Struct.Schema>(

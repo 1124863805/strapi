@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import { getService } from '../utils';
 import { isSsoLocked } from '../utils/sso-lock';
 

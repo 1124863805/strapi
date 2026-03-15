@@ -2,7 +2,7 @@
 import * as qs from 'qs';
 import { matchPath } from 'react-router-dom';
 
-import type { RBACMiddleware } from '@leao/admin/leao-admin';
+import type { RBACMiddleware } from '@leao1/admin/leao-admin';
 
 const localeMiddleware: RBACMiddleware = (ctx) => (next) => (permissions) => {
   const match = matchPath('/content-manager/:collectionType/:model?/:id', ctx.pathname);

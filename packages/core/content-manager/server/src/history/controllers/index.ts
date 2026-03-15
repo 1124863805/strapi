@@ -1,4 +1,4 @@
-import type { Plugin } from '@leao/types';
+import type { Plugin } from '@leao1/types';
 import { createHistoryVersionController } from './history-version';
 
 export const controllers = {

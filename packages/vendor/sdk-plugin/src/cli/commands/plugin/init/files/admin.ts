@@ -3,7 +3,7 @@ import { outdent } from 'outdent';
 import type { TemplateFile } from '../../../utils/init/types';
 
 const PLUGIN_ICON_CODE = outdent`
-import { PuzzlePiece } from '@leao/icons';
+import { PuzzlePiece } from '@leao1/icons';
 
 const PluginIcon = () => <PuzzlePiece />;
 
@@ -11,7 +11,7 @@ export { PluginIcon };
 `;
 
 const APP_CODE = outdent`
-import { Page } from '@leao/leao/admin';
+import { Page } from '@leao1/leao/admin';
 import { Routes, Route } from 'react-router-dom';
 
 import { HomePage } from './HomePage';
@@ -29,7 +29,7 @@ export { App };
 `;
 
 const HOMEPAGE_CODE = outdent`
-    import { Main } from '@leao/design-system';
+    import { Main } from '@leao1/design-system';
     import { useIntl } from 'react-intl';
 
     import { getTranslation } from '../utils/getTranslation';
@@ -154,8 +154,8 @@ const TYPESCRIPT: TemplateFile[] = [
      */
     name: 'admin/custom.d.ts',
     contents: outdent`
-        declare module '@leao/design-system/*';
-        declare module '@leao/design-system';
+        declare module '@leao1/design-system/*';
+        declare module '@leao1/design-system';
     `,
   },
 ];

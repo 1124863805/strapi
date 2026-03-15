@@ -9,8 +9,8 @@ import {
   Typography,
   Grid,
   Field,
-} from '@leao/design-system';
-import { Check } from '@leao/icons';
+} from '@leao1/design-system';
+import { Check } from '@leao1/icons';
 import {
   Page,
   BackButton,
@@ -18,7 +18,7 @@ import {
   useNotification,
   useFetchClient,
   Layouts,
-} from '@leao/leao/admin';
+} from '@leao1/leao/admin';
 import { Formik, Form } from 'formik';
 import { useIntl } from 'react-intl';
 import { useQuery, useMutation } from 'react-query';

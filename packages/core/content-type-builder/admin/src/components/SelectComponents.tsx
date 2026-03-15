@@ -1,4 +1,4 @@
-import { Field, MultiSelectNested } from '@leao/design-system';
+import { Field, MultiSelectNested } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { useDataManager } from '../hooks/useDataManager';

@@ -1,4 +1,4 @@
-import { Status, StatusProps, Typography } from '@leao/design-system';
+import { Status, StatusProps, Typography } from '@leao1/design-system';
 
 import { capitalise } from '../../../utils/strings';
 

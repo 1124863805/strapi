@@ -1,5 +1,5 @@
-import { errors } from '@leao/utils';
-import type { Data } from '@leao/types';
+import { errors } from '@leao1/utils';
+import type { Data } from '@leao1/types';
 
 export type ApiToken = {
   accessKey: string;

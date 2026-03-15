@@ -1,5 +1,5 @@
 import { merge, map, pipe, reduce } from 'lodash/fp';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 // Builders Factories
 

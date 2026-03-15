@@ -1,5 +1,5 @@
-import { Flex, IconButton, Typography } from '@leao/design-system';
-import { Eye } from '@leao/icons';
+import { Flex, IconButton, Typography } from '@leao1/design-system';
+import { Eye } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 
 import { Filters } from '../../../../../../../admin/src/components/Filters';

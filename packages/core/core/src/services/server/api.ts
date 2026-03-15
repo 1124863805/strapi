@@ -1,5 +1,5 @@
 import Router from '@koa/router';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import { createRouteManager } from './routing';
 

@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 import { produce } from 'immer';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import { builApiEndpointPath, buildComponentSchema } from './helpers';
 import { getPluginsThatNeedDocumentation } from './utils/get-plugins-that-need-documentation';

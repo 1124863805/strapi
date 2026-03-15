@@ -15,7 +15,7 @@ import {
   isObject,
 } from 'lodash/fp';
 
-import { contentTypes, traverseEntity, traverse, validate, async, errors } from '@leao/utils';
+import { contentTypes, traverseEntity, traverse, validate, async, errors } from '@leao1/utils';
 import { ADMIN_USER_ALLOWED_FIELDS } from '../../../domain/user';
 
 const { ValidationError } = errors;

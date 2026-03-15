@@ -1,5 +1,5 @@
 import { isFunction } from 'lodash/fp';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 export interface Config {
   handlers?: Record<number, Core.MiddlewareHandler>;

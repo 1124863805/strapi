@@ -1,5 +1,5 @@
 import { has } from 'lodash/fp';
-import type { Struct, UID } from '@leao/types';
+import type { Struct, UID } from '@leao1/types';
 
 const componentsRegistry = () => {
   const components: Record<UID.Component, Struct.ComponentSchema> = {};

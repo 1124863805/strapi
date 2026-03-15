@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from 'react';
 
-import { useField, useNotification } from '@leao/admin/leao-admin';
+import { useField, useNotification } from '@leao1/admin/leao-admin';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

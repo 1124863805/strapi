@@ -1,6 +1,6 @@
 import { get } from 'lodash/fp';
-import { errors } from '@leao/utils';
-import type { Core, Struct } from '@leao/types';
+import { errors } from '@leao1/utils';
+import type { Core, Struct } from '@leao1/types';
 import { getService } from '../utils';
 
 const { ApplicationError } = errors;

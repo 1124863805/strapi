@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { FormErrors, Table, useTable } from '@leao/admin/leao-admin';
-import { Box, Typography, IconButton, Flex, Tooltip, Status, Modal } from '@leao/design-system';
-import { Pencil, CheckCircle, CrossCircle, ArrowsCounterClockwise } from '@leao/icons';
-import { Modules } from '@leao/types';
+import { FormErrors, Table, useTable } from '@leao1/admin/leao-admin';
+import { Box, Typography, IconButton, Flex, Tooltip, Status, Modal } from '@leao1/design-system';
+import { Pencil, CheckCircle, CrossCircle, ArrowsCounterClockwise } from '@leao1/icons';
+import { Modules } from '@leao1/types';
 import { stringify } from 'qs';
 import { type MessageDescriptor, useIntl, PrimitiveType } from 'react-intl';
 import { Link } from 'react-router-dom';

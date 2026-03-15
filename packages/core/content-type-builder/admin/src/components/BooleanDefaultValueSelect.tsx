@@ -1,4 +1,4 @@
-import { Field, SingleSelect, SingleSelectOption } from '@leao/design-system';
+import { Field, SingleSelect, SingleSelectOption } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { IntlLabel } from '../types';

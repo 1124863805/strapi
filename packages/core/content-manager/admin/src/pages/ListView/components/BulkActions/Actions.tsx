@@ -5,9 +5,9 @@ import {
   DescriptionComponentRenderer,
   useTable,
   useQueryParams,
-} from '@leao/admin/leao-admin';
-import { Box, ButtonProps, Flex, Typography } from '@leao/design-system';
-import { WarningCircle } from '@leao/icons';
+} from '@leao1/admin/leao-admin';
+import { Box, ButtonProps, Flex, Typography } from '@leao1/design-system';
+import { WarningCircle } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 
 import { useDocumentRBAC } from '../../../../features/DocumentRBAC';

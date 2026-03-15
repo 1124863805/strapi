@@ -1,4 +1,4 @@
-import { translatedErrors } from '@leao/admin/leao-admin';
+import { translatedErrors } from '@leao1/admin/leao-admin';
 import * as yup from 'yup';
 
 export const schema = yup.object().shape({

@@ -1,4 +1,4 @@
-import { Field, Textarea, TextareaProps } from '@leao/design-system';
+import { Field, Textarea, TextareaProps } from '@leao1/design-system';
 import { MessageDescriptor, useIntl } from 'react-intl';
 
 import { isErrorMessageMessageDescriptor } from '../../utils/forms';

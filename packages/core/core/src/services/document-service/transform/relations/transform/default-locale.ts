@@ -1,4 +1,4 @@
-import type { UID } from '@leao/types';
+import type { UID } from '@leao1/types';
 
 import { getDefaultLocale, isLocalizedContentType } from '../utils/i18n';
 import { mapRelation, traverseEntityRelations } from '../utils/map-relation';

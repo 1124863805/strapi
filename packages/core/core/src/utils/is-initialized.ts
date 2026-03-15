@@ -1,6 +1,6 @@
 import { isEmpty, isNil } from 'lodash/fp';
 
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 /**
  * Test if the leao application is considered as initialized (1st user has been created)

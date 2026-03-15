@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useRBAC, useQueryParams } from '@leao/admin/leao-admin';
+import { useRBAC, useQueryParams } from '@leao1/admin/leao-admin';
 import {
   Flex,
   IconButton,
@@ -10,8 +10,8 @@ import {
   Typography,
   useCollator,
   LinkButton,
-} from '@leao/design-system';
-import { Cog, ListPlus } from '@leao/icons';
+} from '@leao1/design-system';
+import { Cog, ListPlus } from '@leao1/icons';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';

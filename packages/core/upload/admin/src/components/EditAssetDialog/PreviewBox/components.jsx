@@ -1,4 +1,4 @@
-import { Badge, Box, Flex } from '@leao/design-system';
+import { Badge, Box, Flex } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
 export const RelativeBox = styled(Box)`

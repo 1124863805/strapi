@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import utils from '@leao/utils';
+import utils from '@leao1/utils';
 
 import type { Context } from 'koa';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import { getService } from '../utils';
 import { FILE_MODEL_UID } from '../constants';

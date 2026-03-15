@@ -1,7 +1,7 @@
 import _ from 'lodash/fp';
 import qs from 'qs';
 import { Ability } from '@casl/ability';
-import { providerFactory } from '@leao/utils';
+import { providerFactory } from '@leao1/utils';
 
 import {
   createEngineHooks,

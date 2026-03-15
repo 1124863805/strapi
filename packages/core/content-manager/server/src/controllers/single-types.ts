@@ -1,5 +1,5 @@
-import type { UID, Modules } from '@leao/types';
-import { setCreatorFields, async, errors } from '@leao/utils';
+import type { UID, Modules } from '@leao1/types';
+import { setCreatorFields, async, errors } from '@leao1/utils';
 
 import { getDocumentLocaleAndStatus } from './validation/dimensions';
 import { getService } from '../utils';

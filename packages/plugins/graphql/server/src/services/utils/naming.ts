@@ -1,7 +1,7 @@
 import { camelCase, upperFirst, lowerFirst, pipe, get } from 'lodash/fp';
 import { singular } from 'pluralize';
-import { errors } from '@leao/utils';
-import type { Struct, Schema } from '@leao/types';
+import { errors } from '@leao1/utils';
+import type { Struct, Schema } from '@leao1/types';
 import type { Context } from '../types';
 
 const { ApplicationError } = errors;

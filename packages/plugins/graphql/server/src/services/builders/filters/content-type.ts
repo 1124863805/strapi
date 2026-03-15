@@ -1,6 +1,6 @@
 import { inputObjectType } from 'nexus';
 import type * as Nexus from 'nexus';
-import type { Struct, Schema } from '@leao/types';
+import type { Struct, Schema } from '@leao1/types';
 import type { Context } from '../../types';
 
 export default ({ leao }: Context) => {

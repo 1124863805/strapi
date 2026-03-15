@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { CaretDown, Cross } from '@leao/icons';
-import { Combobox as ComboboxPrimitive } from '@leao/ui-primitives';
+import { CaretDown, Cross } from '@leao1/icons';
+import { Combobox as ComboboxPrimitive } from '@leao1/ui-primitives';
 import { css, styled } from 'styled-components';
 
 import { stripReactIdOfColon } from '../../helpers/strings';

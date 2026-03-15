@@ -1,4 +1,4 @@
-import { InputRenderer, useField, useForm } from '@leao/admin/leao-admin';
+import { InputRenderer, useField, useForm } from '@leao1/admin/leao-admin';
 import {
   Field,
   Grid,
@@ -7,7 +7,7 @@ import {
   MultiSelectOption,
   Typography,
   useCollator,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

@@ -1,5 +1,5 @@
 import { cloneDeep, has, isArray } from 'lodash/fp';
-import { hooks } from '@leao/utils';
+import { hooks } from '@leao1/utils';
 
 import * as domain from '../domain';
 import type { Permission } from '../domain/permission';

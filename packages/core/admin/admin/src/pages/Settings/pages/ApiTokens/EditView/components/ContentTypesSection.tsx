@@ -1,4 +1,4 @@
-import { Accordion, Box } from '@leao/design-system';
+import { Accordion, Box } from '@leao1/design-system';
 
 import { ContentApiPermission } from '../../../../../../../../shared/contracts/content-api/permissions';
 

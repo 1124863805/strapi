@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import { omit, difference, isNil, isEmpty, map, isArray, uniq, isNumber } from 'lodash/fp';
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import type { Update, ApiToken, ApiTokenBody } from '../../../shared/contracts/api-token';
 import constants from './constants';
 

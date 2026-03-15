@@ -1,5 +1,5 @@
 import { isNil } from 'lodash/fp';
-import type { UID } from '@leao/types';
+import type { UID } from '@leao1/types';
 import { type Populate, getDeepPopulate, getQueryPopulate } from './utils/populate';
 
 /**

@@ -1,5 +1,5 @@
-import type { Schema, UID } from '@leao/types';
-import { contentTypes as contentTypesUtils, async } from '@leao/utils';
+import type { Schema, UID } from '@leao1/types';
+import { contentTypes as contentTypesUtils, async } from '@leao1/utils';
 import isEqual from 'lodash/isEqual';
 
 import { difference, keys } from 'lodash';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Page, Layouts } from '@leao/admin/leao-admin';
-import { Box } from '@leao/design-system';
+import { Page, Layouts } from '@leao1/admin/leao-admin';
+import { Box } from '@leao1/design-system';
 import { XYCoord, useDragLayer } from 'react-dnd';
 import { useIntl } from 'react-intl';
 

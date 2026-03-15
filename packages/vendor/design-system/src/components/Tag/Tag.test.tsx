@@ -1,4 +1,4 @@
-import { Cross } from '@leao/icons';
+import { Cross } from '@leao1/icons';
 import { render as renderRTL } from '@test/utils';
 
 import { Tag, TagProps } from './Tag';

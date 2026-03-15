@@ -1,5 +1,5 @@
 import { cloneDeep } from 'lodash/fp';
-import { async } from '@leao/utils';
+import { async } from '@leao1/utils';
 
 import { FOLDER_MODEL_UID, FILE_MODEL_UID } from '../constants';
 import { getService } from '../utils';

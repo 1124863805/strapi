@@ -7,7 +7,7 @@ import {
   Textarea,
   TextInput,
   Typography,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import { FormikProps } from 'formik';
 import { useIntl } from 'react-intl';
 

@@ -1,8 +1,8 @@
 import assert from 'assert/strict';
 import { has } from 'lodash/fp';
 
-import { errors } from '@leao/utils';
-import type { Core } from '@leao/types';
+import { errors } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 import type { ParameterizedContext } from 'koa';
 
 interface AuthenticationResponse {

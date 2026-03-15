@@ -1,5 +1,5 @@
 module.exports = {
-  extends: '@leao/eslint-config/back/javascript',
+  extends: '@leao1/eslint-config/back/javascript',
   parserOptions: {
     ecmaVersion: 2021,
   },

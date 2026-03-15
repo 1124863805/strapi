@@ -1,4 +1,4 @@
-import type { Model } from '@leao/database';
+import type { Model } from '@leao1/database';
 import { HISTORY_VERSION_UID } from '../constants';
 
 const historyVersion: Model = {

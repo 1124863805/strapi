@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { useLeaoApp } from '@leao/admin/leao-admin';
-import { Box } from '@leao/design-system';
+import { useLeaoApp } from '@leao1/admin/leao-admin';
+import { Box } from '@leao1/design-system';
 import {
   BlocksField,
   BooleanField,
@@ -17,9 +17,9 @@ import {
   RelationField,
   TextField,
   UidField,
-} from '@leao/icons/symbols';
+} from '@leao1/icons/symbols';
 
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 const iconByTypes: Record<Schema.Attribute.Kind, React.ReactElement> = {
   biginteger: <NumberField />,

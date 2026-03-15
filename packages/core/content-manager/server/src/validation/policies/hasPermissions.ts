@@ -1,4 +1,4 @@
-import { yup, validateYupSchemaSync } from '@leao/utils';
+import { yup, validateYupSchemaSync } from '@leao1/utils';
 
 const hasPermissionsSchema = yup.object({
   actions: yup.array().of(yup.string()),

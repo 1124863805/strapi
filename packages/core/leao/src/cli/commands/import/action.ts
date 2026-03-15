@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import { isObject } from 'lodash/fp';
 import chalk from 'chalk';
 
@@ -6,7 +6,7 @@ import {
   engine as engineDataTransfer,
   leao as leaoDataTransfer,
   file as fileDataTransfer,
-} from '@leao/data-transfer';
+} from '@leao1/data-transfer';
 
 import {
   buildTransferTable,

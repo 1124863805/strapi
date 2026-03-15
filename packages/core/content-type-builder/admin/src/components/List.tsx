@@ -12,9 +12,9 @@ import {
   Thead,
   Tr,
   Typography,
-} from '@leao/design-system';
-import { Plus } from '@leao/icons';
-import { EmptyDocuments } from '@leao/icons/symbols';
+} from '@leao1/design-system';
+import { Plus } from '@leao1/icons';
+import { EmptyDocuments } from '@leao1/icons/symbols';
 import { useIntl } from 'react-intl';
 
 import { useDataManager } from '../hooks/useDataManager';
@@ -27,7 +27,7 @@ import { DynamicZoneList } from './DynamicZoneList';
 import { NestedTFooter } from './NestedFooter';
 
 import type { SchemaType } from '../types';
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 interface ListProps {
   addComponentToDZ?: () => void;

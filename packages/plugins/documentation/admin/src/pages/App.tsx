@@ -14,8 +14,8 @@ import {
   Typography,
   EmptyStateLayout,
   Dialog,
-} from '@leao/design-system';
-import { Eye as Show, ArrowClockwise as Reload, Trash } from '@leao/icons';
+} from '@leao1/design-system';
+import { Eye as Show, ArrowClockwise as Reload, Trash } from '@leao1/icons';
 import {
   ConfirmDialog,
   useRBAC,
@@ -23,7 +23,7 @@ import {
   useAPIErrorHandler,
   useNotification,
   Layouts,
-} from '@leao/leao/admin';
+} from '@leao1/leao/admin';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

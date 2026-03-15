@@ -5,9 +5,9 @@ import {
   useNotification,
   useAPIErrorHandler,
   useQueryParams,
-} from '@leao/admin/leao-admin';
-import { Button, Flex, Dialog, Typography } from '@leao/design-system';
-import { Check, WarningCircle } from '@leao/icons';
+} from '@leao1/admin/leao-admin';
+import { Button, Flex, Dialog, Typography } from '@leao1/design-system';
+import { Check, WarningCircle } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 
 import { useDoc } from '../../../../hooks/useDocument';

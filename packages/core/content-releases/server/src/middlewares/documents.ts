@@ -1,5 +1,5 @@
-import { Modules, UID } from '@leao/types';
-import { contentTypes } from '@leao/utils';
+import { Modules, UID } from '@leao1/types';
+import { contentTypes } from '@leao1/utils';
 import { RELEASE_MODEL_UID, RELEASE_ACTION_MODEL_UID } from '../constants';
 import { getService, isEntryValid } from '../utils';
 

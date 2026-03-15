@@ -1,6 +1,6 @@
 import type { Context } from 'koa';
 import { differenceInHours, parseISO } from 'date-fns';
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import { castArray, isNil } from 'lodash/fp';
 
 import { getService } from '../utils';

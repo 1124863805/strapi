@@ -1,5 +1,5 @@
-import type { Struct, Modules } from '@leao/types';
-import { errors } from '@leao/utils';
+import type { Struct, Modules } from '@leao1/types';
+import { errors } from '@leao1/utils';
 import { curry, assoc } from 'lodash/fp';
 
 type Transform = (

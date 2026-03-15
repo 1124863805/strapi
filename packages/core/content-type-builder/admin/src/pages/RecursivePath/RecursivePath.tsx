@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 
-import { Page } from '@leao/admin/leao-admin';
+import { Page } from '@leao1/admin/leao-admin';
 import { Route, Routes } from 'react-router-dom';
 
 const ListView = lazy(() => import('../ListView/ListView'));

@@ -1,7 +1,7 @@
 import { cloneDeep, isEmpty } from 'lodash/fp';
 
-import { type Schema } from '@leao/types';
-import { async } from '@leao/utils';
+import { type Schema } from '@leao1/types';
+import { async } from '@leao1/utils';
 import { getService } from '../utils';
 
 /**

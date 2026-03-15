@@ -6,9 +6,9 @@ import {
   useNotification,
   useRBAC,
   Layouts,
-} from '@leao/admin/leao-admin';
-import { EmptyStateLayout } from '@leao/design-system';
-import { EmptyDocuments } from '@leao/icons/symbols';
+} from '@leao1/admin/leao-admin';
+import { EmptyStateLayout } from '@leao1/design-system';
+import { EmptyDocuments } from '@leao1/icons/symbols';
 import { useIntl } from 'react-intl';
 
 import { CreateLocale } from '../components/CreateLocale';

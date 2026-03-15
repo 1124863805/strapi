@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Flex, IconButton, Link, Tbody, Td, Tr, Typography } from '@leao/design-system';
-import { Pencil, Trash } from '@leao/icons';
+import { Flex, IconButton, Link, Tbody, Td, Tr, Typography } from '@leao1/design-system';
+import { Pencil, Trash } from '@leao1/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { useNavigate, NavLink } from 'react-router-dom';

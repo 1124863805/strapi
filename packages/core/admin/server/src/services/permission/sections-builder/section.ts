@@ -1,5 +1,5 @@
 import { eq } from 'lodash/fp';
-import { hooks } from '@leao/utils';
+import { hooks } from '@leao1/utils';
 import type { Action } from '../../../domain/action';
 
 export type SectionOptions = {

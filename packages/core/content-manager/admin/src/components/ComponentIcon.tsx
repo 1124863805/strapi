@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import { Flex, FlexProps } from '@leao/design-system';
-import * as Icons from '@leao/icons';
-import * as Symbols from '@leao/icons/symbols';
+import { Flex, FlexProps } from '@leao1/design-system';
+import * as Icons from '@leao1/icons';
+import * as Symbols from '@leao1/icons/symbols';
 
-import type { Struct } from '@leao/types';
+import type { Struct } from '@leao1/types';
 
 interface ComponentIconProps extends FlexProps {
   showBackground?: boolean;

@@ -1,4 +1,4 @@
-export * from '@leao/core';
+export * from '@leao1/core';
 
-export type * from '@leao/types';
+export type * from '@leao1/types';
 export type * from './cli/types';

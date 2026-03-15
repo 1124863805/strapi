@@ -1,6 +1,6 @@
-import type { Struct } from '@leao/types';
+import type { Struct } from '@leao1/types';
 import type { Configuration, Settings, Metadatas, Layouts } from './content-types';
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 
 export interface Component extends Struct.ComponentSchema {
   isDisplayed: boolean;

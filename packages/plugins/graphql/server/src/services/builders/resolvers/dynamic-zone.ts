@@ -1,4 +1,4 @@
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 import type { Context } from '../../types';
 

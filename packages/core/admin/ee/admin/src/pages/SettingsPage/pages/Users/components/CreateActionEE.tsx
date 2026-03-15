@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button, Flex, Tooltip } from '@leao/design-system';
-import { Mail, WarningCircle } from '@leao/icons';
+import { Button, Flex, Tooltip } from '@leao1/design-system';
+import { Mail, WarningCircle } from '@leao1/icons';
 import isNil from 'lodash/isNil';
 import { useIntl } from 'react-intl';
 

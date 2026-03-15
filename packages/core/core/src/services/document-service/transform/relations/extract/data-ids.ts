@@ -1,6 +1,6 @@
 import { curry } from 'lodash/fp';
 
-import { UID } from '@leao/types';
+import { UID } from '@leao1/types';
 
 import { IdMap } from '../../id-map';
 import { getRelationTargetLocale } from '../utils/i18n';

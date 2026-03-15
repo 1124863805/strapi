@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { getOr } from 'lodash/fp';
-import { contentTypes as contentTypesUtils, errors } from '@leao/utils';
-import type { UID, Struct } from '@leao/types';
+import { contentTypes as contentTypesUtils, errors } from '@leao1/utils';
+import type { UID, Struct } from '@leao1/types';
 import { formatAttributes, replaceTemporaryUIDs } from '../utils/attributes';
 import createBuilder from './schema-builder';
 import { coreUids, pluginsUids } from './constants';
@@ -135,7 +135,7 @@ export const generateAPI = ({
   displayName,
 }: any) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const leaoGenerators = require('@leao/generators');
+  const leaoGenerators = require('@leao1/generators');
   return leaoGenerators.generate(
     'content-type',
     {

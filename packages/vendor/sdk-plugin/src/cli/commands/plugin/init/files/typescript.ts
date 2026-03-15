@@ -12,7 +12,7 @@ const ADMIN: TsConfigFiles = {
     name: 'admin/tsconfig.json',
     contents: outdent`
         {
-          "extends": "@leao/typescript-utils/tsconfigs/admin",
+          "extends": "@leao1/typescript-utils/tsconfigs/admin",
           "include": ["./src", "./custom.d.ts"],
           "compilerOptions": {
             "rootDir": "../",
@@ -43,7 +43,7 @@ const SERVER: TsConfigFiles = {
     name: 'server/tsconfig.json',
     contents: outdent`
         {
-          "extends": "@leao/typescript-utils/tsconfigs/server",
+          "extends": "@leao1/typescript-utils/tsconfigs/server",
           "include": ["./src"],
           "compilerOptions": {
             "rootDir": "../",

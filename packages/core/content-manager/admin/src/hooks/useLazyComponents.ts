@@ -1,6 +1,6 @@
 import { ComponentType, useCallback, useEffect, useState } from 'react';
 
-import { LeaoAppContextValue, useLeaoApp } from '@leao/admin/leao-admin';
+import { LeaoAppContextValue, useLeaoApp } from '@leao1/admin/leao-admin';
 
 const componentStore = new Map<string, ComponentType | undefined>();
 

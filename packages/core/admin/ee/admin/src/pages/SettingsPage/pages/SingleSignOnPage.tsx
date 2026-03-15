@@ -6,8 +6,8 @@ import {
   MultiSelectOption,
   Typography,
   Field,
-} from '@leao/design-system';
-import { Check } from '@leao/icons';
+} from '@leao1/design-system';
+import { Check } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import * as yup from 'yup';
 

@@ -1,4 +1,4 @@
-import { type Filters, useField } from '@leao/admin/leao-admin';
+import { type Filters, useField } from '@leao1/admin/leao-admin';
 import {
   Flex,
   Loader,
@@ -6,7 +6,7 @@ import {
   SingleSelectOption,
   SingleSelectProps,
   Typography,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { useParams } from 'react-router-dom';
 

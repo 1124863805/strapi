@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import _ from 'lodash';
 import { defaults } from 'lodash/fp';
-import { arrays, errors } from '@leao/utils';
-import type { Data } from '@leao/types';
+import { arrays, errors } from '@leao1/utils';
+import type { Data } from '@leao1/types';
 import { createUser, hasSuperAdminRole } from '../domain/user';
 import type {
   AdminUser,

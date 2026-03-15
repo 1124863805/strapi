@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useCallbackRef } from '@leao/ui-primitives';
+import { useCallbackRef } from '@leao1/ui-primitives';
 
 interface UseIntersectionOptions {
   selectorToWatch: string;

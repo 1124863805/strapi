@@ -1,7 +1,7 @@
 import { propOr } from 'lodash/fp';
 import { GraphQLFieldResolver, GraphQLResolveInfo } from 'graphql';
-import { policy as policyUtils, errors } from '@leao/utils';
-import type { Core } from '@leao/types';
+import { policy as policyUtils, errors } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 
 const { PolicyError } = errors;
 

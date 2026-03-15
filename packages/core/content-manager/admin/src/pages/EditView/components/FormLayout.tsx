@@ -1,4 +1,4 @@
-import { Box, Flex, Grid } from '@leao/design-system';
+import { Box, Flex, Grid } from '@leao1/design-system';
 
 import { EditLayout } from '../../../hooks/useDocumentLayout';
 

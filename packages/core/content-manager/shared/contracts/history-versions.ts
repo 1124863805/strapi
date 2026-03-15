@@ -1,5 +1,5 @@
-import type { Data, Modules, Struct, UID } from '@leao/types';
-import { type errors } from '@leao/utils';
+import type { Data, Modules, Struct, UID } from '@leao1/types';
+import { type errors } from '@leao1/utils';
 
 /**
  * Unlike other Content Manager contracts, history versions can't be created via

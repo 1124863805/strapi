@@ -6,7 +6,7 @@ import {
   useForm,
   InputRenderer as FormInputRenderer,
   useField,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import { useIntl } from 'react-intl';
 
 import { SINGLE_TYPES } from '../../../constants/collections';
@@ -24,7 +24,7 @@ import { UIDInput } from './FormInputs/UID';
 import { Wysiwyg } from './FormInputs/Wysiwyg/Field';
 
 import type { EditFieldLayout } from '../../../hooks/useDocumentLayout';
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 import type { DistributiveOmit } from 'react-redux';
 
 type InputRendererProps = DistributiveOmit<EditFieldLayout, 'size'>;

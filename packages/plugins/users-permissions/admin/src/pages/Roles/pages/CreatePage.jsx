@@ -9,9 +9,9 @@ import {
   TextInput,
   Typography,
   Field,
-} from '@leao/design-system';
-import { Check } from '@leao/icons';
-import { Page, useNotification, useFetchClient, Layouts } from '@leao/leao/admin';
+} from '@leao1/design-system';
+import { Check } from '@leao1/icons';
+import { Page, useNotification, useFetchClient, Layouts } from '@leao1/leao/admin';
 import { Formik, Form } from 'formik';
 import { useIntl } from 'react-intl';
 import { useMutation } from 'react-query';

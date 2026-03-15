@@ -1,4 +1,4 @@
-import { Box } from '@leao/design-system';
+import { Box } from '@leao1/design-system';
 
 import { ContentPermission } from '../../../../../../../shared/contracts/permissions';
 

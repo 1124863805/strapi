@@ -1,4 +1,4 @@
-import permissions from '@leao/permissions';
+import permissions from '@leao1/permissions';
 
 type Options = Parameters<typeof permissions.engine.new>[0];
 

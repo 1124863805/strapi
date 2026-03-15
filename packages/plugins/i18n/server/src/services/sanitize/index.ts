@@ -1,6 +1,6 @@
-import type { Core, Schema, Data } from '@leao/types';
+import type { Core, Schema, Data } from '@leao1/types';
 
-import { traverseEntity } from '@leao/utils';
+import { traverseEntity } from '@leao1/utils';
 import { curry } from 'lodash/fp';
 
 import { getService } from '../../utils';

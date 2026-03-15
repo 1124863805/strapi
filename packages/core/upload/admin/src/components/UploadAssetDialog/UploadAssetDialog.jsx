@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Modal } from '@leao/design-system';
+import { Modal } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

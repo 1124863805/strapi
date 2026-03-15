@@ -1,7 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
-const { async, errors } = require('@leao/utils');
+const { async, errors } = require('@leao1/utils');
 const { getService } = require('../utils');
 const { validateDeleteRoleBody } = require('./validation/user');
 

@@ -7,10 +7,10 @@ import {
   createContext,
   Page,
   useQueryParams,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import { useParams } from 'react-router-dom';
 
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 /**
  * The boolean values indicate the global actions a user can perform on the document.

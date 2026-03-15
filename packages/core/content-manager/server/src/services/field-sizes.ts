@@ -1,5 +1,5 @@
-import { errors } from '@leao/utils';
-import type { Core, Modules } from '@leao/types';
+import { errors } from '@leao1/utils';
+import type { Core, Modules } from '@leao1/types';
 
 const { ApplicationError } = errors;
 

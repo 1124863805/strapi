@@ -1,5 +1,5 @@
-import { type Model, type Identifiers } from '@leao/database';
-import type { Struct, Schema } from '@leao/types';
+import { type Model, type Identifiers } from '@leao1/database';
+import type { Struct, Schema } from '@leao1/types';
 import { createId } from '@paralleldrive/cuid2';
 import assert from 'node:assert';
 import _ from 'lodash/fp';

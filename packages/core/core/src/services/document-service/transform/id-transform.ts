@@ -1,6 +1,6 @@
 import { curry } from 'lodash/fp';
 
-import { UID, Modules } from '@leao/types';
+import { UID, Modules } from '@leao1/types';
 
 import { transformData } from './data';
 import { transformFields } from './fields';

@@ -1,5 +1,5 @@
-import type { Internal } from '@leao/types';
-import { contentTypes } from '@leao/utils';
+import type { Internal } from '@leao1/types';
+import { contentTypes } from '@leao1/utils';
 import {
   toSubjectTemplate,
   getValidOptions,

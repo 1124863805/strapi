@@ -1,4 +1,4 @@
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import { Entity, Pagination, SanitizedAdminUser } from './shared';
 
 // displayName seems to be used only for audit logs

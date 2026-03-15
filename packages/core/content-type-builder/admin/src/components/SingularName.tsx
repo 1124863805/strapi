@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import { Field, TextInput } from '@leao/design-system';
+import { Field, TextInput } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { nameToSlug } from '../utils/nameToSlug';

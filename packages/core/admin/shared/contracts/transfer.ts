@@ -1,4 +1,4 @@
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 
 export interface TransferTokenPermission {
   id: number | `${number}`;

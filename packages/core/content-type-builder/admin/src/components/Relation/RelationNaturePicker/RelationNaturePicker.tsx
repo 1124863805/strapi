@@ -1,4 +1,4 @@
-import { Flex, KeyboardNavigable, Typography } from '@leao/design-system';
+import { Flex, KeyboardNavigable, Typography } from '@leao1/design-system';
 import {
   ManyToMany,
   ManyToOne,
@@ -6,7 +6,7 @@ import {
   OneToMany,
   OneToOne,
   OneWay,
-} from '@leao/icons';
+} from '@leao1/icons';
 import get from 'lodash/get';
 import truncate from 'lodash/truncate';
 import pluralize from 'pluralize';

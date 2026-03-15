@@ -1,4 +1,4 @@
-export const PREFIX = '[@leao/design-system]:';
+export const PREFIX = '[@leao1/design-system]:';
 
 export const once = <TFunc extends (...args: any) => any>(fn: TFunc) => {
   const func = fn;

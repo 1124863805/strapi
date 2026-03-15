@@ -9,7 +9,7 @@ import * as actions from './constants';
 import { retrieveComponentsFromSchema } from './utils/retrieveComponentsFromSchema';
 
 import type { DataManagerStateType, ContentType, AttributeType, Component } from '../../types';
-import type { Internal, Schema } from '@leao/types';
+import type { Internal, Schema } from '@leao1/types';
 
 // TODO: Define all possible actions based on type
 export type Action = {

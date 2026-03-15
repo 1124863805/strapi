@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { useLeaoApp } from '@leao/admin/leao-admin';
-import { Box, Flex, FlexComponent } from '@leao/design-system';
-import { Image as Picture } from '@leao/icons';
+import { useLeaoApp } from '@leao1/admin/leao-admin';
+import { Box, Flex, FlexComponent } from '@leao1/design-system';
+import { Image as Picture } from '@leao1/icons';
 import { type Element, Transforms, Editor } from 'slate';
 import { useFocused, type RenderElementProps, useSelected } from 'slate-react';
 import { styled, css } from 'styled-components';
@@ -11,7 +11,7 @@ import { prefixFileUrlWithBackendUrl } from '../../../../../../utils/urls';
 import { useBlocksEditorContext, type BlocksStore } from '../BlocksEditor';
 import { type Block } from '../utils/types';
 
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 const ImageWrapper = styled<FlexComponent>(Flex)<{ $isFocused?: boolean }>`
   transition-property: box-shadow;

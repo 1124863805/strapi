@@ -1,5 +1,5 @@
 import { SerializedError } from '@reduxjs/toolkit';
-import { ApiError, type UnknownApiError } from '@leao/admin/leao-admin';
+import { ApiError, type UnknownApiError } from '@leao1/admin/leao-admin';
 
 interface Query {
   plugins?: Record<string, unknown>;

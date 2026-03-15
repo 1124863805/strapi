@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 export const responseTime: Core.MiddlewareFactory = () => {
   return async (ctx, next) => {

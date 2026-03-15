@@ -7,7 +7,7 @@ import {
   useNotification,
   useFocusInputField,
   useQueryParams,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import {
   Box,
   Combobox,
@@ -23,8 +23,8 @@ import {
   Field,
   FlexComponent,
   BoxComponent,
-} from '@leao/design-system';
-import { Cross, Drag, ArrowClockwise } from '@leao/icons';
+} from '@leao1/design-system';
+import { Cross, Drag, ArrowClockwise } from '@leao1/icons';
 import { generateNKeysBetween } from 'fractional-indexing';
 import pipe from 'lodash/fp/pipe';
 import { getEmptyImage } from 'react-dnd-html5-backend';
@@ -55,7 +55,7 @@ import { DocumentStatus } from '../DocumentStatus';
 
 import { useComponent } from './ComponentContext';
 
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 /**
  * Remove a relation, whether it's been already saved or not.

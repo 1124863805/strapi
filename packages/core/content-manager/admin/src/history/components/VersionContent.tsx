@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Form, Layouts } from '@leao/admin/leao-admin';
-import { Box, Divider, Flex, Grid, Typography } from '@leao/design-system';
-import { Schema } from '@leao/types';
+import { Form, Layouts } from '@leao1/admin/leao-admin';
+import { Box, Divider, Flex, Grid, Typography } from '@leao1/design-system';
+import { Schema } from '@leao1/types';
 import pipe from 'lodash/fp/pipe';
 import { useIntl } from 'react-intl';
 

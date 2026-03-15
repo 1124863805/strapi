@@ -1,6 +1,6 @@
 import qs from 'qs';
 import type Koa from 'koa';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 type Config = Parameters<typeof qs.parse>[1];
 

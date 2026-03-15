@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, Main } from '@leao/design-system';
-import { Check } from '@leao/icons';
+import { Box, Button, Flex, Main } from '@leao1/design-system';
+import { Check } from '@leao1/icons';
 import { Formik, FormikHelpers } from 'formik';
 import { useIntl } from 'react-intl';
 import { Navigate, useMatch } from 'react-router-dom';

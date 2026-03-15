@@ -1,5 +1,5 @@
-import { Box, Button, Flex, Typography, LinkButton } from '@leao/design-system';
-import { ArrowRight } from '@leao/icons';
+import { Box, Button, Flex, Typography, LinkButton } from '@leao1/design-system';
+import { ArrowRight } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 

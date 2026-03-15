@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash/fp';
 import _ from 'lodash';
-import { yup, contentTypes as contentTypesUtils } from '@leao/utils';
-import type { Schema } from '@leao/types';
+import { yup, contentTypes as contentTypesUtils } from '@leao1/utils';
+import type { Schema } from '@leao1/types';
 import { validateContentTypeDefinition } from './validator';
 
 export type ContentTypeDefinition = {

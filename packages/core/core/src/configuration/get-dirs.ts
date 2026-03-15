@@ -1,7 +1,7 @@
 import { join, resolve } from 'path';
 import { get } from 'lodash/fp';
 
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import type { LeaoOptions } from '../Leao';
 
 export type Options = {

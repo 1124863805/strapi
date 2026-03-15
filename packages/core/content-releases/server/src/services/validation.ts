@@ -1,5 +1,5 @@
-import { errors, contentTypes } from '@leao/utils';
-import { Core, UID } from '@leao/types';
+import { errors, contentTypes } from '@leao1/utils';
+import { Core, UID } from '@leao1/types';
 import type { Release, CreateRelease, UpdateRelease } from '../../../shared/contracts/releases';
 import type { CreateReleaseAction } from '../../../shared/contracts/release-actions';
 import { RELEASE_MODEL_UID } from '../constants';

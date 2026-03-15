@@ -1,4 +1,4 @@
-import { useNotification, useFetchClient } from '@leao/admin/leao-admin';
+import { useNotification, useFetchClient } from '@leao1/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery, UseMutationResult, UseQueryResult } from 'react-query';
 import { GetConfiguration, UpdateConfiguration } from '../../../shared/contracts/configuration';

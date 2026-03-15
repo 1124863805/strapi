@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { useField, useLeaoApp, type InputProps } from '@leao/admin/leao-admin';
-import { Field, Flex } from '@leao/design-system';
+import { useField, useLeaoApp, type InputProps } from '@leao1/admin/leao-admin';
+import { Field, Flex } from '@leao1/design-system';
 import { EditorFromTextArea } from 'codemirror5';
 
 import { prefixFileUrlWithBackendUrl } from '../../../../../utils/urls';
@@ -18,7 +18,7 @@ import {
 import { WysiwygFooter } from './WysiwygFooter';
 import { WysiwygNav } from './WysiwygNav';
 
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 interface WysiwygProps extends Omit<InputProps, 'type'> {
   labelAction?: React.ReactNode;

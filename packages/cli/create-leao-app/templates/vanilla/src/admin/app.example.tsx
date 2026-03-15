@@ -1,4 +1,4 @@
-import type { LeaoApp } from '@leao/leao/admin';
+import type { LeaoApp } from '@leao1/leao/admin';
 
 export default {
   config: {

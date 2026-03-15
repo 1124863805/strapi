@@ -1,6 +1,6 @@
 import type { Context } from 'koa';
 
-import { strings, errors } from '@leao/utils';
+import { strings, errors } from '@leao1/utils';
 import { trim, has } from 'lodash/fp';
 import { getService } from '../utils';
 import {

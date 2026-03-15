@@ -1,7 +1,7 @@
 /* eslint-disable no-continue */
 import { keyBy, omit } from 'lodash/fp';
 
-import { UID, Schema } from '@leao/types';
+import { UID, Schema } from '@leao1/types';
 
 interface LoadContext {
   oldVersions: { id: string; locale: string }[];

@@ -1,6 +1,6 @@
 import { extendType } from 'nexus';
 import type * as Nexus from 'nexus';
-import type { Struct } from '@leao/types';
+import type { Struct } from '@leao1/types';
 import type { Context } from '../../types';
 
 export default ({ leao }: Context) => {

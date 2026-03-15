@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, Grid, Link, Typography } from '@leao/design-system';
-import { Check, ExternalLink } from '@leao/icons';
+import { Box, Button, Flex, Grid, Link, Typography } from '@leao1/design-system';
+import { Check, ExternalLink } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 

@@ -5,7 +5,7 @@ import getLatestVersion from 'get-latest-version';
  */
 
 // TODO: remove these when release versions are available
-export const USE_RC_VERSIONS: string[] = ['@leao/design-system', '@leao/icons'];
+export const USE_RC_VERSIONS: string[] = ['@leao1/design-system', '@leao1/icons'];
 
 export interface PackageExport {
   types?: string;

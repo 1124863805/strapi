@@ -1,6 +1,6 @@
 {
-  "name": "@leao/logger",
-  "version": "5.0.6",
+  "name": "@leao1/logger",
+  "version": "1.0.0",
   "description": "Leao's logger",
   "homepage": "https://leao.io",
   "bugs": {
@@ -41,7 +41,7 @@
     "winston": "3.10.0"
   },
   "devDependencies": {
-    "@leao/pack-up": "workspace:*",
+    "@leao1/pack-up": "^1.0.0",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"
   },

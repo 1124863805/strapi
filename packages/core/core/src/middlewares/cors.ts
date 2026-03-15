@@ -1,6 +1,6 @@
 import koaCors from '@koa/cors';
 
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 export type Config = {
   enabled?: boolean;

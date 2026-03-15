@@ -14,12 +14,12 @@
     "leao": "leao"
   },
   "dependencies": {
-    "@leao/icons": "workspace:*",
-    "@leao/leao": "workspace:*",
-    "@leao/plugin-color-picker": "workspace:*",
-    "@leao/plugin-documentation": "workspace:*",
-    "@leao/plugin-graphql": "workspace:*",
-    "@leao/plugin-users-permissions": "workspace:*",
+    "@leao1/icons": "workspace:*",
+    "@leao1/leao": "workspace:*",
+    "@leao1/plugin-color-picker": "workspace:*",
+    "@leao1/plugin-documentation": "workspace:*",
+    "@leao1/plugin-graphql": "workspace:*",
+    "@leao1/plugin-users-permissions": "workspace:*",
     "better-sqlite3": "11.3.0",
     "lodash": "4.17.21",
     "react": "18.3.1",

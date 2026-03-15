@@ -3,8 +3,8 @@
  * E.g the default timezone for the release schedule.
  */
 
-import { errors } from '@leao/utils';
-import { Utils } from '@leao/types';
+import { errors } from '@leao1/utils';
+import { Utils } from '@leao1/types';
 
 export interface Settings {
   defaultTimezone: string | null | undefined;

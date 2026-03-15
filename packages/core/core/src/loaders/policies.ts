@@ -1,8 +1,8 @@
 import { join, extname, basename } from 'path';
 import fse from 'fs-extra';
-import { importDefault } from '@leao/utils';
+import { importDefault } from '@leao1/utils';
 
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 // TODO:: allow folders with index.js inside for bigger policies
 export default async function loadPolicies(leao: Core.Leao) {

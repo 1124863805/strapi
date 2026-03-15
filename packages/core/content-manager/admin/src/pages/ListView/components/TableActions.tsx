@@ -5,9 +5,9 @@ import {
   useNotification,
   useLeaoApp,
   useQueryParams,
-} from '@leao/admin/leao-admin';
-import { Button, LinkButton, Modal } from '@leao/design-system';
-import { Duplicate, Pencil } from '@leao/icons';
+} from '@leao1/admin/leao-admin';
+import { Button, LinkButton, Modal } from '@leao1/design-system';
+import { Duplicate, Pencil } from '@leao1/icons';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { NavLink, useNavigate } from 'react-router-dom';

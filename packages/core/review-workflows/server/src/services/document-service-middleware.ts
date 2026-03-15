@@ -1,4 +1,4 @@
-import { Modules } from '@leao/types';
+import { Modules } from '@leao1/types';
 
 import { isNil } from 'lodash/fp';
 import { ENTITY_STAGE_ATTRIBUTE } from '../constants/workflows';

@@ -4,8 +4,8 @@ import { type ContentManagerPlugin } from '../content-manager';
 
 import { HistoryAction } from './components/HistoryAction';
 
-import type { LeaoApp } from '@leao/admin/leao-admin';
-import type { Plugin } from '@leao/types';
+import type { LeaoApp } from '@leao1/admin/leao-admin';
+import type { Plugin } from '@leao1/types';
 
 const historyAdmin: Partial<Plugin.Config.AdminInput> = {
   bootstrap(app: LeaoApp) {

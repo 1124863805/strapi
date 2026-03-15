@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import { objects, template } from '@leao/utils';
+import { objects, template } from '@leao1/utils';
 
 import type {
   EmailConfig,

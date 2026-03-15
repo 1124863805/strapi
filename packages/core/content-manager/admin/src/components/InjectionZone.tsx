@@ -1,4 +1,4 @@
-import { useLeaoApp, InjectionZoneComponent } from '@leao/admin/leao-admin';
+import { useLeaoApp, InjectionZoneComponent } from '@leao1/admin/leao-admin';
 
 import { PLUGIN_ID } from '../constants/plugin';
 

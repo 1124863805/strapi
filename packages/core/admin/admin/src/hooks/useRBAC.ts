@@ -19,7 +19,7 @@ type AllowedActions = Record<string, boolean>;
  * this is removed and capitalised e.g `admin::roles.create-draft` would be `canCreateDraft`.
  * @example
  * ```tsx
- * import { Page, useRBAC } from '@leao/leao/admin'
+ * import { Page, useRBAC } from '@leao1/leao/admin'
  *
  * const MyProtectedPage = () => {
  *  const { allowedActions, isLoading, error, permissions } = useRBAC([{ action: 'admin::roles.create' }])

@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 
-import { Box } from '@leao/design-system';
-import { Cross, CaretDown } from '@leao/icons';
+import { Box } from '@leao1/design-system';
+import { Cross, CaretDown } from '@leao1/icons';
 import PropTypes from 'prop-types';
 import ReactSelect, { components } from 'react-select';
 import { styled, useTheme } from 'styled-components';

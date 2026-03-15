@@ -1,4 +1,4 @@
-import { Model } from '@leao/database';
+import { Model } from '@leao1/database';
 
 export const registry = () => {
   const models: Model[] = [];

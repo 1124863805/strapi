@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import { getOr, keys, pickBy, pipe, has, clamp } from 'lodash/fp';
 import {
   ENTITY_STAGE_ATTRIBUTE,

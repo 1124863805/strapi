@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 interface EnumerationProps extends Omit<InputProps, 'options' | 'type'> {
   options: Array<{ disabled?: boolean; hidden?: boolean; label?: string; value: string }>;

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import { createActionProvider, createConditionProvider } from './providers';
 import createPermissionEngine from './engine';
 

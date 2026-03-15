@@ -75,7 +75,7 @@ export interface Attribute<TKind extends Kind = Kind> {
  *
  * @example
  * ```typescript
- * import type { Schema } from '@leao/types';
+ * import type { Schema } from '@leao1/types';
  *
  * // An attribute of type 'boolean'
  * type BooleanAttribute = Schema.Attribute.OfType<'boolean'>;

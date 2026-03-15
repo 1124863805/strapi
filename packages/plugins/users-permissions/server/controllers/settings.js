@@ -1,7 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
-const { ValidationError } = require('@leao/utils').errors;
+const { ValidationError } = require('@leao1/utils').errors;
 const { getService } = require('../utils');
 const { isValidEmailTemplate } = require('./validation/email-template');
 

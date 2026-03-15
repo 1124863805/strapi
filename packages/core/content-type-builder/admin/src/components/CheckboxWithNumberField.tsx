@@ -1,4 +1,4 @@
-import { Box, Checkbox, Field, Flex, NumberInput, TextInput } from '@leao/design-system';
+import { Box, Checkbox, Field, Flex, NumberInput, TextInput } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { IntlLabel } from '../types';

@@ -1,5 +1,5 @@
 import type { Readable } from 'stream';
-import type { Schema, Data } from '@leao/types';
+import type { Schema, Data } from '@leao1/types';
 
 export interface IMetadata {
   leao?: {

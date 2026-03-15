@@ -1,4 +1,4 @@
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import { Entity } from './shared';
 
 export interface Locale extends Entity {

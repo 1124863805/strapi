@@ -1,4 +1,4 @@
-import { yup } from '@leao/utils';
+import { yup } from '@leao1/utils';
 import { getService } from '../../utils';
 import { isListable, hasEditableAttribute } from '../../services/utils/configuration/attributes';
 import { isValidDefaultSort } from '../../services/utils/configuration/settings';

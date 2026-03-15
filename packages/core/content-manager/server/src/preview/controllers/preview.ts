@@ -1,4 +1,4 @@
-import type { Core, UID } from '@leao/types';
+import type { Core, UID } from '@leao1/types';
 
 import { Preview } from '../../../../shared/contracts';
 

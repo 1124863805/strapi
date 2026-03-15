@@ -1,5 +1,5 @@
 import { toString } from 'lodash/fp';
-import type { Database, Model } from '@leao/database';
+import type { Database, Model } from '@leao1/database';
 
 const coreStoreModel: Model = {
   uid: 'leao::core-store',

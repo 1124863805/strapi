@@ -7,7 +7,7 @@ import {
   useLeaoApp,
   useAPIErrorHandler,
   useQueryParams,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 
 import { HOOKS } from '../constants/hooks';
 import { useGetContentTypeConfigurationQuery } from '../services/contentTypes';
@@ -29,8 +29,8 @@ import type {
   FindContentTypeConfiguration,
   Settings,
 } from '../../../shared/contracts/content-types';
-import type { Filters, InputProps, Table } from '@leao/admin/leao-admin';
-import type { Schema as SchemaUtils } from '@leao/types';
+import type { Filters, InputProps, Table } from '@leao1/admin/leao-admin';
+import type { Schema as SchemaUtils } from '@leao1/types';
 
 type LayoutOptions = Schema['options'] & Schema['pluginOptions'] & object;
 

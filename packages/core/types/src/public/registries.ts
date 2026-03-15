@@ -10,7 +10,7 @@ import type { ComponentSchema, ContentTypeSchema } from '../struct';
  * @example
  * Example usage of ContentTypeSchemas:
  * ```ts
- * declare module '@leao/types' {
+ * declare module '@leao1/types' {
  *   export module Public {
  *     export module Registries {
  *       export interface ContentTypesSchemas {
@@ -33,7 +33,7 @@ export interface ContentTypeSchemas {
  * @example
  * Example usage of ComponentSchemas:
  * ```ts
- * declare module '@leao/types' {
+ * declare module '@leao1/types' {
  *   export module Public {
  *     export module Registries {
  *       export interface ComponentSchemas {

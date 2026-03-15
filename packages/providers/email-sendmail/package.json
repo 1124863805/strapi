@@ -1,6 +1,6 @@
 {
-  "name": "@leao/provider-email-sendmail",
-  "version": "5.0.6",
+  "name": "@leao1/provider-email-sendmail",
+  "version": "1.0.0",
   "description": "Sendmail provider for leao email",
   "keywords": [
     "email",
@@ -41,11 +41,11 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
-    "@leao/utils": "workspace:*",
+    "@leao1/utils": "^1.0.0",
     "sendmail": "^1.6.1"
   },
   "devDependencies": {
-    "@leao/pack-up": "workspace:*",
+    "@leao1/pack-up": "^1.0.0",
     "@types/sendmail": "1.4.4",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"

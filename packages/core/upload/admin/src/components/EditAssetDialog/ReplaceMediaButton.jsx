@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-import { Button, VisuallyHidden } from '@leao/design-system';
+import { Button, VisuallyHidden } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

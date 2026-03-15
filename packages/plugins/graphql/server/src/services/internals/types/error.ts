@@ -1,6 +1,6 @@
 import { objectType } from 'nexus';
 import { get } from 'lodash/fp';
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 
 import type { Context } from '../../types';
 

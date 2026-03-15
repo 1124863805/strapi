@@ -1,6 +1,6 @@
 {
-  "name": "@leao/permissions",
-  "version": "5.0.6",
+  "name": "@leao1/permissions",
+  "version": "1.0.0",
   "description": "Leao's permission layer.",
   "repository": {
     "type": "git",
@@ -34,13 +34,13 @@
   },
   "dependencies": {
     "@casl/ability": "6.5.0",
-    "@leao/utils": "workspace:*",
+    "@leao1/utils": "^1.0.0",
     "lodash": "4.17.21",
     "qs": "6.11.1",
     "sift": "16.0.1"
   },
   "devDependencies": {
-    "@leao/pack-up": "workspace:*",
+    "@leao1/pack-up": "^1.0.0",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"
   },

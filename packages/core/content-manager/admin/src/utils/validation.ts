@@ -1,12 +1,12 @@
 // @ts-nocheck
-import { translatedErrors } from '@leao/admin/leao-admin';
+import { translatedErrors } from '@leao1/admin/leao-admin';
 import pipe from 'lodash/fp/pipe';
 import * as yup from 'yup';
 
 import { DOCUMENT_META_FIELDS } from '../constants/attributes';
 
 import type { ComponentsDictionary, Schema } from '../hooks/useDocument';
-import type { Schema as SchemaUtils } from '@leao/types';
+import type { Schema as SchemaUtils } from '@leao1/types';
 import type { ObjectShape } from 'yup/lib/object';
 
 type AnySchema =

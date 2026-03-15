@@ -1,8 +1,8 @@
 import { omit, assoc, merge, curry } from 'lodash/fp';
 
-import { async, contentTypes as contentTypesUtils, validate } from '@leao/utils';
+import { async, contentTypes as contentTypesUtils, validate } from '@leao1/utils';
 
-import { UID } from '@leao/types';
+import { UID } from '@leao1/types';
 import { wrapInTransaction, type RepositoryFactoryMethod } from './common';
 import * as DP from './draft-and-publish';
 import * as i18n from './internationalization';

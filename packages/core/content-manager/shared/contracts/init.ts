@@ -1,4 +1,4 @@
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import { Component } from './components';
 import { ContentType } from './content-types';
 

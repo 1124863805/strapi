@@ -1,4 +1,4 @@
-import type { Struct, Schema } from '@leao/leao';
+import type { Struct, Schema } from '@leao1/leao';
 
 export interface PluginUploadFile extends Struct.CollectionTypeSchema {
   collectionName: 'files';
@@ -1096,7 +1096,7 @@ export interface AdminAuditLog extends Struct.CollectionTypeSchema {
   };
 }
 
-declare module '@leao/leao' {
+declare module '@leao1/leao' {
   export module Public {
     export interface ContentTypeSchemas {
       'plugin::upload.file': PluginUploadFile;

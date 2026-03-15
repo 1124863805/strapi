@@ -1,6 +1,6 @@
 'use strict';
 
-const { yup, validateYupSchema } = require('@leao/utils');
+const { yup, validateYupSchema } = require('@leao1/utils');
 
 const deleteRoleSchema = yup.object().shape({
   role: yup.leaoID().required(),

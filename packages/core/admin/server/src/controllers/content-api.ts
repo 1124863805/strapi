@@ -1,6 +1,6 @@
 import type { Context } from 'koa';
 import type { GetRoutes, GetPermissions } from '../../../shared/contracts/content-api';
-import '@leao/types';
+import '@leao1/types';
 
 export default {
   async getPermissions(ctx: Context) {

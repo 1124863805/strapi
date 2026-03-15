@@ -1,7 +1,7 @@
 import { prop, uniq, uniqBy, concat, flow, isEmpty } from 'lodash/fp';
 
-import { isOperatorOfType, contentTypes, relations, errors } from '@leao/utils';
-import type { Data, Modules, UID } from '@leao/types';
+import { isOperatorOfType, contentTypes, relations, errors } from '@leao1/utils';
+import type { Data, Modules, UID } from '@leao1/types';
 
 import { getService } from '../utils';
 import { validateFindAvailable, validateFindExisting } from './validation/relations';

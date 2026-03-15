@@ -1,4 +1,4 @@
-import { PuzzlePiece } from '@leao/icons';
+import { PuzzlePiece } from '@leao1/icons';
 
 import { prefixPluginTranslations } from './utils/prefixPluginTranslations';
 import pluginPkg from '../../package.json';

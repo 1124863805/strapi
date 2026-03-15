@@ -1,5 +1,5 @@
 import { castArray } from 'lodash/fp';
-import leaoUtils from '@leao/utils';
+import leaoUtils from '@leao1/utils';
 
 const { isVisibleAttribute } = leaoUtils.contentTypes;
 /**

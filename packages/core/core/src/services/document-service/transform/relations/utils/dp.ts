@@ -1,7 +1,7 @@
 import { isNil } from 'lodash/fp';
 
-import { contentTypes } from '@leao/utils';
-import { UID } from '@leao/types';
+import { contentTypes } from '@leao1/utils';
+import { UID } from '@leao1/types';
 
 import { LongHandDocument } from './types';
 

@@ -1,5 +1,5 @@
-import type { Core, UID, Struct } from '@leao/types';
-import type { Model } from '@leao/database';
+import type { Core, UID, Struct } from '@leao1/types';
+import type { Model } from '@leao1/database';
 import { ProviderTransferError } from '../../../../../errors/providers';
 import * as queries from '../../../../queries';
 

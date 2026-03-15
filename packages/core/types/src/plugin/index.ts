@@ -1,4 +1,4 @@
-import { env } from '@leao/utils';
+import { env } from '@leao1/utils';
 
 import type { Leao, Router, Controller, Service, Policy, Middleware } from '../core';
 import type { ContentTypeSchema } from '../struct';

@@ -1,4 +1,4 @@
-import { Tooltip, Typography } from '@leao/design-system';
+import { Tooltip, Typography } from '@leao1/design-system';
 import isEmpty from 'lodash/isEmpty';
 
 import { CellValue } from './CellValue';
@@ -7,7 +7,7 @@ import { MediaSingle, MediaMultiple } from './Media';
 import { RelationMultiple, RelationSingle } from './Relations';
 
 import type { ListFieldLayout } from '../../../../hooks/useDocumentLayout';
-import type { Schema, Data } from '@leao/types';
+import type { Schema, Data } from '@leao1/types';
 
 interface CellContentProps extends Omit<ListFieldLayout, 'cellFormatter'> {
   content: Schema.Attribute.Value<Schema.Attribute.AnyAttribute>;

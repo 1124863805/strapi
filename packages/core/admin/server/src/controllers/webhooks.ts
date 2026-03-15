@@ -5,9 +5,9 @@ import punycode from 'punycode/';
 import type { Context } from 'koa';
 import _ from 'lodash';
 
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 
-import type { Modules } from '@leao/types';
+import type { Modules } from '@leao1/types';
 
 import {
   CreateWebhook,

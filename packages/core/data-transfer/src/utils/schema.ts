@@ -1,4 +1,4 @@
-import type { Struct, Utils } from '@leao/types';
+import type { Struct, Utils } from '@leao1/types';
 import { mapValues, pick } from 'lodash/fp';
 
 /**

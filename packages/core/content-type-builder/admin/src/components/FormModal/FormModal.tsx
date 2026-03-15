@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { useLeaoApp, useNotification } from '@leao/admin/leao-admin';
-import { Button, Divider, Flex, Modal, Tabs } from '@leao/design-system';
+import { useLeaoApp, useNotification } from '@leao1/admin/leao-admin';
+import { Button, Divider, Flex, Modal, Tabs } from '@leao1/design-system';
 import get from 'lodash/get';
 import has from 'lodash/has';
 import isEqual from 'lodash/isEqual';
@@ -64,7 +64,7 @@ import { getFormInputNames } from './utils/getFormInputNames';
 
 import type { CustomFieldAttributeParams } from '../../contexts/DataManagerContext';
 import type { AttributeType } from '../../types';
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 /* eslint-disable indent */
 /* eslint-disable react/no-array-index-key */

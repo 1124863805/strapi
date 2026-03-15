@@ -20,7 +20,7 @@ describe('extendTheme', () => {
       The following is an example:
 
 
-      import { lightTheme, extendTheme } from '@leao/design-system';
+      import { lightTheme, extendTheme } from '@leao1/design-system';
 
       const myCustomTheme = extendTheme(lightTheme, {
           colors: /* put the overrides for the colors key */,
@@ -56,7 +56,7 @@ describe('extendTheme', () => {
       The following is an example:
 
 
-      import { lightTheme, extendTheme } from '@leao/design-system';
+      import { lightTheme, extendTheme } from '@leao1/design-system';
 
       const myCustomTheme = extendTheme(lightTheme, {
           colors: /* put the overrides for the colors key */,

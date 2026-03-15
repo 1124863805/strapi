@@ -1,5 +1,5 @@
 import Router from '@koa/router';
-import type { Core, Modules } from '@leao/types';
+import type { Core, Modules } from '@leao1/types';
 
 import { createHTTPServer } from './http-server';
 import { createRouteManager } from './routing';

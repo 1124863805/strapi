@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 export type Provider = {
   init?: (leao: Core.Leao) => void;

@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import { scheduleJob } from 'node-schedule';
 
 const DEFAULT_RETENTION_DAYS = 90;

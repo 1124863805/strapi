@@ -10,8 +10,8 @@ import {
   Typography,
   TypographyComponent,
   VisuallyHidden,
-} from '@leao/design-system';
-import { Cross, Message, Play, Question, Book, PaperPlane } from '@leao/icons';
+} from '@leao1/design-system';
+import { Cross, Message, Play, Question, Book, PaperPlane } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

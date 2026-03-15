@@ -1,4 +1,4 @@
-import type { Data } from '@leao/types';
+import type { Data } from '@leao1/types';
 
 export interface Entity {
   id: Data.ID;

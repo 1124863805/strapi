@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 
-import { IconButton, Searchbar, SearchForm } from '@leao/design-system';
-import { Search } from '@leao/icons';
+import { IconButton, Searchbar, SearchForm } from '@leao1/design-system';
+import { Search } from '@leao1/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

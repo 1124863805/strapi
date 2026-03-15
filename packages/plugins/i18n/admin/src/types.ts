@@ -1,4 +1,4 @@
-import type { Modules } from '@leao/types';
+import type { Modules } from '@leao1/types';
 
 export interface I18nBaseQuery {
   plugins?: {

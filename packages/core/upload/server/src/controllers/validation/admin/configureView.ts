@@ -1,4 +1,4 @@
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 import { ALLOWED_SORT_STRINGS } from '../../../constants';
 
 const configSchema = yup.object({

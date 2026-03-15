@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SingleSelect, SingleSelectOption } from '@leao/design-system';
+import { SingleSelect, SingleSelectOption } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import { getService } from './utils';
 import { ALLOWED_SORT_STRINGS, ALLOWED_WEBHOOK_EVENTS } from './constants';

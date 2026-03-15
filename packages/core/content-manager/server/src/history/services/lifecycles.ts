@@ -1,5 +1,5 @@
-import type { Core, Modules, UID } from '@leao/types';
-import { contentTypes } from '@leao/utils';
+import type { Core, Modules, UID } from '@leao1/types';
+import { contentTypes } from '@leao1/utils';
 
 import { omit, castArray } from 'lodash/fp';
 

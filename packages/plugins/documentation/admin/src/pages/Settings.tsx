@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Main } from '@leao/design-system';
-import { useAPIErrorHandler, Page, useNotification } from '@leao/leao/admin';
+import { Main } from '@leao1/design-system';
+import { useAPIErrorHandler, Page, useNotification } from '@leao1/leao/admin';
 import { FormikHelpers } from 'formik';
 import { useIntl } from 'react-intl';
 

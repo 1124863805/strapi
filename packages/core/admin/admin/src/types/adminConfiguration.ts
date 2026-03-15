@@ -1,4 +1,4 @@
-import type { Schema, Struct } from '@leao/types';
+import type { Schema, Struct } from '@leao1/types';
 
 /* -------------------------------------------------------------------------------------------------
  * Configuration – This should be exported from the Content Manager plugin.

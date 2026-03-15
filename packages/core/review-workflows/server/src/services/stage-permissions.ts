@@ -1,6 +1,6 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 import { prop } from 'lodash/fp';
-import { async, errors } from '@leao/utils';
+import { async, errors } from '@leao1/utils';
 import { getService, getAdminService } from '../utils';
 import { STAGE_TRANSITION_UID } from '../constants/workflows';
 

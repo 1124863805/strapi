@@ -6,7 +6,7 @@ import { chain } from 'stream-chain';
 import { isEmpty, uniq, last, isNumber, set, pick } from 'lodash/fp';
 import { diff as semverDiff } from 'semver';
 
-import type { Struct, Utils } from '@leao/types';
+import type { Struct, Utils } from '@leao1/types';
 
 import type {
   IAsset,

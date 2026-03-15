@@ -1,5 +1,5 @@
 import { normalizeAPIError } from './normalizeAPIError';
-import type { FetchError } from '@leao/admin/leao-admin';
+import type { FetchError } from '@leao1/admin/leao-admin';
 import type { MessageDescriptor } from 'react-intl';
 
 type GetAPIInnerErrorsReturn = {

@@ -26,7 +26,7 @@ module.exports = {
       factory.createImportDeclaration(
         undefined,
         factory.createImportClause(true, undefined, factory.createNamedImports(formattedImports)),
-        factory.createStringLiteral('@leao/leao'),
+        factory.createStringLiteral('@leao1/leao'),
         undefined
       ),
     ];

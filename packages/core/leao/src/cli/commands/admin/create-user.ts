@@ -1,8 +1,8 @@
 import { createCommand } from 'commander';
-import { yup } from '@leao/utils';
+import { yup } from '@leao1/utils';
 import _ from 'lodash';
 import inquirer from 'inquirer';
-import { createLeao, compileLeao } from '@leao/core';
+import { createLeao, compileLeao } from '@leao1/core';
 
 import { runAction } from '../../utils/helpers';
 import type { LeaoCommand } from '../../types';

@@ -1,5 +1,5 @@
 /* eslint-disable no-template-curly-in-string */
-import { yup, strings } from '@leao/utils';
+import { yup, strings } from '@leao1/utils';
 import _ from 'lodash';
 import { TestConfig } from 'yup';
 

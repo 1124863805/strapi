@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import { yup, strings } from '@leao/utils';
-import type { Schema } from '@leao/types';
+import { yup, strings } from '@leao1/utils';
+import type { Schema } from '@leao1/types';
 
 const LIFECYCLES = [
   'beforeCreate',

@@ -11,7 +11,7 @@ import {
   PageLink,
   Pagination as PaginationImpl,
   PreviousLink,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';

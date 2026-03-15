@@ -1,4 +1,4 @@
-const { createCoreController } = require('@leao/leao').factories;
+const { createCoreController } = require('@leao1/leao').factories;
 
 module.exports = createCoreController('api::address.address', {
   async find(ctx) {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useCallbackRef } from '@leao/design-system';
+import { useCallbackRef } from '@leao1/design-system';
 
 function isEnterprise() {
   return window.leao.isEE;

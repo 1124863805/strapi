@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComponentType, SVGProps } from 'react';
 
-import { useLeaoApp } from '@leao/admin/leao-admin';
-import { Box } from '@leao/design-system';
+import { useLeaoApp } from '@leao1/admin/leao-admin';
+import { Box } from '@leao1/design-system';
 import {
   BooleanField,
   CollectionType,
@@ -21,7 +21,7 @@ import {
   TextField,
   UidField,
   BlocksField,
-} from '@leao/icons/symbols';
+} from '@leao1/icons/symbols';
 import { styled } from 'styled-components';
 
 const iconByTypes: Record<string, ComponentType<any>> = {

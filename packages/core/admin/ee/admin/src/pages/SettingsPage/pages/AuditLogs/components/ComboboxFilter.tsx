@@ -1,4 +1,4 @@
-import { Combobox, ComboboxOption } from '@leao/design-system';
+import { Combobox, ComboboxOption } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { Filters } from '../../../../../../../../admin/src/components/Filters';

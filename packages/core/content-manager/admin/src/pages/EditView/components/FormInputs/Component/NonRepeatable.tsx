@@ -1,5 +1,5 @@
-import { useField } from '@leao/admin/leao-admin';
-import { Box, Flex, Grid } from '@leao/design-system';
+import { useField } from '@leao1/admin/leao-admin';
+import { Box, Flex, Grid } from '@leao1/design-system';
 
 import { ComponentProvider, useComponent } from '../ComponentContext';
 

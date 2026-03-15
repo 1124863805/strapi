@@ -1,4 +1,4 @@
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 import type { Element, Node } from 'slate';
 
 type Block<T extends Element['type']> = Extract<Node, { type: T }>;

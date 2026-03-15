@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import utils, { errors } from '@leao/utils';
-import type { Schema } from '@leao/types';
+import utils, { errors } from '@leao1/utils';
+import type { Schema } from '@leao1/types';
 
 const { ApplicationError } = errors;
 

@@ -1,5 +1,5 @@
-import { queryParams } from '@leao/utils';
-import type { Core, UID } from '@leao/types';
+import { queryParams } from '@leao1/utils';
+import type { Core, UID } from '@leao1/types';
 
 export default (leao: Core.Leao) => {
   const { transformQueryParams } = queryParams.createTransformer({

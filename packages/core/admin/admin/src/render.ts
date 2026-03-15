@@ -5,7 +5,7 @@ import { LeaoApp, LeaoAppConstructorArgs } from './LeaoApp';
 import { getFetchClient } from './utils/getFetchClient';
 import { createAbsoluteUrl } from './utils/urls';
 
-import type { Modules } from '@leao/types';
+import type { Modules } from '@leao1/types';
 
 interface RenderAdminArgs {
   customisations: {
@@ -22,7 +22,7 @@ const renderAdmin = async (
   { plugins, customisations, features }: RenderAdminArgs
 ) => {
   if (!mountNode) {
-    throw new Error('[@leao/admin]: Could not find the root element to mount the admin app');
+    throw new Error('[@leao1/admin]: Could not find the root element to mount the admin app');
   }
 
   window.leao = {

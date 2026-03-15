@@ -1,5 +1,5 @@
 import { NodePlopAPI } from 'plop';
-import tsUtils from '@leao/typescript-utils';
+import tsUtils from '@leao1/typescript-utils';
 
 import getDestinationPrompts from './prompts/get-destination-prompts';
 import getFilePath from './utils/get-file-path';

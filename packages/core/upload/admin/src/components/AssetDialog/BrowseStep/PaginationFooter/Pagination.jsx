@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-import { Box, Flex } from '@leao/design-system';
+import { Box, Flex } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 
 import { PaginationContext } from './PaginationContext';

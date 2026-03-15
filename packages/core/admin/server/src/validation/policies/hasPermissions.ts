@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 
 const hasPermissionsSchema = yup.object({
   actions: yup.array().of(

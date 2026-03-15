@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@babel/eslint-parser',
-  extends: ['@leao/eslint-config/front/javascript'],
+  extends: ['@leao1/eslint-config/front/javascript'],
   env: {
     browser: true,
     commonjs: true,

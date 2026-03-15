@@ -6,7 +6,7 @@
 
 import React from 'react';
 
-import { TextInput, Toggle, Field } from '@leao/design-system';
+import { TextInput, Toggle, Field } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

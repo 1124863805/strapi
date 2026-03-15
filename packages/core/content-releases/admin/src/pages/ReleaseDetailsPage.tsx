@@ -14,8 +14,8 @@ import {
   useLeaoApp,
   Layouts,
   FormErrors,
-} from '@leao/admin/leao-admin';
-import { unstable_useDocument } from '@leao/content-manager/leao-admin';
+} from '@leao1/admin/leao-admin';
+import { unstable_useDocument } from '@leao1/content-manager/leao-admin';
 import {
   Button,
   Flex,
@@ -32,7 +32,7 @@ import {
   Dialog,
   SimpleMenu,
   MenuItem,
-} from '@leao/design-system';
+} from '@leao1/design-system';
 import {
   CheckCircle,
   More,
@@ -40,8 +40,8 @@ import {
   Trash,
   CrossCircle,
   ArrowsCounterClockwise,
-} from '@leao/icons';
-import { EmptyDocuments } from '@leao/icons/symbols';
+} from '@leao1/icons';
+import { EmptyDocuments } from '@leao1/icons/symbols';
 import format from 'date-fns/format';
 import { utcToZonedTime } from 'date-fns-tz';
 import { useIntl } from 'react-intl';
@@ -75,7 +75,7 @@ import type {
   ReleaseActionGroupBy,
   ReleaseActionEntry,
 } from '../../../shared/contracts/release-actions';
-import type { Struct, Internal } from '@leao/types';
+import type { Struct, Internal } from '@leao1/types';
 
 /* -------------------------------------------------------------------------------------------------
  * ReleaseDetailsLayout

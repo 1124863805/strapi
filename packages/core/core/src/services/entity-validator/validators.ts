@@ -9,8 +9,8 @@
  * E.g, unique fields must be unique within the same locale.
  */
 import _ from 'lodash';
-import { yup } from '@leao/utils';
-import type { Schema, Struct, Modules } from '@leao/types';
+import { yup } from '@leao1/utils';
+import type { Schema, Struct, Modules } from '@leao1/types';
 import { blocksValidator } from './blocks-validator';
 
 import type { ComponentContext } from '.';

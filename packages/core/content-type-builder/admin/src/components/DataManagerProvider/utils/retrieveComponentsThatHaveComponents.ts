@@ -1,7 +1,7 @@
 import get from 'lodash/get';
 
 import type { Component, AttributeType, Components } from '../../../types';
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 type ChildComponent = {
   component: Internal.UID.Component;

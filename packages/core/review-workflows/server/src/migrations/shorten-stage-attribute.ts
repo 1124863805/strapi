@@ -1,6 +1,6 @@
 import semver from 'semver';
 import { getOr } from 'lodash/fp';
-import { async } from '@leao/utils';
+import { async } from '@leao1/utils';
 import { STAGE_MODEL_UID } from '../constants/workflows';
 
 function checkVersionThreshold(

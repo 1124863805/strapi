@@ -1,4 +1,4 @@
-import { strings } from '@leao/utils';
+import { strings } from '@leao1/utils';
 
 import type { Context } from 'koa';
 

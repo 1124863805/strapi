@@ -3,8 +3,8 @@ import { Panel } from './routes/content-manager/[model]/[id]/components/Panel';
 import { addColumnToTableHook } from './utils/cm-hooks';
 import { prefixPluginTranslations } from './utils/translations';
 
-import type { LeaoApp } from '@leao/admin/leao-admin';
-import type { Plugin } from '@leao/types';
+import type { LeaoApp } from '@leao1/admin/leao-admin';
+import type { Plugin } from '@leao1/types';
 
 const admin: Plugin.Config.AdminInput = {
   register(app: LeaoApp) {

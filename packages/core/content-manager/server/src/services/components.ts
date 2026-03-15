@@ -1,6 +1,6 @@
 import { has, isNil, mapValues } from 'lodash/fp';
 
-import type { UID, Struct, Core } from '@leao/types';
+import type { UID, Struct, Core } from '@leao1/types';
 import type { Configuration } from '../../../shared/contracts/content-types';
 import type { ConfigurationUpdate } from './configuration';
 

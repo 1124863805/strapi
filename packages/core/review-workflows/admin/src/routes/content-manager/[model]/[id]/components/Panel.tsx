@@ -1,12 +1,12 @@
-import { unstable_useDocumentLayout as useDocumentLayout } from '@leao/content-manager/leao-admin';
-import { Flex } from '@leao/design-system';
+import { unstable_useDocumentLayout as useDocumentLayout } from '@leao1/content-manager/leao-admin';
+import { Flex } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { useParams } from 'react-router-dom';
 
 import { AssigneeSelect } from './AssigneeSelect';
 import { StageSelect } from './StageSelect';
 
-import type { PanelComponent } from '@leao/content-manager/leao-admin';
+import type { PanelComponent } from '@leao1/content-manager/leao-admin';
 
 const Panel: PanelComponent = () => {
   const {

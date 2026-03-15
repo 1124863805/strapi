@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import { useTable, useQueryParams } from '@leao/admin/leao-admin';
-import { ListFieldLayout, ListLayout } from '@leao/content-manager/leao-admin';
-import { Box, Popover, Typography, Button, Link } from '@leao/design-system';
-import { CaretDown } from '@leao/icons';
-import { Modules, UID } from '@leao/types';
+import { useTable, useQueryParams } from '@leao1/admin/leao-admin';
+import { ListFieldLayout, ListLayout } from '@leao1/content-manager/leao-admin';
+import { Box, Popover, Typography, Button, Link } from '@leao1/design-system';
+import { CaretDown } from '@leao1/icons';
+import { Modules, UID } from '@leao1/types';
 import { useIntl } from 'react-intl';
 
 import { useGetMappedEntriesInReleasesQuery } from '../services/release';

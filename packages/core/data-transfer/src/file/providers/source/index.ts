@@ -8,7 +8,7 @@ import tar from 'tar';
 import { isEmpty, keyBy } from 'lodash/fp';
 import { chain } from 'stream-chain';
 import { parser } from 'stream-json/jsonl/Parser';
-import type { Struct } from '@leao/types';
+import type { Struct } from '@leao1/types';
 
 import type { IAsset, IMetadata, ISourceProvider, ProviderType, IFile } from '../../../../types';
 

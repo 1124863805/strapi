@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import * as Dialog from '@radix-ui/react-dialog';
-import { Cross } from '@leao/icons';
+import { Cross } from '@leao1/icons';
 import { styled } from 'styled-components';
 
 import { setOpacity } from '../../helpers/setOpacity';

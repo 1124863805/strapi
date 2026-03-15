@@ -10,7 +10,7 @@ const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const urlJoin = require('url-join');
 
-const { sanitize } = require('@leao/utils');
+const { sanitize } = require('@leao1/utils');
 const { toNumber, getOr } = require('lodash/fp');
 const { getService } = require('../utils');
 

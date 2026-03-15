@@ -17,9 +17,9 @@ import {
   cloneDeep,
 } from 'lodash/fp';
 
-import type { UID } from '@leao/types';
+import type { UID } from '@leao1/types';
 
-import { contentTypes, traverseEntity, sanitize, async, traverse } from '@leao/utils';
+import { contentTypes, traverseEntity, sanitize, async, traverse } from '@leao1/utils';
 import { ADMIN_USER_ALLOWED_FIELDS } from '../../../domain/user';
 
 const {

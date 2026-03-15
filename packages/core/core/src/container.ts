@@ -1,4 +1,4 @@
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 export class Container implements Core.Container {
   private registerMap = new Map<string, unknown>();

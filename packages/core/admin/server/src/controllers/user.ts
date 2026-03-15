@@ -1,7 +1,7 @@
 import type { Context } from 'koa';
 
 import * as _ from 'lodash';
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import {
   validateUserCreationInput,
   validateUserUpdateInput,

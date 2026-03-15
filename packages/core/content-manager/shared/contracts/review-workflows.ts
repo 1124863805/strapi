@@ -1,5 +1,5 @@
-import type { UID, Modules } from '@leao/types';
-import type { errors } from '@leao/utils';
+import type { UID, Modules } from '@leao1/types';
+import type { errors } from '@leao1/utils';
 
 type Entity = Modules.EntityService.Result<UID.Schema>;
 

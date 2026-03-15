@@ -140,7 +140,7 @@ const defaultTemplate = defineTemplate(async ({ logger, gitConfig }) => {
            * we try to resolve each package to their latest
            * version, failing that we leave the fallback of *.
            */
-          '@leao/pack-up': '*',
+          '@leao1/pack-up': '1.0.0',
           prettier: '*',
         },
       };

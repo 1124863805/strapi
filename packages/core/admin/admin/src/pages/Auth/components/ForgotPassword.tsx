@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Main, Typography, Link } from '@leao/design-system';
+import { Box, Button, Flex, Main, Typography, Link } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { NavLink, useNavigate } from 'react-router-dom';
 import * as yup from 'yup';

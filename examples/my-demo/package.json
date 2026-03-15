@@ -11,9 +11,9 @@
     "start": "leao start"
   },
   "dependencies": {
-    "@leao/leao": "workspace:*",
-    "@leao/plugin-documentation": "workspace:*",
-    "@leao/plugin-users-permissions": "workspace:*",
+    "@leao1/leao": "workspace:*",
+    "@leao1/plugin-documentation": "workspace:*",
+    "@leao1/plugin-users-permissions": "workspace:*",
     "better-sqlite3": "11.3.0",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",

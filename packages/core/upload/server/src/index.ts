@@ -1,5 +1,5 @@
 import type {} from 'koa-body';
-import type {} from '@leao/types';
+import type {} from '@leao1/types';
 
 import { register } from './register';
 import { bootstrap } from './bootstrap';

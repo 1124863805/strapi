@@ -1,12 +1,12 @@
 /// <reference types="vite/client" />
 
-import { type LeaoTheme } from '@leao/design-system';
+import { type LeaoTheme } from '@leao1/design-system';
 import { type BaseEditor } from 'slate';
 import { type HistoryEditor } from 'slate-history';
 import { type ReactEditor } from 'slate-react';
 
 import type { LinkEditor } from './src/pages/EditView/components/FormInputs/BlocksInput/plugins/withLinks';
-import type { Schema, Modules } from '@leao/types';
+import type { Schema, Modules } from '@leao1/types';
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface

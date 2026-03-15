@@ -4,8 +4,8 @@ import Configstore from 'configstore';
 import semver from 'semver';
 import boxen from 'boxen';
 import chalk from 'chalk';
-import { env } from '@leao/utils';
-import type { Core } from '@leao/types';
+import { env } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const pkg = require('../../../package.json');

@@ -7,8 +7,8 @@ import {
   createContext,
   useRBAC,
   BackButton,
-} from '@leao/admin/leao-admin';
-import { Box, Flex, FocusTrap, Main, Portal, Link } from '@leao/design-system';
+} from '@leao1/admin/leao-admin';
+import { Box, Flex, FocusTrap, Main, Portal, Link } from '@leao1/design-system';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { Navigate, useParams, NavLink } from 'react-router-dom';
@@ -33,7 +33,7 @@ import type {
   HistoryVersionDataResponse,
   GetHistoryVersions,
 } from '../../../../shared/contracts/history-versions';
-import type { UID } from '@leao/types';
+import type { UID } from '@leao1/types';
 
 /* -------------------------------------------------------------------------------------------------
  * HistoryProvider

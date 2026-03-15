@@ -1,6 +1,6 @@
 import { inputObjectType, nonNull } from 'nexus';
-import { contentTypes } from '@leao/utils';
-import type { Struct } from '@leao/types';
+import { contentTypes } from '@leao1/utils';
+import type { Struct } from '@leao1/types';
 import type { Context } from '../types';
 
 const { isWritableAttribute } = contentTypes;

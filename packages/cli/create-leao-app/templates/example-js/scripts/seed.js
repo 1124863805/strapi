@@ -255,7 +255,7 @@ async function importSeedData() {
 }
 
 async function main() {
-  const { createLeao, compileLeao } = require('@leao/leao');
+  const { createLeao, compileLeao } = require('@leao1/leao');
 
   const appContext = await compileLeao();
   const app = await createLeao(appContext).load();

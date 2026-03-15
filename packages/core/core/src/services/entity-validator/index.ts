@@ -5,8 +5,8 @@
 
 import { uniqBy, castArray, isNil, isArray, mergeWith } from 'lodash';
 import { has, prop, isObject, isEmpty } from 'lodash/fp';
-import leaoUtils from '@leao/utils';
-import { Modules, UID, Struct, Schema } from '@leao/types';
+import leaoUtils from '@leao1/utils';
+import { Modules, UID, Struct, Schema } from '@leao1/types';
 import { Validators, ValidatorMetas } from './validators';
 
 type CreateOrUpdate = 'creation' | 'update';

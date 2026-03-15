@@ -1,9 +1,9 @@
 import path from 'path';
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 import _ from 'lodash';
 import pluralize from 'pluralize';
 
-import { strings, errors } from '@leao/utils';
+import { strings, errors } from '@leao1/utils';
 import { isConfigurable } from '../../utils/attributes';
 import createSchemaHandler from './schema-handler';
 

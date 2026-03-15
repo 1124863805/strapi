@@ -1,5 +1,5 @@
-import { Form, useField, InputRenderer, useNotification } from '@leao/admin/leao-admin';
-import { Button, Flex, FlexComponent, Grid, Modal } from '@leao/design-system';
+import { Form, useField, InputRenderer, useNotification } from '@leao1/admin/leao-admin';
+import { Button, Flex, FlexComponent, Grid, Modal } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 import * as yup from 'yup';

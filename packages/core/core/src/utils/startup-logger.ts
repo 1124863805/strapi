@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import CLITable from 'cli-table3';
 import _ from 'lodash/fp';
 
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 export const createStartupLogger = (app: Core.Leao) => {
   return {

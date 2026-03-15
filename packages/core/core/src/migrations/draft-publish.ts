@@ -1,5 +1,5 @@
-import { contentTypes as contentTypesUtils, async } from '@leao/utils';
-import { Schema } from '@leao/types';
+import { contentTypes as contentTypesUtils, async } from '@leao1/utils';
+import { Schema } from '@leao1/types';
 
 import { getBatchToDiscard } from './database/5.0.0-discard-drafts';
 

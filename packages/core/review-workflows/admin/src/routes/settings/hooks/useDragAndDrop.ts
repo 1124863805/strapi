@@ -15,7 +15,7 @@ import {
   type UseKeyboardDragAndDropCallbacks,
 } from './useKeyboardDragAndDrop';
 
-import type { Data } from '@leao/types';
+import type { Data } from '@leao1/types';
 
 const DIRECTIONS = {
   UPWARD: 'upward',

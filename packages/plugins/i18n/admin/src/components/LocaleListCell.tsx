@@ -1,6 +1,6 @@
-import { unstable_useDocument as useDocument } from '@leao/content-manager/leao-admin';
-import { Box, Flex, Popover, Typography, useCollator, Button } from '@leao/design-system';
-import { CaretDown } from '@leao/icons';
+import { unstable_useDocument as useDocument } from '@leao1/content-manager/leao-admin';
+import { Box, Flex, Popover, Typography, useCollator, Button } from '@leao1/design-system';
+import { CaretDown } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 
 import { Locale } from '../../../shared/contracts/locales';

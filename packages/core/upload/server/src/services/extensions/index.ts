@@ -1,4 +1,4 @@
-import { async } from '@leao/utils';
+import { async } from '@leao1/utils';
 import { signEntityMedia } from './utils';
 
 const signFileUrlsOnDocumentService = async () => {

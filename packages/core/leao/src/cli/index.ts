@@ -56,7 +56,7 @@ const createCLI = async (argv: string[], command = new Command()) => {
 
   // TODO v6: remove these deprecation notices
   const deprecatedCommands = [
-    { name: 'plugin:init', message: 'Please use `npx @leao/sdk-plugin init` instead.' },
+    { name: 'plugin:init', message: 'Please use `npx @leao1/sdk-plugin init` instead.' },
     {
       name: 'plugin:verify',
       message: 'After migrating your plugin to v5, use `leao-plugin verify`',

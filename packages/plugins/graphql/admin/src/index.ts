@@ -7,7 +7,7 @@ const name = pluginPkg.leao.name;
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  // TODO: we need to have the type for LeaoApp done from `@leao/admin` package.
+  // TODO: we need to have the type for LeaoApp done from `@leao1/admin` package.
   register(app: any) {
     app.registerPlugin({
       id: pluginId,

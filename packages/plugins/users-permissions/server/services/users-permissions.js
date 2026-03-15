@@ -7,7 +7,7 @@ const {
   template: { createStrictInterpolationRegExp },
   errors,
   objects,
-} = require('@leao/utils');
+} = require('@leao1/utils');
 
 const { getService } = require('../utils');
 

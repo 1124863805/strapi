@@ -1,11 +1,11 @@
-import { Badge, Tooltip, Typography, Menu } from '@leao/design-system';
+import { Badge, Tooltip, Typography, Menu } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 
 import { CellContentProps } from './CellContent';
 import { CellValue } from './CellValue';
 
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 /* -------------------------------------------------------------------------------------------------
  * SingleComponent

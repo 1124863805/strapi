@@ -1,6 +1,6 @@
-import { async, traverseEntity } from '@leao/utils';
+import { async, traverseEntity } from '@leao1/utils';
 
-import type { Schema, UID } from '@leao/types';
+import type { Schema, UID } from '@leao1/types';
 
 import { getService } from '../../utils';
 

@@ -2,7 +2,7 @@ import omit from 'lodash/omit';
 
 import { LOCALIZED_FIELDS, doesPluginOptionsHaveI18nLocalized } from './fields';
 
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 /* -------------------------------------------------------------------------------------------------
  * mutateCTBContentTypeSchema

@@ -1,4 +1,4 @@
-import { Flex, FlexComponent, FlexProps } from '@leao/design-system';
+import { Flex, FlexComponent, FlexProps } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
 const MainNavWrapper = styled<FlexComponent<'nav'>>(Flex)`

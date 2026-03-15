@@ -1,5 +1,5 @@
-import { errors as databaseErrors } from '@leao/database';
-import { errors } from '@leao/utils';
+import { errors as databaseErrors } from '@leao1/database';
+import { errors } from '@leao1/utils';
 
 import type { Middleware } from './middleware-manager';
 

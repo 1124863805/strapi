@@ -3,7 +3,7 @@ import { getComponentDepth } from '../../../utils/getMaxDepth';
 
 import type { IconByType } from '../../AttributeIcon';
 import type { NestedComponent } from '../../DataManagerProvider/utils/retrieveNestedComponents';
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 export const getAttributesToDisplay = (
   dataTarget = '',

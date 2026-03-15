@@ -1,4 +1,4 @@
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 
 const RELEASE_ACTION_SCHEMA = yup.object().shape({
   contentType: yup.string().required(),

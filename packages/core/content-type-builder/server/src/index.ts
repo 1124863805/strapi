@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@leao/types';
+import '@leao1/types';
 
 import config from './config';
 import bootstrap from './bootstrap';

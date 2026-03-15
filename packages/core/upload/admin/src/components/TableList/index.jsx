@@ -10,8 +10,8 @@ import {
   Tr,
   Typography,
   VisuallyHidden,
-} from '@leao/design-system';
-import { CaretDown, CaretUp } from '@leao/icons';
+} from '@leao1/design-system';
+import { CaretDown, CaretUp } from '@leao1/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

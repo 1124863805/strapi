@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { useAuth } from '@leao/admin/leao-admin';
-import { unstable_useDocument as useDocument } from '@leao/content-manager/leao-admin';
+import { useAuth } from '@leao1/admin/leao-admin';
+import { unstable_useDocument as useDocument } from '@leao1/content-manager/leao-admin';
 import { useParams } from 'react-router-dom';
 
 import { doesPluginOptionsHaveI18nLocalized } from '../utils/fields';

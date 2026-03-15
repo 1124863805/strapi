@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useNotification, useFetchClient, FetchClient } from '@leao/admin/leao-admin';
+import { useNotification, useFetchClient, FetchClient } from '@leao1/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { useMutation, useQueryClient } from 'react-query';
 import { UpdateFile, File as FileAsset } from '../../../shared/contracts/files';

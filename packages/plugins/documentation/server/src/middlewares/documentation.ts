@@ -2,7 +2,7 @@ import path from 'path';
 import koaStatic from 'koa-static';
 import swaggerUi from 'swagger-ui-dist';
 
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 export const addDocumentMiddlewares = async ({ leao }: { leao: Core.Leao }) => {
   leao.server.routes([

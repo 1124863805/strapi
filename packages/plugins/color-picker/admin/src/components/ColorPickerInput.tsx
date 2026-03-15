@@ -8,9 +8,9 @@ import {
   Popover,
   Typography,
   useComposedRefs,
-} from '@leao/design-system';
-import { CaretDown } from '@leao/icons';
-import { useField, type InputProps, type FieldValue } from '@leao/leao/admin';
+} from '@leao1/design-system';
+import { CaretDown } from '@leao1/icons';
+import { useField, type InputProps, type FieldValue } from '@leao1/leao/admin';
 import { HexColorPicker } from 'react-colorful';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

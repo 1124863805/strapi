@@ -1,5 +1,5 @@
 import { has, propEq, isNil, isDate, isObject } from 'lodash/fp';
-import type { Struct } from '@leao/types';
+import type { Struct } from '@leao1/types';
 import type { Context } from '../../types';
 
 // todo[v4]: Find a way to get that dynamically

@@ -8,8 +8,8 @@ import {
   useCollator,
   Dialog,
   LinkButton,
-} from '@leao/design-system';
-import { Pencil, Trash } from '@leao/icons';
+} from '@leao1/design-system';
+import { Pencil, Trash } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
@@ -21,7 +21,7 @@ import { RelativeTime } from '../../../../components/RelativeTime';
 import { Table as TableImpl } from '../../../../components/Table';
 import { useQueryParams } from '../../../../hooks/useQueryParams';
 
-import type { Data } from '@leao/types';
+import type { Data } from '@leao1/types';
 
 /* -------------------------------------------------------------------------------------------------
  * Table

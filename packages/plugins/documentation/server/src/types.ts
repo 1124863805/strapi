@@ -1,4 +1,4 @@
-import type { Core, Struct } from '@leao/types';
+import type { Core, Struct } from '@leao1/types';
 import type { OpenAPIV3 } from 'openapi-types';
 
 export interface Config {

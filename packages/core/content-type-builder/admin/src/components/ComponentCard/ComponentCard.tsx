@@ -1,5 +1,5 @@
-import { Box, Flex, Typography } from '@leao/design-system';
-import { Cross } from '@leao/icons';
+import { Box, Flex, Typography } from '@leao1/design-system';
+import { Cross } from '@leao1/icons';
 import get from 'lodash/get';
 import { styled } from 'styled-components';
 

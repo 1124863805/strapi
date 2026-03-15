@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ChevronRight, ChevronLeft } from '@leao/icons';
+import { ChevronRight, ChevronLeft } from '@leao1/icons';
 import { styled } from 'styled-components';
 
 import { KeyboardKeys } from '../../helpers/keyboardKeys';

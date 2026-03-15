@@ -47,13 +47,13 @@ export const generateFiles = async (
     },
     dependencies: {},
     devDependencies: {
-      '@leao/leao': '*',
-      '@leao/sdk-plugin': '*',
+      '@leao1/leao': '*',
+      '@leao1/sdk-plugin': '*',
       prettier: '*',
     },
     peerDependencies: {
-      '@leao/leao': '^5.0.0',
-      '@leao/sdk-plugin': '^6.0.0',
+      '@leao1/leao': '^1.0.0',
+      '@leao1/sdk-plugin': '^1.0.0',
     },
     leao: {
       kind: 'plugin',
@@ -107,15 +107,15 @@ export const generateFiles = async (
 
           pkgJson.peerDependencies = {
             ...pkgJson.peerDependencies,
-            '@leao/design-system': '*',
-            '@leao/icons': '*',
+            '@leao1/design-system': '*',
+            '@leao1/icons': '*',
             'react-intl': '^6.0.0',
           };
 
           pkgJson.devDependencies = {
             ...pkgJson.devDependencies,
-            '@leao/design-system': '*',
-            '@leao/icons': '*',
+            '@leao1/design-system': '*',
+            '@leao1/icons': '*',
             'react-intl': '^6.0.0',
             react: '^17.0.0 || ^18.0.0',
             'react-dom': '^17.0.0 || ^18.0.0',
@@ -190,7 +190,7 @@ export const generateFiles = async (
 
           pkgJson.devDependencies = {
             ...pkgJson.devDependencies,
-            '@leao/typescript-utils': '*',
+            '@leao1/typescript-utils': '*',
             typescript: '*',
           };
         } else {

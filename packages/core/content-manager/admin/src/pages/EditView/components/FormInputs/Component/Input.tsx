@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { InputProps, useField } from '@leao/admin/leao-admin';
-import { Field, Flex, IconButton } from '@leao/design-system';
-import { Trash } from '@leao/icons';
+import { InputProps, useField } from '@leao1/admin/leao-admin';
+import { Field, Flex, IconButton } from '@leao1/design-system';
+import { Trash } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 
 import { useDoc } from '../../../../../hooks/useDocument';

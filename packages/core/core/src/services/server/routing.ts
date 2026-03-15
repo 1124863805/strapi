@@ -1,7 +1,7 @@
 import Router from '@koa/router';
 import { has } from 'lodash/fp';
-import { yup } from '@leao/utils';
-import type { Core } from '@leao/types';
+import { yup } from '@leao1/utils';
+import type { Core } from '@leao1/types';
 
 import createEndpointComposer from './compose-endpoint';
 

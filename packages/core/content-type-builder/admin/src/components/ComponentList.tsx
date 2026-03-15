@@ -5,7 +5,7 @@ import { useDataManager } from '../hooks/useDataManager';
 import { List } from './List';
 import { Tr } from './Tr';
 
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 interface ComponentListProps {
   component: Internal.UID.Component;

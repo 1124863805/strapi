@@ -1,6 +1,6 @@
 'use strict';
 
-const { yup, validateYupSchema } = require('@leao/utils');
+const { yup, validateYupSchema } = require('@leao1/utils');
 
 const callbackSchema = yup.object({
   identifier: yup.string().required(),

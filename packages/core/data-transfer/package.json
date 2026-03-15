@@ -1,6 +1,6 @@
 {
-  "name": "@leao/data-transfer",
-  "version": "5.0.6",
+  "name": "@leao1/data-transfer",
+  "version": "1.0.0",
   "description": "Data transfer capabilities for Leao",
   "keywords": [
     "leao",
@@ -38,9 +38,9 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
-    "@leao/logger": "workspace:*",
-    "@leao/types": "workspace:*",
-    "@leao/utils": "workspace:*",
+    "@leao1/logger": "^1.0.0",
+    "@leao1/types": "^1.0.0",
+    "@leao1/utils": "^1.0.0",
     "chalk": "4.1.2",
     "cli-table3": "0.6.5",
     "commander": "8.3.0",
@@ -57,8 +57,8 @@
     "ws": "8.17.1"
   },
   "devDependencies": {
-    "@leao/database": "workspace:*",
-    "@leao/pack-up": "workspace:*",
+    "@leao1/database": "^1.0.0",
+    "@leao1/pack-up": "^1.0.0",
     "@types/fs-extra": "11.0.4",
     "@types/koa": "2.13.4",
     "@types/lodash": "^4.14.191",

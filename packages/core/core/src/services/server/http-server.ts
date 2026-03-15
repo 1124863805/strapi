@@ -1,7 +1,7 @@
 import http from 'http';
 import type { Socket } from 'net';
 import Koa from 'koa';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 export interface Server extends http.Server {
   destroy: () => Promise<void>;

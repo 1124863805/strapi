@@ -30,4 +30,4 @@ export * from './utilities/VisuallyHidden';
 /* -------------------------------------------------------------------------------------------------
  * Primitives re-exports
  * -----------------------------------------------------------------------------------------------*/
-export { useFilter, useCollator, type Filter, useCallbackRef, composeEventHandlers } from '@leao/ui-primitives';
+export { useFilter, useCollator, type Filter, useCallbackRef, composeEventHandlers } from '@leao1/ui-primitives';

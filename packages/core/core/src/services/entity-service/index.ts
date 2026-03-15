@@ -1,13 +1,13 @@
 import _ from 'lodash';
 import delegate from 'delegates';
-import { errors as databaseErrors } from '@leao/database';
+import { errors as databaseErrors } from '@leao1/database';
 import {
   contentTypes as contentTypesUtils,
   errors,
   relations as relationUtils,
-} from '@leao/utils';
-import type { Database } from '@leao/database';
-import type { Core, Modules, Utils } from '@leao/types';
+} from '@leao1/utils';
+import type { Database } from '@leao1/database';
+import type { Core, Modules, Utils } from '@leao1/types';
 
 type Decoratable<T> = T & {
   decorate(

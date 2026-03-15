@@ -1,5 +1,5 @@
-import { Box, Flex, Grid, Typography } from '@leao/design-system';
-import { Check, Cross, Loader } from '@leao/icons';
+import { Box, Flex, Grid, Typography } from '@leao1/design-system';
+import { Check, Cross, Loader } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 
 /* -------------------------------------------------------------------------------------------------

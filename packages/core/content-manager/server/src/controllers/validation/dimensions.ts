@@ -1,5 +1,5 @@
-import { errors, yup, validateYupSchema, contentTypes } from '@leao/utils';
-import type { UID } from '@leao/types';
+import { errors, yup, validateYupSchema, contentTypes } from '@leao1/utils';
+import type { UID } from '@leao1/types';
 
 interface Options {
   allowMultipleLocales?: boolean;

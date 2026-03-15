@@ -1,4 +1,4 @@
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 
 const settingsSchema = yup.object({
   sizeOptimization: yup.boolean().required(),

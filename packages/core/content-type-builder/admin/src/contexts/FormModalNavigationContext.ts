@@ -8,7 +8,7 @@ import type {
   State,
 } from '../components/FormModalNavigationProvider/FormModalNavigationProvider';
 import type { SchemaType } from '../types';
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 export interface FormModalNavigationContextValue {
   onCloseModal: () => void;

@@ -1,6 +1,6 @@
 {
-  "name": "@leao/utils",
-  "version": "5.0.6",
+  "name": "@leao1/utils",
+  "version": "1.0.0",
   "description": "Shared utilities for the Leao packages",
   "keywords": [
     "leao",
@@ -53,7 +53,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@leao/pack-up": "workspace:*",
+    "@leao1/pack-up": "^1.0.0",
     "@types/http-errors": "2.0.4",
     "@types/koa": "2.13.4",
     "@types/node": "18.19.24",

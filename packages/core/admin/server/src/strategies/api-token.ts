@@ -1,10 +1,10 @@
 import type { Context } from 'koa';
 import { castArray, isNil } from 'lodash/fp';
 import { differenceInHours, parseISO } from 'date-fns';
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import constants from '../services/constants';
 import { getService } from '../utils';
-import '@leao/types';
+import '@leao1/types';
 
 const { UnauthorizedError, ForbiddenError } = errors;
 

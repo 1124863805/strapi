@@ -1,5 +1,5 @@
 import { pickBy, has } from 'lodash/fp';
-import type { Core, UID } from '@leao/types';
+import type { Core, UID } from '@leao1/types';
 import { addNamespace, hasNamespace } from './namespace';
 
 export type ServiceFactory = (params: { leao: Core.Leao }) => Core.Service | Core.Service;

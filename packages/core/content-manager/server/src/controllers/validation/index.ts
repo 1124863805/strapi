@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { yup, validateYupSchema, errors } from '@leao/utils';
+import { yup, validateYupSchema, errors } from '@leao1/utils';
 import createModelConfigurationSchema from './model-configuration';
 
 const { PaginationError, ValidationError } = errors;

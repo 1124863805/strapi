@@ -6,7 +6,7 @@ import {
   Pagination,
   useQueryParams,
   Layouts,
-} from '@leao/admin/leao-admin';
+} from '@leao1/admin/leao-admin';
 import {
   Checkbox,
   Box,
@@ -16,8 +16,8 @@ import {
   Typography,
   VisuallyHidden,
   Grid,
-} from '@leao/design-system';
-import { Cog, GridFour as GridIcon, List, Pencil } from '@leao/icons';
+} from '@leao1/design-system';
+import { Cog, GridFour as GridIcon, List, Pencil } from '@leao1/icons';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { Link as ReactRouterLink, useNavigate, useLocation } from 'react-router-dom';

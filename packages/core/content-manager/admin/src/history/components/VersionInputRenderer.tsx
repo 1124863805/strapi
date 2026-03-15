@@ -6,8 +6,8 @@ import {
   InputRenderer as FormInputRenderer,
   useField,
   Form,
-} from '@leao/admin/leao-admin';
-import { Alert, Box, Field, Flex, Link, Tooltip, Typography } from '@leao/design-system';
+} from '@leao1/admin/leao-admin';
+import { Alert, Box, Field, Flex, Link, Tooltip, Typography } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
@@ -37,7 +37,7 @@ import { getRemaingFieldsLayout } from './VersionContent';
 import type { EditFieldLayout } from '../../hooks/useDocumentLayout';
 import type { RelationsFieldProps } from '../../pages/EditView/components/FormInputs/Relations';
 import type { RelationResult } from '../../services/relations';
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 import type { DistributiveOmit } from 'react-redux';
 
 const StyledAlert = styled(Alert).attrs({ closeLabel: 'Close', onClose: () => {}, shadow: 'none' })`

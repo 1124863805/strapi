@@ -1,6 +1,6 @@
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import type * as Nexus from 'nexus';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 const { ValidationError } = errors;
 

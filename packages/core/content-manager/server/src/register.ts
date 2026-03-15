@@ -1,4 +1,4 @@
-import type { Plugin } from '@leao/types';
+import type { Plugin } from '@leao1/types';
 import history from './history';
 
 const register: Plugin.LoadedPlugin['register'] = async ({ leao }) => {

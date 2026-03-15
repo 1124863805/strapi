@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import { validateYupSchema } from '@leao/utils';
+import { validateYupSchema } from '@leao1/utils';
 
 const historyRestoreVersionSchema = yup
   .object()

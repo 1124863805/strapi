@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Typography } from '@leao/design-system';
-import { BulletList, NumberList } from '@leao/icons';
+import { Typography } from '@leao1/design-system';
+import { BulletList, NumberList } from '@leao1/icons';
 import { type Text, Editor, Node, Transforms, Path } from 'slate';
 import { type RenderElementProps, ReactEditor } from 'slate-react';
 import { styled, type CSSProperties, css } from 'styled-components';

@@ -1,7 +1,7 @@
 import get from 'lodash/get';
 
 import type { Middleware } from '@reduxjs/toolkit';
-import type { Store } from '@leao/admin/leao-admin';
+import type { Store } from '@leao1/admin/leao-admin';
 
 const extendCTBAttributeInitialDataMiddleware: () => Middleware<
   object,

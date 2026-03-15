@@ -1,7 +1,7 @@
 import { isNil, mapValues } from 'lodash/fp';
-import { contentTypes as contentTypesUtils } from '@leao/utils';
+import { contentTypes as contentTypesUtils } from '@leao1/utils';
 
-import type { UID, Struct, Core } from '@leao/types';
+import type { UID, Struct, Core } from '@leao1/types';
 
 import type { ConfigurationUpdate } from './configuration';
 

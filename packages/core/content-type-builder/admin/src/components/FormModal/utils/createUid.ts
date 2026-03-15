@@ -1,6 +1,6 @@
 import { nameToSlug } from '../../../utils/nameToSlug';
 
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 const createUid = (name: string): Internal.UID.ContentType => {
   const modelName = nameToSlug(name);

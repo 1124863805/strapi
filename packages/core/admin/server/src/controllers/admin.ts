@@ -3,7 +3,7 @@ import type { Context } from 'koa';
 import path from 'path';
 
 import { exists } from 'fs-extra';
-import '@leao/types';
+import '@leao1/types';
 import {
   validateUpdateProjectSettings,
   validateUpdateProjectSettingsFiles,

@@ -2,10 +2,10 @@ import { pipeline } from 'stream';
 import fs, { ReadStream } from 'fs';
 import path from 'path';
 import fse from 'fs-extra';
-import * as utils from '@leao/utils';
+import * as utils from '@leao1/utils';
 
-// Needed to load global.leao without having to put @leao/types in the regular dependencies
-import type {} from '@leao/types';
+// Needed to load global.leao without having to put @leao1/types in the regular dependencies
+import type {} from '@leao1/types';
 
 interface File {
   name: string;

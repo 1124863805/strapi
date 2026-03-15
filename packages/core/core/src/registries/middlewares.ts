@@ -1,5 +1,5 @@
 import { pickBy, has } from 'lodash/fp';
-import type { Core, UID } from '@leao/types';
+import type { Core, UID } from '@leao1/types';
 import { addNamespace, hasNamespace } from './namespace';
 
 type MiddlewareExtendFn = (middleware: Core.Middleware) => Core.Middleware;

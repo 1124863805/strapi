@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import { env, importDefault } from '@leao/utils';
+import { env, importDefault } from '@leao1/utils';
 
 const loadJsFile = (file: string) => {
   try {

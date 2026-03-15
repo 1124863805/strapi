@@ -1,5 +1,5 @@
 import { map } from 'lodash/fp';
-import type { Data } from '@leao/types';
+import type { Data } from '@leao1/types';
 
 const entityToResponseEntity = (entity: { id: Data.ID; [key: keyof any]: unknown }) => ({
   id: entity.id,

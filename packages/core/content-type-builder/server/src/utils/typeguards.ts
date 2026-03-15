@@ -1,4 +1,4 @@
-import type { Schema } from '@leao/types';
+import type { Schema } from '@leao1/types';
 
 export const hasDefaultAttribute = (
   attribute: Schema.Attribute.AnyAttribute

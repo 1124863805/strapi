@@ -1,5 +1,5 @@
 import { GraphQLScalarType, Kind } from 'graphql';
-import { parseType, errors } from '@leao/utils';
+import { parseType, errors } from '@leao1/utils';
 
 const { ValidationError } = errors;
 

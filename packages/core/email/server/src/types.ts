@@ -1,4 +1,4 @@
-import type { Plugin } from '@leao/types';
+import type { Plugin } from '@leao1/types';
 
 export interface EmailConfig extends Record<string, unknown> {
   provider: string;

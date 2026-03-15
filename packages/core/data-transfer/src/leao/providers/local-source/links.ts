@@ -1,5 +1,5 @@
 import { Readable } from 'stream';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 import type { ILink } from '../../../../types';
 import { createLinkQuery } from '../../queries/link';

@@ -1,5 +1,5 @@
 import { isUndefined } from 'lodash/fp';
-import { yup, validateYupSchema } from '@leao/utils';
+import { yup, validateYupSchema } from '@leao1/utils';
 import validators from './common-validators';
 
 const userCreationSchema = yup

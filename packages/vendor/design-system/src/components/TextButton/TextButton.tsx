@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Loader } from '@leao/icons';
+import { Loader } from '@leao1/icons';
 import { styled, keyframes } from 'styled-components';
 
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';

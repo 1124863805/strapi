@@ -1,6 +1,6 @@
 import { isObject } from 'lodash/fp';
-import { errors } from '@leao/utils';
-import type { Struct, Core, Utils, UID } from '@leao/types';
+import { errors } from '@leao1/utils';
+import type { Struct, Core, Utils, UID } from '@leao1/types';
 
 interface Options {
   contentType: Struct.SingleTypeSchema;

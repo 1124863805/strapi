@@ -1,9 +1,9 @@
 import bcrypt from 'bcryptjs';
 import _ from 'lodash';
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import { getService } from '../utils';
 import type { AdminUser } from '../../../shared/contracts/shared';
-import '@leao/types';
+import '@leao1/types';
 
 const { ApplicationError } = errors;
 

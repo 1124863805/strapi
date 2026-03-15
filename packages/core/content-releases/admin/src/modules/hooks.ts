@@ -1,7 +1,7 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import type { Store } from '@leao/admin/leao-admin';
+import type { Store } from '@leao1/admin/leao-admin';
 
 type RootState = ReturnType<Store['getState']>;
 

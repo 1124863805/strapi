@@ -1,4 +1,4 @@
-import { hooks } from '@leao/utils';
+import { hooks } from '@leao1/utils';
 
 import { defineProvider } from './provider';
 import * as registries from '../registries';

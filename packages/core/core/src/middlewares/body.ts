@@ -3,7 +3,7 @@ import { defaultsDeep } from 'lodash/fp';
 import body, { KoaBodyMiddlewareOptions } from 'koa-body';
 import mime from 'mime-types';
 import type Koa from 'koa';
-import type { Core } from '@leao/types';
+import type { Core } from '@leao1/types';
 
 export type Config = KoaBodyMiddlewareOptions;
 

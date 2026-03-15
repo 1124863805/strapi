@@ -1,6 +1,6 @@
 import type Koa from 'koa';
-import { errors } from '@leao/utils';
-import type { Schema } from '@leao/types';
+import { errors } from '@leao1/utils';
+import type { Schema } from '@leao1/types';
 import { RELEASE_MODEL_UID } from '../constants';
 import { validateRelease, validatefindByDocumentAttachedParams } from './validation/release';
 import type {

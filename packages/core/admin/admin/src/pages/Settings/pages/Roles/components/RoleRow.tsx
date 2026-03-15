@@ -1,4 +1,4 @@
-import { Box, Flex, IconButton, IconButtonProps, Td, Tr, Typography } from '@leao/design-system';
+import { Box, Flex, IconButton, IconButtonProps, Td, Tr, Typography } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import type { AdminRole } from '../../../../../hooks/useAdminRoles';

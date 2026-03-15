@@ -1,6 +1,6 @@
 import { toLower, castArray, trim, prop, isNil } from 'lodash/fp';
-import type { Core, UID } from '@leao/types';
-import { errors } from '@leao/utils';
+import type { Core, UID } from '@leao1/types';
+import { errors } from '@leao1/utils';
 import Router from '@koa/router';
 
 import compose from 'koa-compose';

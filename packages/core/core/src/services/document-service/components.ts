@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { has, omit, pipe, assign, curry } from 'lodash/fp';
-import type { Utils, UID, Schema, Data, Modules } from '@leao/types';
-import { contentTypes as contentTypesUtils, async, errors } from '@leao/utils';
+import type { Utils, UID, Schema, Data, Modules } from '@leao1/types';
+import { contentTypes as contentTypesUtils, async, errors } from '@leao1/utils';
 
 // type aliases for readability
 type Input<T extends UID.Schema> = Modules.Documents.Params.Data.Input<T>;

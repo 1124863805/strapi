@@ -1,4 +1,4 @@
-import '@leao/types';
+import '@leao1/types';
 
 import { DocumentManagerService } from 'src/services/document-manager';
 import DocumentMetadata from 'src/services/document-metadata';

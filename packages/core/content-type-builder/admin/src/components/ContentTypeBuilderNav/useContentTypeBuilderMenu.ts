@@ -1,7 +1,7 @@
 import { useState, MouseEvent } from 'react';
 
-import { useNotification } from '@leao/admin/leao-admin';
-import { useCollator, useFilter } from '@leao/design-system';
+import { useNotification } from '@leao1/admin/leao-admin';
+import { useCollator, useFilter } from '@leao1/design-system';
 import isEqual from 'lodash/isEqual';
 import { useIntl } from 'react-intl';
 
@@ -10,7 +10,7 @@ import { useFormModalNavigation } from '../../hooks/useFormModalNavigation';
 import { pluginId } from '../../pluginId';
 import { getTrad } from '../../utils/getTrad';
 
-import type { Internal } from '@leao/types';
+import type { Internal } from '@leao1/types';
 
 export const useContentTypeBuilderMenu = () => {
   const {

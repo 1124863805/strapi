@@ -1,8 +1,8 @@
 import { createCommand } from 'commander';
 import fs from 'fs';
 import _ from 'lodash';
-import { createLeao, compileLeao } from '@leao/core';
-import type { Database } from '@leao/database';
+import { createLeao, compileLeao } from '@leao1/core';
+import type { Database } from '@leao1/database';
 
 import type { LeaoCommand } from '../../types';
 import { runAction } from '../../utils/helpers';

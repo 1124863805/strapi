@@ -1,4 +1,4 @@
-import { Flex, inputFocusStyle } from '@leao/design-system';
+import { Flex, inputFocusStyle } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
 const Wrapper = styled(Flex)`

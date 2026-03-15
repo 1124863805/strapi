@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Page } from '@leao/leao/admin';
+import { Page } from '@leao1/leao/admin';
 import { Route, Routes } from 'react-router-dom';
 
 import { PERMISSIONS } from '../../constants';

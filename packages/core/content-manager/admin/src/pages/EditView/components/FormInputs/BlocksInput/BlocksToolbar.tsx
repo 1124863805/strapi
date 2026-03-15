@@ -9,8 +9,8 @@ import {
   Box,
   FlexComponent,
   BoxComponent,
-} from '@leao/design-system';
-import { Link } from '@leao/icons';
+} from '@leao1/design-system';
+import { Link } from '@leao1/icons';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { Editor, Transforms, Element as SlateElement, Node, type Ancestor } from 'slate';
 import { ReactEditor } from 'slate-react';

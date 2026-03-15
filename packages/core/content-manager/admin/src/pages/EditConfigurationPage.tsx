@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Page, useNotification, useAPIErrorHandler } from '@leao/admin/leao-admin';
+import { Page, useNotification, useAPIErrorHandler } from '@leao1/admin/leao-admin';
 import { useIntl } from 'react-intl';
 
 import { TEMP_FIELD_NAME } from '../components/ConfigurationForm/Fields';

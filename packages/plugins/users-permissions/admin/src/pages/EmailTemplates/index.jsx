@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useNotifyAT } from '@leao/design-system';
+import { useNotifyAT } from '@leao1/design-system';
 import {
   Page,
   useAPIErrorHandler,
@@ -8,7 +8,7 @@ import {
   useFetchClient,
   useRBAC,
   Layouts,
-} from '@leao/leao/admin';
+} from '@leao1/leao/admin';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 

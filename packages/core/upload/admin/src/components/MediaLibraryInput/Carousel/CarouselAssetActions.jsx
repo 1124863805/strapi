@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { CarouselActions, IconButton } from '@leao/design-system';
-import { Pencil, Plus, Trash } from '@leao/icons';
+import { CarouselActions, IconButton } from '@leao1/design-system';
+import { Pencil, Plus, Trash } from '@leao1/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

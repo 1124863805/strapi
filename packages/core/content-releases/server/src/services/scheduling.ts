@@ -1,7 +1,7 @@
 import { scheduleJob, Job } from 'node-schedule';
-import { Core } from '@leao/types';
+import { Core } from '@leao1/types';
 
-import { errors } from '@leao/utils';
+import { errors } from '@leao1/utils';
 import { Release } from '../../../shared/contracts/releases';
 import { getService } from '../utils';
 import { RELEASE_MODEL_UID } from '../constants';
