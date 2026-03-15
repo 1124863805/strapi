@@ -256,8 +256,8 @@ const ListViewPage = () => {
             <Table.Content>
               <Table.Head>
                 <Table.HeaderCheckboxCell />
-                {tableHeaders.map((header: ListFieldLayout) => (
-                  <Table.HeaderCell key={header.name} {...header} />
+                {tableHeaders.map((header: ListFieldLayout, index) => (
+                  <Table.HeaderCell key={`${header.name}-${index}`} {...header} />
                 ))}
               </Table.Head>
               <Table.Loading />
@@ -271,12 +271,12 @@ const ListViewPage = () => {
                       onClick={handleRowClick(row.documentId)}
                     >
                       <Table.CheckboxCell id={row.id} />
-                      {tableHeaders.map(({ cellFormatter, ...header }) => {
+                      {tableHeaders.map(({ cellFormatter, ...header }, cellIndex) => {
                         if (header.name === 'status') {
                           const { status } = row;
 
                           return (
-                            <Table.Cell key={header.name}>
+                            <Table.Cell key={`${header.name}-${cellIndex}`}>
                               <DocumentStatus status={status} maxWidth={'min-content'} />
                             </Table.Cell>
                           );
@@ -286,7 +286,7 @@ const ListViewPage = () => {
                           // Some entries doesn't have a user assigned as creator/updater (ex: entries created through content API)
                           // In this case, we display a dash
                           return (
-                            <Table.Cell key={header.name}>
+                            <Table.Cell key={`${header.name}-${cellIndex}`}>
                               <Typography textColor="neutral800">
                                 {row[header.name.split('.')[0]]
                                   ? getDisplayName(row[header.name.split('.')[0]])
@@ -297,14 +297,14 @@ const ListViewPage = () => {
                         }
                         if (typeof cellFormatter === 'function') {
                           return (
-                            <Table.Cell key={header.name}>
+                            <Table.Cell key={`${header.name}-${cellIndex}`}>
                               {/* @ts-expect-error – TODO: fix this TS error */}
                               {cellFormatter(row, header, { collectionType, model })}
                             </Table.Cell>
                           );
                         }
                         return (
-                          <Table.Cell key={header.name}>
+                          <Table.Cell key={`${header.name}-${cellIndex}`}>
                             <CellContent
                               content={row[header.name.split('.')[0]]}
                               rowId={row.documentId}

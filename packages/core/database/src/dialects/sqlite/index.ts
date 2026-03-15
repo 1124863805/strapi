@@ -35,6 +35,7 @@ export default class SqliteDialect extends Dialect {
 
   async initialize(nativeConnection: unknown) {
     await this.db.connection.raw('pragma foreign_keys = on').connection(nativeConnection);
+    await this.db.connection.raw('pragma busy_timeout = 5000').connection(nativeConnection);
   }
 
   canAlterConstraints() {

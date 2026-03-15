@@ -57,9 +57,10 @@ const command = new commander.Command('create-leao-app')
   .option('--dbfile <dbfile>', 'Database file path for sqlite')
   .option('--skip-db', 'Skip database configuration')
 
-  .option('--template <template>', 'Specify a Leao template')
-  .option('--template-branch <templateBranch>', 'Specify a branch for the template')
-  .option('--template-path <templatePath>', 'Specify a path to the template inside the repository')
+  .option(
+    '--template <template>',
+    'Template: example, example-js, vanilla, vanilla-js, or file:///path'
+  )
 
   .description('create a new application');
 
@@ -122,8 +123,6 @@ async function run(args: string[]): Promise<void> {
     packageManager: getPkgManager(options),
     database: await getDatabaseInfos(options),
     template: options.template,
-    templateBranch: options.templateBranch,
-    templatePath: options.templatePath,
     isQuickstart: options.quickstart,
     useExample: false,
     runApp: options.quickstart === true && options.run !== false,

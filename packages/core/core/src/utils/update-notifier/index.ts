@@ -11,6 +11,7 @@ import type { Core } from '@leao/types';
 const pkg = require('../../../package.json');
 
 const CHECK_INTERVAL = 1000 * 60 * 60 * 24 * 1; // 1 day
+const FETCH_TIMEOUT = 5000; // 5s - avoid blocking if npm registry is slow
 const NOTIF_INTERVAL = 1000 * 60 * 60 * 24 * 7; // 1 week
 const boxenOptions: boxen.Options = {
   padding: 1,
@@ -23,7 +24,7 @@ const boxenOptions: boxen.Options = {
 const getUpdateMessage = (newVersion: string, currentVersion: string) => {
   const currentVersionLog = chalk.dim(currentVersion);
   const newVersionLog = chalk.green(newVersion);
-  const releaseLink = chalk.bold('https://github.com/leao/leao/releases');
+  const releaseLink = chalk.bold('#');
 
   return `
 A new version of Leao is available ${currentVersionLog} → ${newVersionLog}
@@ -54,13 +55,16 @@ export const createUpdateNotifier = (leao: Core.Leao) => {
     }
 
     try {
-      const res = await packageJson(pkg.name);
+      const timeout = new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error('timeout')), FETCH_TIMEOUT)
+      );
+      const res = await Promise.race([packageJson(pkg.name), timeout]);
       if (res.version) {
         config.set('latest', res.version);
         config.set('lastUpdateCheck', now);
       }
     } catch {
-      // silence error if offline
+      // silence error if offline or timeout
     }
   };
 

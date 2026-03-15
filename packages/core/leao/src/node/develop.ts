@@ -213,7 +213,20 @@ const develop = async ({
       adminSpinner.succeed();
     }
 
-    const leaoInstance = await leao.load();
+    const LOAD_TIMEOUT = 120_000; // 2min
+    const loadPromise = leao.load();
+    const timeoutPromise = new Promise<never>((_, reject) =>
+      setTimeout(
+        () =>
+          reject(
+            new Error(
+              'leao.load() 超时。请执行 pkill -9 -f "leao.js develop" 终止残留进程后重试'
+            )
+          ),
+        LOAD_TIMEOUT
+      )
+    );
+    const leaoInstance = await Promise.race([loadPromise, timeoutPromise]);
 
     const loadLeaoDuration = timer.end('loadLeao');
     loadLeaoSpinner.text = `Loading Leao (${prettyTime(loadLeaoDuration)})`;

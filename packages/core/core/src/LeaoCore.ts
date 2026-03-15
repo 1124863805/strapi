@@ -354,8 +354,14 @@ class Leao extends Container implements Core.Leao {
   }
 
   async load() {
+    const trace = (s: string) =>
+      (process.env.LEAO_TRACE || process.env.NODE_ENV === 'development') &&
+      process.stderr.write(`[leao] ${s}\n`);
+    trace('load:start');
     await this.register();
+    trace('load:register done');
     await this.bootstrap();
+    trace('load:bootstrap done');
 
     this.isLoaded = true;
 
@@ -363,15 +369,22 @@ class Leao extends Container implements Core.Leao {
   }
 
   async register() {
+    const trace = (s: string) =>
+      (process.env.LEAO_TRACE || process.env.NODE_ENV === 'development') &&
+      process.stderr.write(`[leao] ${s}\n`);
+    trace('register:start');
     // @ts-expect-error: init is internal
     this.ee.init(this.dirs.app.root, this.log);
 
     for (const provider of providers) {
       await provider.register?.(this);
     }
+    trace('register:providers done');
 
     await this.runPluginsLifecycles(utils.LIFECYCLES.REGISTER);
+    trace('register:plugins done');
     await this.runUserLifecycles(utils.LIFECYCLES.REGISTER);
+    trace('register:user done');
 
     // NOTE: Swap type customField for underlying data type
     utils.convertCustomFieldType(this);
@@ -380,6 +393,10 @@ class Leao extends Container implements Core.Leao {
   }
 
   async bootstrap() {
+    const trace = (s: string) =>
+      (process.env.LEAO_TRACE || process.env.NODE_ENV === 'development') &&
+      process.stderr.write(`[leao] ${s}\n`);
+    trace('bootstrap:start');
     this.configureGlobalProxy();
 
     const models = [
@@ -390,7 +407,9 @@ class Leao extends Container implements Core.Leao {
       ...this.get('models').get(),
     ];
 
+    trace('bootstrap:db.init');
     await this.db.init({ models });
+    trace('bootstrap:db.init done');
 
     let oldContentTypes;
     if (await this.db.getSchemaConnection().hasTable(coreStoreModel.tableName)) {
@@ -406,7 +425,9 @@ class Leao extends Container implements Core.Leao {
       contentTypes: this.contentTypes,
     });
 
+    trace('bootstrap:schema.sync');
     await this.db.schema.sync();
+    trace('bootstrap:schema.sync done');
 
     await this.hook('leao::content-types.afterSync').call({
       oldContentTypes,
@@ -420,18 +441,25 @@ class Leao extends Container implements Core.Leao {
       value: this.contentTypes,
     });
 
+    trace('bootstrap:initMiddlewares');
     await this.server.initMiddlewares();
     this.server.initRouting();
+    trace('bootstrap:initRouting done');
 
     await this.contentAPI.permissions.registerActions();
+    trace('bootstrap:permissions done');
 
+    trace('bootstrap:plugins');
     await this.runPluginsLifecycles(utils.LIFECYCLES.BOOTSTRAP);
+    trace('bootstrap:plugins done');
 
     for (const provider of providers) {
       await provider.bootstrap?.(this);
     }
+    trace('bootstrap:providers done');
 
     await this.runUserLifecycles(utils.LIFECYCLES.BOOTSTRAP);
+    trace('bootstrap:user done');
 
     return this;
   }

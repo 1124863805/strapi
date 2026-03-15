@@ -1,5 +1,0 @@
-{
-  "plugin.description.long": "Send Leao fejlevents til Sentry.",
-  "plugin.description.short": "Send Leao fejlevents til Sentry.",
-  "plugin.name": "Sentry"
-}

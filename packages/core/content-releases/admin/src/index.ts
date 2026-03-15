@@ -68,10 +68,10 @@ const admin: Plugin.Config.AdminInput = {
           defaultMessage: 'Releases',
         },
         permissions: [],
-        async Component() {
-          const { ProtectedReleasesSettingsPage } = await import('./pages/ReleasesSettingsPage');
-          return { default: ProtectedReleasesSettingsPage };
-        },
+        Component: () =>
+          import('./pages/ReleasesSettingsPage').then((mod) => ({
+            default: mod.ProtectedReleasesSettingsPage,
+          })),
       });
 
       if (
@@ -101,10 +101,10 @@ const admin: Plugin.Config.AdminInput = {
           defaultMessage: 'Releases',
         },
         permissions: [],
-        async Component() {
-          const { PurchaseContentReleases } = await import('./pages/PurchaseContentReleases');
-          return { default: PurchaseContentReleases };
-        },
+        Component: () =>
+          import('./pages/PurchaseContentReleases').then((mod) => ({
+            default: mod.PurchaseContentReleases,
+          })),
         eeOnly: true,
       });
     }

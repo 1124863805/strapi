@@ -32,7 +32,7 @@ const PurchaseReviewWorkflows = () => {
               <LinkButton
                 variant="default"
                 endIcon={<ExternalLink />}
-                href="https://strp.cc/3tdNfJq"
+                href="#"
                 isExternal
                 target="_blank"
               >

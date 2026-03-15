@@ -15,10 +15,7 @@ export default {
         defaultMessage: 'Documentation',
       },
       permissions: PERMISSIONS.main,
-      Component: async () => {
-        const { App } = await import('./pages/App');
-        return App;
-      },
+      Component: () => import('./pages/App').then((mod) => ({ default: mod.App })),
       position: 9,
     });
 
@@ -35,10 +32,7 @@ export default {
       },
       id: 'documentation',
       to: pluginId,
-      Component: async () => {
-        const { SettingsPage } = await import('./pages/Settings');
-        return SettingsPage;
-      },
+      Component: () => import('./pages/Settings').then((mod) => ({ default: mod.SettingsPage })),
       permissions: PERMISSIONS.main,
     });
   },

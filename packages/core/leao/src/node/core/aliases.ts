@@ -20,7 +20,6 @@ const devAliases: Record<string, string> = {
   '@leao/plugin-documentation/leao-admin': './packages/plugins/documentation/admin/src',
   '@leao/plugin-graphql/leao-admin': './packages/plugins/graphql/admin/src',
   '@leao/i18n/leao-admin': './packages/plugins/i18n/admin/src',
-  '@leao/plugin-sentry/leao-admin': './packages/plugins/sentry/admin/src',
   '@leao/plugin-users-permissions/leao-admin': './packages/plugins/users-permissions/admin/src',
   '@leao/review-workflows/leao-admin': './packages/core/review-workflows/admin/src',
 };

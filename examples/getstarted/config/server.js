@@ -36,7 +36,7 @@ module.exports = ({ env }) => ({
       level: 'silly',
     },
     updates: {
-      // enabled: false,
+      // enabled: false, // disabled by default in development
     },
     startup: {
       // enabled: false,

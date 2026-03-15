@@ -28,10 +28,7 @@ const admin: Plugin.Config.AdminInput = {
           defaultMessage: 'Review Workflows',
         },
         permissions: [],
-        async Component() {
-          const { Router } = await import('./router');
-          return { default: Router };
-        },
+        Component: () => import('./router').then((mod) => ({ default: mod.Router })),
       });
     } else if (!window.leao.features.isEnabled(FEATURE_ID) && window.leao?.flags?.promoteEE) {
       app.addSettingsLink('global', {
@@ -43,10 +40,10 @@ const admin: Plugin.Config.AdminInput = {
         },
         eeOnly: true,
         permissions: [],
-        async Component() {
-          const { PurchaseReviewWorkflows } = await import('./routes/purchase-review-workflows');
-          return { default: PurchaseReviewWorkflows };
-        },
+        Component: () =>
+          import('./routes/purchase-review-workflows').then((mod) => ({
+            default: mod.PurchaseReviewWorkflows,
+          })),
       });
     }
   },

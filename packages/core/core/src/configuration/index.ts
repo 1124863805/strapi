@@ -33,7 +33,7 @@ const defaultConfig = {
     },
     logger: {
       updates: {
-        enabled: true,
+        enabled: process.env.NODE_ENV !== 'development',
       },
       startup: {
         enabled: true,

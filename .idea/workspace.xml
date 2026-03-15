@@ -4,7 +4,64 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e3bcce7-5e9b-4373-a980-6aeec33336df" name="Changes" comment="完全变更1" />
+    <list default="true" id="5e3bcce7-5e9b-4373-a980-6aeec33336df" name="Changes" comment="完全变更">
+      <change beforePath="$PROJECT_DIR$/examples/getstarted/config/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/examples/getstarted/config/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/my-demo/config/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/examples/my-demo/config/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/cli/create-leao-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cli/create-leao-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/cli/create-leao-app/src/create-leao-impl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cli/create-leao-app/src/create-leao-impl.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/cli/create-leao-app/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cli/create-leao-app/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/cli/create-leao-app/src/utils/template.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cli/create-leao-app/src/utils/template.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/admin/admin/src/core/apis/router.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/admin/admin/src/core/apis/router.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/admin/admin/src/translations/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/admin/admin/src/translations/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/admin/admin/src/translations/zh-Hans.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/admin/admin/src/translations/zh-Hans.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/content-manager/admin/src/pages/ListView/ListViewPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/content-manager/admin/src/pages/ListView/ListViewPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/content-manager/admin/src/translations/zh-Hans.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/content-manager/admin/src/translations/zh-Hans.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/content-releases/admin/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/content-releases/admin/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/core/src/LeaoCore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/core/src/LeaoCore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/core/src/configuration/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/core/src/configuration/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/core/src/utils/update-notifier/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/core/src/utils/update-notifier/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/database/src/dialects/sqlite/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/database/src/dialects/sqlite/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/leao/src/node/core/aliases.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/leao/src/node/core/aliases.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/leao/src/node/develop.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/leao/src/node/develop.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/review-workflows/admin/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/review-workflows/admin/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/review-workflows/admin/src/routes/purchase-review-workflows.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/review-workflows/admin/src/routes/purchase-review-workflows.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/documentation/admin/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/documentation/admin/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/documentation/server/src/bootstrap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/documentation/server/src/bootstrap.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/.eslintignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/.eslintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/.eslintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/pluginId.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/translations/dk.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/translations/en.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/translations/es.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/translations/fr.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/translations/ko.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/translations/pl.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/translations/ru.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/translations/sv.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/translations/tr.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/translations/vi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/translations/zh.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/src/utils/prefixPluginTranslations.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/tsconfig.build.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/admin/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/packup.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/server/.eslintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/server/src/bootstrap.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/server/src/config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/server/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/server/src/middlewares/sentry.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/server/src/services/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/server/src/services/sentry.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/server/tsconfig.build.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/server/tsconfig.eslint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/sentry/server/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773569364396</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="完全变更">
+      <option name="closed" value="true" />
+      <created>1773574273023</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1773574273023</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,9 +167,9 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="完全变更" />
     <MESSAGE value="完全变更1" />
-    <option name="LAST_COMMIT_MESSAGE" value="完全变更1" />
+    <MESSAGE value="完全变更" />
+    <option name="LAST_COMMIT_MESSAGE" value="完全变更" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>

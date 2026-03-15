@@ -969,8 +969,6 @@
   "global.plugins.graphql.description": "添加具有默认 API 方法的 GraphQL 端点。",
   "global.plugins.i18n": "国际化",
   "global.plugins.i18n.description": "此插件可让您使用不同语言在管理面板和 API 中创建、读取和更新内容。",
-  "global.plugins.sentry": "Sentry",
-  "global.plugins.sentry.description": "将 Leao 错误事件发送到 Sentry。",
   "global.plugins.upload": "媒体库",
   "global.plugins.upload.description": "媒体文件管理。",
   "global.plugins.users-permissions": "角色和权限",

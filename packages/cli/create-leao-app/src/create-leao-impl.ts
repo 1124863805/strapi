@@ -53,6 +53,8 @@ async function createApp(scope: Scope) {
     await trackUsage({ event: 'didChooseQuickstart', scope });
   }
 
+  const BUNDLED_TEMPLATES = ['example', 'example-js', 'vanilla', 'vanilla-js'];
+
   if (!template) {
     let templateName = useExample ? 'example' : 'vanilla';
 
@@ -63,6 +65,15 @@ async function createApp(scope: Scope) {
     const internalTemplatePath = join(__dirname, '../templates', templateName);
     if (await fse.exists(internalTemplatePath)) {
       await fse.copy(internalTemplatePath, rootPath);
+    }
+  } else if (BUNDLED_TEMPLATES.includes(template)) {
+    const internalTemplatePath = join(__dirname, '../templates', template);
+    if (await fse.exists(internalTemplatePath)) {
+      logger.info(`${chalk.cyan('Installing template')} ${template}`);
+      await fse.copy(internalTemplatePath, rootPath);
+      logger.success('Template copied successfully.');
+    } else {
+      logger.fatal(`Bundled template ${chalk.bold(template)} not found. Available: ${BUNDLED_TEMPLATES.join(', ')}`);
     }
   } else {
     try {

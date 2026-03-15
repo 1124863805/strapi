@@ -663,8 +663,6 @@
   "global.plugins.graphql.description": "Adds GraphQL endpoint with default API methods.",
   "global.plugins.i18n": "Internationalization",
   "global.plugins.i18n.description": "This plugin enables to create, to read and to update content in different languages, both from the Admin Panel and from the API.",
-  "global.plugins.sentry": "Sentry",
-  "global.plugins.sentry.description": "Send Leao error events to Sentry.",
   "global.plugins.upload": "Media Library",
   "global.plugins.upload.description": "Media file management.",
   "global.plugins.users-permissions": "Roles & Permissions",

@@ -46,5 +46,8 @@ export async function bootstrap({ leao }: { leao: Core.Leao }) {
     pluginStore.set({ key: 'config', value: { restrictedAccess: false } });
   }
 
-  await getService('documentation').generateFullDoc();
+  // Generate docs in background to avoid blocking startup (develop load)
+  getService('documentation')
+    .generateFullDoc()
+    .catch((err) => leao.log.warn('Documentation generation failed:', err));
 }

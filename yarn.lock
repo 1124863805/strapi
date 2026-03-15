@@ -3432,15 +3432,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@isaacs/fs-minipass@npm:^4.0.0":
-  version: 4.0.1
-  resolution: "@isaacs/fs-minipass@npm:4.0.1"
-  dependencies:
-    minipass: "npm:^7.0.4"
-  checksum: 10c0/c25b6dc1598790d5b55c0947a9b7d111cfa92594db5296c3b907e2f533c033666f692a3939eadac17b1c7c40d362d0b0635dc874cbfe3e70db7c2b07cc97a5d2
-  languageName: node
-  linkType: hard
-
 "@istanbuljs/load-nyc-config@npm:^1.0.0":
   version: 1.1.0
   resolution: "@istanbuljs/load-nyc-config@npm:1.1.0"
@@ -4591,29 +4582,6 @@ __metadata:
     styled-components: "npm:6.1.8"
     tsconfig: "workspace:*"
     typescript: "npm:5.3.2"
-  peerDependencies:
-    "@leao/leao": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
-    react-router-dom: ^6.0.0
-    styled-components: ^6.0.0
-  languageName: unknown
-  linkType: soft
-
-"@leao/plugin-sentry@workspace:packages/plugins/sentry":
-  version: 0.0.0-use.local
-  resolution: "@leao/plugin-sentry@workspace:packages/plugins/sentry"
-  dependencies:
-    "@leao/design-system": "workspace:*"
-    "@leao/icons": "workspace:*"
-    "@leao/leao": "workspace:*"
-    "@leao/pack-up": "workspace:*"
-    "@leao/sdk-plugin": "workspace:*"
-    "@sentry/node": "npm:7.112.2"
-    react: "npm:18.3.1"
-    react-dom: "npm:18.3.1"
-    react-router-dom: "npm:6.22.3"
-    styled-components: "npm:6.1.8"
   peerDependencies:
     "@leao/leao": ^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc
     react: ^17.0.0 || ^18.0.0
@@ -6953,68 +6921,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry-internal/tracing@npm:7.112.2":
-  version: 7.112.2
-  resolution: "@sentry-internal/tracing@npm:7.112.2"
-  dependencies:
-    "@sentry/core": "npm:7.112.2"
-    "@sentry/types": "npm:7.112.2"
-    "@sentry/utils": "npm:7.112.2"
-  checksum: 10c0/bca1681cd5d687614ff1888fff227b41aa0e61a46895a673102bf6913595c8c6de7b71294422c9b50bfa07a66021c20aa4292c1d3a460bca4be27042cb549efe
-  languageName: node
-  linkType: hard
-
-"@sentry/core@npm:7.112.2":
-  version: 7.112.2
-  resolution: "@sentry/core@npm:7.112.2"
-  dependencies:
-    "@sentry/types": "npm:7.112.2"
-    "@sentry/utils": "npm:7.112.2"
-  checksum: 10c0/560e9566f410610c2adc1fb2617bc57f85cede9849daf7caef01ef1c49281e2be159215261aa9570aa5c94fcb1a12068670b75ae68aa62467537088bf817d125
-  languageName: node
-  linkType: hard
-
-"@sentry/integrations@npm:7.112.2":
-  version: 7.112.2
-  resolution: "@sentry/integrations@npm:7.112.2"
-  dependencies:
-    "@sentry/core": "npm:7.112.2"
-    "@sentry/types": "npm:7.112.2"
-    "@sentry/utils": "npm:7.112.2"
-    localforage: "npm:^1.8.1"
-  checksum: 10c0/fa1b92eb16c748d0b1635bff1e172888f1f39c6d8e239382a702a36c79d2580f30c73e9899cddc27cecb2f015b6e9a2e2c3a76d8626b4af758145cc672de0759
-  languageName: node
-  linkType: hard
-
-"@sentry/node@npm:7.112.2":
-  version: 7.112.2
-  resolution: "@sentry/node@npm:7.112.2"
-  dependencies:
-    "@sentry-internal/tracing": "npm:7.112.2"
-    "@sentry/core": "npm:7.112.2"
-    "@sentry/integrations": "npm:7.112.2"
-    "@sentry/types": "npm:7.112.2"
-    "@sentry/utils": "npm:7.112.2"
-  checksum: 10c0/9a64d31e12195fb1aed630b42ab30ebdb275b085eb2dcfa96e9dd0a19f5cbb4a72127a1f031c947ae4ade5057dddeaeed11a0848da9354fc79bbcac659f44772
-  languageName: node
-  linkType: hard
-
-"@sentry/types@npm:7.112.2":
-  version: 7.112.2
-  resolution: "@sentry/types@npm:7.112.2"
-  checksum: 10c0/2f3a49113b4bcabaa6108f77c752adbe9bf964754e83ea435ba312fd974cc26cd020d8e9f42f98e8051bb1e0ffe383d445afb1f4fb4c074005ee0020a5b5ef48
-  languageName: node
-  linkType: hard
-
-"@sentry/utils@npm:7.112.2":
-  version: 7.112.2
-  resolution: "@sentry/utils@npm:7.112.2"
-  dependencies:
-    "@sentry/types": "npm:7.112.2"
-  checksum: 10c0/63cca80cef62d6251325a5e61fb1f7cecf3a4726cc88a41d0aedd2a56d6c132ec49d952cc303a3a37c5114b9967380c43185cac1685dfcebe4aae313a57f6152
-  languageName: node
-  linkType: hard
-
 "@simov/deep-extend@npm:^1.0.0":
   version: 1.0.0
   resolution: "@simov/deep-extend@npm:1.0.0"
@@ -8431,15 +8337,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/async-retry@npm:^1":
-  version: 1.4.8
-  resolution: "@types/async-retry@npm:1.4.8"
-  dependencies:
-    "@types/retry": "npm:*"
-  checksum: 10c0/4e1fff979175b0ddec73d074f1a5fdca9867f255e1f6d19888a328c381aee6cda0b76dc0c0fd928bd2c723b651b3bfb068de2807998887f7dd9f436eb5b8b7d9
-  languageName: node
-  linkType: hard
-
 "@types/babel__core@npm:^7.1.14, @types/babel__core@npm:^7.20.5":
   version: 7.20.5
   resolution: "@types/babel__core@npm:7.20.5"
@@ -9323,13 +9220,6 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 10c0/474ac2402e6d43c007eee25f50d01eb1f67255ca83dd8e036877292bbe8dd5d2d1e50b54b408e233b50a8c38e681ff3ebeaf22f18b478056eddb65536abb003a
-  languageName: node
-  linkType: hard
-
-"@types/retry@npm:*":
-  version: 0.12.5
-  resolution: "@types/retry@npm:0.12.5"
-  checksum: 10c0/eaaca483cc62f2f02c0b8486847ee70986ca7f97afd7363037247dbe3e98df8bd56a5b50d58b1e96768a5a1be0307010d86e9991bd458d72e8df88be471bd720
   languageName: node
   linkType: hard
 
@@ -10629,7 +10519,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"async-retry@npm:1.3.3, async-retry@npm:^1.2.1":
+"async-retry@npm:^1.2.1":
   version: 1.3.3
   resolution: "async-retry@npm:1.3.3"
   dependencies:
@@ -11544,13 +11434,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chownr@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "chownr@npm:3.0.0"
-  checksum: 10c0/43925b87700f7e3893296c8e9c56cc58f926411cce3a6e5898136daaf08f08b9a8eb76d37d3267e707d0dcc17aed2e2ebdf5848c0c3ce95cf910a919935c1b10
-  languageName: node
-  linkType: hard
-
 "chrome-trace-event@npm:^1.0.2":
   version: 1.0.3
   resolution: "chrome-trace-event@npm:1.0.3"
@@ -12300,10 +12183,8 @@ __metadata:
   resolution: "create-leao-app@workspace:packages/cli/create-leao-app"
   dependencies:
     "@leao/pack-up": "workspace:*"
-    "@types/async-retry": "npm:^1"
     "@types/fs-extra": "npm:11.0.4"
     "@types/inquirer": "npm:8.2.5"
-    async-retry: "npm:1.3.3"
     chalk: "npm:4.1.2"
     commander: "npm:8.3.0"
     eslint-config-custom: "workspace:*"
@@ -12316,7 +12197,6 @@ __metadata:
     rollup: "npm:4.19.1"
     semver: "npm:7.5.4"
     sort-package-json: "npm:2.10.0"
-    tar: "npm:7.4.3"
     tsconfig: "workspace:*"
   bin:
     create-leao-app: ./bin/index.js
@@ -16472,13 +16352,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"immediate@npm:~3.0.5":
-  version: 3.0.6
-  resolution: "immediate@npm:3.0.6"
-  checksum: 10c0/f8ba7ede69bee9260241ad078d2d535848745ff5f6995c7c7cb41cfdc9ccc213f66e10fa5afb881f90298b24a3f7344b637b592beb4f54e582770cdce3f1f039
-  languageName: node
-  linkType: hard
-
 "immer@npm:9.0.21, immer@npm:^9.0.21, immer@npm:^9.0.6":
   version: 9.0.21
   resolution: "immer@npm:9.0.21"
@@ -18634,15 +18507,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lie@npm:3.1.1":
-  version: 3.1.1
-  resolution: "lie@npm:3.1.1"
-  dependencies:
-    immediate: "npm:~3.0.5"
-  checksum: 10c0/d62685786590351b8e407814acdd89efe1cb136f05cb9236c5a97b2efdca1f631d2997310ad2d565c753db7596799870140e4777c9c9b8c44a0f6bf42d1804a1
-  languageName: node
-  linkType: hard
-
 "liftoff@npm:^2.5.0":
   version: 2.5.0
   resolution: "liftoff@npm:2.5.0"
@@ -18720,15 +18584,6 @@ __metadata:
     pkg-types: "npm:^2.3.0"
     quansync: "npm:^0.2.11"
   checksum: 10c0/1bcfcc5528dea95cba3caa478126a348d3985aad9f69ecf7802c13efef90897e1c5ff7851974332c5e6d4a4698efe610fef758a068c8bc3feb5322aeb35d5993
-  languageName: node
-  linkType: hard
-
-"localforage@npm:^1.8.1":
-  version: 1.10.0
-  resolution: "localforage@npm:1.10.0"
-  dependencies:
-    lie: "npm:3.1.1"
-  checksum: 10c0/00f19f1f97002e6721587ed5017f502d58faf80dae567d5065d4d1ee0caf0762f40d2e2dba7f0ef7d3f14ee6203242daae9ecad97359bfc10ecff36df11d85a3
   languageName: node
   linkType: hard
 
@@ -19505,7 +19360,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minipass@npm:^5.0.0 || ^6.0.2 || ^7.0.0, minipass@npm:^7.0.4, minipass@npm:^7.1.2":
+"minipass@npm:^5.0.0 || ^6.0.2 || ^7.0.0, minipass@npm:^7.1.2":
   version: 7.1.2
   resolution: "minipass@npm:7.1.2"
   checksum: 10c0/b0fd20bb9fb56e5fa9a8bfac539e8915ae07430a619e4b86ff71f5fc757ef3924b23b2c4230393af1eda647ed3d75739e4e0acb250a6b1eb277cf7f8fe449557
@@ -19519,16 +19374,6 @@ __metadata:
     minipass: "npm:^3.0.0"
     yallist: "npm:^4.0.0"
   checksum: 10c0/64fae024e1a7d0346a1102bb670085b17b7f95bf6cfdf5b128772ec8faf9ea211464ea4add406a3a6384a7d87a0cd1a96263692134323477b4fb43659a6cab78
-  languageName: node
-  linkType: hard
-
-"minizlib@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "minizlib@npm:3.0.1"
-  dependencies:
-    minipass: "npm:^7.0.4"
-    rimraf: "npm:^5.0.5"
-  checksum: 10c0/82f8bf70da8af656909a8ee299d7ed3b3372636749d29e105f97f20e88971be31f5ed7642f2e898f00283b68b701cc01307401cdc209b0efc5dd3818220e5093
   languageName: node
   linkType: hard
 
@@ -19566,15 +19411,6 @@ __metadata:
   bin:
     mkdirp: bin/cmd.js
   checksum: 10c0/46ea0f3ffa8bc6a5bc0c7081ffc3907777f0ed6516888d40a518c5111f8366d97d2678911ad1a6882bf592fa9de6c784fea32e1687bb94e1f4944170af48a5cf
-  languageName: node
-  linkType: hard
-
-"mkdirp@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "mkdirp@npm:3.0.1"
-  bin:
-    mkdirp: dist/cjs/src/bin.js
-  checksum: 10c0/9f2b975e9246351f5e3a40dcfac99fcd0baa31fbfab615fe059fb11e51f10e4803c63de1f384c54d656e4db31d000e4767e9ef076a22e12a641357602e31d57d
   languageName: node
   linkType: hard
 
@@ -22588,17 +22424,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^5.0.5":
-  version: 5.0.9
-  resolution: "rimraf@npm:5.0.9"
-  dependencies:
-    glob: "npm:^10.3.7"
-  bin:
-    rimraf: dist/esm/bin.mjs
-  checksum: 10c0/87374682492b9e64de9c6fcbf2c8f209c7a2cd0e9749b3732eef8a62c6f859a9ed996d46f662d9ad5dd38c2c469f8e88de56b6c509026070ee3f06369cac1bc8
-  languageName: node
-  linkType: hard
-
 "roarr@npm:^2.15.3":
   version: 2.15.4
   resolution: "roarr@npm:2.15.4"
@@ -24289,20 +24114,6 @@ __metadata:
     mkdirp: "npm:^1.0.3"
     yallist: "npm:^4.0.0"
   checksum: 10c0/a5eca3eb50bc11552d453488344e6507156b9193efd7635e98e867fab275d527af53d8866e2370cd09dfe74378a18111622ace35af6a608e5223a7d27fe99537
-  languageName: node
-  linkType: hard
-
-"tar@npm:7.4.3":
-  version: 7.4.3
-  resolution: "tar@npm:7.4.3"
-  dependencies:
-    "@isaacs/fs-minipass": "npm:^4.0.0"
-    chownr: "npm:^3.0.0"
-    minipass: "npm:^7.1.2"
-    minizlib: "npm:^3.0.1"
-    mkdirp: "npm:^3.0.1"
-    yallist: "npm:^5.0.0"
-  checksum: 10c0/d4679609bb2a9b48eeaf84632b6d844128d2412b95b6de07d53d8ee8baf4ca0857c9331dfa510390a0727b550fd543d4d1a10995ad86cdf078423fbb8d99831d
   languageName: node
   linkType: hard
 
@@ -26070,13 +25881,6 @@ __metadata:
   version: 4.0.0
   resolution: "yallist@npm:4.0.0"
   checksum: 10c0/2286b5e8dbfe22204ab66e2ef5cc9bbb1e55dfc873bbe0d568aa943eb255d131890dfd5bf243637273d31119b870f49c18fcde2c6ffbb7a7a092b870dc90625a
-  languageName: node
-  linkType: hard
-
-"yallist@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "yallist@npm:5.0.0"
-  checksum: 10c0/a499c81ce6d4a1d260d4ea0f6d49ab4da09681e32c3f0472dee16667ed69d01dae63a3b81745a24bd78476ec4fcf856114cb4896ace738e01da34b2c42235416
   languageName: node
   linkType: hard
 

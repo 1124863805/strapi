@@ -124,10 +124,14 @@ class Router {
       },
     ];
 
+    const routerOpts = {
+      ...opts,
+      future: { ...(opts as { future?: object })?.future, v7_startTransition: true },
+    };
     if (memory) {
-      this.router = createMemoryRouter(routes, opts);
+      this.router = createMemoryRouter(routes, routerOpts);
     } else {
-      this.router = createBrowserRouter(routes, opts);
+      this.router = createBrowserRouter(routes, routerOpts);
     }
 
     return this.router;
@@ -155,11 +159,10 @@ class Router {
     );
 
     if (
-      !link.Component ||
-      (link.Component &&
-        typeof link.Component === 'function' &&
-        // @ts-expect-error – shh
-        link.Component[Symbol.toStringTag] === 'AsyncFunction')
+      link.Component &&
+      typeof link.Component === 'function' &&
+      // @ts-expect-error – shh
+      link.Component[Symbol.toStringTag] === 'AsyncFunction'
     ) {
       console.warn(
         `
@@ -278,11 +281,10 @@ class Router {
     );
 
     if (
-      !link.Component ||
-      (link.Component &&
-        typeof link.Component === 'function' &&
-        // @ts-expect-error – shh
-        link.Component[Symbol.toStringTag] === 'AsyncFunction')
+      link.Component &&
+      typeof link.Component === 'function' &&
+      // @ts-expect-error – shh
+      link.Component[Symbol.toStringTag] === 'AsyncFunction'
     ) {
       console.warn(
         `

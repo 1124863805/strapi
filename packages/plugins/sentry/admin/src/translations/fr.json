@@ -1,5 +1,0 @@
-{
-  "plugin.description.long": "Envoie vos erreurs Leao à Sentry.",
-  "plugin.description.short": "Envoie vos erreurs Leao à Sentry.",
-  "plugin.name": "Sentry"
-}

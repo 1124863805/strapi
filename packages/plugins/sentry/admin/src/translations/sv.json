@@ -1,5 +1,0 @@
-{
-  "plugin.description.long": "Skicka felkoder från leao som Sentry-events.",
-  "plugin.description.short": "Skicka felkoder från leao som Sentry-events.",
-  "plugin.name": "Sentry"
-}
