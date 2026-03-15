@@ -1,0 +1,71 @@
+/**
+ * CLI command: `leao-plugin build`
+ *
+ * Bundles the plugin for npm publishing using Vite.
+ * Produces dual CommonJS/ESM output with TypeScript declarations.
+ */
+import boxen from 'boxen';
+import chalk from 'chalk';
+import { createCommand } from 'commander';
+
+import { runAction } from '../utils/helpers';
+
+import type { CLIContext, LeaoCommand } from '../../../types';
+
+interface BuildActionOptions {
+  debug?: boolean;
+  silent?: boolean;
+  sourcemap?: boolean;
+  minify?: boolean;
+}
+
+const action = async (opts: BuildActionOptions, _cmd: unknown, { logger, cwd }: CLIContext) => {
+  try {
+    /**
+     * ALWAYS set production for using plugin build CLI.
+     */
+    process.env.NODE_ENV = 'production';
+
+    logger.debug('Using Vite build implementation');
+
+    const { build } = await import('../utils/build');
+    await build({
+      cwd,
+      logger,
+      minify: opts.minify,
+      sourcemap: opts.sourcemap,
+      silent: opts.silent,
+      debug: opts.debug,
+    });
+  } catch (err) {
+    logger.error(
+      'There seems to be an unexpected error, try again with --debug for more information \n'
+    );
+    if (err instanceof Error && err.stack) {
+      logger.log(
+        chalk.red(
+          boxen(err.stack, {
+            padding: 1,
+            align: 'left',
+          })
+        )
+      );
+    }
+    process.exit(1);
+  }
+};
+
+/**
+ * `$ leao-plugin build`
+ */
+const command: LeaoCommand = ({ ctx }) => {
+  return createCommand('build')
+    .description('Bundle your Leao plugin for publishing.')
+    .option('-d, --debug', 'Enable debugging mode with verbose logs', false)
+    .option('--silent', "Don't log anything", false)
+    .option('--sourcemap', 'produce sourcemaps', false)
+    .option('--minify', 'minify the output', false)
+    .action((...args) => runAction('build', action)(ctx, ...args));
+};
+
+export { command };

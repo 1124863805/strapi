@@ -1,0 +1,85 @@
+{
+  "name": "@leao/sdk-plugin",
+  "version": "6.0.1",
+  "description": "Simple tools for developing Leao plugins",
+  "keywords": [
+    "leao",
+    "plugin",
+    "build",
+    "tools"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leao/sdk-plugin.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
+  },
+  "maintainers": [
+    {
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
+    }
+  ],
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "import": "./dist/cli.mjs",
+      "require": "./dist/cli.js",
+      "default": "./dist/cli.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "leao-plugin": "./bin/leao-plugin.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "check": "tsc --noEmit",
+    "lint": "eslint .",
+    "prepare": "husky",
+    "prerelease:enter": "changeset pre enter",
+    "prerelease:exit": "changeset pre exit",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
+    "release:add": "changeset add",
+    "release:publish": "changeset publish",
+    "release:version": "changeset version",
+    "watch": "vite build --watch"
+  },
+  "dependencies": {
+    "@types/prompts": "2.4.9",
+    "@vitejs/plugin-react": "^4.3.4",
+    "boxen": "5.1.2",
+    "chalk": "4.1.2",
+    "commander": "12.1.0",
+    "concurrently": "^8.2.2",
+    "esbuild": "^0.24.0",
+    "execa": "^9.3.1",
+    "get-latest-version": "5.1.0",
+    "git-url-parse": "13.1.1",
+    "nodemon": "^3.1.0",
+    "ora": "5.4.1",
+    "outdent": "0.8.0",
+    "pkg-up": "3.1.0",
+    "prettier": "2.8.8",
+    "prompts": "^2.4.2",
+    "typescript": "5.4.4",
+    "vite": "^6.0.3",
+    "vite-plugin-dts": "^4.3.0",
+    "yup": "0.32.9"
+  },
+  "packageManager": "yarn@4.5.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=6.0.0"
+  }
+}

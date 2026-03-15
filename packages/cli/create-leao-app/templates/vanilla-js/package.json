@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "develop": "leao develop",
+    "start": "leao start",
+    "build": "leao build",
+    "leao": "leao"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "name": "@leao/pack-up",
+  "version": "5.1.1",
+  "description": "Simple tools for creating interoperable CJS & ESM packages.",
+  "keywords": [
+    "leao",
+    "package",
+    "cjs",
+    "esm",
+    "bundling",
+    "build",
+    "interoperable",
+    "tools"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leao/pack-up.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
+  },
+  "maintainers": [
+    {
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
+    }
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "source": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "bin": "./bin/pack-up.js",
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "scripts": {
+    "build": "node -r esbuild-register scripts/build",
+    "check": "node -r esbuild-register scripts/check",
+    "lint": "eslint .",
+    "prepare": "husky",
+    "prerelease:enter": "changeset pre enter",
+    "prerelease:exit": "changeset pre exit",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
+    "release:add": "changeset add",
+    "release:publish": "changeset publish",
+    "release:version": "changeset version",
+    "test:ts": "tsc --noEmit",
+    "test:unit": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "watch": "node -r esbuild-register scripts/watch"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react-swc": "3.7.0",
+    "boxen": "5.1.2",
+    "browserslist-to-esbuild": "1.2.0",
+    "chalk": "4.1.2",
+    "chokidar": "4.0.1",
+    "commander": "8.3.0",
+    "esbuild": "0.20.2",
+    "esbuild-register": "3.5.0",
+    "get-latest-version": "5.1.0",
+    "git-url-parse": "13.1.1",
+    "ini": "4.1.2",
+    "ora": "5.4.1",
+    "outdent": "0.8.0",
+    "pkg-up": "3.1.0",
+    "prettier": "3.3.3",
+    "prettier-plugin-packagejson": "2.5.2",
+    "prompts": "2.4.2",
+    "rxjs": "7.8.1",
+    "typescript": "5.4.4",
+    "vite": "5.4.21",
+    "yup": "0.32.9"
+  },
+  "devDependencies": {
+    "@types/git-url-parse": "9.0.3",
+    "@types/ini": "4.1.0"
+  },
+  "packageManager": "yarn@4.5.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}
