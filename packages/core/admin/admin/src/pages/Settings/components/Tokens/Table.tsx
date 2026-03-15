@@ -19,7 +19,6 @@ import { SanitizedTransferToken } from '../../../../../../shared/contracts/trans
 import { ConfirmDialog } from '../../../../components/ConfirmDialog';
 import { RelativeTime } from '../../../../components/RelativeTime';
 import { Table as TableImpl } from '../../../../components/Table';
-import { useTracking } from '../../../../features/Tracking';
 import { useQueryParams } from '../../../../hooks/useQueryParams';
 
 import type { Data } from '@leao/types';
@@ -52,7 +51,6 @@ const Table = ({
   const { formatMessage, locale } = useIntl();
   const [, sortOrder] = query && query.sort ? query.sort.split(':') : [undefined, 'ASC'];
   const navigate = useNavigate();
-  const { trackUsage } = useTracking();
   const formatter = useCollator(locale);
 
   const sortedTokens = [...tokens].sort((a, b) => {
@@ -65,9 +63,6 @@ const Table = ({
 
   const handleRowClick = (id: Data.ID) => () => {
     if (canRead) {
-      trackUsage('willEditTokenFromList', {
-        tokenType,
-      });
       navigate(id.toString());
     }
   };
@@ -128,7 +123,6 @@ const Table = ({
                       <DeleteButton
                         tokenName={token.name}
                         onClickDelete={() => onConfirmDelete?.(token.id)}
-                        tokenType={tokenType}
                       />
                     )}
                   </Flex>
@@ -194,17 +188,13 @@ const LinkButtonStyled = styled(LinkButton)`
   }
 `;
 
-interface DeleteButtonProps extends Pick<ButtonProps, 'tokenName'>, Pick<TableProps, 'tokenType'> {
+interface DeleteButtonProps extends Pick<ButtonProps, 'tokenName'> {
   onClickDelete: () => void;
 }
 
-const DeleteButton = ({ tokenName, onClickDelete, tokenType }: DeleteButtonProps) => {
+const DeleteButton = ({ tokenName, onClickDelete }: DeleteButtonProps) => {
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const handleClickDelete = () => {
-    trackUsage('willDeleteToken', {
-      tokenType,
-    });
     onClickDelete();
   };
 

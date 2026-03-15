@@ -4,23 +4,20 @@ import { IconButton, Searchbar, SearchForm } from '@leao/design-system';
 import { Search as SearchIcon } from '@leao/icons';
 import { useIntl } from 'react-intl';
 
-import { TrackingEvent, useTracking } from '../features/Tracking';
 import { useQueryParams } from '../hooks/useQueryParams';
 
 interface SearchInputProps {
   disabled?: boolean;
   label: string;
   placeholder?: string;
-  trackedEvent?: TrackingEvent['name'] | null;
-  trackedEventDetails?: TrackingEvent['properties'];
+  trackedEvent?: string | null;
+  trackedEventDetails?: object;
 }
 
 const SearchInput = ({
   disabled,
   label,
   placeholder,
-  trackedEvent,
-  trackedEventDetails,
 }: SearchInputProps) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const iconButtonRef = React.useRef<HTMLButtonElement>(null);
@@ -31,7 +28,6 @@ const SearchInput = ({
   const [isOpen, setIsOpen] = React.useState(!!value);
 
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
 
   const handleToggle = () => setIsOpen((prev) => !prev);
 
@@ -51,9 +47,6 @@ const SearchInput = ({
 
     // Ensure value is a string
     if (value) {
-      if (trackedEvent) {
-        trackUsage(trackedEvent, trackedEventDetails);
-      }
       setQuery({ _q: encodeURIComponent(value), page: 1 });
     } else {
       handleToggle();

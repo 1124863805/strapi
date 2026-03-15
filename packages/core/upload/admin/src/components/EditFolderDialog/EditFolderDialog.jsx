@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useTracking, useNotification } from '@leao/admin/leao-admin';
+import { useNotification } from '@leao/admin/leao-admin';
 import {
   Button,
   Field,
@@ -46,7 +46,6 @@ export const EditFolderContent = ({ onClose, folder, location, parentFolderId })
   const { canCreate, isLoading: isLoadingPermissions, canUpdate } = useMediaLibraryPermissions();
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const { formatMessage, formatDate } = useIntl();
-  const { trackUsage } = useTracking();
   const { editFolder, isLoading: isEditFolderLoading } = useEditFolder();
   const { remove } = useBulkRemove();
   const { toggleNotification } = useNotification();
@@ -87,20 +86,6 @@ export const EditFolderContent = ({ onClose, folder, location, parentFolderId })
               defaultMessage: 'Folder successfully created',
             }),
       });
-
-      if (isEditing) {
-        const didChangeLocation = parentFolderId
-          ? parseInt(parentFolderId, 10) !== values.parent.value
-          : parentFolderId === null && !!values.parent.value;
-
-        trackUsage('didEditMediaLibraryElements', {
-          location,
-          type: 'folder',
-          changeLocation: didChangeLocation,
-        });
-      } else {
-        trackUsage('didAddMediaLibraryFolders', { location });
-      }
 
       onClose({ created: true });
     } catch (err) {

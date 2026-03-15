@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useTracking, useRBAC, useQueryParams } from '@leao/admin/leao-admin';
+import { useRBAC, useQueryParams } from '@leao/admin/leao-admin';
 import {
   Flex,
   IconButton,
@@ -80,7 +80,6 @@ interface FieldPickerProps {
 }
 
 const FieldPicker = ({ headers = [], resetHeaders, setHeaders }: FieldPickerProps) => {
-  const { trackUsage } = useTracking();
   const { formatMessage, locale } = useIntl();
 
   const { schema, model } = useDoc();
@@ -101,8 +100,6 @@ const FieldPicker = ({ headers = [], resetHeaders, setHeaders }: FieldPickerProp
     .sort((a, b) => formatter.compare(a.label, b.label));
 
   const handleChange = (name: string) => {
-    trackUsage('didChangeDisplayedFields');
-
     /**
      * create an array of the new headers, if the new name exists it should be removed,
      * otherwise it should be added

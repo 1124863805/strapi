@@ -32,39 +32,40 @@ import type { InputProps } from '../Form';
  */
 const InputRenderer = memo(
   forwardRef<any, InputProps>((props, forwardRef) => {
+    const { attribute: _attribute, ...restProps } = props as InputProps & { attribute?: unknown };
     switch (props.type) {
       case 'biginteger':
       case 'timestamp':
       case 'string':
       case 'uid':
-        return <StringInput ref={forwardRef} {...props} />;
+        return <StringInput ref={forwardRef} {...restProps} />;
       case 'boolean':
-        return <BooleanInput ref={forwardRef} {...props} />;
+        return <BooleanInput ref={forwardRef} {...restProps} />;
       case 'checkbox':
-        return <CheckboxInput ref={forwardRef} {...props} />;
+        return <CheckboxInput ref={forwardRef} {...restProps} />;
       case 'datetime':
-        return <DateTimeInput ref={forwardRef} {...props} />;
+        return <DateTimeInput ref={forwardRef} {...restProps} />;
       case 'date':
-        return <DateInput ref={forwardRef} {...props} />;
+        return <DateInput ref={forwardRef} {...restProps} />;
       case 'decimal':
       case 'float':
       case 'integer':
-        return <NumberInput ref={forwardRef} {...props} />;
+        return <NumberInput ref={forwardRef} {...restProps} />;
       case 'json':
-        return <JsonInput ref={forwardRef} {...props} />;
+        return <JsonInput ref={forwardRef} {...restProps} />;
       case 'email':
-        return <EmailInput ref={forwardRef} {...props} />;
+        return <EmailInput ref={forwardRef} {...restProps} />;
       case 'enumeration':
-        return <EnumerationInput ref={forwardRef} {...props} />;
+        return <EnumerationInput ref={forwardRef} {...restProps} />;
       case 'password':
-        return <PasswordInput ref={forwardRef} {...props} />;
+        return <PasswordInput ref={forwardRef} {...restProps} />;
       case 'text':
-        return <TextareaInput ref={forwardRef} {...props} />;
+        return <TextareaInput ref={forwardRef} {...restProps} />;
       case 'time':
-        return <TimeInput ref={forwardRef} {...props} />;
+        return <TimeInput ref={forwardRef} {...restProps} />;
       default:
         // This is cast because this renderer tackles all the possibilities of the InputProps, but this is for runtime catches.
-        return <NotSupportedField ref={forwardRef} {...(props as InputProps)} />;
+        return <NotSupportedField ref={forwardRef} {...(restProps as InputProps)} />;
     }
   })
 );

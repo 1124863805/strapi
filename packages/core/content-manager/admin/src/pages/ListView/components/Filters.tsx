@@ -5,7 +5,6 @@ import {
   Filters,
   useField,
   useAuth,
-  useTracking,
   useQueryParams,
   useAdminUsers,
 } from '@leao/admin/leao-admin';
@@ -46,7 +45,6 @@ interface FiltersProps {
 const FiltersImpl = ({ disabled, schema }: FiltersProps) => {
   const { attributes, uid: model, options } = schema;
   const { formatMessage, locale } = useIntl();
-  const { trackUsage } = useTracking();
   const allPermissions = useAuth('FiltersImpl', (state) => state.permissions);
   const [{ query }] = useQueryParams<Filters.Query>();
   const { schemas } = useContentTypeSchema();
@@ -191,27 +189,12 @@ const FiltersImpl = ({ disabled, schema }: FiltersProps) => {
     formatter,
   ]);
 
-  const onOpenChange = (isOpen: boolean) => {
-    if (isOpen) {
-      trackUsage('willFilterEntries');
-    }
-  };
-
-  const handleFilterChange: Filters.Props['onChange'] = (data) => {
-    const attribute = attributes[data.name];
-
-    if (attribute) {
-      trackUsage('didFilterEntries', {
-        useRelation: attribute.type === 'relation',
-      });
-    }
-  };
+  const handleFilterChange: Filters.Props['onChange'] = (_data) => {};
 
   return (
     <Filters.Root
       disabled={disabled}
       options={displayedFilters}
-      onOpenChange={onOpenChange}
       onChange={handleFilterChange}
     >
       <Filters.Trigger />

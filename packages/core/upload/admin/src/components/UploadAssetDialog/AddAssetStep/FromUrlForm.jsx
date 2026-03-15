@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import { useTracking } from '@leao/admin/leao-admin';
 import { Box, Button, Field, Modal, Textarea } from '@leao/design-system';
 import { Form, Formik } from 'formik';
 import PropTypes from 'prop-types';
@@ -12,17 +11,12 @@ export const FromUrlForm = ({ onClose, onAddAsset, trackedLocation }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(undefined);
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
 
   const handleSubmit = async ({ urls }) => {
     setLoading(true);
     const urlArray = urls.split(/\r?\n/);
     try {
       const assets = await urlsToAssets(urlArray);
-
-      if (trackedLocation) {
-        trackUsage('didSelectFile', { source: 'url', location: trackedLocation });
-      }
 
       // no need to set the loading to false since the component unmounts
       onAddAsset(assets);

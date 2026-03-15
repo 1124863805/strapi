@@ -4,7 +4,6 @@ import {
   Form,
   type FormProps,
   useNotification,
-  useTracking,
   useAPIErrorHandler,
   Page,
   Layouts,
@@ -32,7 +31,6 @@ interface FormData extends Pick<ListLayout, 'settings'> {
 
 const ListConfiguration = () => {
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const { toggleNotification } = useNotification();
   const { _unstableFormatAPIError: formatAPIError } = useAPIErrorHandler();
 
@@ -43,7 +41,6 @@ const ListConfiguration = () => {
   const [updateContentTypeConfiguration] = useUpdateContentTypeConfigurationMutation();
   const handleSubmit: FormProps<FormData>['onSubmit'] = async (data) => {
     try {
-      trackUsage('willSaveContentTypeLayout');
       const layoutData = data.layout ?? [];
       /**
        * We reconstruct the metadatas object by taking the existing edit metadatas
@@ -80,7 +77,6 @@ const ListConfiguration = () => {
       });
 
       if ('data' in res) {
-        trackUsage('didEditListSettings');
         toggleNotification({
           type: 'success',
           message: formatMessage({ id: 'notification.success.saved', defaultMessage: 'Saved' }),

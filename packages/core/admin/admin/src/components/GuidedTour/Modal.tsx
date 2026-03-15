@@ -17,8 +17,6 @@ import { MessageDescriptor, useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-import { useTracking } from '../../features/Tracking';
-
 import { LAYOUT_DATA, STATES } from './constants';
 import { Number, VerticalDivider } from './Ornaments';
 import { GuidedTourContextValue, useGuidedTour } from './Provider';
@@ -40,7 +38,6 @@ const GuidedTourModal = () => {
   } = guidedTour;
 
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
 
   if (!currentStep || !isGuidedTourVisible) {
     return null;
@@ -59,18 +56,12 @@ const GuidedTourModal = () => {
 
   const handleCtaClick = () => {
     setStepState(currentStep, true);
-
-    if (stepData) {
-      trackUsage(stepData.trackingEvent);
-    }
-
     setCurrentStep(null);
   };
 
   const handleSkip = () => {
     setSkipped(true);
     setCurrentStep(null);
-    trackUsage('didSkipGuidedtour');
   };
 
   return (

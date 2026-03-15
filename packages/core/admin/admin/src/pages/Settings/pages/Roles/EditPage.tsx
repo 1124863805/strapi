@@ -12,7 +12,6 @@ import { Page } from '../../../../components/PageHelpers';
 import { useTypedSelector } from '../../../../core/store/hooks';
 import { BackButton } from '../../../../features/BackButton';
 import { useNotification } from '../../../../features/Notifications';
-import { useTracking } from '../../../../features/Tracking';
 import { useAdminRoles } from '../../../../hooks/useAdminRoles';
 import { useAPIErrorHandler } from '../../../../hooks/useAPIErrorHandler';
 import {
@@ -46,7 +45,6 @@ const EditPage = () => {
   const match = useMatch('/settings/roles/:id');
   const id = match?.params.id;
   const permissionsRef = React.useRef<PermissionsAPI>(null);
-  const { trackUsage } = useTracking();
   const {
     _unstableFormatAPIError: formatAPIError,
     _unstableFormatValidationErrors: formatValidationErrors,
@@ -136,9 +134,6 @@ const EditPage = () => {
           return;
         }
 
-        if (didUpdateConditions) {
-          trackUsage('didUpdateConditions');
-        }
       }
 
       permissionsRef.current?.setFormAfterSubmit();

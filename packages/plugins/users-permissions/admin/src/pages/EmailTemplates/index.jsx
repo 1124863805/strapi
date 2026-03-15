@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { useTracking } from '@leao/admin/leao-admin';
 import { useNotifyAT } from '@leao/design-system';
 import {
   Page,
@@ -26,7 +25,6 @@ const ProtectedEmailTemplatesPage = () => (
 );
 const EmailTemplatesPage = () => {
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const { notifyStatus } = useNotifyAT();
   const { toggleNotification } = useNotification();
   const queryClient = useQueryClient();
@@ -88,8 +86,6 @@ const EmailTemplatesPage = () => {
           message: formatMessage({ id: 'notification.success.saved', defaultMessage: 'Saved' }),
         });
 
-        trackUsage('didEditEmailTemplates');
-
         handleToggle();
       },
       onError(error) {
@@ -103,8 +99,6 @@ const EmailTemplatesPage = () => {
   );
 
   const handleSubmit = (body) => {
-    trackUsage('willEditEmailTemplates');
-
     const editedTemplates = { ...data, [templateToEdit]: body };
     submitMutation.mutate(editedTemplates);
   };

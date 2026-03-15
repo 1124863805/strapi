@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { useTracking } from '@leao/admin/leao-admin';
 import { Flex, IconButton } from '@leao/design-system';
 import { Crop as Resize, Download as DownloadIcon, Trash } from '@leao/icons';
 import PropTypes from 'prop-types';
@@ -39,7 +38,6 @@ export const PreviewBox = ({
   replacementFile,
   trackedLocation,
 }) => {
-  const { trackUsage } = useTracking();
   const previewRef = useRef(null);
   const [isCropImageReady, setIsCropImageReady] = useState(false);
   const [hasCropIntent, setHasCropIntent] = useState(null);
@@ -102,14 +100,10 @@ export const PreviewBox = ({
       optimizedCachingThumbnailImage = optimizedCachingImage;
       asset.url = optimizedCachingImage;
       asset.rawFile = file;
-
-      trackUsage('didCropFile', { duplicatedFile: null, location: trackedLocation });
     } else {
       const updatedAsset = await editAsset(nextAsset, file);
       optimizedCachingImage = createAssetUrl(updatedAsset, false);
       optimizedCachingThumbnailImage = createAssetUrl(updatedAsset, true);
-
-      trackUsage('didCropFile', { duplicatedFile: false, location: trackedLocation });
     }
 
     setAssetUrl(optimizedCachingImage);
@@ -124,8 +118,6 @@ export const PreviewBox = ({
     const file = await produceFile(nextAsset.name, nextAsset.mime, nextAsset.updatedAt);
 
     await upload({ name: file.name, rawFile: file }, asset.folder?.id);
-
-    trackUsage('didCropFile', { duplicatedFile: true, location: trackedLocation });
 
     setHasCropIntent(false);
     onCropFinish();

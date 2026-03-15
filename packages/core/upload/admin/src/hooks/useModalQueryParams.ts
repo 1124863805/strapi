@@ -1,13 +1,11 @@
 import * as React from 'react';
 
-import { useTracking } from '@leao/admin/leao-admin';
 import { stringify } from 'qs';
 
 import { useConfig } from './useConfig';
 import type { Query, FilterCondition } from '../../../shared/contracts/files';
 
 const useModalQueryParams = (initialState?: Partial<Query>) => {
-  const { trackUsage } = useTracking();
   const {
     config: { data: config },
   } = useConfig();
@@ -34,10 +32,6 @@ const useModalQueryParams = (initialState?: Partial<Query>) => {
 
   const handleChangeFilters = (nextFilters: FilterCondition<string>[]) => {
     if (nextFilters) {
-      trackUsage('didFilterMediaLibraryElements', {
-        location: 'content-manager',
-        filter: Object.keys(nextFilters[nextFilters.length - 1])[0],
-      });
       setQueryObject((prev) => ({ ...prev, page: 1, filters: { $and: nextFilters } }));
     }
   };
@@ -56,10 +50,6 @@ const useModalQueryParams = (initialState?: Partial<Query>) => {
 
   const handleChangeSort = (sort: Query['sort']) => {
     if (sort) {
-      trackUsage('didSortMediaLibraryElements', {
-        location: 'content-manager',
-        sort,
-      });
       setQueryObject((prev) => ({ ...prev, sort }));
     }
   };

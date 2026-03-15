@@ -12,9 +12,7 @@ import { Layouts } from '../../../../components/Layouts/Layout';
 import { Page } from '../../../../components/PageHelpers';
 import { useTypedSelector } from '../../../../core/store/hooks';
 import { useNotification } from '../../../../features/Notifications';
-import { useTracking } from '../../../../features/Tracking';
 import { useAPIErrorHandler } from '../../../../hooks/useAPIErrorHandler';
-import { useOnce } from '../../../../hooks/useOnce';
 import { useRBAC } from '../../../../hooks/useRBAC';
 import {
   useDeleteTransferTokenMutation,
@@ -73,18 +71,11 @@ const ListView = () => {
     allowedActions: { canCreate, canDelete, canUpdate, canRead },
   } = useRBAC(permissions);
   const navigate = useNavigate();
-  const { trackUsage } = useTracking();
   const { _unstableFormatAPIError: formatAPIError } = useAPIErrorHandler();
 
   React.useEffect(() => {
     navigate({ search: qs.stringify({ sort: 'name:ASC' }, { encode: false }) });
   }, [navigate]);
-
-  useOnce(() => {
-    trackUsage('willAccessTokenList', {
-      tokenType: TRANSFER_TOKEN_TYPE,
-    });
-  });
 
   const headers = tableHeaders.map((header) => ({
     ...header,
@@ -98,15 +89,6 @@ const ListView = () => {
   } = useGetTransferTokensQuery(undefined, {
     skip: !canRead,
   });
-
-  React.useEffect(() => {
-    if (transferTokens) {
-      trackUsage('didAccessTokenList', {
-        number: transferTokens.length,
-        tokenType: TRANSFER_TOKEN_TYPE,
-      });
-    }
-  }, [trackUsage, transferTokens]);
 
   React.useEffect(() => {
     if (error) {
@@ -166,11 +148,6 @@ const ListView = () => {
               data-testid="create-transfer-token-button"
               startIcon={<Plus />}
               size="S"
-              onClick={() =>
-                trackUsage('willAddTokenFromList', {
-                  tokenType: TRANSFER_TOKEN_TYPE,
-                })
-              }
               to="/settings/transfer-tokens/create"
             >
               {formatMessage({

@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 
-import { useTracking } from '@leao/admin/leao-admin';
 import { Button, VisuallyHidden } from '@leao/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
@@ -10,15 +9,9 @@ import { getTrad } from '../../utils';
 export const ReplaceMediaButton = ({ onSelectMedia, acceptedMime, trackedLocation, ...props }) => {
   const { formatMessage } = useIntl();
   const inputRef = useRef(null);
-  const { trackUsage } = useTracking();
 
   const handleClick = (e) => {
     e.preventDefault();
-
-    if (trackedLocation) {
-      trackUsage('didReplaceMedia', { location: trackedLocation });
-    }
-
     inputRef.current.click();
   };
 

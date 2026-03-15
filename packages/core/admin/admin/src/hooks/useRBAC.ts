@@ -3,7 +3,6 @@ import * as React from 'react';
 import isEqual from 'lodash/isEqual';
 
 import { useAuth, Permission } from '../features/Auth';
-import { once } from '../utils/once';
 import { capitalise } from '../utils/strings';
 
 import { usePrev } from './usePrev';
@@ -56,19 +55,12 @@ const useRBAC = (
   const [error, setError] = React.useState<unknown>();
   const [data, setData] = React.useState<Record<string, boolean>>();
 
-  const warnOnce = React.useMemo(() => once(console.warn), []);
-
   const actualPermissionsToCheck: Permission[] = React.useMemo(() => {
     if (Array.isArray(permissionsToCheck)) {
       return permissionsToCheck;
-    } else {
-      warnOnce(
-        'useRBAC: The first argument should be an array of permissions, not an object. This will be deprecated in the future.'
-      );
-
-      return Object.values(permissionsToCheck).flat();
     }
-  }, [permissionsToCheck, warnOnce]);
+    return Object.values(permissionsToCheck).flat();
+  }, [permissionsToCheck]);
 
   /**
    * This is the default value we return until the queryResults[i].data

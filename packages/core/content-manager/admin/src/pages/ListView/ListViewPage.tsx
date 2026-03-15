@@ -8,7 +8,6 @@ import {
   BackButton,
   useNotification,
   useLeaoApp,
-  useTracking,
   useAPIErrorHandler,
   useQueryParams,
   useRBAC,
@@ -58,7 +57,6 @@ const LayoutsHeaderCustom = styled(Layouts.Header)`
 `;
 
 const ListViewPage = () => {
-  const { trackUsage } = useTracking();
   const navigate = useNavigate();
   const { formatMessage } = useIntl();
   const { toggleNotification } = useNotification();
@@ -196,7 +194,6 @@ const ListViewPage = () => {
   const contentTypeTitle = schema?.info.displayName ?? 'Untitled';
 
   const handleRowClick = (id: Modules.Documents.ID) => () => {
-    trackUsage('willEditEntryFromList');
     navigate({
       pathname: id.toString(),
       search: stringify({ plugins: query.plugins }),
@@ -326,10 +323,7 @@ const ListViewPage = () => {
               </Table.Body>
             </Table.Content>
           </Table.Root>
-          <Pagination.Root
-            {...pagination}
-            onPageSizeChange={() => trackUsage('willChangeNumberOfEntriesPerPage')}
-          >
+          <Pagination.Root {...pagination}>
             <Pagination.PageSize />
             <Pagination.Links />
           </Pagination.Root>
@@ -376,16 +370,12 @@ interface CreateButtonProps extends Pick<ButtonProps, 'variant'> {}
 
 const CreateButton = ({ variant }: CreateButtonProps) => {
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const [{ query }] = useQueryParams<{ plugins: object }>();
 
   return (
     <Button
       variant={variant}
       tag={ReactRouterLink}
-      onClick={() => {
-        trackUsage('willCreateEntry', { status: 'draft' });
-      }}
       startIcon={<Plus />}
       style={{ textDecoration: 'none' }}
       to={{

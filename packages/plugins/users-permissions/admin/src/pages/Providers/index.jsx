@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useTracking, Layouts } from '@leao/admin/leao-admin';
+import { Layouts } from '@leao/admin/leao-admin';
 import {
   IconButton,
   Table,
@@ -34,7 +34,6 @@ import forms from './utils/forms';
 export const ProvidersPage = () => {
   const { formatMessage, locale } = useIntl();
   const queryClient = useQueryClient();
-  const { trackUsage } = useTracking();
   const [isOpen, setIsOpen] = React.useState(false);
   const [providerToEditName, setProviderToEditName] = React.useState(null);
   const { toggleNotification } = useNotification();
@@ -69,8 +68,6 @@ export const ProvidersPage = () => {
         type: 'success',
         message: formatMessage({ id: getTrad('notification.success.submit') }),
       });
-
-      trackUsage('didEditAuthenticationProvider');
 
       handleToggleModal();
     },
@@ -134,8 +131,6 @@ export const ProvidersPage = () => {
   };
 
   const handleSubmit = async (values) => {
-    trackUsage('willEditAuthenticationProvider');
-
     submitMutation.mutate({ providers: { ...data, [providerToEditName]: values } });
   };
 

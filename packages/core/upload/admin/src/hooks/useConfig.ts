@@ -1,4 +1,4 @@
-import { useTracking, useNotification, useFetchClient } from '@leao/admin/leao-admin';
+import { useNotification, useFetchClient } from '@leao/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery, UseMutationResult, UseQueryResult } from 'react-query';
 import { GetConfiguration, UpdateConfiguration } from '../../../shared/contracts/configuration';
@@ -9,7 +9,6 @@ const endpoint = `/${pluginId}/configuration`;
 const queryKey = [pluginId, 'configuration'];
 
 export const useConfig = () => {
-  const { trackUsage } = useTracking();
   const { formatMessage } = useIntl();
   const { toggleNotification } = useNotification();
   const { get, put } = useFetchClient();
@@ -47,7 +46,6 @@ export const useConfig = () => {
     },
     {
       onSuccess() {
-        trackUsage('didEditMediaLibraryConfig');
         config.refetch();
       },
       onError() {

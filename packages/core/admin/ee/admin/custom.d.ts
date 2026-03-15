@@ -23,7 +23,6 @@ declare global {
       };
       flags: {
         promoteEE?: boolean;
-        nps?: boolean;
       };
       projectType: 'Community' | 'Enterprise';
     };

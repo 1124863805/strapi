@@ -11,7 +11,6 @@ import { Layouts } from '../../../../components/Layouts/Layout';
 import { Page } from '../../../../components/PageHelpers';
 import { useTypedSelector } from '../../../../core/store/hooks';
 import { useNotification } from '../../../../features/Notifications';
-import { useTracking } from '../../../../features/Tracking';
 import { useAPIErrorHandler } from '../../../../hooks/useAPIErrorHandler';
 import { useRBAC } from '../../../../hooks/useRBAC';
 import {
@@ -59,7 +58,6 @@ const EditView = () => {
         }
       : null
   );
-  const { trackUsage } = useTracking();
   const setCurrentStep = useGuidedTour('EditView', (state) => state.setCurrentStep);
   const permissions = useTypedSelector(
     (state) => state.admin_app.permissions.settings?.['transfer-tokens']
@@ -76,12 +74,6 @@ const EditView = () => {
     _unstableFormatAPIError: formatAPIError,
     _unstableFormatValidationErrors: formatValidationErrors,
   } = useAPIErrorHandler();
-
-  React.useEffect(() => {
-    trackUsage(isCreating ? 'didAddTokenFromList' : 'didEditTokenFromList', {
-      tokenType: TRANSFER_TOKEN_TYPE,
-    });
-  }, [isCreating, trackUsage]);
 
   const { data, error } = useGetTransferTokenQuery(id!, {
     skip: isCreating || transferToken !== null || !id,
@@ -106,10 +98,6 @@ const EditView = () => {
   const [updateToken] = useUpdateTransferTokenMutation();
 
   const handleSubmit = async (body: FormValues, formik: FormikHelpers<FormValues>) => {
-    trackUsage(isCreating ? 'willCreateToken' : 'willEditToken', {
-      tokenType: TRANSFER_TOKEN_TYPE,
-    });
-
     const permissions = body.permissions.split('-');
 
     const isPermissionsTransferPermission = (
@@ -160,11 +148,6 @@ const EditView = () => {
             }),
           });
 
-          trackUsage('didCreateToken', {
-            type: transferToken?.permissions,
-            tokenType: TRANSFER_TOKEN_TYPE,
-          });
-
           navigate(`../transfer-tokens/${res.data.id.toString()}`, {
             replace: true,
             state: { transferToken: res.data },
@@ -198,11 +181,6 @@ const EditView = () => {
               id: 'notification.success.transfertokenedited',
               defaultMessage: 'Transfer Token successfully edited',
             }),
-          });
-
-          trackUsage('didEditToken', {
-            type: transferToken?.permissions,
-            tokenType: TRANSFER_TOKEN_TYPE,
           });
         }
       } catch (err) {

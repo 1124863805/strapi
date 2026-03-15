@@ -3,7 +3,6 @@ import * as React from 'react';
 import {
   useField,
   useForm,
-  useTracking,
   ConfirmDialog,
   useNotification,
   InputRenderer as AdminInputRenderer,
@@ -56,7 +55,6 @@ interface StagesProps {
 
 const Stages = ({ canDelete = true, canUpdate = true, isCreating }: StagesProps) => {
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const addFieldRow = useForm('Stages', (state) => state.addFieldRow);
   const { value: stages = [] } = useField<WorkflowStage[]>('stages');
 
@@ -96,7 +94,6 @@ const Stages = ({ canDelete = true, canUpdate = true, isCreating }: StagesProps)
           type="button"
           onClick={() => {
             addFieldRow('stages', { name: '' });
-            trackUsage('willCreateStage');
           }}
         >
           {formatMessage({
@@ -138,7 +135,6 @@ const Stage = ({
 }: StageProps) => {
   const [liveText, setLiveText] = React.useState<string>();
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const stageErrors = useForm('Stages', (state) => state.errors.stages as object[]);
   const error = stageErrors?.[index];
   const addFieldRow = useForm('Stage', (state) => state.addFieldRow);
@@ -251,11 +247,6 @@ const Stage = ({
         />
       ) : (
         <AccordionRoot
-          onValueChange={(value) => {
-            if (value) {
-              trackUsage('willEditStage');
-            }
-          }}
           defaultValue={defaultOpen ? id : undefined}
           $error={Object.values(error ?? {}).length > 0}
         >

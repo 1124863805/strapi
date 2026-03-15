@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import { useTracking } from '@leao/admin/leao-admin';
-
 import { FormModalNavigationContext } from '../../contexts/FormModalNavigationContext';
 
 import { INITIAL_STATE_DATA } from './constants';
@@ -30,7 +28,6 @@ export type ModalEventProps = {
 
 export const FormModalNavigationProvider = ({ children }: FormModalNavigationProviderProps) => {
   const [state, setFormModalNavigationState] = React.useState(INITIAL_STATE_DATA);
-  const { trackUsage } = useTracking();
 
   const onClickSelectCustomField = ({ attributeType, customFieldUid }: ModalEventProps) => {
     // TODO: Add tracking for custom fields
@@ -47,10 +44,6 @@ export const FormModalNavigationProvider = ({ children }: FormModalNavigationPro
   };
 
   const onClickSelectField = ({ attributeType, step }: ModalEventProps) => {
-    if (state.forTarget === 'contentType') {
-      trackUsage('didSelectContentTypeFieldType', { type: attributeType });
-    }
-
     setFormModalNavigationState((prevState: State) => {
       return {
         ...prevState,

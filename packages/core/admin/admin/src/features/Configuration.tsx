@@ -17,7 +17,6 @@ import {
 
 import { useAuth } from './Auth';
 import { useNotification } from './Notifications';
-import { useTracking } from './Tracking';
 
 import type { LeaoApp } from '../LeaoApp';
 
@@ -70,7 +69,6 @@ const ConfigurationProvider = ({
   showReleaseNotification = false,
   showTutorials = false,
 }: ConfigurationProviderProps) => {
-  const { trackUsage } = useTracking();
   const { formatMessage } = useIntl();
   const { toggleNotification } = useNotification();
   const { _unstableFormatAPIError: formatAPIError } = useAPIErrorHandler();
@@ -124,21 +122,6 @@ const ConfigurationProvider = ({
       const res = await updateProjectSettingsMutation(formData);
 
       if ('data' in res) {
-        const updatedMenuLogo = !!res.data.menuLogo && !!body.menuLogo?.rawFile;
-        const updatedAuthLogo = !!res.data.authLogo && !!body.authLogo?.rawFile;
-
-        if (updatedMenuLogo) {
-          trackUsage('didChangeLogo', {
-            logo: 'menu',
-          });
-        }
-
-        if (updatedAuthLogo) {
-          trackUsage('didChangeLogo', {
-            logo: 'auth',
-          });
-        }
-
         toggleNotification({
           type: 'success',
           message: formatMessage({ id: 'app', defaultMessage: 'Saved' }),
@@ -150,7 +133,7 @@ const ConfigurationProvider = ({
         });
       }
     },
-    [formatAPIError, formatMessage, toggleNotification, trackUsage, updateProjectSettingsMutation]
+    [formatAPIError, formatMessage, toggleNotification, updateProjectSettingsMutation]
   );
 
   if (isLoading) {

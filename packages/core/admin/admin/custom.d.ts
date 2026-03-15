@@ -23,7 +23,6 @@ interface BrowserLeao {
   };
   flags: {
     promoteEE?: boolean;
-    nps?: boolean;
   };
   projectType: 'Community' | 'Enterprise';
 }

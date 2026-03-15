@@ -1,6 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 
-import { useTracking } from '@leao/admin/leao-admin';
 import { IconButton, Searchbar, SearchForm } from '@leao/design-system';
 import { Search } from '@leao/icons';
 import PropTypes from 'prop-types';
@@ -10,7 +9,6 @@ import { getTrad } from '../../../../utils';
 
 const SearchAsset = ({ onChangeSearch, queryValue }) => {
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const [isOpen, setIsOpen] = useState(!!queryValue);
   const [value, setValue] = useState(queryValue || '');
   const wrapperRef = useRef(null);
@@ -35,8 +33,6 @@ const SearchAsset = ({ onChangeSearch, queryValue }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
-
-    trackUsage('didSearchMediaLibraryElements', { location: 'content-manager' });
     onChangeSearch(value);
   };
 

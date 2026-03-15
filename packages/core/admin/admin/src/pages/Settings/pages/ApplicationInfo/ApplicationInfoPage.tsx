@@ -9,7 +9,6 @@ import { Layouts } from '../../../../components/Layouts/Layout';
 import { Page } from '../../../../components/PageHelpers';
 import { useAppInfo } from '../../../../features/AppInfo';
 import { useConfiguration } from '../../../../features/Configuration';
-import { useTracking } from '../../../../features/Tracking';
 import { useEnterprise } from '../../../../hooks/useEnterprise';
 import { useRBAC } from '../../../../hooks/useRBAC';
 import { selectAdminPermissions } from '../../../../selectors';
@@ -24,7 +23,6 @@ const AdminSeatInfoCE = () => null;
  * -----------------------------------------------------------------------------------------------*/
 
 const ApplicationInfoPage = () => {
-  const { trackUsage } = useTracking();
   const { formatMessage } = useIntl();
   const { logos: serverLogos, updateProjectSettings } = useConfiguration('ApplicationInfoPage');
   const [logos, setLogos] = React.useState({ menu: serverLogos.menu, auth: serverLogos.auth });
@@ -60,15 +58,6 @@ const ApplicationInfoPage = () => {
   const handleChangeLogo =
     (logo: 'menu' | 'auth'): LogoInputProps['onChangeLogo'] =>
     (newLogo) => {
-      /**
-       * If there's no newLogo value we can assume we're reseting.
-       */
-      if (newLogo === null) {
-        trackUsage('didClickResetLogo', {
-          logo,
-        });
-      }
-
       setLogos((prev) => ({
         ...prev,
         [logo]: {

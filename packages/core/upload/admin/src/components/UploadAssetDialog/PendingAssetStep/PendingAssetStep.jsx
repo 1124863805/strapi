@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 
-import { useTracking } from '@leao/admin/leao-admin';
 import { Button, Flex, Grid, KeyboardNavigable, Modal, Typography } from '@leao/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
@@ -30,30 +29,11 @@ export const PendingAssetStep = ({
 }) => {
   const assetCountRef = useRef(0);
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const [uploadStatus, setUploadStatus] = useState(Status.Idle);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-
-    const assetsCountByType = assets.reduce((acc, asset) => {
-      const { type } = asset;
-
-      if (!acc[type]) {
-        acc[type] = 0;
-      }
-
-      // values need to be stringified because Amplitude ignores number values
-      acc[type] = `${parseInt(acc[type], 10) + 1}`;
-
-      return acc;
-    }, {});
-
-    trackUsage('willAddMediaLibraryAssets', {
-      location: trackedLocation,
-      ...assetsCountByType,
-    });
 
     setUploadStatus(Status.Uploading);
   };

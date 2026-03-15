@@ -1,6 +1,5 @@
 import { ComponentType, Fragment } from 'react';
 
-import { useTracking } from '@leao/admin/leao-admin';
 import {
   Box,
   Button,
@@ -58,13 +57,10 @@ export const List = ({
   targetUid,
 }: ListProps) => {
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const { isInDevelopmentMode, modifiedData, isInContentTypeView } = useDataManager();
 
   const { onOpenModalAddField } = useFormModalNavigation();
   const onClickAddField = () => {
-    trackUsage('hasClickedCTBAddFieldBanner');
-
     onOpenModalAddField({ forTarget: editTarget, targetUid });
   };
 

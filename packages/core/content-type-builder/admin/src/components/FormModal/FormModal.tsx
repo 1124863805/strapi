@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useLeaoApp, useTracking, useNotification } from '@leao/admin/leao-admin';
+import { useLeaoApp, useNotification } from '@leao/admin/leao-admin';
 import { Button, Divider, Flex, Modal, Tabs } from '@leao/design-system';
 import get from 'lodash/get';
 import has from 'lodash/has';
@@ -105,7 +105,6 @@ export const FormModal = () => {
   const { toggleNotification } = useNotification();
   const reducerState = useSelector((state) => formModalSelector(state), shallowEqual);
   const navigate = useNavigate();
-  const { trackUsage } = useTracking();
   const { formatMessage } = useIntl();
   const ctbPlugin = getPlugin(pluginId);
   const ctbFormsAPI: any = ctbPlugin?.apis.forms;
@@ -153,10 +152,6 @@ export const FormModal = () => {
       // Reset all the modification when opening the edit category modal
       if (modalType === 'editCategory') {
         setModifiedData();
-      }
-
-      if (actionType === 'edit' && modalType === 'attribute' && forTarget === 'contentType') {
-        trackUsage('willEditFieldOfContentType');
       }
 
       const pathToAttributes = [...pathToSchema, 'schema', 'attributes'];
@@ -707,7 +702,7 @@ export const FormModal = () => {
           // Here the search could be refactored since it is the same as the case from above
           // Navigate the user to step 2
 
-          trackUsage('willCreateComponentFromAttributesModal');
+
 
           // Here we clear the reducer state but we also keep the created component
           // If we were to create the component before
@@ -850,26 +845,11 @@ export const FormModal = () => {
     }
 
     if (isCreatingContentType) {
-      trackUsage('didSelectContentTypeSettings');
-
       return;
     }
-
-    if (forTarget === 'contentType') {
-      trackUsage('didSelectContentTypeFieldSettings');
-    }
   };
 
-  const sendButtonAddMoreFieldEvent = (shouldContinue: boolean) => {
-    if (
-      modalType === 'attribute' &&
-      forTarget === 'contentType' &&
-      attributeType !== 'dynamiczone' &&
-      shouldContinue
-    ) {
-      trackUsage('willAddMoreFieldToContentType');
-    }
-  };
+  const sendButtonAddMoreFieldEvent = (_shouldContinue: boolean) => {};
 
   const shouldDisableAdvancedTab = () => {
     if (modalType === 'editCategory') {
@@ -984,11 +964,7 @@ export const FormModal = () => {
   const checkIsEditingFieldName = () =>
     actionType === 'edit' && attributes.every(({ name }) => name !== modifiedData?.name);
 
-  const handleClickFinish = () => {
-    if (checkIsEditingFieldName()) {
-      trackUsage('didEditFieldNameOnContentType');
-    }
-  };
+  const handleClickFinish = () => {};
 
   return (
     <Modal.Root open={isOpen} onOpenChange={handleClosed}>

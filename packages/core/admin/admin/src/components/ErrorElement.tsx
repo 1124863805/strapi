@@ -66,10 +66,14 @@ ${error.stack}
                     link: (
                       <Link
                         isExternal
-                        // hack to get rid of the current endIcon, which should be removable by using `null`.
                         endIcon
-                        href="https://github.com/leao/leao/issues/new?assignees=&labels=&projects=&template=BUG_REPORT.md"
-                      >{`Leao's GitHub`}</Link>
+                        href="#"
+                      >
+                        {formatMessage({
+                          id: 'app.error.report',
+                          defaultMessage: 'Report issue',
+                        })}
+                      </Link>
                     ),
                   }
                 )}

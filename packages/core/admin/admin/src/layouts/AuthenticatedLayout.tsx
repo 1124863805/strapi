@@ -12,7 +12,6 @@ import packageJSON from '../../../package.json';
 import { GuidedTourModal } from '../components/GuidedTour/Modal';
 import { useGuidedTour } from '../components/GuidedTour/Provider';
 import { LeftMenu } from '../components/LeftMenu';
-import { NpsSurvey } from '../components/NpsSurvey';
 import { Onboarding } from '../components/Onboarding';
 import { Page } from '../components/PageHelpers';
 import { PluginsInitializer } from '../components/PluginsInitializer';
@@ -20,9 +19,7 @@ import { PrivateRoute } from '../components/PrivateRoute';
 import { AppInfoProvider } from '../features/AppInfo';
 import { useAuth } from '../features/Auth';
 import { useConfiguration } from '../features/Configuration';
-import { useTracking } from '../features/Tracking';
 import { useMenu } from '../hooks/useMenu';
-import { useOnce } from '../hooks/useOnce';
 import { useInformationQuery } from '../services/admin';
 import { hashAdminUserEmail } from '../utils/users';
 
@@ -36,35 +33,9 @@ const AdminLayout = () => {
   const { formatMessage } = useIntl();
   const userInfo = useAuth('AuthenticatedApp', (state) => state.user);
   const [userId, setUserId] = React.useState<string>();
-  const { showReleaseNotification } = useConfiguration('AuthenticatedApp');
-
   const { data: appInfo, isLoading: isLoadingAppInfo } = useInformationQuery();
 
-  const [tagName, setTagName] = React.useState<string>(leaoVersion);
-
-  React.useEffect(() => {
-    if (showReleaseNotification) {
-      fetch('https://api.github.com/repos/leao/leao/releases/latest')
-        .then(async (res) => {
-          if (!res.ok) {
-            return;
-          }
-
-          const response = (await res.json()) as { tag_name: string | null | undefined };
-
-          if (!response.tag_name) {
-            throw new Error();
-          }
-
-          setTagName(response.tag_name);
-        })
-        .catch(() => {
-          /**
-           * silence is golden & we'll use the leaoVersion as a fallback
-           */
-        });
-    }
-  }, [showReleaseNotification]);
+  const tagName = leaoVersion;
 
   const userRoles = useAuth('AuthenticatedApp', (state) => state.user?.roles);
 
@@ -86,23 +57,12 @@ const AdminLayout = () => {
     });
   }, [userInfo]);
 
-  const { trackUsage } = useTracking();
-
   const {
     isLoading: isLoadingMenu,
     generalSectionLinks,
     pluginsSectionLinks,
   } = useMenu(checkLatestLeaoVersion(leaoVersion, tagName));
   const { showTutorials } = useConfiguration('Admin');
-
-  /**
-   * Make sure the event is only send once after accessing the admin panel
-   * and not at runtime for example when regenerating the permissions with the ctb
-   * or with i18n
-   */
-  useOnce(() => {
-    trackUsage('didAccessAuthenticatedAdministration');
-  });
 
   // We don't need to wait for the release query to be fetched before rendering the plugins
   // however, we need the appInfos and the permissions
@@ -117,7 +77,6 @@ const AdminLayout = () => {
       latestLeaoReleaseTag={tagName}
       shouldUpdateLeao={checkLatestLeaoVersion(leaoVersion, tagName)}
     >
-      <NpsSurvey />
       <PluginsInitializer>
         <DndProvider backend={HTML5Backend}>
           <Box background="neutral100">

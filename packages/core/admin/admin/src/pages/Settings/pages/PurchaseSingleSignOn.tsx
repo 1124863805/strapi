@@ -33,7 +33,7 @@ const PurchaseSingleSignOn = () => {
               <LinkButton
                 variant="default"
                 endIcon={<ExternalLink />}
-                href="https://strp.cc/46Fk1BA"
+                href="#"
                 isExternal
                 target="_blank"
               >

@@ -6,7 +6,6 @@ import {
   Table,
   BackButton,
   ConfirmDialog,
-  useTracking,
   useAPIErrorHandler,
   useNotification,
   useQueryParams,
@@ -302,7 +301,6 @@ const ReleaseDetailsLayout = ({
   const { allowedActions } = useRBAC(PERMISSIONS);
   const { canUpdate, canDelete, canPublish } = allowedActions;
   const dispatch = useTypedDispatch();
-  const { trackUsage } = useTracking();
 
   const release = data?.data;
 
@@ -319,13 +317,6 @@ const ReleaseDetailsLayout = ({
         }),
       });
 
-      const { totalEntries, totalPublishedEntries, totalUnpublishedEntries } = response.data.meta;
-
-      trackUsage('didPublishRelease', {
-        totalEntries,
-        totalPublishedEntries,
-        totalUnpublishedEntries,
-      });
     } else if (isFetchError(response.error)) {
       // When the response returns an object with 'error', handle fetch error
       toggleNotification({

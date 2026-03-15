@@ -7,7 +7,6 @@ import { useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { useAuth } from '../features/Auth';
-import { useTracking } from '../features/Tracking';
 import { Menu, MenuItem } from '../hooks/useMenu';
 import { getDisplayName } from '../utils/users';
 
@@ -48,8 +47,6 @@ interface LeftMenuProps extends Pick<Menu, 'generalSectionLinks' | 'pluginsSecti
 
 const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }: LeftMenuProps) => {
   const user = useAuth('AuthenticatedApp', (state) => state.user);
-  const { trackUsage } = useTracking();
-  const { pathname } = useLocation();
   const userDisplayName = getDisplayName(user);
   const { formatMessage, locale } = useIntl();
   const formatter = useCollator(locale, {
@@ -61,10 +58,6 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }: LeftMenuProps) =
     .map((name) => name.substring(0, 1))
     .join('')
     .substring(0, 2);
-
-  const handleClickOnLink = (destination: string) => {
-    trackUsage('willNavigate', { from: pathname, to: destination });
-  };
 
   const listLinksAlphabeticallySorted = [...pluginsSectionLinks, ...generalSectionLinks].sort(
     (a, b) => formatter.compare(formatMessage(a.intlLabel), formatMessage(b.intlLabel))
@@ -96,7 +89,6 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }: LeftMenuProps) =
                   <NavLink.Tooltip label={labelValue}>
                     <NavLink.Link
                       to={link.to}
-                      onClick={() => handleClickOnLink(link.to)}
                       aria-label={labelValue}
                     >
                       <NavLink.Icon label={labelValue}>

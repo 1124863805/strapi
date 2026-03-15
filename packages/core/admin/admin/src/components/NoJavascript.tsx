@@ -14,7 +14,7 @@ const styles = `
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  font-family: helvetica, arial, sans-serif;
+  font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", helvetica, arial, sans-serif;
 }
 `;
 
@@ -29,10 +29,9 @@ const NoJavascript = () => {
       <div className="leao--root">
         <div className="leao--no-js">
           <style type="text/css">{styles}</style>
-          <h1>JavaScript disabled</h1>
+          <h1>JavaScript 已禁用</h1>
           <p>
-            Please <a href="https://www.enable-javascript.com/">enable JavaScript</a> in your
-            browser and reload the page to proceed.
+            请在浏览器设置中启用 JavaScript 并刷新页面后继续使用。
           </p>
         </div>
       </div>

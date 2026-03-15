@@ -4,7 +4,6 @@ import {
   Page,
   SearchInput,
   Pagination,
-  useTracking,
   useQueryParams,
   Layouts,
 } from '@leao/admin/leao-admin';
@@ -83,7 +82,6 @@ export const MediaLibrary = () => {
   const currentFolderToEditRef = useRef();
   const { formatMessage } = useIntl();
   const { pathname } = useLocation();
-  const { trackUsage } = useTracking();
   const [{ query }, setQuery] = useQueryParams();
   const isFiltering = Boolean(query._q || query.filters);
   const [view, setView] = usePersistentState(localStorageKeys.view, viewOptions.GRID);
@@ -158,18 +156,10 @@ export const MediaLibrary = () => {
   };
 
   const handleBulkSelect = (checked, elements) => {
-    if (checked) {
-      trackUsage('didSelectAllMediaLibraryElements');
-    }
-
     selectAll(elements);
   };
 
   const handleChangeSort = (value) => {
-    trackUsage('didSortMediaLibraryElements', {
-      location: 'upload',
-      sort: value,
-    });
     setQuery({ sort: value });
   };
 

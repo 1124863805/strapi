@@ -3,8 +3,6 @@ import { ArrowRight } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 
-import { useTracking } from '../../features/Tracking';
-
 import { LAYOUT_DATA, States, STATES } from './constants';
 import { Number, VerticalDivider } from './Ornaments';
 import { GuidedTourContextValue, useGuidedTour } from './Provider';
@@ -15,14 +13,12 @@ const GuidedTourHomepage = () => {
   const guidedTourState = useGuidedTour('GuidedTourHomepage', (state) => state.guidedTourState);
   const setSkipped = useGuidedTour('GuidedTourHomepage', (state) => state.setSkipped);
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
 
   const sections = Object.entries(LAYOUT_DATA).map(([key, val]) => ({
     key: key,
     title: val.home.title,
     content: (
       <LinkButton
-        onClick={() => trackUsage(val.home.trackingEvent)}
         tag={NavLink}
         to={val.home.cta.target}
         endIcon={<ArrowRight />}
@@ -37,7 +33,6 @@ const GuidedTourHomepage = () => {
 
   const handleSkip = () => {
     setSkipped(true);
-    trackUsage('didSkipGuidedtour');
   };
 
   return (

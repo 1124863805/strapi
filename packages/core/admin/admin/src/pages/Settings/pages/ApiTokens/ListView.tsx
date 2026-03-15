@@ -13,9 +13,7 @@ import { Layouts } from '../../../../components/Layouts/Layout';
 import { Page } from '../../../../components/PageHelpers';
 import { useTypedSelector } from '../../../../core/store/hooks';
 import { useNotification } from '../../../../features/Notifications';
-import { useTracking } from '../../../../features/Tracking';
 import { useAPIErrorHandler } from '../../../../hooks/useAPIErrorHandler';
-import { useOnce } from '../../../../hooks/useOnce';
 import { useRBAC } from '../../../../hooks/useRBAC';
 import { useDeleteAPITokenMutation, useGetAPITokensQuery } from '../../../../services/apiTokens';
 import { API_TOKEN_TYPE } from '../../components/Tokens/constants';
@@ -66,7 +64,6 @@ export const ListView = () => {
     allowedActions: { canRead, canCreate, canDelete, canUpdate },
   } = useRBAC(permissions);
   const navigate = useNavigate();
-  const { trackUsage } = useTracking();
   const startSection = useGuidedTour('ListView', (state) => state.startSection);
   const { _unstableFormatAPIError: formatAPIError } = useAPIErrorHandler();
 
@@ -83,12 +80,6 @@ export const ListView = () => {
     label: formatMessage(header.label),
   }));
 
-  useOnce(() => {
-    trackUsage('willAccessTokenList', {
-      tokenType: API_TOKEN_TYPE,
-    });
-  });
-
   const { data: apiTokens = [], isLoading, error } = useGetAPITokensQuery();
 
   React.useEffect(() => {
@@ -99,10 +90,6 @@ export const ListView = () => {
       });
     }
   }, [error, formatAPIError, toggleNotification]);
-
-  React.useEffect(() => {
-    trackUsage('didAccessTokenList', { number: apiTokens.length, tokenType: API_TOKEN_TYPE });
-  }, [apiTokens, trackUsage]);
 
   const [deleteToken] = useDeleteAPITokenMutation();
 
@@ -118,8 +105,6 @@ export const ListView = () => {
 
         return;
       }
-
-      trackUsage('didDeleteToken');
     } catch {
       toggleNotification({
         type: 'danger',
@@ -152,11 +137,6 @@ export const ListView = () => {
               data-testid="create-api-token-button"
               startIcon={<Plus />}
               size="S"
-              onClick={() =>
-                trackUsage('willAddTokenFromList', {
-                  tokenType: API_TOKEN_TYPE,
-                })
-              }
               to="/settings/api-tokens/create"
             >
               {formatMessage({

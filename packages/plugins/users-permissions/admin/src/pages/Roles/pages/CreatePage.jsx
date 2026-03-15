@@ -11,7 +11,7 @@ import {
   Field,
 } from '@leao/design-system';
 import { Check } from '@leao/icons';
-import { Page, useTracking, useNotification, useFetchClient, Layouts } from '@leao/leao/admin';
+import { Page, useNotification, useFetchClient, Layouts } from '@leao/leao/admin';
 import { Formik, Form } from 'formik';
 import { useIntl } from 'react-intl';
 import { useMutation } from 'react-query';
@@ -28,7 +28,6 @@ export const CreatePage = () => {
   const { toggleNotification } = useNotification();
   const navigate = useNavigate();
   const { isLoading: isLoadingPlugins, permissions, routes } = usePlugins();
-  const { trackUsage } = useTracking();
   const permissionsRef = React.useRef();
   const { post } = useFetchClient();
   const mutation = useMutation((body) => post(`/users-permissions/roles`, body), {
@@ -43,8 +42,6 @@ export const CreatePage = () => {
     },
 
     onSuccess() {
-      trackUsage('didCreateRole');
-
       toggleNotification({
         type: 'success',
         message: formatMessage({

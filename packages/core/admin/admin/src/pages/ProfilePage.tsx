@@ -13,7 +13,6 @@ import { Page } from '../components/PageHelpers';
 import { useTypedDispatch, useTypedSelector } from '../core/store/hooks';
 import { useAuth } from '../features/Auth';
 import { useNotification } from '../features/Notifications';
-import { useTracking } from '../features/Tracking';
 import { useAPIErrorHandler } from '../hooks/useAPIErrorHandler';
 import { AppState, setAppTheme } from '../reducer';
 import { useIsSSOLockedQuery, useUpdateMeMutation } from '../services/auth';
@@ -50,7 +49,6 @@ const PROFILE_VALIDTION_SCHEMA = yup.object().shape({
 const ProfilePage = () => {
   const localeNames = useTypedSelector((state) => state.admin_app.language.localeNames);
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const { toggleNotification } = useNotification();
   const { notifyStatus } = useNotifyAT();
   const currentTheme = useTypedSelector((state) => state.admin_app.theme.currentTheme);
@@ -124,8 +122,6 @@ const ProfilePage = () => {
 
     if ('data' in res) {
       dispatch(setAppTheme(currentTheme));
-
-      trackUsage('didChangeMode', { newMode: currentTheme });
 
       toggleNotification({
         type: 'success',

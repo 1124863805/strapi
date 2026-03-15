@@ -1,6 +1,6 @@
 import { useState, MouseEvent } from 'react';
 
-import { useTracking, useNotification } from '@leao/admin/leao-admin';
+import { useNotification } from '@leao/admin/leao-admin';
 import { useCollator, useFilter } from '@leao/design-system';
 import isEqual from 'lodash/isEqual';
 import { useIntl } from 'react-intl';
@@ -24,7 +24,6 @@ export const useContentTypeBuilderMenu = () => {
   } = useDataManager();
   const { toggleNotification } = useNotification();
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const [search, setSearch] = useState('');
   const { onOpenModalCreateSchema, onOpenModalEditCategory } = useFormModalNavigation();
   const { locale } = useIntl();
@@ -46,8 +45,6 @@ export const useContentTypeBuilderMenu = () => {
 
   const handleClickOpenModalCreateCollectionType = () => {
     if (canOpenModalCreateCTorComponent) {
-      trackUsage(`willCreateContentType`);
-
       const nextState = {
         modalType: 'contentType',
         kind: 'collectionType',
@@ -63,8 +60,6 @@ export const useContentTypeBuilderMenu = () => {
 
   const handleClickOpenModalCreateSingleType = () => {
     if (canOpenModalCreateCTorComponent) {
-      trackUsage(`willCreateSingleType`);
-
       const nextState = {
         modalType: 'contentType',
         kind: 'singleType',
@@ -80,8 +75,6 @@ export const useContentTypeBuilderMenu = () => {
 
   const handleClickOpenModalCreateComponent = () => {
     if (canOpenModalCreateCTorComponent) {
-      trackUsage('willCreateComponent');
-
       const nextState = {
         modalType: 'component',
         kind: null,

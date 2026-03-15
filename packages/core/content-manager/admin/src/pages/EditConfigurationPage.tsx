@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Page, useNotification, useTracking, useAPIErrorHandler } from '@leao/admin/leao-admin';
+import { Page, useNotification, useAPIErrorHandler } from '@leao/admin/leao-admin';
 import { useIntl } from 'react-intl';
 
 import { TEMP_FIELD_NAME } from '../components/ConfigurationForm/Fields';
@@ -15,7 +15,6 @@ import { setIn } from '../utils/objects';
 import type { Metadatas } from '../../../shared/contracts/content-types';
 
 const EditConfigurationPage = () => {
-  const { trackUsage } = useTracking();
   const { formatMessage } = useIntl();
   const { toggleNotification } = useNotification();
   const { _unstableFormatAPIError: formatAPIError } = useAPIErrorHandler();
@@ -61,8 +60,6 @@ const EditConfigurationPage = () => {
   const [updateConfiguration] = useUpdateContentTypeConfigurationMutation();
   const handleSubmit: ConfigurationFormProps['onSubmit'] = async (data) => {
     try {
-      trackUsage('willSaveContentTypeLayout');
-
       /**
        * We reconstruct the metadatas object by taking the existing list metadatas
        * and re-merging that by attribute name with the current list metadatas, whilst overwriting
@@ -111,7 +108,6 @@ const EditConfigurationPage = () => {
       });
 
       if ('data' in res) {
-        trackUsage('didEditEditSettings');
         toggleNotification({
           type: 'success',
           message: formatMessage({ id: 'notification.success.saved', defaultMessage: 'Saved' }),

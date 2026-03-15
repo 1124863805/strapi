@@ -10,7 +10,6 @@ import { Layouts } from '../../../../../components/Layouts/Layout';
 import { Page } from '../../../../../components/PageHelpers';
 import { useTypedSelector } from '../../../../../core/store/hooks';
 import { useNotification } from '../../../../../features/Notifications';
-import { useTracking } from '../../../../../features/Tracking';
 import { useAPIErrorHandler } from '../../../../../hooks/useAPIErrorHandler';
 import { useRBAC } from '../../../../../hooks/useRBAC';
 import {
@@ -51,7 +50,6 @@ export const EditView = () => {
         }
       : null
   );
-  const { trackUsage } = useTracking();
   const setCurrentStep = useGuidedTour('EditView', (state) => state.setCurrentStep);
   const {
     allowedActions: { canCreate, canUpdate, canRegenerate },
@@ -131,12 +129,6 @@ export const EditView = () => {
     }
   }, [apiToken]);
 
-  React.useEffect(() => {
-    trackUsage(isCreating ? 'didAddTokenFromList' : 'didEditTokenFromList', {
-      tokenType: API_TOKEN_TYPE,
-    });
-  }, [isCreating, trackUsage]);
-
   const { data, error, isLoading } = useGetAPITokenQuery(id!, {
     skip: !id || isCreating || !!apiToken,
   });
@@ -182,10 +174,6 @@ export const EditView = () => {
   }
 
   const handleSubmit = async (body: FormValues, formik: FormikHelpers<FormValues>) => {
-    trackUsage(isCreating ? 'willCreateToken' : 'willEditToken', {
-      tokenType: API_TOKEN_TYPE,
-    });
-
     try {
       if (isCreating) {
         const res = await createToken({
@@ -215,11 +203,6 @@ export const EditView = () => {
             id: 'notification.success.apitokencreated',
             defaultMessage: 'API Token successfully created',
           }),
-        });
-
-        trackUsage('didCreateToken', {
-          type: res.data.type,
-          tokenType: API_TOKEN_TYPE,
         });
 
         navigate(`../api-tokens/${res.data.id.toString()}`, {
@@ -255,11 +238,6 @@ export const EditView = () => {
             id: 'notification.success.apitokenedited',
             defaultMessage: 'API Token successfully edited',
           }),
-        });
-
-        trackUsage('didEditToken', {
-          type: res.data.type,
-          tokenType: API_TOKEN_TYPE,
         });
       }
     } catch {

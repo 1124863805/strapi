@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useRef, useState } from 'react';
 
-import { useTracking } from '@leao/admin/leao-admin';
 import { Box, Button, Flex, Modal, Typography } from '@leao/design-system';
 import { PlusCircle as PicturePlus } from '@leao/icons';
 import PropTypes from 'prop-types';
@@ -36,7 +35,6 @@ export const FromComputerForm = ({ onClose, onAddAssets, trackedLocation }) => {
   const { formatMessage } = useIntl();
   const [dragOver, setDragOver] = useState(false);
   const inputRef = useRef(null);
-  const { trackUsage } = useTracking();
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -63,10 +61,6 @@ export const FromComputerForm = ({ onClose, onAddAssets, trackedLocation }) => {
       const asset = rawFileToAsset(file, AssetSource.Computer);
 
       assets.push(asset);
-    }
-
-    if (trackedLocation) {
-      trackUsage('didSelectFile', { source: 'computer', location: trackedLocation });
     }
 
     onAddAssets(assets);

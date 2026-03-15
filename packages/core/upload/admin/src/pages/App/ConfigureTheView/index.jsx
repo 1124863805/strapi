@@ -2,7 +2,6 @@ import React, { useReducer, useState } from 'react';
 
 import {
   ConfirmDialog,
-  useTracking,
   useNotification,
   Page,
   Layouts,
@@ -24,7 +23,6 @@ import { init, initialState } from './state/init';
 import reducer from './state/reducer';
 
 const ConfigureTheView = ({ config }) => {
-  const { trackUsage } = useTracking();
   const { formatMessage } = useIntl();
   const { toggleNotification } = useNotification();
   const { mutateConfig } = useConfig();
@@ -42,7 +40,6 @@ const ConfigureTheView = ({ config }) => {
   };
 
   const handleConfirm = async () => {
-    trackUsage('willEditMediaLibraryConfig');
     await mutateConfig.mutateAsync(modifiedData);
     setWarningSubmit(false);
     dispatch(setLoaded());

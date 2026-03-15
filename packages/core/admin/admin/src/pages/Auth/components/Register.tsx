@@ -15,11 +15,9 @@ import {
 import { Form, FormHelpers } from '../../../components/Form';
 import { InputRenderer } from '../../../components/FormInputs/Renderer';
 import { useGuidedTour } from '../../../components/GuidedTour/Provider';
-import { useNpsSurveySettings } from '../../../components/NpsSurvey';
 import { Logo } from '../../../components/UnauthenticatedLogo';
 import { useTypedDispatch } from '../../../core/store/hooks';
 import { useNotification } from '../../../features/Notifications';
-import { useTracking } from '../../../features/Tracking';
 import { useAPIErrorHandler } from '../../../hooks/useAPIErrorHandler';
 import { LayoutContent, UnauthenticatedLayout } from '../../../layouts/UnauthenticatedLayout';
 import { login } from '../../../reducer';
@@ -169,7 +167,6 @@ const Register = ({ hasAdmin }: RegisterProps) => {
   const navigate = useNavigate();
   const [submitCount, setSubmitCount] = React.useState(0);
   const [apiError, setApiError] = React.useState<string>();
-  const { trackUsage } = useTracking();
   const { formatMessage } = useIntl();
   const setSkipped = useGuidedTour('Register', (state) => state.setSkipped);
   const { search: searchString } = useLocation();
@@ -179,7 +176,6 @@ const Register = ({ hasAdmin }: RegisterProps) => {
     _unstableFormatAPIError: formatAPIError,
     _unstableFormatValidationErrors: formatValidationErrors,
   } = useAPIErrorHandler();
-  const { setNpsSurveySettings } = useNpsSurveySettings();
 
   const registrationToken = query.get('registrationToken');
 
@@ -223,14 +219,10 @@ const Register = ({ hasAdmin }: RegisterProps) => {
         if (isUserSuperAdmin) {
           localStorage.setItem('GUIDED_TOUR_SKIPPED', JSON.stringify(false));
           setSkipped(false);
-          trackUsage('didLaunchGuidedtour');
         }
       }
 
       if (news) {
-        // Only enable EE survey if user accepted the newsletter
-        setNpsSurveySettings((s) => ({ ...s, enabled: true }));
-
         navigate({
           pathname: '/usecase',
           search: `?hasAdmin=${true}`,
@@ -240,8 +232,6 @@ const Register = ({ hasAdmin }: RegisterProps) => {
       }
     } else {
       if (isBaseQueryError(res.error)) {
-        trackUsage('didNotCreateFirstAdmin');
-
         if (res.error.name === 'ValidationError') {
           setFormErrors(formatValidationErrors(res.error));
           return;
@@ -262,9 +252,6 @@ const Register = ({ hasAdmin }: RegisterProps) => {
       dispatch(login({ token: res.data.token }));
 
       if (news) {
-        // Only enable EE survey if user accepted the newsletter
-        setNpsSurveySettings((s) => ({ ...s, enabled: true }));
-
         navigate({
           pathname: '/usecase',
           search: `?hasAdmin=${hasAdmin}`,
@@ -274,8 +261,6 @@ const Register = ({ hasAdmin }: RegisterProps) => {
       }
     } else {
       if (isBaseQueryError(res.error)) {
-        trackUsage('didNotCreateFirstAdmin');
-
         if (res.error.name === 'ValidationError') {
           setFormErrors(formatValidationErrors(res.error));
           return;
@@ -346,10 +331,6 @@ const Register = ({ hasAdmin }: RegisterProps) => {
 
             try {
               await schema.validate(normalizedData, { abortEarly: false });
-
-              if (submitCount > 0 && isAdminRegistration) {
-                trackUsage('didSubmitWithErrorsFirstAdmin', { count: submitCount.toString() });
-              }
 
               if (normalizedData.registrationToken) {
                 handleRegisterUser(

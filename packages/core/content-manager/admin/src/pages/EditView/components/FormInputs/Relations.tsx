@@ -855,7 +855,7 @@ const RelationsList = ({
           handleDisconnect,
           relations: data,
         }}
-        itemKey={(index) => data[index].id}
+        itemKey={(index) => data[index].__temp_key__ ?? `${data[index].id}-${index}`}
         innerElementType="ol"
       >
         {ListItem}

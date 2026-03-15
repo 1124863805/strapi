@@ -3,7 +3,6 @@ import * as React from 'react';
 import { SerializedError } from '@reduxjs/toolkit';
 import {
   useNotification,
-  useTracking,
   type TrackingEvent,
   useAPIErrorHandler,
   useGuidedTour,
@@ -191,17 +190,14 @@ type IUseDocumentActs = ReturnType<UseDocumentActions>;
 const useDocumentActions: UseDocumentActions = () => {
   const { toggleNotification } = useNotification();
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const { _unstableFormatAPIError: formatAPIError } = useAPIErrorHandler();
   const navigate = useNavigate();
   const setCurrentStep = useGuidedTour('useDocumentActions', (state) => state.setCurrentStep);
 
   const [deleteDocument] = useDeleteDocumentMutation();
   const _delete: IUseDocumentActs['delete'] = React.useCallback(
-    async ({ collectionType, model, documentId, params }, trackerProperty) => {
+    async ({ collectionType, model, documentId, params }, _trackerProperty) => {
       try {
-        trackUsage('willDeleteEntry', trackerProperty);
-
         const res = await deleteDocument({
           collectionType,
           model,
@@ -226,8 +222,6 @@ const useDocumentActions: UseDocumentActions = () => {
           }),
         });
 
-        trackUsage('didDeleteEntry', trackerProperty);
-
         return res.data;
       } catch (err) {
         toggleNotification({
@@ -235,12 +229,10 @@ const useDocumentActions: UseDocumentActions = () => {
           message: formatMessage(DEFAULT_UNEXPECTED_ERROR_MSG),
         });
 
-        trackUsage('didNotDeleteEntry', { error: err, ...trackerProperty });
-
         throw err;
       }
     },
-    [trackUsage, deleteDocument, toggleNotification, formatMessage, formatAPIError]
+    [deleteDocument, toggleNotification, formatMessage, formatAPIError]
   );
 
   const [deleteManyDocuments] = useDeleteManyDocumentsMutation();
@@ -248,8 +240,6 @@ const useDocumentActions: UseDocumentActions = () => {
   const deleteMany: IUseDocumentActs['deleteMany'] = React.useCallback(
     async ({ model, documentIds, params }) => {
       try {
-        trackUsage('willBulkDeleteEntries');
-
         const res = await deleteManyDocuments({
           model,
           documentIds,
@@ -274,8 +264,6 @@ const useDocumentActions: UseDocumentActions = () => {
           message: '',
         });
 
-        trackUsage('didBulkDeleteEntries');
-
         return res.data;
       } catch (err) {
         toggleNotification({
@@ -283,12 +271,10 @@ const useDocumentActions: UseDocumentActions = () => {
           message: formatMessage(DEFAULT_UNEXPECTED_ERROR_MSG),
         });
 
-        trackUsage('didNotBulkDeleteEntries');
-
         throw err;
       }
     },
-    [trackUsage, deleteManyDocuments, toggleNotification, formatMessage, formatAPIError]
+    [deleteManyDocuments, toggleNotification, formatMessage, formatAPIError]
   );
 
   const [discardDocument] = useDiscardDocumentMutation();
@@ -336,8 +322,6 @@ const useDocumentActions: UseDocumentActions = () => {
   const publish: IUseDocumentActs['publish'] = React.useCallback(
     async ({ collectionType, model, documentId, params }, data) => {
       try {
-        trackUsage('willPublishEntry');
-
         const res = await publishDocument({
           collectionType,
           model,
@@ -350,8 +334,6 @@ const useDocumentActions: UseDocumentActions = () => {
           toggleNotification({ type: 'danger', message: formatAPIError(res.error) });
           return { error: res.error };
         }
-
-        trackUsage('didPublishEntry');
 
         toggleNotification({
           type: 'success',
@@ -371,7 +353,7 @@ const useDocumentActions: UseDocumentActions = () => {
         throw err;
       }
     },
-    [trackUsage, publishDocument, toggleNotification, formatMessage, formatAPIError]
+    [publishDocument, toggleNotification, formatMessage, formatAPIError]
   );
 
   const [publishManyDocuments] = usePublishManyDocumentsMutation();
@@ -418,10 +400,8 @@ const useDocumentActions: UseDocumentActions = () => {
 
   const [updateDocument] = useUpdateDocumentMutation();
   const update: IUseDocumentActs['update'] = React.useCallback(
-    async ({ collectionType, model, documentId, params }, data, trackerProperty) => {
+    async ({ collectionType, model, documentId, params }, data, _trackerProperty) => {
       try {
-        trackUsage('willEditEntry', trackerProperty);
-
         const res = await updateDocument({
           collectionType,
           model,
@@ -433,12 +413,9 @@ const useDocumentActions: UseDocumentActions = () => {
         if ('error' in res) {
           toggleNotification({ type: 'danger', message: formatAPIError(res.error) });
 
-          trackUsage('didNotEditEntry', { error: res.error, ...trackerProperty });
-
           return { error: res.error };
         }
 
-        trackUsage('didEditEntry', trackerProperty);
         toggleNotification({
           type: 'success',
           message: formatMessage({
@@ -449,8 +426,6 @@ const useDocumentActions: UseDocumentActions = () => {
 
         return res.data;
       } catch (err) {
-        trackUsage('didNotEditEntry', { error: err, ...trackerProperty });
-
         toggleNotification({
           type: 'danger',
           message: formatMessage(DEFAULT_UNEXPECTED_ERROR_MSG),
@@ -459,15 +434,13 @@ const useDocumentActions: UseDocumentActions = () => {
         throw err;
       }
     },
-    [trackUsage, updateDocument, toggleNotification, formatMessage, formatAPIError]
+    [updateDocument, toggleNotification, formatMessage, formatAPIError]
   );
 
   const [unpublishDocument] = useUnpublishDocumentMutation();
   const unpublish: IUseDocumentActs['unpublish'] = React.useCallback(
     async ({ collectionType, model, documentId, params }, discardDraft = false) => {
       try {
-        trackUsage('willUnpublishEntry');
-
         const res = await unpublishDocument({
           collectionType,
           model,
@@ -483,8 +456,6 @@ const useDocumentActions: UseDocumentActions = () => {
 
           return { error: res.error };
         }
-
-        trackUsage('didUnpublishEntry');
 
         toggleNotification({
           type: 'success',
@@ -504,15 +475,13 @@ const useDocumentActions: UseDocumentActions = () => {
         throw err;
       }
     },
-    [trackUsage, unpublishDocument, toggleNotification, formatMessage, formatAPIError]
+    [unpublishDocument, toggleNotification, formatMessage, formatAPIError]
   );
 
   const [unpublishManyDocuments] = useUnpublishManyDocumentsMutation();
   const unpublishMany: IUseDocumentActs['unpublishMany'] = React.useCallback(
     async ({ model, documentIds, params }) => {
       try {
-        trackUsage('willBulkUnpublishEntries');
-
         const res = await unpublishManyDocuments({
           model,
           documentIds,
@@ -524,8 +493,6 @@ const useDocumentActions: UseDocumentActions = () => {
 
           return { error: res.error };
         }
-
-        trackUsage('didBulkUnpublishEntries');
 
         toggleNotification({
           type: 'success',
@@ -543,12 +510,10 @@ const useDocumentActions: UseDocumentActions = () => {
           message: formatMessage(DEFAULT_UNEXPECTED_ERROR_MSG),
         });
 
-        trackUsage('didNotBulkUnpublishEntries');
-
         throw err;
       }
     },
-    [trackUsage, unpublishManyDocuments, toggleNotification, formatMessage, formatAPIError]
+    [unpublishManyDocuments, toggleNotification, formatMessage, formatAPIError]
   );
 
   const [createDocument] = useCreateDocumentMutation();
@@ -564,12 +529,8 @@ const useDocumentActions: UseDocumentActions = () => {
         if ('error' in res) {
           toggleNotification({ type: 'danger', message: formatAPIError(res.error) });
 
-          trackUsage('didNotCreateEntry', { error: res.error, ...trackerProperty });
-
           return { error: res.error };
         }
-
-        trackUsage('didCreateEntry', trackerProperty);
 
         toggleNotification({
           type: 'success',
@@ -588,12 +549,10 @@ const useDocumentActions: UseDocumentActions = () => {
           message: formatMessage(DEFAULT_UNEXPECTED_ERROR_MSG),
         });
 
-        trackUsage('didNotCreateEntry', { error: err, ...trackerProperty });
-
         throw err;
       }
     },
-    [createDocument, formatAPIError, formatMessage, toggleNotification, trackUsage]
+    [createDocument, formatAPIError, formatMessage, toggleNotification]
   );
 
   const [autoCloneDocument] = useAutoCloneDocumentMutation();
@@ -632,7 +591,7 @@ const useDocumentActions: UseDocumentActions = () => {
 
   const [cloneDocument] = useCloneDocumentMutation();
   const clone: IUseDocumentActs['clone'] = React.useCallback(
-    async ({ model, documentId, params }, body, trackerProperty) => {
+    async ({ model, documentId, params }, body, _trackerProperty) => {
       try {
         const { id: _id, ...restBody } = body;
 
@@ -651,12 +610,9 @@ const useDocumentActions: UseDocumentActions = () => {
         if ('error' in res) {
           toggleNotification({ type: 'danger', message: formatAPIError(res.error) });
 
-          trackUsage('didNotCreateEntry', { error: res.error, ...trackerProperty });
-
           return { error: res.error };
         }
 
-        trackUsage('didCreateEntry', trackerProperty);
         toggleNotification({
           type: 'success',
           message: formatMessage({
@@ -675,12 +631,10 @@ const useDocumentActions: UseDocumentActions = () => {
           message: formatMessage(DEFAULT_UNEXPECTED_ERROR_MSG),
         });
 
-        trackUsage('didNotCreateEntry', { error: err, ...trackerProperty });
-
         throw err;
       }
     },
-    [cloneDocument, trackUsage, toggleNotification, formatMessage, formatAPIError, navigate]
+    [cloneDocument, toggleNotification, formatMessage, formatAPIError, navigate]
   );
 
   const [getDoc] = useLazyGetDocumentQuery();

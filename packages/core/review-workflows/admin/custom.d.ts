@@ -21,10 +21,9 @@ interface BrowserLeao {
     REVIEW_WORKFLOWS: 'review-workflows';
     isEnabled: (featureName?: string) => boolean;
   };
-  flags: {
-    promoteEE?: boolean;
-    nps?: boolean;
-  };
+      flags: {
+        promoteEE?: boolean;
+      };
   projectType: 'Community' | 'Enterprise';
 }
 

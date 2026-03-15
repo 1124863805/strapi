@@ -17,7 +17,6 @@ import {
 import { Plus } from '@leao/icons';
 import {
   ConfirmDialog,
-  useTracking,
   Page,
   SearchInput,
   useNotification,
@@ -36,7 +35,6 @@ import { getTrad } from '../../../../utils';
 import TableBody from './components/TableBody';
 
 export const RolesListPage = () => {
-  const { trackUsage } = useTracking();
   const { formatMessage, locale } = useIntl();
   const { toggleNotification } = useNotification();
   const { notifyStatus } = useNotifyAT();
@@ -175,7 +173,6 @@ export const RolesListPage = () => {
               <LinkButton
                 to="new"
                 tag={NavLink}
-                onClick={() => trackUsage('willCreateRole')}
                 startIcon={<Plus />}
                 size="S"
               >

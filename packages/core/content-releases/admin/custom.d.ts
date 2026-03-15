@@ -15,7 +15,6 @@ declare global {
         isEnabled: (name: string) => boolean;
       };
       flags: {
-        nps?: boolean;
         promoteEE?: boolean;
       };
       projectType: 'Community' | 'Enterprise';

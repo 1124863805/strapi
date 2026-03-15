@@ -4,7 +4,6 @@ import { useIntl } from 'react-intl';
 
 import { ContentBox } from '../../../../components/ContentBox';
 import { useNotification } from '../../../../features/Notifications';
-import { useTracking } from '../../../../features/Tracking';
 import { useClipboard } from '../../../../hooks/useClipboard';
 
 interface TokenBoxProps {
@@ -12,10 +11,9 @@ interface TokenBoxProps {
   tokenType: 'transfer-token' | 'api-token';
 }
 
-export const TokenBox = ({ token, tokenType }: TokenBoxProps) => {
+export const TokenBox = ({ token }: TokenBoxProps) => {
   const { formatMessage } = useIntl();
   const { toggleNotification } = useNotification();
-  const { trackUsage } = useTracking();
 
   const { copy } = useClipboard();
 
@@ -24,9 +22,6 @@ export const TokenBox = ({ token, tokenType }: TokenBoxProps) => {
       const didCopy = await copy(token);
 
       if (didCopy) {
-        trackUsage('didCopyTokenKey', {
-          tokenType,
-        });
         toggleNotification({
           type: 'success',
           message: formatMessage({ id: 'Settings.tokens.notification.copied' }),

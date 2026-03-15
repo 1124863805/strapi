@@ -7,10 +7,9 @@ import {
 } from '@leao/design-system';
 import { Lightning } from '@leao/icons';
 import { useIntl } from 'react-intl';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-import { useTracking } from '../../../features/Tracking';
 import { SettingsMenu } from '../../../hooks/useSettingsMenu';
 
 const CustomIcon = styled(Lightning)`
@@ -36,8 +35,6 @@ interface SettingsNavProps {
 
 const SettingsNav = ({ menu }: SettingsNavProps) => {
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
-  const { pathname } = useLocation();
 
   const filteredMenu = menu.filter(
     (section) => !section.links.every((link) => link.isDisplayed === false)
@@ -62,10 +59,6 @@ const SettingsNav = ({ menu }: SettingsNavProps) => {
     defaultMessage: 'Settings',
   });
 
-  const handleClickOnLink = (destination: string) => () => {
-    trackUsage('willNavigate', { from: pathname, to: destination });
-  };
-
   return (
     <SubNav aria-label={label}>
       <SubNavHeader label={label} />
@@ -78,7 +71,6 @@ const SettingsNav = ({ menu }: SettingsNavProps) => {
                   tag={NavLink}
                   withBullet={link.hasNotification}
                   to={link.to}
-                  onClick={handleClickOnLink(link.to)}
                   key={link.id}
                   position="relative"
                 >

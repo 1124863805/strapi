@@ -1,4 +1,4 @@
-import { BackButton, useTracking, Layouts } from '@leao/admin/leao-admin';
+import { BackButton, Layouts } from '@leao/admin/leao-admin';
 import { Box, Button, Flex } from '@leao/design-system';
 import { Check, Pencil, Plus } from '@leao/icons';
 import get from 'lodash/get';
@@ -28,7 +28,6 @@ const ListView = () => {
   const { initialData, modifiedData, isInDevelopmentMode, isInContentTypeView, submitData } =
     useDataManager();
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
 
   const match = useMatch('/plugins/content-type-builder/:kind/:currentUID');
 
@@ -99,13 +98,6 @@ const ListView = () => {
 
   const onEdit = () => {
     const contentType = kind || firstMainDataPath;
-
-    if (contentType === 'collectionType') {
-      trackUsage('willEditNameOfContentType');
-    }
-    if (contentType === 'singleType') {
-      trackUsage('willEditNameOfSingleType');
-    }
 
     onOpenModalEditSchema({
       modalType: firstMainDataPath,

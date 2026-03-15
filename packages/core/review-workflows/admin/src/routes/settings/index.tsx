@@ -2,7 +2,7 @@
 /* eslint-disable check-file/filename-naming-convention */
 import * as React from 'react';
 
-import { Page, useTracking, ConfirmDialog, useRBAC, Table } from '@leao/admin/leao-admin';
+import { Page, ConfirmDialog, useRBAC, Table } from '@leao/admin/leao-admin';
 import { useEEInfo } from '@leao/admin/leao-admin/ee';
 import { Flex, IconButton, TFooter, Typography, LinkButton, Dialog } from '@leao/design-system';
 import { Pencil, Plus, Trash } from '@leao/icons';
@@ -20,7 +20,6 @@ import { useReviewWorkflows } from './hooks/useReviewWorkflows';
 export const ReviewWorkflowsListView = () => {
   const { formatMessage } = useIntl();
   const navigate = useNavigate();
-  const { trackUsage } = useTracking();
   const [workflowToDelete, setWorkflowToDelete] = React.useState<string | null>(null);
   const [showLimitModal, setShowLimitModal] = React.useState<boolean>(false);
   const { data, isLoading: isLoadingModels } = useGetContentTypesQuery();
@@ -70,7 +69,6 @@ export const ReviewWorkflowsListView = () => {
       setShowLimitModal(true);
     } else {
       navigate('create');
-      trackUsage('willCreateWorkflow');
     }
   };
 

@@ -3,7 +3,6 @@ import * as React from 'react';
 import {
   Page,
   Pagination,
-  useTracking,
   useAPIErrorHandler,
   useNotification,
   useQueryParams,
@@ -193,7 +192,6 @@ const ReleasesPage = () => {
   const { maximumReleases = 3 } = getFeature('cms-content-releases') as {
     maximumReleases: number;
   };
-  const { trackUsage } = useTracking();
   const {
     allowedActions: { canCreate },
   } = useRBAC(PERMISSIONS);
@@ -259,7 +257,6 @@ const ReleasesPage = () => {
         }),
       });
 
-      trackUsage('didCreateRelease');
       navigate(response.data.data.id.toString());
     } else if (isFetchError(response.error)) {
       // When the response returns an object with 'error', handle fetch error

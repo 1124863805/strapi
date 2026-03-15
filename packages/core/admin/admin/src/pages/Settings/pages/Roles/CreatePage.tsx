@@ -24,7 +24,6 @@ import { Page } from '../../../../components/PageHelpers';
 import { useTypedSelector } from '../../../../core/store/hooks';
 import { BackButton } from '../../../../features/BackButton';
 import { useNotification } from '../../../../features/Notifications';
-import { useTracking } from '../../../../features/Tracking';
 import { useAPIErrorHandler } from '../../../../hooks/useAPIErrorHandler';
 import {
   useCreateRoleMutation,
@@ -64,7 +63,6 @@ const CreatePage = () => {
   const { formatMessage } = useIntl();
   const navigate = useNavigate();
   const permissionsRef = React.useRef<PermissionsAPI>(null);
-  const { trackUsage } = useTracking();
   const {
     _unstableFormatAPIError: formatAPIError,
     _unstableFormatValidationErrors: formatValidationErrors,
@@ -101,12 +99,6 @@ const CreatePage = () => {
     formik: FormikHelpers<CreateRoleFormValues>
   ) => {
     try {
-      if (id) {
-        trackUsage('willDuplicateRole');
-      } else {
-        trackUsage('willCreateNewRole');
-      }
-
       const res = await createRole(data);
 
       if ('error' in res) {

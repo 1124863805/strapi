@@ -3,7 +3,6 @@ import { memo, useEffect, useMemo, useRef, ReactNode } from 'react';
 import {
   Page,
   useGuidedTour,
-  useTracking,
   useLeaoApp,
   useNotification,
   useAppInfo,
@@ -90,7 +89,6 @@ const DataManagerProvider = ({ children }: DataManagerProviderProps) => {
   const plugin = getPlugin(pluginId);
   const autoReload = useAppInfo('DataManagerProvider', (state) => state.autoReload);
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const refetchPermissions = useAuth('DataManagerProvider', (state) => state.refetchPermissions);
   const { pathname } = useLocation();
   const { onCloseModal } = useFormModalNavigation();
@@ -273,10 +271,6 @@ const DataManagerProvider = ({ children }: DataManagerProviderProps) => {
   ) => {
     const type =
       mainDataKey === 'components' ? REMOVE_FIELD_FROM_DISPLAYED_COMPONENT : REMOVE_FIELD;
-
-    if (mainDataKey === 'contentType') {
-      trackUsage('willDeleteFieldOfContentType');
-    }
 
     dispatch({
       type,
@@ -528,12 +522,8 @@ const DataManagerProvider = ({ children }: DataManagerProviderProps) => {
         }
 
         body.contentType = contentType;
-
-        trackUsage('willSaveContentType');
       } else {
         body.component = formatMainDataType(modifiedData.component, true);
-
-        trackUsage('willSaveComponent');
       }
 
       // Lock the app
@@ -554,23 +544,9 @@ const DataManagerProvider = ({ children }: DataManagerProviderProps) => {
           initialData.contentType?.schema.kind === 'singleType')
       ) {
         setStepState('contentTypeBuilder.success', true);
-        trackUsage('didCreateGuidedTourCollectionType');
         setCurrentStep(null);
       }
 
-      // Submit ct tracking success
-      if (isInContentTypeView) {
-        trackUsage('didSaveContentType');
-
-        const oldName = get(body, ['contentType', 'schema', 'name'], '');
-        const newName = get(initialData, ['contentType', 'schema', 'name'], '');
-
-        if (!isCreating && oldName !== newName) {
-          trackUsage('didEditNameOfContentType');
-        }
-      } else {
-        trackUsage('didSaveComponent');
-      }
 
       // Make sure the server has restarted
       await serverRestartWatcher(true);
@@ -585,10 +561,6 @@ const DataManagerProvider = ({ children }: DataManagerProviderProps) => {
       // Update the app's permissions
       await updatePermissions();
     } catch (err: any) {
-      if (!isInContentTypeView) {
-        trackUsage('didNotSaveComponent');
-      }
-
       console.error({ err: err.response });
       toggleNotification({
         type: 'danger',

@@ -6,7 +6,6 @@
 
 import React, { useRef, useState } from 'react';
 
-import { useTracking } from '@leao/admin/leao-admin';
 import {
   Button,
   Field,
@@ -56,7 +55,6 @@ export const EditAssetContent = ({
   trackedLocation,
 }) => {
   const { formatMessage, formatDate } = useIntl();
-  const { trackUsage } = useTracking();
   const submitButtonRef = useRef(null);
   const [isCropping, setIsCropping] = useState(false);
   const [replacementFile, setReplacementFile] = useState();
@@ -73,19 +71,6 @@ export const EditAssetContent = ({
       onClose(nextAsset);
     } else {
       const editedAsset = await editAsset(nextAsset, replacementFile);
-
-      const assetType = asset?.mime.split('/')[0];
-      // if the folder parent was the root of Media Library, its id is null
-      // we know it changed location if the new parent value exists
-      const didChangeLocation = asset?.folder?.id
-        ? asset.folder.id !== values.parent.value
-        : asset.folder === null && !!values.parent.value;
-
-      trackUsage('didEditMediaLibraryElements', {
-        location: trackedLocation,
-        type: assetType,
-        changeLocation: didChangeLocation,
-      });
 
       onClose(editedAsset);
     }

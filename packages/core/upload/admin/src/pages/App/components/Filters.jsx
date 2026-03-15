@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useTracking, useQueryParams } from '@leao/admin/leao-admin';
+import { useQueryParams } from '@leao/admin/leao-admin';
 import { Button, Popover } from '@leao/design-system';
 import { Filter } from '@leao/icons';
 import { useIntl } from 'react-intl';
@@ -12,7 +12,6 @@ import { displayedFilters } from '../../../utils';
 export const Filters = () => {
   const [open, setOpen] = React.useState(false);
   const { formatMessage } = useIntl();
-  const { trackUsage } = useTracking();
   const [{ query }, setQuery] = useQueryParams();
   const filters = query?.filters?.$and || [];
 
@@ -21,10 +20,6 @@ export const Filters = () => {
   };
 
   const handleSubmit = (filters) => {
-    trackUsage('didFilterMediaLibraryElements', {
-      location: 'content-manager',
-      filter: Object.keys(filters[filters.length - 1])[0],
-    });
     setQuery({ filters: { $and: filters }, page: 1 });
   };
 
