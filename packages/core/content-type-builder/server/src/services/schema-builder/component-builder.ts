@@ -59,12 +59,6 @@ export default function createComponentBuilder() {
         .set('config', infos.config)
         .setAttributes(this.convertAttributes(infos.attributes));
 
-      if (this.components.size === 0) {
-        leao.telemetry.send('didCreateFirstComponent');
-      } else {
-        leao.telemetry.send('didCreateComponent');
-      }
-
       this.components.set(uid, handler);
 
       return handler;

@@ -4337,7 +4337,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/leao@npm:5.0.6, @leao/leao@workspace:*, @leao/leao@workspace:packages/core/leao":
+"@leao/leao@workspace:*, @leao/leao@workspace:packages/core/leao":
   version: 0.0.0-use.local
   resolution: "@leao/leao@workspace:packages/core/leao"
   dependencies:
@@ -4623,7 +4623,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@leao/plugin-users-permissions@npm:5.0.6, @leao/plugin-users-permissions@workspace:*, @leao/plugin-users-permissions@workspace:packages/plugins/users-permissions":
+"@leao/plugin-users-permissions@workspace:*, @leao/plugin-users-permissions@workspace:packages/plugins/users-permissions":
   version: 0.0.0-use.local
   resolution: "@leao/plugin-users-permissions@workspace:packages/plugins/users-permissions"
   dependencies:
@@ -19653,8 +19653,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "my-demo@workspace:examples/my-demo"
   dependencies:
-    "@leao/leao": "npm:5.0.6"
-    "@leao/plugin-users-permissions": "npm:5.0.6"
+    "@leao/leao": "workspace:*"
+    "@leao/plugin-documentation": "workspace:*"
+    "@leao/plugin-users-permissions": "workspace:*"
     "@types/node": "npm:^20"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"

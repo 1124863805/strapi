@@ -20,7 +20,5 @@ export default {
     const body = await auditLogs.findOne(id);
 
     ctx.body = body;
-
-    leao.telemetry.send('didWatchAnAuditLog');
   },
 };

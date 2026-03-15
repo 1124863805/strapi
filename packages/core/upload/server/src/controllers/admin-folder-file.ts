@@ -41,17 +41,6 @@ export default {
       totalFileNumber,
     } = await folderService.deleteByIds(body.folderIds);
 
-    if (deletedFiles.length + deletedFolders.length > 1) {
-      leao.telemetry.send('didBulkDeleteMediaLibraryElements', {
-        eventProperties: {
-          rootFolderNumber: deletedFolders.length,
-          rootAssetNumber: deletedFiles.length,
-          totalFolderNumber,
-          totalAssetNumber: totalFileNumber + deletedFiles.length,
-        },
-      });
-    }
-
     ctx.body = {
       data: {
         files: await pmFile.sanitizeOutput(deletedFiles),
@@ -236,15 +225,6 @@ export default {
 
     const updatedFiles = await leao.db.query(FILE_MODEL_UID).findMany({
       where: { id: { $in: fileIds } },
-    });
-
-    leao.telemetry.send('didBulkMoveMediaLibraryElements', {
-      eventProperties: {
-        rootFolderNumber: updatedFolders.length,
-        rootAssetNumber: updatedFiles.length,
-        totalFolderNumber,
-        totalAssetNumber: totalFileNumber + updatedFiles.length,
-      },
     });
 
     ctx.body = {

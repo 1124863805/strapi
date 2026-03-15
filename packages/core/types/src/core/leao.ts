@@ -21,7 +21,6 @@ export interface Leao extends Container {
   entityValidator: Modules.EntityValidator.EntityValidator;
   entityService: Modules.EntityService.EntityService;
   documents: Modules.Documents.Service;
-  telemetry: Modules.Metrics.TelemetryService;
   requestContext: Modules.RequestContext.RequestContext;
   customFields: Modules.CustomFields.CustomFields;
   fetch: Modules.Fetch.Fetch;
@@ -69,7 +68,6 @@ export interface Leao extends Container {
   load(): Promise<Leao>;
   start(): Promise<Leao>;
   destroy(): Promise<void>;
-  sendStartupTelemetry(): void;
   openAdmin({ isInitialized }: { isInitialized: boolean }): void;
   postListen(): Promise<void>;
   listen(): Promise<void>;

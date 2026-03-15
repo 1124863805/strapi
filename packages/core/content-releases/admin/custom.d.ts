@@ -19,7 +19,6 @@ declare global {
         promoteEE?: boolean;
       };
       projectType: 'Community' | 'Enterprise';
-      telemetryDisabled: boolean;
     };
   }
 }

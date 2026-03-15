@@ -2,12 +2,11 @@ import type { Core, UID } from '@leao/types';
 import { errors } from '@leao/utils';
 import { isNil } from 'lodash/fp';
 import { ENTITY_ASSIGNEE_ATTRIBUTE } from '../constants/workflows';
-import { getService, getAdminService } from '../utils';
+import { getAdminService } from '../utils';
 
 const { ApplicationError } = errors;
 
 export default ({ leao }: { leao: Core.Leao }) => {
-  const metrics = getService('workflow-metrics', { leao });
 
   return {
     async findEntityAssigneeId(id: string, model: UID.ContentType) {
@@ -39,8 +38,6 @@ export default ({ leao }: { leao: Core.Leao }) => {
         throw new ApplicationError(`Selected user does not exist`);
       }
 
-      metrics.sendDidEditAssignee(await this.findEntityAssigneeId(documentId, model), assigneeId);
-
       return leao.documents(model).update({
         documentId,
         locale,
@@ -51,8 +48,6 @@ export default ({ leao }: { leao: Core.Leao }) => {
     },
 
     async deleteEntityAssignee(documentId: string, locale: string, model: UID.ContentType) {
-      metrics.sendDidEditAssignee(await this.findEntityAssigneeId(documentId, model), null);
-
       return leao.documents(model).update({
         documentId,
         locale,

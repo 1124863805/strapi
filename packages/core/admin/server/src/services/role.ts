@@ -371,10 +371,6 @@ const assignPermissions = async (
     permissionsToReturn.push(...newPermissions);
   }
 
-  if (!isSuperAdmin && (permissionsToAdd.length || permissionsToDelete.length)) {
-    await getService('metrics').sendDidUpdateRolePermissions();
-  }
-
   return permissionsToReturn;
 };
 

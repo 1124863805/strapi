@@ -34,7 +34,6 @@ const renderAdmin = async (
      */
     backendURL: createAbsoluteUrl(process.env.LEAO_ADMIN_BACKEND_URL),
     isEE: false,
-    telemetryDisabled: process.env.LEAO_TELEMETRY_DISABLED === 'true',
     future: {
       isEnabled: (name: keyof NonNullable<Modules.Features.FeaturesConfig['future']>) => {
         return features?.future?.[name] === true;

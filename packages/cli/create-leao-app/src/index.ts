@@ -139,6 +139,7 @@ async function run(args: string[]): Promise<void> {
     devDependencies: {},
     dependencies: {
       '@leao/leao': version,
+      '@leao/plugin-documentation': version,
       '@leao/plugin-users-permissions': version,
       // third party
       react: '^18.0.0',

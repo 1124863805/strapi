@@ -88,7 +88,6 @@ const createBuildContext = async <TOptions extends BaseOptions>({
   const env = getLeaoAdminEnvVars({
     ADMIN_PATH: adminPath,
     LEAO_ADMIN_BACKEND_URL: serverUrl,
-    LEAO_TELEMETRY_DISABLED: String(leaoInstance.telemetry.isDisabled),
   });
 
   const envKeys = Object.keys(env);

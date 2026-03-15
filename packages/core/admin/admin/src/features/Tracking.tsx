@@ -1,21 +1,11 @@
 import * as React from 'react';
 
-import { useInitQuery, useTelemetryPropertiesQuery } from '../services/admin';
+import { useInitQuery } from '../services/admin';
 
 import { useAppInfo } from './AppInfo';
-import { useAuth } from './Auth';
-
-export interface TelemetryProperties {
-  useTypescriptOnServer?: boolean;
-  useTypescriptOnAdmin?: boolean;
-  numberOfAllContentTypes?: number;
-  numberOfComponents?: number;
-  numberOfDynamicZones?: number;
-}
 
 export interface TrackingContextValue {
   uuid?: string | boolean;
-  telemetryProperties?: TelemetryProperties;
 }
 
 /* -------------------------------------------------------------------------------------------------
@@ -35,23 +25,10 @@ export interface TrackingProviderProps {
 }
 
 const TrackingProvider = ({ children }: TrackingProviderProps) => {
-  const token = useAuth('App', (state) => state.token);
   const { data: initData } = useInitQuery();
   const { uuid } = initData ?? {};
 
-  const { data } = useTelemetryPropertiesQuery(undefined, {
-    skip: !initData?.uuid || !token,
-  });
-
-  // Telemetry disabled: no analytics sent to external servers
-
-  const value = React.useMemo(
-    () => ({
-      uuid,
-      telemetryProperties: data,
-    }),
-    [uuid, data]
-  );
+  const value = React.useMemo(() => ({ uuid }), [uuid]);
 
   return <TrackingContext.Provider value={value}>{children}</TrackingContext.Provider>;
 };
@@ -376,7 +353,7 @@ export interface UseTrackingReturn {
  * ```
  */
 const useTracking = (): UseTrackingReturn => {
-  const { uuid, telemetryProperties } = React.useContext(TrackingContext);
+  const { uuid } = React.useContext(TrackingContext);
   const userId = useAppInfo('useTracking', (state) => state.userId);
   const trackUsage = React.useCallback(
     async <TEvent extends TrackingEvent>(

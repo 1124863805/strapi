@@ -3,7 +3,6 @@ import auth from './auth';
 import user from './user';
 import role from './role';
 import passport from './passport';
-import metrics from './metrics';
 import * as token from './token';
 import * as permission from './permission';
 import * as contentType from './content-type';
@@ -22,7 +21,6 @@ export default {
   passport,
   token,
   permission,
-  metrics,
   'content-type': contentType,
   constants,
   condition,

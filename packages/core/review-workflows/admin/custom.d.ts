@@ -26,7 +26,6 @@ interface BrowserLeao {
     nps?: boolean;
   };
   projectType: 'Community' | 'Enterprise';
-  telemetryDisabled: boolean;
 }
 
 declare global {

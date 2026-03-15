@@ -9,7 +9,6 @@ import { pathExists } from './files';
 interface DefaultEnv {
   ADMIN_PATH: string;
   LEAO_ADMIN_BACKEND_URL: string;
-  LEAO_TELEMETRY_DISABLED: string;
 }
 
 /**

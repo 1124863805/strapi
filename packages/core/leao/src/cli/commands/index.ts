@@ -10,8 +10,6 @@ import { command as listMiddlewares } from './middlewares/list';
 import { command as listPolicies } from './policies/list';
 import { command as listRoutes } from './routes/list';
 import { command as listServices } from './services/list';
-import { command as disableTelemetry } from './telemetry/disable';
-import { command as enableTelemetry } from './telemetry/enable';
 import { command as generateTemplates } from './templates/generate';
 import { command as generateTsTypes } from './ts/generate-types';
 import { command as buildCommand } from './build';
@@ -44,8 +42,6 @@ export const commands: LeaoCommand[] = [
   listRoutes,
   listServices,
   startCommand,
-  disableTelemetry,
-  enableTelemetry,
   generateTemplates,
   generateTsTypes,
   versionCommand,

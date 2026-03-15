@@ -70,26 +70,11 @@ export default {
         components: body.components,
       });
 
-      const metricsPayload = {
-        eventProperties: {
-          kind: contentType.kind,
-        },
-      };
-
-      if (_.isEmpty(leao.apis)) {
-        await leao.telemetry.send('didCreateFirstContentType', metricsPayload);
-      } else {
-        await leao.telemetry.send('didCreateContentType', metricsPayload);
-      }
-
       setImmediate(() => leao.reload());
 
       ctx.send({ data: { uid: contentType.uid } }, 201);
     } catch (err) {
       leao.log.error(err);
-      await leao.telemetry.send('didNotCreateContentType', {
-        eventProperties: { error: (err as Error).message || err },
-      });
       ctx.send({ error: (err as Error).message || 'Unknown error' }, 400);
     }
   },

@@ -9,7 +9,6 @@ import {
   loadersFactory,
   exitMessageText,
   abortTransfer,
-  getTransferTelemetryPayload,
   setSignalHandler,
   getDiffHandler,
   getAssetsBackupHandler,
@@ -163,10 +162,8 @@ export default async (opts: CmdOptions) => {
     updateLoader(stage, data).fail();
   });
 
-  progress.on('transfer::start', async () => {
+  progress.on('transfer::start', () => {
     console.log(`Starting transfer...`);
-
-    await leao.telemetry.send('didDEITSProcessStart', getTransferTelemetryPayload(engine));
   });
 
   let results: Awaited<ReturnType<typeof engine.transfer>>;
@@ -176,9 +173,6 @@ export default async (opts: CmdOptions) => {
 
     results = await engine.transfer();
 
-    // Note: we need to await telemetry or else the process ends before it is sent
-    await leao.telemetry.send('didDEITSProcessFinish', getTransferTelemetryPayload(engine));
-
     try {
       const table = buildTransferTable(results.engine);
       console.log(table?.toString());
@@ -187,8 +181,7 @@ export default async (opts: CmdOptions) => {
     }
 
     exitWith(0, exitMessageText('transfer'));
-  } catch (e) {
-    await leao.telemetry.send('didDEITSProcessFail', getTransferTelemetryPayload(engine));
+  } catch {
     exitWith(1, exitMessageText('transfer', true));
   }
 };

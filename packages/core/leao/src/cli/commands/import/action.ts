@@ -16,7 +16,6 @@ import {
   loadersFactory,
   exitMessageText,
   abortTransfer,
-  getTransferTelemetryPayload,
   setSignalHandler,
   getDiffHandler,
   parseRestoreFromOptions,
@@ -133,12 +132,8 @@ export default async (opts: CmdOptions) => {
     updateLoader(stage, data);
   });
 
-  progress.on('transfer::start', async () => {
+  progress.on('transfer::start', () => {
     console.log('Starting import...');
-    await leaoInstance.telemetry.send(
-      'didDEITSProcessStart',
-      getTransferTelemetryPayload(engine)
-    );
   });
 
   let results: engineDataTransfer.ITransferResults<typeof source, typeof destination>;
@@ -155,16 +150,10 @@ export default async (opts: CmdOptions) => {
       console.error('There was an error displaying the results of the transfer.');
     }
 
-    // Note: we need to await telemetry or else the process ends before it is sent
-    await leaoInstance.telemetry.send(
-      'didDEITSProcessFinish',
-      getTransferTelemetryPayload(engine)
-    );
     await leaoInstance.destroy();
 
     exitWith(0, exitMessageText('import'));
-  } catch (e) {
-    await leaoInstance.telemetry.send('didDEITSProcessFail', getTransferTelemetryPayload(engine));
+  } catch {
     exitWith(1, exitMessageText('import', true));
   }
 };

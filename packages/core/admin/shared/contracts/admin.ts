@@ -91,26 +91,6 @@ export declare namespace Information {
 }
 
 /**
- * /telemetry-properties - get telemetry properties
- */
-export declare namespace TelemetryProperties {
-  export interface Request {
-    body: {};
-    query: {};
-  }
-  export interface Response {
-    data: {
-      useTypescriptOnServer: boolean;
-      useTypescriptOnAdmin: boolean;
-      numberOfAllContentTypes: number;
-      numberOfComponents: number;
-      numberOfDynamicZones: number;
-    };
-    error?: errors.ApplicationError;
-  }
-}
-
-/**
  * /plugins - get plugin information
  */
 export declare namespace Plugins {

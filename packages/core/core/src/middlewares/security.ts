@@ -50,8 +50,8 @@ export const security: Core.MiddlewareFactory<Config> =
       'manifest-src': string[];
       'frame-src': string[];
     } = {
-      'script-src': ["'self'", "'unsafe-inline'", 'cdn.jsdelivr.net'],
-      'img-src': ["'self'", 'data:', 'cdn.jsdelivr.net'],
+      'script-src': ["'self'", "'unsafe-inline'"],
+      'img-src': ["'self'", 'data:'],
       'manifest-src': [],
       'frame-src': [],
     };

@@ -29,7 +29,6 @@ const processPopulate = (populate: any) => {
 export default ({ leao }: { leao: Core.Leao }) => {
   const workflowsContentTypes = workflowsContentTypesFactory({ leao });
   const workflowValidator = getService('validation', { leao });
-  const metrics = getService('workflow-metrics', { leao });
 
   return {
     /**
@@ -95,8 +94,6 @@ export default ({ leao }: { leao: Core.Leao }) => {
           });
         }
 
-        metrics.sendDidCreateWorkflow();
-
         // Create Workflow
         return leao.db
           .query(WORKFLOW_MODEL_UID)
@@ -141,8 +138,6 @@ export default ({ leao }: { leao: Core.Leao }) => {
             stageId: updatedStageIds ? updatedStageIds[0] : workflow.stages[0].id,
           });
         }
-
-        metrics.sendDidEditWorkflow();
 
         const query = leao.get('query-params').transform(WORKFLOW_MODEL_UID, updateOpts);
 

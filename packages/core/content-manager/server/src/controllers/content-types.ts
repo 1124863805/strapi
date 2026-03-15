@@ -75,7 +75,6 @@ export default {
     const { body } = ctx.request;
 
     const contentTypeService = getService('content-types');
-    const metricsService = getService('metrics');
 
     const contentType = await contentTypeService.findContentType(uid);
 
@@ -102,8 +101,6 @@ export default {
     }
 
     const newConfiguration = await contentTypeService.updateConfiguration(contentType, input);
-
-    await metricsService.sendDidConfigureListView(contentType, newConfiguration);
 
     const confWithUpdatedMetadata = {
       ...newConfiguration,

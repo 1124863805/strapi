@@ -1,14 +1,12 @@
 import type { LocaleService } from '../services/locales';
 import type { PermissionsService } from '../services/permissions';
 import type { ContentTypesService } from '../services/content-types';
-import type { MetricsService } from '../services/metrics';
 import type { ISOLocalesService } from '../services/iso-locales';
 import type { LocalizationsService } from '../services/localizations';
 import type { SanitizeService } from '../services/sanitize';
 
 type S = {
   permissions: PermissionsService;
-  metrics: MetricsService;
   locales: LocaleService;
   localizations: LocalizationsService;
   ['iso-locales']: ISOLocalesService;

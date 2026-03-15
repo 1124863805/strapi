@@ -39,9 +39,6 @@ export async function bootstrap({ leao }: { leao: Core.Leao }) {
   await registerPermissionActions();
   await registerWebhookEvents();
 
-  await getService('weeklyMetrics').registerCron();
-  getService('metrics').sendUploadPluginMetrics();
-
   getService('extensions').signFileUrlsOnDocumentService();
 }
 

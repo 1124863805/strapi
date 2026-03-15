@@ -49,14 +49,6 @@ export default [
   },
   {
     method: 'GET',
-    path: '/telemetry-properties',
-    handler: 'admin.telemetryProperties',
-    config: {
-      policies: ['admin::isAuthenticatedAdmin'],
-    },
-  },
-  {
-    method: 'GET',
     path: '/plugins',
     handler: 'admin.plugins',
     config: {

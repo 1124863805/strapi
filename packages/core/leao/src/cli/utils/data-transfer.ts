@@ -306,18 +306,6 @@ const loadersFactory = (defaultLoaders: Loaders = {} as Loaders) => {
 };
 
 /**
- * Get the telemetry data to be sent for a didDEITSProcess* event from an initialized transfer engine object
- */
-const getTransferTelemetryPayload = (engine: engineDataTransfer.TransferEngine) => {
-  return {
-    eventProperties: {
-      source: engine?.sourceProvider?.name,
-      destination: engine?.destinationProvider?.name,
-    },
-  };
-};
-
-/**
  * Get a transfer engine schema diff handler that confirms with the user before bypassing a schema check
  */
 const getDiffHandler = (
@@ -490,7 +478,6 @@ export {
   loadersFactory,
   buildTransferTable,
   getDefaultExportName,
-  getTransferTelemetryPayload,
   DEFAULT_IGNORED_CONTENT_TYPES,
   createLeaoInstance,
   excludeOption,

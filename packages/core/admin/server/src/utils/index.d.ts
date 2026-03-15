@@ -2,7 +2,6 @@ import auth from '../services/auth';
 import role from '../services/role';
 import user from '../services/user';
 import passport from '../services/passport';
-import metrics from '../services/metrics';
 import * as permission from '../services/permission';
 import * as contentType from '../services/content-type';
 import * as token from '../services/token';
@@ -18,7 +17,6 @@ type S = {
   'content-type': typeof contentType;
   token: typeof token;
   auth: typeof auth;
-  metrics: typeof metrics;
   'api-token': typeof apiToken;
   'project-settings': typeof projectSettings;
   transfer: typeof transfer;

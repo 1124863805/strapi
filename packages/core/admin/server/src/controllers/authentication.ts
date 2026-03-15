@@ -142,8 +142,6 @@ export default {
       roles: superAdminRole ? [superAdminRole.id] : [],
     });
 
-    leao.telemetry.send('didCreateFirstAdmin');
-
     ctx.body = {
       data: {
         token: getService('token').createJwtToken(user),

@@ -248,12 +248,6 @@ export default {
       availableLocales: false,
       availableStatus: false,
     });
-
-    if (totalEntries === 0) {
-      leao.telemetry.send('didCreateFirstContentTypeEntry', {
-        eventProperties: { model },
-      });
-    }
   },
 
   async update(ctx: any) {

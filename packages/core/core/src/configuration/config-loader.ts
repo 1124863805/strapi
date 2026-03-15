@@ -19,7 +19,6 @@ const RESTRICTED_FILENAMES = [
   'enforce',
   'disable',
   'enable',
-  'telemetry',
 
   // reserved for future internal use
   'leao',

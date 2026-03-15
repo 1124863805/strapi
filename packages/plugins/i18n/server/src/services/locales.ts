@@ -13,21 +13,13 @@ const findByCode = (code: any) =>
 const count = (params: any = {}) => leao.db.query('plugin::i18n.locale').count({ where: params });
 
 const create = async (locale: any) => {
-  const result = await leao.db.query('plugin::i18n.locale').create({ data: locale });
-
-  getService('metrics').sendDidUpdateI18nLocalesEvent();
-
-  return result;
+  return leao.db.query('plugin::i18n.locale').create({ data: locale });
 };
 
 const update = async (params: any, updates: any) => {
-  const result = await leao.db
+  return leao.db
     .query('plugin::i18n.locale')
     .update({ where: params, data: updates });
-
-  getService('metrics').sendDidUpdateI18nLocalesEvent();
-
-  return result;
 };
 
 const deleteFn = async ({ id }: any) => {
@@ -35,11 +27,7 @@ const deleteFn = async ({ id }: any) => {
 
   if (localeToDelete) {
     await deleteAllLocalizedEntriesFor({ locale: localeToDelete.code });
-    const result = await leao.db.query('plugin::i18n.locale').delete({ where: { id } });
-
-    getService('metrics').sendDidUpdateI18nLocalesEvent();
-
-    return result;
+    return leao.db.query('plugin::i18n.locale').delete({ where: { id } });
   }
 
   return localeToDelete;

@@ -26,7 +26,6 @@ declare global {
         nps?: boolean;
       };
       projectType: 'Community' | 'Enterprise';
-      telemetryDisabled: boolean;
     };
   }
 }

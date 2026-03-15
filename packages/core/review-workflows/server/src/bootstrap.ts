@@ -45,7 +45,6 @@ export default async (args: any) => {
 
   // Webhooks and events
   await registerWebhookEvents();
-  await getService('workflow-weekly-metrics').registerCron();
 
   // Data initialization
   await initDefaultWorkflow();

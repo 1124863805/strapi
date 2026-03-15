@@ -132,10 +132,6 @@ class Leao extends Container implements Core.Leao {
     return this.get('server');
   }
 
-  get telemetry(): Modules.Metrics.TelemetryService {
-    return this.get('telemetry');
-  }
-
   get store(): Modules.CoreStore.CoreStore {
     return this.get('coreStore');
   }
@@ -286,30 +282,6 @@ class Leao extends Container implements Core.Leao {
       .add('reload', () => createReloader(this));
   }
 
-  sendStartupTelemetry() {
-    // Emit started event.
-    // do not await to avoid slower startup
-    // This event is anonymous
-    this.telemetry
-      .send('didStartServer', {
-        groupProperties: {
-          database: this.config.get('database.connection.client'),
-          plugins: Object.keys(this.plugins),
-          numberOfAllContentTypes: _.size(this.contentTypes), // TODO: V5: This event should be renamed numberOfContentTypes in V5 as the name is already taken to describe the number of content types using i18n.
-          numberOfComponents: _.size(this.components),
-          numberOfDynamicZones: getNumberOfDynamicZones(),
-          numberOfCustomControllers: Object.values<Core.Controller>(this.controllers).filter(
-            // TODO: Fix this at the content API loader level to prevent future types issues
-            (controller) => controller !== undefined && factories.isCustomController(controller)
-          ).length,
-          environment: this.config.environment,
-          // TODO: to add back
-          // providers: this.config.installedProviders,
-        },
-      })
-      .catch(this.log.error);
-  }
-
   async openAdmin({ isInitialized }: { isInitialized: boolean }) {
     const shouldOpenAdmin =
       this.config.get('environment') === 'development' &&
@@ -318,9 +290,8 @@ class Leao extends Container implements Core.Leao {
     if (shouldOpenAdmin && !isInitialized) {
       try {
         await utils.openBrowser(this.config);
-        this.telemetry.send('didOpenTab');
-      } catch (e) {
-        this.telemetry.send('didNotOpenTab');
+      } catch {
+        // Ignore browser open errors
       }
     }
   }
@@ -331,7 +302,6 @@ class Leao extends Container implements Core.Leao {
     this.startupLogger.logStartupMessage({ isInitialized });
 
     this.log.info('Leao started successfully');
-    this.sendStartupTelemetry();
     this.openAdmin({ isInitialized });
   }
 

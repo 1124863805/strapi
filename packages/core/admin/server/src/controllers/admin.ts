@@ -2,12 +2,8 @@ import type { Context } from 'koa';
 
 import path from 'path';
 
-import { map, values, sumBy, pipe, flatMap, propEq } from 'lodash/fp';
-import _ from 'lodash';
 import { exists } from 'fs-extra';
 import '@leao/types';
-import { env } from '@leao/utils';
-import tsUtils from '@leao/typescript-utils';
 import {
   validateUpdateProjectSettings,
   validateUpdateProjectSettingsFiles,
@@ -20,11 +16,8 @@ import type {
   GetProjectSettings,
   Information,
   Plugins,
-  TelemetryProperties,
   UpdateProjectSettings,
 } from '../../../shared/contracts/admin';
-
-const { isUsingTypeScript } = tsUtils;
 
 /**
  * A set of functions called "actions" for `Admin`
@@ -42,18 +35,9 @@ export default {
   },
 
   async init() {
-    let uuid = leao.config.get('uuid', false);
+    const uuid = leao.config.get('uuid', false);
     const hasAdmin = await getService('user').exists();
     const { menuLogo, authLogo } = await getService('project-settings').getProjectSettings();
-    // set to null if telemetryDisabled flag not avaialble in package.json
-    const telemetryDisabled: boolean | null = leao.config.get(
-      'packageJsonLeao.telemetryDisabled',
-      null
-    );
-
-    if (telemetryDisabled !== null && telemetryDisabled === true) {
-      uuid = false;
-    }
 
     return {
       data: {
@@ -88,40 +72,6 @@ export default {
       ...body,
       ...formatedFiles,
     }) satisfies Promise<UpdateProjectSettings.Response>;
-  },
-
-  async telemetryProperties(ctx: Context) {
-    // If the telemetry is disabled, ignore the request and return early
-    if (leao.telemetry.isDisabled) {
-      ctx.status = 204;
-      return;
-    }
-
-    const useTypescriptOnServer = await isUsingTypeScript(leao.dirs.app.root);
-    const useTypescriptOnAdmin = await isUsingTypeScript(
-      path.join(leao.dirs.app.root, 'src', 'admin')
-    );
-    const numberOfAllContentTypes = _.size(leao.contentTypes);
-    const numberOfComponents = _.size(leao.components);
-
-    const getNumberOfDynamicZones = () => {
-      return pipe(
-        map('attributes'),
-        flatMap(values),
-        // @ts-expect-error lodash types
-        sumBy(propEq('type', 'dynamiczone'))
-      )(leao.contentTypes as any);
-    };
-
-    return {
-      data: {
-        useTypescriptOnServer,
-        useTypescriptOnAdmin,
-        numberOfAllContentTypes, // TODO: V5: This event should be renamed numberOfContentTypes in V5 as the name is already taken to describe the number of content types using i18n.
-        numberOfComponents,
-        numberOfDynamicZones: getNumberOfDynamicZones(),
-      },
-    } satisfies TelemetryProperties.Response;
   },
 
   async information() {

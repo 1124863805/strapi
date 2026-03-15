@@ -103,8 +103,6 @@ const createReleaseService = ({ leao }: { leao: Core.Leao }) => {
         await schedulingService.set(release.id, release.scheduledAt);
       }
 
-      leao.telemetry.send('didCreateContentRelease');
-
       return release;
     },
 
@@ -185,8 +183,6 @@ const createReleaseService = ({ leao }: { leao: Core.Leao }) => {
 
       this.updateReleaseStatus(id);
 
-      leao.telemetry.send('didUpdateContentRelease');
-
       return updatedRelease;
     },
 
@@ -252,8 +248,6 @@ const createReleaseService = ({ leao }: { leao: Core.Leao }) => {
         const schedulingService = getService('scheduling', { leao });
         await schedulingService.cancel(release.id);
       }
-
-      leao.telemetry.send('didDeleteContentRelease');
 
       return release;
     },
@@ -322,8 +316,6 @@ const createReleaseService = ({ leao }: { leao: Core.Leao }) => {
               isPublished: true,
               release,
             });
-
-            leao.telemetry.send('didPublishContentRelease');
 
             return { release, error: null };
           } catch (error) {

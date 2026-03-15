@@ -10,7 +10,6 @@ const sanitizedStageFields = ['id', 'name', 'workflow', 'color'];
 const sanitizeStageFields = pick(sanitizedStageFields);
 
 export default ({ leao }: { leao: Core.Leao }) => {
-  const metrics = getService('workflow-metrics', { leao });
   const stagePermissionsService = getService('stage-permissions', { leao });
   const workflowValidator = getService('validation', { leao });
 
@@ -71,8 +70,6 @@ export default ({ leao }: { leao: Core.Leao }) => {
         });
       }, []);
 
-      metrics.sendDidCreateStage();
-
       return stages;
     },
 
@@ -101,8 +98,6 @@ export default ({ leao }: { leao: Core.Leao }) => {
         },
       });
 
-      metrics.sendDidEditStage();
-
       return stage;
     },
 
@@ -113,8 +108,6 @@ export default ({ leao }: { leao: Core.Leao }) => {
       const deletedStage = await leao.db.query(STAGE_MODEL_UID).delete({
         where: { id: stage.id },
       });
-
-      metrics.sendDidDeleteStage();
 
       return deletedStage;
     },
@@ -215,8 +208,6 @@ export default ({ leao }: { leao: Core.Leao }) => {
         data: { [ENTITY_STAGE_ATTRIBUTE]: pick(['id'], stage) },
         populate: [ENTITY_STAGE_ATTRIBUTE],
       });
-
-      metrics.sendDidChangeEntryStage();
 
       return entity;
     },

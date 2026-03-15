@@ -55,15 +55,6 @@ export default ({ leao }: { leao: Core.Leao }) => {
     return `${baseName}_${randomSuffix()}`;
   };
 
-  const sendMediaMetrics = (data: Pick<File, 'caption' | 'alternativeText'>) => {
-    if (_.has(data, 'caption') && !_.isEmpty(data.caption)) {
-      leao.telemetry.send('didSaveMediaWithCaption');
-    }
-
-    if (_.has(data, 'alternativeText') && !_.isEmpty(data.alternativeText)) {
-      leao.telemetry.send('didSaveMediaWithAlternativeText');
-    }
-  };
 
   const createAndAssignTmpWorkingDirectoryToFiles = async (
     files: InputFile | InputFile[]
@@ -442,8 +433,6 @@ export default ({ leao }: { leao: Core.Leao }) => {
       });
     }
 
-    sendMediaMetrics(fileValues);
-
     const res = await leao.db.query(FILE_MODEL_UID).update({ where: { id }, data: fileValues });
 
     await emitEvent(MEDIA_UPDATE, res);
@@ -461,8 +450,6 @@ export default ({ leao }: { leao: Core.Leao }) => {
         [CREATED_BY_ATTRIBUTE]: user.id,
       });
     }
-
-    sendMediaMetrics(fileValues);
 
     const res = await leao.db.query(FILE_MODEL_UID).create({ data: fileValues });
 
@@ -528,12 +515,6 @@ export default ({ leao }: { leao: Core.Leao }) => {
   }
 
   function setSettings(value: Settings) {
-    if (value.responsiveDimensions === true) {
-      leao.telemetry.send('didEnableResponsiveDimensions');
-    } else {
-      leao.telemetry.send('didDisableResponsiveDimensions');
-    }
-
     return leao.store!({ type: 'plugin', name: 'upload', key: 'settings' }).set({ value });
   }
 

@@ -21,21 +21,6 @@ const registerAdminConditions = async () => {
   await getService('permission').conditionProvider.registerMany(adminConditions.conditions);
 };
 
-const registerModelHooks = () => {
-  const { sendDidChangeInterfaceLanguage } = getService('metrics');
-
-  leao.db.lifecycles.subscribe({
-    models: ['admin::user'],
-    afterCreate: sendDidChangeInterfaceLanguage,
-    afterDelete: sendDidChangeInterfaceLanguage,
-    afterUpdate({ params }) {
-      if (params.data.preferedLanguage) {
-        sendDidChangeInterfaceLanguage();
-      }
-    },
-  });
-};
-
 const syncAuthSettings = async () => {
   const adminStore = await leao.store({ type: 'core', name: 'admin' });
   const adminAuthSettings = await adminStore.get({ key: 'auth' });
@@ -72,7 +57,6 @@ const syncAPITokensPermissions = async () => {
 export default async ({ leao }: { leao: Core.Leao }) => {
   await registerAdminConditions();
   await registerPermissionActions();
-  registerModelHooks();
 
   const permissionService = getService('permission');
   const userService = getService('user');
@@ -91,9 +75,6 @@ export default async ({ leao }: { leao: Core.Leao }) => {
 
   await syncAuthSettings();
   await syncAPITokensPermissions();
-
-  await getService('metrics').sendUpdateProjectInformation(leao);
-  getService('metrics').startCron(leao);
 
   apiTokenService.checkSaltIsDefined();
   transferService.token.checkSaltIsDefined();

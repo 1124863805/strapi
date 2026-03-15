@@ -59,7 +59,6 @@ const registerModelsHooks = () => {
 };
 
 export default async () => {
-  const { sendDidInitializeEvent } = getService('metrics');
   const { initDefaultLocale } = getService('locales');
   const { sectionsBuilder, actions, engine } = getService('permissions');
 
@@ -79,6 +78,4 @@ export default async () => {
 
   // Hooks & Models
   registerModelsHooks();
-
-  sendDidInitializeEvent();
 };

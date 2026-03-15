@@ -1,5 +1,4 @@
 import {
-  type TelemetryProperties,
   type Init,
   type Information,
   type GetProjectSettings,
@@ -40,18 +39,6 @@ const admin = adminApi
           method: 'GET',
         }),
         transformResponse(res: Information.Response) {
-          return res.data;
-        },
-      }),
-      telemetryProperties: builder.query<TelemetryProperties.Response['data'], void>({
-        query: () => ({
-          url: '/admin/telemetry-properties',
-          method: 'GET',
-          config: {
-            validateStatus: (status) => status < 500,
-          },
-        }),
-        transformResponse(res: TelemetryProperties.Response) {
           return res.data;
         },
       }),
@@ -113,7 +100,6 @@ const admin = adminApi
 
 const {
   useInitQuery,
-  useTelemetryPropertiesQuery,
   useInformationQuery,
   useProjectSettingsQuery,
   useUpdateProjectSettingsMutation,
@@ -123,7 +109,6 @@ const {
 
 export {
   useInitQuery,
-  useTelemetryPropertiesQuery,
   useInformationQuery,
   useProjectSettingsQuery,
   useUpdateProjectSettingsMutation,

@@ -57,8 +57,6 @@ const create = async (
     .query('admin::user')
     .create({ data: user, populate: ['roles'] });
 
-  getService('metrics').sendDidInviteUser();
-
   leao.eventHub.emit('user.create', { user: sanitizeUser(createdUser) });
 
   return createdUser;
