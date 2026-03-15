@@ -15,10 +15,14 @@ import { WORKFLOW_MODEL_UID, WORKFLOW_POPULATE } from '../constants/workflows';
  * @return { PermissionChecker }
  */
 function getWorkflowsPermissionChecker({ leao }: { leao: Core.Leao }, userAbility: unknown) {
-  return leao
+  const checker = leao
     .plugin('content-manager')
-    .service('permission-checker')
-    .create({ userAbility, model: WORKFLOW_MODEL_UID });
+    ?.service('permission-checker')
+    ?.create({ userAbility, model: WORKFLOW_MODEL_UID });
+  if (!checker) {
+    throw new Error('content-manager plugin is required for review-workflows');
+  }
+  return checker;
 }
 
 /**

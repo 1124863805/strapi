@@ -11,7 +11,7 @@ const admin: Plugin.Config.AdminInput = {
     if (window.leao.features.isEnabled(FEATURE_ID)) {
       app.registerHook('Admin/CM/pages/ListView/inject-column-in-table', addColumnToTableHook);
 
-      const contentManagerPluginApis = app.getPlugin('content-manager').apis;
+      const contentManagerPluginApis = app.getPlugin('content-manager')?.apis;
 
       if (
         'addEditViewSidePanel' in contentManagerPluginApis &&

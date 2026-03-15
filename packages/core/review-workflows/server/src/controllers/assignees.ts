@@ -26,10 +26,13 @@ export default {
     const { model_uid: model, id: documentId } = ctx.params;
     const locale = (await validateLocale(ctx.request.query?.locale)) ?? undefined;
 
-    const { sanitizeOutput } = leao
-      .plugin('content-manager')
-      .service('permission-checker')
-      .create({ userAbility: ctx.state.userAbility, model });
+    const contentManagerPlugin = leao.plugin('content-manager');
+    const { sanitizeOutput } = contentManagerPlugin
+      ?.service('permission-checker')
+      ?.create({ userAbility: ctx.state.userAbility, model });
+    if (!sanitizeOutput) {
+      ctx.throw(503, 'content-manager plugin is required for review-workflows');
+    }
 
     // Retrieve the entity so we can get its current stage
     const entity = await leao.documents(model).findOne({

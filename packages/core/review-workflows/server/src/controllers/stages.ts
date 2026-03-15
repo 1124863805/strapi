@@ -19,9 +19,11 @@ import {
 function sanitizeStage({ leao }: { leao: Core.Leao }, userAbility: unknown) {
   const permissionChecker = leao
     .plugin('content-manager')
-    .service('permission-checker')
-    .create({ userAbility, model: STAGE_MODEL_UID });
-
+    ?.service('permission-checker')
+    ?.create({ userAbility, model: STAGE_MODEL_UID });
+  if (!permissionChecker) {
+    throw new Error('content-manager plugin is required for review-workflows');
+  }
   return (entity: unknown) => permissionChecker.sanitizeOutput(entity);
 }
 
@@ -86,10 +88,13 @@ export default {
     const { model_uid: modelUID, id: documentId } = ctx.params;
     const { body, query = {} } = ctx.request;
 
-    const { sanitizeOutput } = leao
-      .plugin('content-manager')
-      .service('permission-checker')
-      .create({ userAbility: ctx.state.userAbility, model: modelUID });
+    const contentManagerPlugin = leao.plugin('content-manager');
+    const { sanitizeOutput } = contentManagerPlugin
+      ?.service('permission-checker')
+      ?.create({ userAbility: ctx.state.userAbility, model: modelUID });
+    if (!sanitizeOutput) {
+      ctx.throw(503, 'content-manager plugin is required for review-workflows');
+    }
 
     // Load entity
     const locale = await validateLocale(query?.locale);
@@ -148,13 +153,11 @@ export default {
     const { model_uid: modelUID, id: documentId } = ctx.params;
     const { query = {} } = ctx.request;
 
-    if (
-      leao
-        .plugin('content-manager')
-        .service('permission-checker')
-        .create({ userAbility: ctx.state.userAbility, model: modelUID })
-        .cannot.read()
-    ) {
+    const cmPermissionChecker = leao
+      .plugin('content-manager')
+      ?.service('permission-checker')
+      ?.create({ userAbility: ctx.state.userAbility, model: modelUID });
+    if (!cmPermissionChecker || cmPermissionChecker.cannot.read()) {
       return ctx.forbidden();
     }
 

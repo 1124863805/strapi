@@ -7,10 +7,11 @@ import { WORKFLOW_MODEL_UID } from '../constants/workflows';
 export default ({ leao }: { leao: Core.Leao }) => {
   const contentManagerContentTypeService = leao
     .plugin('content-manager')
-    .service('content-types');
+    ?.service('content-types');
   const stagesService = getService('stages', { leao });
 
   const updateContentTypeConfig = async (uid: any, reviewWorkflowOption: any) => {
+    if (!contentManagerContentTypeService) return;
     // Merge options in the configuration as the configuration service use a destructuration merge which doesn't include nested objects
     const modelConfig = await contentManagerContentTypeService.findConfiguration(uid);
 

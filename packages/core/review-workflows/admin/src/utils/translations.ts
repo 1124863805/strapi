@@ -5,7 +5,12 @@ const prefixPluginTranslations = (trad: TradOptions, pluginId: string): TradOpti
     throw new TypeError("pluginId can't be empty");
   }
   return Object.keys(trad).reduce((acc, current) => {
-    acc[`${pluginId}.${current}`] = trad[current];
+    // Settings.review-workflows.* keys are used at root level by admin Settings page
+    if (current.startsWith('Settings.review-workflows.')) {
+      acc[current] = trad[current];
+    } else {
+      acc[`${pluginId}.${current}`] = trad[current];
+    }
     return acc;
   }, {} as TradOptions);
 };
