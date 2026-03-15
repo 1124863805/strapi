@@ -1,4 +1,4 @@
-import type { Core, Modules, UID } from '@strapi/types';
+import type { Core, Modules, UID } from '@leao/types';
 
 import { createMiddlewareManager, databaseErrorsMiddleware } from './middlewares';
 import { createContentTypeRepository } from './repository';
@@ -12,17 +12,17 @@ import entityValidator from '../entity-validator';
  * - Execute middlewares on document actions
  * - Apply default parameters to document actions
  *
- * @param strapi
+ * @param leao
  * @param validator - validator for database entries
  * @returns DocumentService
  *
  * @example Access documents
- * const article = strapi.documents('api::article.article').create(params)
- * const allArticles = strapi.documents('api::article.article').findMany(params)
+ * const article = leao.documents('api::article.article').create(params)
+ * const allArticles = leao.documents('api::article.article').findMany(params)
  *
  */
 export const createDocumentService = (
-  strapi: Core.Strapi,
+  leao: Core.Leao,
   validator: Modules.EntityValidator.EntityValidator = entityValidator
 ): Modules.Documents.Service => {
   // Cache the repositories (one per content type)
@@ -37,7 +37,7 @@ export const createDocumentService = (
       return repositories.get(uid)!;
     }
 
-    const contentType = strapi.contentType(uid);
+    const contentType = leao.contentType(uid);
     const repository = createContentTypeRepository(uid, validator);
 
     const instance = middlewares.wrapObject(

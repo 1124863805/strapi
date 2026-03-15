@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { ConfirmDialog } from '@strapi/admin/strapi-admin';
-import { Button, Dialog } from '@strapi/design-system';
-import { Trash } from '@strapi/icons';
+import { ConfirmDialog } from '@leao/admin/leao-admin';
+import { Button, Dialog } from '@leao/design-system';
+import { Trash } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

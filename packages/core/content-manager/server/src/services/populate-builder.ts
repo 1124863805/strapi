@@ -1,9 +1,9 @@
 import { isNil } from 'lodash/fp';
-import type { UID } from '@strapi/types';
+import type { UID } from '@leao/types';
 import { type Populate, getDeepPopulate, getQueryPopulate } from './utils/populate';
 
 /**
- * Builder to create a Strapi populate object.
+ * Builder to create a Leao populate object.
  *
  * @param uid - Content type UID
  *
@@ -25,7 +25,7 @@ const populateBuilder = (uid: UID.Schema) => {
   const builder = {
     /**
      * Populates all attribute fields present in a query.
-     * @param query - Strapi query object
+     * @param query - Leao query object
      */
     populateFromQuery(query: object) {
       getInitialPopulate = async () => getQueryPopulate(uid, query);

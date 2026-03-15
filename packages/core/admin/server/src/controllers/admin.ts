@@ -5,9 +5,9 @@ import path from 'path';
 import { map, values, sumBy, pipe, flatMap, propEq } from 'lodash/fp';
 import _ from 'lodash';
 import { exists } from 'fs-extra';
-import '@strapi/types';
-import { env } from '@strapi/utils';
-import tsUtils from '@strapi/typescript-utils';
+import '@leao/types';
+import { env } from '@leao/utils';
+import tsUtils from '@leao/typescript-utils';
 import {
   validateUpdateProjectSettings,
   validateUpdateProjectSettingsFiles,
@@ -32,22 +32,22 @@ const { isUsingTypeScript } = tsUtils;
 export default {
   // TODO very temporary to check the switch ee/ce
   // When removing this we need to update the /admin/src/index.js file
-  // whe,re we set the strapi.window.isEE value
+  // whe,re we set the leao.window.isEE value
 
   // NOTE: admin/ee/server overrides this controller, and adds the EE features
   // This returns an empty feature list for CE
   async getProjectType() {
-    const flags = strapi.config.get('admin.flags', {});
+    const flags = leao.config.get('admin.flags', {});
     return { data: { isEE: false, features: [], flags } };
   },
 
   async init() {
-    let uuid = strapi.config.get('uuid', false);
+    let uuid = leao.config.get('uuid', false);
     const hasAdmin = await getService('user').exists();
     const { menuLogo, authLogo } = await getService('project-settings').getProjectSettings();
     // set to null if telemetryDisabled flag not avaialble in package.json
-    const telemetryDisabled: boolean | null = strapi.config.get(
-      'packageJsonStrapi.telemetryDisabled',
+    const telemetryDisabled: boolean | null = leao.config.get(
+      'packageJsonLeao.telemetryDisabled',
       null
     );
 
@@ -92,17 +92,17 @@ export default {
 
   async telemetryProperties(ctx: Context) {
     // If the telemetry is disabled, ignore the request and return early
-    if (strapi.telemetry.isDisabled) {
+    if (leao.telemetry.isDisabled) {
       ctx.status = 204;
       return;
     }
 
-    const useTypescriptOnServer = await isUsingTypeScript(strapi.dirs.app.root);
+    const useTypescriptOnServer = await isUsingTypeScript(leao.dirs.app.root);
     const useTypescriptOnAdmin = await isUsingTypeScript(
-      path.join(strapi.dirs.app.root, 'src', 'admin')
+      path.join(leao.dirs.app.root, 'src', 'admin')
     );
-    const numberOfAllContentTypes = _.size(strapi.contentTypes);
-    const numberOfComponents = _.size(strapi.components);
+    const numberOfAllContentTypes = _.size(leao.contentTypes);
+    const numberOfComponents = _.size(leao.components);
 
     const getNumberOfDynamicZones = () => {
       return pipe(
@@ -110,7 +110,7 @@ export default {
         flatMap(values),
         // @ts-expect-error lodash types
         sumBy(propEq('type', 'dynamiczone'))
-      )(strapi.contentTypes as any);
+      )(leao.contentTypes as any);
     };
 
     return {
@@ -125,20 +125,20 @@ export default {
   },
 
   async information() {
-    const currentEnvironment: string = strapi.config.get('environment');
-    const autoReload = strapi.config.get('autoReload', false);
-    const strapiVersion = strapi.config.get('info.strapi', null);
-    const dependencies = strapi.config.get('info.dependencies', {});
-    const projectId = strapi.config.get('uuid', null);
+    const currentEnvironment: string = leao.config.get('environment');
+    const autoReload = leao.config.get('autoReload', false);
+    const leaoVersion = leao.config.get('info.leao', null);
+    const dependencies = leao.config.get('info.dependencies', {});
+    const projectId = leao.config.get('uuid', null);
     const nodeVersion = process.version;
-    const communityEdition = !strapi.EE;
+    const communityEdition = !leao.EE;
     const useYarn: boolean = await exists(path.join(process.cwd(), 'yarn.lock'));
 
     return {
       data: {
         currentEnvironment,
         autoReload,
-        strapiVersion,
+        leaoVersion,
         dependencies,
         projectId,
         nodeVersion,
@@ -149,7 +149,7 @@ export default {
   },
 
   async plugins(ctx: Context) {
-    const enabledPlugins = strapi.config.get('enabledPlugins') as any;
+    const enabledPlugins = leao.config.get('enabledPlugins') as any;
 
     // List of core plugins that are always enabled,
     // and so it's not necessary to display them in the plugins list

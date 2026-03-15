@@ -1,4 +1,4 @@
-import { Flex } from '@strapi/design-system';
+import { Flex } from '@leao/design-system';
 
 import { COMPONENT_ICONS } from '../../IconPicker/constants';
 

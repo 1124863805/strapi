@@ -6,9 +6,9 @@ import {
   useNotification,
   Page,
   Layouts,
-} from '@strapi/admin/strapi-admin';
-import { Button, Dialog, Link } from '@strapi/design-system';
-import { ArrowLeft, Check } from '@strapi/icons';
+} from '@leao/admin/leao-admin';
+import { Button, Dialog, Link } from '@leao/design-system';
+import { ArrowLeft, Check } from '@leao/icons';
 import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';

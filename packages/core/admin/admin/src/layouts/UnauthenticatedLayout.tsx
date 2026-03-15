@@ -7,7 +7,7 @@ import {
   FlexComponent,
   SingleSelect,
   SingleSelectOption,
-} from '@strapi/design-system';
+} from '@leao/design-system';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

@@ -1,13 +1,13 @@
 import { enumType } from 'nexus';
 import { set } from 'lodash/fp';
-import { strings } from '@strapi/utils';
+import { strings } from '@leao/utils';
 
 interface Definition {
   enum: string[];
 }
 
 /**
- * Build a Nexus enum type from a Strapi enum attribute
+ * Build a Nexus enum type from a Leao enum attribute
  * @param {object} definition - The definition of the enum
  * @param {string[]} definition.enum - The params of the enum
  * @param {string} name - The name of the enum

@@ -11,7 +11,7 @@ import {
   TextInput,
   Typography,
   Field,
-} from '@strapi/design-system';
+} from '@leao/design-system';
 import { parse } from 'qs';
 import { useIntl } from 'react-intl';
 import { useLocation, useNavigate } from 'react-router-dom';

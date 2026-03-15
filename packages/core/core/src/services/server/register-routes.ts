@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 const createRouteScopeGenerator = (namespace: string) => (route: Core.RouteInput) => {
   const prefix = namespace.endsWith('::') ? namespace : `${namespace}.`;
@@ -18,37 +18,37 @@ const createRouteScopeGenerator = (namespace: string) => (route: Core.RouteInput
 /**
  * Register all routes
  */
-export default (strapi: Core.Strapi) => {
-  registerAdminRoutes(strapi);
-  registerAPIRoutes(strapi);
-  registerPluginRoutes(strapi);
+export default (leao: Core.Leao) => {
+  registerAdminRoutes(leao);
+  registerAPIRoutes(leao);
+  registerPluginRoutes(leao);
 };
 
 /**
  * Register admin routes
- * @param {import('../../').Strapi} strapi
+ * @param {import('../../').Leao} leao
  */
-const registerAdminRoutes = (strapi: Core.Strapi) => {
+const registerAdminRoutes = (leao: Core.Leao) => {
   const generateRouteScope = createRouteScopeGenerator(`admin::`);
 
-  _.forEach(strapi.admin.routes, (router) => {
+  _.forEach(leao.admin.routes, (router) => {
     router.type = router.type || 'admin';
     router.prefix = router.prefix || `/admin`;
     router.routes.forEach((route) => {
       generateRouteScope(route);
       route.info = { pluginName: 'admin' };
     });
-    strapi.server.routes(router);
+    leao.server.routes(router);
   });
 };
 
 /**
  * Register plugin routes
- * @param {import('../../').Strapi} strapi
+ * @param {import('../../').Leao} leao
  */
-const registerPluginRoutes = (strapi: Core.Strapi) => {
-  for (const pluginName of Object.keys(strapi.plugins)) {
-    const plugin = strapi.plugins[pluginName];
+const registerPluginRoutes = (leao: Core.Leao) => {
+  for (const pluginName of Object.keys(leao.plugins)) {
+    const plugin = leao.plugins[pluginName];
 
     const generateRouteScope = createRouteScopeGenerator(`plugin::${pluginName}`);
 
@@ -58,7 +58,7 @@ const registerPluginRoutes = (strapi: Core.Strapi) => {
         route.info = { pluginName };
       });
 
-      strapi.server.routes({
+      leao.server.routes({
         type: 'admin',
         prefix: `/${pluginName}`,
         routes: plugin.routes,
@@ -72,7 +72,7 @@ const registerPluginRoutes = (strapi: Core.Strapi) => {
           route.info = { pluginName };
         });
 
-        strapi.server.routes(router);
+        leao.server.routes(router);
       });
     }
   }
@@ -81,9 +81,9 @@ const registerPluginRoutes = (strapi: Core.Strapi) => {
 /**
  * Register api routes
  */
-const registerAPIRoutes = (strapi: Core.Strapi) => {
-  for (const apiName of Object.keys(strapi.apis)) {
-    const api = strapi.api(apiName);
+const registerAPIRoutes = (leao: Core.Leao) => {
+  for (const apiName of Object.keys(leao.apis)) {
+    const api = leao.api(apiName);
 
     const generateRouteScope = createRouteScopeGenerator(`api::${apiName}`);
 
@@ -96,7 +96,7 @@ const registerAPIRoutes = (strapi: Core.Strapi) => {
         route.info = { apiName };
       });
 
-      return strapi.server.routes(router);
+      return leao.server.routes(router);
     });
   }
 };

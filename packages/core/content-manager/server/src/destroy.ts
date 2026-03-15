@@ -1,8 +1,8 @@
-import type { Plugin } from '@strapi/types';
+import type { Plugin } from '@leao/types';
 import history from './history';
 
-const destroy: Plugin.LoadedPlugin['destroy'] = async ({ strapi }) => {
-  await history.destroy?.({ strapi });
+const destroy: Plugin.LoadedPlugin['destroy'] = async ({ leao }) => {
+  await history.destroy?.({ leao });
 };
 
 export default destroy;

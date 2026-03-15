@@ -1,10 +1,10 @@
 import { toString } from 'lodash/fp';
-import type { Database, Model } from '@strapi/database';
+import type { Database, Model } from '@leao/database';
 
 const coreStoreModel: Model = {
-  uid: 'strapi::core-store',
-  singularName: 'strapi_core_store_settings',
-  tableName: 'strapi_core_store_settings',
+  uid: 'leao::core-store',
+  singularName: 'leao_core_store_settings',
+  tableName: 'leao_core_store_settings',
   attributes: {
     id: {
       type: 'increments',
@@ -87,7 +87,7 @@ const createCoreStore = ({ db }: { db: Database }) => {
       tag: tag || null,
     };
 
-    const data = await db.query('strapi::core-store').findOne({ where });
+    const data = await db.query('leao::core-store').findOne({ where });
 
     if (!data) {
       return null;
@@ -127,10 +127,10 @@ const createCoreStore = ({ db }: { db: Database }) => {
       tag: tag || null,
     };
 
-    const data = await db.query('strapi::core-store').findOne({ where });
+    const data = await db.query('leao::core-store').findOne({ where });
 
     if (data) {
-      return db.query('strapi::core-store').update({
+      return db.query('leao::core-store').update({
         where: { id: data.id },
         data: {
           value: JSON.stringify(value) || toString(value),
@@ -139,7 +139,7 @@ const createCoreStore = ({ db }: { db: Database }) => {
       });
     }
 
-    return db.query('strapi::core-store').create({
+    return db.query('leao::core-store').create({
       data: {
         ...where,
         value: JSON.stringify(value) || toString(value),
@@ -164,7 +164,7 @@ const createCoreStore = ({ db }: { db: Database }) => {
       tag: tag || null,
     };
 
-    return db.query('strapi::core-store').delete({ where });
+    return db.query('leao::core-store').delete({ where });
   };
 
   return store;

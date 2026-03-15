@@ -2,10 +2,10 @@ import type { Context, Next } from 'koa';
 import { resolve, join, extname, basename } from 'path';
 import fse from 'fs-extra';
 import koaStatic from 'koa-static';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
-const registerAdminPanelRoute = ({ strapi }: { strapi: Core.Strapi }) => {
-  let buildDir = resolve(strapi.dirs.dist.root, 'build');
+const registerAdminPanelRoute = ({ leao }: { leao: Core.Leao }) => {
+  let buildDir = resolve(leao.dirs.dist.root, 'build');
 
   if (!fse.pathExistsSync(buildDir)) {
     buildDir = resolve(__dirname, '../../build');
@@ -26,10 +26,10 @@ const registerAdminPanelRoute = ({ strapi }: { strapi: Core.Strapi }) => {
     ctx.body = fse.createReadStream(join(buildDir, 'index.html'));
   };
 
-  strapi.server.routes([
+  leao.server.routes([
     {
       method: 'GET',
-      path: `${strapi.config.admin.path}/:path*`,
+      path: `${leao.config.admin.path}/:path*`,
       handler: [
         serveAdminMiddleware,
         serveStatic(buildDir, {

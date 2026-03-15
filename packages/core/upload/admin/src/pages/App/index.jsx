@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, useEffect } from 'react';
 
-import { Page, useQueryParams } from '@strapi/admin/strapi-admin';
+import { Page, useQueryParams } from '@leao/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { Route, Routes } from 'react-router-dom';
 

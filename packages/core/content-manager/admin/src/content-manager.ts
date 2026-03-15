@@ -19,7 +19,7 @@ import { DEFAULT_TABLE_ROW_ACTIONS } from './pages/ListView/components/TableActi
 
 import type { Document } from './hooks/useDocument';
 import type { DocumentMetadata } from '../../shared/contracts/collection-types';
-import type { DescriptionComponent, PluginConfig } from '@strapi/admin/strapi-admin';
+import type { DescriptionComponent, PluginConfig } from '@leao/admin/leao-admin';
 
 /* -------------------------------------------------------------------------------------------------
  * Configuration Types
@@ -74,7 +74,7 @@ interface PanelComponentProps extends EditViewContext {}
 
 interface PanelComponent extends DescriptionComponent<PanelComponentProps, PanelDescription> {
   /**
-   * The defaults are added by Strapi only, if you're providing your own component,
+   * The defaults are added by Leao only, if you're providing your own component,
    * you do not need to provide this.
    */
   type?: 'actions' | 'releases';

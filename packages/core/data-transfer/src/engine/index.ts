@@ -6,7 +6,7 @@ import { chain } from 'stream-chain';
 import { isEmpty, uniq, last, isNumber, set, pick } from 'lodash/fp';
 import { diff as semverDiff } from 'semver';
 
-import type { Struct, Utils } from '@strapi/types';
+import type { Struct, Utils } from '@leao/types';
 
 import type {
   IAsset,
@@ -347,18 +347,18 @@ class TransferEngine<
   }
 
   /**
-   * Run a version check between two strapi version (source and destination) using the strategy given to the engine during initialization.
+   * Run a version check between two leao version (source and destination) using the strategy given to the engine during initialization.
    *
    * If there is a mismatch, throws a validation error.
    */
-  #assertStrapiVersionIntegrity(sourceVersion?: string, destinationVersion?: string) {
+  #assertLeaoVersionIntegrity(sourceVersion?: string, destinationVersion?: string) {
     const strategy = this.options.versionStrategy || DEFAULT_VERSION_STRATEGY;
 
     const reject = () => {
       throw new TransferEngineValidationError(
-        `The source and destination provide are targeting incompatible Strapi versions (using the "${strategy}" strategy). The source (${this.sourceProvider.name}) version is ${sourceVersion} and the destination (${this.destinationProvider.name}) version is ${destinationVersion}`,
+        `The source and destination provide are targeting incompatible Leao versions (using the "${strategy}" strategy). The source (${this.sourceProvider.name}) version is ${sourceVersion} and the destination (${this.destinationProvider.name}) version is ${destinationVersion}`,
         {
-          check: 'strapi.version',
+          check: 'leao.version',
           strategy,
           versions: { source: sourceVersion, destination: destinationVersion },
         }
@@ -664,9 +664,9 @@ class TransferEngine<
     const destinationMetadata = await this.destinationProvider.getMetadata();
 
     if (sourceMetadata && destinationMetadata) {
-      this.#assertStrapiVersionIntegrity(
-        sourceMetadata?.strapi?.version,
-        destinationMetadata?.strapi?.version
+      this.#assertLeaoVersionIntegrity(
+        sourceMetadata?.leao?.version,
+        destinationMetadata?.leao?.version
       );
     }
 

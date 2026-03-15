@@ -1,4 +1,4 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 import { scheduleJob } from 'node-schedule';
 
 const DEFAULT_RETENTION_DAYS = 90;
@@ -44,11 +44,11 @@ const getEventMap = (defaultEvents: any) => {
   }, {} as any);
 };
 
-const getRetentionDays = (strapi: Core.Strapi) => {
-  const featureConfig = strapi.ee.features.get('audit-logs');
+const getRetentionDays = (leao: Core.Leao) => {
+  const featureConfig = leao.ee.features.get('audit-logs');
   const featureRetentionDays =
     typeof featureConfig === 'object' && featureConfig?.options.retentionDays;
-  const userRetentionDays = strapi.config.get('admin.auditLogs.retentionDays');
+  const userRetentionDays = leao.config.get('admin.auditLogs.retentionDays');
 
   // For enterprise plans, use 90 days by default, but allow users to override it
   if (featureRetentionDays == null) {
@@ -64,18 +64,18 @@ const getRetentionDays = (strapi: Core.Strapi) => {
 
 /**
  * @description
- * Manages the the lifecycle of audit logs. Accessible via strapi.get('audit-logs-lifecycles')
+ * Manages the the lifecycle of audit logs. Accessible via leao.get('audit-logs-lifecycles')
  */
-const createAuditLogsLifecycleService = (strapi: Core.Strapi) => {
+const createAuditLogsLifecycleService = (leao: Core.Leao) => {
   // Manage internal service state privately
   const state = {} as any;
-  const auditLogsService = strapi.get('audit-logs');
+  const auditLogsService = leao.get('audit-logs');
 
   // NOTE: providers should be able to replace getEventMap to add or remove events
   const eventMap = getEventMap(defaultEvents);
 
   const processEvent = (name: string, ...args: any) => {
-    const requestState = strapi.requestContext.get()?.state;
+    const requestState = leao.requestContext.get()?.state;
 
     // Ignore events with auth strategies different from admin
     const isUsingAdminAuth = requestState?.route.info.type === 'admin';
@@ -119,7 +119,7 @@ const createAuditLogsLifecycleService = (strapi: Core.Strapi) => {
       // Handle EE being enabled
       if (!state.eeEnableUnsubscribe) {
         // @ts-expect-error- update event hub to receive callback argument
-        state.eeEnableUnsubscribe = strapi.eventHub.on('ee.enable', () => {
+        state.eeEnableUnsubscribe = leao.eventHub.on('ee.enable', () => {
           // Recreate the service
           this.destroy();
           this.register();
@@ -129,7 +129,7 @@ const createAuditLogsLifecycleService = (strapi: Core.Strapi) => {
       // Handle license being updated
       if (!state.eeUpdateUnsubscribe) {
         // @ts-expect-error- update event hub to receive callback argument
-        state.eeUpdateUnsubscribe = strapi.eventHub.on('ee.update', () => {
+        state.eeUpdateUnsubscribe = leao.eventHub.on('ee.update', () => {
           // Recreate the service
           this.destroy();
           this.register();
@@ -138,22 +138,22 @@ const createAuditLogsLifecycleService = (strapi: Core.Strapi) => {
 
       // Handle EE being disabled
       // @ts-expect-error- update event hub to receive callback argument
-      state.eeDisableUnsubscribe = strapi.eventHub.on('ee.disable', () => {
+      state.eeDisableUnsubscribe = leao.eventHub.on('ee.disable', () => {
         // Turn off service
         // Only ee.enable and ee.update listeners remain active to recreate the service
         this.destroy();
       });
 
       // Check current state
-      if (!strapi.ee.features.isEnabled('audit-logs')) {
+      if (!leao.ee.features.isEnabled('audit-logs')) {
         return this;
       }
 
       // Start saving events
-      state.eventHubUnsubscribe = strapi.eventHub.subscribe(handleEvent);
+      state.eventHubUnsubscribe = leao.eventHub.subscribe(handleEvent);
 
       // Manage audit logs auto deletion
-      const retentionDays = getRetentionDays(strapi);
+      const retentionDays = getRetentionDays(leao);
       state.deleteExpiredJob = scheduleJob('0 0 * * *', () => {
         const expirationDate = new Date(Date.now() - retentionDays * 24 * 60 * 60 * 1000);
         auditLogsService.deleteExpiredEvents(expirationDate);

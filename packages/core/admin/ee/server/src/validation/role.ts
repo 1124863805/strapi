@@ -1,4 +1,4 @@
-import { yup, validateYupSchema } from '@strapi/utils';
+import { yup, validateYupSchema } from '@leao/utils';
 
 const roleCreateSchema = yup
   .object()
@@ -13,7 +13,7 @@ const rolesDeleteSchema = yup
   .shape({
     ids: yup
       .array()
-      .of(yup.strapiID())
+      .of(yup.leaoID())
       .min(1)
       .required()
       .test(
@@ -21,10 +21,10 @@ const rolesDeleteSchema = yup
         'Roles deletion checks have failed',
         async function rolesDeletionChecks(ids) {
           try {
-            await strapi.service('admin::role').checkRolesIdForDeletion(ids);
+            await leao.service('admin::role').checkRolesIdForDeletion(ids);
 
-            if (strapi.ee.features.isEnabled('sso')) {
-              await strapi.service('admin::role').ssoCheckRolesIdForDeletion(ids);
+            if (leao.ee.features.isEnabled('sso')) {
+              await leao.service('admin::role').ssoCheckRolesIdForDeletion(ids);
             }
           } catch (e: any) {
             return this.createError({ path: 'ids', message: e.message });
@@ -37,17 +37,17 @@ const rolesDeleteSchema = yup
   .noUnknown();
 
 const roleDeleteSchema = yup
-  .strapiID()
+  .leaoID()
   .required()
   .test(
     'no-admin-single-delete',
     'Role deletion checks have failed',
     async function noAdminSingleDelete(id) {
       try {
-        await strapi.service('admin::role').checkRolesIdForDeletion([id]);
+        await leao.service('admin::role').checkRolesIdForDeletion([id]);
 
-        if (strapi.ee.features.isEnabled('sso')) {
-          await strapi.service('admin::role').ssoCheckRolesIdForDeletion([id]);
+        if (leao.ee.features.isEnabled('sso')) {
+          await leao.service('admin::role').ssoCheckRolesIdForDeletion([id]);
         }
       } catch (e: any) {
         return this.createError({ path: 'id', message: e.message });

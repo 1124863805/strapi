@@ -11,7 +11,7 @@ import {
   CardTitle,
   Flex,
   Typography,
-} from '@strapi/design-system';
+} from '@leao/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
@@ -113,8 +113,8 @@ export const UploadingAssetCard = ({
               ? {
                   id: getTrad(`apiError.${error.response.data.error.message}`),
                   defaultMessage: error.response.data.error.message,
-                  /* See issue: https://github.com/strapi/strapi/issues/13867
-             A proxy might return an error, before the request reaches Strapi
+                  /* See issue: https://github.com/leao/leao/issues/13867
+             A proxy might return an error, before the request reaches Leao
              and therefore we need to handle errors gracefully.
           */
                 }

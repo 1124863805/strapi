@@ -10,7 +10,7 @@ import pkg from './package.json';
  * TODO: we should have `pack-up` handle this for us, but time constaints
  * have meant i've fallen back to vite or a fast solution.
  *
- * https://strapi-inc.atlassian.net/browse/CONTENT-2341
+ * Content panel fix
  */
 export default defineConfig({
   build: {

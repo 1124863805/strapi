@@ -5,9 +5,9 @@ import punycode from 'punycode/';
 import type { Context } from 'koa';
 import _ from 'lodash';
 
-import { yup, validateYupSchema } from '@strapi/utils';
+import { yup, validateYupSchema } from '@leao/utils';
 
-import type { Modules } from '@strapi/types';
+import type { Modules } from '@leao/types';
 
 import {
   CreateWebhook,
@@ -70,13 +70,13 @@ const updateWebhookValidator = webhookValidator.shape({
 
 export default {
   async listWebhooks(ctx: Context) {
-    const webhooks = await strapi.get('webhookStore').findWebhooks();
+    const webhooks = await leao.get('webhookStore').findWebhooks();
     ctx.send({ data: webhooks } satisfies GetWebhooks.Response);
   },
 
   async getWebhook(ctx: Context) {
     const { id } = ctx.params;
-    const webhook = await strapi.get('webhookStore').findWebhook(id);
+    const webhook = await leao.get('webhookStore').findWebhook(id);
 
     if (!webhook) {
       return ctx.notFound('webhook.notFound');
@@ -90,9 +90,9 @@ export default {
 
     await validateYupSchema(webhookValidator)(body);
 
-    const webhook = await strapi.get('webhookStore').createWebhook(body);
+    const webhook = await leao.get('webhookStore').createWebhook(body);
 
-    strapi.get('webhookRunner').add(webhook);
+    leao.get('webhookRunner').add(webhook);
 
     ctx.created({ data: webhook } satisfies CreateWebhook.Response);
   },
@@ -103,13 +103,13 @@ export default {
 
     await validateYupSchema(updateWebhookValidator)(body);
 
-    const webhook = await strapi.get('webhookStore').findWebhook(id);
+    const webhook = await leao.get('webhookStore').findWebhook(id);
 
     if (!webhook) {
       return ctx.notFound('webhook.notFound');
     }
 
-    const updatedWebhook = await strapi.get('webhookStore').updateWebhook(id, {
+    const updatedWebhook = await leao.get('webhookStore').updateWebhook(id, {
       ...webhook,
       ...body,
     });
@@ -118,22 +118,22 @@ export default {
       return ctx.notFound('webhook.notFound');
     }
 
-    strapi.get('webhookRunner').update(updatedWebhook);
+    leao.get('webhookRunner').update(updatedWebhook);
 
     ctx.send({ data: updatedWebhook } satisfies UpdateWebhook.Response);
   },
 
   async deleteWebhook(ctx: Context) {
     const { id } = ctx.params;
-    const webhook = await strapi.get('webhookStore').findWebhook(id);
+    const webhook = await leao.get('webhookStore').findWebhook(id);
 
     if (!webhook) {
       return ctx.notFound('webhook.notFound');
     }
 
-    await strapi.get('webhookStore').deleteWebhook(id);
+    await leao.get('webhookStore').deleteWebhook(id);
 
-    strapi.get('webhookRunner').remove(webhook);
+    leao.get('webhookRunner').remove(webhook);
 
     ctx.body = { data: webhook } satisfies DeleteWebhook.Response;
   },
@@ -146,11 +146,11 @@ export default {
     }
 
     for (const id of ids) {
-      const webhook = await strapi.get('webhookStore').findWebhook(id);
+      const webhook = await leao.get('webhookStore').findWebhook(id);
 
       if (webhook) {
-        await strapi.get('webhookStore').deleteWebhook(id);
-        strapi.get('webhookRunner').remove(webhook);
+        await leao.get('webhookStore').deleteWebhook(id);
+        leao.get('webhookRunner').remove(webhook);
       }
     }
 
@@ -160,9 +160,9 @@ export default {
   async triggerWebhook(ctx: Context) {
     const { id } = ctx.params;
 
-    const webhook = await strapi.get('webhookStore').findWebhook(id);
+    const webhook = await leao.get('webhookStore').findWebhook(id);
 
-    const response = await strapi
+    const response = await leao
       .get('webhookRunner')
       .run(webhook as Modules.WebhookStore.Webhook, 'trigger-test', {});
 

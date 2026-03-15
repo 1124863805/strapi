@@ -1,6 +1,6 @@
-import { async, traverseEntity } from '@strapi/utils';
+import { async, traverseEntity } from '@leao/utils';
 
-import type { Schema, UID } from '@strapi/types';
+import type { Schema, UID } from '@leao/types';
 
 import { getService } from '../../utils';
 
@@ -67,11 +67,11 @@ const signEntityMediaVisitor: SignEntityMediaVisitor = async (
  * @returns
  */
 const signEntityMedia = async (entity: any, uid: UID.Schema) => {
-  const model = strapi.getModel(uid);
+  const model = leao.getModel(uid);
   return traverseEntity(
     // @ts-expect-error - FIXME: fix traverseEntity using wrong types
     signEntityMediaVisitor,
-    { schema: model, getModel: strapi.getModel.bind(strapi) },
+    { schema: model, getModel: leao.getModel.bind(leao) },
     entity
   );
 };

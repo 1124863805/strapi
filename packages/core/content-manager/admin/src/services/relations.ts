@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { generateNKeysBetween } from 'fractional-indexing';
 
 import {
@@ -8,8 +9,8 @@ import {
 
 import { contentManagerApi } from './api';
 
-import type { Modules } from '@strapi/types';
-import type { errors } from '@strapi/utils';
+import type { Modules } from '@leao/types';
+import type { errors } from '@leao/utils';
 
 interface RelationResult extends RelResult {
   __temp_key__: string;

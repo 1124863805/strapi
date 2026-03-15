@@ -1,19 +1,19 @@
 {
-  "name": "@strapi/provider-upload-cloudinary",
+  "name": "@leao/provider-upload-cloudinary",
   "version": "5.0.6",
-  "description": "Cloudinary provider for strapi upload",
+  "description": "Cloudinary provider for leao upload",
   "keywords": [
     "upload",
     "cloudinary",
-    "strapi"
+    "leao"
   ],
-  "homepage": "https://strapi.io",
+  "homepage": "https://leao.io",
   "bugs": {
-    "url": "https://github.com/strapi/strapi/issues"
+    "url": "https://github.com/leao/leao/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/strapi/strapi.git"
+    "url": "git://github.com/leao/leao.git"
   },
   "license": "UNLICENSED",
   "author": {
@@ -23,9 +23,9 @@
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "main": "./dist/index.js",
@@ -42,12 +42,12 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
-    "@strapi/utils": "workspace:*",
+    "@leao/utils": "workspace:*",
     "cloudinary": "^1.41.0",
     "into-stream": "^5.1.0"
   },
   "devDependencies": {
-    "@strapi/pack-up": "5.0.0",
+    "@leao/pack-up": "workspace:*",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"
   },

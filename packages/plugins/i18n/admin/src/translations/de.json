@@ -14,7 +14,7 @@
   "Settings.list.actions.deleteAdditionalInfos": "Dies wird die aktive Sprache löschen.",
   "Settings.list.actions.edit": "Sprache bearbeiten",
   "Settings.list.description": "Einstellungen für das Plugin anpassen",
-  "Settings.list.empty.description": "Das ist ein unerwartetes Verhalten. Möglicherweise wurde die Datenbank manuell modifiziert. Es sollte mindestens eine Sprache in der Datenbank existieren, um Strapi nutzen zu können",
+  "Settings.list.empty.description": "Das ist ein unerwartetes Verhalten. Möglicherweise wurde die Datenbank manuell modifiziert. Es sollte mindestens eine Sprache in der Datenbank existieren, um Leao nutzen zu können",
   "Settings.list.empty.title": "Keine Übersetzungen vorhanden",
   "Settings.locales.default": "Standard",
   "Settings.locales.list.sort.default": "Sortierung nach Standard-Übersetzung",

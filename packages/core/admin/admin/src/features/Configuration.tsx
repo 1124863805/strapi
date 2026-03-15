@@ -19,7 +19,7 @@ import { useAuth } from './Auth';
 import { useNotification } from './Notifications';
 import { useTracking } from './Tracking';
 
-import type { StrapiApp } from '../StrapiApp';
+import type { LeaoApp } from '../LeaoApp';
 
 /* -------------------------------------------------------------------------------------------------
  * Configuration Context
@@ -57,8 +57,8 @@ const [ConfigurationContextProvider, useConfiguration] =
 
 interface ConfigurationProviderProps {
   children: React.ReactNode;
-  defaultAuthLogo: StrapiApp['configurations']['authLogo'];
-  defaultMenuLogo: StrapiApp['configurations']['menuLogo'];
+  defaultAuthLogo: LeaoApp['configurations']['authLogo'];
+  defaultMenuLogo: LeaoApp['configurations']['menuLogo'];
   showReleaseNotification?: boolean;
   showTutorials?: boolean;
 }

@@ -1,4 +1,4 @@
-import type { Plugin } from '@strapi/types';
+import type { Plugin } from '@leao/types';
 import { controllers } from './controllers';
 import { services } from './services';
 import { routes } from './routes';
@@ -10,17 +10,17 @@ import { historyVersion } from './models/history-version';
  * so that we can assume it is enabled in the other files.
  */
 const getFeature = (): Partial<Plugin.LoadedPlugin> => {
-  if (strapi.ee.features.isEnabled('cms-content-history')) {
+  if (leao.ee.features.isEnabled('cms-content-history')) {
     return {
-      register({ strapi }) {
-        strapi.get('models').add(historyVersion);
+      register({ leao }) {
+        leao.get('models').add(historyVersion);
       },
-      bootstrap({ strapi }) {
+      bootstrap({ leao }) {
         // Start recording history and saving history versions
-        getService(strapi, 'lifecycles').bootstrap();
+        getService(leao, 'lifecycles').bootstrap();
       },
-      destroy({ strapi }) {
-        getService(strapi, 'lifecycles').destroy();
+      destroy({ leao }) {
+        getService(leao, 'lifecycles').destroy();
       },
       controllers,
       services,
@@ -32,8 +32,8 @@ const getFeature = (): Partial<Plugin.LoadedPlugin> => {
    * Keep registering the model to avoid losing the data if the feature is disabled,
    */
   return {
-    register({ strapi }) {
-      strapi.get('models').add(historyVersion);
+    register({ leao }) {
+      leao.get('models').add(historyVersion);
     },
   };
 };

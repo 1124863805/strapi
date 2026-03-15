@@ -1,4 +1,4 @@
-import type { Utils } from '@strapi/types';
+import type { Utils } from '@leao/types';
 
 import { curry, pipe, merge, set, pick, omit, includes, isArray, prop } from 'lodash/fp';
 
@@ -67,7 +67,7 @@ export type Action = {
    *
    * Aliases are unidirectional.
    *
-   * Note: This is an internal property and probably shouldn't be used outside Strapi core features.
+   * Note: This is an internal property and probably shouldn't be used outside Leao core features.
    *       Its behavior might change at any time without notice.
    *
    * @internal

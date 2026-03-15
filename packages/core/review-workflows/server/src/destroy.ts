@@ -1,3 +1,3 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
-export default async ({ strapi }: { strapi: Core.Strapi }) => {};
+export default async ({ leao }: { leao: Core.Leao }) => {};

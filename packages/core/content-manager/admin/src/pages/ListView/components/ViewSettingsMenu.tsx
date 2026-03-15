@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useTracking, useRBAC, useQueryParams } from '@strapi/admin/strapi-admin';
+import { useTracking, useRBAC, useQueryParams } from '@leao/admin/leao-admin';
 import {
   Flex,
   IconButton,
@@ -10,8 +10,8 @@ import {
   Typography,
   useCollator,
   LinkButton,
-} from '@strapi/design-system';
-import { Cog, ListPlus } from '@strapi/icons';
+} from '@leao/design-system';
+import { Cog, ListPlus } from '@leao/icons';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';

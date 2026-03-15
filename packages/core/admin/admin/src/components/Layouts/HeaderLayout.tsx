@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, Flex, Typography, TypographyProps, useCallbackRef } from '@strapi/design-system';
+import { Box, Flex, Typography, TypographyProps, useCallbackRef } from '@leao/design-system';
 
 /* -------------------------------------------------------------------------------------------------
  * BaseHeaderLayout
@@ -36,7 +36,7 @@ const BaseHeaderLayout = React.forwardRef<HTMLDivElement, BaseHeaderLayoutProps>
           shadow="tableShadow"
           width={`${width}px`}
           zIndex={1}
-          data-strapi-header-sticky
+          data-leao-header-sticky
         >
           <Flex justifyContent="space-between">
             <Flex>
@@ -69,7 +69,7 @@ const BaseHeaderLayout = React.forwardRef<HTMLDivElement, BaseHeaderLayoutProps>
         paddingBottom={8}
         paddingTop={navigationAction ? 6 : 8}
         background="neutral100"
-        data-strapi-header
+        data-leao-header
       >
         {navigationAction ? <Box paddingBottom={2}>{navigationAction}</Box> : null}
         <Flex justifyContent="space-between">

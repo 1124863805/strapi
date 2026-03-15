@@ -1,8 +1,8 @@
 import { set } from 'lodash/fp';
-import strapiUtils from '@strapi/utils';
+import leaoUtils from '@leao/utils';
 import { ProhibitedCloningField } from '../../../../shared/contracts/collection-types';
 
-const { isVisibleAttribute } = strapiUtils.contentTypes;
+const { isVisibleAttribute } = leaoUtils.contentTypes;
 
 /**
  * Use an array of strings to represent the path to a field, so we can show breadcrumbs in the admin
@@ -37,7 +37,7 @@ const getProhibitedCloningFields = (
   uid: any,
   pathPrefix: string[] = []
 ): ProhibitedCloningField[] => {
-  const model = strapi.getModel(uid);
+  const model = leao.getModel(uid);
 
   const prohibitedFields = Object.keys(model.attributes).reduce<ProhibitedCloningField[]>(
     (acc, attributeName) => {
@@ -55,7 +55,7 @@ const getProhibitedCloningFields = (
             ...(attribute.components || []).flatMap((componentUID: any) =>
               getProhibitedCloningFields(componentUID, [
                 ...attributePath,
-                strapi.getModel(componentUID).info.displayName,
+                leao.getModel(componentUID).info.displayName,
               ])
             ),
           ];
@@ -84,7 +84,7 @@ const getProhibitedCloningFields = (
 const excludeNotCreatableFields =
   (uid: any, permissionChecker: any) =>
   (body: any, path = []): any => {
-    const model = strapi.getModel(uid);
+    const model = leao.getModel(uid);
     const canCreate = (path: any) => permissionChecker.can.create(null, path);
 
     return Object.keys(model.attributes).reduce((body, attributeName) => {

@@ -7,7 +7,7 @@ import { NoJavascript } from './NoJavascript';
 const globalStyles = `
   html,
   body,
-  #strapi {
+  #leao {
     height: 100%;
   }
   body {
@@ -32,11 +32,11 @@ const DefaultDocument = ({ entryPath }: DefaultDocumentProps) => {
         <meta name="robots" content="noindex" />
         <meta name="referrer" content="same-origin" />
 
-        <title>Strapi Admin</title>
+        <title>Leao Admin</title>
         <style>{globalStyles}</style>
       </head>
       <body>
-        <div id="strapi" />
+        <div id="leao" />
         <NoJavascript />
         {entryPath ? <script type="module" src={entryPath} /> : null}
       </body>

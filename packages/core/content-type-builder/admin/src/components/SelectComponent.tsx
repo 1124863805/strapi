@@ -1,11 +1,11 @@
-import { SingleSelectOption, SingleSelect, Field } from '@strapi/design-system';
+import { SingleSelectOption, SingleSelect, Field } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 
 import { MAX_COMPONENT_DEPTH } from '../constants';
 import { useDataManager } from '../hooks/useDataManager';
 import { getChildrenMaxDepth, getComponentDepth } from '../utils/getMaxDepth';
 
-import type { Internal } from '@strapi/types';
+import type { Internal } from '@leao/types';
 interface Option {
   uid: string;
   label: string;

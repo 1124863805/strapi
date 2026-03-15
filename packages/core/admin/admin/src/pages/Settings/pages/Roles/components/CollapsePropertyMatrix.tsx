@@ -8,8 +8,8 @@ import {
   FlexComponent,
   Typography,
   TypographyComponent,
-} from '@strapi/design-system';
-import { CaretDown } from '@strapi/icons';
+} from '@leao/design-system';
+import { CaretDown } from '@leao/icons';
 import get from 'lodash/get';
 import { useIntl } from 'react-intl';
 import { styled, DefaultTheme, css } from 'styled-components';

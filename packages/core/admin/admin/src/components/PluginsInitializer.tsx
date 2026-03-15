@@ -4,13 +4,13 @@ import { produce } from 'immer';
 import set from 'lodash/set';
 
 import { Page } from '../components/PageHelpers';
-import { StrapiAppContextValue, useStrapiApp } from '../features/StrapiApp';
+import { LeaoAppContextValue, useLeaoApp } from '../features/LeaoApp';
 
 /**
  * TODO: this isn't great, and we really should focus on fixing this.
  */
 const PluginsInitializer = ({ children }: { children: React.ReactNode }) => {
-  const appPlugins = useStrapiApp('PluginsInitializer', (state) => state.plugins);
+  const appPlugins = useLeaoApp('PluginsInitializer', (state) => state.plugins);
   const [{ plugins }, dispatch] = React.useReducer<React.Reducer<State, Action>, State>(
     reducer,
     initialState,
@@ -76,7 +76,7 @@ const PluginsInitializer = ({ children }: { children: React.ReactNode }) => {
  * -----------------------------------------------------------------------------------------------*/
 
 interface State {
-  plugins: StrapiAppContextValue['plugins'];
+  plugins: LeaoAppContextValue['plugins'];
 }
 
 const initialState: State = {

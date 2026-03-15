@@ -1,8 +1,8 @@
 import type { Readable } from 'stream';
-import type { Schema, Data } from '@strapi/types';
+import type { Schema, Data } from '@leao/types';
 
 export interface IMetadata {
-  strapi?: {
+  leao?: {
     version?: string;
   };
 
@@ -10,7 +10,7 @@ export interface IMetadata {
 }
 
 /**
- * Common TransferEngine format to represent a Strapi entity
+ * Common TransferEngine format to represent a Leao entity
  * @template T The schema UID this entity represents
  */
 export interface IEntity<T extends UID.ContentType = UID.ContentType> {
@@ -122,7 +122,7 @@ interface ICircularLink extends IDefaultLink {
 }
 
 /**
- * Strapi configurations
+ * Leao configurations
  */
 export interface IConfiguration<T = unknown> {
   type: 'core-store' | 'webhook';

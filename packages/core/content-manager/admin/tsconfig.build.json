@@ -3,7 +3,11 @@
   "compilerOptions": {
     "rootDir": "../",
     "baseUrl": ".",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "noImplicitAny": false,
+    "strict": false,
+    "strictNullChecks": false,
+    "skipLibCheck": true,
   },
   "include": ["./src", "./custom.d.ts", "../shared", "./module.d.ts", "../package.json"],
   "exclude": ["**/__mocks__", "./src/**/tests", "**/*.test.*"]

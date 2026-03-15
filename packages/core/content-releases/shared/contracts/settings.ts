@@ -3,8 +3,8 @@
  * E.g the default timezone for the release schedule.
  */
 
-import { errors } from '@strapi/utils';
-import { Utils } from '@strapi/types';
+import { errors } from '@leao/utils';
+import { Utils } from '@leao/types';
 
 export interface Settings {
   defaultTimezone: string | null | undefined;

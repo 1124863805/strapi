@@ -3,7 +3,7 @@ import * as locales from 'date-fns/locale';
 type LocaleName = keyof typeof locales;
 
 /**
- * Returns a valid date-fns locale name from a Strapi Admin locale.
+ * Returns a valid date-fns locale name from a Leao Admin locale.
  * Defaults to 'enUS' if the locale is not found.
  */
 const getDateFnsLocaleName = (locale: string): LocaleName => {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Typography } from '@strapi/design-system';
-import { Paragraph } from '@strapi/icons';
+import { Typography } from '@leao/design-system';
+import { Paragraph } from '@leao/icons';
 import { type Text, Editor, Transforms } from 'slate';
 
 import { type BlocksStore } from '../BlocksEditor';

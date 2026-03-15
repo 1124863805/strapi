@@ -14,7 +14,7 @@
   "Settings.list.actions.deleteAdditionalInfos": "Dette vil slette de aktive sprogvariant versioner <em>(fra Internationalisering)</em>",
   "Settings.list.actions.edit": "Redigér sprogvariant",
   "Settings.list.description": "Konfigurér indstillingerne for Internationalisering pluginnet",
-  "Settings.list.empty.description": "Dette er unormalt, hvilket betyder at du muligvis har ændret databasen manuelt. Vær sikker på at der er mindst en sprogvariant gemt i din database for at bruge Strapi korrekt.",
+  "Settings.list.empty.description": "Dette er unormalt, hvilket betyder at du muligvis har ændret databasen manuelt. Vær sikker på at der er mindst en sprogvariant gemt i din database for at bruge Leao korrekt.",
   "Settings.list.empty.title": "Der er ingen sprogvarianter.",
   "Settings.locales.default": "Standard",
   "Settings.locales.list.sort.default": "Sorter efter standard sprogrvariant",

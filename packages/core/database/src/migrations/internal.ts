@@ -13,7 +13,7 @@ export const createInternalMigrationProvider = (db: Database): InternalMigration
   const migrations: Migration[] = [...internalMigrations];
 
   const umzugProvider = new Umzug({
-    storage: createStorage({ db, tableName: 'strapi_migrations_internal' }),
+    storage: createStorage({ db, tableName: 'leao_migrations_internal' }),
     logger: {
       info(message) {
         // NOTE: only log internal migration in debug mode

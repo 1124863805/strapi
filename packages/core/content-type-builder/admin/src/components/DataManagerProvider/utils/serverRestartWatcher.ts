@@ -10,7 +10,7 @@ export function serverRestartWatcher(response: any, didShutDownServer?: boolean)
   return new Promise((resolve) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    fetch(`${window.strapi.backendURL}/_health`, {
+    fetch(`${window.leao.backendURL}/_health`, {
       method: 'HEAD',
       mode: 'no-cors',
       headers: {

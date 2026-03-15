@@ -3,7 +3,7 @@ import { defaultsDeep } from 'lodash/fp';
 import body, { KoaBodyMiddlewareOptions } from 'koa-body';
 import mime from 'mime-types';
 import type Koa from 'koa';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 export type Config = KoaBodyMiddlewareOptions;
 
@@ -22,12 +22,12 @@ function getFiles(ctx: Koa.Context) {
   return ctx?.request?.files?.files;
 }
 
-const bodyMiddleware: Core.MiddlewareFactory<Config> = (config, { strapi }) => {
+const bodyMiddleware: Core.MiddlewareFactory<Config> = (config, { leao }) => {
   const bodyConfig: Config = defaultsDeep(defaults, config);
 
   let gqlEndpoint: string | undefined;
-  if (strapi.plugin('graphql')) {
-    const { config: gqlConfig } = strapi.plugin('graphql');
+  if (leao.plugin('graphql')) {
+    const { config: gqlConfig } = leao.plugin('graphql');
     gqlEndpoint = gqlConfig('endpoint');
   }
 
@@ -42,7 +42,7 @@ const bodyMiddleware: Core.MiddlewareFactory<Config> = (config, { strapi }) => {
         const files = getFiles(ctx);
 
         /**
-         * in case the mime-type wasn't sent, Strapi tries to guess it
+         * in case the mime-type wasn't sent, Leao tries to guess it
          * from the file extension, to avoid a corrupt database state
          */
         if (files) {

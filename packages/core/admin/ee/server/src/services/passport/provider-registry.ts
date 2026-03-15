@@ -1,11 +1,11 @@
-import '@strapi/types';
+import '@leao/types';
 
 export default () => {
   const registry = new Map();
 
   Object.assign(registry, {
     register(provider: unknown) {
-      if (strapi.isLoaded) {
+      if (leao.isLoaded) {
         throw new Error(`You can't register new provider after the bootstrap`);
       }
 

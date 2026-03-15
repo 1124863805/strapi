@@ -4,10 +4,10 @@
  * `{{ name }}` middleware
  */
 
-module.exports = (config, { strapi }) => {
+module.exports = (config, { leao }) => {
   // Add your own logic here.
   return async (ctx, next) => {
-    strapi.log.info('In {{ name }} middleware.');
+    leao.log.info('In {{ name }} middleware.');
 
     await next();
   };

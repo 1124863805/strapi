@@ -1,8 +1,8 @@
 import path from 'path';
 import _ from 'lodash';
 
-import { strings, errors } from '@strapi/utils';
-import type { Schema, Internal } from '@strapi/types';
+import { strings, errors } from '@leao/utils';
+import type { Schema, Internal } from '@leao/types';
 import { isRelation, isConfigurable } from '../../utils/attributes';
 import { typeKinds } from '../constants';
 import createSchemaHandler from './schema-handler';
@@ -76,7 +76,7 @@ export default function createComponentBuilder() {
       const contentType = createSchemaHandler({
         modelName: infos.singularName,
         dir: path.join(
-          strapi.dirs.app.api,
+          leao.dirs.app.api,
           infos.singularName,
           'content-types',
           infos.singularName

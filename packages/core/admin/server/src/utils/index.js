@@ -1,5 +1,5 @@
 const getService = (name) => {
-  return strapi.service(`admin::${name}`);
+  return leao.service(`admin::${name}`);
 };
 
 export { getService };

@@ -3,7 +3,7 @@ import get from 'lodash/get';
 import { makeUnique } from '../../../utils/makeUnique';
 
 import type { AttributeType, Components } from '../../../types';
-import type { Internal } from '@strapi/types';
+import type { Internal } from '@leao/types';
 
 const retrieveComponentsFromSchema = (
   attributes: AttributeType[],

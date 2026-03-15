@@ -1,13 +1,13 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 import { createAPI } from './api';
 
-const createAdminAPI = (strapi: Core.Strapi) => {
+const createAdminAPI = (leao: Core.Leao) => {
   const opts = {
     prefix: '', // '/admin';
     type: 'admin',
   };
 
-  return createAPI(strapi, opts);
+  return createAPI(leao, opts);
 };
 
 export { createAdminAPI };

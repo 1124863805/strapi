@@ -11,17 +11,17 @@ const NO_COMPONENT_PLACEHOLDER_COMMENT = `/*
 `;
 
 /**
- * Generate type definitions for Strapi Components
+ * Generate type definitions for Leao Components
  *
  * @param {object} [options]
- * @param {object} options.strapi
+ * @param {object} options.leao
  * @param {object} options.logger
  * @param {string} options.pwd
  */
 const generateComponentsDefinitions = async (options = {}) => {
-  const { strapi } = options;
+  const { leao } = options;
 
-  const { components } = strapi;
+  const { components } = leao;
 
   const componentsDefinitions = Object.values(components).map((contentType) => ({
     uid: contentType.uid,

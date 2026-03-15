@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Page, useNotification, useFetchClient, Layouts } from '@strapi/admin/strapi-admin';
+import { Page, useNotification, useFetchClient, Layouts } from '@leao/admin/leao-admin';
 import {
   Box,
   Button,
@@ -11,8 +11,8 @@ import {
   TextInput,
   Typography,
   Field,
-} from '@strapi/design-system';
-import { Mail } from '@strapi/icons';
+} from '@leao/design-system';
+import { Mail } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import { useQuery, useMutation } from 'react-query';
 import { styled } from 'styled-components';

@@ -2,18 +2,18 @@ import { defineProvider } from './provider';
 import createCronService from '../services/cron';
 
 export default defineProvider({
-  init(strapi) {
-    strapi.add('cron', () => createCronService());
+  init(leao) {
+    leao.add('cron', () => createCronService());
   },
-  async bootstrap(strapi) {
-    if (strapi.config.get('server.cron.enabled', true)) {
-      const cronTasks = strapi.config.get('server.cron.tasks', {});
-      strapi.get('cron').add(cronTasks);
+  async bootstrap(leao) {
+    if (leao.config.get('server.cron.enabled', true)) {
+      const cronTasks = leao.config.get('server.cron.tasks', {});
+      leao.get('cron').add(cronTasks);
     }
 
-    strapi.get('cron').start();
+    leao.get('cron').start();
   },
-  async destroy(strapi) {
-    strapi.get('cron').destroy();
+  async destroy(leao) {
+    leao.get('cron').destroy();
   },
 });

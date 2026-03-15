@@ -1,26 +1,26 @@
 {
-  "name": "@strapi/logger",
+  "name": "@leao/logger",
   "version": "5.0.6",
-  "description": "Strapi's logger",
-  "homepage": "https://strapi.io",
+  "description": "Leao's logger",
+  "homepage": "https://leao.io",
   "bugs": {
-    "url": "https://github.com/strapi/strapi/issues"
+    "url": "https://github.com/leao/leao/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/strapi/strapi.git"
+    "url": "git://github.com/leao/leao.git"
   },
   "license": "UNLICENSED",
   "author": {
-    "name": "Strapi Solutions SAS",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "main": "./dist/index.js",
@@ -41,7 +41,7 @@
     "winston": "3.10.0"
   },
   "devDependencies": {
-    "@strapi/pack-up": "5.0.0",
+    "@leao/pack-up": "workspace:*",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"
   },

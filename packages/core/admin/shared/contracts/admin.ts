@@ -1,4 +1,4 @@
-import { errors } from '@strapi/utils';
+import { errors } from '@leao/utils';
 import type { File } from 'formidable';
 
 export interface Logo {
@@ -79,7 +79,7 @@ export declare namespace Information {
     data: {
       currentEnvironment: string;
       autoReload: boolean;
-      strapiVersion: string | null;
+      leaoVersion: string | null;
       dependencies: Record<string, string>;
       projectId: string | null;
       nodeVersion: string;

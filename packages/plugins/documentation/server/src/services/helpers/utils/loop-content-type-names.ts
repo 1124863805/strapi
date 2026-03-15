@@ -11,14 +11,14 @@ const loopContentTypeNames = (api: Api, callback: (info: ApiInfo) => any) => {
     // Get the attributes found on the api's contentType
     const uid = `${api.getter}::${api.name}.${contentTypeName}`;
 
-    const { attributes, info: contentTypeInfo, kind } = strapi.contentType(uid as any);
+    const { attributes, info: contentTypeInfo, kind } = leao.contentType(uid as any);
 
     // Get the routes for the current api
     const routeInfo =
       api.getter === 'plugin'
         ? // @ts-expect-error – TODO: fix this
-          strapi.plugin(api.name).routes['content-api']
-        : strapi.api(api.name).routes[contentTypeName];
+          leao.plugin(api.name).routes['content-api']
+        : leao.api(api.name).routes[contentTypeName];
 
     // Continue to next iteration if routeInfo is undefined
     if (!routeInfo) {

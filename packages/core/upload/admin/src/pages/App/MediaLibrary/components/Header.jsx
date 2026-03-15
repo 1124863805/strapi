@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useQueryParams, Layouts } from '@strapi/admin/strapi-admin';
-import { Button, Flex, Link } from '@strapi/design-system';
-import { ArrowLeft, Plus } from '@strapi/icons';
+import { useQueryParams, Layouts } from '@leao/admin/leao-admin';
+import { Button, Flex, Link } from '@leao/design-system';
+import { ArrowLeft, Plus } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';

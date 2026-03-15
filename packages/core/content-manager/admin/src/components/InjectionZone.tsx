@@ -1,4 +1,4 @@
-import { useStrapiApp, InjectionZoneComponent } from '@strapi/admin/strapi-admin';
+import { useLeaoApp, InjectionZoneComponent } from '@leao/admin/leao-admin';
 
 import { PLUGIN_ID } from '../constants/plugin';
 
@@ -60,7 +60,7 @@ const InjectionZone = ({ area, ...props }: { area: InjectionZoneArea; [key: stri
 };
 
 export const useInjectionZone = (area: InjectionZoneArea) => {
-  const getPlugin = useStrapiApp('useInjectionZone', (state) => state.getPlugin);
+  const getPlugin = useLeaoApp('useInjectionZone', (state) => state.getPlugin);
   const contentManagerPlugin = getPlugin(PLUGIN_ID);
   const [page, position] = area.split('.') as [InjectionZoneContainer, InjectionZoneBlock];
 

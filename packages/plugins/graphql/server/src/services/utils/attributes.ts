@@ -1,15 +1,15 @@
 import { propEq } from 'lodash/fp';
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 import type { Context } from '../types';
 
-export default ({ strapi }: Context) => {
+export default ({ leao }: Context) => {
   /**
-   * Check if the given attribute is a Strapi scalar
+   * Check if the given attribute is a Leao scalar
    * @param {object} attribute
    * @return {boolean}
    */
-  const isStrapiScalar = (attribute: Schema.Attribute.AnyAttribute) => {
-    return strapi.plugin('graphql').service('constants').STRAPI_SCALARS.includes(attribute.type);
+  const isLeaoScalar = (attribute: Schema.Attribute.AnyAttribute) => {
+    return leao.plugin('graphql').service('constants').LEAO_SCALARS.includes(attribute.type);
   };
 
   /**
@@ -18,7 +18,7 @@ export default ({ strapi }: Context) => {
    * @return {boolean}
    */
   const isGraphQLScalar = (attribute: Schema.Attribute.AnyAttribute) => {
-    return strapi.plugin('graphql').service('constants').GRAPHQL_SCALARS.includes(attribute.type);
+    return leao.plugin('graphql').service('constants').GRAPHQL_SCALARS.includes(attribute.type);
   };
 
   /**
@@ -66,7 +66,7 @@ export default ({ strapi }: Context) => {
   const isDynamicZone = propEq('type', 'dynamiczone');
 
   return {
-    isStrapiScalar,
+    isLeaoScalar,
     isGraphQLScalar,
     isMorphRelation,
     isMedia,

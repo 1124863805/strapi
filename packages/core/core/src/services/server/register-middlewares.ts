@@ -1,30 +1,30 @@
-import { yup } from '@strapi/utils';
-import type { Core } from '@strapi/types';
+import { yup } from '@leao/utils';
+import type { Core } from '@leao/types';
 import { resolveMiddlewares } from './middleware';
 
 type MiddlewareConfig = (string | { name?: string; resolve?: string; config?: unknown })[];
 
 const defaultConfig = [
-  'strapi::logger',
-  'strapi::errors',
-  'strapi::security',
-  'strapi::cors',
-  'strapi::poweredBy',
-  'strapi::session',
-  'strapi::query',
-  'strapi::body',
-  'strapi::favicon',
-  'strapi::public',
+  'leao::logger',
+  'leao::errors',
+  'leao::security',
+  'leao::cors',
+  'leao::poweredBy',
+  'leao::session',
+  'leao::query',
+  'leao::body',
+  'leao::favicon',
+  'leao::public',
 ];
 
 const requiredMiddlewares = [
-  'strapi::errors',
-  'strapi::security',
-  'strapi::cors',
-  'strapi::query',
-  'strapi::body',
-  'strapi::public',
-  'strapi::favicon',
+  'leao::errors',
+  'leao::security',
+  'leao::cors',
+  'leao::query',
+  'leao::body',
+  'leao::public',
+  'leao::favicon',
 ];
 
 const middlewareConfigSchema = yup.array().of(
@@ -51,19 +51,19 @@ const middlewareConfigSchema = yup.array().of(
 /**
  * Register middlewares in router
  */
-const registerApplicationMiddlewares = async (strapi: Core.Strapi) => {
-  const middlewareConfig: MiddlewareConfig = strapi.config.get('middlewares', defaultConfig);
+const registerApplicationMiddlewares = async (leao: Core.Leao) => {
+  const middlewareConfig: MiddlewareConfig = leao.config.get('middlewares', defaultConfig);
 
   await validateMiddlewareConfig(middlewareConfig);
 
-  const middlewares = await resolveMiddlewares(middlewareConfig, strapi);
+  const middlewares = await resolveMiddlewares(middlewareConfig, leao);
 
   checkRequiredMiddlewares(middlewares);
 
   // NOTE: exclude middlewares that return nothing.
   // this is used for middlewares that only extend the app only need to be added in certain conditions
   for (const middleware of middlewares) {
-    strapi.server.use(middleware.handler);
+    leao.server.use(middleware.handler);
   }
 };
 

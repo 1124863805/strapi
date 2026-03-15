@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Avatar, Box, Flex } from '@strapi/design-system';
-import { Folder } from '@strapi/icons';
+import { Avatar, Box, Flex } from '@leao/design-system';
+import { Folder } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 

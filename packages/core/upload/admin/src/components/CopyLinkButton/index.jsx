@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useNotification, useClipboard } from '@strapi/admin/strapi-admin';
-import { IconButton } from '@strapi/design-system';
-import { Link as LinkIcon } from '@strapi/icons';
+import { useNotification, useClipboard } from '@leao/admin/leao-admin';
+import { IconButton } from '@leao/design-system';
+import { Link as LinkIcon } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

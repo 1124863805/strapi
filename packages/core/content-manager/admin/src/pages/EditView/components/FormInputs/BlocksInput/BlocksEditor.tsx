@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { createContext, type FieldValue } from '@strapi/admin/strapi-admin';
-import { IconButton, Divider, VisuallyHidden } from '@strapi/design-system';
-import { Expand } from '@strapi/icons';
+import { createContext, type FieldValue } from '@leao/admin/leao-admin';
+import { IconButton, Divider, VisuallyHidden } from '@leao/design-system';
+import { Expand } from '@leao/icons';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { Editor, type Descendant, createEditor } from 'slate';
 import { withHistory } from 'slate-history';
@@ -24,9 +24,9 @@ import { EditorLayout } from './EditorLayout';
 import { type ModifiersStore, modifiers } from './Modifiers';
 import { withImages } from './plugins/withImages';
 import { withLinks } from './plugins/withLinks';
-import { withStrapiSchema } from './plugins/withStrapiSchema';
+import { withLeaoSchema } from './plugins/withLeaoSchema';
 
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 
 /* -------------------------------------------------------------------------------------------------
  * BlocksEditorProvider
@@ -172,7 +172,7 @@ const BlocksEditor = React.forwardRef<{ focus: () => void }, BlocksEditorProps>(
   ({ disabled = false, name, onChange, value, error, ...contentProps }, forwardedRef) => {
     const { formatMessage } = useIntl();
     const [editor] = React.useState(() =>
-      pipe(withHistory, withImages, withStrapiSchema, withReact, withLinks)(createEditor())
+      pipe(withHistory, withImages, withLeaoSchema, withReact, withLinks)(createEditor())
     );
     const [liveText, setLiveText] = React.useState('');
     const ariaDescriptionId = React.useId();

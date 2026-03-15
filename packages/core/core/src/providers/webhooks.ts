@@ -3,27 +3,27 @@ import { createWebhookStore, webhookModel } from '../services/webhook-store';
 import createWebhookRunner from '../services/webhook-runner';
 
 export default defineProvider({
-  init(strapi) {
-    strapi.get('models').add(webhookModel);
+  init(leao) {
+    leao.get('models').add(webhookModel);
 
-    strapi.add('webhookStore', () => createWebhookStore({ db: strapi.db }));
-    strapi.add('webhookRunner', () =>
+    leao.add('webhookStore', () => createWebhookStore({ db: leao.db }));
+    leao.add('webhookRunner', () =>
       createWebhookRunner({
-        eventHub: strapi.eventHub,
-        logger: strapi.log,
-        configuration: strapi.config.get('server.webhooks', {}),
-        fetch: strapi.fetch,
+        eventHub: leao.eventHub,
+        logger: leao.log,
+        configuration: leao.config.get('server.webhooks', {}),
+        fetch: leao.fetch,
       })
     );
   },
-  async bootstrap(strapi) {
-    const webhooks = await strapi.get('webhookStore').findWebhooks();
+  async bootstrap(leao) {
+    const webhooks = await leao.get('webhookStore').findWebhooks();
     if (!webhooks) {
       return;
     }
 
     for (const webhook of webhooks) {
-      strapi.get('webhookRunner').add(webhook);
+      leao.get('webhookRunner').add(webhook);
     }
   },
 });

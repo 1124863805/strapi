@@ -1,4 +1,4 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 import { getOr, keys, pickBy, pipe, has, clamp } from 'lodash/fp';
 import {
   ENTITY_STAGE_ATTRIBUTE,
@@ -20,10 +20,10 @@ export const getVisibleContentTypesUID = pipe([
 export const hasStageAttribute = has(['attributes', ENTITY_STAGE_ATTRIBUTE]);
 
 export const getWorkflowContentTypeFilter = (
-  { strapi }: { strapi: Core.Strapi },
+  { leao }: { leao: Core.Leao },
   contentType: any
 ) => {
-  if (strapi.db.dialect.supportsOperator('$jsonSupersetOf')) {
+  if (leao.db.dialect.supportsOperator('$jsonSupersetOf')) {
     return { $jsonSupersetOf: JSON.stringify([contentType]) };
   }
   return { $contains: `"${contentType}"` };

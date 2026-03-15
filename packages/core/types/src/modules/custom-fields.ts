@@ -10,7 +10,7 @@ export interface CustomFieldServerOptions {
   plugin?: string;
 
   /**
-   * The existing Strapi data type the custom field uses
+   * The existing Leao data type the custom field uses
    */
   type:
     | 'biginteger'

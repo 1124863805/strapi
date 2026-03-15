@@ -1,4 +1,4 @@
-import type { Plugin } from '@strapi/types';
+import type { Plugin } from '@leao/types';
 
 export interface EmailConfig extends Record<string, unknown> {
   provider: string;
@@ -10,7 +10,7 @@ export interface EmailConfig extends Record<string, unknown> {
 
 type LoadedPluginConfig = Plugin.LoadedPlugin['config'];
 
-export interface StrapiConfig extends LoadedPluginConfig {
+export interface LeaoConfig extends LoadedPluginConfig {
   default: EmailConfig;
 }
 

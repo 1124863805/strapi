@@ -3,13 +3,13 @@ export const STAGE_MODEL_UID = 'plugin::review-workflows.workflow-stage';
 /**
  * TODO: For V4 compatibility, the old UID was kept, when review workflows was in the admin package
  *
- * NOTE!: if you change this string you need to change it here too: strapi/packages/core/review-workflows/admin/src/routes/settings/components/Stages.tsx
+ * NOTE!: if you change this string you need to change it here too: leao/packages/core/review-workflows/admin/src/routes/settings/components/Stages.tsx
  */
 export const STAGE_TRANSITION_UID = 'admin::review-workflows.stage.transition';
 
 export const STAGE_DEFAULT_COLOR = '#4945FF';
-export const ENTITY_STAGE_ATTRIBUTE = 'strapi_stage';
-export const ENTITY_ASSIGNEE_ATTRIBUTE = 'strapi_assignee';
+export const ENTITY_STAGE_ATTRIBUTE = 'leao_stage';
+export const ENTITY_ASSIGNEE_ATTRIBUTE = 'leao_assignee';
 
 export const MAX_WORKFLOWS = 200;
 export const MAX_STAGES_PER_WORKFLOW = 200;

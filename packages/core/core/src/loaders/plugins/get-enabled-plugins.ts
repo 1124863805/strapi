@@ -3,8 +3,8 @@ import { dirname, join, resolve } from 'path';
 import { statSync, existsSync } from 'fs';
 import _ from 'lodash';
 import { get, pickBy, defaultsDeep, map, prop, pipe } from 'lodash/fp';
-import { strings } from '@strapi/utils';
-import type { Core } from '@strapi/types';
+import { strings } from '@leao/utils';
+import type { Core } from '@leao/types';
 import { getUserPluginsConfig } from './get-user-plugins-config';
 
 interface PluginMeta {
@@ -34,16 +34,16 @@ interface PluginDeclaration {
  *       See admin.ts server controller on the content-manager plugin for more details.
  */
 const INTERNAL_PLUGINS = [
-  '@strapi/content-manager',
-  '@strapi/content-type-builder',
-  '@strapi/email',
-  '@strapi/upload',
-  '@strapi/i18n',
-  '@strapi/content-releases',
-  '@strapi/review-workflows',
+  '@leao/content-manager',
+  '@leao/content-type-builder',
+  '@leao/email',
+  '@leao/upload',
+  '@leao/i18n',
+  '@leao/content-releases',
+  '@leao/review-workflows',
 ];
 
-const isStrapiPlugin = (info: PluginInfo) => get('strapi.kind', info) === 'plugin';
+const isLeaoPlugin = (info: PluginInfo) => get('leao.kind', info) === 'plugin';
 
 const validatePluginName = (pluginName: string) => {
   if (!strings.isKebabCase(pluginName)) {
@@ -72,7 +72,7 @@ const toDetailedDeclaration = (declaration: boolean | PluginDeclaration) => {
       try {
         pathToPlugin = dirname(require.resolve(declaration.resolve));
       } catch (e) {
-        pathToPlugin = resolve(strapi.dirs.app.root, declaration.resolve);
+        pathToPlugin = resolve(leao.dirs.app.root, declaration.resolve);
 
         if (!existsSync(pathToPlugin) || !statSync(pathToPlugin).isDirectory()) {
           throw new Error(`${declaration.resolve} couldn't be resolved`);
@@ -86,29 +86,29 @@ const toDetailedDeclaration = (declaration: boolean | PluginDeclaration) => {
   return detailedDeclaration;
 };
 
-export const getEnabledPlugins = async (strapi: Core.Strapi, { client } = { client: false }) => {
+export const getEnabledPlugins = async (leao: Core.Leao, { client } = { client: false }) => {
   const internalPlugins: PluginMetas = {};
 
   for (const dep of INTERNAL_PLUGINS) {
     const packagePath = join(dep, 'package.json');
 
-    // NOTE: internal plugins should be resolved from the strapi package
+    // NOTE: internal plugins should be resolved from the leao package
     const packageModulePath = require.resolve(packagePath, {
-      paths: [require.resolve('@strapi/strapi/package.json'), process.cwd()],
+      paths: [require.resolve('@leao/leao/package.json'), process.cwd()],
     });
 
     const packageInfo = require(packageModulePath);
 
-    validatePluginName(packageInfo.strapi.name);
-    internalPlugins[packageInfo.strapi.name] = {
+    validatePluginName(packageInfo.leao.name);
+    internalPlugins[packageInfo.leao.name] = {
       ...toDetailedDeclaration({ enabled: true, resolve: packageModulePath, isModule: client }),
-      info: packageInfo.strapi,
+      info: packageInfo.leao,
       packageInfo,
     };
   }
 
   const installedPlugins: PluginMetas = {};
-  const dependencies = strapi.config.get('info.dependencies', {});
+  const dependencies = leao.config.get('info.dependencies', {});
 
   for (const dep of Object.keys(dependencies)) {
     const packagePath = join(dep, 'package.json');
@@ -119,12 +119,12 @@ export const getEnabledPlugins = async (strapi: Core.Strapi, { client } = { clie
       continue;
     }
 
-    if (isStrapiPlugin(packageInfo)) {
-      validatePluginName(packageInfo.strapi.name);
-      installedPlugins[packageInfo.strapi.name] = {
+    if (isLeaoPlugin(packageInfo)) {
+      validatePluginName(packageInfo.leao.name);
+      installedPlugins[packageInfo.leao.name] = {
         ...toDetailedDeclaration({ enabled: true, resolve: packagePath, isModule: client }),
         info: {
-          ...packageInfo.strapi,
+          ...packageInfo.leao,
           packageName: packageInfo.name,
         },
         packageInfo,
@@ -150,8 +150,8 @@ export const getEnabledPlugins = async (strapi: Core.Strapi, { client } = { clie
       const packagePath = join(pathToPlugin, 'package.json');
       const packageInfo = require(packagePath);
 
-      if (isStrapiPlugin(packageInfo)) {
-        declaredPlugins[pluginName].info = packageInfo.strapi || {};
+      if (isLeaoPlugin(packageInfo)) {
+        declaredPlugins[pluginName].info = packageInfo.leao || {};
         declaredPlugins[pluginName].packageInfo = packageInfo;
       }
     }

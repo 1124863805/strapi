@@ -2,7 +2,7 @@ import { snakeCase } from 'lodash/fp';
 
 // use snake_case
 export const reservedAttributes = [
-  // TODO: these need to come from a centralized place so we don't break things accidentally in the future and can share them outside the CTB, for example on Strapi bootstrap prior to schema db sync
+  // TODO: these need to come from a centralized place so we don't break things accidentally in the future and can share them outside the CTB, for example on Leao bootstrap prior to schema db sync
 
   // ID fields
   'id',
@@ -18,7 +18,7 @@ export const reservedAttributes = [
   'created_by',
   'updated_by',
 
-  // Used for Strapi functionality
+  // Used for Leao functionality
   'entry_id',
   'status',
   'localizations',
@@ -28,9 +28,9 @@ export const reservedAttributes = [
   '__contentType',
 
   // We support ending with * to denote prefixes
-  'strapi*',
-  '_strapi*',
-  '__strapi*',
+  'leao*',
+  '_leao*',
+  '__leao*',
 ];
 
 // use snake_case
@@ -44,9 +44,9 @@ export const reservedModels = [
   'then', // no longer an issue but still restricting for being a javascript keyword
 
   // We support ending with * to denote prefixes
-  'strapi*',
-  '_strapi*',
-  '__strapi*',
+  'leao*',
+  '_leao*',
+  '__leao*',
 ];
 
 export const getReservedNames = () => {

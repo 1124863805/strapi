@@ -2,10 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Strapi Develop (Debug)",
+      "name": "Leao Develop (Debug)",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceFolder}/packages/core/strapi/bin/strapi.js",
+      "program": "${workspaceFolder}/packages/core/leao/bin/leao.js",
       "args": ["develop"],
       "cwd": "${workspaceFolder}/examples/getstarted",
       "skipFiles": ["<node_internals>/**"],
@@ -15,10 +15,10 @@
       }
     },
     {
-      "name": "Strapi Develop (Debug + Break on Start)",
+      "name": "Leao Develop (Debug + Break on Start)",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceFolder}/packages/core/strapi/bin/strapi.js",
+      "program": "${workspaceFolder}/packages/core/leao/bin/leao.js",
       "args": ["develop"],
       "cwd": "${workspaceFolder}/examples/getstarted",
       "skipFiles": ["<node_internals>/**"],

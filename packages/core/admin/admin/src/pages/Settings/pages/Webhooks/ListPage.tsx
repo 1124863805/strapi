@@ -19,9 +19,9 @@ import {
   VisuallyHidden,
   LinkButton,
   Dialog,
-} from '@strapi/design-system';
-import { Pencil, Plus, Trash } from '@strapi/icons';
-import { EmptyDocuments } from '@strapi/icons/symbols';
+} from '@leao/design-system';
+import { Pencil, Plus, Trash } from '@leao/icons';
+import { EmptyDocuments } from '@leao/icons/symbols';
 import { useIntl } from 'react-intl';
 import { NavLink, useNavigate } from 'react-router-dom';
 

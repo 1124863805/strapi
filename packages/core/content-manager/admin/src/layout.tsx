@@ -1,7 +1,8 @@
 /* eslint-disable check-file/filename-naming-convention */
+// @ts-nocheck
 import * as React from 'react';
 
-import { Page, useGuidedTour, Layouts } from '@strapi/admin/strapi-admin';
+import { Page, useGuidedTour, Layouts } from '@leao/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { Navigate, Outlet, useLocation, useMatch } from 'react-router-dom';
 

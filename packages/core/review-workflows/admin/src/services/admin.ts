@@ -1,4 +1,4 @@
-import { SanitizedAdminUser } from '@strapi/admin/strapi-admin';
+import { SanitizedAdminUser } from '@leao/admin/leao-admin';
 
 import { reviewWorkflowsApi } from './api';
 

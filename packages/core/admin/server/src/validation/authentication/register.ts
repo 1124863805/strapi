@@ -1,4 +1,4 @@
-import { yup, validateYupSchema } from '@strapi/utils';
+import { yup, validateYupSchema } from '@leao/utils';
 import validators from '../common-validators';
 
 const registrationSchema = yup

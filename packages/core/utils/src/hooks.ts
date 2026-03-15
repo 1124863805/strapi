@@ -25,7 +25,7 @@ export interface AsyncBailHook extends Hook {
 }
 
 /**
- * Create a default Strapi hook
+ * Create a default Leao hook
  */
 const createHook = <T extends Handler = Handler>(): Hook<T> => {
   type State = {

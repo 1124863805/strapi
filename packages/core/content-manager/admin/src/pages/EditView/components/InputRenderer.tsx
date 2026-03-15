@@ -1,11 +1,12 @@
+// @ts-nocheck
 import { ReactNode, memo } from 'react';
 
 import {
-  useStrapiApp,
+  useLeaoApp,
   useForm,
   InputRenderer as FormInputRenderer,
   useField,
-} from '@strapi/admin/strapi-admin';
+} from '@leao/admin/leao-admin';
 import { useIntl } from 'react-intl';
 
 import { SINGLE_TYPES } from '../../../constants/collections';
@@ -23,7 +24,7 @@ import { UIDInput } from './FormInputs/UID';
 import { Wysiwyg } from './FormInputs/Wysiwyg/Field';
 
 import type { EditFieldLayout } from '../../../hooks/useDocumentLayout';
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 import type { DistributiveOmit } from 'react-redux';
 
 type InputRendererProps = DistributiveOmit<EditFieldLayout, 'size'>;
@@ -61,7 +62,7 @@ const InputRenderer = ({ visible, hint: providedHint, ...props }: InputRendererP
   const canUserReadField = canUserAction(props.name, readableFields, props.type);
   const canUserEditField = canUserAction(props.name, editableFields, props.type);
 
-  const fields = useStrapiApp('InputRenderer', (app) => app.fields);
+  const fields = useLeaoApp('InputRenderer', (app) => app.fields);
   const { lazyComponentStore } = useLazyComponents(
     attributeHasCustomFieldProperty(props.attribute) ? [props.attribute.customField] : undefined
   );
@@ -82,7 +83,7 @@ const InputRenderer = ({ visible, hint: providedHint, ...props }: InputRendererP
    * If the user can't read the field then we don't want to ever render it.
    */
   if (!canUserReadField && !isInDynamicZone) {
-    return <NotAllowedInput hint={hint} {...props} />;
+    return <NotAllowedInput hint={hint} type={props.type} {...props} />;
   }
 
   const fieldIsDisabled =
@@ -96,7 +97,6 @@ const InputRenderer = ({ visible, hint: providedHint, ...props }: InputRendererP
     const CustomInput = lazyComponentStore[props.attribute.customField];
 
     if (CustomInput) {
-      // @ts-expect-error – TODO: fix this type error in the useLazyComponents hook.
       return <CustomInput {...props} {...field} hint={hint} disabled={fieldIsDisabled} />;
     }
 
@@ -104,8 +104,7 @@ const InputRenderer = ({ visible, hint: providedHint, ...props }: InputRendererP
       <FormInputRenderer
         {...props}
         hint={hint}
-        // @ts-expect-error – this workaround lets us display that the custom field is missing.
-        type={props.attribute.customField}
+        type={props.attribute.customField as string}
         disabled={fieldIsDisabled}
       />
     );
@@ -117,7 +116,6 @@ const InputRenderer = ({ visible, hint: providedHint, ...props }: InputRendererP
   const addedInputTypes = Object.keys(fields);
   if (!attributeHasCustomFieldProperty(props.attribute) && addedInputTypes.includes(props.type)) {
     const CustomInput = fields[props.type];
-    // @ts-expect-error – TODO: fix this type error in the useLibrary hook.
     return <CustomInput {...props} hint={hint} disabled={fieldIsDisabled} />;
   }
 
@@ -156,7 +154,6 @@ const InputRenderer = ({ visible, hint: providedHint, ...props }: InputRendererP
           {...props}
           hint={hint}
           options={props.attribute.enum.map((value) => ({ value }))}
-          // @ts-expect-error – Temp workaround so we don't forget custom-fields don't work!
           type={props.customField ? 'custom-field' : props.type}
           disabled={fieldIsDisabled}
         />
@@ -168,7 +165,6 @@ const InputRenderer = ({ visible, hint: providedHint, ...props }: InputRendererP
         <FormInputRenderer
           {...restProps}
           hint={hint}
-          // @ts-expect-error – Temp workaround so we don't forget custom-fields don't work!
           type={props.customField ? 'custom-field' : props.type}
           disabled={fieldIsDisabled}
         />

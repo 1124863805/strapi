@@ -1,5 +1,5 @@
-import * as Icons from '@strapi/icons';
-import * as Symbols from '@strapi/icons/symbols';
+import * as Icons from '@leao/icons';
+import * as Symbols from '@leao/icons/symbols';
 
 export type Icon = (typeof Icons)[keyof typeof Icons] | (typeof Symbols)[keyof typeof Symbols];
 

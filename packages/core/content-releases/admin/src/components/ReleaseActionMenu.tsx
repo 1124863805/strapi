@@ -6,9 +6,9 @@ import {
   useAuth,
   useRBAC,
   isFetchError,
-} from '@strapi/admin/strapi-admin';
-import { Flex, Typography, Menu, AccessibleIcon } from '@strapi/design-system';
-import { Cross, More, Pencil } from '@strapi/icons';
+} from '@leao/admin/leao-admin';
+import { Flex, Typography, Menu, AccessibleIcon } from '@leao/design-system';
+import { Cross, More, Pencil } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';

@@ -11,7 +11,7 @@ import { Meta } from '../../../metadata';
 const knexQueryDone = Symbol('knexQueryDone');
 const knexPerformingQuery = Symbol('knexPerformingQuery');
 
-interface ReadableStrapiQueryOptions {
+interface ReadableLeaoQueryOptions {
   qb: QueryBuilder;
   uid: string;
   db: Database;
@@ -19,7 +19,7 @@ interface ReadableStrapiQueryOptions {
   batchSize?: number;
 }
 
-class ReadableStrapiQuery extends Readable {
+class ReadableLeaoQuery extends Readable {
   _offset: number;
 
   _limit: number | null;
@@ -42,7 +42,7 @@ class ReadableStrapiQuery extends Readable {
 
   [knexPerformingQuery]: boolean;
 
-  constructor({ qb, db, uid, mapResults = true, batchSize = 500 }: ReadableStrapiQueryOptions) {
+  constructor({ qb, db, uid, mapResults = true, batchSize = 500 }: ReadableLeaoQueryOptions) {
     super({ objectMode: true, highWaterMark: batchSize });
 
     // Extract offset & limit from the query-builder's state
@@ -193,4 +193,4 @@ class ReadableStrapiQuery extends Readable {
   }
 }
 
-export default ReadableStrapiQuery;
+export default ReadableLeaoQuery;

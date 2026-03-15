@@ -1,5 +1,5 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 declare global {
-  const strapi: Core.Strapi;
+  const leao: Core.Leao;
 }

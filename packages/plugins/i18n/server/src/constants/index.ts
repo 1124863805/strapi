@@ -5,14 +5,14 @@ import isoLocales from './iso-locales.json';
  * @returns {string}
  */
 const getInitLocale = () => {
-  const envLocaleCode = process.env.STRAPI_PLUGIN_I18N_INIT_LOCALE_CODE;
+  const envLocaleCode = process.env.LEAO_PLUGIN_I18N_INIT_LOCALE_CODE;
 
   if (envLocaleCode) {
     const matchingLocale = isoLocales.find(({ code }) => code === envLocaleCode);
 
     if (!matchingLocale) {
       throw new Error(
-        'Unknown locale code provided in the environment variable STRAPI_PLUGIN_I18N_INIT_LOCALE_CODE'
+        'Unknown locale code provided in the environment variable LEAO_PLUGIN_I18N_INIT_LOCALE_CODE'
       );
     }
 

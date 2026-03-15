@@ -1,5 +1,5 @@
-import { Field, MultiSelect, MultiSelectOption } from '@strapi/design-system';
-import { Loader as LoadingIcon } from '@strapi/icons';
+import { Field, MultiSelect, MultiSelectOption } from '@leao/design-system';
+import { Loader as LoadingIcon } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import { styled, keyframes } from 'styled-components';
 

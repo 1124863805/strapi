@@ -2,22 +2,22 @@ import { defineProvider } from './provider';
 import loadAdmin from '../loaders/admin';
 
 export default defineProvider({
-  init(strapi) {
+  init(leao) {
     // eslint-disable-next-line node/no-missing-require
-    strapi.add('admin', () => require('@strapi/admin/strapi-server'));
+    leao.add('admin', () => require('@leao/admin/leao-server'));
   },
 
-  async register(strapi) {
-    await loadAdmin(strapi);
+  async register(leao) {
+    await loadAdmin(leao);
 
-    await strapi.get('admin')?.register({ strapi });
+    await leao.get('admin')?.register({ leao });
   },
 
-  async bootstrap(strapi) {
-    await strapi.get('admin')?.bootstrap({ strapi });
+  async bootstrap(leao) {
+    await leao.get('admin')?.bootstrap({ leao });
   },
 
-  async destroy(strapi) {
-    await strapi.get('admin')?.destroy({ strapi });
+  async destroy(leao) {
+    await leao.get('admin')?.destroy({ leao });
   },
 });

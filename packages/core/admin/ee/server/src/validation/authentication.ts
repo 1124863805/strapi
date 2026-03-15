@@ -1,9 +1,9 @@
-import { yup, validateYupSchema } from '@strapi/utils';
+import { yup, validateYupSchema } from '@leao/utils';
 
 const providerOptionsUpdateSchema = yup.object().shape({
   autoRegister: yup.boolean().required(),
   defaultRole: yup
-    .strapiID()
+    .leaoID()
     .when('autoRegister', (value, initSchema) => {
       return value ? initSchema.required() : initSchema.nullable();
     })
@@ -11,19 +11,19 @@ const providerOptionsUpdateSchema = yup.object().shape({
       if (roleId === null) {
         return true;
       }
-      return strapi.service('admin::role').exists({ id: roleId });
+      return leao.service('admin::role').exists({ id: roleId });
     }),
   ssoLockedRoles: yup
     .array()
     .nullable()
     .of(
       yup
-        .strapiID()
+        .leaoID()
         .test(
           'is-valid-role',
           'You must submit a valid role for the SSO Locked roles',
           (roleId) => {
-            return strapi.service('admin::role').exists({ id: roleId });
+            return leao.service('admin::role').exists({ id: roleId });
           }
         )
     ),

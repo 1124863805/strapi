@@ -13,7 +13,7 @@ import { Theme } from '../../components/Theme';
 import { Permission } from '../../features/Auth';
 import { NotFoundPage } from '../../pages/NotFoundPage';
 import { getImmutableRoutes } from '../../router';
-import { StrapiApp } from '../../StrapiApp';
+import { LeaoApp } from '../../LeaoApp';
 
 type IRouter = ReturnType<typeof createBrowserRouter> | ReturnType<typeof createMemoryRouter>;
 
@@ -31,20 +31,20 @@ interface MenuItem {
   eeOnly?: boolean;
 }
 
-interface StrapiAppSettingLink extends Omit<MenuItem, 'icon' | 'notificationCount'> {
+interface LeaoAppSettingLink extends Omit<MenuItem, 'icon' | 'notificationCount'> {
   id: string;
 }
 
-interface UnloadedSettingsLink extends Omit<StrapiAppSettingLink, 'Component'> {
+interface UnloadedSettingsLink extends Omit<LeaoAppSettingLink, 'Component'> {
   Component?: () => Promise<{ default: React.ComponentType }>;
 }
 
-interface StrapiAppSetting {
+interface LeaoAppSetting {
   id: string;
   intlLabel: MessageDescriptor & {
     values?: Record<string, PrimitiveType>;
   };
-  links: Omit<StrapiAppSettingLink, 'Component'>[];
+  links: Omit<LeaoAppSettingLink, 'Component'>[];
 }
 
 interface RouterOptions {
@@ -56,7 +56,7 @@ class Router {
   private _routes: RouteObject[] = [];
   private router: IRouter | null = null;
   private _menu: Omit<MenuItem, 'Component'>[] = [];
-  private _settings: Record<string, StrapiAppSetting> = {
+  private _settings: Record<string, LeaoAppSetting> = {
     global: {
       id: 'global',
       intlLabel: {
@@ -84,23 +84,23 @@ class Router {
   }
 
   /**
-   * @internal This method is used internally by Strapi to create the router.
+   * @internal This method is used internally by Leao to create the router.
    * It should not be used by plugins, doing so will likely break the application.
    */
-  createRouter(strapi: StrapiApp, { memory, ...opts }: RouterOptions = {}) {
+  createRouter(leao: LeaoApp, { memory, ...opts }: RouterOptions = {}) {
     const routes = [
       {
         path: '/*',
         errorElement: (
-          <Provider store={strapi.store!}>
-            <LanguageProvider messages={strapi.configurations.translations}>
-              <Theme themes={strapi.configurations.themes}>
+          <Provider store={leao.store!}>
+            <LanguageProvider messages={leao.configurations.translations}>
+              <Theme themes={leao.configurations.themes}>
                 <ErrorElement />
               </Theme>
             </LanguageProvider>
           </Provider>
         ),
-        element: <App strapi={strapi} store={strapi.store!} />,
+        element: <App leao={leao} store={leao.store!} />,
         children: [
           ...getImmutableRoutes(),
           {
@@ -170,7 +170,7 @@ class Router {
 
     if (link.to.startsWith('/')) {
       console.warn(
-        `[${link.intlLabel.defaultMessage}]: the \`to\` property of your menu link is an absolute path, it should be relative to the root of the application. This has been corrected for you but will be removed in a future version of Strapi.`
+        `[${link.intlLabel.defaultMessage}]: the \`to\` property of your menu link is an absolute path, it should be relative to the root of the application. This has been corrected for you but will be removed in a future version of Leao.`
       );
 
       link.to = link.to.slice(1);
@@ -197,22 +197,22 @@ class Router {
   };
 
   public addSettingsLink(
-    section: Pick<StrapiAppSetting, 'id' | 'intlLabel'> & { links: UnloadedSettingsLink[] },
+    section: Pick<LeaoAppSetting, 'id' | 'intlLabel'> & { links: UnloadedSettingsLink[] },
     links?: never
   ): void;
   public addSettingsLink(
-    sectionId: string | Pick<StrapiAppSetting, 'id' | 'intlLabel'>,
+    sectionId: string | Pick<LeaoAppSetting, 'id' | 'intlLabel'>,
     link: UnloadedSettingsLink
   ): void;
   public addSettingsLink(
-    sectionId: string | Pick<StrapiAppSetting, 'id' | 'intlLabel'>,
+    sectionId: string | Pick<LeaoAppSetting, 'id' | 'intlLabel'>,
     link: UnloadedSettingsLink[]
   ): void;
   public addSettingsLink(
     section:
       | string
-      | Pick<StrapiAppSetting, 'id' | 'intlLabel'>
-      | (Pick<StrapiAppSetting, 'id' | 'intlLabel'> & { links: UnloadedSettingsLink[] }),
+      | Pick<LeaoAppSetting, 'id' | 'intlLabel'>
+      | (Pick<LeaoAppSetting, 'id' | 'intlLabel'> & { links: UnloadedSettingsLink[] }),
     link?: UnloadedSettingsLink | UnloadedSettingsLink[]
   ): void {
     if (typeof section === 'object' && 'links' in section) {
@@ -293,7 +293,7 @@ class Router {
 
     if (link.to.startsWith('/')) {
       console.warn(
-        `[${link.intlLabel.defaultMessage}]: the \`to\` property of your settings link is an absolute path. It should be relative to \`/settings\`. This has been corrected for you but will be removed in a future version of Strapi.`
+        `[${link.intlLabel.defaultMessage}]: the \`to\` property of your settings link is an absolute path. It should be relative to \`/settings\`. This has been corrected for you but will be removed in a future version of Leao.`
       );
 
       link.to = link.to.slice(1);
@@ -301,7 +301,7 @@ class Router {
 
     if (link.to.split('/')[0] === 'settings') {
       console.warn(
-        `[${link.intlLabel.defaultMessage}]: the \`to\` property of your settings link has \`settings\` as the first part of it's path. It should be relative to \`settings\` and therefore, not include it. This has been corrected for you but will be removed in a future version of Strapi.`
+        `[${link.intlLabel.defaultMessage}]: the \`to\` property of your settings link has \`settings\` as the first part of it's path. It should be relative to \`settings\` and therefore, not include it. This has been corrected for you but will be removed in a future version of Leao.`
       );
 
       link.to = link.to.split('/').slice(1).join('/');
@@ -389,4 +389,4 @@ const getPrintableType = (value: unknown): string => {
 };
 
 export { Router };
-export type { MenuItem, StrapiAppSettingLink, UnloadedSettingsLink, StrapiAppSetting, RouteObject };
+export type { MenuItem, LeaoAppSettingLink, UnloadedSettingsLink, LeaoAppSetting, RouteObject };

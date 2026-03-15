@@ -1,12 +1,12 @@
 import { unionType } from 'nexus';
-import type { Struct } from '@strapi/types';
+import type { Struct } from '@leao/types';
 import type { Context } from '../../types';
 
 const registerPolymorphicContentType = (
   contentType: Struct.Schema,
-  { registry, strapi }: Context
+  { registry, leao }: Context
 ) => {
-  const { service: getService } = strapi.plugin('graphql');
+  const { service: getService } = leao.plugin('graphql');
 
   const {
     naming,
@@ -34,7 +34,7 @@ const registerPolymorphicContentType = (
     // Transform target UIDs into types names
     const members = target
       // Get content types definitions
-      .map((uid) => strapi.getModel(uid))
+      .map((uid) => leao.getModel(uid))
       // Resolve types names
       .map((contentType) => naming.getTypeName(contentType));
 
@@ -46,7 +46,7 @@ const registerPolymorphicContentType = (
         name,
 
         resolveType(obj) {
-          const contentType = strapi.getModel(obj.__type);
+          const contentType = leao.getModel(obj.__type);
 
           if (!contentType) {
             return null;

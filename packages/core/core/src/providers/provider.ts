@@ -1,10 +1,10 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 export type Provider = {
-  init?: (strapi: Core.Strapi) => void;
-  register?: (strapi: Core.Strapi) => Promise<void>;
-  bootstrap?: (strapi: Core.Strapi) => Promise<void>;
-  destroy?: (strapi: Core.Strapi) => Promise<void>;
+  init?: (leao: Core.Leao) => void;
+  register?: (leao: Core.Leao) => Promise<void>;
+  bootstrap?: (leao: Core.Leao) => Promise<void>;
+  destroy?: (leao: Core.Leao) => Promise<void>;
 };
 
 export const defineProvider = (provider: Provider) => provider;

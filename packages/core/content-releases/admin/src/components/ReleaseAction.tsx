@@ -6,7 +6,7 @@ import {
   useQueryParams,
   useRBAC,
   isFetchError,
-} from '@strapi/admin/strapi-admin';
+} from '@leao/admin/leao-admin';
 import {
   Box,
   Button,
@@ -15,8 +15,8 @@ import {
   SingleSelectOption,
   Modal,
   Field,
-} from '@strapi/design-system';
-import { UID } from '@strapi/types';
+} from '@leao/design-system';
+import { UID } from '@leao/types';
 import { Formik, Form } from 'formik';
 import { useIntl } from 'react-intl';
 
@@ -32,7 +32,7 @@ import {
 } from './ReleaseActionModal';
 import { ReleaseActionOptions } from './ReleaseActionOptions';
 
-import type { BulkActionComponent } from '@strapi/content-manager/strapi-admin';
+import type { BulkActionComponent } from '@leao/content-manager/leao-admin';
 
 const getContentPermissions = (subject: string) => {
   const permissions = {

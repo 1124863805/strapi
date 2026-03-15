@@ -1,22 +1,22 @@
 import _ from 'lodash';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 import validateLocaleCreation from './controllers/validate-locale-creation';
 import graphqlProvider from './graphql';
 import { getService } from './utils';
 
-export default ({ strapi }: { strapi: Core.Strapi }) => {
-  extendContentTypes(strapi);
-  addContentManagerLocaleMiddleware(strapi);
+export default ({ leao }: { leao: Core.Leao }) => {
+  extendContentTypes(leao);
+  addContentManagerLocaleMiddleware(leao);
 };
 
 // TODO: v5 if implemented in the CM => delete this middleware
 /**
  * Adds middleware on CM creation routes to use i18n locale passed in a specific param
- * @param {Strapi} strapi
+ * @param {Leao} leao
  */
-const addContentManagerLocaleMiddleware = (strapi: Core.Strapi) => {
-  strapi.server.router.use('/content-manager/collection-types/:model', (ctx, next) => {
+const addContentManagerLocaleMiddleware = (leao: Core.Leao) => {
+  leao.server.router.use('/content-manager/collection-types/:model', (ctx, next) => {
     if (ctx.method === 'POST' || ctx.method === 'PUT') {
       return validateLocaleCreation(ctx, next);
     }
@@ -24,7 +24,7 @@ const addContentManagerLocaleMiddleware = (strapi: Core.Strapi) => {
     return next();
   });
 
-  strapi.server.router.use('/content-manager/single-types/:model', (ctx, next) => {
+  leao.server.router.use('/content-manager/single-types/:model', (ctx, next) => {
     if (ctx.method === 'POST' || ctx.method === 'PUT') {
       return validateLocaleCreation(ctx, next);
     }
@@ -36,12 +36,12 @@ const addContentManagerLocaleMiddleware = (strapi: Core.Strapi) => {
 /**
  * Adds locale and localization fields to all content types
  * Even if content type is not localized, it will have these fields
- * @param {Strapi} strapi
+ * @param {Leao} leao
  */
-const extendContentTypes = (strapi: Core.Strapi) => {
+const extendContentTypes = (leao: Core.Leao) => {
   const { isLocalizedContentType } = getService('content-types');
 
-  Object.values(strapi.contentTypes).forEach((contentType) => {
+  Object.values(leao.contentTypes).forEach((contentType) => {
     const { attributes } = contentType;
 
     const isLocalized = isLocalizedContentType(contentType);
@@ -66,7 +66,7 @@ const extendContentTypes = (strapi: Core.Strapi) => {
       joinColumn: {
         name: 'document_id',
         referencedColumn: 'document_id',
-        referencedTable: strapi.db.metadata.identifiers.getTableName(contentType.collectionName!),
+        referencedTable: leao.db.metadata.identifiers.getTableName(contentType.collectionName!),
         // ensure the population will not include the results we already loaded
         on({ results }: { results: any[] }) {
           return {
@@ -79,8 +79,8 @@ const extendContentTypes = (strapi: Core.Strapi) => {
     });
   });
 
-  if (strapi.plugin('graphql')) {
+  if (leao.plugin('graphql')) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    graphqlProvider({ strapi }).register();
+    graphqlProvider({ leao }).register();
   }
 };

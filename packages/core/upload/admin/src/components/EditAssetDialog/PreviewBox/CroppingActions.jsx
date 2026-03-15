@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Flex, FocusTrap, IconButton, Menu } from '@strapi/design-system';
-import { Check, Cross } from '@strapi/icons';
+import { Flex, FocusTrap, IconButton, Menu } from '@leao/design-system';
+import { Check, Cross } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled, useTheme } from 'styled-components';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box } from '@strapi/design-system';
+import { Box } from '@leao/design-system';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';

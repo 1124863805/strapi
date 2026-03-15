@@ -7,7 +7,7 @@ import { getPrefixedId } from '../utils/getPrefixedId';
 import { NormalizeErrorOptions, normalizeAPIError } from '../utils/normalizeAPIError';
 import { setIn } from '../utils/objects';
 
-import type { errors } from '@strapi/utils';
+import type { errors } from '@leao/utils';
 
 type ApiError =
   | errors.ApplicationError
@@ -92,7 +92,7 @@ that has been thrown.
  * @example
  * ```tsx
  * import * as React from 'react';
- * import { useFetchClient, useAPIErrorHandler, useNotification } from '@strapi/admin/admin';
+ * import { useFetchClient, useAPIErrorHandler, useNotification } from '@leao/admin/admin';
  *
  * const MyComponent = () => {
  *   const { get } = useFetchClient();

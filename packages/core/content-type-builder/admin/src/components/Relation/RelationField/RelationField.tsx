@@ -1,4 +1,4 @@
-import { Box, Divider, Flex, Typography } from '@strapi/design-system';
+import { Box, Divider, Flex, Typography } from '@leao/design-system';
 
 import { getTrad } from '../../../utils/getTrad';
 import { GenericInput } from '../../GenericInputs';

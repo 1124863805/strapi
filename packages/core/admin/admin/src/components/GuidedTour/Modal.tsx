@@ -10,8 +10,8 @@ import {
   Portal,
   Typography,
   LinkButton,
-} from '@strapi/design-system';
-import { ArrowRight, Cross } from '@strapi/icons';
+} from '@leao/design-system';
+import { ArrowRight, Cross } from '@leao/icons';
 import get from 'lodash/get';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';

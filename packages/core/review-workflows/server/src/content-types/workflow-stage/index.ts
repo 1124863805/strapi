@@ -2,7 +2,7 @@ import { STAGE_DEFAULT_COLOR } from '../../constants/workflows';
 
 export default {
   schema: {
-    collectionName: 'strapi_workflows_stages',
+    collectionName: 'leao_workflows_stages',
     info: {
       name: 'Workflow Stage',
       description: '',

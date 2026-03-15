@@ -1,13 +1,13 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 import { createAPI } from './api';
 
-const createContentAPI = (strapi: Core.Strapi) => {
+const createContentAPI = (leao: Core.Leao) => {
   const opts = {
-    prefix: strapi.config.get('api.rest.prefix', '/api'),
+    prefix: leao.config.get('api.rest.prefix', '/api'),
     type: 'content-api',
   };
 
-  return createAPI(strapi, opts);
+  return createAPI(leao, opts);
 };
 
 export { createContentAPI };

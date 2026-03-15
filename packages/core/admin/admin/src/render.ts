@@ -1,19 +1,19 @@
 /* eslint-disable no-undef */
 import { createRoot } from 'react-dom/client';
 
-import { StrapiApp, StrapiAppConstructorArgs } from './StrapiApp';
+import { LeaoApp, LeaoAppConstructorArgs } from './LeaoApp';
 import { getFetchClient } from './utils/getFetchClient';
 import { createAbsoluteUrl } from './utils/urls';
 
-import type { Modules } from '@strapi/types';
+import type { Modules } from '@leao/types';
 
 interface RenderAdminArgs {
   customisations: {
-    register?: (app: StrapiApp) => Promise<void> | void;
-    bootstrap?: (app: StrapiApp) => Promise<void> | void;
-    config?: StrapiAppConstructorArgs['config'];
+    register?: (app: LeaoApp) => Promise<void> | void;
+    bootstrap?: (app: LeaoApp) => Promise<void> | void;
+    config?: LeaoAppConstructorArgs['config'];
   };
-  plugins: StrapiAppConstructorArgs['appPlugins'];
+  plugins: LeaoAppConstructorArgs['appPlugins'];
   features?: Modules.Features.FeaturesService['config'];
 }
 
@@ -22,19 +22,19 @@ const renderAdmin = async (
   { plugins, customisations, features }: RenderAdminArgs
 ) => {
   if (!mountNode) {
-    throw new Error('[@strapi/admin]: Could not find the root element to mount the admin app');
+    throw new Error('[@leao/admin]: Could not find the root element to mount the admin app');
   }
 
-  window.strapi = {
+  window.leao = {
     /**
-     * This ENV variable is passed from the strapi instance, by default no url is set
+     * This ENV variable is passed from the leao instance, by default no url is set
      * in the config and therefore the instance returns you an empty string so URLs are relative.
      *
      * To ensure that the backendURL is always set, we use the window.location.origin as a fallback.
      */
-    backendURL: createAbsoluteUrl(process.env.STRAPI_ADMIN_BACKEND_URL),
+    backendURL: createAbsoluteUrl(process.env.LEAO_ADMIN_BACKEND_URL),
     isEE: false,
-    telemetryDisabled: process.env.STRAPI_TELEMETRY_DISABLED === 'true',
+    telemetryDisabled: process.env.LEAO_TELEMETRY_DISABLED === 'true',
     future: {
       isEnabled: (name: keyof NonNullable<Modules.Features.FeaturesConfig['future']>) => {
         return features?.future?.[name] === true;
@@ -60,7 +60,7 @@ const renderAdmin = async (
 
   const { get } = getFetchClient();
 
-  interface ProjectType extends Pick<Window['strapi'], 'flags'> {
+  interface ProjectType extends Pick<Window['leao'], 'flags'> {
     isEE: boolean;
     features: {
       name: string;
@@ -74,13 +74,13 @@ const renderAdmin = async (
       },
     } = await get<{ data: ProjectType }>('/admin/project-type');
 
-    window.strapi.isEE = isEE;
-    window.strapi.flags = flags;
-    window.strapi.features = {
-      ...window.strapi.features,
+    window.leao.isEE = isEE;
+    window.leao.flags = flags;
+    window.leao.features = {
+      ...window.leao.features,
       isEnabled: (featureName) => features.some((feature) => feature.name === featureName),
     };
-    window.strapi.projectType = isEE ? 'Enterprise' : 'Community';
+    window.leao.projectType = isEE ? 'Enterprise' : 'Community';
   } catch (err) {
     /**
      * If this fails, we simply don't activate any EE features.
@@ -89,7 +89,7 @@ const renderAdmin = async (
     console.error(err);
   }
 
-  const app = new StrapiApp({
+  const app = new LeaoApp({
     config: customisations?.config,
     appPlugins: plugins,
   });

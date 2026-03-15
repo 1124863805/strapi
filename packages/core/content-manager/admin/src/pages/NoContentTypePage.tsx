@@ -1,7 +1,7 @@
-import { Page, Layouts } from '@strapi/admin/strapi-admin';
-import { EmptyStateLayout, LinkButton } from '@strapi/design-system';
-import { Plus } from '@strapi/icons';
-import { EmptyDocuments } from '@strapi/icons/symbols';
+import { Page, Layouts } from '@leao/admin/leao-admin';
+import { EmptyStateLayout, LinkButton } from '@leao/design-system';
+import { Plus } from '@leao/icons';
+import { EmptyDocuments } from '@leao/icons/symbols';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 

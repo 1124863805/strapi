@@ -1,26 +1,26 @@
 {
-  "name": "@strapi/core",
+  "name": "@leao/core",
   "version": "5.0.6",
-  "description": "Core of Strapi",
-  "homepage": "https://strapi.io",
+  "description": "Core of Leao",
+  "homepage": "https://leao.io",
   "bugs": {
-    "url": "https://github.com/strapi/strapi/issues"
+    "url": "https://github.com/leao/leao/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/strapi/strapi.git"
+    "url": "git://github.com/leao/leao.git"
   },
   "license": "UNLICENSED",
   "author": {
-    "name": "Strapi Solutions SAS",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "exports": {
@@ -51,16 +51,16 @@
   "dependencies": {
     "@koa/cors": "5.0.0",
     "@koa/router": "12.0.2",
+    "@leao/admin": "workspace:*",
+    "@leao/database": "workspace:*",
+    "@leao/generators": "workspace:*",
+    "@leao/logger": "workspace:*",
+    "@leao/pack-up": "workspace:*",
+    "@leao/permissions": "workspace:*",
+    "@leao/types": "workspace:*",
+    "@leao/typescript-utils": "workspace:*",
+    "@leao/utils": "workspace:*",
     "@paralleldrive/cuid2": "2.2.2",
-    "@strapi/admin": "workspace:*",
-    "@strapi/database": "workspace:*",
-    "@strapi/generators": "workspace:*",
-    "@strapi/logger": "workspace:*",
-    "@strapi/pack-up": "5.0.0",
-    "@strapi/permissions": "workspace:*",
-    "@strapi/types": "workspace:*",
-    "@strapi/typescript-utils": "workspace:*",
-    "@strapi/utils": "workspace:*",
     "bcryptjs": "2.4.3",
     "boxen": "5.1.2",
     "chalk": "4.1.2",
@@ -104,8 +104,7 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@strapi/pack-up": "5.0.0",
-    "@strapi/ts-zen": "^0.2.0",
+    "@leao/pack-up": "workspace:*",
     "@types/bcryptjs": "2.4.3",
     "@types/configstore": "5.0.1",
     "@types/delegates": "1.0.0",

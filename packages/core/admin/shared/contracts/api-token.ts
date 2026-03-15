@@ -1,5 +1,5 @@
-import { errors } from '@strapi/utils';
-import type { Data } from '@strapi/types';
+import { errors } from '@leao/utils';
+import type { Data } from '@leao/types';
 
 export type ApiToken = {
   accessKey: string;

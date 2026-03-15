@@ -1,29 +1,29 @@
 {
-  "name": "@strapi/types",
+  "name": "@leao/types",
   "version": "5.0.6",
-  "description": "Shared typescript types for Strapi internal use",
+  "description": "Shared typescript types for Leao internal use",
   "keywords": [
-    "strapi"
+    "leao"
   ],
-  "homepage": "https://strapi.io",
+  "homepage": "https://leao.io",
   "bugs": {
-    "url": "https://github.com/strapi/strapi/issues"
+    "url": "https://github.com/leao/leao/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/strapi/strapi.git"
+    "url": "git://github.com/leao/leao.git"
   },
   "license": "UNLICENSED",
   "author": {
-    "name": "Strapi Solutions SAS",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "main": "./dist/index.js",
@@ -43,18 +43,17 @@
     "@casl/ability": "6.5.0",
     "@koa/cors": "5.0.0",
     "@koa/router": "12.0.2",
-    "@strapi/database": "workspace:*",
-    "@strapi/logger": "workspace:*",
-    "@strapi/permissions": "workspace:*",
-    "@strapi/utils": "workspace:*",
+    "@leao/database": "workspace:*",
+    "@leao/logger": "workspace:*",
+    "@leao/permissions": "workspace:*",
+    "@leao/utils": "workspace:*",
     "commander": "8.3.0",
     "koa": "2.15.2",
     "koa-body": "6.0.1",
     "node-schedule": "2.1.1"
   },
   "devDependencies": {
-    "@strapi/pack-up": "5.0.0",
-    "@strapi/ts-zen": "^0.2.0",
+    "@leao/pack-up": "workspace:*",
     "@types/koa": "2.13.4",
     "@types/koa__router": "12.0.0",
     "@types/node-schedule": "2.1.7",

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Grid, KeyboardNavigable, Typography } from '@strapi/design-system';
+import { Box, Grid, KeyboardNavigable, Typography } from '@leao/design-system';
 import PropTypes from 'prop-types';
 
 import { AssetCard } from '../AssetCard/AssetCard';

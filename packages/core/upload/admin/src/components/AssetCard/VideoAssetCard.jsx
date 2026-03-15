@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Box, CardAsset, CardTimer } from '@strapi/design-system';
+import { Box, CardAsset, CardTimer } from '@leao/design-system';
 import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 

@@ -1,14 +1,14 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 export const getAdminService = (
   name: string,
-  { strapi }: { strapi: Core.Strapi } = { strapi: global.strapi }
+  { leao }: { leao: Core.Leao } = { leao: global.leao }
 ) => {
-  return strapi.service(`admin::${name}`);
+  return leao.service(`admin::${name}`);
 };
 
-export const getService = (name: string, { strapi } = { strapi: global.strapi }) => {
-  return strapi.plugin('review-workflows').service(name);
+export const getService = (name: string, { leao } = { leao: global.leao }) => {
+  return leao.plugin('review-workflows').service(name);
 };
 
 export default {

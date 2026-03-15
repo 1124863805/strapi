@@ -10,8 +10,8 @@ import {
   Portal,
   Field,
   VisuallyHidden,
-} from '@strapi/design-system';
-import { Cross } from '@strapi/icons';
+} from '@leao/design-system';
+import { Cross } from '@leao/icons';
 import { Formik, Form } from 'formik';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
@@ -70,7 +70,7 @@ const checkIfShouldShowSurvey = (settings: NpsSurveySettings) => {
   const { enabled, lastResponseDate, firstDismissalDate, lastDismissalDate } = settings;
 
   // This function goes through all the cases where we'd want to not show the survey:
-  // 1. If the survey is disabled by strapi, abort mission, don't bother checking the other settings.
+  // 1. If the survey is disabled by leao, abort mission, don't bother checking the other settings.
   // 2. If the survey is disabled by user, abort mission, don't bother checking the other settings.
   // 3. If the user has already responded to the survey, check if enough time has passed since the last response.
   // 4. If the user has dismissed the survey twice or more before, check if enough time has passed since the last dismissal.
@@ -82,8 +82,8 @@ const checkIfShouldShowSurvey = (settings: NpsSurveySettings) => {
   // For users who had created an account before the NPS feature was introduced,
   // we assume that they would have enabled the NPS feature if they had the chance.
 
-  // Global strapi disable for NSP.
-  if (window.strapi.flags.nps === false) {
+  // Global leao disable for NSP.
+  if (window.leao.flags.nps === false) {
     return false;
   }
 
@@ -135,7 +135,7 @@ const NpsSurvey = () => {
   const [isFeedbackResponse, setIsFeedbackResponse] = React.useState(false);
   const { toggleNotification } = useNotification();
   const currentEnvironment = useAppInfo('NpsSurvey', (state) => state.currentEnvironment);
-  const strapiVersion = useAppInfo('NpsSurvey', (state) => state.strapiVersion);
+  const leaoVersion = useAppInfo('NpsSurvey', (state) => state.leaoVersion);
 
   interface NpsSurveyMutationBody {
     email: string;
@@ -264,7 +264,7 @@ const NpsSurvey = () => {
                         {formatMessage({
                           id: 'app.components.NpsSurvey.banner-title',
                           defaultMessage:
-                            'How likely are you to recommend Strapi to a friend or colleague?',
+                            'How likely are you to recommend Leao to a friend or colleague?',
                         })}
                       </Typography>
                     </Box>
@@ -371,7 +371,7 @@ interface NpsSurveySettings {
  */
 function useNpsSurveySettings() {
   const [npsSurveySettings, setNpsSurveySettings] = usePersistentState<NpsSurveySettings>(
-    'STRAPI_NPS_SURVEY_SETTINGS',
+    'LEAO_NPS_SURVEY_SETTINGS',
     {
       enabled: true,
       lastResponseDate: null,

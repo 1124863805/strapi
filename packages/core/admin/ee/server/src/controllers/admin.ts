@@ -4,16 +4,16 @@ import { getService } from '../utils';
 export default {
   // NOTE: Overrides CE admin controller
   async getProjectType() {
-    const flags = strapi.config.get('admin.flags', {});
+    const flags = leao.config.get('admin.flags', {});
     try {
-      return { data: { isEE: strapi.EE, features: strapi.ee.features.list(), flags } };
+      return { data: { isEE: leao.EE, features: leao.ee.features.list(), flags } };
     } catch (err) {
       return { data: { isEE: false, features: [], flags } };
     }
   },
 
   async getEEInfo() {
-    const permittedSeats = strapi.ee.seats;
+    const permittedSeats = leao.ee.seats;
     const currentActiveUserCount = await getService('user').getCurrentActiveUserCount();
     const eeDisabledUsers = await getService('seat-enforcement').getDisabledUserList();
     const enforcementUserCount = eeDisabledUsers
@@ -27,7 +27,7 @@ export default {
       permittedSeats,
       shouldNotify,
       shouldStopCreate: isNil(permittedSeats) ? false : currentActiveUserCount >= permittedSeats,
-      features: strapi.ee.features.list() ?? [],
+      features: leao.ee.features.list() ?? [],
     };
 
     return { data };

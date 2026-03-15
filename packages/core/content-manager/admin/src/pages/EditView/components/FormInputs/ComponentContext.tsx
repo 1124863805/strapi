@@ -1,4 +1,4 @@
-import { createContext } from '@strapi/admin/strapi-admin';
+import { createContext } from '@leao/admin/leao-admin';
 
 interface ComponentContextValue {
   /**

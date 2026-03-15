@@ -2,16 +2,16 @@
  * Webhook store is the implementation of webhook storage over the core_store
  */
 
-import { errors } from '@strapi/utils';
-import type { Model, Database } from '@strapi/database';
-import type { Modules } from '@strapi/types';
+import { errors } from '@leao/utils';
+import type { Model, Database } from '@leao/database';
+import type { Modules } from '@leao/types';
 
 const { ValidationError } = errors;
 
 const webhookModel: Model = {
-  uid: 'strapi::webhook',
-  singularName: 'strapi_webhooks',
-  tableName: 'strapi_webhooks',
+  uid: 'leao::webhook',
+  singularName: 'leao_webhooks',
+  tableName: 'leao_webhooks',
   attributes: {
     id: {
       type: 'increments',
@@ -107,19 +107,19 @@ const createWebhookStore = ({ db }: { db: Database }): WebhookStore => {
       return this.allowedEvents.get(key);
     },
     async findWebhooks() {
-      const results = await db.query('strapi::webhook').findMany();
+      const results = await db.query('leao::webhook').findMany();
 
       return results.map(fromDBObject);
     },
     async findWebhook(id) {
-      const result = await db.query('strapi::webhook').findOne({ where: { id } });
+      const result = await db.query('leao::webhook').findOne({ where: { id } });
       return result ? fromDBObject(result) : null;
     },
     async createWebhook(data) {
       await webhookEventValidator(this.allowedEvents, data.events);
 
       return db
-        .query('strapi::webhook')
+        .query('leao::webhook')
         .create({
           data: toDBObject({ ...data, isEnabled: true }),
         })
@@ -128,7 +128,7 @@ const createWebhookStore = ({ db }: { db: Database }): WebhookStore => {
     async updateWebhook(id, data) {
       await webhookEventValidator(this.allowedEvents, data.events);
 
-      const webhook = await db.query('strapi::webhook').update({
+      const webhook = await db.query('leao::webhook').update({
         where: { id },
         data: toDBObject(data),
       });
@@ -136,7 +136,7 @@ const createWebhookStore = ({ db }: { db: Database }): WebhookStore => {
       return webhook ? fromDBObject(webhook) : null;
     },
     async deleteWebhook(id) {
-      const webhook = await db.query('strapi::webhook').delete({ where: { id } });
+      const webhook = await db.query('leao::webhook').delete({ where: { id } });
       return webhook ? fromDBObject(webhook) : null;
     },
   };

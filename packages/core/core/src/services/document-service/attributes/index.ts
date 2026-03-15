@@ -1,6 +1,6 @@
 import { curry } from 'lodash/fp';
 
-import type { UID, Modules, Schema } from '@strapi/types';
+import type { UID, Modules, Schema } from '@leao/types';
 
 import transforms from './transforms';
 

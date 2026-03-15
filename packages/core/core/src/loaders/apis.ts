@@ -1,9 +1,9 @@
 import { join, extname, basename } from 'path';
 import fse, { existsSync } from 'fs-extra';
 import _ from 'lodash';
-import { strings, importDefault } from '@strapi/utils';
+import { strings, importDefault } from '@leao/utils';
 import { isEmpty } from 'lodash/fp';
-import type { Core, Struct } from '@strapi/types';
+import type { Core, Struct } from '@leao/types';
 import { getGlobalId, type ContentTypeDefinition } from '../domain/content-type';
 
 interface API {
@@ -35,12 +35,12 @@ const normalizeName = (name: string) => (strings.isKebabCase(name) ? name : _.ke
 const isDirectory = (fd: fse.Dirent) => fd.isDirectory();
 const isDotFile = (fd: fse.Dirent) => fd.name.startsWith('.');
 
-export default async function loadAPIs(strapi: Core.Strapi) {
-  if (!existsSync(strapi.dirs.dist.api)) {
+export default async function loadAPIs(leao: Core.Leao) {
+  if (!existsSync(leao.dirs.dist.api)) {
     return;
   }
 
-  const apisFDs = await (await fse.readdir(strapi.dirs.dist.api, { withFileTypes: true }))
+  const apisFDs = await (await fse.readdir(leao.dirs.dist.api, { withFileTypes: true }))
     .filter(isDirectory)
     .filter(_.negate(isDotFile));
 
@@ -49,7 +49,7 @@ export default async function loadAPIs(strapi: Core.Strapi) {
   // only load folders
   for (const apiFD of apisFDs) {
     const apiName = normalizeName(apiFD.name);
-    const api = await loadAPI(apiName, join(strapi.dirs.dist.api, apiFD.name));
+    const api = await loadAPI(apiName, join(leao.dirs.dist.api, apiFD.name));
 
     // @ts-expect-error TODO verify that it's a valid api, not missing bootstrap, register, and destroy
     apis[apiName] = api;
@@ -58,7 +58,7 @@ export default async function loadAPIs(strapi: Core.Strapi) {
   validateContentTypesUnicity(apis);
 
   for (const apiName of Object.keys(apis)) {
-    strapi.get('apis').add(apiName, apis[apiName]);
+    leao.get('apis').add(apiName, apis[apiName]);
   }
 }
 

@@ -9,8 +9,8 @@ import {
   Typography,
   Grid,
   Field,
-} from '@strapi/design-system';
-import { Check } from '@strapi/icons';
+} from '@leao/design-system';
+import { Check } from '@leao/icons';
 import {
   Page,
   BackButton,
@@ -18,7 +18,7 @@ import {
   useNotification,
   useFetchClient,
   Layouts,
-} from '@strapi/strapi/admin';
+} from '@leao/leao/admin';
 import { Formik, Form } from 'formik';
 import { useIntl } from 'react-intl';
 import { useQuery, useMutation } from 'react-query';
@@ -105,7 +105,7 @@ export const EditPage = () => {
               primaryAction={
                 !isLoadingPlugins ? (
                   <Button
-                    disabled={role.code === 'strapi-super-admin'}
+                    disabled={role.code === 'leao-super-admin'}
                     type="submit"
                     loading={mutation.isLoading}
                     startIcon={<Check />}

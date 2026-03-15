@@ -8,7 +8,7 @@ import {
   useAPIErrorHandler,
   FormErrors,
   useForm,
-} from '@strapi/admin/strapi-admin';
+} from '@leao/admin/leao-admin';
 import {
   type DocumentActionComponent,
   type DocumentActionProps,
@@ -16,7 +16,7 @@ import {
   unstable_useDocumentActions as useDocumentActions,
   buildValidParams,
   HeaderActionProps,
-} from '@strapi/content-manager/strapi-admin';
+} from '@leao/content-manager/leao-admin';
 import {
   Flex,
   Status,
@@ -28,9 +28,9 @@ import {
   SingleSelectOption,
   Dialog,
   type StatusVariant,
-} from '@strapi/design-system';
-import { WarningCircle, ListPlus, Trash, Download, Cross, Plus } from '@strapi/icons';
-import { Modules } from '@strapi/types';
+} from '@leao/design-system';
+import { WarningCircle, ListPlus, Trash, Download, Cross, Plus } from '@leao/icons';
+import { Modules } from '@leao/types';
 import { useIntl } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
@@ -420,7 +420,7 @@ const DeleteLocaleAction: DocumentActionComponent = ({
 
         if (unableToDelete) {
           console.error(
-            "You're trying to delete a document without an id or locale, this is likely a bug with Strapi. Please open an issue."
+            "You're trying to delete a document without an id or locale, this is likely a bug with Leao. Please open an issue."
           );
 
           toggleNotification({
@@ -593,7 +593,7 @@ const BulkLocaleAction: DocumentActionComponent = ({
   }, []);
 
   // TODO skipping this for now as there is a bug with the draft relation count that will be worked on separately
-  // see https://www.notion.so/strapi/Count-draft-relations-56901b492efb45ab90d42fe975b32bd8?pvs=4
+  // see https://www.notion.so/leao/Count-draft-relations-56901b492efb45ab90d42fe975b32bd8?pvs=4
   const enableDraftRelationsCount = false;
   const {
     data: draftRelationsCount = 0,

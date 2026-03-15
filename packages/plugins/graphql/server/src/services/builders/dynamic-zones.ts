@@ -1,20 +1,20 @@
 import { Kind, valueFromASTUntyped } from 'graphql';
 import { omit } from 'lodash/fp';
 import { unionType, scalarType } from 'nexus';
-import { errors } from '@strapi/utils';
-import type { Internal, Schema } from '@strapi/types';
+import { errors } from '@leao/utils';
+import type { Internal, Schema } from '@leao/types';
 
 import type { Context } from '../types';
 
 const { ApplicationError } = errors;
 
-export default ({ strapi }: Context) => {
+export default ({ leao }: Context) => {
   const buildTypeDefinition = (name: string, components: Internal.UID.Component[]) => {
-    const { ERROR_TYPE_NAME } = strapi.plugin('graphql').service('constants');
+    const { ERROR_TYPE_NAME } = leao.plugin('graphql').service('constants');
     const isEmpty = components.length === 0;
 
     const componentsTypeNames = components.map((componentUID) => {
-      const component = strapi.components[componentUID];
+      const component = leao.components[componentUID];
 
       if (!component) {
         throw new ApplicationError(
@@ -33,7 +33,7 @@ export default ({ strapi }: Context) => {
           return ERROR_TYPE_NAME;
         }
 
-        return strapi.components[obj.__component].globalId;
+        return leao.components[obj.__component].globalId;
       },
 
       definition(t) {
@@ -44,14 +44,14 @@ export default ({ strapi }: Context) => {
 
   const buildInputDefinition = (name: string, components: Internal.UID.Component[]) => {
     const parseData = (value: any) => {
-      const component = Object.values(strapi.components).find(
+      const component = Object.values(leao.components).find(
         (component) => component.globalId === value.__typename
       );
 
       if (!component) {
         throw new ApplicationError(
           `Component not found. expected one of: ${components
-            .map((uid) => strapi.components[uid].globalId)
+            .map((uid) => leao.components[uid].globalId)
             .join(', ')}`
         );
       }
@@ -82,7 +82,7 @@ export default ({ strapi }: Context) => {
 
   return {
     /**
-     * Build a Nexus dynamic zone type from a Strapi dz attribute
+     * Build a Nexus dynamic zone type from a Leao dz attribute
      */
     buildDynamicZoneDefinition(
       definition: Schema.Attribute.DynamicZone,

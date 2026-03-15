@@ -1,9 +1,9 @@
 import bcrypt from 'bcryptjs';
 import _ from 'lodash';
-import { errors } from '@strapi/utils';
+import { errors } from '@leao/utils';
 import { getService } from '../utils';
 import type { AdminUser } from '../../../shared/contracts/shared';
-import '@strapi/types';
+import '@leao/types';
 
 const { ApplicationError } = errors;
 
@@ -28,7 +28,7 @@ const validatePassword = (password: string, hash: string) => bcrypt.compare(pass
  * @param password the users password
  */
 const checkCredentials = async ({ email, password }: { email: string; password: string }) => {
-  const user: AdminUser = await strapi.db.query('admin::user').findOne({ where: { email } });
+  const user: AdminUser = await leao.db.query('admin::user').findOne({ where: { email } });
 
   if (!user || !user.password) {
     return [null, false, { message: 'Invalid credentials' }];
@@ -52,7 +52,7 @@ const checkCredentials = async ({ email, password }: { email: string; password: 
  * @param email user email for which to reset the password
  */
 const forgotPassword = async ({ email } = {} as { email: string }) => {
-  const user: AdminUser = await strapi.db
+  const user: AdminUser = await leao.db
     .query('admin::user')
     .findOne({ where: { email, isActive: true } });
   if (!user) {
@@ -63,20 +63,20 @@ const forgotPassword = async ({ email } = {} as { email: string }) => {
   await getService('user').updateById(user.id, { resetPasswordToken });
 
   // Send an email to the admin.
-  const url = `${strapi.config.get(
+  const url = `${leao.config.get(
     'admin.absoluteUrl'
   )}/auth/reset-password?code=${resetPasswordToken}`;
 
-  return strapi
+  return leao
     .plugin('email')
     .service('email')
     .sendTemplatedEmail(
       {
         to: user.email,
-        from: strapi.config.get('admin.forgotPassword.from'),
-        replyTo: strapi.config.get('admin.forgotPassword.replyTo'),
+        from: leao.config.get('admin.forgotPassword.from'),
+        replyTo: leao.config.get('admin.forgotPassword.replyTo'),
       },
-      strapi.config.get('admin.forgotPassword.emailTemplate'),
+      leao.config.get('admin.forgotPassword.emailTemplate'),
       {
         url,
         user: _.pick(user, ['email', 'firstname', 'lastname', 'username']),
@@ -84,7 +84,7 @@ const forgotPassword = async ({ email } = {} as { email: string }) => {
     )
     .catch((err: unknown) => {
       // log error server side but do not disclose it to the user to avoid leaking informations
-      strapi.log.error(err);
+      leao.log.error(err);
     });
 };
 
@@ -96,7 +96,7 @@ const forgotPassword = async ({ email } = {} as { email: string }) => {
 const resetPassword = async (
   { resetPasswordToken, password } = {} as { resetPasswordToken: string; password: string }
 ) => {
-  const matchingUser: AdminUser | undefined = await strapi.db
+  const matchingUser: AdminUser | undefined = await leao.db
     .query('admin::user')
     .findOne({ where: { resetPasswordToken, isActive: true } });
 

@@ -1,7 +1,7 @@
 import Router from '@koa/router';
 import { has } from 'lodash/fp';
-import { yup } from '@strapi/utils';
-import type { Core } from '@strapi/types';
+import { yup } from '@leao/utils';
+import type { Core } from '@leao/types';
 
 import createEndpointComposer from './compose-endpoint';
 
@@ -73,10 +73,10 @@ const validateRouteConfig = (routeConfig: Core.RouteInput) => {
   }
 };
 
-const createRouteManager = (strapi: Core.Strapi, opts: { type?: string } = {}) => {
+const createRouteManager = (leao: Core.Leao, opts: { type?: string } = {}) => {
   const { type } = opts;
 
-  const composeEndpoint = createEndpointComposer(strapi);
+  const composeEndpoint = createEndpointComposer(leao);
 
   const createRoute = (route: Core.RouteInput, router: Router) => {
     validateRouteConfig(route);

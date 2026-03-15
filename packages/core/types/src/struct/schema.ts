@@ -8,7 +8,7 @@ export type ModelType = 'contentType' | 'component';
 export type Schema = ContentTypeSchema | ComponentSchema;
 
 /**
- * A loaded instance of a Strapi Schema accessible to the server.
+ * A loaded instance of a Leao Schema accessible to the server.
  */
 export interface BaseSchema {
   /**
@@ -40,7 +40,7 @@ export interface BaseSchema {
   pluginOptions?: SchemaPluginOptions;
 
   /**
-   * Encapsulates all core options related to Strapi features for a given Schema.
+   * Encapsulates all core options related to Leao features for a given Schema.
    */
   options?: SchemaOptions;
 
@@ -82,7 +82,7 @@ export interface SchemaInfo {
 
   /**
    * Specifies the visual identifier - an icon, for the schema inside the admin panel. It eases
-   * recognition and improves navigation. The value should be any valid @strapi/icon name. This
+   * recognition and improves navigation. The value should be any valid @leao/icon name. This
    * property is optional, and if omitted, a default icon might be used by the interface.
    */
   icon?: string;
@@ -91,12 +91,12 @@ export interface SchemaInfo {
 /**
  * `SchemaAttributes` is a mapping of attribute keys to their corresponding values.
  *
- * These keys and values define the structure and characteristics of a Strapi schema.
+ * These keys and values define the structure and characteristics of a Leao schema.
  */
 export type SchemaAttributes = Record<string, Attribute.AnyAttribute>;
 
 /**
- * Contains various options employed during runtime to tweak certain aspects of Strapi features.
+ * Contains various options employed during runtime to tweak certain aspects of Leao features.
  *
  * Each property under this interface can enable, disable or modify a specific feature or functionality associated with a schema.
  */
@@ -137,9 +137,9 @@ export interface SchemaOptions {
 }
 
 /**
- * Provides a flexible configuration method for Strapi plugins.
+ * Provides a flexible configuration method for Leao plugins.
  *
- * In Strapi, plugins extend the core functionality and enhance features of the application. Each plugin may require
+ * In Leao, plugins extend the core functionality and enhance features of the application. Each plugin may require
  * prerequisite settings or configurations for successful functioning. `SchemaPluginOptions` facilitates this by storing these configurations
  * as key-value pairs where the key corresponds to the name of the plugin, and the value defines the respective settings of that plugin.
  *
@@ -149,9 +149,9 @@ export interface SchemaOptions {
  * Using `SchemaPluginOptions` in the schema definition:
  *
  * ```typescript
- * import type { Struct } from '@strapi/types';
+ * import type { Struct } from '@leao/types';
  *
- * const strapiPluginOptions: Struct.SchemaPluginOptions = {
+ * const leaoPluginOptions: Struct.SchemaPluginOptions = {
  *   'plugin-foo': {
  *     prop1: string;
  *     prop2: boolean;
@@ -167,7 +167,7 @@ export interface SchemaOptions {
  *   modelType: 'contentType',
  *   modelName: 'Article',
  *   globalId: 'Article',
- *   pluginOptions: strapiPluginOptions,
+ *   pluginOptions: leaoPluginOptions,
  *   // Other schema properties...
  * };
  * ```

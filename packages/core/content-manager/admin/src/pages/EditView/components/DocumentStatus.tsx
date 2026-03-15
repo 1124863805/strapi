@@ -1,4 +1,4 @@
-import { Status, StatusProps, Typography } from '@strapi/design-system';
+import { Status, StatusProps, Typography } from '@leao/design-system';
 
 import { capitalise } from '../../../utils/strings';
 

@@ -1,4 +1,4 @@
-import { Page } from '@strapi/admin/strapi-admin';
+import { Page } from '@leao/admin/leao-admin';
 import { Route, Routes } from 'react-router-dom';
 
 import { PERMISSIONS } from '../constants';

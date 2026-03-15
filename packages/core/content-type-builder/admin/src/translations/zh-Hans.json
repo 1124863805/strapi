@@ -171,7 +171,7 @@
   "modelPage.attribute.relation-polymorphic": "关系(多态)",
   "modelPage.attribute.relationWith": "关联",
   "notification.error.dynamiczone-min.validation": "动态区域中至少需要一个组件才能保存内容类型",
-  "notification.info.autoreaload-disable": "要使用此插件，需要自动重载功能。请使用 `strapi develop` 启动服务",
+  "notification.info.autoreaload-disable": "要使用此插件，需要自动重载功能。请使用 `leao develop` 启动服务",
   "notification.info.creating.notSaved": "在创建新的内容类型或组件之前，请保存您的工作",
   "plugin.name": "内容类型构建器",
   "plugin.description.long": "给你的 API 的数据结构建模. 快速的创造新的字段(fields)和关系(relations)。将会自动在项目中创建和更新文件。",

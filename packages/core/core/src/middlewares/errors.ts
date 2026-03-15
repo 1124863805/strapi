@@ -1,9 +1,9 @@
-import { errors } from '@strapi/utils';
-import type { Core } from '@strapi/types';
+import { errors } from '@leao/utils';
+import type { Core } from '@leao/types';
 
 import { formatApplicationError, formatHttpError, formatInternalError } from '../services/errors';
 
-const errorMiddleware: Core.MiddlewareFactory = (/* _, { strapi } */) => {
+const errorMiddleware: Core.MiddlewareFactory = (/* _, { leao } */) => {
   return async (ctx, next) => {
     try {
       await next();
@@ -26,7 +26,7 @@ const errorMiddleware: Core.MiddlewareFactory = (/* _, { strapi } */) => {
         return;
       }
 
-      strapi.log.error(error);
+      leao.log.error(error);
 
       const { status, body } = formatInternalError(error);
       ctx.status = status;

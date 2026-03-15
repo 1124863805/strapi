@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
-import { Box, Flex, IconButton, Typography } from '@strapi/design-system';
-import { Lock, Pencil, Trash } from '@strapi/icons';
+import { Box, Flex, IconButton, Typography } from '@leao/design-system';
+import { Lock, Pencil, Trash } from '@leao/icons';
 import get from 'lodash/get';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

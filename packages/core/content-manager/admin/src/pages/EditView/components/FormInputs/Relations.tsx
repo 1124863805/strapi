@@ -7,7 +7,7 @@ import {
   useNotification,
   useFocusInputField,
   useQueryParams,
-} from '@strapi/admin/strapi-admin';
+} from '@leao/admin/leao-admin';
 import {
   Box,
   Combobox,
@@ -23,8 +23,8 @@ import {
   Field,
   FlexComponent,
   BoxComponent,
-} from '@strapi/design-system';
-import { Cross, Drag, ArrowClockwise } from '@strapi/icons';
+} from '@leao/design-system';
+import { Cross, Drag, ArrowClockwise } from '@leao/icons';
 import { generateNKeysBetween } from 'fractional-indexing';
 import pipe from 'lodash/fp/pipe';
 import { getEmptyImage } from 'react-dnd-html5-backend';
@@ -55,7 +55,7 @@ import { DocumentStatus } from '../DocumentStatus';
 
 import { useComponent } from './ComponentContext';
 
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 
 /**
  * Remove a relation, whether it's been already saved or not.
@@ -519,7 +519,7 @@ const RelationsInput = ({
     if (!relation) {
       // This is very unlikely to happen, but it ensures we don't have any data for.
       console.error(
-        "You've tried to add a relation with an id that does not exist in the options you can see, this is likely a bug with Strapi. Please open an issue."
+        "You've tried to add a relation with an id that does not exist in the options you can see, this is likely a bug with Leao. Please open an issue."
       );
 
       toggleNotification({

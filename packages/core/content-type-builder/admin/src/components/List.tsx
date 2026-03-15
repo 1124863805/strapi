@@ -1,6 +1,6 @@
 import { ComponentType, Fragment } from 'react';
 
-import { useTracking } from '@strapi/admin/strapi-admin';
+import { useTracking } from '@leao/admin/leao-admin';
 import {
   Box,
   Button,
@@ -13,9 +13,9 @@ import {
   Thead,
   Tr,
   Typography,
-} from '@strapi/design-system';
-import { Plus } from '@strapi/icons';
-import { EmptyDocuments } from '@strapi/icons/symbols';
+} from '@leao/design-system';
+import { Plus } from '@leao/icons';
+import { EmptyDocuments } from '@leao/icons/symbols';
 import { useIntl } from 'react-intl';
 
 import { useDataManager } from '../hooks/useDataManager';
@@ -28,7 +28,7 @@ import { DynamicZoneList } from './DynamicZoneList';
 import { NestedTFooter } from './NestedFooter';
 
 import type { SchemaType } from '../types';
-import type { Internal } from '@strapi/types';
+import type { Internal } from '@leao/types';
 
 interface ListProps {
   addComponentToDZ?: () => void;

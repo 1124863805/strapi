@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { intersection } from 'lodash/fp';
-import { contentTypes as contentTypesUtils } from '@strapi/utils';
+import { contentTypes as contentTypesUtils } from '@leao/utils';
 
 import { SYSTEM_FIELDS } from './constants';
 
@@ -189,7 +189,7 @@ const getDefaultMainField = (schema: any) =>
 const getSortableAttributes = (schema: any) => {
   const validAttributes = Object.keys(schema.attributes).filter((key) => isListable(schema, key));
 
-  const model = strapi.getModel(schema.uid);
+  const model = leao.getModel(schema.uid);
   const nonVisibleWritableAttributes = intersection(
     getNonVisibleAttributes(model),
     getWritableAttributes(model)

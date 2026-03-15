@@ -1,7 +1,7 @@
 import { isArray, isString, isUndefined, constant } from 'lodash/fp';
 import { nonNull, list, objectType } from 'nexus';
-import { contentTypes } from '@strapi/utils';
-import type { Struct } from '@strapi/types';
+import { contentTypes } from '@leao/utils';
+import type { Struct } from '@leao/types';
 
 import type { Context } from '../types';
 
@@ -14,23 +14,23 @@ export type TypeBuildersOptions = {
 };
 
 export default (context: Context) => {
-  const { strapi } = context;
-  const getGraphQLService = strapi.plugin('graphql').service;
+  const { leao } = context;
+  const getGraphQLService = leao.plugin('graphql').service;
 
   const extension = getGraphQLService('extension');
 
   /**
    * Add a scalar attribute to the type definition
    *
-   * The attribute is added based on a simple association between a Strapi
-   * type and a GraphQL type (the map is defined in `strapiTypeToGraphQLScalar`)
+   * The attribute is added based on a simple association between a Leao
+   * type and a GraphQL type (the map is defined in `leaoTypeToGraphQLScalar`)
    */
   const addScalarAttribute = (options: TypeBuildersOptions) => {
     const { builder, attributeName, attribute } = options;
 
     const { mappers } = getGraphQLService('utils');
 
-    const gqlType = mappers.strapiScalarToGraphQLScalar(attribute.type);
+    const gqlType = mappers.leaoScalarToGraphQLScalar(attribute.type);
 
     builder.field(attributeName, { type: gqlType });
   };
@@ -56,12 +56,12 @@ export default (context: Context) => {
       localBuilder = localBuilder.list;
     }
 
-    const targetComponent = strapi.getModel(attribute.component);
+    const targetComponent = leao.getModel(attribute.component);
 
     const resolve = buildComponentResolver({
       contentTypeUID: contentType.uid,
       attributeName,
-      strapi,
+      leao,
     });
 
     const args = getContentTypeArgs(targetComponent, {
@@ -138,12 +138,12 @@ export default (context: Context) => {
       return;
     }
 
-    const fileContentType = strapi.contentTypes[fileUID];
+    const fileContentType = leao.contentTypes[fileUID];
 
     const resolve = buildAssociationResolver({
       contentTypeUID: contentType.uid,
       attributeName,
-      strapi,
+      leao,
     });
 
     const args = attribute.multiple
@@ -202,7 +202,7 @@ export default (context: Context) => {
     const resolve = buildAssociationResolver({
       contentTypeUID: contentType.uid,
       attributeName,
-      strapi,
+      leao,
     });
 
     // If there is no specific target specified, then use the GenericMorph type
@@ -242,10 +242,10 @@ export default (context: Context) => {
     const resolve = buildAssociationResolver({
       contentTypeUID: contentType.uid,
       attributeName,
-      strapi,
+      leao,
     });
 
-    const targetContentType = strapi.getModel(attribute.target);
+    const targetContentType = leao.getModel(attribute.target);
 
     const typeName = naming.getTypeName(targetContentType);
 
@@ -308,7 +308,7 @@ export default (context: Context) => {
 
       const { getComponentName, getTypeName } = utils.naming;
       const {
-        isStrapiScalar,
+        isLeaoScalar,
         isComponent,
         isDynamicZone,
         isEnumeration,
@@ -333,7 +333,7 @@ export default (context: Context) => {
           if (
             modelType !== 'component' &&
             isNotDisabled(contentType)('id') &&
-            strapi.plugin('graphql').config('v4CompatibilityMode', false)
+            leao.plugin('graphql').config('v4CompatibilityMode', false)
           ) {
             t.nonNull.id('id', {
               deprecation: 'Use `documentId` instead',
@@ -348,7 +348,7 @@ export default (context: Context) => {
             t.nonNull.id('documentId');
           }
 
-          if (strapi.plugin('graphql').config('v4CompatibilityMode', false)) {
+          if (leao.plugin('graphql').config('v4CompatibilityMode', false)) {
             t.nonNull.field('attributes', {
               deprecation: 'Use root level fields instead',
               type: name,
@@ -407,7 +407,7 @@ export default (context: Context) => {
               }
 
               // Scalars
-              else if (isStrapiScalar(attribute)) {
+              else if (isLeaoScalar(attribute)) {
                 addScalarAttribute(options);
               }
 

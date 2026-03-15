@@ -1,9 +1,9 @@
 'use strict';
 
 const _ = require('lodash');
-const { contentTypes: contentTypesUtils } = require('@strapi/utils');
+const { contentTypes: contentTypesUtils } = require('@leao/utils');
 const { ApplicationError, ValidationError, NotFoundError, ForbiddenError } =
-  require('@strapi/utils').errors;
+  require('@leao/utils').errors;
 const { validateCreateUserBody, validateUpdateUserBody } = require('./validation/user');
 
 const { UPDATED_BY_ATTRIBUTE, CREATED_BY_ATTRIBUTE } = contentTypesUtils.constants;
@@ -17,7 +17,7 @@ const ACTIONS = {
 };
 
 const findEntityAndCheckPermissions = async (ability, action, model, id) => {
-  const doc = await strapi.service('plugin::content-manager.document-manager').findOne(id, model, {
+  const doc = await leao.service('plugin::content-manager.document-manager').findOne(id, model, {
     populate: [`${CREATED_BY_ATTRIBUTE}.roles`],
   });
 
@@ -25,7 +25,7 @@ const findEntityAndCheckPermissions = async (ability, action, model, id) => {
     throw new NotFoundError();
   }
 
-  const pm = strapi
+  const pm = leao
     .service('admin::permission')
     .createPermissionsManager({ ability, action, model });
 
@@ -49,7 +49,7 @@ module.exports = {
 
     const { email, username } = body;
 
-    const pm = strapi.service('admin::permission').createPermissionsManager({
+    const pm = leao.service('admin::permission').createPermissionsManager({
       ability: userAbility,
       action: ACTIONS.create,
       model: userModel,
@@ -61,13 +61,13 @@ module.exports = {
 
     const sanitizedBody = await pm.pickPermittedFieldsOf(body, { subject: userModel });
 
-    const advanced = await strapi
+    const advanced = await leao
       .store({ type: 'plugin', name: 'users-permissions', key: 'advanced' })
       .get();
 
     await validateCreateUserBody(ctx.request.body);
 
-    const userWithSameUsername = await strapi.db
+    const userWithSameUsername = await leao.db
       .query('plugin::users-permissions.user')
       .findOne({ where: { username } });
 
@@ -76,7 +76,7 @@ module.exports = {
     }
 
     if (advanced.unique_email) {
-      const userWithSameEmail = await strapi.db
+      const userWithSameEmail = await leao.db
         .query('plugin::users-permissions.user')
         .findOne({ where: { email: email.toLowerCase() } });
 
@@ -95,7 +95,7 @@ module.exports = {
     user.email = _.toLower(user.email);
 
     try {
-      const data = await strapi
+      const data = await leao
         .service('plugin::content-manager.document-manager')
         .create(userModel, { data: user });
 
@@ -116,7 +116,7 @@ module.exports = {
     const { body } = ctx.request;
     const { user: admin, userAbility } = ctx.state;
 
-    const advancedConfigs = await strapi
+    const advancedConfigs = await leao
       .store({ type: 'plugin', name: 'users-permissions', key: 'advanced' })
       .get();
 
@@ -138,7 +138,7 @@ module.exports = {
     }
 
     if (_.has(body, 'username')) {
-      const userWithSameUsername = await strapi.db
+      const userWithSameUsername = await leao.db
         .query('plugin::users-permissions.user')
         .findOne({ where: { username } });
 
@@ -148,7 +148,7 @@ module.exports = {
     }
 
     if (_.has(body, 'email') && advancedConfigs.unique_email) {
-      const userWithSameEmail = await strapi.db
+      const userWithSameEmail = await leao.db
         .query('plugin::users-permissions.user')
         .findOne({ where: { email: _.toLower(email) } });
 
@@ -162,7 +162,7 @@ module.exports = {
     const sanitizedData = await pm.pickPermittedFieldsOf(body, { subject: pm.toSubject(user) });
     const updateData = _.omit({ ...sanitizedData, updatedBy: admin.id }, 'createdBy');
 
-    const data = await strapi
+    const data = await leao
       .service('plugin::content-manager.document-manager')
       .update(documentId, userModel, {
         data: updateData,

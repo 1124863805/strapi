@@ -1,8 +1,8 @@
 import type { ProxyAgent } from 'undici';
 
 /**
- * strapi.fetch interface is currently an identical wrapper for Node fetch()
- * See createStrapiFetch in strapi/utils
+ * leao.fetch interface is currently an identical wrapper for Node fetch()
+ * See createLeaoFetch in leao/utils
  * However, we want to retain the ability to extend it in the future.
  * */
 

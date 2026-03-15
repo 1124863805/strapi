@@ -14,7 +14,7 @@
   "Settings.list.actions.deleteAdditionalInfos": "This will delete the active locale versions <em>(from Internationalization)</em>",
   "Settings.list.actions.edit": "로케일 수정",
   "Settings.list.description": "국제화 플러그인에 대한 설정을 구성합니다.",
-  "Settings.list.empty.description": "이건 일반적인 동작이 아니며, 데이터베이스를 수동으로 수정한 걸로 파악됩니다. Strapi를 올바르게 사용하려면 데이터베이스에 로케일이 하나 이상 저장되어 있어야 합니다.",
+  "Settings.list.empty.description": "이건 일반적인 동작이 아니며, 데이터베이스를 수동으로 수정한 걸로 파악됩니다. Leao를 올바르게 사용하려면 데이터베이스에 로케일이 하나 이상 저장되어 있어야 합니다.",
   "Settings.list.empty.title": "로케일이 없습니다.",
   "Settings.locales.list.sort.default": "Sort by the default locale",
   "Settings.locales.list.sort.displayName": "Sort by display name",

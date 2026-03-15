@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Modal } from '@strapi/design-system';
+import { Modal } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 
 export const DialogHeader = () => {

@@ -8,8 +8,8 @@ import {
   useAPIErrorHandler,
   Page,
   Layouts,
-} from '@strapi/admin/strapi-admin';
-import { Divider, Flex, Main } from '@strapi/design-system';
+} from '@leao/admin/leao-admin';
+import { Divider, Flex, Main } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 import { Navigate } from 'react-router-dom';
 

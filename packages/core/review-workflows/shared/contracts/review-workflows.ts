@@ -1,6 +1,6 @@
-import type { UID, Modules } from '@strapi/types';
-import type { Permission } from '@strapi/admin/strapi-admin';
-import type { errors } from '@strapi/utils';
+import type { UID, Modules } from '@leao/types';
+import type { Permission } from '@leao/admin/leao-admin';
+import type { errors } from '@leao/utils';
 
 type Entity = Modules.EntityService.Result<UID.Schema>;
 

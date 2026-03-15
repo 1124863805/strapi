@@ -1,5 +1,5 @@
 import Router from '@koa/router';
-import type { Core, Modules } from '@strapi/types';
+import type { Core, Modules } from '@leao/types';
 
 import { createHTTPServer } from './http-server';
 import { createRouteManager } from './routing';
@@ -11,27 +11,27 @@ import createKoaApp from './koa';
 import requestCtx from '../request-context';
 
 const healthCheck: Core.MiddlewareHandler = async (ctx) => {
-  ctx.set('strapi', 'You are so French!');
+  ctx.set('leao', 'You are so French!');
   ctx.status = 204;
 };
 
-const createServer = (strapi: Core.Strapi): Modules.Server.Server => {
+const createServer = (leao: Core.Leao): Modules.Server.Server => {
   const app = createKoaApp({
-    proxy: strapi.config.get('server.proxy.koa'),
-    keys: strapi.config.get('server.app.keys'),
+    proxy: leao.config.get('server.proxy.koa'),
+    keys: leao.config.get('server.app.keys'),
   });
 
   app.use((ctx, next) => requestCtx.run(ctx, () => next()));
 
   const router = new Router();
 
-  const routeManager = createRouteManager(strapi);
+  const routeManager = createRouteManager(leao);
 
-  const httpServer = createHTTPServer(strapi, app);
+  const httpServer = createHTTPServer(leao, app);
 
   const apis = {
-    'content-api': createContentAPI(strapi),
-    admin: createAdminAPI(strapi),
+    'content-api': createContentAPI(leao),
+    admin: createAdminAPI(leao),
   };
 
   // init health check
@@ -80,13 +80,13 @@ const createServer = (strapi: Core.Strapi): Modules.Server.Server => {
     },
 
     initRouting() {
-      registerAllRoutes(strapi);
+      registerAllRoutes(leao);
 
       return this;
     },
 
     async initMiddlewares() {
-      await registerApplicationMiddlewares(strapi);
+      await registerApplicationMiddlewares(leao);
 
       return this;
     },

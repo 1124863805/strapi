@@ -1,9 +1,9 @@
-import { Field, TextInput } from '@strapi/design-system';
-import { EyeStriked } from '@strapi/icons';
+import { Field, TextInput } from '@leao/design-system';
+import { EyeStriked } from '@leao/icons';
 import { useIntl } from 'react-intl';
 
-import type { InputProps } from '@strapi/admin/strapi-admin';
-import type { Schema } from '@strapi/types';
+import type { InputProps } from '@leao/admin/leao-admin';
+import type { Schema } from '@leao/types';
 
 interface NotAllowedInputProps extends Omit<InputProps, 'type'> {
   type: Schema.Attribute.Kind;

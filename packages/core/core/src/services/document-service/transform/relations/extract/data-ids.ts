@@ -1,6 +1,6 @@
 import { curry } from 'lodash/fp';
 
-import { UID } from '@strapi/types';
+import { UID } from '@leao/types';
 
 import { IdMap } from '../../id-map';
 import { getRelationTargetLocale } from '../utils/i18n';
@@ -77,7 +77,7 @@ const extractDataIds = (idMap: IdMap, data: Record<string, any>, source: Options
         return relation;
       }, value as any);
     },
-    { schema: strapi.getModel(source.uid), getModel: strapi.getModel.bind(strapi) },
+    { schema: leao.getModel(source.uid), getModel: leao.getModel.bind(leao) },
     data
   );
 };

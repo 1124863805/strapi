@@ -1,12 +1,12 @@
 import { ComponentType, useCallback, useEffect, useState } from 'react';
 
-import { StrapiAppContextValue, useStrapiApp } from '@strapi/admin/strapi-admin';
+import { LeaoAppContextValue, useLeaoApp } from '@leao/admin/leao-admin';
 
 const componentStore = new Map<string, ComponentType | undefined>();
 
 type LazyComponentStore = Record<string, ComponentType | undefined>;
 
-type CustomField = NonNullable<ReturnType<StrapiAppContextValue['customFields']['get']>>;
+type CustomField = NonNullable<ReturnType<LeaoAppContextValue['customFields']['get']>>;
 
 interface UseLazyComponentsReturn {
   isLazyLoading: boolean;
@@ -25,7 +25,7 @@ const useLazyComponents = (componentUids: string[] = []): UseLazyComponentsRetur
    */
   const newUids = componentUids.filter((uid) => !componentStore.get(uid));
   const [loading, setLoading] = useState(() => !!newUids.length);
-  const getCustomField = useStrapiApp('useLazyComponents', (state) => state.customFields.get);
+  const getCustomField = useLeaoApp('useLazyComponents', (state) => state.customFields.get);
 
   useEffect(() => {
     const setStore = (store: Record<string, ComponentType | undefined>) => {

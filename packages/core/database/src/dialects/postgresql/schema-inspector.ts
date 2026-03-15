@@ -103,7 +103,7 @@ const SQL_QUERIES = {
 `,
 };
 
-const toStrapiType = (column: RawColumn) => {
+const toLeaoType = (column: RawColumn) => {
   const rootType = column.data_type.toLowerCase().match(/[^(), ]+/)?.[0];
 
   switch (rootType) {
@@ -207,7 +207,7 @@ export default class PostgresqlSchemaInspector implements SchemaInspector {
     ]);
 
     return rows.map((row) => {
-      const { type, args = [], ...rest } = toStrapiType(row);
+      const { type, args = [], ...rest } = toLeaoType(row);
 
       const defaultTo =
         row.column_default && row.column_default.includes('nextval(') ? null : row.column_default;

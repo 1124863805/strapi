@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { useStrapiApp } from '@strapi/admin/strapi-admin';
-import { Box, Flex, FlexComponent } from '@strapi/design-system';
-import { Image as Picture } from '@strapi/icons';
+import { useLeaoApp } from '@leao/admin/leao-admin';
+import { Box, Flex, FlexComponent } from '@leao/design-system';
+import { Image as Picture } from '@leao/icons';
 import { type Element, Transforms, Editor } from 'slate';
 import { useFocused, type RenderElementProps, useSelected } from 'slate-react';
 import { styled, css } from 'styled-components';
@@ -11,7 +11,7 @@ import { prefixFileUrlWithBackendUrl } from '../../../../../../utils/urls';
 import { useBlocksEditorContext, type BlocksStore } from '../BlocksEditor';
 import { type Block } from '../utils/types';
 
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 
 const ImageWrapper = styled<FlexComponent>(Flex)<{ $isFocused?: boolean }>`
   transition-property: box-shadow;
@@ -89,7 +89,7 @@ const Image = ({ attributes, children, element }: RenderElementProps) => {
 const ImageDialog = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   const { editor } = useBlocksEditorContext('ImageDialog');
-  const components = useStrapiApp('ImageDialog', (state) => state.components);
+  const components = useLeaoApp('ImageDialog', (state) => state.components);
 
   if (!components || !isOpen) return null;
 

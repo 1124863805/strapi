@@ -13,7 +13,7 @@ export interface MediaProperties<
 }
 
 /**
- * Represents a media Strapi attribute along with its options
+ * Represents a media Leao attribute along with its options
  */
 export type Media<
   TKind extends MediaKind | undefined = undefined,

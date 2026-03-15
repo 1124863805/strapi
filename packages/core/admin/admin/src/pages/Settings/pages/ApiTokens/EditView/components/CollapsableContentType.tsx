@@ -8,8 +8,8 @@ import {
   Flex,
   Grid,
   Typography,
-} from '@strapi/design-system';
-import { Cog } from '@strapi/icons';
+} from '@leao/design-system';
+import { Cog } from '@leao/icons';
 import capitalize from 'lodash/capitalize';
 import { useIntl } from 'react-intl';
 import { styled, css } from 'styled-components';

@@ -6,7 +6,7 @@ import {
   NotificationConfig,
   useAPIErrorHandler,
   useQueryParams,
-} from '@strapi/admin/strapi-admin';
+} from '@leao/admin/leao-admin';
 import {
   Button,
   Dialog,
@@ -17,8 +17,8 @@ import {
   VisuallyHidden,
   Menu,
   ButtonProps,
-} from '@strapi/design-system';
-import { Cross, More, WarningCircle } from '@strapi/icons';
+} from '@leao/design-system';
+import { Cross, More, WarningCircle } from '@leao/icons';
 import mapValues from 'lodash/fp/mapValues';
 import { useIntl } from 'react-intl';
 import { useMatch, useNavigate } from 'react-router-dom';
@@ -938,7 +938,7 @@ const UnpublishAction: DocumentActionComponent = ({
         if (!documentId) {
           // This should never, ever, happen.
           console.error(
-            "You're trying to unpublish a document without an id, this is likely a bug with Strapi. Please open an issue."
+            "You're trying to unpublish a document without an id, this is likely a bug with Leao. Please open an issue."
           );
 
           toggleNotification({
@@ -1006,7 +1006,7 @@ const UnpublishAction: DocumentActionComponent = ({
             if (!documentId && collectionType !== SINGLE_TYPES) {
               // This should never, ever, happen.
               console.error(
-                "You're trying to unpublish a document without an id, this is likely a bug with Strapi. Please open an issue."
+                "You're trying to unpublish a document without an id, this is likely a bug with Leao. Please open an issue."
               );
 
               toggleNotification({

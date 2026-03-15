@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { InputProps, useField } from '@strapi/admin/strapi-admin';
-import { Field, Flex, IconButton } from '@strapi/design-system';
-import { Trash } from '@strapi/icons';
+import { InputProps, useField } from '@leao/admin/leao-admin';
+import { Field, Flex, IconButton } from '@leao/design-system';
+import { Trash } from '@leao/icons';
 import { useIntl } from 'react-intl';
 
 import { useDoc } from '../../../../../hooks/useDocument';

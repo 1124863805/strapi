@@ -1,22 +1,22 @@
 {
-  "name": "@strapi/permissions",
+  "name": "@leao/permissions",
   "version": "5.0.6",
-  "description": "Strapi's permission layer.",
+  "description": "Leao's permission layer.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/strapi/strapi.git"
+    "url": "git://github.com/leao/leao.git"
   },
   "license": "UNLICENSED",
   "author": {
-    "name": "Strapi Solutions SAS",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "main": "./dist/index.js",
@@ -34,13 +34,13 @@
   },
   "dependencies": {
     "@casl/ability": "6.5.0",
-    "@strapi/utils": "workspace:*",
+    "@leao/utils": "workspace:*",
     "lodash": "4.17.21",
     "qs": "6.11.1",
     "sift": "16.0.1"
   },
   "devDependencies": {
-    "@strapi/pack-up": "5.0.0",
+    "@leao/pack-up": "workspace:*",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"
   },

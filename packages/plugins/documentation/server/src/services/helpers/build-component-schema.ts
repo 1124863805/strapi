@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 import type { OpenAPIV3 } from 'openapi-types';
-import type { Core, Struct } from '@strapi/types';
+import type { Core, Struct } from '@leao/types';
 
 import cleanSchemaAttributes from './utils/clean-schema-attributes';
 import loopContentTypeNames from './utils/loop-content-type-names';
@@ -34,17 +34,17 @@ const getRequiredAttributes = (allAttributes: Struct.SchemaAttributes) => {
  */
 const getAllSchemasForContentType = ({ routeInfo, attributes, uniqueName }: ApiInfo) => {
   // Store response and request schemas in an object
-  let strapiComponentSchemas = {};
+  let leaoComponentSchemas = {};
   const schemas: OpenAPIV3.ComponentsObject = {};
   const typeName = pascalCase(uniqueName);
 
   // adds a ComponentSchema to the Schemas so it can be used as Ref
-  const didAddStrapiComponentsToSchemas = (schemaName: string, schema: OpenAPIV3.SchemaObject) => {
+  const didAddLeaoComponentsToSchemas = (schemaName: string, schema: OpenAPIV3.SchemaObject) => {
     if (!Object.keys(schema) || !Object.keys(schema.properties!)) return false;
 
-    // Add the Strapi components to the schema
-    strapiComponentSchemas = {
-      ...strapiComponentSchemas,
+    // Add the Leao components to the schema
+    leaoComponentSchemas = {
+      ...leaoComponentSchemas,
       [schemaName]: schema,
     };
 
@@ -81,7 +81,7 @@ const getAllSchemasForContentType = ({ routeInfo, attributes, uniqueName }: ApiI
             type: 'object',
             properties: cleanSchemaAttributes(attributesForRequest, {
               isRequest: true,
-              didAddStrapiComponentsToSchemas,
+              didAddLeaoComponentsToSchemas,
             }),
           },
         },
@@ -134,7 +134,7 @@ const getAllSchemasForContentType = ({ routeInfo, attributes, uniqueName }: ApiI
       properties: {
         id: { type: 'number' },
         documentId: { type: 'string' },
-        ...cleanSchemaAttributes(attributes, { didAddStrapiComponentsToSchemas }),
+        ...cleanSchemaAttributes(attributes, { didAddLeaoComponentsToSchemas }),
       },
     },
 
@@ -149,7 +149,7 @@ const getAllSchemasForContentType = ({ routeInfo, attributes, uniqueName }: ApiI
     },
   });
 
-  return { ...schemas, ...strapiComponentSchemas };
+  return { ...schemas, ...leaoComponentSchemas };
 };
 
 const buildComponentSchema = (api: Api) => {

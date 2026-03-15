@@ -1,6 +1,6 @@
-import { env } from '@strapi/utils';
+import { env } from '@leao/utils';
 
-import type { Strapi, Router, Controller, Service, Policy, Middleware } from '../core';
+import type { Leao, Router, Controller, Service, Policy, Middleware } from '../core';
 import type { ContentTypeSchema } from '../struct';
 import type { Schemas } from '../schema';
 import type * as Public from '../public';
@@ -27,9 +27,9 @@ export type LoadedPlugin = {
     default: Record<string, unknown> | ((opts: { env: typeof env }) => Record<string, unknown>);
     validator: (config: Record<string, unknown>) => void;
   };
-  bootstrap: ({ strapi }: { strapi: Strapi }) => void | Promise<void>;
-  destroy: ({ strapi }: { strapi: Strapi }) => void | Promise<void>;
-  register: ({ strapi }: { strapi: Strapi }) => void | Promise<void>;
+  bootstrap: ({ leao }: { leao: Leao }) => void | Promise<void>;
+  destroy: ({ leao }: { leao: Leao }) => void | Promise<void>;
+  register: ({ leao }: { leao: Leao }) => void | Promise<void>;
   routes: Record<string, Router>;
   controllers: Record<string, Controller>;
   services: Record<string, Service>;

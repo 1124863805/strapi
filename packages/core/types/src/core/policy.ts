@@ -1,6 +1,6 @@
 import { ExtendableContext } from 'koa';
 
-import type { Strapi } from '.';
+import type { Leao } from '.';
 
 export type PolicyContext = Omit<ExtendableContext, 'is'> & {
   type: string;
@@ -10,7 +10,7 @@ export type PolicyContext = Omit<ExtendableContext, 'is'> & {
 export type PolicyHandler<TConfig = unknown> = (
   ctx: PolicyContext,
   cfg: TConfig,
-  opts: { strapi: Strapi }
+  opts: { leao: Leao }
 ) => boolean | undefined;
 
 export type Policy<TConfig = unknown> =

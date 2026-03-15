@@ -4,8 +4,8 @@ import {
   SubNavLink,
   SubNavSection,
   SubNavSections,
-} from '@strapi/design-system';
-import { Lightning } from '@strapi/icons';
+} from '@leao/design-system';
+import { Lightning } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import { NavLink, useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';

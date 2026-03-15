@@ -7,9 +7,9 @@ import error from './error';
 import type { Context } from '../../types';
 
 export default (context: Context) => () => {
-  const { strapi } = context;
+  const { leao } = context;
 
-  const { KINDS } = strapi.plugin('graphql').service('constants');
+  const { KINDS } = leao.plugin('graphql').service('constants');
 
   return {
     [KINDS.internal]: {

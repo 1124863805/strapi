@@ -8,7 +8,7 @@ const appendSearchParamsToUrl = ({ url, params }: AppendSearchParamsToUrlProps) 
     return url;
   }
 
-  const urlObj = new URL(url, window.strapi.backendURL);
+  const urlObj = new URL(url, window.leao.backendURL);
 
   Object.entries(params).forEach(([key, value]) => {
     if (value !== undefined && value !== null) {

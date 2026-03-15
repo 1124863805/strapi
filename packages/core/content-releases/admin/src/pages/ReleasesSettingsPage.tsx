@@ -7,7 +7,7 @@ import {
   useNotification,
   useField,
   useRBAC,
-} from '@strapi/admin/strapi-admin';
+} from '@leao/admin/leao-admin';
 import {
   Button,
   Combobox,
@@ -16,8 +16,8 @@ import {
   Flex,
   Grid,
   Typography,
-} from '@strapi/design-system';
-import { Check } from '@strapi/icons';
+} from '@leao/design-system';
+import { Check } from '@leao/icons';
 import { useIntl } from 'react-intl';
 
 import { useTypedSelector } from '../modules/hooks';

@@ -1,5 +1,5 @@
-import { StrapiAppContextValue } from '@strapi/admin/strapi-admin';
-import { Flex, Typography } from '@strapi/design-system';
+import { LeaoAppContextValue } from '@leao/admin/leao-admin';
+import { Flex, Typography } from '@leao/design-system';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 
@@ -54,7 +54,7 @@ type FormModalSubHeaderProps = {
   step?: string;
   attributeType: string;
   attributeName: string;
-  customField?: ReturnType<StrapiAppContextValue['customFields']['get']>;
+  customField?: ReturnType<LeaoAppContextValue['customFields']['get']>;
 };
 
 export const FormModalSubHeader = ({

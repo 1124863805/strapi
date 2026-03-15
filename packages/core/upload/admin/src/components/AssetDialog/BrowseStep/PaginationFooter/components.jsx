@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Typography, VisuallyHidden } from '@strapi/design-system';
-import { ChevronLeft, ChevronRight } from '@strapi/icons';
+import { Typography, VisuallyHidden } from '@leao/design-system';
+import { ChevronLeft, ChevronRight } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 

@@ -8,15 +8,15 @@ const sendDidInitializeEvent = async () => {
   const numberOfContentTypes = reduce(
     (sum, contentType) => (isLocalizedContentType(contentType) ? sum + 1 : sum),
     0
-  )(strapi.contentTypes as any);
+  )(leao.contentTypes as any);
 
-  await strapi.telemetry.send('didInitializeI18n', { groupProperties: { numberOfContentTypes } });
+  await leao.telemetry.send('didInitializeI18n', { groupProperties: { numberOfContentTypes } });
 };
 
 const sendDidUpdateI18nLocalesEvent = async () => {
   const numberOfLocales = await getService('locales').count();
 
-  await strapi.telemetry.send('didUpdateI18nLocales', {
+  await leao.telemetry.send('didUpdateI18nLocales', {
     groupProperties: { numberOfLocales },
   });
 };

@@ -1,10 +1,10 @@
 import { pickBy, has } from 'lodash/fp';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 import { createModule, RawModule, Module } from '../domain/module';
 
 type ModuleMap = { [namespace: string]: Module };
 
-const modulesRegistry = (strapi: Core.Strapi) => {
+const modulesRegistry = (leao: Core.Leao) => {
   const modules: ModuleMap = {};
 
   return {
@@ -19,7 +19,7 @@ const modulesRegistry = (strapi: Core.Strapi) => {
         throw new Error(`Module ${namespace} has already been registered.`);
       }
 
-      modules[namespace] = createModule(namespace, rawModule, strapi);
+      modules[namespace] = createModule(namespace, rawModule, leao);
       modules[namespace].load();
 
       return modules[namespace];

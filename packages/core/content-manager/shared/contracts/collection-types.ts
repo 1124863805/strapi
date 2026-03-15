@@ -1,5 +1,5 @@
-import { errors } from '@strapi/utils';
-import type { Modules, Struct, UID } from '@strapi/types';
+import { errors } from '@leao/utils';
+import type { Modules, Struct, UID } from '@leao/types';
 
 type PaginatedDocuments = Modules.Documents.PaginatedResult<UID.Schema>;
 type PaginationQuery = Modules.Documents.Params.Pagination.PageNotation;

@@ -1,6 +1,6 @@
-import type { Utils } from '@strapi/types';
+import type { Utils } from '@leao/types';
 
-import { providerFactory } from '@strapi/utils';
+import { providerFactory } from '@leao/utils';
 import {
   pipe,
   set,

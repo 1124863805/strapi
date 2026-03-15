@@ -1,6 +1,6 @@
 import type Koa from 'koa';
 
-import { async } from '@strapi/utils';
+import { async } from '@leao/utils';
 import {
   validateReleaseAction,
   validateReleaseActionUpdateSchema,
@@ -24,7 +24,7 @@ const releaseActionController = {
 
     await validateReleaseAction(releaseActionArgs);
 
-    const releaseActionService = getService('release-action', { strapi });
+    const releaseActionService = getService('release-action', { leao });
     const releaseAction = await releaseActionService.create(releaseId, releaseActionArgs);
 
     ctx.created({
@@ -40,10 +40,10 @@ const releaseActionController = {
       releaseActionsArgs.map((releaseActionArgs) => validateReleaseAction(releaseActionArgs))
     );
 
-    const releaseActionService = getService('release-action', { strapi });
-    const releaseService = getService('release', { strapi });
+    const releaseActionService = getService('release-action', { leao });
+    const releaseService = getService('release', { leao });
 
-    const releaseActions = await strapi.db.transaction(async () => {
+    const releaseActions = await leao.db.transaction(async () => {
       const releaseActions = await Promise.all(
         releaseActionsArgs.map(async (releaseActionArgs) => {
           try {
@@ -80,7 +80,7 @@ const releaseActionController = {
 
   async findMany(ctx: Koa.Context) {
     const releaseId: GetReleaseActions.Request['params']['releaseId'] = ctx.params.releaseId;
-    const permissionsManager = strapi.service('admin::permission').createPermissionsManager({
+    const permissionsManager = leao.service('admin::permission').createPermissionsManager({
       ability: ctx.state.userAbility,
       model: RELEASE_ACTION_MODEL_UID,
     });
@@ -98,7 +98,7 @@ const releaseActionController = {
 
     const query = await permissionsManager.sanitizeQuery(ctx.query);
 
-    const releaseActionService = getService('release-action', { strapi });
+    const releaseActionService = getService('release-action', { leao });
     const { results, pagination } = await releaseActionService.findPage(releaseId, {
       ...query,
     });
@@ -113,7 +113,7 @@ const releaseActionController = {
         return acc;
       }
 
-      const contentTypePermissionsManager = strapi
+      const contentTypePermissionsManager = leao
         .service('admin::permission')
         .createPermissionsManager({
           ability: ctx.state.userAbility,
@@ -140,7 +140,7 @@ const releaseActionController = {
 
     const contentTypes = releaseActionService.getContentTypeModelsFromActions(results);
 
-    const releaseService = getService('release', { strapi });
+    const releaseService = getService('release', { leao });
     const components = await releaseService.getAllComponents();
 
     ctx.body = {
@@ -160,7 +160,7 @@ const releaseActionController = {
 
     await validateReleaseActionUpdateSchema(releaseActionUpdateArgs);
 
-    const releaseActionService = getService('release-action', { strapi });
+    const releaseActionService = getService('release-action', { leao });
 
     const updatedAction = await releaseActionService.update(
       actionId,
@@ -177,7 +177,7 @@ const releaseActionController = {
     const actionId: DeleteReleaseAction.Request['params']['actionId'] = ctx.params.actionId;
     const releaseId: DeleteReleaseAction.Request['params']['releaseId'] = ctx.params.releaseId;
 
-    const releaseActionService = getService('release-action', { strapi });
+    const releaseActionService = getService('release-action', { leao });
 
     const deletedReleaseAction = await releaseActionService.delete(actionId, releaseId);
 

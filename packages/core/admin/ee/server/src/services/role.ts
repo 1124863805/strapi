@@ -1,10 +1,10 @@
 import { toString } from 'lodash/fp';
-import { errors } from '@strapi/utils';
+import { errors } from '@leao/utils';
 
 const { ApplicationError } = errors;
 
 const ssoCheckRolesIdForDeletion = async (ids: any) => {
-  const adminStore = await strapi.store({ type: 'core', name: 'admin' });
+  const adminStore = await leao.store({ type: 'core', name: 'admin' });
 
   const {
     providers: { defaultRole },

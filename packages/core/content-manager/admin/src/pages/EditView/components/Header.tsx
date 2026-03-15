@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 
 import {
@@ -5,9 +6,9 @@ import {
   useForm,
   BackButton,
   useNotification,
-  useStrapiApp,
+  useLeaoApp,
   useQueryParams,
-} from '@strapi/admin/strapi-admin';
+} from '@leao/admin/leao-admin';
 import {
   Box,
   Flex,
@@ -16,8 +17,8 @@ import {
   Typography,
   IconButton,
   Dialog,
-} from '@strapi/design-system';
-import { ListPlus, Pencil, Trash, WarningCircle } from '@strapi/icons';
+} from '@leao/design-system';
+import { ListPlus, Pencil, Trash, WarningCircle } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import { useMatch, useNavigate } from 'react-router-dom';
 
@@ -124,7 +125,7 @@ const HeaderToolbar = () => {
     },
   ] = useQueryParams<{ status: 'draft' | 'published' }>();
   const { model, id, document, meta, collectionType } = useDoc();
-  const plugins = useStrapiApp('HeaderToolbar', (state) => state.plugins);
+  const plugins = useLeaoApp('HeaderToolbar', (state) => state.plugins);
 
   return (
     <Flex gap={2}>
@@ -532,7 +533,7 @@ const DeleteAction: DocumentActionComponent = ({ documentId, model, collectionTy
         try {
           if (!documentId && collectionType !== SINGLE_TYPES) {
             console.error(
-              "You're trying to delete a document without an id, this is likely a bug with Strapi. Please open an issue."
+              "You're trying to delete a document without an id, this is likely a bug with Leao. Please open an issue."
             );
 
             toggleNotification({

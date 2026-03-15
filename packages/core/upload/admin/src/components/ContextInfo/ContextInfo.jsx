@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Flex, Grid, Typography } from '@strapi/design-system';
+import { Box, Flex, Grid, Typography } from '@leao/design-system';
 import PropTypes from 'prop-types';
 
 export const ContextInfo = ({ blocks }) => {

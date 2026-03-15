@@ -1,1 +1,1 @@
-declare const strapi: any;
+declare const leao: any;

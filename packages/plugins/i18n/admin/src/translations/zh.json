@@ -14,7 +14,7 @@
   "Settings.list.actions.deleteAdditionalInfos": "這將刪除已啟用的地區設定版本 <em>(from Internationalization)</em>",
   "Settings.list.actions.edit": "編輯地區設定",
   "Settings.list.description": "設定國際化外掛程式",
-  "Settings.list.empty.description": "此行為不尋常，這表示您最終仍手動修改了資料庫。請至少在您的資料庫中儲存一種地區設定以正常使用 Strapi。",
+  "Settings.list.empty.description": "此行為不尋常，這表示您最終仍手動修改了資料庫。請至少在您的資料庫中儲存一種地區設定以正常使用 Leao。",
   "Settings.list.empty.title": "無地區設定。",
   "Settings.locales.default": "預設",
   "Settings.locales.list.sort.default": "按預設地區設定排序",

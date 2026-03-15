@@ -7,7 +7,7 @@ import services from './services';
 import controllers from './controllers';
 
 const getPlugin = () => {
-  if (strapi.ee.features.isEnabled('review-workflows')) {
+  if (leao.ee.features.isEnabled('review-workflows')) {
     return {
       register,
       bootstrap,

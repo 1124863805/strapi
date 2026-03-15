@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { useTracking } from '@strapi/admin/strapi-admin';
-import { useNotifyAT } from '@strapi/design-system';
+import { useTracking } from '@leao/admin/leao-admin';
+import { useNotifyAT } from '@leao/design-system';
 import {
   Page,
   useAPIErrorHandler,
@@ -9,7 +9,7 @@ import {
   useFetchClient,
   useRBAC,
   Layouts,
-} from '@strapi/strapi/admin';
+} from '@leao/leao/admin';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 

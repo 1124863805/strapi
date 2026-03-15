@@ -5,14 +5,14 @@ import { getFetchClient } from '../utils/getFetchClient';
 /**
  * @public
  * @description This is an abstraction around the native fetch exposed by a hook. It provides a simple interface to handle API calls
- * to the Strapi backend.
+ * to the Leao backend.
  * It handles request cancellations inside the hook with an {@link https://developer.mozilla.org/en-US/docs/Web/API/AbortController} AbortController.
  * This is typically triggered when the component is unmounted so all the requests that it is currently making are aborted.
  * The expected URL style includes either a protocol (such as HTTP or HTTPS) or a relative URL. The URLs with domain and path but not protocol are not allowed (ex: `www.example.com`).
  * @example
  * ```tsx
  * import * as React from 'react';
- * import { useFetchClient } from '@strapi/admin/admin';
+ * import { useFetchClient } from '@leao/admin/admin';
  *
  * const MyComponent = () => {
  *   const [items, setItems] = React.useState([]);

@@ -1,6 +1,6 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
-export default async ({ strapi }: { strapi: Core.Strapi }) => {
+export default async ({ leao }: { leao: Core.Leao }) => {
   const actions = [
     {
       section: 'plugins',
@@ -10,5 +10,5 @@ export default async ({ strapi }: { strapi: Core.Strapi }) => {
     },
   ];
 
-  await strapi.service('admin::permission').actionProvider.registerMany(actions);
+  await leao.service('admin::permission').actionProvider.registerMany(actions);
 };

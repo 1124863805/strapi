@@ -1,11 +1,11 @@
 import { isUndefined } from 'lodash/fp';
-import { yup } from '@strapi/utils';
+import { yup } from '@leao/utils';
 import type { TestContext, TestFunction } from 'yup';
-import type { Schema, UID } from '@strapi/types';
+import type { Schema, UID } from '@leao/types';
 import { typeKinds, coreUids } from '../../services/constants';
 import { isValidName } from './common';
 
-const STRAPI_USER_RELATIONS = ['oneToOne', 'oneToMany'];
+const LEAO_USER_RELATIONS = ['oneToOne', 'oneToMany'];
 
 const isValidRelation = (validNatures: ReadonlyArray<string>): TestFunction<string | undefined> =>
   function (this: TestContext, value) {
@@ -14,11 +14,11 @@ const isValidRelation = (validNatures: ReadonlyArray<string>): TestFunction<stri
       return true;
     }
 
-    if (this.parent.target === coreUids.STRAPI_USER) {
+    if (this.parent.target === coreUids.LEAO_USER) {
       if (!validNatures.includes(value) || !isUndefined(this.parent.targetAttribute)) {
         return this.createError({
           path: this.path,
-          message: `must be one of the following values: ${STRAPI_USER_RELATIONS.join(', ')}`,
+          message: `must be one of the following values: ${LEAO_USER_RELATIONS.join(', ')}`,
         });
       }
     }
@@ -35,9 +35,9 @@ export const getRelationValidator = (
   attribute: Schema.Attribute.Relation,
   allowedRelations: ReadonlyArray<string>
 ) => {
-  const contentTypesUIDs = Object.keys(strapi.contentTypes)
-    .filter((key) => strapi.contentTypes[key as UID.ContentType].kind === typeKinds.COLLECTION_TYPE)
-    .filter((key) => !key.startsWith(coreUids.PREFIX) || key === coreUids.STRAPI_USER)
+  const contentTypesUIDs = Object.keys(leao.contentTypes)
+    .filter((key) => leao.contentTypes[key as UID.ContentType].kind === typeKinds.COLLECTION_TYPE)
+    .filter((key) => !key.startsWith(coreUids.PREFIX) || key === coreUids.LEAO_USER)
     .concat(['__self__', '__contentType__']);
 
   const base = {

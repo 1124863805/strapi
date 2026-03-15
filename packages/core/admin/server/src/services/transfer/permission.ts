@@ -1,5 +1,5 @@
-import permissions from '@strapi/permissions';
-import { providerFactory } from '@strapi/utils';
+import permissions from '@leao/permissions';
+import { providerFactory } from '@leao/utils';
 
 const DEFAULT_TRANSFER_ACTIONS = ['push', 'pull'];
 

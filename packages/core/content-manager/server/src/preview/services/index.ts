@@ -1,4 +1,4 @@
-import type { Plugin } from '@strapi/types';
+import type { Plugin } from '@leao/types';
 
 import { createPreviewService } from './preview';
 import { createPreviewConfigService } from './preview-config';

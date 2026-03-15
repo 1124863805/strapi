@@ -11,7 +11,7 @@ function isClientValid(config: { client?: unknown }): config is { client: keyof 
   return Object.keys(clientMap).includes(config.client as string);
 }
 
-export const createConnection = (userConfig: Knex.Config, strapiConfig?: Partial<Knex.Config>) => {
+export const createConnection = (userConfig: Knex.Config, leaoConfig?: Partial<Knex.Config>) => {
   if (!isClientValid(userConfig)) {
     throw new Error(`Unsupported database client ${userConfig.client}`);
   }
@@ -19,16 +19,16 @@ export const createConnection = (userConfig: Knex.Config, strapiConfig?: Partial
   const knexConfig: Knex.Config = { ...userConfig, client: (clientMap as any)[userConfig.client] };
 
   // initialization code to run upon opening a new connection
-  if (strapiConfig?.pool?.afterCreate) {
+  if (leaoConfig?.pool?.afterCreate) {
     knexConfig.pool = knexConfig.pool || {};
     // if the user has set their own afterCreate in config, we will replace it and call it
     const userAfterCreate = knexConfig.pool?.afterCreate;
-    const strapiAfterCreate = strapiConfig.pool.afterCreate;
+    const leaoAfterCreate = leaoConfig.pool.afterCreate;
     knexConfig.pool.afterCreate = (
       conn: unknown,
       done: (err: Error | null | undefined, connection: any) => void
     ) => {
-      strapiAfterCreate(conn, (err: Error | null | undefined, nativeConn: any) => {
+      leaoAfterCreate(conn, (err: Error | null | undefined, nativeConn: any) => {
         if (err) {
           return done(err, nativeConn);
         }

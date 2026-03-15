@@ -1,15 +1,15 @@
-import { type StrapiTheme } from '@strapi/design-system';
+import { type LeaoTheme } from '@leao/design-system';
 
-import type { Modules } from '@strapi/types';
+import type { Modules } from '@leao/types';
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface DefaultTheme extends StrapiTheme {}
+  export interface DefaultTheme extends LeaoTheme {}
 }
 
 declare global {
   interface Window {
-    strapi: {
+    leao: {
       backendURL: string;
       isEE: boolean;
       future: {

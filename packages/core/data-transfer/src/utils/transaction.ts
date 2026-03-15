@@ -1,10 +1,10 @@
 import { EventEmitter } from 'events';
 import { randomUUID } from 'crypto';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 import { Transaction, TransactionCallback } from '../../types/utils';
 
-export const createTransaction = (strapi: Core.Strapi): Transaction => {
+export const createTransaction = (leao: Core.Leao): Transaction => {
   const fns: { fn: TransactionCallback; uuid: string }[] = [];
 
   let done = false;
@@ -24,7 +24,7 @@ export const createTransaction = (strapi: Core.Strapi): Transaction => {
     resume?.();
   });
 
-  strapi.db.transaction(async ({ trx, rollback }) => {
+  leao.db.transaction(async ({ trx, rollback }) => {
     e.once('rollback', async () => {
       e.removeAllListeners('close');
       e.removeAllListeners('spawn');

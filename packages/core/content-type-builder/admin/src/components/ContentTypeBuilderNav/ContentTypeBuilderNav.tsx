@@ -9,8 +9,8 @@ import {
   SubNavLinkSection,
   SubNavSection,
   SubNavSections,
-} from '@strapi/design-system';
-import { Plus } from '@strapi/icons';
+} from '@leao/design-system';
+import { Plus } from '@leao/icons';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';

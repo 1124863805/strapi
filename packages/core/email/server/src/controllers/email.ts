@@ -1,5 +1,5 @@
 import { pick } from 'lodash/fp';
-import { errors } from '@strapi/utils';
+import { errors } from '@leao/utils';
 
 import type Koa from 'koa';
 import type {} from 'koa-body';
@@ -17,7 +17,7 @@ const emailController = {
     const options = ctx.request.body as SendOptions;
 
     try {
-      await strapi.plugin('email').service('email').send(options);
+      await leao.plugin('email').service('email').send(options);
     } catch (error) {
       if (error instanceof Error) {
         if ('statusCode' in error && error.statusCode === 400) {
@@ -41,14 +41,14 @@ const emailController = {
 
     const email: SendOptions = {
       to,
-      subject: `Strapi test mail to: ${to}`,
-      text: `Great! You have correctly configured the Strapi email plugin with the ${strapi.config.get(
+      subject: `Leao test mail to: ${to}`,
+      text: `Great! You have correctly configured the Leao email plugin with the ${leao.config.get(
         'plugin::email.provider'
       )} provider. \r\nFor documentation on how to use the email plugin, see your project documentation.`,
     };
 
     try {
-      await strapi.plugin('email').service('email').send(email);
+      await leao.plugin('email').service('email').send(email);
     } catch (error) {
       if (error instanceof Error) {
         if ('statusCode' in error && error.statusCode === 400) {
@@ -64,7 +64,7 @@ const emailController = {
   },
 
   async getSettings(ctx: Koa.Context) {
-    const config: EmailConfig = strapi.plugin('email').service('email').getProviderSettings();
+    const config: EmailConfig = leao.plugin('email').service('email').getProviderSettings();
 
     ctx.send({
       config: pick(

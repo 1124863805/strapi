@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Box, SingleSelect, SingleSelectOption } from '@strapi/design-system';
-import { Code } from '@strapi/icons';
+import { Box, SingleSelect, SingleSelectOption } from '@leao/design-system';
+import { Code } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import { Editor, Transforms } from 'slate';
 import { useSelected, type RenderElementProps, useFocused, ReactEditor } from 'slate-react';

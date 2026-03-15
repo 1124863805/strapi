@@ -1,15 +1,15 @@
 'use strict';
 
 const path = require('path');
-const utils = require('@strapi/utils');
+const utils = require('@leao/utils');
 const { isString, has, toLower } = require('lodash/fp');
 
 const { RateLimitError } = utils.errors;
 
 module.exports =
-  (config, { strapi }) =>
+  (config, { leao }) =>
   async (ctx, next) => {
-    let rateLimitConfig = strapi.config.get('plugin::users-permissions.ratelimit');
+    let rateLimitConfig = leao.config.get('plugin::users-permissions.ratelimit');
 
     if (!rateLimitConfig) {
       rateLimitConfig = {

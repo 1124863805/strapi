@@ -4,11 +4,11 @@ const { toPlainObject } = require('lodash/fp');
 
 const usersPermissionsRoleUID = 'plugin::users-permissions.role';
 
-module.exports = ({ nexus, strapi }) => {
-  const { getContentTypeInputName } = strapi.plugin('graphql').service('utils').naming;
+module.exports = ({ nexus, leao }) => {
+  const { getContentTypeInputName } = leao.plugin('graphql').service('utils').naming;
   const { nonNull } = nexus;
 
-  const roleContentType = strapi.getModel(usersPermissionsRoleUID);
+  const roleContentType = leao.getModel(usersPermissionsRoleUID);
 
   const roleInputName = getContentTypeInputName(roleContentType);
 
@@ -26,7 +26,7 @@ module.exports = ({ nexus, strapi }) => {
 
       koaContext.request.body = toPlainObject(args.data);
 
-      await strapi.plugin('users-permissions').controller('role').createRole(koaContext);
+      await leao.plugin('users-permissions').controller('role').createRole(koaContext);
 
       return { ok: true };
     },

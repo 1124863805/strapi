@@ -1,4 +1,4 @@
-import { providerFactory } from '@strapi/utils';
+import { providerFactory } from '@leao/utils';
 import domain from '.';
 import type { CreateConditionPayload } from '.';
 
@@ -19,7 +19,7 @@ const createConditionProvider = () => {
     ...provider,
 
     async register(conditionAttributes: CreateConditionPayload) {
-      if (strapi.isLoaded) {
+      if (leao.isLoaded) {
         throw new Error(`You can't register new conditions outside of the bootstrap function.`);
       }
 

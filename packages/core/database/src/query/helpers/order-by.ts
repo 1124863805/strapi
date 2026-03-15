@@ -11,8 +11,8 @@ type OrderByCtx = Ctx & { alias?: string };
 type OrderBy = string | { [key: string]: 'asc' | 'desc' } | OrderBy[];
 type OrderByValue = { column: string; order?: 'asc' | 'desc' };
 
-const COL_STRAPI_ROW_NUMBER = '__strapi_row_number';
-const COL_STRAPI_ORDER_BY_PREFIX = '__strapi_order_by';
+const COL_LEAO_ROW_NUMBER = '__leao_row_number';
+const COL_LEAO_ORDER_BY_PREFIX = '__leao_order_by';
 
 export const processOrderBy = (orderBy: OrderBy, ctx: OrderByCtx): OrderByValue[] => {
   const { db, uid, qb, alias } = ctx;
@@ -72,10 +72,10 @@ export const processOrderBy = (orderBy: OrderBy, ctx: OrderByCtx): OrderByValue[
   throw new Error('Invalid orderBy syntax');
 };
 
-export const getStrapiOrderColumnAlias = (column: string) => {
+export const getLeaoOrderColumnAlias = (column: string) => {
   const trimmedColumnName = column.replaceAll('.', '_');
 
-  return `${COL_STRAPI_ORDER_BY_PREFIX}__${trimmedColumnName}`;
+  return `${COL_LEAO_ORDER_BY_PREFIX}__${trimmedColumnName}`;
 };
 
 /**
@@ -127,9 +127,9 @@ export const wrapWithDeepSort = (originalQuery: knex.Knex.QueryBuilder, ctx: Ord
     prefix(qb.alias, 'id'),
     // Select every column used in an order by clause, but alias it for future reference
     // i.e. if t2.name is present in an order by clause:
-    //      Then, "t2.name" will become "t2.name as __strapi_order_by__t2_name"
+    //      Then, "t2.name" will become "t2.name as __leao_order_by__t2_name"
     ...orderBy.map((orderByClause) =>
-      alias(getStrapiOrderColumnAlias(orderByClause.column), orderByClause.column)
+      alias(getLeaoOrderColumnAlias(orderByClause.column), orderByClause.column)
     )
   );
 
@@ -139,7 +139,7 @@ export const wrapWithDeepSort = (originalQuery: knex.Knex.QueryBuilder, ctx: Ord
   const selectRowsAsNumberedPartitions = (partitionedQuery: knex.Knex.QueryBuilder) => {
     // Transform order by clause to their alias to reference them from baseQuery
     const prefixedOrderBy = orderBy.map((orderByClause) => ({
-      column: prefix(baseQueryAlias, getStrapiOrderColumnAlias(orderByClause.column)),
+      column: prefix(baseQueryAlias, getLeaoOrderColumnAlias(orderByClause.column)),
       order: orderByClause.order,
     }));
 
@@ -154,7 +154,7 @@ export const wrapWithDeepSort = (originalQuery: knex.Knex.QueryBuilder, ctx: Ord
         ...orderByColumns
       )
       // The row number is used to assign an index to every row in every partition
-      .rowNumber(COL_STRAPI_ROW_NUMBER, (subQuery) => {
+      .rowNumber(COL_LEAO_ROW_NUMBER, (subQuery) => {
         for (const orderByClause of prefixedOrderBy) {
           subQuery.orderBy(orderByClause.column, orderByClause.order, 'last');
         }
@@ -188,7 +188,7 @@ export const wrapWithDeepSort = (originalQuery: knex.Knex.QueryBuilder, ctx: Ord
         .on(`${partitionedQueryAlias}.id`, `${resultQueryAlias}.id`)
         // By only selecting the rows number equal to 1, we make sure we don't have duplicate, and that
         // we're selecting rows in the correct order amongst the groups created by the "partition by"
-        .andOnVal(`${partitionedQueryAlias}.${COL_STRAPI_ROW_NUMBER}`, '=', 1);
+        .andOnVal(`${partitionedQueryAlias}.${COL_LEAO_ROW_NUMBER}`, '=', 1);
     });
 
   // Re-apply pagination params
@@ -209,7 +209,7 @@ export const wrapWithDeepSort = (originalQuery: knex.Knex.QueryBuilder, ctx: Ord
   resultQuery.orderBy([
     // Transform "order by" clause to their T alias and prefix them with T alias
     ...orderBy.map((orderByClause) => ({
-      column: prefix(partitionedQueryAlias, getStrapiOrderColumnAlias(orderByClause.column)),
+      column: prefix(partitionedQueryAlias, getLeaoOrderColumnAlias(orderByClause.column)),
       order: orderByClause.order,
     })),
     // Add T.id to the order by clause to get consistent results in case several rows have the exact same order

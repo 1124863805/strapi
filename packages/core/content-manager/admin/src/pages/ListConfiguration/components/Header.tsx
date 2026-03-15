@@ -1,5 +1,5 @@
-import { useForm, BackButton, Layouts } from '@strapi/admin/strapi-admin';
-import { Button } from '@strapi/design-system';
+import { useForm, BackButton, Layouts } from '@leao/admin/leao-admin';
+import { Button } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 
 import { capitalise } from '../../../utils/strings';

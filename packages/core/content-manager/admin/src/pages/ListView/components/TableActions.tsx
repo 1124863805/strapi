@@ -3,11 +3,11 @@ import * as React from 'react';
 import {
   DescriptionComponentRenderer,
   useNotification,
-  useStrapiApp,
+  useLeaoApp,
   useQueryParams,
-} from '@strapi/admin/strapi-admin';
-import { Button, LinkButton, Modal } from '@strapi/design-system';
-import { Duplicate, Pencil } from '@strapi/icons';
+} from '@leao/admin/leao-admin';
+import { Button, LinkButton, Modal } from '@leao/design-system';
+import { Duplicate, Pencil } from '@leao/icons';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -39,7 +39,7 @@ interface TableActionsProps {
 const TableActions = ({ document }: TableActionsProps) => {
   const { formatMessage } = useIntl();
   const { model, collectionType } = useDoc();
-  const plugins = useStrapiApp('TableActions', (state) => state.plugins);
+  const plugins = useLeaoApp('TableActions', (state) => state.plugins);
 
   const props: DocumentActionProps = {
     activeTab: null,
@@ -100,7 +100,7 @@ const EditAction: DocumentActionComponent = ({ documentId }) => {
     onClick: async () => {
       if (!documentId) {
         console.error(
-          "You're trying to edit a document without an id, this is likely a bug with Strapi. Please open an issue."
+          "You're trying to edit a document without an id, this is likely a bug with Leao. Please open an issue."
         );
 
         toggleNotification({
@@ -155,7 +155,7 @@ const CloneAction: DocumentActionComponent = ({ model, documentId }) => {
     onClick: async () => {
       if (!documentId) {
         console.error(
-          "You're trying to clone a document in the table without an id, this is likely a bug with Strapi. Please open an issue."
+          "You're trying to clone a document in the table without an id, this is likely a bug with Leao. Please open an issue."
         );
 
         toggleNotification({

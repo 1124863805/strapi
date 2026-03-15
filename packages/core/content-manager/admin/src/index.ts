@@ -1,4 +1,4 @@
-import { Feather } from '@strapi/icons';
+import { Feather } from '@leao/icons';
 
 import { PLUGIN_ID } from './constants/plugin';
 import { ContentManagerPlugin } from './content-manager';

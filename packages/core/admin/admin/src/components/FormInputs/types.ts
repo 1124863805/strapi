@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 
 interface EnumerationProps extends Omit<InputProps, 'options' | 'type'> {
   options: Array<{ disabled?: boolean; hidden?: boolean; label?: string; value: string }>;
@@ -16,7 +16,7 @@ interface StringProps
 /**
  * These props exist on all form inputs, they're not unique to the CM.
  * The concept is that these inputs can be used in a generic renderer that is shared
- * between the numerous forms across Strapi.
+ * between the numerous forms across Leao.
  */
 interface InputProps {
   'aria-label'?: string;

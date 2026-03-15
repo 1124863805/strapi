@@ -29,7 +29,7 @@ const buildCaslQuery = (ability: unknown, action: unknown, model: unknown) => {
   return rulesToQuery(ability, action, model, (o) => o.conditions);
 };
 
-const buildStrapiQuery = (caslQuery: unknown) => {
+const buildLeaoQuery = (caslQuery: unknown) => {
   return unwrapDeep(caslQuery);
 };
 
@@ -65,4 +65,4 @@ const unwrapDeep = (obj: any): unknown => {
   );
 };
 
-export { buildCaslQuery, buildStrapiQuery };
+export { buildCaslQuery, buildLeaoQuery };

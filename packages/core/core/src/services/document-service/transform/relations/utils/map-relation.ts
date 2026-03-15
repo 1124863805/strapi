@@ -1,8 +1,8 @@
 /* eslint-disable node/no-callback-literal */
 import { isObject, curry, isNil } from 'lodash/fp';
 
-import type { UID } from '@strapi/types';
-import { traverseEntity, async } from '@strapi/utils';
+import type { UID } from '@leao/types';
+import { traverseEntity, async } from '@leao/utils';
 
 import { Relation } from './types';
 
@@ -21,7 +21,7 @@ const toArray = (value: any) => {
 };
 
 /**
- * There are multiple ways to create Strapi relations.
+ * There are multiple ways to create Leao relations.
  * This is a utility to traverse and transform relation data
  *
  *

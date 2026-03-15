@@ -1,5 +1,5 @@
-import { useField } from '@strapi/admin/strapi-admin';
-import { Box, Flex, Grid } from '@strapi/design-system';
+import { useField } from '@leao/admin/leao-admin';
+import { Box, Flex, Grid } from '@leao/design-system';
 
 import { ComponentProvider, useComponent } from '../ComponentContext';
 

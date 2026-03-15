@@ -3,9 +3,9 @@ import type { ExtendableContext, Middleware as KoaMiddleware } from 'koa';
 import type { MatchFirst, Test } from '../../utils';
 import type * as UID from '../../uid';
 
-import type { Strapi } from '..';
+import type { Leao } from '..';
 
-export type MiddlewareFactory = (config: any, ctx: { strapi: Strapi }) => Middleware | null;
+export type MiddlewareFactory = (config: any, ctx: { leao: Leao }) => Middleware | null;
 
 export type Middleware = KoaMiddleware | MiddlewareFactory;
 
@@ -16,7 +16,7 @@ export interface PolicyContext extends ExtendableContext {
 export type PolicyImplementation<TCfg = unknown> = (
   ctx: PolicyContext,
   cfg: TCfg,
-  { strapi }: { strapi: Strapi }
+  { leao }: { leao: Leao }
 ) => boolean | undefined;
 
 type HandlerConfig = {

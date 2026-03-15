@@ -1,4 +1,4 @@
-import { Menu } from '@strapi/design-system';
+import { Menu } from '@leao/design-system';
 import { useDispatch } from 'react-redux';
 import { styled } from 'styled-components';
 

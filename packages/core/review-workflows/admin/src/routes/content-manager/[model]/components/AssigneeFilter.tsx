@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { type Filters, useAdminUsers, useField } from '@strapi/admin/strapi-admin';
-import { Combobox, ComboboxOption, ComboboxProps } from '@strapi/design-system';
+import { type Filters, useAdminUsers, useField } from '@leao/admin/leao-admin';
+import { Combobox, ComboboxOption, ComboboxProps } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 
 import { getDisplayName } from '../../../../utils/users';

@@ -6,8 +6,8 @@ import {
   MultiSelectOption,
   Typography,
   Field,
-} from '@strapi/design-system';
-import { Check } from '@strapi/icons';
+} from '@leao/design-system';
+import { Check } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import * as yup from 'yup';
 

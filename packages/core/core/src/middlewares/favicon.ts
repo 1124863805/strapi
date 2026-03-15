@@ -1,7 +1,7 @@
 import { existsSync } from 'fs';
 import { resolve } from 'path';
 import koaFavicon from 'koa-favicon';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 export type Config = NonNullable<Parameters<typeof koaFavicon>[1]>;
 
@@ -10,13 +10,13 @@ const defaults = {
   maxAge: 86400000,
 };
 
-export const favicon: Core.MiddlewareFactory<Config> = (config, { strapi }) => {
+export const favicon: Core.MiddlewareFactory<Config> = (config, { leao }) => {
   const { maxAge, path: faviconDefaultPath } = { ...defaults, ...config };
-  const { root: appRoot } = strapi.dirs.app;
+  const { root: appRoot } = leao.dirs.app;
   let faviconPath = faviconDefaultPath;
 
   /** TODO (v5): Updating the favicon to use a png caused
-   *  https://github.com/strapi/strapi/issues/14693
+   *  https://github.com/leao/leao/issues/14693
    *
    *  This check ensures backwards compatibility until
    *  the next major version

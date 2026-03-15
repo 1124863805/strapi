@@ -1,5 +1,5 @@
-import { Flex, IconButton, Typography } from '@strapi/design-system';
-import { Eye } from '@strapi/icons';
+import { Flex, IconButton, Typography } from '@leao/design-system';
+import { Eye } from '@leao/icons';
 import { useIntl } from 'react-intl';
 
 import { Filters } from '../../../../../../../admin/src/components/Filters';

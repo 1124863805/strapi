@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Grid, SingleSelectOption, SingleSelect, Field } from '@strapi/design-system';
+import { Box, Grid, SingleSelectOption, SingleSelect, Field } from '@leao/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

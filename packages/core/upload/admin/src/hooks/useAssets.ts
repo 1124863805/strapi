@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { useNotification, useFetchClient } from '@strapi/admin/strapi-admin';
-import { useNotifyAT } from '@strapi/design-system';
+import { useNotification, useFetchClient } from '@leao/admin/leao-admin';
+import { useNotifyAT } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 import { useQuery } from 'react-query';
 import { Query, GetFiles } from '../../../shared/contracts/files';

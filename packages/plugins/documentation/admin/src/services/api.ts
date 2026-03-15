@@ -1,4 +1,4 @@
-import { adminApi } from '@strapi/admin/strapi-admin';
+import { adminApi } from '@leao/admin/leao-admin';
 
 import { DocumentInfos } from '../types';
 

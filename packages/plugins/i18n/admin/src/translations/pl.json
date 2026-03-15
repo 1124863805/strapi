@@ -14,7 +14,7 @@
   "Settings.list.actions.deleteAdditionalInfos": "Aktywne ustawienia regionalne zostaną usnięte <em>(from Internationalization)</em>",
   "Settings.list.actions.edit": "Edytuj",
   "Settings.list.description": "Skonfiguruj ustawienia dla pluginu Internationalization",
-  "Settings.list.empty.description": "To nie jest standardowe zachowanie, co oznacza że ostatecznie zmieniłeś bazę danych manualnie. Aby poprawnie używać strapi upewnij się, że w bazie masz zapisane przynajmniej jedno ustawienie regionalne.",
+  "Settings.list.empty.description": "To nie jest standardowe zachowanie, co oznacza że ostatecznie zmieniłeś bazę danych manualnie. Aby poprawnie używać leao upewnij się, że w bazie masz zapisane przynajmniej jedno ustawienie regionalne.",
   "Settings.list.empty.title": "Brak ustawień regionalnych.",
   "Settings.locales.default": "domyślne",
   "Settings.locales.list.sort.default": "Sortuj domyślnie",

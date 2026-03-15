@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { useStrapiApp } from '@strapi/admin/strapi-admin';
-import { Box } from '@strapi/design-system';
+import { useLeaoApp } from '@leao/admin/leao-admin';
+import { Box } from '@leao/design-system';
 import {
   BlocksField,
   BooleanField,
@@ -17,9 +17,9 @@ import {
   RelationField,
   TextField,
   UidField,
-} from '@strapi/icons/symbols';
+} from '@leao/icons/symbols';
 
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 
 const iconByTypes: Record<Schema.Attribute.Kind, React.ReactElement> = {
   biginteger: <NumberField />,
@@ -52,7 +52,7 @@ interface FieldTypeIconProps {
 }
 
 const FieldTypeIcon = ({ type, customFieldUid }: FieldTypeIconProps) => {
-  const getCustomField = useStrapiApp('FieldTypeIcon', (state) => state.customFields.get);
+  const getCustomField = useLeaoApp('FieldTypeIcon', (state) => state.customFields.get);
 
   if (!type) {
     return null;

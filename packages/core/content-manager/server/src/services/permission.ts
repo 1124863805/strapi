@@ -1,10 +1,10 @@
 import { prop } from 'lodash/fp';
-import { contentTypes as contentTypesUtils } from '@strapi/utils';
+import { contentTypes as contentTypesUtils } from '@leao/utils';
 
-import type { Core, Struct } from '@strapi/types';
+import type { Core, Struct } from '@leao/types';
 import { getService } from '../utils';
 
-export default ({ strapi }: { strapi: Core.Strapi }) => ({
+export default ({ leao }: { leao: Core.Leao }) => ({
   canConfigureContentType({
     userAbility,
     contentType,
@@ -91,6 +91,6 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
       },
     ];
 
-    await strapi.service('admin::permission').actionProvider.registerMany(actions);
+    await leao.service('admin::permission').actionProvider.registerMany(actions);
   },
 });

@@ -141,7 +141,7 @@ const isKind = (kind: Kind) => (model: Model) => model.kind === kind;
 
 const getStoredPrivateAttributes = (model: Model) =>
   union(
-    (strapi?.config?.get('api.responses.privateAttributes', []) ?? []) as Array<string>,
+    (leao?.config?.get('api.responses.privateAttributes', []) ?? []) as Array<string>,
     getOr([], 'options.privateAttributes', model)
   );
 

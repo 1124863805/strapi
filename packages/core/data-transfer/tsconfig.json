@@ -4,7 +4,7 @@
     "types",
     "src",
     "packup.config.ts",
-    "../strapi/src/cli/commands/__tests__/commands.test.utils.ts"
+    "../leao/src/cli/commands/__tests__/commands.test.utils.ts"
   ],
   "exclude": ["node_modules"]
 }

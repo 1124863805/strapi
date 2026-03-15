@@ -1,11 +1,11 @@
 import crypto from 'crypto';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 /**
  * Generate an admin user hash
  */
-const generateAdminUserHash = (strapi: Core.Strapi) => {
-  const ctx = strapi?.requestContext?.get();
+const generateAdminUserHash = (leao: Core.Leao) => {
+  const ctx = leao?.requestContext?.get();
   if (!ctx?.state?.user?.email) {
     return '';
   }

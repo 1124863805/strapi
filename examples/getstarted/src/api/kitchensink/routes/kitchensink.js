@@ -1,5 +1,5 @@
 'use strict';
 
-const { createCoreRouter } = require('@strapi/strapi').factories;
+const { createCoreRouter } = require('@leao/leao').factories;
 
 module.exports = createCoreRouter('api::kitchensink.kitchensink');

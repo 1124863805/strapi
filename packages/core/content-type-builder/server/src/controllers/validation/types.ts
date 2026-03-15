@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import { yup } from '@strapi/utils';
+import { yup } from '@leao/utils';
 
 import type { TestContext } from 'yup';
-import type { Schema, Struct } from '@strapi/types';
+import type { Schema, Struct } from '@leao/types';
 
 import { modelTypes, VALID_UID_TARGETS } from '../../services/constants';
 import {

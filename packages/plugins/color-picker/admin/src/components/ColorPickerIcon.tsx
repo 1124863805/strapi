@@ -1,5 +1,5 @@
-import { Flex } from '@strapi/design-system';
-import { PaintBrush } from '@strapi/icons';
+import { Flex } from '@leao/design-system';
+import { PaintBrush } from '@leao/icons';
 import { styled } from 'styled-components';
 
 const IconBox = styled(Flex)`

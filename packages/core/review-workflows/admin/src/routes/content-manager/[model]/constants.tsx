@@ -3,8 +3,8 @@ import { AssigneeFilter } from './components/AssigneeFilter';
 import { StageFilter } from './components/StageFilter';
 import { AssigneeColumn, StageColumn } from './components/TableColumns';
 
-import type { Filters } from '@strapi/admin/strapi-admin';
-import type { ListFieldLayout } from '@strapi/content-manager/strapi-admin';
+import type { Filters } from '@leao/admin/leao-admin';
+import type { ListFieldLayout } from '@leao/content-manager/leao-admin';
 import type { MessageDescriptor } from 'react-intl';
 
 export const REVIEW_WORKFLOW_COLUMNS = [
@@ -59,7 +59,7 @@ export const REVIEW_WORKFLOW_FILTERS = [
       id: 'review-workflows.containers.list.table-headers.reviewWorkflows.stage',
       defaultMessage: 'Review stage',
     },
-    name: 'strapi_stage',
+    name: 'leao_stage',
     type: 'relation',
   },
 
@@ -90,7 +90,7 @@ export const REVIEW_WORKFLOW_FILTERS = [
       id: 'review-workflows.containers.list.table-headers.reviewWorkflows.assignee.label',
       defaultMessage: 'Assignee',
     },
-    name: 'strapi_assignee',
+    name: 'leao_assignee',
   },
 ] satisfies Array<
   Omit<Filters.Filter, 'label' | 'operators'> & {

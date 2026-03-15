@@ -1,4 +1,4 @@
-import type { Struct } from '@strapi/types';
+import type { Struct } from '@leao/types';
 import type { OpenAPIV3 } from 'openapi-types';
 
 import getSchemaData from './get-schema-data';
@@ -7,7 +7,7 @@ import pascalCase from './pascal-case';
 interface Options {
   typeMap?: Map<string, boolean>;
   isRequest?: boolean;
-  didAddStrapiComponentsToSchemas: (name: string, schema: object) => boolean;
+  didAddLeaoComponentsToSchemas: (name: string, schema: object) => boolean;
 }
 
 /**
@@ -31,7 +31,7 @@ const convertComponentName = (component: string, isRef = false): string => {
  */
 const cleanSchemaAttributes = (
   attributes: Struct.SchemaAttributes,
-  { typeMap = new Map(), isRequest = false, didAddStrapiComponentsToSchemas }: Options
+  { typeMap = new Map(), isRequest = false, didAddLeaoComponentsToSchemas }: Options
 ) => {
   const schemaAttributes: Record<string, OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject> = {};
 
@@ -104,7 +104,7 @@ const cleanSchemaAttributes = (
         break;
       }
       case 'component': {
-        const componentAttributes = strapi.components[attribute.component].attributes;
+        const componentAttributes = leao.components[attribute.component].attributes;
         const rawComponentSchema: OpenAPIV3.SchemaObject = {
           type: 'object',
           properties: {
@@ -112,7 +112,7 @@ const cleanSchemaAttributes = (
             ...cleanSchemaAttributes(componentAttributes, {
               typeMap,
               isRequest,
-              didAddStrapiComponentsToSchemas,
+              didAddLeaoComponentsToSchemas,
             }),
           },
         };
@@ -121,7 +121,7 @@ const cleanSchemaAttributes = (
           $ref: convertComponentName(attribute.component, true),
         };
 
-        const componentExists = didAddStrapiComponentsToSchemas(
+        const componentExists = didAddLeaoComponentsToSchemas(
           convertComponentName(attribute.component),
           rawComponentSchema
         );
@@ -139,7 +139,7 @@ const cleanSchemaAttributes = (
       }
       case 'dynamiczone': {
         const components = attribute.components.map((component) => {
-          const componentAttributes = strapi.components[component].attributes;
+          const componentAttributes = leao.components[component].attributes;
           const rawComponentSchema: OpenAPIV3.SchemaObject = {
             type: 'object',
             properties: {
@@ -148,7 +148,7 @@ const cleanSchemaAttributes = (
               ...cleanSchemaAttributes(componentAttributes, {
                 typeMap,
                 isRequest,
-                didAddStrapiComponentsToSchemas,
+                didAddLeaoComponentsToSchemas,
               }),
             },
           };
@@ -157,7 +157,7 @@ const cleanSchemaAttributes = (
             $ref: convertComponentName(component, true),
           };
 
-          const componentExists = didAddStrapiComponentsToSchemas(
+          const componentExists = didAddLeaoComponentsToSchemas(
             convertComponentName(component),
             rawComponentSchema
           );
@@ -190,7 +190,7 @@ const cleanSchemaAttributes = (
         break;
       }
       case 'media': {
-        const imageAttributes = strapi.contentType('plugin::upload.file').attributes;
+        const imageAttributes = leao.contentType('plugin::upload.file').attributes;
         const isListOfEntities = attribute.multiple ?? false;
 
         if (isRequest) {
@@ -207,7 +207,7 @@ const cleanSchemaAttributes = (
 
         schemaAttributes[prop] = getSchemaData(
           isListOfEntities,
-          cleanSchemaAttributes(imageAttributes, { typeMap, didAddStrapiComponentsToSchemas })
+          cleanSchemaAttributes(imageAttributes, { typeMap, didAddLeaoComponentsToSchemas })
         );
         break;
       }
@@ -234,14 +234,14 @@ const cleanSchemaAttributes = (
         }
 
         typeMap.set(attribute.target, true);
-        const targetAttributes = strapi.contentType(attribute.target).attributes;
+        const targetAttributes = leao.contentType(attribute.target).attributes;
 
         schemaAttributes[prop] = getSchemaData(
           isListOfEntities,
           cleanSchemaAttributes(targetAttributes, {
             typeMap,
             isRequest,
-            didAddStrapiComponentsToSchemas,
+            didAddLeaoComponentsToSchemas,
           })
         );
 

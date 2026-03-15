@@ -1,5 +1,5 @@
-import type { errors } from '@strapi/utils';
-import type { FetchError } from '@strapi/admin/strapi-admin';
+import type { errors } from '@leao/utils';
+import type { FetchError } from '@leao/admin/leao-admin';
 
 type ApiError = InstanceType<(typeof errors)[keyof typeof errors]>;
 

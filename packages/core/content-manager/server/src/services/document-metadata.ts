@@ -1,7 +1,7 @@
 import { groupBy, pick } from 'lodash/fp';
 
-import { async, contentTypes, traverseEntity } from '@strapi/utils';
-import type { Core, UID, Modules } from '@strapi/types';
+import { async, contentTypes, traverseEntity } from '@leao/utils';
+import type { Core, UID, Modules } from '@leao/types';
 
 import type { DocumentMetadata } from '../../../shared/contracts/collection-types';
 import { getValidatableFieldsPopulate } from './utils/populate';
@@ -72,7 +72,7 @@ const getIsVersionLatestModification = (
   return versionUpdatedAt > otherUpdatedAt;
 };
 
-export default ({ strapi }: { strapi: Core.Strapi }) => ({
+export default ({ leao }: { leao: Core.Leao }) => ({
   /**
    * Returns available locales of a document for the current status
    */
@@ -93,7 +93,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
     // For each locale, get the ones with the same status
     // There will not be a draft and a version counterpart if the content
     // type does not have draft and publish
-    const model = strapi.getModel(uid);
+    const model = leao.getModel(uid);
     const keysToKeep = [...AVAILABLE_LOCALES_FIELDS, ...validatableFields];
 
     const traversalFunction = async (localeVersion: DocumentVersion) =>
@@ -107,7 +107,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
           // Otherwise remove this key from the data
           remove(key);
         },
-        { schema: model, getModel: strapi.getModel.bind(strapi) },
+        { schema: model, getModel: leao.getModel.bind(leao) },
         // @ts-expect-error fix types DocumentVersion incompatible with Data
         localeVersion
       );
@@ -181,7 +181,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
     const locale = documents[0]?.locale;
     const otherStatus = status === 'published' ? 'draft' : 'published';
 
-    return strapi.documents(uid).findMany({
+    return leao.documents(uid).findMany({
       filters: {
         documentId: { $in: documents.map((d) => d.documentId).filter(Boolean) },
       },
@@ -230,7 +230,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
     // TODO: Ignore publishedAt if availableStatus=false, and ignore locale if
     // i18n is disabled
     const populate = getValidatableFieldsPopulate(uid);
-    const versions = await strapi.db.query(uid).findMany({
+    const versions = await leao.db.query(uid).findMany({
       where: { documentId: version.documentId },
       populate: {
         // Populate only fields that require validation for bulk locale actions
@@ -279,7 +279,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
       };
     }
 
-    const hasDraftAndPublish = contentTypes.hasDraftAndPublish(strapi.getModel(uid));
+    const hasDraftAndPublish = contentTypes.hasDraftAndPublish(leao.getModel(uid));
 
     // Ignore available status if the content type does not have draft and publish
     if (!hasDraftAndPublish) {

@@ -7,8 +7,8 @@ import {
   useRBAC,
   useNotification,
   useQueryParams,
-} from '@strapi/admin/strapi-admin';
-import { Grid, Main, Tabs } from '@strapi/design-system';
+} from '@leao/admin/leao-admin';
+import { Grid, Main, Tabs } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 import { useLocation, useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
@@ -212,7 +212,7 @@ const EditViewPage = () => {
               </Grid.Root>
             </Tabs.Root>
             <Blocker
-              // We reset the form to the published version to avoid errors like – https://strapi-inc.atlassian.net/browse/CONTENT-2284
+              // We reset the form to the published version to avoid errors like – https://leao-inc.atlassian.net/browse/CONTENT-2284
               onProceed={resetForm}
             />
           </>

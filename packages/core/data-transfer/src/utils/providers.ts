@@ -1,11 +1,11 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 import { ProviderInitializationError } from '../errors/providers';
 
-export type ValidStrapiAssertion = (strapi: unknown, msg?: string) => asserts strapi is Core.Strapi;
+export type ValidLeaoAssertion = (leao: unknown, msg?: string) => asserts leao is Core.Leao;
 
-export const assertValidStrapi: ValidStrapiAssertion = (strapi?: unknown, msg = '') => {
-  if (!strapi) {
-    throw new ProviderInitializationError(`${msg}. Strapi instance not found.`);
+export const assertValidLeao: ValidLeaoAssertion = (leao?: unknown, msg = '') => {
+  if (!leao) {
+    throw new ProviderInitializationError(`${msg}. Leao instance not found.`);
   }
 };

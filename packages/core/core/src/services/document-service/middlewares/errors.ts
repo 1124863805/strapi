@@ -1,5 +1,5 @@
-import { errors as databaseErrors } from '@strapi/database';
-import { errors } from '@strapi/utils';
+import { errors as databaseErrors } from '@leao/database';
+import { errors } from '@leao/utils';
 
 import type { Middleware } from './middleware-manager';
 

@@ -1,7 +1,7 @@
 import { isNil, mapValues } from 'lodash/fp';
-import { contentTypes as contentTypesUtils } from '@strapi/utils';
+import { contentTypes as contentTypesUtils } from '@leao/utils';
 
-import type { UID, Struct, Core } from '@strapi/types';
+import type { UID, Struct, Core } from '@leao/types';
 
 import type { ConfigurationUpdate } from './configuration';
 
@@ -15,21 +15,21 @@ const configurationService = createConfigurationService({
   getModels() {
     const { toContentManagerModel } = getService('data-mapper');
 
-    return mapValues(toContentManagerModel, strapi.contentTypes);
+    return mapValues(toContentManagerModel, leao.contentTypes);
   },
 });
 
-const service = ({ strapi }: { strapi: Core.Strapi }) => ({
+const service = ({ leao }: { leao: Core.Leao }) => ({
   findAllContentTypes() {
     const { toContentManagerModel } = getService('data-mapper');
 
-    return Object.values(strapi.contentTypes).map(toContentManagerModel);
+    return Object.values(leao.contentTypes).map(toContentManagerModel);
   },
 
   findContentType(uid: UID.ContentType) {
     const { toContentManagerModel } = getService('data-mapper');
 
-    const contentType = strapi.contentTypes[uid];
+    const contentType = leao.contentTypes[uid];
 
     return isNil(contentType) ? contentType : toContentManagerModel(contentType);
   },

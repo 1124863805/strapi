@@ -6,13 +6,13 @@ const { checkBadRequest } = require('../../../utils');
 
 const usersPermissionsUserUID = 'plugin::users-permissions.user';
 
-module.exports = ({ nexus, strapi }) => {
+module.exports = ({ nexus, leao }) => {
   const { nonNull } = nexus;
-  const { getContentTypeInputName, getEntityResponseName } = strapi
+  const { getContentTypeInputName, getEntityResponseName } = leao
     .plugin('graphql')
     .service('utils').naming;
 
-  const userContentType = strapi.getModel(usersPermissionsUserUID);
+  const userContentType = leao.getModel(usersPermissionsUserUID);
 
   const userInputName = getContentTypeInputName(userContentType);
   const responseName = getEntityResponseName(userContentType);
@@ -32,7 +32,7 @@ module.exports = ({ nexus, strapi }) => {
       koaContext.params = {};
       koaContext.request.body = toPlainObject(args.data);
 
-      await strapi.plugin('users-permissions').controller('user').create(koaContext);
+      await leao.plugin('users-permissions').controller('user').create(koaContext);
 
       checkBadRequest(koaContext.body);
 

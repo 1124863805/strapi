@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useField, useForm } from '@strapi/admin/strapi-admin';
+import { useField, useForm } from '@leao/admin/leao-admin';
 import {
   Modal,
   Box,
@@ -12,8 +12,8 @@ import {
   useComposedRefs,
   Link,
   Menu,
-} from '@strapi/design-system';
-import { Cog, Cross, Drag, Pencil, Plus } from '@strapi/icons';
+} from '@leao/design-system';
+import { Cog, Cross, Drag, Pencil, Plus } from '@leao/icons';
 import { generateNKeysBetween as generateNKeysBetweenImpl } from 'fractional-indexing';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';

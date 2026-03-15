@@ -20,7 +20,7 @@ export type AdminAuthConfig = {
 };
 
 const getTokenOptions = () => {
-  const { options, secret } = strapi.config.get<AdminAuthConfig>(
+  const { options, secret } = leao.config.get<AdminAuthConfig>(
     'admin.auth',
     {} as AdminAuthConfig
   );
@@ -67,7 +67,7 @@ const decodeJwtToken = (
 };
 
 const checkSecretIsDefined = () => {
-  if (strapi.config.get('admin.serveAdminPanel') && !strapi.config.get('admin.auth.secret')) {
+  if (leao.config.get('admin.serveAdminPanel') && !leao.config.get('admin.auth.secret')) {
     throw new Error(
       `Missing auth.secret. Please set auth.secret in config/admin.js (ex: you can generate one using Node with \`crypto.randomBytes(16).toString('base64')\`).
 For security reasons, prefer storing the secret in an environment variable and read it in config/admin.js.`

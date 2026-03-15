@@ -2,7 +2,7 @@ import type { Intersect } from '../../../utils';
 import type { Attribute } from '../..';
 
 /**
- * Represents a rich-text Strapi attribute along with its options
+ * Represents a rich-text Leao attribute along with its options
  */
 export type RichText = Intersect<
   [

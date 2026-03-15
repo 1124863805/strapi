@@ -2,8 +2,8 @@ import { join } from 'path';
 import { NodePlopAPI, ActionType } from 'plop';
 import slugify from '@sindresorhus/slugify';
 import fs from 'fs-extra';
-import { strings } from '@strapi/utils';
-import tsUtils from '@strapi/typescript-utils';
+import { strings } from '@leao/utils';
+import tsUtils from '@leao/typescript-utils';
 
 import getDestinationPrompts from './prompts/get-destination-prompts';
 import getFilePath from './utils/get-file-path';

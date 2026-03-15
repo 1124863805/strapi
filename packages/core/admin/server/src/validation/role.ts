@@ -1,4 +1,4 @@
-import { yup, validateYupSchema } from '@strapi/utils';
+import { yup, validateYupSchema } from '@leao/utils';
 
 const roleCreateSchema = yup
   .object()
@@ -13,12 +13,12 @@ const rolesDeleteSchema = yup
   .shape({
     ids: yup
       .array()
-      .of(yup.strapiID())
+      .of(yup.leaoID())
       .min(1)
       .required()
       .test('roles-deletion-checks', 'Roles deletion checks have failed', async function (ids) {
         try {
-          await strapi.service('admin::role').checkRolesIdForDeletion(ids);
+          await leao.service('admin::role').checkRolesIdForDeletion(ids);
         } catch (e) {
           // @ts-expect-error yup types
           return this.createError({ path: 'ids', message: e.message });
@@ -30,11 +30,11 @@ const rolesDeleteSchema = yup
   .noUnknown();
 
 const roleDeleteSchema = yup
-  .strapiID()
+  .leaoID()
   .required()
   .test('no-admin-single-delete', 'Role deletion checks have failed', async function (id) {
     try {
-      await strapi.service('admin::role').checkRolesIdForDeletion([id]);
+      await leao.service('admin::role').checkRolesIdForDeletion([id]);
     } catch (e) {
       // @ts-expect-error yup types
       return this.createError({ path: 'id', message: e.message });

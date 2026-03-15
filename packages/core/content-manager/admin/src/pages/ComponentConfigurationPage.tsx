@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Page, useNotification, useAPIErrorHandler } from '@strapi/admin/strapi-admin';
+import { Page, useNotification, useAPIErrorHandler } from '@leao/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { useParams } from 'react-router-dom';
 

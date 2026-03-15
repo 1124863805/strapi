@@ -47,7 +47,7 @@ export const createUserMigrationProvider = (db: Database): UserMigrationProvider
   const context = { db };
 
   const umzugProvider = new Umzug({
-    storage: createStorage({ db, tableName: 'strapi_migrations' }),
+    storage: createStorage({ db, tableName: 'leao_migrations' }),
     logger: {
       info(message) {
         // NOTE: only log internal migration in debug mode

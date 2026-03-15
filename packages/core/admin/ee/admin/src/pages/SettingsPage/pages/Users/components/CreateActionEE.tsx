@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button, Flex, Tooltip } from '@strapi/design-system';
-import { Mail, WarningCircle } from '@strapi/icons';
+import { Button, Flex, Tooltip } from '@leao/design-system';
+import { Mail, WarningCircle } from '@leao/icons';
 import isNil from 'lodash/isNil';
 import { useIntl } from 'react-intl';
 

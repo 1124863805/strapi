@@ -6,19 +6,19 @@ const path = require('path');
 const authStrategy = require('./strategies/users-permissions');
 const sanitizers = require('./utils/sanitize/sanitizers');
 
-module.exports = ({ strapi }) => {
-  strapi.get('auth').register('content-api', authStrategy);
-  strapi.sanitizers.add('content-api.output', sanitizers.defaultSanitizeOutput);
+module.exports = ({ leao }) => {
+  leao.get('auth').register('content-api', authStrategy);
+  leao.sanitizers.add('content-api.output', sanitizers.defaultSanitizeOutput);
 
-  if (strapi.plugin('graphql')) {
-    require('./graphql')({ strapi });
+  if (leao.plugin('graphql')) {
+    require('./graphql')({ leao });
   }
 
-  if (strapi.plugin('documentation')) {
+  if (leao.plugin('documentation')) {
     const specPath = path.join(__dirname, '../documentation/content-api.yaml');
     const spec = fs.readFileSync(specPath, 'utf8');
 
-    strapi
+    leao
       .plugin('documentation')
       .service('override')
       .registerOverride(spec, {

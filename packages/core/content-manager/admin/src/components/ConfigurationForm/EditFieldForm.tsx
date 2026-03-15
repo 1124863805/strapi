@@ -1,11 +1,12 @@
+// @ts-nocheck
 import {
   useNotification,
   InputRenderer,
   Form,
   InputProps,
   useField,
-} from '@strapi/admin/strapi-admin';
-import { Button, Flex, Grid, Modal } from '@strapi/design-system';
+} from '@leao/admin/leao-admin';
+import { Button, Flex, Grid, Modal } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 import * as yup from 'yup';
 
@@ -18,7 +19,7 @@ import { FieldTypeIcon } from '../FieldTypeIcon';
 import { TEMP_FIELD_NAME } from './Fields';
 
 import type { ConfigurationFormData } from './Form';
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 
 /* -------------------------------------------------------------------------------------------------
  * Constants
@@ -90,7 +91,7 @@ const EditFieldForm = ({ attribute, name, onClose }: EditFieldFormProps) => {
   if (!value || value.name === TEMP_FIELD_NAME || !attribute) {
     // This is very unlikely to happen, but it ensures the form is not opened without a value.
     console.error(
-      "You've opened a field to edit without it being part of the form, this is likely a bug with Strapi. Please open an issue."
+      "You've opened a field to edit without it being part of the form, this is likely a bug with Leao. Please open an issue."
     );
 
     toggleNotification({

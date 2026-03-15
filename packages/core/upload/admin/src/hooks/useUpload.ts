@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useFetchClient, FetchClient } from '@strapi/admin/strapi-admin';
+import { useFetchClient, FetchClient } from '@leao/admin/leao-admin';
 import { useMutation, useQueryClient } from 'react-query';
 import { File, RawFile, CreateFile } from '../../../shared/contracts/files';
 

@@ -1,10 +1,10 @@
 /**
- * Strapi telemetry package.
+ * Leao telemetry package.
  * Usage information can be configured in your project settings.
  */
 
 import { Job, scheduleJob } from 'node-schedule';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 import wrapWithRateLimit from './rate-limiter';
 import createSender from './sender';
@@ -19,14 +19,14 @@ const LIMITED_EVENTS = [
   'didInitializePluginUpload',
 ];
 
-const createTelemetryInstance = (strapi: Core.Strapi) => {
-  const uuid = strapi.config.get('uuid');
-  const telemetryDisabled = strapi.config.get('packageJsonStrapi.telemetryDisabled');
+const createTelemetryInstance = (leao: Core.Leao) => {
+  const uuid = leao.config.get('uuid');
+  const telemetryDisabled = leao.config.get('packageJsonLeao.telemetryDisabled');
   const isDisabled =
-    !uuid || isTruthy(process.env.STRAPI_TELEMETRY_DISABLED) || isTruthy(telemetryDisabled);
+    !uuid || isTruthy(process.env.LEAO_TELEMETRY_DISABLED) || isTruthy(telemetryDisabled);
 
   const crons: Job[] = [];
-  const sender = createSender(strapi);
+  const sender = createSender(leao);
   const sendEvent = wrapWithRateLimit(sender, { limitedEvents: LIMITED_EVENTS });
 
   return {
@@ -39,7 +39,7 @@ const createTelemetryInstance = (strapi: Core.Strapi) => {
         const pingCron = scheduleJob('0 0 12 * * *', () => sendEvent('ping'));
         crons.push(pingCron);
 
-        strapi.server.use(createMiddleware({ sendEvent }));
+        leao.server.use(createMiddleware({ sendEvent }));
       }
     },
 

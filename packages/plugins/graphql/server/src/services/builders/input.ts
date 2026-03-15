@@ -1,19 +1,19 @@
 import { inputObjectType, nonNull } from 'nexus';
-import { contentTypes } from '@strapi/utils';
-import type { Struct } from '@strapi/types';
+import { contentTypes } from '@leao/utils';
+import type { Struct } from '@leao/types';
 import type { Context } from '../types';
 
 const { isWritableAttribute } = contentTypes;
 
-export default ({ strapi }: Context) => {
-  const { naming, mappers, attributes } = strapi.plugin('graphql').service('utils');
-  const extension = strapi.plugin('graphql').service('extension');
+export default ({ leao }: Context) => {
+  const { naming, mappers, attributes } = leao.plugin('graphql').service('utils');
+  const extension = leao.plugin('graphql').service('extension');
 
   const { getComponentInputName, getContentTypeInputName, getEnumName, getDynamicZoneInputName } =
     naming;
 
   const {
-    isStrapiScalar,
+    isLeaoScalar,
     isRelation,
     isMorphRelation,
     isMedia,
@@ -56,8 +56,8 @@ export default ({ strapi }: Context) => {
             }
 
             // Scalars
-            else if (isStrapiScalar(attribute)) {
-              const gqlScalar = mappers.strapiScalarToGraphQLScalar(attribute.type);
+            else if (isLeaoScalar(attribute)) {
+              const gqlScalar = mappers.leaoScalarToGraphQLScalar(attribute.type);
 
               t.field(attributeName, { type: gqlScalar });
             }
@@ -95,7 +95,7 @@ export default ({ strapi }: Context) => {
             // Components
             else if (isComponent(attribute)) {
               const isRepeatable = attribute.repeatable === true;
-              const component = strapi.components[attribute.component];
+              const component = leao.components[attribute.component];
               const componentInputType = getComponentInputName(component);
 
               if (isRepeatable) {

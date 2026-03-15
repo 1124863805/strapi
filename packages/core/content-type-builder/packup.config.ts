@@ -1,4 +1,4 @@
-import { defineConfig, Config } from '@strapi/pack-up';
+import { defineConfig, Config } from '@leao/pack-up';
 
 const config: Config = defineConfig({
   bundles: [

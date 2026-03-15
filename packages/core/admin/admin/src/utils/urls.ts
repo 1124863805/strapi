@@ -1,5 +1,5 @@
 const prefixFileUrlWithBackendUrl = (fileURL?: string): string | undefined => {
-  return !!fileURL && fileURL.startsWith('/') ? `${window.strapi.backendURL}${fileURL}` : fileURL;
+  return !!fileURL && fileURL.startsWith('/') ? `${window.leao.backendURL}${fileURL}` : fileURL;
 };
 
 /**

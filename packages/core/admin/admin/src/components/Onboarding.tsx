@@ -10,8 +10,8 @@ import {
   Typography,
   TypographyComponent,
   VisuallyHidden,
-} from '@strapi/design-system';
-import { Cross, Message, Play, Question, Book, PaperPlane } from '@strapi/icons';
+} from '@leao/design-system';
+import { Cross, Message, Play, Question, Book, PaperPlane } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 
@@ -264,7 +264,7 @@ const DOCUMENTATION_LINKS = [
   },
   {
     label: { id: 'app.static.links.cheatsheet', defaultMessage: 'cheatsheet' },
-    href: 'https://strapi-showcase.s3-us-west-2.amazonaws.com/CheatSheet.pdf',
+    href: 'https://leao-showcase.s3-us-west-2.amazonaws.com/CheatSheet.pdf',
     icon: PaperPlane,
   },
 ];

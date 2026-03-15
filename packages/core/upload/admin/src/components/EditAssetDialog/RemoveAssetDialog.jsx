@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ConfirmDialog } from '@strapi/admin/strapi-admin';
-import { Dialog } from '@strapi/design-system';
+import { ConfirmDialog } from '@leao/admin/leao-admin';
+import { Dialog } from '@leao/design-system';
 import PropTypes from 'prop-types';
 
 import { useRemoveAsset } from '../../hooks/useRemoveAsset';

@@ -1,6 +1,6 @@
 export default {
   schema: {
-    collectionName: 'strapi_workflows',
+    collectionName: 'leao_workflows',
     info: {
       name: 'Workflow',
       description: '',

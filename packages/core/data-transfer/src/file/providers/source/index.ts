@@ -8,7 +8,7 @@ import tar from 'tar';
 import { isEmpty, keyBy } from 'lodash/fp';
 import { chain } from 'stream-chain';
 import { parser } from 'stream-json/jsonl/Parser';
-import type { Struct } from '@strapi/types';
+import type { Struct } from '@leao/types';
 
 import type { IAsset, IMetadata, ISourceProvider, ProviderType, IFile } from '../../../../types';
 
@@ -77,14 +77,14 @@ class LocalFileSourceProvider implements ISourceProvider {
     } catch (e) {
       if (this.options?.encryption?.enabled) {
         throw new ProviderInitializationError(
-          `Key is incorrect or the file '${filePath}' is not a valid Strapi data file.`
+          `Key is incorrect or the file '${filePath}' is not a valid Leao data file.`
         );
       }
-      throw new ProviderInitializationError(`File '${filePath}' is not a valid Strapi data file.`);
+      throw new ProviderInitializationError(`File '${filePath}' is not a valid Leao data file.`);
     }
 
     if (!this.#metadata) {
-      throw new ProviderInitializationError('Could not load metadata from Strapi data file.');
+      throw new ProviderInitializationError('Could not load metadata from Leao data file.');
     }
   }
 
@@ -112,7 +112,7 @@ class LocalFileSourceProvider implements ISourceProvider {
     );
 
     if (isEmpty(schemaCollection)) {
-      throw new ProviderInitializationError('Could not load schemas from Strapi data file.');
+      throw new ProviderInitializationError('Could not load schemas from Leao data file.');
     }
 
     // Group schema by UID
@@ -164,7 +164,7 @@ class LocalFileSourceProvider implements ISourceProvider {
               metadata = await loadAssetMetadata(`assets/metadata/${file}.json`);
             } catch (error) {
               console.warn(
-                ` Failed to read metadata for ${file}, Strapi will try to fix this issue automatically`
+                ` Failed to read metadata for ${file}, Leao will try to fix this issue automatically`
               );
             }
             const asset: IAsset = {

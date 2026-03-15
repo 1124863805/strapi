@@ -1,6 +1,6 @@
 import type { Job, Spec } from 'node-schedule';
 
-import type { Strapi } from '../core';
+import type { Leao } from '../core';
 
 interface JobSpec {
   job: Job;
@@ -8,7 +8,7 @@ interface JobSpec {
   name: string | null;
 }
 
-type TaskFn = ({ strapi }: { strapi: Strapi }, ...args: unknown[]) => Promise<unknown>;
+type TaskFn = ({ leao }: { leao: Leao }, ...args: unknown[]) => Promise<unknown>;
 
 type Task =
   | TaskFn

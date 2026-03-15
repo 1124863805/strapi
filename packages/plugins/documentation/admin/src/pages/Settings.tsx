@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Main } from '@strapi/design-system';
-import { useAPIErrorHandler, Page, useNotification } from '@strapi/strapi/admin';
+import { Main } from '@leao/design-system';
+import { useAPIErrorHandler, Page, useNotification } from '@leao/leao/admin';
 import { FormikHelpers } from 'formik';
 import { useIntl } from 'react-intl';
 

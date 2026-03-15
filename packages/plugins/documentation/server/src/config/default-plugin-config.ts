@@ -17,7 +17,7 @@ export const defaultConfig: PluginConfig = {
       url: 'https://www.apache.org/licenses/LICENSE-2.0.html',
     },
   },
-  'x-strapi-config': {
+  'x-leao-config': {
     plugins: null,
     mutateDocumentation: null,
   },

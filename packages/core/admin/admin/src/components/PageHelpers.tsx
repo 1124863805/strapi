@@ -8,9 +8,9 @@ import {
   Loader,
   Main,
   MainProps,
-} from '@strapi/design-system';
-import { WarningCircle } from '@strapi/icons';
-import { EmptyPermissions, EmptyDocuments } from '@strapi/icons/symbols';
+} from '@leao/design-system';
+import { WarningCircle } from '@leao/icons';
+import { EmptyPermissions, EmptyDocuments } from '@leao/icons/symbols';
 import { useIntl } from 'react-intl';
 
 import { useAuth, Permission } from '../features/Auth';
@@ -255,7 +255,7 @@ export interface TitleProps {
  */
 const Title = ({ children: title }: TitleProps) => {
   React.useEffect(() => {
-    document.title = `${title} | Strapi`;
+    document.title = `${title} | Leao`;
   }, [title]);
 
   return null;

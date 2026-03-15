@@ -1,9 +1,9 @@
-import type { Model } from '@strapi/database';
+import type { Model } from '@leao/database';
 import { HISTORY_VERSION_UID } from '../constants';
 
 const historyVersion: Model = {
   uid: HISTORY_VERSION_UID,
-  tableName: 'strapi_history_versions',
+  tableName: 'leao_history_versions',
   singularName: 'history-version',
   attributes: {
     id: {

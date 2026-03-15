@@ -3,8 +3,8 @@ import fse from 'fs-extra';
 import { defaultsDeep, defaults, getOr, get } from 'lodash/fp';
 import * as resolve from 'resolve.exports';
 
-import { env } from '@strapi/utils';
-import type { Core, Plugin, Struct } from '@strapi/types';
+import { env } from '@leao/utils';
+import type { Core, Plugin, Struct } from '@leao/types';
 import { loadConfigFile } from '../../utils/load-config-file';
 import { loadFiles } from '../../utils/load-files';
 import { getEnabledPlugins } from './get-enabled-plugins';
@@ -32,13 +32,13 @@ const defaultPlugin = {
 };
 
 const applyUserExtension = async (plugins: Plugins) => {
-  const extensionsDir = strapi.dirs.dist.extensions;
+  const extensionsDir = leao.dirs.dist.extensions;
   if (!(await fse.pathExists(extensionsDir))) {
     return;
   }
 
   const extendedSchemas = await loadFiles(extensionsDir, '**/content-types/**/schema.json');
-  const strapiServers = await loadFiles(extensionsDir, '**/strapi-server.js');
+  const leaoServers = await loadFiles(extensionsDir, '**/leao-server.js');
 
   for (const pluginName of Object.keys(plugins)) {
     const plugin = plugins[pluginName];
@@ -52,10 +52,10 @@ const applyUserExtension = async (plugins: Plugins) => {
         };
       }
     }
-    // second: execute strapi-server extension
-    const strapiServer = get([pluginName, 'strapi-server'], strapiServers);
-    if (strapiServer) {
-      plugins[pluginName] = await strapiServer(plugin);
+    // second: execute leao-server extension
+    const leaoServer = get([pluginName, 'leao-server'], leaoServers);
+    if (leaoServer) {
+      plugins[pluginName] = await leaoServer(plugin);
     }
   }
 };
@@ -85,27 +85,27 @@ const applyUserConfig = async (plugins: Plugins) => {
   }
 };
 
-export default async function loadPlugins(strapi: Core.Strapi) {
+export default async function loadPlugins(leao: Core.Leao) {
   const plugins: Plugins = {};
 
-  const enabledPlugins = await getEnabledPlugins(strapi);
+  const enabledPlugins = await getEnabledPlugins(leao);
 
-  strapi.config.set('enabledPlugins', enabledPlugins);
+  leao.config.set('enabledPlugins', enabledPlugins);
 
   for (const pluginName of Object.keys(enabledPlugins)) {
     const enabledPlugin = enabledPlugins[pluginName];
 
     let serverEntrypointPath;
-    let resolvedExport = './strapi-server.js';
+    let resolvedExport = './leao-server.js';
 
     try {
       resolvedExport = (
-        resolve.exports(enabledPlugin.packageInfo, 'strapi-server', {
+        resolve.exports(enabledPlugin.packageInfo, 'leao-server', {
           require: true,
-        }) ?? './strapi-server.js'
+        }) ?? './leao-server.js'
       ).toString();
     } catch (e) {
-      // no export map or missing strapi-server export => fallback to default
+      // no export map or missing leao-server export => fallback to default
     }
 
     try {
@@ -136,7 +136,7 @@ export default async function loadPlugins(strapi: Core.Strapi) {
   await applyUserExtension(plugins);
 
   for (const pluginName of Object.keys(plugins)) {
-    strapi.get('plugins').add(pluginName, plugins[pluginName]);
+    leao.get('plugins').add(pluginName, plugins[pluginName]);
   }
 }
 

@@ -1,4 +1,4 @@
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 
 type Data = Record<keyof Schema.ContentType['attributes'], any>;
 
@@ -15,8 +15,8 @@ const cleanData = (
     'id',
     'documentId',
     'publishedAt',
-    'strapi_stage',
-    'strapi_assignee',
+    'leao_stage',
+    'leao_assignee',
     'locale',
     'status',
   ]);

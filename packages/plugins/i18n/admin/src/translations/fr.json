@@ -14,7 +14,7 @@
   "Settings.list.actions.deleteAdditionalInfos": "Cela supprimera les versions locales actives <em>(d'Internationalisation)</em>.",
   "Settings.list.actions.edit": "Modifier une locale",
   "Settings.list.description": "Configurer les paramètres du plugin d'internationalisation",
-  "Settings.list.empty.description": "Ce n'est pas un comportement habituel, ce qui signifie que vous avez peut-être modifié la base de données manuellement. Assurez-vous d'avoir au moins une locale enregistrée dans votre base de données afin de pouvoir utiliser Strapi correctement.",
+  "Settings.list.empty.description": "Ce n'est pas un comportement habituel, ce qui signifie que vous avez peut-être modifié la base de données manuellement. Assurez-vous d'avoir au moins une locale enregistrée dans votre base de données afin de pouvoir utiliser Leao correctement.",
   "Settings.list.empty.title": "Il n'y a pas de locale",
   "Settings.locales.default": "Par défaut",
   "Settings.locales.list.sort.default": "Trier par la locale par défaut",

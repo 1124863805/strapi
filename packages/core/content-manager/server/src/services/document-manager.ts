@@ -1,7 +1,7 @@
 import { omit, pipe } from 'lodash/fp';
 
-import { contentTypes, errors, pagination } from '@strapi/utils';
-import type { Core, Modules, UID } from '@strapi/types';
+import { contentTypes, errors, pagination } from '@leao/utils';
+import type { Core, Modules, UID } from '@leao/types';
 
 import { buildDeepPopulate, getDeepPopulate, getDeepPopulateDraftCount } from './utils/populate';
 import { sumDraftCounts } from './utils/draft';
@@ -16,14 +16,14 @@ const { PUBLISHED_AT_ATTRIBUTE } = contentTypes.constants;
 const omitPublishedAtField = omit(PUBLISHED_AT_ATTRIBUTE);
 const omitIdField = omit('id');
 
-const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
+const documentManager = ({ leao }: { leao: Core.Leao }) => {
   return {
     async findOne(
       id: string,
       uid: UID.CollectionType,
       opts: Omit<DocServiceParams<'findOne'>, 'documentId'> = {}
     ) {
-      return strapi.documents(uid).findOne({ ...opts, documentId: id });
+      return leao.documents(uid).findOne({ ...opts, documentId: id });
     },
 
     /**
@@ -59,12 +59,12 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
         where.publishedAt = { $notNull: opts.isPublished };
       }
 
-      return strapi.db.query(uid).findMany({ populate: opts.populate, where });
+      return leao.db.query(uid).findMany({ populate: opts.populate, where });
     },
 
     async findMany(opts: DocServiceParams<'findMany'>, uid: UID.CollectionType) {
       const params = { ...opts, populate: getDeepPopulate(uid) } as typeof opts;
-      return strapi.documents(uid).findMany(params);
+      return leao.documents(uid).findMany(params);
     },
 
     async findPage(opts: DocServiceParams<'findMany'>, uid: UID.CollectionType) {
@@ -73,8 +73,8 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
       });
 
       const [documents, total = 0] = await Promise.all([
-        strapi.documents(uid).findMany(params),
-        strapi.documents(uid).count(params),
+        leao.documents(uid).findMany(params),
+        leao.documents(uid).count(params),
       ]);
 
       return {
@@ -87,7 +87,7 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
       const populate = opts.populate ?? (await buildDeepPopulate(uid));
       const params = { ...opts, status: 'draft' as const, populate };
 
-      return strapi.documents(uid).create(params);
+      return leao.documents(uid).create(params);
     },
 
     async update(
@@ -99,7 +99,7 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
       const populate = opts.populate ?? (await buildDeepPopulate(uid));
       const params = { ...opts, data: publishData, populate, status: 'draft' };
 
-      return strapi.documents(uid).update({ ...params, documentId: id });
+      return leao.documents(uid).update({ ...params, documentId: id });
     },
 
     async clone(
@@ -113,7 +113,7 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
         populate,
       };
 
-      return strapi
+      return leao
         .documents(uid)
         .clone({ ...params, documentId: id })
         .then((result) => result?.entries.at(0));
@@ -125,12 +125,12 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
     async exists(uid: UID.CollectionType, id?: string) {
       // Collection type
       if (id) {
-        const count = await strapi.db.query(uid).count({ where: { documentId: id } });
+        const count = await leao.db.query(uid).count({ where: { documentId: id } });
         return count > 0;
       }
 
       // Single type
-      const count = await strapi.db.query(uid).count();
+      const count = await leao.db.query(uid).count();
       return count > 0;
     },
 
@@ -141,7 +141,7 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
     ) {
       const populate = await buildDeepPopulate(uid);
 
-      await strapi.documents(uid).delete({
+      await leao.documents(uid).delete({
         ...opts,
         documentId: id,
         populate,
@@ -155,7 +155,7 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
       uid: UID.CollectionType,
       opts: DocServiceParams<'findMany'> & { locale?: string } = {}
     ) {
-      const deletedEntries = await strapi.db.transaction(async () => {
+      const deletedEntries = await leao.db.transaction(async () => {
         return Promise.all(documentIds.map(async (id) => this.delete(id, uid, opts)));
       });
 
@@ -170,14 +170,14 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
       const populate = await buildDeepPopulate(uid);
       const params = { ...opts, populate };
 
-      return strapi
+      return leao
         .documents(uid)
         .publish({ ...params, documentId: id })
         .then((result) => result?.entries);
     },
 
     async publishMany(uid: UID.ContentType, documentIds: string[], locale?: string | string[]) {
-      return strapi.db.transaction(async () => {
+      return leao.db.transaction(async () => {
         const results = await Promise.all(
           documentIds.map((documentId) => this.publish(documentId, uid, { locale }))
         );
@@ -192,10 +192,10 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
       uid: UID.CollectionType,
       opts: Omit<DocServiceParams<'unpublish'>, 'documentId'> = {} as any
     ) {
-      const unpublishedEntries = await strapi.db.transaction(async () => {
+      const unpublishedEntries = await leao.db.transaction(async () => {
         return Promise.all(
           documentIds.map((id) =>
-            strapi
+            leao
               .documents(uid)
               .unpublish({ ...opts, documentId: id })
               .then((result) => result?.entries)
@@ -217,7 +217,7 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
       const populate = await buildDeepPopulate(uid);
       const params = { ...opts, populate };
 
-      return strapi
+      return leao
         .documents(uid)
         .unpublish({ ...params, documentId: id })
         .then((result) => result?.entries.at(0));
@@ -231,7 +231,7 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
       const populate = await buildDeepPopulate(uid);
       const params = { ...opts, populate };
 
-      return strapi
+      return leao
         .documents(uid)
         .discardDraft({ ...params, documentId: id })
         .then((result) => result?.entries.at(0));
@@ -243,7 +243,7 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
       if (!hasRelations) {
         return 0;
       }
-      const document = await strapi.documents(uid).findOne({ documentId: id, populate, locale });
+      const document = await leao.documents(uid).findOne({ documentId: id, populate, locale });
       if (!document) {
         throw new ApplicationError(
           `Unable to count draft relations, document with id ${id} and locale ${locale} not found`
@@ -269,7 +269,7 @@ const documentManager = ({ strapi }: { strapi: Core.Strapi }) => {
         localeFilter = Array.isArray(locale) ? { locale: { $in: locale } } : { locale };
       }
 
-      const entities = await strapi.db.query(uid).findMany({
+      const entities = await leao.db.query(uid).findMany({
         populate,
         where: {
           documentId: { $in: documentIds },

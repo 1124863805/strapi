@@ -1,5 +1,5 @@
-import { Modules, Data } from '@strapi/types';
-import { errors } from '@strapi/utils';
+import { Modules, Data } from '@leao/types';
+import { errors } from '@leao/utils';
 
 type PaginationQuery = Modules.EntityService.Params.Pagination.PageNotation;
 

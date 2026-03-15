@@ -1,13 +1,13 @@
 import _ from 'lodash';
 import delegate from 'delegates';
-import { errors as databaseErrors } from '@strapi/database';
+import { errors as databaseErrors } from '@leao/database';
 import {
   contentTypes as contentTypesUtils,
   errors,
   relations as relationUtils,
-} from '@strapi/utils';
-import type { Database } from '@strapi/database';
-import type { Core, Modules, Utils } from '@strapi/types';
+} from '@leao/utils';
+import type { Database } from '@leao/database';
+import type { Core, Modules, Utils } from '@leao/types';
 
 type Decoratable<T> = T & {
   decorate(
@@ -23,7 +23,7 @@ const transformLoadParamsToQuery = (
   params: Record<string, unknown>,
   pagination = {}
 ) => {
-  const query = strapi
+  const query = leao
     .get('query-params')
     .transform(uid, { populate: { [field]: params } as any }) as any;
 
@@ -43,10 +43,10 @@ const databaseErrorsToTransform = [
 ];
 
 const createDefaultImplementation = ({
-  strapi,
+  leao,
   db,
 }: {
-  strapi: Core.Strapi;
+  leao: Core.Leao;
   db: Database;
 }): Modules.EntityService.EntityService => ({
   async wrapParams(options: any = {}) {
@@ -58,23 +58,23 @@ const createDefaultImplementation = ({
   },
 
   async findMany(uid, opts) {
-    const { kind } = strapi.getModel(uid);
+    const { kind } = leao.getModel(uid);
 
     const wrappedParams = await this.wrapParams(opts, { uid, action: 'findMany' });
 
     if (kind === 'singleType') {
-      const entity = strapi.documents!(uid).findFirst(wrappedParams);
+      const entity = leao.documents!(uid).findFirst(wrappedParams);
       return this.wrapResult(entity, { uid, action: 'findOne' });
     }
 
-    const entities = await strapi.documents!(uid).findMany(wrappedParams);
+    const entities = await leao.documents!(uid).findMany(wrappedParams);
     return this.wrapResult(entities, { uid, action: 'findMany' });
   },
 
   async findPage(uid, opts) {
     const wrappedParams = await this.wrapParams(opts, { uid, action: 'findPage' });
 
-    const query = strapi.get('query-params').transform(uid, wrappedParams);
+    const query = leao.get('query-params').transform(uid, wrappedParams);
 
     const entities = await db.query(uid).findPage(query);
     return this.wrapResult(entities, { uid, action: 'findMany' });
@@ -89,7 +89,7 @@ const createDefaultImplementation = ({
       return this.wrapResult(null, { uid, action: 'findOne' });
     }
 
-    const entity = await strapi.documents!(uid).findOne({
+    const entity = await leao.documents!(uid).findOne({
       ...wrappedParams,
       documentId: res.documentId,
     });
@@ -99,7 +99,7 @@ const createDefaultImplementation = ({
   async count(uid, opts) {
     const wrappedParams = await this.wrapParams(opts, { uid, action: 'count' });
 
-    return strapi.documents!(uid).count(wrappedParams);
+    return leao.documents!(uid).count(wrappedParams);
   },
 
   async create(uid, params) {
@@ -112,9 +112,9 @@ const createDefaultImplementation = ({
       throw new Error('cannot create');
     }
 
-    const shouldPublish = !contentTypesUtils.isDraft(data, strapi.getModel(uid));
+    const shouldPublish = !contentTypesUtils.isDraft(data, leao.getModel(uid));
 
-    const entity = await strapi.documents!(uid).create({
+    const entity = await leao.documents!(uid).create({
       ...(wrappedParams as any),
       status: shouldPublish ? 'published' : 'draft',
     });
@@ -135,9 +135,9 @@ const createDefaultImplementation = ({
       return this.wrapResult(null, { uid, action: 'update' });
     }
 
-    const shouldPublish = !contentTypesUtils.isDraft(entityToUpdate, strapi.getModel(uid));
+    const shouldPublish = !contentTypesUtils.isDraft(entityToUpdate, leao.getModel(uid));
 
-    const entity = strapi.documents!(uid).update({
+    const entity = leao.documents!(uid).update({
       ...(wrappedParams as any),
       status: shouldPublish ? 'published' : 'draft',
       documentId: entityToUpdate.documentId,
@@ -155,7 +155,7 @@ const createDefaultImplementation = ({
       return this.wrapResult(null, { uid, action: 'delete' });
     }
 
-    await strapi.documents!(uid).delete({
+    await leao.documents!(uid).delete({
       ...wrappedParams,
       documentId: entityToDelete.documentId,
     });
@@ -180,7 +180,7 @@ const createDefaultImplementation = ({
       throw new Error(`Invalid load. Expected "${field}" to be a string`);
     }
 
-    const { attributes } = strapi.getModel(uid);
+    const { attributes } = leao.getModel(uid);
     const attribute = attributes[field];
 
     if (!relationUtils.isAnyToMany(attribute)) {
@@ -199,7 +199,7 @@ const createDefaultImplementation = ({
 });
 
 export default (ctx: {
-  strapi: Core.Strapi;
+  leao: Core.Leao;
   db: Database;
 }): Decoratable<Modules.EntityService.EntityService> => {
   const implementation = createDefaultImplementation(ctx);

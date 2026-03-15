@@ -1,5 +1,5 @@
-import { UID } from '@strapi/types';
-import { async } from '@strapi/utils';
+import { UID } from '@leao/types';
+import { async } from '@leao/utils';
 
 import { getService } from '../../utils';
 

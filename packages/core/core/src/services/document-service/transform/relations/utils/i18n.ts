@@ -1,13 +1,13 @@
-import { UID } from '@strapi/types';
+import { UID } from '@leao/types';
 import { LongHandDocument } from './types';
 
 export const isLocalizedContentType = (uid: UID.Schema) => {
-  const model = strapi.getModel(uid);
-  return strapi.plugin('i18n').service('content-types').isLocalizedContentType(model);
+  const model = leao.getModel(uid);
+  return leao.plugin('i18n').service('content-types').isLocalizedContentType(model);
 };
 
 export const getDefaultLocale = () => {
-  return strapi.plugin('i18n').service('locales').getDefaultLocale();
+  return leao.plugin('i18n').service('locales').getDefaultLocale();
 };
 
 export const getRelationTargetLocale = (

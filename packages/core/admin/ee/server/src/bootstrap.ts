@@ -5,12 +5,12 @@ import { persistTablesWithPrefix } from './utils/persisted-tables';
 
 export default async (args: any) => {
   const { actionProvider } = getService('permission');
-  if (strapi.ee.features.isEnabled('sso')) {
+  if (leao.ee.features.isEnabled('sso')) {
     await actionProvider.registerMany(actions.sso);
   }
 
-  if (strapi.ee.features.isEnabled('audit-logs')) {
-    await persistTablesWithPrefix('strapi_audit_logs');
+  if (leao.ee.features.isEnabled('audit-logs')) {
+    await persistTablesWithPrefix('leao_audit_logs');
     await actionProvider.registerMany(actions.auditLogs);
   }
 

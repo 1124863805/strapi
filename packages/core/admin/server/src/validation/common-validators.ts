@@ -1,4 +1,4 @@
-import { yup } from '@strapi/utils';
+import { yup } from '@leao/utils';
 import _ from 'lodash';
 import { isEmpty, has, isNil, isArray } from 'lodash/fp';
 import { getService } from '../utils';
@@ -27,12 +27,12 @@ export const password = yup
   .matches(/[A-Z]/, '${path} must contain at least one uppercase character')
   .matches(/\d/, '${path} must contain at least one number');
 
-export const roles = yup.array(yup.strapiID()).min(1);
+export const roles = yup.array(yup.leaoID()).min(1);
 
 const isAPluginName = yup
   .string()
   .test('is-a-plugin-name', 'is not a plugin name', function (value) {
-    return [undefined, 'admin', ...Object.keys(strapi.plugins)].includes(value)
+    return [undefined, 'admin', ...Object.keys(leao.plugins)].includes(value)
       ? true
       : this.createError({ path: this.path, message: `${this.path} is not an existing plugin` });
   });
@@ -41,7 +41,7 @@ export const arrayOfConditionNames = yup
   .array()
   .of(yup.string())
   .test('is-an-array-of-conditions', 'is not a plugin name', function (value) {
-    const ids = strapi.service('admin::permission').conditionProvider.keys();
+    const ids = leao.service('admin::permission').conditionProvider.keys();
     return _.isUndefined(value) || _.difference(value, ids).length === 0
       ? true
       : this.createError({ path: this.path, message: `contains conditions that don't exist` });

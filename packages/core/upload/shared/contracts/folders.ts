@@ -1,4 +1,4 @@
-import { errors } from '@strapi/utils';
+import { errors } from '@leao/utils';
 
 export type SortOrder = 'ASC' | 'DESC';
 

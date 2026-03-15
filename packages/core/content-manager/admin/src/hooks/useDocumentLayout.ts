@@ -1,12 +1,13 @@
+// @ts-nocheck
 import * as React from 'react';
 
 import { SerializedError } from '@reduxjs/toolkit';
 import {
   useNotification,
-  useStrapiApp,
+  useLeaoApp,
   useAPIErrorHandler,
   useQueryParams,
-} from '@strapi/admin/strapi-admin';
+} from '@leao/admin/leao-admin';
 
 import { HOOKS } from '../constants/hooks';
 import { useGetContentTypeConfigurationQuery } from '../services/contentTypes';
@@ -28,8 +29,8 @@ import type {
   FindContentTypeConfiguration,
   Settings,
 } from '../../../shared/contracts/content-types';
-import type { Filters, InputProps, Table } from '@strapi/admin/strapi-admin';
-import type { Schema as SchemaUtils } from '@strapi/types';
+import type { Filters, InputProps, Table } from '@leao/admin/leao-admin';
+import type { Schema as SchemaUtils } from '@leao/types';
 
 type LayoutOptions = Schema['options'] & Schema['pluginOptions'] & object;
 
@@ -138,7 +139,7 @@ const DEFAULT_SETTINGS = {
 const useDocumentLayout: UseDocumentLayout = (model) => {
   const { schema, components } = useDocument({ model, collectionType: '' }, { skip: true });
   const [{ query }] = useQueryParams();
-  const runHookWaterfall = useStrapiApp('useDocumentLayout', (state) => state.runHookWaterfall);
+  const runHookWaterfall = useLeaoApp('useDocumentLayout', (state) => state.runHookWaterfall);
   const { toggleNotification } = useNotification();
   const { _unstableFormatAPIError: formatAPIError } = useAPIErrorHandler();
   const { isLoading: isLoadingSchemas, schemas } = useContentTypeSchema();

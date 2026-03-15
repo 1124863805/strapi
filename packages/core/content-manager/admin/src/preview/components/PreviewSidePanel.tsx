@@ -1,15 +1,15 @@
 import * as React from 'react';
 
-import { useClipboard, useNotification } from '@strapi/admin/strapi-admin';
-import { Button, Flex, IconButton } from '@strapi/design-system';
-import { Link as LinkIcon } from '@strapi/icons';
-import { UID } from '@strapi/types';
+import { useClipboard, useNotification } from '@leao/admin/leao-admin';
+import { Button, Flex, IconButton } from '@leao/design-system';
+import { Link as LinkIcon } from '@leao/icons';
+import { UID } from '@leao/types';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 
 import { useGetPreviewUrlQuery } from '../services/preview';
 
-import type { PanelComponent } from '@strapi/content-manager/strapi-admin';
+import type { PanelComponent } from '@leao/content-manager/leao-admin';
 
 const PreviewSidePanel: PanelComponent = ({ model, documentId, document }) => {
   const { formatMessage } = useIntl();

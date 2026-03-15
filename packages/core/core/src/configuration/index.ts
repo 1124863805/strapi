@@ -4,19 +4,19 @@ import path from 'path';
 import _ from 'lodash';
 import { omit } from 'lodash/fp';
 import dotenv from 'dotenv';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 import { getConfigUrls, getAbsoluteAdminUrl, getAbsoluteServerUrl } from './urls';
 import loadConfigDir from './config-loader';
 import { getDirs } from './get-dirs';
 
-import type { StrapiOptions } from '../Strapi';
+import type { LeaoOptions } from '../Leao';
 
 dotenv.config({ path: process.env.ENV_PATH });
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-const { version: strapiVersion } = require(path.join(__dirname, '../../package.json'));
+const { version: leaoVersion } = require(path.join(__dirname, '../../package.json'));
 
 const defaultConfig = {
   server: {
@@ -48,7 +48,7 @@ const defaultConfig = {
   } satisfies Partial<Core.Config.Api>,
 };
 
-export const loadConfiguration = (opts: StrapiOptions) => {
+export const loadConfiguration = (opts: LeaoOptions) => {
   const { appDir, distDir, autoReload = false, serveAdminPanel = true } = opts;
 
   const pkgJSON = require(path.resolve(appDir, 'package.json'));
@@ -59,11 +59,11 @@ export const loadConfiguration = (opts: StrapiOptions) => {
     launchedAt: Date.now(),
     autoReload,
     environment: process.env.NODE_ENV,
-    uuid: _.get(pkgJSON, 'strapi.uuid'),
-    packageJsonStrapi: _.omit(_.get(pkgJSON, 'strapi', {}), 'uuid'),
+    uuid: _.get(pkgJSON, 'leao.uuid'),
+    packageJsonLeao: _.omit(_.get(pkgJSON, 'leao', {}), 'uuid'),
     info: {
       ...pkgJSON,
-      strapi: strapiVersion,
+      leao: leaoVersion,
     },
     admin: {
       serveAdminPanel,

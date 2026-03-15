@@ -1,8 +1,8 @@
 import { objectType } from 'nexus';
 import type { Context } from '../../types';
 
-export default ({ strapi }: Context) => {
-  const { PAGINATION_TYPE_NAME } = strapi.plugin('graphql').service('constants');
+export default ({ leao }: Context) => {
+  const { PAGINATION_TYPE_NAME } = leao.plugin('graphql').service('constants');
 
   return {
     /**

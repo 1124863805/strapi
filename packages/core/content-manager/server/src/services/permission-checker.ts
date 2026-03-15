@@ -1,5 +1,5 @@
-import { async } from '@strapi/utils';
-import type { Core, UID, Modules } from '@strapi/types';
+import { async } from '@leao/utils';
+import type { Core, UID, Modules } from '@leao/types';
 
 const ACTIONS = {
   read: 'plugin::content-manager.explorer.read',
@@ -19,14 +19,14 @@ type Query = {
 };
 
 const createPermissionChecker =
-  (strapi: Core.Strapi) =>
+  (leao: Core.Leao) =>
   ({ userAbility, model }: { userAbility: any; model: string }) => {
-    const permissionsManager = strapi.service('admin::permission').createPermissionsManager({
+    const permissionsManager = leao.service('admin::permission').createPermissionsManager({
       ability: userAbility,
       model,
     });
 
-    const { actionProvider } = strapi.service('admin::permission');
+    const { actionProvider } = leao.service('admin::permission');
 
     const toSubject = (entity?: Entity) => {
       return entity ? permissionsManager.toSubject(entity, model) : model;
@@ -132,6 +132,6 @@ const createPermissionChecker =
     };
   };
 
-export default ({ strapi }: { strapi: Core.Strapi }) => ({
-  create: createPermissionChecker(strapi),
+export default ({ leao }: { leao: Core.Leao }) => ({
+  create: createPermissionChecker(leao),
 });

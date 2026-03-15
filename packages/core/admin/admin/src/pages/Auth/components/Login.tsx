@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, Main, Typography, Link } from '@strapi/design-system';
+import { Box, Button, Flex, Main, Typography, Link } from '@leao/design-system';
 import camelCase from 'lodash/camelCase';
 import { useIntl } from 'react-intl';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
@@ -85,7 +85,7 @@ const Login = ({ children }: LoginProps) => {
               <Typography variant="epsilon" textColor="neutral600">
                 {formatMessage({
                   id: 'Auth.form.welcome.subtitle',
-                  defaultMessage: 'Log in to your Strapi account',
+                  defaultMessage: 'Log in to your Leao account',
                 })}
               </Typography>
             </Box>

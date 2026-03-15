@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, CardAsset } from '@strapi/design-system';
+import { Box, CardAsset } from '@leao/design-system';
 import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 

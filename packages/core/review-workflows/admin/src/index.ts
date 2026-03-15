@@ -3,12 +3,12 @@ import { Panel } from './routes/content-manager/[model]/[id]/components/Panel';
 import { addColumnToTableHook } from './utils/cm-hooks';
 import { prefixPluginTranslations } from './utils/translations';
 
-import type { StrapiApp } from '@strapi/admin/strapi-admin';
-import type { Plugin } from '@strapi/types';
+import type { LeaoApp } from '@leao/admin/leao-admin';
+import type { Plugin } from '@leao/types';
 
 const admin: Plugin.Config.AdminInput = {
-  register(app: StrapiApp) {
-    if (window.strapi.features.isEnabled(FEATURE_ID)) {
+  register(app: LeaoApp) {
+    if (window.leao.features.isEnabled(FEATURE_ID)) {
       app.registerHook('Admin/CM/pages/ListView/inject-column-in-table', addColumnToTableHook);
 
       const contentManagerPluginApis = app.getPlugin('content-manager').apis;
@@ -33,7 +33,7 @@ const admin: Plugin.Config.AdminInput = {
           return { default: Router };
         },
       });
-    } else if (!window.strapi.features.isEnabled(FEATURE_ID) && window.strapi?.flags?.promoteEE) {
+    } else if (!window.leao.features.isEnabled(FEATURE_ID) && window.leao?.flags?.promoteEE) {
       app.addSettingsLink('global', {
         id: PLUGIN_ID,
         to: `purchase-review-workflows`,

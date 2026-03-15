@@ -6,9 +6,9 @@ import type { String } from '../utils';
 export type Admin = 'admin';
 
 /**
- * Namespace for strapi internal resources
+ * Namespace for leao internal resources
  */
-export type Strapi = 'strapi';
+export type Leao = 'leao';
 
 /**
  * Namespace for scoped APIs resources
@@ -28,7 +28,7 @@ export type Global = 'global';
 /**
  * Represents any namespace
  */
-export type AnyNamespace = API | Plugin | Admin | Strapi | Global;
+export type AnyNamespace = API | Plugin | Admin | Leao | Global;
 
 /**
  * Return a {@link Separator} based on the given {@link AnyNamespace} ({@link DotSeparator} for {@link Scoped} and {@link ColonsSeparator} for regular ones)
@@ -46,7 +46,7 @@ export type AnyNamespace = API | Plugin | Admin | Strapi | Global;
 export type GetSeparator<TNamespace extends AnyNamespace = AnyNamespace> = TNamespace extends Scoped
   ? // 'api::foo' | 'plugin::bar' => '.'
     DotSeparator
-  : // 'admin' | 'strapi' | 'global' => '::'
+  : // 'admin' | 'leao' | 'global' => '::'
     ColonsSeparator;
 
 /**

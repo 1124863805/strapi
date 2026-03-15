@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { join } from 'path';
 import sharp from 'sharp';
-import { file as fileUtils } from '@strapi/utils';
+import { file as fileUtils } from '@leao/utils';
 
 import { getService } from '../utils';
 
@@ -189,7 +189,7 @@ const DEFAULT_BREAKPOINTS = {
 };
 
 const getBreakpoints = () =>
-  strapi.config.get<Record<string, number>>('plugin::upload.breakpoints', DEFAULT_BREAKPOINTS);
+  leao.config.get<Record<string, number>>('plugin::upload.breakpoints', DEFAULT_BREAKPOINTS);
 
 const generateResponsiveFormats = async (file: UploadableFile) => {
   const { responsiveDimensions = false } = (await getService('upload').getSettings()) ?? {};

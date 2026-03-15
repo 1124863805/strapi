@@ -1,5 +1,5 @@
-import { SanitizedAdminUser } from '@strapi/admin/strapi-admin';
-import { Box, Flex, Typography } from '@strapi/design-system';
+import { SanitizedAdminUser } from '@leao/admin/leao-admin';
+import { Box, Flex, Typography } from '@leao/design-system';
 
 import { STAGE_COLOR_DEFAULT } from '../../../../constants';
 import { getStageColorByHex } from '../../../../utils/colors';
@@ -8,14 +8,14 @@ import { getDisplayName } from '../../../../utils/users';
 interface StageColumnProps {
   documentId?: string;
   id?: number;
-  strapi_stage?: {
+  leao_stage?: {
     color?: string;
     name: string;
   };
 }
 
 const StageColumn = (props: StageColumnProps) => {
-  const { color = STAGE_COLOR_DEFAULT, name } = props.strapi_stage ?? {};
+  const { color = STAGE_COLOR_DEFAULT, name } = props.leao_stage ?? {};
   const { themeColorName } = getStageColorByHex(color) ?? {};
 
   return (
@@ -39,14 +39,14 @@ const StageColumn = (props: StageColumnProps) => {
 interface AssigneeColumnProps {
   documentId?: string;
   id?: number;
-  strapi_assignee?: Pick<
+  leao_assignee?: Pick<
     SanitizedAdminUser,
     'firstname' | 'lastname' | 'username' | 'email'
   > | null;
 }
 
 const AssigneeColumn = (props: AssigneeColumnProps) => {
-  const { strapi_assignee: user } = props;
+  const { leao_assignee: user } = props;
   return <Typography textColor="neutral800">{user ? getDisplayName(user) : '-'}</Typography>;
 };
 

@@ -1,4 +1,4 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 import { getService } from './utils';
 
@@ -31,10 +31,10 @@ const RBAC_ACTIONS = [
   },
 ];
 
-export async function bootstrap({ strapi }: { strapi: Core.Strapi }) {
-  await strapi.service('admin::permission').actionProvider.registerMany(RBAC_ACTIONS);
+export async function bootstrap({ leao }: { leao: Core.Leao }) {
+  await leao.service('admin::permission').actionProvider.registerMany(RBAC_ACTIONS);
 
-  const pluginStore = strapi.store!({
+  const pluginStore = leao.store!({
     environment: '',
     type: 'plugin',
     name: 'documentation',

@@ -2,7 +2,7 @@ import type { Intersect } from '../../../utils';
 import type { Attribute } from '../..';
 
 /**
- * Represents a big integer Strapi attribute along with its options
+ * Represents a big integer Leao attribute along with its options
  */
 export type BigInteger = Intersect<
   [

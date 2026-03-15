@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useTracking, Layouts } from '@strapi/admin/strapi-admin';
+import { useTracking, Layouts } from '@leao/admin/leao-admin';
 import {
   IconButton,
   Table,
@@ -12,15 +12,15 @@ import {
   Typography,
   VisuallyHidden,
   useCollator,
-} from '@strapi/design-system';
-import { Pencil } from '@strapi/icons';
+} from '@leao/design-system';
+import { Pencil } from '@leao/icons';
 import {
   Page,
   useAPIErrorHandler,
   useNotification,
   useFetchClient,
   useRBAC,
-} from '@strapi/strapi/admin';
+} from '@leao/leao/admin';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery, useQueryClient } from 'react-query';

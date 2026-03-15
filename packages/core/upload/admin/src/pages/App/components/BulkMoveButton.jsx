@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { Button, Modal } from '@strapi/design-system';
-import { Folder } from '@strapi/icons';
+import { Button, Modal } from '@leao/design-system';
+import { Folder } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

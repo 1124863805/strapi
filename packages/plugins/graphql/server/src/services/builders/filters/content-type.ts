@@ -1,11 +1,11 @@
 import { inputObjectType } from 'nexus';
 import type * as Nexus from 'nexus';
-import type { Struct, Schema } from '@strapi/types';
+import type { Struct, Schema } from '@leao/types';
 import type { Context } from '../../types';
 
-export default ({ strapi }: Context) => {
+export default ({ leao }: Context) => {
   const rootLevelOperators = () => {
-    const { operators } = strapi.plugin('graphql').service('builders').filters;
+    const { operators } = leao.plugin('graphql').service('builders').filters;
 
     return [operators.and, operators.or, operators.not];
   };
@@ -15,9 +15,9 @@ export default ({ strapi }: Context) => {
     attributeName: string,
     attribute: Schema.Attribute.AnyAttribute
   ) => {
-    const { naming, mappers } = strapi.plugin('graphql').service('utils');
+    const { naming, mappers } = leao.plugin('graphql').service('utils');
 
-    const gqlType = mappers.strapiScalarToGraphQLScalar(attribute.type);
+    const gqlType = mappers.leaoScalarToGraphQLScalar(attribute.type);
 
     builder.field(attributeName, { type: naming.getScalarFilterInputTypeName(gqlType) });
   };
@@ -27,12 +27,12 @@ export default ({ strapi }: Context) => {
     attributeName: string,
     attribute: Schema.Attribute.Relation
   ) => {
-    const utils = strapi.plugin('graphql').service('utils');
-    const extension = strapi.plugin('graphql').service('extension');
+    const utils = leao.plugin('graphql').service('utils');
+    const extension = leao.plugin('graphql').service('extension');
     const { getFiltersInputTypeName } = utils.naming;
     const { isMorphRelation } = utils.attributes;
 
-    const model = 'target' in attribute && strapi.getModel(attribute.target);
+    const model = 'target' in attribute && leao.getModel(attribute.target);
 
     // If there is no model corresponding to the attribute configuration
     // or if the attribute is a polymorphic relation, then ignore it
@@ -49,11 +49,11 @@ export default ({ strapi }: Context) => {
     attributeName: string,
     attribute: Schema.Attribute.Component
   ) => {
-    const utils = strapi.plugin('graphql').service('utils');
-    const extension = strapi.plugin('graphql').service('extension');
+    const utils = leao.plugin('graphql').service('utils');
+    const extension = leao.plugin('graphql').service('extension');
     const { getFiltersInputTypeName } = utils.naming;
 
-    const component = strapi.getModel(attribute.component);
+    const component = leao.getModel(attribute.component);
 
     // If there is no component corresponding to the attribute configuration, then ignore it
     if (!component) return;
@@ -65,11 +65,11 @@ export default ({ strapi }: Context) => {
   };
 
   const buildContentTypeFilters = (contentType: Struct.ContentTypeSchema) => {
-    const utils = strapi.plugin('graphql').service('utils');
-    const extension = strapi.plugin('graphql').service('extension');
+    const utils = leao.plugin('graphql').service('utils');
+    const extension = leao.plugin('graphql').service('extension');
 
     const { getFiltersInputTypeName, getScalarFilterInputTypeName } = utils.naming;
-    const { isStrapiScalar, isRelation, isComponent } = utils.attributes;
+    const { isLeaoScalar, isRelation, isComponent } = utils.attributes;
 
     const { attributes } = contentType;
 
@@ -95,7 +95,7 @@ export default ({ strapi }: Context) => {
         // Add every defined attribute
         for (const [attributeName, attribute] of validAttributes) {
           // Handle scalars
-          if (isStrapiScalar(attribute)) {
+          if (isLeaoScalar(attribute)) {
             addScalarAttribute(t, attributeName, attribute);
           }
 

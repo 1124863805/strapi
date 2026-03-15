@@ -1,4 +1,4 @@
-import { InputRenderer, useField, useForm } from '@strapi/admin/strapi-admin';
+import { InputRenderer, useField, useForm } from '@leao/admin/leao-admin';
 import {
   Field,
   Grid,
@@ -7,7 +7,7 @@ import {
   MultiSelectOption,
   Typography,
   useCollator,
-} from '@strapi/design-system';
+} from '@leao/design-system';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

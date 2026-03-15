@@ -1,4 +1,4 @@
-import { Strapi } from './core';
+import { Leao } from './core';
 
 export type * as Core from './core';
 export type * as Data from './data';
@@ -13,12 +13,12 @@ export type * as UID from './uid';
 
 declare global {
   // eslint-disable-next-line vars-on-top,no-var
-  var strapi: Strapi;
+  var leao: Leao;
 
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace NodeJS {
     interface Global {
-      strapi: Strapi;
+      leao: Leao;
     }
   }
 }

@@ -11,8 +11,8 @@ import {
   Typography,
   VisuallyHidden,
   Box,
-} from '@strapi/design-system';
-import { Check, Pencil, ArrowClockwise as Refresh } from '@strapi/icons';
+} from '@leao/design-system';
+import { Check, Pencil, ArrowClockwise as Refresh } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

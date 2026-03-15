@@ -5,9 +5,9 @@ import {
   useNotification,
   useAPIErrorHandler,
   useQueryParams,
-} from '@strapi/admin/strapi-admin';
-import { Button, Flex, Dialog, Typography } from '@strapi/design-system';
-import { Check, WarningCircle } from '@strapi/icons';
+} from '@leao/admin/leao-admin';
+import { Button, Flex, Dialog, Typography } from '@leao/design-system';
+import { Check, WarningCircle } from '@leao/icons';
 import { useIntl } from 'react-intl';
 
 import { useDoc } from '../../../../hooks/useDocument';

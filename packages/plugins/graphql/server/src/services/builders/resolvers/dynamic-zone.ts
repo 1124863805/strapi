@@ -1,8 +1,8 @@
-import type { Internal } from '@strapi/types';
+import type { Internal } from '@leao/types';
 
 import type { Context } from '../../types';
 
-export default ({ strapi }: Context) => ({
+export default ({ leao }: Context) => ({
   buildDynamicZoneResolver({
     contentTypeUID,
     attributeName,
@@ -11,7 +11,7 @@ export default ({ strapi }: Context) => ({
     attributeName: string;
   }) {
     return async (parent: any) => {
-      return strapi.db?.query(contentTypeUID).load(parent, attributeName);
+      return leao.db?.query(contentTypeUID).load(parent, attributeName);
     };
   },
 });

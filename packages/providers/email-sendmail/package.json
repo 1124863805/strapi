@@ -1,30 +1,30 @@
 {
-  "name": "@strapi/provider-email-sendmail",
+  "name": "@leao/provider-email-sendmail",
   "version": "5.0.6",
-  "description": "Sendmail provider for strapi email",
+  "description": "Sendmail provider for leao email",
   "keywords": [
     "email",
-    "strapi"
+    "leao"
   ],
-  "homepage": "https://strapi.io",
+  "homepage": "https://leao.io",
   "bugs": {
-    "url": "https://github.com/strapi/strapi/issues"
+    "url": "https://github.com/leao/leao/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/strapi/strapi.git"
+    "url": "git://github.com/leao/leao.git"
   },
   "license": "UNLICENSED",
   "author": {
-    "name": "Strapi Solutions SAS",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "main": "./dist/index.js",
@@ -41,11 +41,11 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
-    "@strapi/utils": "workspace:*",
+    "@leao/utils": "workspace:*",
     "sendmail": "^1.6.1"
   },
   "devDependencies": {
-    "@strapi/pack-up": "5.0.0",
+    "@leao/pack-up": "workspace:*",
     "@types/sendmail": "1.4.4",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"

@@ -1,9 +1,9 @@
 'use strict';
 
-const { yup, validateYupSchema } = require('@strapi/utils');
+const { yup, validateYupSchema } = require('@leao/utils');
 
 const deleteRoleSchema = yup.object().shape({
-  role: yup.strapiID().required(),
+  role: yup.leaoID().required(),
 });
 
 const createUserBodySchema = yup.object().shape({
@@ -17,12 +17,12 @@ const createUserBodySchema = yup.object().shape({
           .shape({
             connect: yup
               .array()
-              .of(yup.object().shape({ id: yup.strapiID().required() }))
+              .of(yup.object().shape({ id: yup.leaoID().required() }))
               .min(1, 'Users must have a role')
               .required(),
           })
           .required()
-      : yup.strapiID().required()
+      : yup.leaoID().required()
   ),
 });
 
@@ -35,7 +35,7 @@ const updateUserBodySchema = yup.object().shape({
       ? yup.object().shape({
           connect: yup
             .array()
-            .of(yup.object().shape({ id: yup.strapiID().required() }))
+            .of(yup.object().shape({ id: yup.leaoID().required() }))
             .required(),
           disconnect: yup
             .array()
@@ -48,7 +48,7 @@ const updateUserBodySchema = yup.object().shape({
             })
             .required(),
         })
-      : yup.strapiID()
+      : yup.leaoID()
   ),
 });
 

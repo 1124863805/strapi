@@ -1,6 +1,6 @@
-import type { StrapiConfig } from './types';
+import type { LeaoConfig } from './types';
 
-export const config: StrapiConfig = {
+export const config: LeaoConfig = {
   default: {
     provider: 'sendmail',
     providerOptions: {},

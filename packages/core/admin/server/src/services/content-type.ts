@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { uniq, startsWith, intersection } from 'lodash/fp';
-import { contentTypes as contentTypesUtils } from '@strapi/utils';
-import type { Modules, Struct } from '@strapi/types';
+import { contentTypes as contentTypesUtils } from '@leao/utils';
+import type { Modules, Struct } from '@leao/types';
 import { getService } from '../utils';
 import actionDomain from '../domain/action';
 import permissionDomain from '../domain/permission';
@@ -127,8 +127,8 @@ const getPermissionsWithNestedFields = (
     // Create a Permission for each subject (content-type uid) within the action
     for (const subject of validSubjects) {
       const fields = actionDomain.appliesToProperty('fields', action)
-        ? getNestedFields(strapi.contentTypes[subject], {
-            components: strapi.components,
+        ? getNestedFields(leao.contentTypes[subject], {
+            components: leao.components,
             nestingLevel,
           })
         : undefined;
@@ -169,17 +169,17 @@ const cleanPermissionFields = (
       return permissionDomain.deleteProperty('fields', permission);
     }
 
-    if (!subject || !strapi.contentTypes[subject]) {
+    if (!subject || !leao.contentTypes[subject]) {
       return permission;
     }
 
-    const possibleFields = getNestedFieldsWithIntermediate(strapi.contentTypes[subject], {
-      components: strapi.components,
+    const possibleFields = getNestedFieldsWithIntermediate(leao.contentTypes[subject], {
+      components: leao.components,
       nestingLevel,
     });
 
-    const requiredFields = getNestedFields(strapi.contentTypes[subject], {
-      components: strapi.components,
+    const requiredFields = getNestedFields(leao.contentTypes[subject], {
+      components: leao.components,
       requiredOnly: true,
       nestingLevel,
       existingFields: fields,

@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { useTracking, useQueryParams } from '@strapi/admin/strapi-admin';
-import { Button, Popover } from '@strapi/design-system';
-import { Filter } from '@strapi/icons';
+import { useTracking, useQueryParams } from '@leao/admin/leao-admin';
+import { Button, Popover } from '@leao/design-system';
+import { Filter } from '@leao/icons';
 import { useIntl } from 'react-intl';
 
 import FilterList from '../../../components/FilterList';

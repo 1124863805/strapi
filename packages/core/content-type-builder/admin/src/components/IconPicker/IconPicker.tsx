@@ -10,8 +10,8 @@ import {
   Tooltip,
   Typography,
   VisuallyHidden,
-} from '@strapi/design-system';
-import { Search, Trash } from '@strapi/icons';
+} from '@leao/design-system';
+import { Search, Trash } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 
@@ -23,7 +23,7 @@ import type { IntlLabel } from '../../types';
 
 const IconPickerWrapper = styled(Flex)`
   label {
-    ${inputFocusStyle()}
+    ${(inputFocusStyle as any)()}
     border-radius: ${({ theme }) => theme.borderRadius};
     border: 1px solid ${({ theme }) => theme.colors.neutral100};
   }

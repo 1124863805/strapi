@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button, ButtonProps, Dialog } from '@strapi/design-system';
-import { WarningCircle } from '@strapi/icons';
+import { Button, ButtonProps, Dialog } from '@leao/design-system';
+import { WarningCircle } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 
@@ -26,7 +26,7 @@ interface ConfirmDialogProps extends Pick<ButtonProps, 'variant'>, Pick<Dialog.B
  * custom component as the children prop.
  * @example
  * ```tsx
- * import { Dialog } from '@strapi/design-system';
+ * import { Dialog } from '@leao/design-system';
  *
  * const DeleteAction = ({ id }) => {
  *  const [isOpen, setIsOpen] = React.useState(false);

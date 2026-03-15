@@ -1,5 +1,5 @@
-import type { Core, UID } from '@strapi/types';
-import { errors } from '@strapi/utils';
+import type { Core, UID } from '@leao/types';
+import { errors } from '@leao/utils';
 
 export type HandlerParams = {
   documentId: string;
@@ -17,10 +17,10 @@ export interface PreviewConfig {
 /**
  * Read configuration for static preview
  */
-const createPreviewConfigService = ({ strapi }: { strapi: Core.Strapi }) => {
+const createPreviewConfigService = ({ leao }: { leao: Core.Leao }) => {
   return {
     isEnabled() {
-      const config = strapi.config.get('admin.preview') as PreviewConfig;
+      const config = leao.config.get('admin.preview') as PreviewConfig;
 
       if (!config) {
         return false;
@@ -51,7 +51,7 @@ const createPreviewConfigService = ({ strapi }: { strapi: Core.Strapi }) => {
      * Utility to get the preview handler from the configuration
      */
     getPreviewHandler(): PreviewConfig['config']['handler'] {
-      const config = strapi.config.get('admin.preview') as PreviewConfig;
+      const config = leao.config.get('admin.preview') as PreviewConfig;
 
       const emptyHandler = () => {
         return undefined;

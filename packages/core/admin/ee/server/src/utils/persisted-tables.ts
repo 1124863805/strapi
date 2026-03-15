@@ -1,4 +1,4 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 import { differenceWith, isEqual } from 'lodash/fp';
 
 interface PersistedTable {
@@ -19,13 +19,13 @@ const transformTableName = (table: string | PersistedTable) => {
 /**
  * Finds all tables in the database matching the regular expression
  * @param {Object} ctx
- * @param {Strapi} ctx.strapi
+ * @param {Leao} ctx.leao
  * @param {RegExp} regex
  * @returns {Promise<string[]>}
  */
-export async function findTables({ strapi }: { strapi: Core.Strapi }, regex: any) {
+export async function findTables({ leao }: { leao: Core.Leao }, regex: any) {
   // @ts-expect-error - getTables is not typed into the schema inspector
-  const tables = await strapi.db.dialect.schemaInspector.getTables();
+  const tables = await leao.db.dialect.schemaInspector.getTables();
   return tables.filter((tableName: string) => regex.test(tableName));
 }
 
@@ -33,10 +33,10 @@ export async function findTables({ strapi }: { strapi: Core.Strapi }, regex: any
  * Add tables name to the reserved tables in core store
  */
 async function addPersistTables(
-  { strapi }: { strapi: Core.Strapi },
+  { leao }: { leao: Core.Leao },
   tableNames: Array<string | PersistedTable>
 ) {
-  const persistedTables = await getPersistedTables({ strapi });
+  const persistedTables = await getPersistedTables({ leao });
   const tables = tableNames.map(transformTableName);
 
   // Get new tables to be persisted, remove tables if they already were persisted
@@ -54,7 +54,7 @@ async function addPersistTables(
 
   // @ts-expect-error lodash types
   tablesToPersist.push(...notPersistedTableNames);
-  await strapi.store.set({
+  await leao.store.set({
     type: 'core',
     key: 'persisted_tables',
     value: tablesToPersist,
@@ -64,13 +64,13 @@ async function addPersistTables(
 /**
  * Get all reserved table names from the core store
  * @param {Object} ctx
- * @param {Strapi} ctx.strapi
+ * @param {Leao} ctx.leao
  * @param {RegExp} regex
  * @returns {Promise<string[]>}
  */
 
-async function getPersistedTables({ strapi }: { strapi: Core.Strapi }) {
-  const persistedTables: any = await strapi.store.get({
+async function getPersistedTables({ leao }: { leao: Core.Leao }) {
+  const persistedTables: any = await leao.store.get({
     type: 'core',
     key: 'persisted_tables',
   });
@@ -81,15 +81,15 @@ async function getPersistedTables({ strapi }: { strapi: Core.Strapi }) {
 /**
  * Set all reserved table names in the core store
  * @param {Object} ctx
- * @param {Strapi} ctx.strapi
+ * @param {Leao} ctx.leao
  * @param {Array<string|{ table: string; dependsOn?: Array<{ table: string;}> }>} tableNames
  * @returns {Promise<void>}
  */
 async function setPersistedTables(
-  { strapi }: { strapi: Core.Strapi },
+  { leao }: { leao: Core.Leao },
   tableNames: Array<string | PersistedTable>
 ) {
-  await strapi.store.set({
+  await leao.store.set({
     type: 'core',
     key: 'persisted_tables',
     value: tableNames,
@@ -104,9 +104,9 @@ async function setPersistedTables(
 
 export const persistTablesWithPrefix = async (tableNamePrefix: string) => {
   const tableNameRegex = new RegExp(`^${tableNamePrefix}.*`);
-  const tableNames = await findTables({ strapi }, tableNameRegex);
+  const tableNames = await findTables({ leao }, tableNameRegex);
 
-  await addPersistTables({ strapi }, tableNames);
+  await addPersistTables({ leao }, tableNames);
 };
 
 /**
@@ -116,7 +116,7 @@ export const persistTablesWithPrefix = async (tableNamePrefix: string) => {
  */
 export const removePersistedTablesWithSuffix = async (tableNameSuffix: string) => {
   const tableNameRegex = new RegExp(`.*${tableNameSuffix}$`);
-  const persistedTables = await getPersistedTables({ strapi });
+  const persistedTables = await getPersistedTables({ leao });
 
   const filteredPersistedTables = persistedTables.filter((table: any) => {
     return !tableNameRegex.test(table.name);
@@ -126,14 +126,14 @@ export const removePersistedTablesWithSuffix = async (tableNameSuffix: string) =
     return;
   }
 
-  await setPersistedTables({ strapi }, filteredPersistedTables);
+  await setPersistedTables({ leao }, filteredPersistedTables);
 };
 
 /**
  * Add tables to the reserved tables in core store
  */
 export const persistTables = async (tables: Array<string | PersistedTable>) => {
-  await addPersistTables({ strapi }, tables);
+  await addPersistTables({ leao }, tables);
 };
 
 export default {

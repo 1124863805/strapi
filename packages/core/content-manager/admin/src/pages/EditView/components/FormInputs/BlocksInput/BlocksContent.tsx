@@ -8,8 +8,8 @@ import {
   IconButton,
   IconButtonComponent,
   useComposedRefs,
-} from '@strapi/design-system';
-import { Drag } from '@strapi/icons';
+} from '@leao/design-system';
+import { Drag } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import { Editor, Range, Transforms } from 'slate';
 import { ReactEditor, type RenderElementProps, type RenderLeafProps, Editable } from 'slate-react';

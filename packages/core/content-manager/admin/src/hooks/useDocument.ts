@@ -13,8 +13,8 @@ import {
   FormErrors,
   getYupValidationErrors,
   useForm,
-} from '@strapi/admin/strapi-admin';
-import { Modules } from '@strapi/types';
+} from '@leao/admin/leao-admin';
+import { Modules } from '@leao/types';
 import { useParams } from 'react-router-dom';
 import { ValidationError } from 'yup';
 

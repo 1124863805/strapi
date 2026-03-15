@@ -1,7 +1,7 @@
 import { join } from 'path';
 import { NodePlopAPI } from 'plop';
 import fs from 'fs-extra';
-import tsUtils from '@strapi/typescript-utils';
+import tsUtils from '@leao/typescript-utils';
 
 import validateInput from './utils/validate-input';
 

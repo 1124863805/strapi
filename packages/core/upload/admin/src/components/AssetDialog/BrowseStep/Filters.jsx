@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button, Popover } from '@strapi/design-system';
-import { Filter } from '@strapi/icons';
+import { Button, Popover } from '@leao/design-system';
+import { Filter } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

@@ -10,7 +10,7 @@ import {
   useAPIErrorHandler,
   useNotification,
   useAuth,
-} from '@strapi/admin/strapi-admin';
+} from '@leao/admin/leao-admin';
 import {
   Box,
   Button,
@@ -25,8 +25,8 @@ import {
   Tabs,
   Typography,
   useId,
-} from '@strapi/design-system';
-import { Check, Plus } from '@strapi/icons';
+} from '@leao/design-system';
+import { Check, Plus } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import * as yup from 'yup';
 

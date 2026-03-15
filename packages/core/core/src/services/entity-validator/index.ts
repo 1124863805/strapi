@@ -5,15 +5,15 @@
 
 import { uniqBy, castArray, isNil, isArray, mergeWith } from 'lodash';
 import { has, prop, isObject, isEmpty } from 'lodash/fp';
-import strapiUtils from '@strapi/utils';
-import { Modules, UID, Struct, Schema } from '@strapi/types';
+import leaoUtils from '@leao/utils';
+import { Modules, UID, Struct, Schema } from '@leao/types';
 import { Validators, ValidatorMetas } from './validators';
 
 type CreateOrUpdate = 'creation' | 'update';
 
-const { yup, validateYupSchema } = strapiUtils;
-const { isMediaAttribute, isScalarAttribute, getWritableAttributes } = strapiUtils.contentTypes;
-const { ValidationError } = strapiUtils.errors;
+const { yup, validateYupSchema } = leaoUtils;
+const { isMediaAttribute, isScalarAttribute, getWritableAttributes } = leaoUtils.contentTypes;
+const { ValidationError } = leaoUtils.errors;
 
 type ID = { id: string | number };
 
@@ -87,7 +87,7 @@ const addMinMax = <
 };
 
 const addRequiredValidation = (createOrUpdate: CreateOrUpdate) => {
-  return <T extends strapiUtils.yup.AnySchema>(
+  return <T extends leaoUtils.yup.AnySchema>(
     validator: T,
     {
       attr: { required },
@@ -110,7 +110,7 @@ const addRequiredValidation = (createOrUpdate: CreateOrUpdate) => {
 
 const addDefault = (createOrUpdate: CreateOrUpdate) => {
   return (
-    validator: strapiUtils.yup.BaseSchema,
+    validator: leaoUtils.yup.BaseSchema,
     { attr }: ValidatorMeta<Schema.Attribute.AnyAttribute & Schema.Attribute.DefaultOption<unknown>>
   ) => {
     let nextValidator = validator;
@@ -132,7 +132,7 @@ const addDefault = (createOrUpdate: CreateOrUpdate) => {
   };
 };
 
-const preventCast = (validator: strapiUtils.yup.AnySchema) =>
+const preventCast = (validator: leaoUtils.yup.AnySchema) =>
   validator.transform((val, originalVal) => originalVal);
 
 const createComponentValidator =
@@ -145,7 +145,7 @@ const createComponentValidator =
     }: ValidatorMeta<Schema.Attribute.Component<UID.Component, boolean>>,
     { isDraft }: ValidatorContext
   ) => {
-    const model = strapi.getModel(attr.component);
+    const model = leao.getModel(attr.component);
     if (!model) {
       throw new Error('Validation failed: Model not found');
     }
@@ -200,11 +200,11 @@ const createDzValidator =
 
     validator = yup.array().of(
       yup.lazy((item) => {
-        const model = strapi.getModel(prop('__component', item));
+        const model = leao.getModel(prop('__component', item));
         const schema = yup
           .object()
           .shape({
-            __component: yup.string().required().oneOf(Object.keys(strapi.components)),
+            __component: yup.string().required().oneOf(Object.keys(leao.components)),
           })
           .notNull();
 
@@ -353,7 +353,7 @@ const createModelValidator =
 
         return validators;
       },
-      {} as Record<string, strapiUtils.yup.BaseSchema>
+      {} as Record<string, leaoUtils.yup.BaseSchema>
     );
 
     return yup.object().shape(schema);
@@ -442,7 +442,7 @@ const buildRelationsStore = <TUID extends UID.Schema>({
     return {};
   }
 
-  const currentModel = strapi.getModel(uid);
+  const currentModel = leao.getModel(uid);
 
   return Object.keys(currentModel.attributes).reduce(
     (result, attributeName: string) => {
@@ -558,7 +558,7 @@ const checkRelationsExist = async (relationsStore: Record<string, ID[]> = {}) =>
   for (const [key, value] of Object.entries(relationsStore)) {
     const evaluate = async () => {
       const uniqueValues = uniqBy(value, `id`);
-      const count = await strapi.db.query(key as UID.Schema).count({
+      const count = await leao.db.query(key as UID.Schema).count({
         where: {
           id: {
             $in: uniqueValues.map((v) => v.id),

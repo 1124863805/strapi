@@ -6,7 +6,7 @@ export interface StringProperties {
 }
 
 /**
- * Represents a string Strapi attribute along with its options
+ * Represents a string Leao attribute along with its options
  */
 type StringAttribute = Intersect<
   [
@@ -32,6 +32,6 @@ export type GetStringValue<T extends Attribute.Attribute> = T extends StringAttr
   : never;
 
 /**
- * Represents a string Strapi attribute along with its options
+ * Represents a string Leao attribute along with its options
  */
 export type String = StringAttribute;

@@ -8,8 +8,8 @@ import {
   Modal,
   Typography,
   useComposedRefs,
-} from '@strapi/design-system';
-import { Cross, Drag, Pencil } from '@strapi/icons';
+} from '@leao/design-system';
+import { Cross, Drag, Pencil } from '@leao/icons';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

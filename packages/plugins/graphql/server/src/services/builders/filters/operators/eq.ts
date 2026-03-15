@@ -1,18 +1,18 @@
-import { errors } from '@strapi/utils';
+import { errors } from '@leao/utils';
 import type * as Nexus from 'nexus';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 const { ValidationError } = errors;
 
 const EQ_FIELD_NAME = 'eq';
 
-export default ({ strapi }: { strapi: Core.Strapi }) => ({
+export default ({ leao }: { leao: Core.Leao }) => ({
   fieldName: EQ_FIELD_NAME,
 
-  strapiOperator: '$eq',
+  leaoOperator: '$eq',
 
   add(t: Nexus.blocks.ObjectDefinitionBlock<string>, type: string) {
-    const { GRAPHQL_SCALARS } = strapi.plugin('graphql').service('constants');
+    const { GRAPHQL_SCALARS } = leao.plugin('graphql').service('constants');
 
     if (!GRAPHQL_SCALARS.includes(type)) {
       throw new ValidationError(

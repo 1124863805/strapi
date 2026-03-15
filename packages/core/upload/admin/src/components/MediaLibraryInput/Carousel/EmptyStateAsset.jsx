@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { Flex, Typography } from '@strapi/design-system';
-import { PlusCircle as PicturePlus } from '@strapi/icons';
+import { Flex, Typography } from '@leao/design-system';
+import { PlusCircle as PicturePlus } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

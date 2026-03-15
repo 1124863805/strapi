@@ -1,5 +1,5 @@
-import { errors } from '@strapi/utils';
-import type { Modules } from '@strapi/types';
+import { errors } from '@leao/utils';
+import type { Modules } from '@leao/types';
 
 /**
  * /webhooks - GET all webhooks

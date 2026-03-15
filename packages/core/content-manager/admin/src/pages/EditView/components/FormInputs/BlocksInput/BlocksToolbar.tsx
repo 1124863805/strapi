@@ -9,8 +9,8 @@ import {
   Box,
   FlexComponent,
   BoxComponent,
-} from '@strapi/design-system';
-import { Link } from '@strapi/icons';
+} from '@leao/design-system';
+import { Link } from '@leao/icons';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { Editor, Transforms, Element as SlateElement, Node, type Ancestor } from 'slate';
 import { ReactEditor } from 'slate-react';
@@ -497,7 +497,7 @@ const LinkButton = ({ disabled }: { disabled: boolean }) => {
 
   return (
     <ToolbarButton
-      icon={Link}
+      icon={Link as unknown as React.ComponentType<React.SVGProps<SVGSVGElement>>}
       name="link"
       label={{
         id: 'components.Blocks.link',

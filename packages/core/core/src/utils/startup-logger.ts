@@ -2,9 +2,9 @@ import chalk from 'chalk';
 import CLITable from 'cli-table3';
 import _ from 'lodash/fp';
 
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
-export const createStartupLogger = (app: Core.Strapi) => {
+export const createStartupLogger = (app: Core.Leao) => {
   return {
     logStats() {
       const columns = Math.min(process.stderr.columns, 80) - 2;
@@ -22,7 +22,7 @@ export const createStartupLogger = (app: Core.Strapi) => {
         [chalk.blue('Launched in'), `${Date.now() - app.config.launchedAt} ms`],
         [chalk.blue('Environment'), app.config.environment],
         [chalk.blue('Process PID'), process.pid],
-        [chalk.blue('Version'), `${app.config.info.strapi} (node ${process.version})`],
+        [chalk.blue('Version'), `${app.config.info.leao} (node ${process.version})`],
         [chalk.blue('Edition'), app.EE ? 'Enterprise' : 'Community'],
         [chalk.blue('Database'), app.db?.dialect.client]
       );
@@ -34,7 +34,7 @@ export const createStartupLogger = (app: Core.Strapi) => {
     },
 
     logFirstStartupMessage() {
-      if (!strapi.config.get('server.logger.startup.enabled')) {
+      if (!leao.config.get('server.logger.startup.enabled')) {
         return;
       }
 
@@ -48,7 +48,7 @@ export const createStartupLogger = (app: Core.Strapi) => {
 
       const addressTable = new CLITable();
 
-      const adminUrl = strapi.config.get('admin.absoluteUrl');
+      const adminUrl = leao.config.get('admin.absoluteUrl');
       addressTable.push([chalk.bold(adminUrl)]);
 
       console.log(`${addressTable.toString()}`);
@@ -56,7 +56,7 @@ export const createStartupLogger = (app: Core.Strapi) => {
     },
 
     logDefaultStartupMessage() {
-      if (!strapi.config.get('server.logger.startup.enabled')) {
+      if (!leao.config.get('server.logger.startup.enabled')) {
         return;
       }
       this.logStats();
@@ -65,19 +65,19 @@ export const createStartupLogger = (app: Core.Strapi) => {
 
       if (app.config.get('admin.serveAdminPanel') === true) {
         console.log(chalk.grey('To manage your project 🚀, go to the administration panel at:'));
-        const adminUrl = strapi.config.get('admin.absoluteUrl');
+        const adminUrl = leao.config.get('admin.absoluteUrl');
         console.log(chalk.bold(adminUrl));
         console.log();
       }
 
       console.log(chalk.grey('To access the server ⚡️, go to:'));
-      const serverUrl = strapi.config.get('server.absoluteUrl');
+      const serverUrl = leao.config.get('server.absoluteUrl');
       console.log(chalk.bold(serverUrl));
       console.log();
     },
 
     logStartupMessage({ isInitialized }: { isInitialized: boolean }) {
-      if (!strapi.config.get('server.logger.startup.enabled')) {
+      if (!leao.config.get('server.logger.startup.enabled')) {
         return;
       }
       if (!isInitialized) {

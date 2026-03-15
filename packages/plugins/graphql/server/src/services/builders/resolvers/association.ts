@@ -1,13 +1,13 @@
 import { get } from 'lodash/fp';
-import { async, errors } from '@strapi/utils';
-import type { Internal } from '@strapi/types';
+import { async, errors } from '@leao/utils';
+import type { Internal } from '@leao/types';
 
 import type { Context } from '../../types';
 
 const { ApplicationError } = errors;
 
-export default ({ strapi }: Context) => {
-  const { service: getGraphQLService } = strapi.plugin('graphql');
+export default ({ leao }: Context) => {
+  const { service: getGraphQLService } = leao.plugin('graphql');
 
   const { isMorphRelation, isMedia } = getGraphQLService('utils').attributes;
   const { transformArgs } = getGraphQLService('builders').utils;
@@ -21,7 +21,7 @@ export default ({ strapi }: Context) => {
       contentTypeUID: Internal.UID.ContentType;
       attributeName: string;
     }) {
-      const contentType = strapi.getModel(contentTypeUID);
+      const contentType = leao.getModel(contentTypeUID);
       const attribute: any = contentType.attributes[attributeName];
 
       if (!attribute) {
@@ -36,7 +36,7 @@ export default ({ strapi }: Context) => {
       const targetUID = isMediaAttribute ? 'plugin::upload.file' : attribute.target;
       const isToMany = isMediaAttribute ? attribute.multiple : attribute.relation.endsWith('Many');
 
-      const targetContentType = strapi.getModel(targetUID);
+      const targetContentType = leao.getModel(targetUID);
 
       return async (parent: any, args: any = {}, context: any = {}) => {
         const { auth } = context.state;
@@ -46,11 +46,11 @@ export default ({ strapi }: Context) => {
           usePagination: true,
         });
 
-        await strapi.contentAPI.validate.query(transformedArgs, targetContentType, {
+        await leao.contentAPI.validate.query(transformedArgs, targetContentType, {
           auth,
         });
 
-        const sanitizedQuery = await strapi.contentAPI.sanitize.query(
+        const sanitizedQuery = await leao.contentAPI.sanitize.query(
           transformedArgs,
           targetContentType,
           {
@@ -58,7 +58,7 @@ export default ({ strapi }: Context) => {
           }
         );
 
-        const data = await strapi.db
+        const data = await leao.db
           ?.query(contentTypeUID)
           .load(parent, attributeName, sanitizedQuery);
 
@@ -74,7 +74,7 @@ export default ({ strapi }: Context) => {
           // Helpers used for the data cleanup
           const wrapData = (dataToWrap: any) => ({ [attributeName]: dataToWrap });
           const sanitizeData = (dataToSanitize: any) => {
-            return strapi.contentAPI.sanitize.output(dataToSanitize, contentType, { auth });
+            return leao.contentAPI.sanitize.output(dataToSanitize, contentType, { auth });
           };
           const unwrapData = get(attributeName);
 

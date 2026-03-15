@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import { yup, strings } from '@strapi/utils';
-import type { Schema } from '@strapi/types';
+import { yup, strings } from '@leao/utils';
+import type { Schema } from '@leao/types';
 
 const LIFECYCLES = [
   'beforeCreate',

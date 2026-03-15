@@ -7,7 +7,7 @@ export interface EnumerationProperties<TValues extends string[] = []> {
 }
 
 /**
- * Represents an enumeration Strapi attribute along with its options
+ * Represents an enumeration Leao attribute along with its options
  */
 export type Enumeration<TValues extends string[] = []> = Intersect<
   [

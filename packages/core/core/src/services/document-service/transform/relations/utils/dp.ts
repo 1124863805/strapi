@@ -1,7 +1,7 @@
 import { isNil } from 'lodash/fp';
 
-import { contentTypes } from '@strapi/utils';
-import { UID } from '@strapi/types';
+import { contentTypes } from '@leao/utils';
+import { UID } from '@leao/types';
 
 import { LongHandDocument } from './types';
 
@@ -16,8 +16,8 @@ export const getRelationTargetStatus = (
   }
 ): Status[] => {
   // Ignore if the target content type does not have draft and publish enabled
-  const targetContentType = strapi.getModel(opts.targetUid);
-  const sourceContentType = strapi.getModel(opts.sourceUid);
+  const targetContentType = leao.getModel(opts.targetUid);
+  const sourceContentType = leao.getModel(opts.sourceUid);
 
   const targetHasDP = contentTypes.hasDraftAndPublish(targetContentType);
   const sourceHasDP = contentTypes.hasDraftAndPublish(sourceContentType);

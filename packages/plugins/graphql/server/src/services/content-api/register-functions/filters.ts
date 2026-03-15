@@ -1,19 +1,19 @@
-import type { Core, Struct } from '@strapi/types';
+import type { Core, Struct } from '@leao/types';
 import type { TypeRegistry } from '../../type-registry';
 
 const registerFiltersDefinition = (
   contentType: Struct.Schema,
   {
     registry,
-    strapi,
+    leao,
     builders,
   }: {
     registry: TypeRegistry;
-    strapi: Core.Strapi;
+    leao: Core.Leao;
     builders: any;
   }
 ) => {
-  const { service: getService } = strapi.plugin('graphql');
+  const { service: getService } = leao.plugin('graphql');
 
   const { getFiltersInputTypeName } = getService('utils').naming;
   const { KINDS } = getService('constants');

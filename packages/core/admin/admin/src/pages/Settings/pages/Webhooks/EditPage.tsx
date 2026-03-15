@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Main } from '@strapi/design-system';
-import { Modules } from '@strapi/types';
+import { Main } from '@leao/design-system';
+import { Modules } from '@leao/types';
 import { useIntl } from 'react-intl';
 import { useNavigate, useMatch } from 'react-router-dom';
 

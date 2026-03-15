@@ -1,7 +1,7 @@
 import type { Context } from '../../types';
 
-const registerScalars = ({ registry, strapi }: Context) => {
-  const { service: getService } = strapi.plugin('graphql');
+const registerScalars = ({ registry, leao }: Context) => {
+  const { service: getService } = leao.plugin('graphql');
 
   const { scalars } = getService('internals');
   const { KINDS } = getService('constants');

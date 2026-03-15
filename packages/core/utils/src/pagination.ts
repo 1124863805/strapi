@@ -26,7 +26,7 @@ export interface OffsetPaginationInformation {
   total: number;
 }
 
-const STRAPI_DEFAULTS = {
+const LEAO_DEFAULTS = {
   offset: {
     start: 0,
     limit: 10,
@@ -70,7 +70,7 @@ const withDefaultPagination = <T extends Partial<PaginationArgs>>(
   args: T,
   { defaults = {}, maxLimit = -1 } = {}
 ) => {
-  const defaultValues = merge(STRAPI_DEFAULTS, defaults);
+  const defaultValues = merge(LEAO_DEFAULTS, defaults);
 
   const usePagePagination = !isNil(args.page) || !isNil(args.pageSize);
   const useOffsetPagination = !isNil(args.start) || !isNil(args.limit);

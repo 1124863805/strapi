@@ -6,8 +6,8 @@ import {
   useField,
   useForm,
   useNotification,
-} from '@strapi/admin/strapi-admin';
-import { Box, Flex, VisuallyHidden } from '@strapi/design-system';
+} from '@leao/admin/leao-admin';
+import { Box, Flex, VisuallyHidden } from '@leao/design-system';
 import pipe from 'lodash/fp/pipe';
 import { useIntl } from 'react-intl';
 
@@ -23,7 +23,7 @@ import { ComponentPicker } from './ComponentPicker';
 import { DynamicComponent, DynamicComponentProps } from './DynamicComponent';
 import { DynamicZoneLabel, DynamicZoneLabelProps } from './DynamicZoneLabel';
 
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 
 interface DynamicZoneContextValue {
   isInDynamicZone: boolean;

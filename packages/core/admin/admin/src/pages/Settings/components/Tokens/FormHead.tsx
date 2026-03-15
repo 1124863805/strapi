@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button, Dialog, Flex } from '@strapi/design-system';
-import { Check, ArrowClockwise } from '@strapi/icons';
+import { Button, Dialog, Flex } from '@leao/design-system';
+import { Check, ArrowClockwise } from '@leao/icons';
 import { MessageDescriptor, useIntl } from 'react-intl';
 
 import { ConfirmDialog } from '../../../../components/ConfirmDialog';
@@ -11,7 +11,7 @@ import { useNotification } from '../../../../features/Notifications';
 import { useAPIErrorHandler } from '../../../../hooks/useAPIErrorHandler';
 import { useRegenerateTokenMutation } from '../../../../services/transferTokens';
 
-import type { Data } from '@strapi/types';
+import type { Data } from '@leao/types';
 
 interface RegenerateProps {
   onRegenerate?: (newKey: string) => void;

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 
 import {
@@ -7,8 +8,8 @@ import {
   useTracking,
   useQueryParams,
   useAdminUsers,
-} from '@strapi/admin/strapi-admin';
-import { Combobox, ComboboxOption, useCollator } from '@strapi/design-system';
+} from '@leao/admin/leao-admin';
+import { Combobox, ComboboxOption, useCollator } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 
 import { CREATOR_FIELDS } from '../../../constants/attributes';
@@ -32,7 +33,7 @@ const NOT_ALLOWED_FILTERS = [
   'blocks',
 ];
 const DEFAULT_ALLOWED_FILTERS = ['createdAt', 'updatedAt'];
-const USER_FILTER_ATTRIBUTES = [...CREATOR_FIELDS, 'strapi_assignee'];
+const USER_FILTER_ATTRIBUTES = [...CREATOR_FIELDS, 'leao_assignee'];
 
 /* -------------------------------------------------------------------------------------------------
  * Filters

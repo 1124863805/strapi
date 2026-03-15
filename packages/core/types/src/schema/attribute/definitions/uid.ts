@@ -18,7 +18,7 @@ export interface UIDProperties<
 }
 
 /**
- * Represents a UID Strapi attribute along with its options
+ * Represents a UID Leao attribute along with its options
  */
 export type UID<
   TTargetAttribute extends string = string,

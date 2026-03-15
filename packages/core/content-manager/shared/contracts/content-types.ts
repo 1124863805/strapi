@@ -1,5 +1,5 @@
-import type { Struct } from '@strapi/types';
-import { errors } from '@strapi/utils';
+import type { Struct } from '@leao/types';
+import { errors } from '@leao/utils';
 import { ComponentConfiguration } from './components';
 
 export type Settings = {

@@ -1,28 +1,28 @@
 import * as qs from 'qs';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
-import Strapi, { type StrapiOptions } from './Strapi';
+import Leao, { type LeaoOptions } from './Leao';
 import { destroyOnSignal, resolveWorkingDirectories, createUpdateNotifier } from './utils';
 
-export { default as compileStrapi } from './compile';
+export { default as compileLeao } from './compile';
 export * as factories from './factories';
 
-export const createStrapi = (options: Partial<StrapiOptions> = {}): Core.Strapi => {
-  const strapi = new Strapi({
+export const createLeao = (options: Partial<LeaoOptions> = {}): Core.Leao => {
+  const leao = new Leao({
     ...options,
     ...resolveWorkingDirectories(options),
   });
 
-  destroyOnSignal(strapi);
-  createUpdateNotifier(strapi);
+  destroyOnSignal(leao);
+  createUpdateNotifier(leao);
 
   // TODO: deprecate and remove in next major
-  global.strapi = strapi;
+  global.leao = leao;
 
-  return strapi;
+  return leao;
 };
 
-// Augment Koa query type based on Strapi query middleware
+// Augment Koa query type based on Leao query middleware
 
 declare module 'koa' {
   type ParsedQuery = ReturnType<typeof qs.parse>;

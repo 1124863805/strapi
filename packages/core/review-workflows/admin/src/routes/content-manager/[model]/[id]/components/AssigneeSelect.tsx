@@ -6,9 +6,9 @@ import {
   useRBAC,
   useAdminUsers,
   useQueryParams,
-} from '@strapi/admin/strapi-admin';
-import { unstable_useDocument } from '@strapi/content-manager/strapi-admin';
-import { Combobox, ComboboxOption, Field } from '@strapi/design-system';
+} from '@leao/admin/leao-admin';
+import { unstable_useDocument } from '@leao/content-manager/leao-admin';
+import { Combobox, ComboboxOption, Field } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 import { useParams } from 'react-router-dom';
 

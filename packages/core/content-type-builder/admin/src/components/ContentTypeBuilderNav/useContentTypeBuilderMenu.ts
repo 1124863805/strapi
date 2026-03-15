@@ -1,7 +1,7 @@
 import { useState, MouseEvent } from 'react';
 
-import { useTracking, useNotification } from '@strapi/admin/strapi-admin';
-import { useCollator, useFilter } from '@strapi/design-system';
+import { useTracking, useNotification } from '@leao/admin/leao-admin';
+import { useCollator, useFilter } from '@leao/design-system';
 import isEqual from 'lodash/isEqual';
 import { useIntl } from 'react-intl';
 
@@ -10,7 +10,7 @@ import { useFormModalNavigation } from '../../hooks/useFormModalNavigation';
 import { pluginId } from '../../pluginId';
 import { getTrad } from '../../utils/getTrad';
 
-import type { Internal } from '@strapi/types';
+import type { Internal } from '@leao/types';
 
 export const useContentTypeBuilderMenu = () => {
   const {

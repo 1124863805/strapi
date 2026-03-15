@@ -1,4 +1,4 @@
-import { lightTheme } from '@strapi/design-system';
+import { lightTheme } from '@leao/design-system';
 
 const PLUGIN_ID = 'review-workflows';
 /**

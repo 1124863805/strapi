@@ -1,4 +1,4 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 export interface Payload {
   eventProperties?: Record<string, unknown>;
@@ -15,6 +15,6 @@ export type Sender = (
 /**
  * Disabled: no telemetry sent to external servers
  */
-export default (_strapi: Core.Strapi): Sender => {
+export default (_leao: Core.Leao): Sender => {
   return async () => true;
 };

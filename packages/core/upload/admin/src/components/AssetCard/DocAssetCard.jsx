@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Flex } from '@strapi/design-system';
-import { File, FilePdf } from '@strapi/icons';
+import { Flex } from '@leao/design-system';
+import { File, FilePdf } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 

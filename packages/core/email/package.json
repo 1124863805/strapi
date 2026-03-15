@@ -1,33 +1,33 @@
 {
-  "name": "@strapi/email",
+  "name": "@leao/email",
   "version": "5.0.6",
-  "description": "Easily configure your Strapi application to send emails.",
+  "description": "Easily configure your Leao application to send emails.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/strapi/strapi.git"
+    "url": "git://github.com/leao/leao.git"
   },
   "license": "UNLICENSED",
   "author": {
-    "name": "Strapi Solutions SAS",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "exports": {
-    "./strapi-admin": {
+    "./leao-admin": {
       "types": "./dist/admin/src/index.d.ts",
       "source": "./admin/src/index.ts",
       "import": "./dist/admin/index.mjs",
       "require": "./dist/admin/index.js",
       "default": "./dist/admin/index.js"
     },
-    "./strapi-server": {
+    "./leao-server": {
       "types": "./dist/server/src/index.d.ts",
       "source": "./server/src/index.ts",
       "import": "./dist/server/index.mjs",
@@ -38,7 +38,7 @@
   },
   "files": [
     "dist/",
-    "strapi-server.js"
+    "leao-server.js"
   ],
   "scripts": {
     "build": "pack-up build",
@@ -47,19 +47,19 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
-    "@strapi/design-system": "2.0.0-rc.11",
-    "@strapi/icons": "2.0.0-rc.11",
-    "@strapi/provider-email-sendmail": "workspace:*",
-    "@strapi/utils": "workspace:*",
+    "@leao/design-system": "workspace:*",
+    "@leao/icons": "workspace:*",
+    "@leao/provider-email-sendmail": "workspace:*",
+    "@leao/utils": "workspace:*",
     "lodash": "4.17.21",
     "react-intl": "6.6.2",
     "react-query": "3.39.3",
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@strapi/admin": "workspace:*",
-    "@strapi/pack-up": "5.0.0",
-    "@strapi/types": "workspace:*",
+    "@leao/admin": "workspace:*",
+    "@leao/pack-up": "workspace:*",
+    "@leao/types": "workspace:*",
     "@types/koa": "2.13.4",
     "@types/lodash": "^4.14.191",
     "koa": "2.15.2",
@@ -70,7 +70,7 @@
     "styled-components": "6.1.8"
   },
   "peerDependencies": {
-    "@strapi/admin": "^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc",
+    "@leao/admin": "^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc",
     "koa": "2.13.4",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
@@ -81,7 +81,7 @@
     "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
-  "strapi": {
+  "leao": {
     "name": "email",
     "displayName": "Email",
     "description": "Configure your application to send emails.",

@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { FormErrors, Table, useTable } from '@strapi/admin/strapi-admin';
-import { Box, Typography, IconButton, Flex, Tooltip, Status, Modal } from '@strapi/design-system';
-import { Pencil, CheckCircle, CrossCircle, ArrowsCounterClockwise } from '@strapi/icons';
-import { Modules } from '@strapi/types';
+import { FormErrors, Table, useTable } from '@leao/admin/leao-admin';
+import { Box, Typography, IconButton, Flex, Tooltip, Status, Modal } from '@leao/design-system';
+import { Pencil, CheckCircle, CrossCircle, ArrowsCounterClockwise } from '@leao/icons';
+import { Modules } from '@leao/types';
 import { stringify } from 'qs';
 import { type MessageDescriptor, useIntl, PrimitiveType } from 'react-intl';
 import { Link } from 'react-router-dom';

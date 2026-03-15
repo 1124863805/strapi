@@ -1,6 +1,6 @@
 import { defaultsDeep } from 'lodash/fp';
 import koaStatic from 'koa-static';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 type Config = koaStatic.Options;
 
@@ -10,16 +10,16 @@ const defaults = {
 
 export const publicStatic: Core.MiddlewareFactory = (
   config: Config,
-  { strapi }: { strapi: Core.Strapi }
+  { leao }: { leao: Core.Leao }
 ) => {
   const { maxAge } = defaultsDeep(defaults, config);
 
-  strapi.server.routes([
+  leao.server.routes([
     {
       method: 'GET',
       path: '/',
       handler(ctx) {
-        ctx.redirect(strapi.config.get('admin.url', '/admin'));
+        ctx.redirect(leao.config.get('admin.url', '/admin'));
       },
       config: { auth: false },
     },
@@ -27,7 +27,7 @@ export const publicStatic: Core.MiddlewareFactory = (
     {
       method: 'GET',
       path: '/((?!uploads/).+)',
-      handler: koaStatic(strapi.dirs.static.public, {
+      handler: koaStatic(leao.dirs.static.public, {
         maxage: maxAge,
         defer: true,
       }),

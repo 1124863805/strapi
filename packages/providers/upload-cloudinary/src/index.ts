@@ -1,7 +1,7 @@
 import type { ReadStream } from 'node:fs';
 import { v2 as cloudinary, ConfigOptions, UploadApiOptions } from 'cloudinary';
 import intoStream from 'into-stream';
-import * as utils from '@strapi/utils';
+import * as utils from '@leao/utils';
 
 interface File {
   name: string;
@@ -47,7 +47,7 @@ export default {
         // and fallback to chunked upload for larger files as that's required by Cloudinary.
         // https://support.cloudinary.com/hc/en-us/community/posts/360009586100-Upload-movie-video-with-large-size?page=1#community_comment_360002140099
         // The Cloudinary's max limit for regular upload is actually 100 MB but add some headroom
-        // for size counting shenanigans. (Strapi provides the size in kilobytes rounded to two decimal places here).
+        // for size counting shenanigans. (Leao provides the size in kilobytes rounded to two decimal places here).
         const uploadMethod =
           file.size && file.size < 1000 * 99
             ? cloudinary.uploader.upload_stream

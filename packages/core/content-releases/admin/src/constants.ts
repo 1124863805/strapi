@@ -1,4 +1,4 @@
-import type { Permission as StrapiPermission } from '@strapi/admin/strapi-admin';
+import type { Permission as LeaoPermission } from '@leao/admin/leao-admin';
 
 export const PERMISSIONS = {
   main: [
@@ -71,7 +71,7 @@ export const PERMISSIONS = {
       conditions: [],
     },
   ],
-} satisfies Record<string, StrapiPermission[]>;
+} satisfies Record<string, LeaoPermission[]>;
 
 export const PERMISSIONS_SETTINGS = {
   read: [
@@ -94,4 +94,4 @@ export const PERMISSIONS_SETTINGS = {
       conditions: [],
     },
   ],
-} satisfies Record<string, StrapiPermission[]>;
+} satisfies Record<string, LeaoPermission[]>;

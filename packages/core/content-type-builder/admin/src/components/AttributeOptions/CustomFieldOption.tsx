@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { StrapiAppContextValue } from '@strapi/admin/strapi-admin';
-import { Box, Flex, Typography } from '@strapi/design-system';
+import { LeaoAppContextValue } from '@leao/admin/leao-admin';
+import { Box, Flex, Typography } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 
 import { useFormModalNavigation } from '../../hooks/useFormModalNavigation';
@@ -25,7 +25,7 @@ export type CustomFieldOption = {
 
 type CustomFieldOptionProps = {
   customFieldUid: string;
-  customField: NonNullable<ReturnType<StrapiAppContextValue['customFields']['get']>>;
+  customField: NonNullable<ReturnType<LeaoAppContextValue['customFields']['get']>>;
 };
 
 export const CustomFieldOption = ({ customFieldUid, customField }: CustomFieldOptionProps) => {

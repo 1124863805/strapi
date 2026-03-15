@@ -1,5 +1,5 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
-export default (strapi: Core.Strapi) => {
-  strapi.get('validators').set('content-api', { input: [], query: [] });
+export default (leao: Core.Leao) => {
+  leao.get('validators').set('content-api', { input: [], query: [] });
 };

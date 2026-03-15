@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { yup, validateYupSchema, errors } from '@strapi/utils';
+import { yup, validateYupSchema, errors } from '@leao/utils';
 import createModelConfigurationSchema from './model-configuration';
 
 const { PaginationError, ValidationError } = errors;
@@ -12,7 +12,7 @@ const kindSchema = yup.string().oneOf(TYPES).nullable();
 
 const bulkActionInputSchema = yup
   .object({
-    documentIds: yup.array().of(yup.strapiID()).min(1).required(),
+    documentIds: yup.array().of(yup.leaoID()).min(1).required(),
   })
   .required();
 
@@ -32,7 +32,7 @@ const checkUIDAvailabilityInputSchema = yup.object({
 });
 
 const validateUIDField = (contentTypeUID: any, field: any) => {
-  const model = strapi.contentTypes[contentTypeUID];
+  const model = leao.contentTypes[contentTypeUID];
 
   if (!model) {
     throw new ValidationError('ContentType not found');

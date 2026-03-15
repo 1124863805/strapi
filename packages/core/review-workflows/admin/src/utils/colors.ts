@@ -1,4 +1,4 @@
-import { lightTheme } from '@strapi/design-system';
+import { lightTheme } from '@leao/design-system';
 import { DefaultTheme } from 'styled-components';
 
 const STAGE_COLORS: Record<string, string> = {
@@ -26,9 +26,10 @@ const getStageColorByHex = (hex?: string) => {
   // there are multiple colors with the same hex code in the design tokens. In order to find
   // the correct one we have to find all matching colors and then check, which ones are usable
   // for stages.
-  const themeColors: [string, (keyof typeof STAGE_COLORS)[]][] = Object.entries(
-    lightTheme.colors
-  ).filter(([, value]) => value.toUpperCase() === hex.toUpperCase());
+  const themeColors: [string, string][] = Object.entries(lightTheme.colors).filter(
+    (entry): entry is [string, string] =>
+      typeof entry[1] === 'string' && entry[1].toUpperCase() === hex.toUpperCase()
+  );
 
   const themeColorName = themeColors.reduce(
     (acc, [name]) => {

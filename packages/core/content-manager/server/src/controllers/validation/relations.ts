@@ -1,13 +1,13 @@
-import { yup, validateYupSchema } from '@strapi/utils';
+import { yup, validateYupSchema } from '@leao/utils';
 
 const validateFindAvailableSchema = yup
   .object()
   .shape({
     component: yup.string(),
-    id: yup.strapiID(),
+    id: yup.leaoID(),
     _q: yup.string(),
-    idsToOmit: yup.array().of(yup.strapiID()),
-    idsToInclude: yup.array().of(yup.strapiID()),
+    idsToOmit: yup.array().of(yup.leaoID()),
+    idsToInclude: yup.array().of(yup.leaoID()),
     page: yup.number().integer().min(1),
     pageSize: yup.number().integer().min(1).max(100),
     locale: yup.string().nullable(),

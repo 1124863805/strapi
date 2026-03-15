@@ -2,10 +2,10 @@
  * Simple worker queue in memory
  */
 import createDebugger from 'debug';
-import type { Logger } from '@strapi/logger';
-import type { Utils } from '@strapi/types';
+import type { Logger } from '@leao/logger';
+import type { Utils } from '@leao/types';
 
-const debug = createDebugger('strapi:worker-queue');
+const debug = createDebugger('leao:worker-queue');
 
 interface ConstructorParameters {
   logger: Logger;

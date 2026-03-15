@@ -1,9 +1,9 @@
 import path from 'path';
-import type { Internal } from '@strapi/types';
+import type { Internal } from '@leao/types';
 import _ from 'lodash';
 import pluralize from 'pluralize';
 
-import { strings, errors } from '@strapi/utils';
+import { strings, errors } from '@leao/utils';
 import { isConfigurable } from '../../utils/attributes';
 import createSchemaHandler from './schema-handler';
 
@@ -33,7 +33,7 @@ export default function createComponentBuilder() {
       }
 
       const handler = createSchemaHandler({
-        dir: path.join(strapi.dirs.app.components, strings.nameToSlug(infos.category)),
+        dir: path.join(leao.dirs.app.components, strings.nameToSlug(infos.category)),
         filename: `${strings.nameToSlug(infos.displayName)}.json`,
       });
 
@@ -60,9 +60,9 @@ export default function createComponentBuilder() {
         .setAttributes(this.convertAttributes(infos.attributes));
 
       if (this.components.size === 0) {
-        strapi.telemetry.send('didCreateFirstComponent');
+        leao.telemetry.send('didCreateFirstComponent');
       } else {
-        strapi.telemetry.send('didCreateComponent');
+        leao.telemetry.send('didCreateComponent');
       }
 
       this.components.set(uid, handler);
@@ -91,7 +91,7 @@ export default function createComponentBuilder() {
         throw new errors.ApplicationError('component.edit.alreadyExists');
       }
 
-      const newDir = path.join(strapi.dirs.app.components, newCategory);
+      const newDir = path.join(leao.dirs.app.components, newCategory);
 
       const oldAttributes = component.schema.attributes;
 

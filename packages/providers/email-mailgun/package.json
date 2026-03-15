@@ -1,31 +1,31 @@
 {
-  "name": "@strapi/provider-email-mailgun",
+  "name": "@leao/provider-email-mailgun",
   "version": "5.0.6",
-  "description": "Mailgun provider for strapi email plugin",
+  "description": "Mailgun provider for leao email plugin",
   "keywords": [
     "email",
-    "strapi",
+    "leao",
     "mailgun"
   ],
-  "homepage": "https://strapi.io",
+  "homepage": "https://leao.io",
   "bugs": {
-    "url": "https://github.com/strapi/strapi/issues"
+    "url": "https://github.com/leao/leao/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/strapi/strapi.git"
+    "url": "git://github.com/leao/leao.git"
   },
   "license": "UNLICENSED",
   "author": {
-    "name": "Strapi Solutions SAS",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "main": "./dist/index.js",
@@ -42,12 +42,12 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
-    "@strapi/utils": "workspace:*",
+    "@leao/utils": "workspace:*",
     "form-data": "^4.0.0",
     "mailgun.js": "10.2.1"
   },
   "devDependencies": {
-    "@strapi/pack-up": "5.0.0",
+    "@leao/pack-up": "workspace:*",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"
   },

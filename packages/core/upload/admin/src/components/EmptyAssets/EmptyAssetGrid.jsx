@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Layouts } from '@strapi/admin/strapi-admin';
-import { Box } from '@strapi/design-system';
+import { Layouts } from '@leao/admin/leao-admin';
+import { Box } from '@leao/design-system';
 import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 

@@ -1,6 +1,6 @@
 import { has, isPlainObject } from 'lodash/fp';
 
-import type { Core, Modules } from '@strapi/types';
+import type { Core, Modules } from '@leao/types';
 
 const ALLOWED_TYPES = [
   'biginteger',
@@ -21,7 +21,7 @@ const ALLOWED_TYPES = [
   'uid',
 ] as const;
 
-const customFieldsRegistry = (strapi: Core.Strapi) => {
+const customFieldsRegistry = (leao: Core.Leao) => {
   const customFields: Record<string, unknown> = {};
 
   return {
@@ -51,7 +51,7 @@ const customFieldsRegistry = (strapi: Core.Strapi) => {
         const { name, plugin, type, inputSize } = cf;
         if (!ALLOWED_TYPES.includes(type)) {
           throw new Error(
-            `Custom field type: '${type}' is not a valid Strapi type or it can't be used with a Custom Field`
+            `Custom field type: '${type}' is not a valid Leao type or it can't be used with a Custom Field`
           );
         }
 
@@ -77,9 +77,9 @@ const customFieldsRegistry = (strapi: Core.Strapi) => {
           }
         }
 
-        // When no plugin is specified, or it isn't found in Strapi, default to global
+        // When no plugin is specified, or it isn't found in Leao, default to global
         const uid =
-          plugin && strapi.plugin(plugin) ? `plugin::${plugin}.${name}` : `global::${name}`;
+          plugin && leao.plugin(plugin) ? `plugin::${plugin}.${name}` : `global::${name}`;
 
         if (has(uid, customFields)) {
           throw new Error(`Custom field: '${uid}' has already been registered`);

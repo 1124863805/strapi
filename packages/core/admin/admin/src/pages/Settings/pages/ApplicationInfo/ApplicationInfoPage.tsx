@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, Grid, Link, Typography } from '@strapi/design-system';
-import { Check, ExternalLink } from '@strapi/icons';
+import { Box, Button, Flex, Grid, Link, Typography } from '@leao/design-system';
+import { Check, ExternalLink } from '@leao/icons';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 
@@ -32,7 +32,7 @@ const ApplicationInfoPage = () => {
 
   const communityEdition = useAppInfo('ApplicationInfoPage', (state) => state.communityEdition);
   const nodeVersion = useAppInfo('ApplicationInfoPage', (state) => state.nodeVersion);
-  const strapiVersion = useAppInfo('ApplicationInfoPage', (state) => state.strapiVersion);
+  const leaoVersion = useAppInfo('ApplicationInfoPage', (state) => state.leaoVersion);
 
   const AdminSeatInfo = useEnterprise(
     AdminSeatInfoCE,
@@ -150,12 +150,12 @@ const ApplicationInfoPage = () => {
                   <Grid.Item col={6} s={12} direction="column" alignItems="start">
                     <Typography variant="sigma" textColor="neutral600" tag="dt">
                       {formatMessage({
-                        id: 'Settings.application.strapiVersion',
-                        defaultMessage: 'strapi version',
+                        id: 'Settings.application.leaoVersion',
+                        defaultMessage: 'leao version',
                       })}
                     </Typography>
                     <Flex gap={3} direction="column" alignItems="start" tag="dd">
-                      <Typography>v{strapiVersion}</Typography>
+                      <Typography>v{leaoVersion}</Typography>
                     </Flex>
                   </Grid.Item>
                   <Grid.Item col={6} s={12} direction="column" alignItems="start">

@@ -12,14 +12,14 @@ import { Providers } from './components/Providers';
 import { LANGUAGE_LOCAL_STORAGE_KEY } from './reducer';
 
 import type { Store } from './core/store/configure';
-import type { StrapiApp } from './StrapiApp';
+import type { LeaoApp } from './LeaoApp';
 
 interface AppProps {
-  strapi: StrapiApp;
+  leao: LeaoApp;
   store: Store;
 }
 
-const App = ({ strapi, store }: AppProps) => {
+const App = ({ leao, store }: AppProps) => {
   useEffect(() => {
     const language = localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY) || 'zh-Hans';
 
@@ -29,7 +29,7 @@ const App = ({ strapi, store }: AppProps) => {
   }, []);
 
   return (
-    <Providers strapi={strapi} store={store}>
+    <Providers leao={leao} store={store}>
       <Suspense fallback={<Page.Loading />}>
         <Outlet />
       </Suspense>

@@ -1,8 +1,8 @@
-import { Core, Data, UID } from '@strapi/types';
-import { async, contentTypes } from '@strapi/utils';
+import { Core, Data, UID } from '@leao/types';
+import { async, contentTypes } from '@leao/utils';
 
 const hasDraftAndPublish = (uid: UID.CollectionType) => {
-  const model = strapi.getModel(uid);
+  const model = leao.getModel(uid);
   return contentTypes.hasDraftAndPublish(model);
 };
 
@@ -47,7 +47,7 @@ export interface IdMap {
 /**
  * Holds a registry of document ids and their corresponding entity ids.
  */
-const createIdMap = ({ strapi }: { strapi: Core.Strapi }): IdMap => {
+const createIdMap = ({ leao }: { leao: Core.Leao }): IdMap => {
   const loadedIds = new Map();
   const toLoadIds = new Map();
 
@@ -101,7 +101,7 @@ const createIdMap = ({ strapi }: { strapi: Core.Strapi }): IdMap => {
             findParams.where.publishedAt = status === 'draft' ? null : { $ne: null };
           }
 
-          const result = await strapi?.db?.query(uid).findMany(findParams);
+          const result = await leao?.db?.query(uid).findMany(findParams);
 
           // 3. Store result in loadedIds
           result?.forEach(({ documentId, id, locale, publishedAt }: any) => {

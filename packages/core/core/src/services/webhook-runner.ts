@@ -1,12 +1,12 @@
 /**
- * The event hub is Strapi's event control center.
+ * The event hub is Leao's event control center.
  */
 
 import createdDebugger from 'debug';
 import _ from 'lodash';
-import type { Logger } from '@strapi/logger';
+import type { Logger } from '@leao/logger';
 
-import type { Modules } from '@strapi/types';
+import type { Modules } from '@leao/types';
 import WorkerQueue from './worker-queue';
 import type { EventHub } from './event-hub';
 import type { Fetch } from '../utils/fetch';
@@ -31,7 +31,7 @@ interface Event {
 
 type Listener = (info: Record<string, unknown>) => Promise<void>;
 
-const debug = createdDebugger('strapi:webhook');
+const debug = createdDebugger('leao:webhook');
 
 const defaultConfiguration: Config = {
   defaultHeaders: {},
@@ -124,7 +124,7 @@ class WebhookRunner {
       headers: {
         ...this.config.defaultHeaders,
         ...headers,
-        'X-Strapi-Event': event,
+        'X-Leao-Event': event,
         'Content-Type': 'application/json',
       },
       signal: AbortSignal.timeout(10000),

@@ -1,27 +1,27 @@
 {
-  "name": "@strapi/typescript-utils",
+  "name": "@leao/typescript-utils",
   "version": "5.0.6",
-  "description": "Typescript support for Strapi",
+  "description": "Typescript support for Leao",
   "keywords": [
-    "strapi",
+    "leao",
     "generators"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/strapi/strapi.git",
+    "url": "git://github.com/leao/leao.git",
     "directory": "packages/utils/typescript"
   },
   "license": "UNLICENSED",
   "author": {
-    "name": "Strapi Solutions SAS",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "main": "./lib/index.js",

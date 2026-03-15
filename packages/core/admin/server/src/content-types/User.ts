@@ -78,7 +78,7 @@ export default {
       inversedBy: 'users',
       target: 'admin::role',
       // FIXME: Allow setting this
-      collectionName: 'strapi_users_roles',
+      collectionName: 'leao_users_roles',
     },
     blocked: {
       type: 'boolean',

@@ -4,7 +4,7 @@ const { toPlainObject } = require('lodash/fp');
 
 const { checkBadRequest } = require('../../utils');
 
-module.exports = ({ nexus, strapi }) => {
+module.exports = ({ nexus, leao }) => {
   const { nonNull } = nexus;
 
   return {
@@ -21,7 +21,7 @@ module.exports = ({ nexus, strapi }) => {
 
       koaContext.query = toPlainObject(args);
 
-      await strapi
+      await leao
         .plugin('users-permissions')
         .controller('auth')
         .emailConfirmation(koaContext, null, true);

@@ -10,8 +10,8 @@ import {
   Tr,
   Typography,
   VisuallyHidden,
-} from '@strapi/design-system';
-import { CaretDown, CaretUp } from '@strapi/icons';
+} from '@leao/design-system';
+import { CaretDown, CaretUp } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

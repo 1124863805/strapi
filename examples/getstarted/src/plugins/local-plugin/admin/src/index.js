@@ -1,10 +1,10 @@
-import { PuzzlePiece } from '@strapi/icons';
+import { PuzzlePiece } from '@leao/icons';
 
 import { prefixPluginTranslations } from './utils/prefixPluginTranslations';
 import pluginPkg from '../../package.json';
 import pluginId from './pluginId';
 
-const name = pluginPkg.strapi.name;
+const name = pluginPkg.leao.name;
 
 export default {
   register(app) {

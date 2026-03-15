@@ -102,7 +102,7 @@ node_modules
 /coverage/
 
 ############################
-# Strapi
+# Leao
 ############################
 
 .env
@@ -111,6 +111,6 @@ exports
 dist
 build
 documentation
-.strapi-updater.json
+.leao-updater.json
 types/generated
-.strapi
+.leao

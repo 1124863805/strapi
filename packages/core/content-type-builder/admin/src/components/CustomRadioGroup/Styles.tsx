@@ -1,4 +1,4 @@
-import { Flex, inputFocusStyle } from '@strapi/design-system';
+import { Flex, inputFocusStyle } from '@leao/design-system';
 import { styled } from 'styled-components';
 
 const Wrapper = styled(Flex)`
@@ -14,7 +14,7 @@ const Wrapper = styled(Flex)`
     border-radius: 4px;
     border: 1px solid ${({ theme }) => theme.colors.neutral200};
 
-    ${inputFocusStyle()}
+    ${(inputFocusStyle as any)()}
   }
 
   input {

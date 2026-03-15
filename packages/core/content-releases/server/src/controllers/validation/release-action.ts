@@ -1,8 +1,8 @@
-import { yup, validateYupSchema } from '@strapi/utils';
+import { yup, validateYupSchema } from '@leao/utils';
 
 const RELEASE_ACTION_SCHEMA = yup.object().shape({
   contentType: yup.string().required(),
-  entryDocumentId: yup.strapiID(),
+  entryDocumentId: yup.leaoID(),
   locale: yup.string(),
   type: yup.string().oneOf(['publish', 'unpublish']).required(),
 });

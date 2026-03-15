@@ -1,7 +1,7 @@
 export const auditLog = {
   schema: {
     kind: 'collectionType',
-    collectionName: 'strapi_audit_logs',
+    collectionName: 'leao_audit_logs',
     info: {
       singularName: 'audit-log',
       pluralName: 'audit-logs',

@@ -1,5 +1,5 @@
-import type { ILocalStrapiDestinationProviderOptions } from '../../../../strapi/providers';
-import type { TransferMethod } from '../../../../strapi/remote/constants';
+import type { ILocalLeaoDestinationProviderOptions } from '../../../../leao/providers';
+import type { TransferMethod } from '../../../../leao/remote/constants';
 
 export type CommandMessage = { type: 'command' } & (InitCommand | EndCommand | StatusCommand);
 
@@ -14,7 +14,7 @@ export type GetCommandParams<T extends Command> = {
 export type InitCommand = CreateCommand<
   'init',
   {
-    options: Pick<ILocalStrapiDestinationProviderOptions, 'strategy' | 'restore'>;
+    options: Pick<ILocalLeaoDestinationProviderOptions, 'strategy' | 'restore'>;
     transfer: TransferMethod;
   }
 >;

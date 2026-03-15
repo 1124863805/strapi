@@ -1,7 +1,7 @@
 import { RELEASE_ACTION_MODEL_UID } from '../../constants';
 
 export default {
-  collectionName: 'strapi_releases',
+  collectionName: 'leao_releases',
   info: {
     singularName: 'release',
     pluralName: 'releases',

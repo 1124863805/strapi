@@ -5,7 +5,7 @@ const NOT_CONTAINS_FIELD_NAME = 'notContains';
 export default () => ({
   fieldName: NOT_CONTAINS_FIELD_NAME,
 
-  strapiOperator: '$notContains',
+  leaoOperator: '$notContains',
 
   add(t: Nexus.blocks.ObjectDefinitionBlock<string>, type: string) {
     t.field(NOT_CONTAINS_FIELD_NAME, { type });

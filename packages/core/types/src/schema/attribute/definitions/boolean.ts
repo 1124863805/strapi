@@ -2,7 +2,7 @@ import type { Intersect } from '../../../utils';
 import type { Attribute } from '../..';
 
 /**
- * Represents a boolean Strapi attribute along with its options
+ * Represents a boolean Leao attribute along with its options
  */
 type BooleanAttribute = Intersect<
   [

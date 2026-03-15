@@ -1,6 +1,6 @@
-import { unstable_useDocument as useDocument } from '@strapi/content-manager/strapi-admin';
-import { Box, Flex, Popover, Typography, useCollator, Button } from '@strapi/design-system';
-import { CaretDown } from '@strapi/icons';
+import { unstable_useDocument as useDocument } from '@leao/content-manager/leao-admin';
+import { Box, Flex, Popover, Typography, useCollator, Button } from '@leao/design-system';
+import { CaretDown } from '@leao/icons';
 import { useIntl } from 'react-intl';
 
 import { Locale } from '../../../shared/contracts/locales';

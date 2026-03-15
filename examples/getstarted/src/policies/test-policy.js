@@ -4,9 +4,9 @@
  * `test-policy` policy
  */
 
-module.exports = (policyCtx, config, { strapi }) => {
+module.exports = (policyCtx, config, { leao }) => {
   // Add your own logic here.
-  strapi.log.info('In test-policy policy.');
+  leao.log.info('In test-policy policy.');
 
   const canDoSomething = true;
 

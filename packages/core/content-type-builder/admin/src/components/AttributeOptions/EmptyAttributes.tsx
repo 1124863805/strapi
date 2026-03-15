@@ -1,6 +1,6 @@
-import { Box, Flex, Typography, LinkButton } from '@strapi/design-system';
-import { Plus } from '@strapi/icons';
-import { EmptyDocuments } from '@strapi/icons/symbols';
+import { Box, Flex, Typography, LinkButton } from '@leao/design-system';
+import { Plus } from '@leao/icons';
+import { EmptyDocuments } from '@leao/icons/symbols';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';

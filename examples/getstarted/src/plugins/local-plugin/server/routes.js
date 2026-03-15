@@ -1,4 +1,4 @@
-const { createCoreRouter } = require('@strapi/strapi').factories;
+const { createCoreRouter } = require('@leao/leao').factories;
 
 module.exports = {
   test: createCoreRouter('plugin::myplugin.test', {

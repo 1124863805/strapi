@@ -1,6 +1,6 @@
 import { PermissionMap } from './types/permissions';
 
-import type { StrapiAppSettingLink } from './core/apis/router';
+import type { LeaoAppSettingLink } from './core/apis/router';
 
 export const ADMIN_PERMISSIONS_CE = {
   contentManager: {
@@ -128,7 +128,7 @@ export const HOOKS = {
 };
 
 export interface SettingsMenuLink
-  extends Omit<StrapiAppSettingLink, 'Component' | 'permissions' | 'eeOnly'> {
+  extends Omit<LeaoAppSettingLink, 'Component' | 'permissions' | 'eeOnly'> {
   eeOnly?: boolean;
 }
 
@@ -169,8 +169,8 @@ export const SETTINGS_LINKS_CE = (): SettingsMenu => ({
     },
     // If the Enterprise feature is not enabled and if the config doesn't disable it, we promote the Enterprise feature by displaying them in the settings menu.
     // Disable this by adding "promoteEE: false" to your `./config/admin.js` file
-    ...(!window.strapi.features.isEnabled(window.strapi.features.SSO) &&
-    window.strapi?.flags?.promoteEE
+    ...(!window.leao.features.isEnabled(window.leao.features.SSO) &&
+    window.leao?.flags?.promoteEE
       ? [
           {
             intlLabel: { id: 'Settings.sso.title', defaultMessage: 'Single Sign-On' },
@@ -194,8 +194,8 @@ export const SETTINGS_LINKS_CE = (): SettingsMenu => ({
       to: '/settings/users?pageSize=10&page=1&sort=firstname',
       id: 'users',
     },
-    ...(!window.strapi.features.isEnabled(window.strapi.features.AUDIT_LOGS) &&
-    window.strapi?.flags?.promoteEE
+    ...(!window.leao.features.isEnabled(window.leao.features.AUDIT_LOGS) &&
+    window.leao?.flags?.promoteEE
       ? [
           {
             intlLabel: { id: 'global.auditLogs', defaultMessage: 'Audit Logs' },

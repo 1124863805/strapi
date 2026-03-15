@@ -1,4 +1,4 @@
-import { translatedErrors } from '@strapi/admin/strapi-admin';
+import { translatedErrors } from '@leao/admin/leao-admin';
 import { zonedTimeToUtc } from 'date-fns-tz';
 import * as yup from 'yup';
 

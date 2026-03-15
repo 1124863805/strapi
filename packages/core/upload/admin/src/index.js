@@ -1,4 +1,4 @@
-import { Images } from '@strapi/icons';
+import { Images } from '@leao/icons';
 
 import pluginPkg from '../../package.json';
 
@@ -8,7 +8,7 @@ import { PERMISSIONS } from './constants';
 import pluginId from './pluginId';
 import { getTrad, prefixPluginTranslations } from './utils';
 
-const name = pluginPkg.strapi.name;
+const name = pluginPkg.leao.name;
 
 export default {
   register(app) {

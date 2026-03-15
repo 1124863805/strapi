@@ -1,14 +1,14 @@
-import type { Core } from '@strapi/types';
-import { async } from '@strapi/utils';
+import type { Core } from '@leao/types';
+import { async } from '@leao/utils';
 import { difference, merge } from 'lodash/fp';
 import { getService } from '../utils';
 import { WORKFLOW_MODEL_UID } from '../constants/workflows';
 
-export default ({ strapi }: { strapi: Core.Strapi }) => {
-  const contentManagerContentTypeService = strapi
+export default ({ leao }: { leao: Core.Leao }) => {
+  const contentManagerContentTypeService = leao
     .plugin('content-manager')
     .service('content-types');
-  const stagesService = getService('stages', { strapi });
+  const stagesService = getService('stages', { leao });
 
   const updateContentTypeConfig = async (uid: any, reviewWorkflowOption: any) => {
     // Merge options in the configuration as the configuration service use a destructuration merge which doesn't include nested objects
@@ -29,7 +29,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
      * @param {Workflow.Stage} options.stageId - The new stage to assign the entities to
      */
     async migrate({ srcContentTypes = [], destContentTypes, stageId }: any) {
-      const workflowsService = getService('workflows', { strapi });
+      const workflowsService = getService('workflows', { leao });
       const { created, deleted } = diffContentTypes(srcContentTypes, destContentTypes);
 
       await async.map(
@@ -72,7 +72,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
      */
     async transferContentTypes(srcWorkflow: any, uid: any) {
       // Update assignedContentTypes of the previous workflow
-      await strapi.db.query(WORKFLOW_MODEL_UID).update({
+      await leao.db.query(WORKFLOW_MODEL_UID).update({
         where: {
           id: srcWorkflow.id,
         },

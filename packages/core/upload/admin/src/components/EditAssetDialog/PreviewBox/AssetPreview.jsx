@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { forwardRef } from 'react';
 
-import { Flex } from '@strapi/design-system';
-import { File, FilePdf } from '@strapi/icons';
+import { Flex } from '@leao/design-system';
+import { File, FilePdf } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 
@@ -15,7 +15,7 @@ const CardAsset = styled(Flex)`
 `;
 
 export const AssetPreview = forwardRef(({ mime, url, name, ...props }, ref) => {
-  const [lang] = usePersistentState('strapi-admin-language', 'en');
+  const [lang] = usePersistentState('leao-admin-language', 'en');
 
   if (mime.includes(AssetType.Image)) {
     return <img ref={ref} src={url} alt={name} {...props} />;

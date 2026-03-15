@@ -1,33 +1,33 @@
 {
-  "name": "@strapi/content-releases",
+  "name": "@leao/content-releases",
   "version": "5.0.6",
-  "description": "Strapi plugin for organizing and releasing content",
+  "description": "Leao plugin for organizing and releasing content",
   "repository": {
     "type": "git",
-    "url": "https://github.com/strapi/strapi.git"
+    "url": "https://github.com/leao/leao.git"
   },
   "license": "UNLICENSED",
   "author": {
-    "name": "Strapi Solutions SAS",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "exports": {
-    "./strapi-admin": {
+    "./leao-admin": {
       "types": "./dist/admin/src/index.d.ts",
       "source": "./admin/src/index.ts",
       "import": "./dist/admin/index.mjs",
       "require": "./dist/admin/index.js",
       "default": "./dist/admin/index.js"
     },
-    "./strapi-server": {
+    "./leao-server": {
       "types": "./dist/server/src/index.d.ts",
       "source": "./server/src/index.ts",
       "import": "./dist/server/index.mjs",
@@ -38,7 +38,7 @@
   },
   "files": [
     "dist/",
-    "strapi-server.js"
+    "leao-server.js"
   ],
   "scripts": {
     "build": "pack-up build",
@@ -47,12 +47,12 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
+    "@leao/database": "workspace:*",
+    "@leao/design-system": "workspace:*",
+    "@leao/icons": "workspace:*",
+    "@leao/types": "workspace:*",
+    "@leao/utils": "workspace:*",
     "@reduxjs/toolkit": "1.9.7",
-    "@strapi/database": "workspace:*",
-    "@strapi/design-system": "2.0.0-rc.11",
-    "@strapi/icons": "2.0.0-rc.11",
-    "@strapi/types": "workspace:*",
-    "@strapi/utils": "workspace:*",
     "date-fns": "2.30.0",
     "date-fns-tz": "2.0.1",
     "formik": "2.4.5",
@@ -63,9 +63,9 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@strapi/admin": "workspace:*",
-    "@strapi/content-manager": "workspace:*",
-    "@strapi/pack-up": "5.0.0",
+    "@leao/admin": "workspace:*",
+    "@leao/content-manager": "workspace:*",
+    "@leao/pack-up": "workspace:*",
     "@types/koa": "2.13.4",
     "koa": "2.15.2",
     "react": "18.3.1",
@@ -76,8 +76,8 @@
     "typescript": "5.3.2"
   },
   "peerDependencies": {
-    "@strapi/admin": "^5.0.0",
-    "@strapi/content-manager": "^5.0.0",
+    "@leao/admin": "^5.0.0",
+    "@leao/content-manager": "^5.0.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -87,7 +87,7 @@
     "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
-  "strapi": {
+  "leao": {
     "name": "content-releases",
     "description": "Organize and release content",
     "kind": "plugin",

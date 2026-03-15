@@ -1,17 +1,17 @@
-import type { Core, UID } from '@strapi/types';
-import { errors } from '@strapi/utils';
+import type { Core, UID } from '@leao/types';
+import { errors } from '@leao/utils';
 import { isNil } from 'lodash/fp';
 import { ENTITY_ASSIGNEE_ATTRIBUTE } from '../constants/workflows';
 import { getService, getAdminService } from '../utils';
 
 const { ApplicationError } = errors;
 
-export default ({ strapi }: { strapi: Core.Strapi }) => {
-  const metrics = getService('workflow-metrics', { strapi });
+export default ({ leao }: { leao: Core.Leao }) => {
+  const metrics = getService('workflow-metrics', { leao });
 
   return {
     async findEntityAssigneeId(id: string, model: UID.ContentType) {
-      const entity = await strapi.db.query(model).findOne({
+      const entity = await leao.db.query(model).findOne({
         where: { id },
         populate: [ENTITY_ASSIGNEE_ATTRIBUTE],
         select: [],
@@ -33,7 +33,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
         return this.deleteEntityAssignee(documentId, locale, model);
       }
 
-      const userExists = await getAdminService('user', { strapi }).exists({ id: assigneeId });
+      const userExists = await getAdminService('user', { leao }).exists({ id: assigneeId });
 
       if (!userExists) {
         throw new ApplicationError(`Selected user does not exist`);
@@ -41,7 +41,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
 
       metrics.sendDidEditAssignee(await this.findEntityAssigneeId(documentId, model), assigneeId);
 
-      return strapi.documents(model).update({
+      return leao.documents(model).update({
         documentId,
         locale,
         data: { [ENTITY_ASSIGNEE_ATTRIBUTE]: assigneeId },
@@ -53,7 +53,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
     async deleteEntityAssignee(documentId: string, locale: string, model: UID.ContentType) {
       metrics.sendDidEditAssignee(await this.findEntityAssigneeId(documentId, model), null);
 
-      return strapi.documents(model).update({
+      return leao.documents(model).update({
         documentId,
         locale,
         data: { [ENTITY_ASSIGNEE_ATTRIBUTE]: null },

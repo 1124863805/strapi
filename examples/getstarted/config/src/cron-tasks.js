@@ -15,11 +15,11 @@ module.exports = {
    * Simple example.
    * Every monday at 1am.
    */
-  // '0 0 1 * * 1': async function({ strapi }) {
+  // '0 0 1 * * 1': async function({ leao }) {
   //   // Add your own logic here (e.g. send a queue of email, create a database backup, etc.).
   // },
   // 'myJob': {
-  //   task: ({ strapi }) => { /* Add your own logic here */ },
+  //   task: ({ leao }) => { /* Add your own logic here */ },
   //   options: {
   //     rule: '* * * * * *',
   //     end: new Date().getTime() + 6000,

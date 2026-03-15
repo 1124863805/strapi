@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CardAsset } from '@strapi/design-system';
+import { CardAsset } from '@leao/design-system';
 import PropTypes from 'prop-types';
 
 import { appendSearchParamsToUrl } from '../../utils';

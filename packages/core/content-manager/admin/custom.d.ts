@@ -1,16 +1,16 @@
 /// <reference types="vite/client" />
 
-import { type StrapiTheme } from '@strapi/design-system';
+import { type LeaoTheme } from '@leao/design-system';
 import { type BaseEditor } from 'slate';
 import { type HistoryEditor } from 'slate-history';
 import { type ReactEditor } from 'slate-react';
 
 import type { LinkEditor } from './src/pages/EditView/components/FormInputs/BlocksInput/plugins/withLinks';
-import type { Schema, Modules } from '@strapi/types';
+import type { Schema, Modules } from '@leao/types';
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface DefaultTheme extends StrapiTheme {}
+  export interface DefaultTheme extends LeaoTheme {}
 }
 
 declare module 'slate' {
@@ -24,7 +24,7 @@ declare module 'slate' {
   }
 }
 
-interface BrowserStrapi {
+interface BrowserLeao {
   backendURL: string;
   isEE: boolean;
   future: {
@@ -46,6 +46,6 @@ interface BrowserStrapi {
 
 declare global {
   interface Window {
-    strapi: BrowserStrapi;
+    leao: BrowserLeao;
   }
 }

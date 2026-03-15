@@ -11,17 +11,17 @@ const NO_CONTENT_TYPE_PLACEHOLDER_COMMENT = `/*
 `;
 
 /**
- * Generate type definitions for Strapi Content-Types
+ * Generate type definitions for Leao Content-Types
  *
  * @param {object} [options]
- * @param {object} options.strapi
+ * @param {object} options.leao
  * @param {object} options.logger
  * @param {string} options.pwd
  */
 const generateContentTypesDefinitions = async (options = {}) => {
-  const { strapi } = options;
+  const { leao } = options;
 
-  const { contentTypes } = strapi;
+  const { contentTypes } = leao;
 
   const contentTypesDefinitions = Object.values(contentTypes).map((contentType) => ({
     uid: contentType.uid,

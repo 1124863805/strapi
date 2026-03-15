@@ -1,9 +1,9 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 export const enableFeatureMiddleware =
   (featureName: string): Core.MiddlewareHandler =>
   (ctx, next) => {
-    if (strapi.ee.features.isEnabled(featureName)) {
+    if (leao.ee.features.isEnabled(featureName)) {
       return next();
     }
 

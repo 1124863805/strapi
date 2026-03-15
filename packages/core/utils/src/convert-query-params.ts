@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 
 /**
- * Converts the standard Strapi REST query params to a more usable format for querying
+ * Converts the standard Leao REST query params to a more usable format for querying
  * See REST API filters documentation for more details.
  */
 
@@ -537,7 +537,7 @@ const createTransformer = ({ getModel }: TransformerOptions) => {
     return query;
   };
 
-  // TODO: ensure field is valid in content types (will probably have to check strapi.contentTypes since it can be a string.path)
+  // TODO: ensure field is valid in content types (will probably have to check leao.contentTypes since it can be a string.path)
   const convertFieldsQueryParams = (fields: FieldsParams, depth = 0): SelectQuery | undefined => {
     if (depth === 0 && fields === '*') {
       return undefined;

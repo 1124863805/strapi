@@ -1,12 +1,12 @@
 import { merge, isEmpty, set, propEq } from 'lodash/fp';
-import strapiUtils from '@strapi/utils';
-import { UID, Schema, Modules } from '@strapi/types';
+import leaoUtils from '@leao/utils';
+import { UID, Schema, Modules } from '@leao/types';
 import { getService } from '../../utils';
 
 const { isVisibleAttribute, isScalarAttribute, getDoesAttributeRequireValidation } =
-  strapiUtils.contentTypes;
-const { isAnyToMany } = strapiUtils.relations;
-const { PUBLISHED_AT_ATTRIBUTE } = strapiUtils.contentTypes.constants;
+  leaoUtils.contentTypes;
+const { isAnyToMany } = leaoUtils.relations;
+const { PUBLISHED_AT_ATTRIBUTE } = leaoUtils.contentTypes.constants;
 
 const isMorphToRelation = (attribute: any) =>
   isRelation(attribute) && attribute.relation.includes('morphTo');
@@ -15,7 +15,7 @@ const isRelation = propEq('type', 'relation');
 const isComponent = propEq('type', 'component');
 const isDynamicZone = propEq('type', 'dynamiczone');
 
-// TODO: Import from @strapi/types when it's available there
+// TODO: Import from @leao/types when it's available there
 type Model = Parameters<typeof isVisibleAttribute>[0];
 export type Populate = Modules.EntityService.Params.Populate.Any<UID.Schema>;
 
@@ -151,7 +151,7 @@ const getDeepPopulate = (
     return {};
   }
 
-  const model = strapi.getModel(uid);
+  const model = leao.getModel(uid);
 
   return Object.keys(model.attributes).reduce(
     (populateAcc, attributeName: string) =>
@@ -194,7 +194,7 @@ const getValidatableFieldsPopulate = (
     return {};
   }
 
-  const model = strapi.getModel(uid);
+  const model = leao.getModel(uid);
 
   return Object.entries(model.attributes).reduce((populateAcc, [attributeName, attribute]) => {
     if (!getDoesAttributeRequireValidation(attribute)) {
@@ -236,7 +236,7 @@ const getValidatableFieldsPopulate = (
  * @returns result.hasRelations
  */
 const getDeepPopulateDraftCount = (uid: UID.Schema) => {
-  const model = strapi.getModel(uid);
+  const model = leao.getModel(uid);
   let hasRelations = false;
 
   const populate = Object.keys(model.attributes).reduce((populateAcc: any, attributeName) => {
@@ -300,12 +300,12 @@ const getDeepPopulateDraftCount = (uid: UID.Schema) => {
 };
 
 /**
- *  Create a Strapi populate object which populates all attribute fields of a Strapi query.
+ *  Create a Leao populate object which populates all attribute fields of a Leao query.
  */
 const getQueryPopulate = async (uid: UID.Schema, query: object): Promise<Populate> => {
   let populateQuery: Populate = {};
 
-  await strapiUtils.traverse.traverseQueryFilters(
+  await leaoUtils.traverse.traverseQueryFilters(
     /**
      *
      * @param {Object} param0
@@ -327,7 +327,7 @@ const getQueryPopulate = async (uid: UID.Schema, query: object): Promise<Populat
         populateQuery = set(populatePath, {}, populateQuery);
       }
     },
-    { schema: strapi.getModel(uid), getModel: strapi.getModel.bind(strapi) },
+    { schema: leao.getModel(uid), getModel: leao.getModel.bind(leao) },
     query
   );
 

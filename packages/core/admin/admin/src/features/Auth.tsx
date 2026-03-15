@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Login } from '../../../shared/contracts/authentication';
 import { createContext } from '../components/Context';
 import { useTypedDispatch, useTypedSelector } from '../core/store/hooks';
-import { useStrapiApp } from '../features/StrapiApp';
+import { useLeaoApp } from '../features/LeaoApp';
 import { useQueryParams } from '../hooks/useQueryParams';
 import { login as loginAction, logout as logoutAction, setLocale } from '../reducer';
 import { adminApi } from '../services/api';
@@ -80,7 +80,7 @@ const AuthProvider = ({
   _disableRenewToken = false,
 }: AuthProviderProps) => {
   const dispatch = useTypedDispatch();
-  const runRbacMiddleware = useStrapiApp('AuthProvider', (state) => state.rbac.run);
+  const runRbacMiddleware = useLeaoApp('AuthProvider', (state) => state.rbac.run);
   const location = useLocation();
   const [{ rawQuery }] = useQueryParams();
 

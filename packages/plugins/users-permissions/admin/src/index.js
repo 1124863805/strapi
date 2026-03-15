@@ -4,7 +4,7 @@ import { PERMISSIONS } from './constants';
 import getTrad from './utils/getTrad';
 import { prefixPluginTranslations } from './utils/prefixPluginTranslations';
 
-const name = pluginPkg.strapi.name;
+const name = pluginPkg.leao.name;
 
 export default {
   register(app) {

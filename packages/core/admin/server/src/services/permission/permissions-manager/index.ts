@@ -4,7 +4,7 @@ import { subject as asSubject } from '@casl/ability';
 import createSanitizeHelpers from './sanitize';
 import createValidateHelpers from './validate';
 
-import { buildStrapiQuery, buildCaslQuery } from './query-builders';
+import { buildLeaoQuery, buildCaslQuery } from './query-builders';
 
 export default ({ ability, action, model }: any) => ({
   ability,
@@ -28,7 +28,7 @@ export default ({ ability, action, model }: any) => ({
       throw new Error('Action must be defined to build a permission query');
     }
 
-    return buildStrapiQuery(buildCaslQuery(ability, queryAction, model));
+    return buildLeaoQuery(buildCaslQuery(ability, queryAction, model));
   },
 
   // eslint-disable-next-line @typescript-eslint/default-param-last

@@ -11,7 +11,7 @@ import generateService from './plops/service';
 
 export default (plop: NodePlopAPI) => {
   // Plop config
-  plop.setWelcomeMessage('Strapi Generators');
+  plop.setWelcomeMessage('Leao Generators');
   plop.addHelper('pluralize', (text: string) => pluralize(text));
 
   // Generators

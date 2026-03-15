@@ -1,10 +1,10 @@
 import { has } from 'lodash/fp';
 
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 type PluginMap = Record<string, Core.Plugin>;
 
-const pluginsRegistry = (strapi: Core.Strapi) => {
+const pluginsRegistry = (leao: Core.Leao) => {
   const plugins: PluginMap = {};
 
   return {
@@ -19,7 +19,7 @@ const pluginsRegistry = (strapi: Core.Strapi) => {
         throw new Error(`Plugin ${name} has already been registered.`);
       }
 
-      const pluginModule = strapi.get('modules').add(`plugin::${name}`, pluginConfig);
+      const pluginModule = leao.get('modules').add(`plugin::${name}`, pluginConfig);
       plugins[name] = pluginModule;
 
       return plugins[name];

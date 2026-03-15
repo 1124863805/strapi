@@ -1,5 +1,5 @@
-import { Data, Modules } from '@strapi/types';
-import { errors } from '@strapi/utils';
+import { Data, Modules } from '@leao/types';
+import { errors } from '@leao/utils';
 
 /**
  * POST /i18n/content-manager/actions/get-non-localized-fields - Get the localized fields

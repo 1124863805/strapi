@@ -19,8 +19,8 @@ import {
   TextInput,
   TimePicker,
   Toggle,
-} from '@strapi/design-system';
-import { Eye, EyeStriked } from '@strapi/icons';
+} from '@leao/design-system';
+import { Eye, EyeStriked } from '@leao/icons';
 import formatISO from 'date-fns/formatISO';
 import isEqual from 'lodash/isEqual';
 import { type MessageDescriptor, type PrimitiveType, useIntl } from 'react-intl';
@@ -28,7 +28,7 @@ import { type MessageDescriptor, type PrimitiveType, useIntl } from 'react-intl'
 import { parseDateValue } from '../utils/parseDateValue';
 import { handleTimeChange, handleTimeChangeEvent } from '../utils/timeFormat';
 
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 
 interface TranslationMessage extends MessageDescriptor {
   values?: Record<string, PrimitiveType>;
@@ -152,7 +152,7 @@ const GenericInput = ({
    inputs, in order to make them controlled components. This variable
    acts as a fallback for now, to prevent React errors in devopment mode
 
-   See: https://github.com/strapi/strapi/pull/12861
+   See: https://github.com/leao/leao/pull/12861
   */
   const valueWithEmptyStringFallback = value ?? '';
 

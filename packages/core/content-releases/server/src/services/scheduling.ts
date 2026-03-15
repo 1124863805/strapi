@@ -1,17 +1,17 @@
 import { scheduleJob, Job } from 'node-schedule';
-import { Core } from '@strapi/types';
+import { Core } from '@leao/types';
 
-import { errors } from '@strapi/utils';
+import { errors } from '@leao/utils';
 import { Release } from '../../../shared/contracts/releases';
 import { getService } from '../utils';
 import { RELEASE_MODEL_UID } from '../constants';
 
-const createSchedulingService = ({ strapi }: { strapi: Core.Strapi }) => {
+const createSchedulingService = ({ leao }: { leao: Core.Leao }) => {
   const scheduledJobs = new Map<Release['id'], Job>();
 
   return {
     async set(releaseId: Release['id'], scheduleDate: Date) {
-      const release = await strapi.db
+      const release = await leao.db
         .query(RELEASE_MODEL_UID)
         .findOne({ where: { id: releaseId, releasedAt: null } });
 
@@ -21,7 +21,7 @@ const createSchedulingService = ({ strapi }: { strapi: Core.Strapi }) => {
 
       const job = scheduleJob(scheduleDate, async () => {
         try {
-          await getService('release', { strapi }).publish(releaseId);
+          await getService('release', { leao }).publish(releaseId);
           // @TODO: Trigger webhook with success message
         } catch (error) {
           // @TODO: Trigger webhook with error message
@@ -55,10 +55,10 @@ const createSchedulingService = ({ strapi }: { strapi: Core.Strapi }) => {
     /**
      * On bootstrap, we can use this function to make sure to sync the scheduled jobs from the database that are not yet released
      * This is useful in case the server was restarted and the scheduled jobs were lost
-     * This also could be used to sync different Strapi instances in case of a cluster
+     * This also could be used to sync different Leao instances in case of a cluster
      */
     async syncFromDatabase() {
-      const releases = await strapi.db.query(RELEASE_MODEL_UID).findMany({
+      const releases = await leao.db.query(RELEASE_MODEL_UID).findMany({
         where: {
           scheduledAt: {
             $gte: new Date(),

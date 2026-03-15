@@ -2,7 +2,7 @@ export {};
 
 declare global {
   interface Window {
-    strapi: {
+    leao: {
       backendURL: string;
       isEE: boolean;
       features: {

@@ -37,8 +37,8 @@ export const DEFAULT_TYPES = [
 export const VALID_UID_TARGETS = ['string', 'text'] as const;
 
 export const coreUids = {
-  STRAPI_USER: 'admin::user',
-  PREFIX: 'strapi::',
+  LEAO_USER: 'admin::user',
+  PREFIX: 'leao::',
 } as const;
 
 export const pluginsUids = {

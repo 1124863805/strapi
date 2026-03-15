@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useForm, useField } from '@strapi/admin/strapi-admin';
+import { useForm, useField } from '@leao/admin/leao-admin';
 import {
   Accordion,
   Box,
@@ -12,8 +12,8 @@ import {
   Menu,
   MenuItem,
   BoxComponent,
-} from '@strapi/design-system';
-import { Drag, More, Trash } from '@strapi/icons';
+} from '@leao/design-system';
+import { Drag, More, Trash } from '@leao/icons';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
@@ -272,7 +272,7 @@ const DynamicComponent = ({
   );
 };
 
-// TODO: Delete once https://github.com/strapi/design-system/pull/858
+// TODO: Delete once https://github.com/leao/design-system/pull/858
 // is merged and released.
 const StyledBox = styled<BoxComponent>(Box)`
   > div:first-child {

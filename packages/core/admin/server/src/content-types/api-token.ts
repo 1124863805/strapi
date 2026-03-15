@@ -1,7 +1,7 @@
 import constants from '../services/constants';
 
 export default {
-  collectionName: 'strapi_api_tokens',
+  collectionName: 'leao_api_tokens',
   info: {
     name: 'Api Token',
     singularName: 'api-token',

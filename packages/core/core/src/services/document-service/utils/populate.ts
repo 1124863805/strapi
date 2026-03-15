@@ -1,5 +1,5 @@
-import { UID } from '@strapi/types';
-import { contentTypes } from '@strapi/utils';
+import { UID } from '@leao/types';
+import { contentTypes } from '@leao/utils';
 
 interface Options {
   /**
@@ -12,7 +12,7 @@ const { CREATED_BY_ATTRIBUTE, UPDATED_BY_ATTRIBUTE } = contentTypes.constants;
 
 // We want to build a populate object based on the schema
 export const getDeepPopulate = (uid: UID.Schema, opts: Options = {}) => {
-  const model = strapi.getModel(uid);
+  const model = leao.getModel(uid);
   const attributes = Object.entries(model.attributes);
 
   return attributes.reduce((acc: any, [attributeName, attribute]) => {

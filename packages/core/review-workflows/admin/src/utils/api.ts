@@ -1,5 +1,5 @@
 import { SerializedError } from '@reduxjs/toolkit';
-import { type UnknownApiError, type ApiError } from '@strapi/admin/strapi-admin';
+import { type UnknownApiError, type ApiError } from '@leao/admin/leao-admin';
 
 export type BaseQueryError = ApiError | UnknownApiError | SerializedError;
 

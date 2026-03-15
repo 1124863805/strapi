@@ -1,4 +1,4 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 import { mapValues } from 'lodash/fp';
 import andOperator from './and';
@@ -49,6 +49,6 @@ const operators = {
   between: betweenOperator,
 };
 
-// Instantiate every operator with the Strapi instance
-export default ({ strapi }: { strapi: Core.Strapi }) =>
-  mapValues((opCtor) => opCtor({ strapi }), operators);
+// Instantiate every operator with the Leao instance
+export default ({ leao }: { leao: Core.Leao }) =>
+  mapValues((opCtor) => opCtor({ leao }), operators);

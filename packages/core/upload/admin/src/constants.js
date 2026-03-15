@@ -171,8 +171,8 @@ export const sortOptions = [
 ];
 
 export const localStorageKeys = {
-  modalView: `STRAPI_UPLOAD_MODAL_VIEW`,
-  view: `STRAPI_UPLOAD_LIBRARY_VIEW`,
+  modalView: `LEAO_UPLOAD_MODAL_VIEW`,
+  view: `LEAO_UPLOAD_LIBRARY_VIEW`,
 };
 
 export const PERMISSIONS = {

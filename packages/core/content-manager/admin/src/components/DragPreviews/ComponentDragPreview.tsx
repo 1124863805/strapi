@@ -1,5 +1,5 @@
-import { Flex, FlexComponent, IconButton, Typography } from '@strapi/design-system';
-import { CaretDown, Drag, Trash } from '@strapi/icons';
+import { Flex, FlexComponent, IconButton, Typography } from '@leao/design-system';
+import { CaretDown, Drag, Trash } from '@leao/icons';
 import { styled } from 'styled-components';
 
 interface ComponentDragPreviewProps {

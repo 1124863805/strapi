@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import { env, importDefault } from '@strapi/utils';
+import { env, importDefault } from '@leao/utils';
 
 const loadJsFile = (file: string) => {
   try {

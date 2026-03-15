@@ -5,11 +5,11 @@ interface AppInfoContextValue {
   communityEdition?: boolean;
   currentEnvironment?: string;
   dependencies?: Record<string, string>;
-  latestStrapiReleaseTag?: string;
+  latestLeaoReleaseTag?: string;
   nodeVersion?: string;
   projectId?: string | null;
-  shouldUpdateStrapi?: boolean;
-  strapiVersion?: string | null;
+  shouldUpdateLeao?: boolean;
+  leaoVersion?: string | null;
   useYarn?: boolean;
   userId?: string;
 }

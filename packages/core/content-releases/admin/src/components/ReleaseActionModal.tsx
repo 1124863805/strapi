@@ -6,8 +6,8 @@ import {
   useQueryParams,
   useRBAC,
   isFetchError,
-} from '@strapi/admin/strapi-admin';
-import { unstable_useDocumentLayout as useDocumentLayout } from '@strapi/content-manager/strapi-admin';
+} from '@leao/admin/leao-admin';
+import { unstable_useDocumentLayout as useDocumentLayout } from '@leao/content-manager/leao-admin';
 import {
   Box,
   Button,
@@ -18,9 +18,9 @@ import {
   LinkButton,
   Field,
   Modal,
-} from '@strapi/design-system';
-import { PaperPlane } from '@strapi/icons';
-import { EmptyDocuments } from '@strapi/icons/symbols';
+} from '@leao/design-system';
+import { PaperPlane } from '@leao/icons';
+import { EmptyDocuments } from '@leao/icons/symbols';
 import { useFormik } from 'formik';
 import { useIntl } from 'react-intl';
 import { Link as ReactRouterLink } from 'react-router-dom';
@@ -35,8 +35,8 @@ import { ReleaseActionOptions } from './ReleaseActionOptions';
 import type {
   DocumentActionComponent,
   DocumentActionProps,
-} from '@strapi/content-manager/strapi-admin';
-import type { UID } from '@strapi/types';
+} from '@leao/content-manager/leao-admin';
+import type { UID } from '@leao/types';
 
 /* -------------------------------------------------------------------------------------------------
  * AddActionToReleaseModal
@@ -244,7 +244,7 @@ const ReleaseActionModalForm: DocumentActionComponent = ({
   } = useDocumentLayout(model);
 
   // Project is not EE or contentType does not have draftAndPublish enabled
-  if (!window.strapi.isEE || !options?.draftAndPublish || !canCreateAction) {
+  if (!window.leao.isEE || !options?.draftAndPublish || !canCreateAction) {
     return null;
   }
 

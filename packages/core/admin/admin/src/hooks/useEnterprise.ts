@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { useCallbackRef } from '@strapi/design-system';
+import { useCallbackRef } from '@leao/design-system';
 
 function isEnterprise() {
-  return window.strapi.isEE;
+  return window.leao.isEE;
 }
 
 export interface UseEnterpriseOptions<TCEData, TEEData, TDefaultValue, TCombinedValue> {

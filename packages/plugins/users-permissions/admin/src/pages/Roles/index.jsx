@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Page } from '@strapi/strapi/admin';
+import { Page } from '@leao/leao/admin';
 import { Route, Routes } from 'react-router-dom';
 
 import { PERMISSIONS } from '../../constants';

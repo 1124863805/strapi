@@ -12,9 +12,9 @@
  */
 
 /* eslint-disable no-continue */
-import type { UID } from '@strapi/types';
-import type { Database, Migration } from '@strapi/database';
-import { async, contentTypes } from '@strapi/utils';
+import type { UID } from '@leao/types';
+import type { Database, Migration } from '@leao/database';
+import { async, contentTypes } from '@leao/utils';
 import { createDocumentService } from '../../services/document-service';
 
 type DocumentVersion = { documentId: string; locale: string };
@@ -31,7 +31,7 @@ const hasDraftAndPublish = async (trx: Knex, meta: any) => {
   }
 
   const uid = meta.uid as UID.ContentType;
-  const model = strapi.getModel(uid);
+  const model = leao.getModel(uid);
   const hasDP = contentTypes.hasDraftAndPublish(model);
   if (!hasDP) {
     return false;
@@ -172,9 +172,9 @@ const migrateUp = async (trx: Knex, db: Database) => {
    *
    * NOTE: This is using a custom document service without any validations,
    *       to prevent the migration from failing if users already had invalid data in V4.
-   *       E.g. @see https://github.com/strapi/strapi/issues/21583
+   *       E.g. @see https://github.com/leao/leao/issues/21583
    */
-  const documentService = createDocumentService(strapi, {
+  const documentService = createDocumentService(leao, {
     async validateEntityCreation(_, data) {
       return data;
     },

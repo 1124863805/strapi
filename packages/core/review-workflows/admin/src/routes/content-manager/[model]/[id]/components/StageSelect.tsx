@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { useNotification, useAPIErrorHandler, useQueryParams } from '@strapi/admin/strapi-admin';
-import { useEEInfo } from '@strapi/admin/strapi-admin/ee';
-import { unstable_useDocument } from '@strapi/content-manager/strapi-admin';
+import { useNotification, useAPIErrorHandler, useQueryParams } from '@leao/admin/leao-admin';
+import { useEEInfo } from '@leao/admin/leao-admin/ee';
+import { unstable_useDocument } from '@leao/content-manager/leao-admin';
 import {
   SingleSelect,
   SingleSelectOption,
@@ -10,7 +10,7 @@ import {
   Flex,
   Loader,
   Typography,
-} from '@strapi/design-system';
+} from '@leao/design-system';
 import { useIntl } from 'react-intl';
 import { useParams } from 'react-router-dom';
 
@@ -25,7 +25,7 @@ import { getStageColorByHex } from '../../../../../utils/colors';
 
 import { STAGE_ATTRIBUTE_NAME } from './constants';
 
-import type { Data } from '@strapi/types';
+import type { Data } from '@leao/types';
 
 export const StageSelect = () => {
   const {

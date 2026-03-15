@@ -7,16 +7,16 @@ import {
   Table,
   BackButton,
   useNotification,
-  useStrapiApp,
+  useLeaoApp,
   useTracking,
   useAPIErrorHandler,
   useQueryParams,
   useRBAC,
   Layouts,
   useTable,
-} from '@strapi/admin/strapi-admin';
-import { Button, Flex, Typography, ButtonProps } from '@strapi/design-system';
-import { Plus } from '@strapi/icons';
+} from '@leao/admin/leao-admin';
+import { Button, Flex, Typography, ButtonProps } from '@leao/design-system';
+import { Plus } from '@leao/icons';
 import isEqual from 'lodash/isEqual';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
@@ -46,7 +46,7 @@ import { TableActions } from './components/TableActions';
 import { CellContent } from './components/TableCells/CellContent';
 import { ViewSettingsMenu } from './components/ViewSettingsMenu';
 
-import type { Modules } from '@strapi/types';
+import type { Modules } from '@leao/types';
 
 const { INJECT_COLUMN_IN_TABLE } = HOOKS;
 
@@ -149,7 +149,7 @@ const ListViewPage = () => {
     canCreate,
   }));
 
-  const runHookWaterfall = useStrapiApp('ListViewPage', ({ runHookWaterfall }) => runHookWaterfall);
+  const runHookWaterfall = useLeaoApp('ListViewPage', ({ runHookWaterfall }) => runHookWaterfall);
   /**
    * Run the waterfall and then inject our additional table headers.
    */

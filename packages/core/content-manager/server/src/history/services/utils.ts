@@ -1,7 +1,7 @@
 import { difference, omit } from 'lodash/fp';
-import type { Struct, UID } from '@strapi/types';
-import { Core, Data, Modules, Schema } from '@strapi/types';
-import { contentTypes } from '@strapi/utils';
+import type { Struct, UID } from '@leao/types';
+import { Core, Data, Modules, Schema } from '@leao/types';
+import { contentTypes } from '@leao/utils';
 import { CreateHistoryVersion } from '../../../../shared/contracts/history-versions';
 import { FIELDS_TO_IGNORE } from '../constants';
 import { HistoryVersions } from '../../../../shared/contracts';
@@ -14,7 +14,7 @@ type RelationResponse = {
   meta: { missingCount: number };
 };
 
-export const createServiceUtils = ({ strapi }: { strapi: Core.Strapi }) => {
+export const createServiceUtils = ({ leao }: { leao: Core.Leao }) => {
   /**
    * @description
    * Get the difference between the version schema and the content type schema
@@ -73,7 +73,7 @@ export const createServiceUtils = ({ strapi }: { strapi: Core.Strapi }) => {
 
       const existingAndMissingRelations = await Promise.all(
         versionRelationData.map((relation) => {
-          return strapi.documents(attribute.target).findOne({
+          return leao.documents(attribute.target).findOne({
             documentId: relation.documentId,
             locale: relation.locale || undefined,
           });
@@ -85,7 +85,7 @@ export const createServiceUtils = ({ strapi }: { strapi: Core.Strapi }) => {
       ) as Modules.Documents.AnyDocument[];
     }
 
-    return strapi.documents(attribute.target).findOne({
+    return leao.documents(attribute.target).findOne({
       documentId: versionRelationData.documentId,
       locale: versionRelationData.locale || undefined,
     });
@@ -105,20 +105,20 @@ export const createServiceUtils = ({ strapi }: { strapi: Core.Strapi }) => {
       const existingAndMissingMedias = await Promise.all(
         // @ts-expect-error Fix the type definitions so this isn't any
         versionRelationData.map((media) => {
-          return strapi.db.query('plugin::upload.file').findOne({ where: { id: media.id } });
+          return leao.db.query('plugin::upload.file').findOne({ where: { id: media.id } });
         })
       );
 
       return existingAndMissingMedias.filter((media) => media != null);
     }
 
-    return strapi.db
+    return leao.db
       .query('plugin::upload.file')
       .findOne({ where: { id: versionRelationData.id } });
   };
 
-  const localesService = strapi.plugin('i18n')?.service('locales');
-  const i18nContentTypeService = strapi.plugin('i18n')?.service('content-types');
+  const localesService = leao.plugin('i18n')?.service('locales');
+  const i18nContentTypeService = leao.plugin('i18n')?.service('content-types');
 
   const getDefaultLocale = async () => (localesService ? localesService.getDefaultLocale() : null);
 
@@ -155,10 +155,10 @@ export const createServiceUtils = ({ strapi }: { strapi: Core.Strapi }) => {
    * Gets the number of retention days from feature config or user
    */
   const getRetentionDays = () => {
-    const featureConfig = strapi.ee.features.get('cms-content-history');
+    const featureConfig = leao.ee.features.get('cms-content-history');
     const featureRetentionDays =
       typeof featureConfig === 'object' && featureConfig?.options.retentionDays;
-    const userRetentionDays: number = strapi.config.get('admin.history.retentionDays');
+    const userRetentionDays: number = leao.config.get('admin.history.retentionDays');
 
     if (userRetentionDays && userRetentionDays < featureRetentionDays) {
       return userRetentionDays;
@@ -171,7 +171,7 @@ export const createServiceUtils = ({ strapi }: { strapi: Core.Strapi }) => {
     contentTypeUid: HistoryVersions.CreateHistoryVersion['contentType'],
     document: Modules.Documents.AnyDocument | null
   ) => {
-    const documentMetadataService = strapi.plugin('content-manager').service('document-metadata');
+    const documentMetadataService = leao.plugin('content-manager').service('document-metadata');
     const meta = await documentMetadataService.getMetadata(contentTypeUid, document);
 
     return documentMetadataService.getStatus(document, meta.availableStatus);
@@ -184,7 +184,7 @@ export const createServiceUtils = ({ strapi }: { strapi: Core.Strapi }) => {
    * So we never store component IDs to ensure they're re-created while restoring a version.
    */
   const getComponentFields = (componentUID: UID.Component): string[] => {
-    return Object.entries(strapi.getModel(componentUID).attributes).reduce<string[]>(
+    return Object.entries(leao.getModel(componentUID).attributes).reduce<string[]>(
       (fieldsAcc, [key, attribute]) => {
         if (!['relation', 'media', 'component', 'dynamiczone'].includes(attribute.type)) {
           fieldsAcc.push(key);
@@ -205,7 +205,7 @@ export const createServiceUtils = ({ strapi }: { strapi: Core.Strapi }) => {
    * @param useDatabaseSyntax - Whether to use the database syntax for populate, defaults to false
    */
   const getDeepPopulate = (uid: UID.Schema, useDatabaseSyntax = false) => {
-    const model = strapi.getModel(uid);
+    const model = leao.getModel(uid);
     const attributes = Object.entries(model.attributes);
     const fieldSelector = useDatabaseSyntax ? 'select' : 'fields';
 
@@ -281,7 +281,7 @@ export const createServiceUtils = ({ strapi }: { strapi: Core.Strapi }) => {
               return currentRelationData;
             }
 
-            const relatedEntry = await strapi.db
+            const relatedEntry = await leao.db
               .query('plugin::upload.file')
               .findOne({ where: { id: entry.id } });
 
@@ -326,7 +326,7 @@ export const createServiceUtils = ({ strapi }: { strapi: Core.Strapi }) => {
               return currentRelationData;
             }
 
-            const relatedEntry = await strapi
+            const relatedEntry = await leao
               .documents(attributeSchema.target)
               .findOne({ documentId: entry.documentId, locale: entry.locale || undefined });
 

@@ -69,7 +69,7 @@ type AttributeCondition<
     : never;
 
 /**
- * Tree representation of a Strapi filter for a given schema UID
+ * Tree representation of a Leao filter for a given schema UID
  */
 export type ObjectNotation<TSchemaUID extends UID.Schema> = {
   [TIter in Operator.Group]?: ObjectNotation<TSchemaUID>[];

@@ -5,7 +5,7 @@ const NEI_FIELD_NAME = 'nei';
 export default () => ({
   fieldName: NEI_FIELD_NAME,
 
-  strapiOperator: '$nei',
+  leaoOperator: '$nei',
 
   add(t: Nexus.blocks.ObjectDefinitionBlock<string>, type: string) {
     t.field(NEI_FIELD_NAME, { type });

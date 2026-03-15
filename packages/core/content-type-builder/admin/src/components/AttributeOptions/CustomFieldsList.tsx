@@ -1,5 +1,5 @@
-import { useStrapiApp } from '@strapi/admin/strapi-admin';
-import { Flex, Grid, KeyboardNavigable, Link } from '@strapi/design-system';
+import { useLeaoApp } from '@leao/admin/leao-admin';
+import { Flex, Grid, KeyboardNavigable, Link } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 
 import { getTrad } from '../../utils';
@@ -9,15 +9,13 @@ import { EmptyAttributes } from './EmptyAttributes';
 
 export const CustomFieldsList = () => {
   const { formatMessage } = useIntl();
-  const getAllCustomFields = useStrapiApp('CustomFieldsList', (state) => state.customFields.getAll);
-  // TODO change this once useCustomFields is typed (helper-plugin types are solved)
-  const registeredCustomFields = Object.entries(getAllCustomFields());
+  const getAllCustomFields = useLeaoApp('CustomFieldsList', (state) => state.customFields.getAll);
+  const registeredCustomFields = Object.entries(getAllCustomFields()) as [string, { name: string }][];
 
   if (!registeredCustomFields.length) {
     return <EmptyAttributes />;
   }
 
-  // Sort the array alphabetically by customField name
   const sortedCustomFields = registeredCustomFields.sort((a, b) =>
     a[1].name > b[1].name ? 1 : -1
   );

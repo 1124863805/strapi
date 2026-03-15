@@ -1,6 +1,6 @@
 import _, { type PropertyPath, flatten } from 'lodash';
-import { yup } from '@strapi/utils';
-import type { Core, UID, Struct } from '@strapi/types';
+import { yup } from '@leao/utils';
+import type { Core, UID, Struct } from '@leao/types';
 
 import { removeNamespace } from '../../registries/namespace';
 import { validateModule } from './validation';
@@ -19,9 +19,9 @@ export interface RawModule {
   contentTypes?: Core.Module['contentTypes'];
   policies?: Core.Module['policies'];
   middlewares?: Core.Module['middlewares'];
-  bootstrap?: (params: { strapi: Core.Strapi }) => Promise<void>;
-  register?: (params: { strapi: Core.Strapi }) => Promise<void>;
-  destroy?: (params: { strapi: Core.Strapi }) => Promise<void>;
+  bootstrap?: (params: { leao: Core.Leao }) => Promise<void>;
+  register?: (params: { leao: Core.Leao }) => Promise<void>;
+  destroy?: (params: { leao: Core.Leao }) => Promise<void>;
 }
 
 export interface Module {
@@ -61,7 +61,7 @@ const defaultModule = {
 export const createModule = (
   namespace: string,
   rawModule: RawModule,
-  strapi: Core.Strapi
+  leao: Core.Leao
 ): Module => {
   _.defaults(rawModule, defaultModule);
 
@@ -69,7 +69,7 @@ export const createModule = (
     validateModule(rawModule);
   } catch (e) {
     if (e instanceof yup.ValidationError) {
-      throw new Error(`strapi-server.js is invalid for '${namespace}'.\n${e.errors.join('\n')}`);
+      throw new Error(`leao-server.js is invalid for '${namespace}'.\n${e.errors.join('\n')}`);
     }
   }
 
@@ -80,70 +80,70 @@ export const createModule = (
         throw new Error(`Bootstrap for ${namespace} has already been called`);
       }
       called.bootstrap = true;
-      await (rawModule.bootstrap && rawModule.bootstrap({ strapi }));
+      await (rawModule.bootstrap && rawModule.bootstrap({ leao }));
     },
     async register() {
       if (called.register) {
         throw new Error(`Register for ${namespace} has already been called`);
       }
       called.register = true;
-      await (rawModule.register && rawModule.register({ strapi }));
+      await (rawModule.register && rawModule.register({ leao }));
     },
     async destroy() {
       if (called.destroy) {
         throw new Error(`Destroy for ${namespace} has already been called`);
       }
       called.destroy = true;
-      await (rawModule.destroy && rawModule.destroy({ strapi }));
+      await (rawModule.destroy && rawModule.destroy({ leao }));
     },
     load() {
-      strapi.get('content-types').add(namespace, rawModule.contentTypes);
-      strapi.get('services').add(namespace, rawModule.services);
-      strapi.get('policies').add(namespace, rawModule.policies);
-      strapi.get('middlewares').add(namespace, rawModule.middlewares);
-      strapi.get('controllers').add(namespace, rawModule.controllers);
-      strapi.get('config').set(namespace, rawModule.config);
+      leao.get('content-types').add(namespace, rawModule.contentTypes);
+      leao.get('services').add(namespace, rawModule.services);
+      leao.get('policies').add(namespace, rawModule.policies);
+      leao.get('middlewares').add(namespace, rawModule.middlewares);
+      leao.get('controllers').add(namespace, rawModule.controllers);
+      leao.get('config').set(namespace, rawModule.config);
     },
     get routes() {
       return rawModule.routes ?? {};
     },
     config(path: PropertyPath, defaultValue: unknown) {
       const pathArray = flatten([namespace, path]);
-      return strapi.get('config').get(pathArray, defaultValue);
+      return leao.get('config').get(pathArray, defaultValue);
     },
     contentType(ctName: UID.ContentType) {
-      return strapi.get('content-types').get(`${namespace}.${ctName}`);
+      return leao.get('content-types').get(`${namespace}.${ctName}`);
     },
     get contentTypes() {
-      const contentTypes = strapi.get('content-types').getAll(namespace);
+      const contentTypes = leao.get('content-types').getAll(namespace);
       return removeNamespacedKeys(contentTypes, namespace);
     },
     service(serviceName: UID.Service) {
-      return strapi.get('services').get(`${namespace}.${serviceName}`);
+      return leao.get('services').get(`${namespace}.${serviceName}`);
     },
     get services() {
-      const services = strapi.get('services').getAll(namespace);
+      const services = leao.get('services').getAll(namespace);
       return removeNamespacedKeys(services, namespace);
     },
     policy(policyName: UID.Policy) {
-      return strapi.get('policies').get(`${namespace}.${policyName}`);
+      return leao.get('policies').get(`${namespace}.${policyName}`);
     },
     get policies() {
-      const policies = strapi.get('policies').getAll(namespace);
+      const policies = leao.get('policies').getAll(namespace);
       return removeNamespacedKeys(policies, namespace);
     },
     middleware(middlewareName: UID.Middleware) {
-      return strapi.get('middlewares').get(`${namespace}.${middlewareName}`);
+      return leao.get('middlewares').get(`${namespace}.${middlewareName}`);
     },
     get middlewares() {
-      const middlewares = strapi.get('middlewares').getAll(namespace);
+      const middlewares = leao.get('middlewares').getAll(namespace);
       return removeNamespacedKeys(middlewares, namespace);
     },
     controller(controllerName: UID.Controller) {
-      return strapi.get('controllers').get(`${namespace}.${controllerName}`);
+      return leao.get('controllers').get(`${namespace}.${controllerName}`);
     },
     get controllers() {
-      const controllers = strapi.get('controllers').getAll(namespace);
+      const controllers = leao.get('controllers').getAll(namespace);
       return removeNamespacedKeys(controllers, namespace);
     },
   };

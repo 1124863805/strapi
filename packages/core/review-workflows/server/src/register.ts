@@ -1,6 +1,6 @@
 import { defaultsDeep } from 'lodash/fp';
 
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 import { getService } from './utils';
 import migrateStageAttribute from './migrations/shorten-stage-attribute';
@@ -43,11 +43,11 @@ const setRelation = (attributeName: any, target: any, contentType: any) => {
 /**
  * Add the stage and assignee attributes to content types
  */
-function extendReviewWorkflowContentTypes({ strapi }: { strapi: Core.Strapi }) {
-  const contentTypeToExtend = getVisibleContentTypesUID(strapi.contentTypes);
+function extendReviewWorkflowContentTypes({ leao }: { leao: Core.Leao }) {
+  const contentTypeToExtend = getVisibleContentTypesUID(leao.contentTypes);
 
   for (const contentTypeUID of contentTypeToExtend) {
-    strapi.get('content-types').extend(contentTypeUID, (contentType: any) => {
+    leao.get('content-types').extend(contentTypeUID, (contentType: any) => {
       // Set Stage attribute
       setRelation(ENTITY_STAGE_ATTRIBUTE, STAGE_MODEL_UID, contentType);
       // Set Assignee attribute
@@ -57,11 +57,11 @@ function extendReviewWorkflowContentTypes({ strapi }: { strapi: Core.Strapi }) {
 }
 
 // TODO: V5
-// function persistStagesJoinTables({ strapi }: { strapi: Core.LoadedStrapi }) {
+// function persistStagesJoinTables({ leao }: { leao: Core.LoadedLeao }) {
 //   return async ({ contentTypes }: any) => {
 //     const getStageTableToPersist = (contentTypeUID: any) => {
 //       // Persist the stage join table
-//       const { attributes, tableName } = strapi.db.metadata.get(contentTypeUID) as any;
+//       const { attributes, tableName } = leao.db.metadata.get(contentTypeUID) as any;
 //       const joinTableName = attributes[ENTITY_STAGE_ATTRIBUTE].joinTable.name;
 //       return {
 //         name: joinTableName,
@@ -75,16 +75,16 @@ function extendReviewWorkflowContentTypes({ strapi }: { strapi: Core.Strapi }) {
 //       map(getStageTableToPersist),
 //     ])(contentTypes);
 
-// await removePersistedTablesWithSuffix('_strapi_stage_links');
+// await removePersistedTablesWithSuffix('_leao_stage_links');
 // await persistTables(joinTablesToPersist);
 // };
 // }
 
-export default async ({ strapi }: { strapi: Core.Strapi }) => {
+export default async ({ leao }: { leao: Core.Leao }) => {
   // Data Migrations
-  strapi.hook('strapi::content-types.beforeSync').register(migrateStageAttribute);
-  strapi
-    .hook('strapi::content-types.afterSync')
+  leao.hook('leao::content-types.beforeSync').register(migrateStageAttribute);
+  leao
+    .hook('leao::content-types.afterSync')
     .register(migrateReviewWorkflowStagesColor)
     .register(migrateReviewWorkflowStagesRoles)
     .register(migrateReviewWorkflowName)
@@ -92,18 +92,18 @@ export default async ({ strapi }: { strapi: Core.Strapi }) => {
     .register(migrateDeletedCTInWorkflows);
 
   // Middlewares
-  reviewWorkflowsMiddlewares.contentTypeMiddleware(strapi);
+  reviewWorkflowsMiddlewares.contentTypeMiddleware(leao);
 
   // Schema customization
-  extendReviewWorkflowContentTypes({ strapi });
+  extendReviewWorkflowContentTypes({ leao });
 
   const reviewWorkflowsOptions = defaultsDeep(
     {
       numberOfWorkflows: MAX_WORKFLOWS,
       stagesPerWorkflow: MAX_STAGES_PER_WORKFLOW,
     },
-    strapi.ee.features.get('review-workflows')
+    leao.ee.features.get('review-workflows')
   );
-  const workflowsValidationService = getService('validation', { strapi });
+  const workflowsValidationService = getService('validation', { leao });
   workflowsValidationService.register(reviewWorkflowsOptions);
 };

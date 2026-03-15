@@ -1,4 +1,4 @@
-import { defineConfig } from '@strapi/pack-up';
+import { defineConfig } from '@leao/pack-up';
 
 export default defineConfig({
   bundles: [

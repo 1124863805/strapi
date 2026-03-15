@@ -10,8 +10,8 @@ import {
   useRBAC,
   isFetchError,
   Layouts,
-} from '@strapi/admin/strapi-admin';
-import { useEEInfo } from '@strapi/admin/strapi-admin/ee';
+} from '@leao/admin/leao-admin';
+import { useEEInfo } from '@leao/admin/leao-admin/ee';
 import {
   Alert,
   Badge,
@@ -25,9 +25,9 @@ import {
   Tabs,
   Typography,
   Link,
-} from '@strapi/design-system';
-import { Plus } from '@strapi/icons';
-import { EmptyDocuments } from '@strapi/icons/symbols';
+} from '@leao/design-system';
+import { Plus } from '@leao/icons';
+import { EmptyDocuments } from '@leao/icons/symbols';
 import { format } from 'date-fns';
 import { useIntl } from 'react-intl';
 import { useNavigate, useLocation, NavLink } from 'react-router-dom';

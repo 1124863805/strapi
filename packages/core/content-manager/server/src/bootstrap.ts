@@ -5,7 +5,7 @@ import preview from './preview';
 
 export default async () => {
   Object.entries(ALLOWED_WEBHOOK_EVENTS).forEach(([key, value]) => {
-    strapi.get('webhookStore').addAllowedEvent(key, value);
+    leao.get('webhookStore').addAllowedEvent(key, value);
   });
 
   getService('field-sizes').setCustomFieldInputSizes();
@@ -13,6 +13,6 @@ export default async () => {
   await getService('content-types').syncConfigurations();
   await getService('permission').registerPermissions();
 
-  await history.bootstrap?.({ strapi });
-  await preview.bootstrap?.({ strapi });
+  await history.bootstrap?.({ leao });
+  await preview.bootstrap?.({ leao });
 };

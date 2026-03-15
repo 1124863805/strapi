@@ -4,10 +4,10 @@ import {
   useAuth,
   type Permission,
   useNotification,
-  useStrapiApp,
+  useLeaoApp,
   useAPIErrorHandler,
-} from '@strapi/admin/strapi-admin';
-import { useNotifyAT } from '@strapi/design-system';
+} from '@leao/admin/leao-admin';
+import { useNotifyAT } from '@leao/design-system';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 
@@ -42,7 +42,7 @@ interface ContentManagerLink {
 const useContentManagerInitData = (): AppState => {
   const { toggleNotification } = useNotification();
   const dispatch = useTypedDispatch();
-  const runHookWaterfall = useStrapiApp(
+  const runHookWaterfall = useLeaoApp(
     'useContentManagerInitData',
     (state) => state.runHookWaterfall
   );

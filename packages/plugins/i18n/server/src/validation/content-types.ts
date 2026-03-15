@@ -1,4 +1,4 @@
-import { yup, validateYupSchema } from '@strapi/utils';
+import { yup, validateYupSchema } from '@leao/utils';
 
 import { get } from 'lodash/fp';
 
@@ -7,9 +7,9 @@ const validateGetNonLocalizedAttributesSchema = yup
   .shape({
     model: yup.string().required(),
     id: yup.mixed().when('model', {
-      is: (model: any) => get('kind', strapi.contentType(model)) === 'singleType',
-      then: yup.strapiID().nullable(),
-      otherwise: yup.strapiID().required(),
+      is: (model: any) => get('kind', leao.contentType(model)) === 'singleType',
+      then: yup.leaoID().nullable(),
+      otherwise: yup.leaoID().required(),
     }),
     locale: yup.string().required(),
   })

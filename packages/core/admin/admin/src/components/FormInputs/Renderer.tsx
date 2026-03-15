@@ -1,6 +1,6 @@
 import { forwardRef, memo } from 'react';
 
-import { TextInput, useComposedRefs, Field } from '@strapi/design-system';
+import { TextInput, useComposedRefs, Field } from '@leao/design-system';
 
 import { useFocusInputField } from '../../hooks/useFocusInputField';
 import { useField } from '../Form';
@@ -27,7 +27,7 @@ import type { InputProps } from '../Form';
 /**
  * @internal This needs to be tested before being exposed as a public API.
  * @experimental
- * @description A generic form renderer for Strapi forms. Similar to GenericInputs but with a different API.
+ * @description A generic form renderer for Leao forms. Similar to GenericInputs but with a different API.
  * The entire component is memoized to avoid re-renders in large forms.
  */
 const InputRenderer = memo(

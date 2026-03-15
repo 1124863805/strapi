@@ -2,24 +2,24 @@
   "name": "getstarted",
   "version": "0.0.0",
   "private": true,
-  "description": "A Strapi application.",
+  "description": "A Leao application.",
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
-    "build": "strapi build",
-    "develop:debug": "node --inspect ../../packages/core/strapi/bin/strapi.js develop",
-    "build:ce": "STRAPI_DISABLE_EE=true strapi build",
-    "develop": "strapi develop",
-    "develop:ce": "STRAPI_DISABLE_EE=true strapi develop",
-    "start": "strapi start",
-    "strapi": "strapi"
+    "build": "leao build",
+    "develop:debug": "node --inspect ../../packages/core/leao/bin/leao.js develop",
+    "build:ce": "LEAO_DISABLE_EE=true leao build",
+    "develop": "leao develop",
+    "develop:ce": "LEAO_DISABLE_EE=true leao develop",
+    "start": "leao start",
+    "leao": "leao"
   },
   "dependencies": {
-    "@strapi/icons": "2.0.0-rc.11",
-    "@strapi/plugin-color-picker": "workspace:*",
-    "@strapi/plugin-documentation": "workspace:*",
-    "@strapi/plugin-graphql": "workspace:*",
-    "@strapi/plugin-users-permissions": "workspace:*",
-    "@strapi/strapi": "workspace:*",
+    "@leao/icons": "workspace:*",
+    "@leao/leao": "workspace:*",
+    "@leao/plugin-color-picker": "workspace:*",
+    "@leao/plugin-documentation": "workspace:*",
+    "@leao/plugin-graphql": "workspace:*",
+    "@leao/plugin-users-permissions": "workspace:*",
     "better-sqlite3": "11.3.0",
     "lodash": "4.17.21",
     "react": "18.3.1",
@@ -32,7 +32,7 @@
     "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
-  "strapi": {
+  "leao": {
     "uuid": "getstarted"
   }
 }

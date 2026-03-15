@@ -1,4 +1,4 @@
-import type { Core, Struct, Modules } from '@strapi/types';
+import type { Core, Struct, Modules } from '@leao/types';
 
 import {
   getPaginationInfo,
@@ -29,13 +29,13 @@ export class CollectionTypeService
     const paginationInfo = getPaginationInfo(fetchParams);
     const isPaged = isPagedPagination(fetchParams.pagination);
 
-    const results = await strapi.documents(uid).findMany({
+    const results = await leao.documents(uid).findMany({
       ...fetchParams,
       ...paginationInfo,
     });
 
     if (shouldCount(fetchParams)) {
-      const count = await strapi.documents(uid).count({ ...fetchParams, ...paginationInfo });
+      const count = await leao.documents(uid).count({ ...fetchParams, ...paginationInfo });
 
       if (typeof count !== 'number') {
         throw new Error('Count should be a number');
@@ -56,7 +56,7 @@ export class CollectionTypeService
   findOne(documentId: Modules.Documents.ID, params = {}) {
     const { uid } = this.contentType;
 
-    return strapi.documents(uid).findOne({
+    return leao.documents(uid).findOne({
       ...this.getFetchParams(params),
       documentId,
     });
@@ -65,13 +65,13 @@ export class CollectionTypeService
   async create(params = { data: {} }) {
     const { uid } = this.contentType;
 
-    return strapi.documents(uid).create(this.getFetchParams(params));
+    return leao.documents(uid).create(this.getFetchParams(params));
   }
 
   update(documentId: Modules.Documents.ID, params = { data: {} }) {
     const { uid } = this.contentType;
 
-    return strapi.documents(uid).update({
+    return leao.documents(uid).update({
       ...this.getFetchParams(params),
       documentId,
     });
@@ -80,7 +80,7 @@ export class CollectionTypeService
   async delete(documentId: Modules.Documents.ID, params = {}) {
     const { uid } = this.contentType;
 
-    const { entries } = await strapi.documents(uid).delete({
+    const { entries } = await leao.documents(uid).delete({
       ...this.getFetchParams(params),
       documentId,
     });

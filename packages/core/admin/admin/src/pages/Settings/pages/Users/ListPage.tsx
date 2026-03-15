@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Flex, Typography, Status, IconButton, Dialog } from '@strapi/design-system';
-import { Pencil, Trash } from '@strapi/icons';
+import { Flex, Typography, Status, IconButton, Dialog } from '@leao/design-system';
+import { Pencil, Trash } from '@leao/icons';
 import * as qs from 'qs';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
@@ -132,7 +132,7 @@ const ListPageCE = () => {
         title={title}
         subtitle={formatMessage({
           id: 'Settings.permissions.users.listview.header.subtitle',
-          defaultMessage: 'All the users who have access to the Strapi admin panel',
+          defaultMessage: 'All the users who have access to the Leao admin panel',
         })}
       />
       <Layouts.Action

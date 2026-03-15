@@ -1,6 +1,6 @@
-import { Box, Main, EmptyStateLayout, LinkButton } from '@strapi/design-system';
-import { ExternalLink } from '@strapi/icons';
-import { EmptyPermissions } from '@strapi/icons/symbols';
+import { Box, Main, EmptyStateLayout, LinkButton } from '@leao/design-system';
+import { ExternalLink } from '@leao/icons';
+import { EmptyPermissions } from '@leao/icons/symbols';
 import { useIntl } from 'react-intl';
 
 import { Layouts } from '../../../components/Layouts/Layout';

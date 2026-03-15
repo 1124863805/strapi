@@ -1,13 +1,13 @@
-import strapiScalarToGraphQLScalar from './strapi-scalar-to-graphql-scalar';
-import graphQLFiltersToStrapiQuery from './graphql-filters-to-strapi-query';
+import leaoScalarToGraphQLScalar from './leao-scalar-to-graphql-scalar';
+import graphQLFiltersToLeaoQuery from './graphql-filters-to-leao-query';
 import graphqlScalarToOperators from './graphql-scalar-to-operators';
 import entityToResponseEntity from './entity-to-response-entity';
 
 import type { Context } from '../../types';
 
 export default (context: Context) => ({
-  ...strapiScalarToGraphQLScalar(context),
-  ...graphQLFiltersToStrapiQuery(context),
+  ...leaoScalarToGraphQLScalar(context),
+  ...graphQLFiltersToLeaoQuery(context),
   ...graphqlScalarToOperators(context),
   ...entityToResponseEntity(),
 });

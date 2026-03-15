@@ -1,5 +1,5 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
-export default (strapi: Core.Strapi) => {
-  strapi.get('sanitizers').set('content-api', { input: [], output: [], query: [] });
+export default (leao: Core.Leao) => {
+  leao.get('sanitizers').set('content-api', { input: [], output: [], query: [] });
 };

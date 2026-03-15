@@ -1,4 +1,4 @@
-import type { UID } from '@strapi/types';
+import type { UID } from '@leao/types';
 
 import { getDefaultLocale, isLocalizedContentType } from '../utils/i18n';
 import { mapRelation, traverseEntityRelations } from '../utils/map-relation';
@@ -48,7 +48,7 @@ const setDefaultLocaleToRelations = (data: Record<string, any>, uid: UID.Schema)
       // @ts-expect-error - fix type
       set(key, relation);
     },
-    { schema: strapi.getModel(uid), getModel: strapi.getModel.bind(strapi) },
+    { schema: leao.getModel(uid), getModel: leao.getModel.bind(leao) },
     data
   );
 };

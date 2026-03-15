@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import { Box, Flex, Typography } from '@strapi/design-system';
+import { Box, Flex, Typography } from '@leao/design-system';
 import { styled } from 'styled-components';
 
 const IconBox = styled(Box)`

@@ -1,5 +1,5 @@
-import { useQueryParams } from '@strapi/admin/strapi-admin';
-import { ClockCounterClockwise } from '@strapi/icons';
+import { useQueryParams } from '@leao/admin/leao-admin';
+import { ClockCounterClockwise } from '@leao/icons';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ const HistoryAction: DocumentActionComponent = ({ model, document }) => {
   const navigate = useNavigate();
   const pluginsQueryParams = stringify({ plugins: query.plugins }, { encode: false });
 
-  if (!window.strapi.features.isEnabled('cms-content-history')) {
+  if (!window.leao.features.isEnabled('cms-content-history')) {
     return null;
   }
 
@@ -37,7 +37,7 @@ const HistoryAction: DocumentActionComponent = ({ model, document }) => {
       !document.id ||
       /**
        * History is only available for content types created by the user.
-       * These have the `api::` prefix, as opposed to the ones created by Strapi or plugins,
+       * These have the `api::` prefix, as opposed to the ones created by Leao or plugins,
        * which start with `admin::` or `plugin::`
        */
       !model.startsWith('api::'),

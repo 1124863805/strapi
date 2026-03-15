@@ -1,14 +1,14 @@
 import type { Context, Next } from 'koa';
 import path from 'path';
-import utils from '@strapi/utils';
+import utils from '@leao/utils';
 import { isString, has, toLower, get } from 'lodash/fp';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 const { RateLimitError } = utils.errors;
 
-export default (config: any, { strapi }: { strapi: Core.Strapi }) =>
+export default (config: any, { leao }: { leao: Core.Leao }) =>
   async (ctx: Context, next: Next) => {
-    let rateLimitConfig = strapi.config.get('admin.rateLimit') as any;
+    let rateLimitConfig = leao.config.get('admin.rateLimit') as any;
 
     if (!rateLimitConfig) {
       rateLimitConfig = {

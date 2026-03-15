@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Typography, TypographyComponent } from '@strapi/design-system';
+import { Typography, TypographyComponent } from '@leao/design-system';
 import {
   HeadingFive,
   HeadingFour,
@@ -8,7 +8,7 @@ import {
   HeadingSix,
   HeadingThree,
   HeadingTwo,
-} from '@strapi/icons';
+} from '@leao/icons';
 import { Editor } from 'slate';
 import { styled } from 'styled-components';
 

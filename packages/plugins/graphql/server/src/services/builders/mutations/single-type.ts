@@ -1,13 +1,13 @@
 import { extendType, nonNull } from 'nexus';
-import { errors } from '@strapi/utils';
+import { errors } from '@leao/utils';
 import type * as Nexus from 'nexus';
-import type { Struct } from '@strapi/types';
+import type { Struct } from '@leao/types';
 import type { Context } from '../../types';
 
 const { NotFoundError } = errors;
 
-export default ({ strapi }: Context) => {
-  const { service: getService } = strapi.plugin('graphql');
+export default ({ leao }: Context) => {
+  const { service: getService } = leao.plugin('graphql');
 
   const { naming } = getService('utils');
   const { args } = getService('internals');
@@ -32,7 +32,7 @@ export default ({ strapi }: Context) => {
       type: typeName,
 
       extensions: {
-        strapi: {
+        leao: {
           contentType,
         },
       },
@@ -47,21 +47,21 @@ export default ({ strapi }: Context) => {
         const { auth } = context.state;
 
         // Sanitize input data
-        const sanitizedInputData = await strapi.contentAPI.sanitize.input(args.data, contentType, {
+        const sanitizedInputData = await leao.contentAPI.sanitize.input(args.data, contentType, {
           auth,
         });
 
-        const document = await strapi.db?.query(uid).findOne();
+        const document = await leao.db?.query(uid).findOne();
 
         if (document) {
-          return strapi.documents!(uid).update({
+          return leao.documents!(uid).update({
             ...args,
             documentId: document.documentId,
             data: sanitizedInputData,
           });
         }
 
-        return strapi.documents!(uid).create({
+        return leao.documents!(uid).create({
           ...args,
           data: sanitizedInputData,
         });
@@ -76,13 +76,13 @@ export default ({ strapi }: Context) => {
     const { uid } = contentType;
 
     const deleteMutationName = getDeleteMutationTypeName(contentType);
-    const { DELETE_MUTATION_RESPONSE_TYPE_NAME } = strapi.plugin('graphql').service('constants');
+    const { DELETE_MUTATION_RESPONSE_TYPE_NAME } = leao.plugin('graphql').service('constants');
 
     t.field(deleteMutationName, {
       type: DELETE_MUTATION_RESPONSE_TYPE_NAME,
 
       extensions: {
-        strapi: {
+        leao: {
           contentType,
         },
       },
@@ -90,13 +90,13 @@ export default ({ strapi }: Context) => {
       args: {},
 
       async resolve(parent, args) {
-        const document = await strapi.db?.query(uid).findOne();
+        const document = await leao.db?.query(uid).findOne();
 
         if (!document) {
           throw new NotFoundError('Document not found');
         }
 
-        await strapi.documents!(uid).delete({ ...args, documentId: document.documentId });
+        await leao.documents!(uid).delete({ ...args, documentId: document.documentId });
 
         return document;
       },

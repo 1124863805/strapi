@@ -3,8 +3,8 @@
  * E.g the size optimization flag, the responsive dimensions flag and the auto orientation.
  */
 
-import { errors } from '@strapi/utils';
-import { Utils } from '@strapi/types';
+import { errors } from '@leao/utils';
+import { Utils } from '@leao/types';
 
 export interface Settings {
   data: {

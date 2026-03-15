@@ -16,7 +16,7 @@ export interface EventHub {
 }
 
 /**
- * The event hub is Strapi's event control center.
+ * The event hub is Leao's event control center.
  */
 export default function createEventHub(): EventHub {
   const listeners = new Map();

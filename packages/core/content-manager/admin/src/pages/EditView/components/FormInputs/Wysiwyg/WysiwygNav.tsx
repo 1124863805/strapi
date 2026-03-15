@@ -9,7 +9,7 @@ import {
   Popover,
   SingleSelect,
   Field,
-} from '@strapi/design-system';
+} from '@leao/design-system';
 import {
   Bold,
   BulletList,
@@ -22,7 +22,7 @@ import {
   Quotes,
   StrikeThrough,
   Underline,
-} from '@strapi/icons';
+} from '@leao/icons';
 import { EditorFromTextArea } from 'codemirror5';
 import { useIntl } from 'react-intl';
 

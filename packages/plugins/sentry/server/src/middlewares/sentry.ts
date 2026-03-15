@@ -1,12 +1,12 @@
-import type { Core } from '@strapi/strapi';
+import type { Core } from '@leao/leao';
 import type Sentry from '@sentry/node';
 import type createSentryService from '../services/sentry';
 
 /**
  * Programmatic sentry middleware. We do not want to expose it in the plugin
  */
-export default ({ strapi }: { strapi: Core.Strapi }) => {
-  const sentryService: ReturnType<typeof createSentryService> = strapi
+export default ({ leao }: { leao: Core.Leao }) => {
+  const sentryService: ReturnType<typeof createSentryService> = leao
     .plugin('sentry')
     .service('sentry');
   sentryService.init();
@@ -17,7 +17,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
     return;
   }
 
-  strapi.server.use(async (ctx, next) => {
+  leao.server.use(async (ctx, next) => {
     try {
       await next();
     } catch (error) {
@@ -33,8 +33,8 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
 
           // Manually add transaction name
           scope.setTag('transaction', `${ctx.method} ${ctx._matchedRoute}`);
-          // Manually add Strapi version
-          scope.setTag('strapi_version', strapi.config.info.strapi);
+          // Manually add Leao version
+          scope.setTag('leao_version', leao.config.info.leao);
           scope.setTag('method', ctx.method);
         });
       }

@@ -1,4 +1,4 @@
-import { Box, Flex, type FlexComponent, VisuallyHidden } from '@strapi/design-system';
+import { Box, Flex, type FlexComponent, VisuallyHidden } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 
@@ -35,7 +35,7 @@ export const NavBrand = () => {
           <span>
             {formatMessage({
               id: 'app.components.LeftMenu.navbrand.title',
-              defaultMessage: 'Strapi Dashboard',
+              defaultMessage: 'Leao Dashboard',
             })}
           </span>
           <span>

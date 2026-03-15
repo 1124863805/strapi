@@ -7,7 +7,7 @@ import { AuthProvider } from '../features/Auth';
 import { HistoryProvider } from '../features/BackButton';
 import { ConfigurationProvider } from '../features/Configuration';
 import { NotificationsProvider } from '../features/Notifications';
-import { StrapiAppProvider } from '../features/StrapiApp';
+import { LeaoAppProvider } from '../features/LeaoApp';
 import { TrackingProvider } from '../features/Tracking';
 
 import { GuidedTourProvider } from './GuidedTour/Provider';
@@ -15,7 +15,7 @@ import { LanguageProvider } from './LanguageProvider';
 import { Theme } from './Theme';
 
 import type { Store } from '../core/store/configure';
-import type { StrapiApp } from '../StrapiApp';
+import type { LeaoApp } from '../LeaoApp';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -27,40 +27,40 @@ const queryClient = new QueryClient({
 
 interface ProvidersProps {
   children: React.ReactNode;
-  strapi: StrapiApp;
+  leao: LeaoApp;
   store: Store;
 }
 
-const Providers = ({ children, strapi, store }: ProvidersProps) => {
+const Providers = ({ children, leao, store }: ProvidersProps) => {
   return (
-    <StrapiAppProvider
-      components={strapi.library.components}
-      customFields={strapi.customFields}
-      fields={strapi.library.fields}
-      menu={strapi.router.menu}
-      getAdminInjectedComponents={strapi.getAdminInjectedComponents}
-      getPlugin={strapi.getPlugin}
-      plugins={strapi.plugins}
-      rbac={strapi.rbac}
-      runHookParallel={strapi.runHookParallel}
-      runHookWaterfall={(name, initialValue) => strapi.runHookWaterfall(name, initialValue, store)}
-      runHookSeries={strapi.runHookSeries}
-      settings={strapi.router.settings}
+    <LeaoAppProvider
+      components={leao.library.components}
+      customFields={leao.customFields}
+      fields={leao.library.fields}
+      menu={leao.router.menu}
+      getAdminInjectedComponents={leao.getAdminInjectedComponents}
+      getPlugin={leao.getPlugin}
+      plugins={leao.plugins}
+      rbac={leao.rbac}
+      runHookParallel={leao.runHookParallel}
+      runHookWaterfall={(name, initialValue) => leao.runHookWaterfall(name, initialValue, store)}
+      runHookSeries={leao.runHookSeries}
+      settings={leao.router.settings}
     >
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
           <AuthProvider>
             <HistoryProvider>
-              <LanguageProvider messages={strapi.configurations.translations}>
-                <Theme themes={strapi.configurations.themes}>
+              <LanguageProvider messages={leao.configurations.translations}>
+                <Theme themes={leao.configurations.themes}>
                   <NotificationsProvider>
                     <TrackingProvider>
                       <GuidedTourProvider>
                         <ConfigurationProvider
-                          defaultAuthLogo={strapi.configurations.authLogo}
-                          defaultMenuLogo={strapi.configurations.menuLogo}
-                          showTutorials={strapi.configurations.tutorials}
-                          showReleaseNotification={strapi.configurations.notifications.releases}
+                          defaultAuthLogo={leao.configurations.authLogo}
+                          defaultMenuLogo={leao.configurations.menuLogo}
+                          showTutorials={leao.configurations.tutorials}
+                          showReleaseNotification={leao.configurations.notifications.releases}
                         >
                           {children}
                         </ConfigurationProvider>
@@ -73,7 +73,7 @@ const Providers = ({ children, strapi, store }: ProvidersProps) => {
           </AuthProvider>
         </QueryClientProvider>
       </Provider>
-    </StrapiAppProvider>
+    </LeaoAppProvider>
   );
 };
 

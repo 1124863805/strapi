@@ -1,5 +1,5 @@
 /**
- * Enumerates all possible attribute types in Strapi.
+ * Enumerates all possible attribute types in Leao.
  *
  * These attribute types handle how data is stored and validated.
  *
@@ -75,7 +75,7 @@ export interface Attribute<TKind extends Kind = Kind> {
  *
  * @example
  * ```typescript
- * import type { Schema } from '@strapi/types';
+ * import type { Schema } from '@leao/types';
  *
  * // An attribute of type 'boolean'
  * type BooleanAttribute = Schema.Attribute.OfType<'boolean'>;

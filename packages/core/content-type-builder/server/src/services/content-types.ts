@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { getOr } from 'lodash/fp';
-import { contentTypes as contentTypesUtils, errors } from '@strapi/utils';
-import type { UID, Struct } from '@strapi/types';
+import { contentTypes as contentTypesUtils, errors } from '@leao/utils';
+import type { UID, Struct } from '@leao/types';
 import { formatAttributes, replaceTemporaryUIDs } from '../utils/attributes';
 import createBuilder from './schema-builder';
 import { coreUids, pluginsUids } from './constants';
@@ -13,7 +13,7 @@ export const isContentTypeVisible = (model: Struct.ContentTypeSchema) =>
 
 export const getRestrictRelationsTo = (contentType: Struct.ContentTypeSchema) => {
   const { uid } = contentType;
-  if (uid === coreUids.STRAPI_USER) {
+  if (uid === coreUids.LEAO_USER) {
     // TODO: replace with an obj { relation: 'x', bidirectional: true|false }
     return ['oneWay', 'manyWay'];
   }
@@ -120,7 +120,7 @@ export const createContentType = async (
     await builder.writeFiles();
   }
 
-  strapi.eventHub.emit('content-type.create', { contentType: newContentType });
+  leao.eventHub.emit('content-type.create', { contentType: newContentType });
 
   return newContentType;
 };
@@ -135,8 +135,8 @@ export const generateAPI = ({
   displayName,
 }: any) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const strapiGenerators = require('@strapi/generators');
-  return strapiGenerators.generate(
+  const leaoGenerators = require('@leao/generators');
+  return leaoGenerators.generate(
     'content-type',
     {
       kind,
@@ -148,7 +148,7 @@ export const generateAPI = ({
       bootstrapApi: true,
       attributes: [],
     },
-    { dir: strapi.dirs.app.root }
+    { dir: leao.dirs.app.root }
   );
 };
 
@@ -179,7 +179,7 @@ export const editContentType = async (
   contentType.attributes = _.merge(prevNonVisibleAttributes, contentType.attributes);
 
   if (newKind !== previousKind && newKind === 'singleType') {
-    const entryCount = await strapi.db.query(uid).count();
+    const entryCount = await leao.db.query(uid).count();
     if (entryCount > 1) {
       throw new ApplicationError(
         'You cannot convert a collectionType to a singleType when having multiple entries in DB'
@@ -204,7 +204,7 @@ export const editContentType = async (
   });
 
   if (newKind !== previousKind) {
-    const apiHandler = strapi.plugin('content-type-builder').service('api-handler');
+    const apiHandler = leao.plugin('content-type-builder').service('api-handler');
     await apiHandler.backup(uid);
 
     try {
@@ -220,7 +220,7 @@ export const editContentType = async (
 
       await builder.writeFiles();
     } catch (error) {
-      strapi.log.error(error);
+      leao.log.error(error);
       await apiHandler.rollback(uid);
     }
 
@@ -229,14 +229,14 @@ export const editContentType = async (
 
   await builder.writeFiles();
 
-  strapi.eventHub.emit('content-type.update', { contentType: updatedContentType });
+  leao.eventHub.emit('content-type.update', { contentType: updatedContentType });
 
   return updatedContentType;
 };
 
 export const deleteContentTypes = async (uids: UID.ContentType[]) => {
   const builder = createBuilder();
-  const apiHandler = strapi.plugin('content-type-builder').service('api-handler');
+  const apiHandler = leao.plugin('content-type-builder').service('api-handler');
 
   for (const uid of uids) {
     await deleteContentType(uid, builder);
@@ -247,7 +247,7 @@ export const deleteContentTypes = async (uids: UID.ContentType[]) => {
     try {
       await apiHandler.clear(uid);
     } catch (error) {
-      strapi.log.error(error);
+      leao.log.error(error);
       await apiHandler.rollback(uid);
     }
   }
@@ -259,7 +259,7 @@ export const deleteContentTypes = async (uids: UID.ContentType[]) => {
 export const deleteContentType = async (uid: UID.ContentType, defaultBuilder: any = undefined) => {
   const builder = defaultBuilder || createBuilder();
   // make a backup
-  const apiHandler = strapi.plugin('content-type-builder').service('api-handler');
+  const apiHandler = leao.plugin('content-type-builder').service('api-handler');
   await apiHandler.backup(uid);
 
   const contentType = builder.deleteContentType(uid);
@@ -273,7 +273,7 @@ export const deleteContentType = async (uid: UID.ContentType, defaultBuilder: an
     }
   }
 
-  strapi.eventHub.emit('content-type.delete', { contentType });
+  leao.eventHub.emit('content-type.delete', { contentType });
 
   return contentType;
 };

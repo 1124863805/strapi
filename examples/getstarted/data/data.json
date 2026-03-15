@@ -1,16 +1,16 @@
 {
   "global": {
-    "siteName": "Strapi Blog",
+    "siteName": "Leao Blog",
     "defaultSeo": {
       "metaTitle": "Page",
-      "metaDescription": "A blog made with Strapi",
+      "metaDescription": "A blog made with Leao",
       "shareImage": null
     },
-    "siteDescription": "A Blog made with Strapi",
+    "siteDescription": "A Blog made with Leao",
     "favicon": null
   },
   "about": {
-    "title": "About the strapi blog",
+    "title": "About the leao blog",
     "blocks": [
       {
         "__component": "shared.quote",

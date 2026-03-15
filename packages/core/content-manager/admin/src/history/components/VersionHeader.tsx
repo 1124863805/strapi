@@ -6,10 +6,10 @@ import {
   useQueryParams,
   useRBAC,
   Layouts,
-} from '@strapi/admin/strapi-admin';
-import { Button, Typography, Flex, Link, Dialog } from '@strapi/design-system';
-import { ArrowLeft, WarningCircle } from '@strapi/icons';
-import { UID } from '@strapi/types';
+} from '@leao/admin/leao-admin';
+import { Button, Typography, Flex, Link, Dialog } from '@leao/design-system';
+import { ArrowLeft, WarningCircle } from '@leao/icons';
+import { UID } from '@leao/types';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { NavLink, useNavigate, useParams, type To } from 'react-router-dom';

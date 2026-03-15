@@ -1,32 +1,32 @@
-import type { Core, Modules } from '@strapi/types';
+import type { Core, Modules } from '@leao/types';
 import { ProxyAgent } from 'undici';
 
 // TODO: once core Node exposes a stable way to create a ProxyAgent we will use that instead of undici
 
 // Create a wrapper for Node's Fetch API that applies a global proxy
-export const createStrapiFetch = (strapi: Core.Strapi): Modules.Fetch.Fetch => {
-  function strapiFetch(
+export const createLeaoFetch = (leao: Core.Leao): Modules.Fetch.Fetch => {
+  function leaoFetch(
     url: Parameters<Modules.Fetch.Fetch>[0],
     options?: Parameters<Modules.Fetch.Fetch>[1]
   ) {
     const fetchOptions = {
-      ...(strapiFetch.dispatcher ? { dispatcher: strapiFetch.dispatcher } : {}),
+      ...(leaoFetch.dispatcher ? { dispatcher: leaoFetch.dispatcher } : {}),
       ...options,
     } as RequestInit;
-    strapi.log.debug(`Making request for ${url}`);
+    leao.log.debug(`Making request for ${url}`);
     return fetch(url, fetchOptions);
   }
 
   const proxy =
-    strapi.config.get<ConstructorParameters<typeof ProxyAgent>[0]>('server.proxy.fetch') ||
-    strapi.config.get<string>('server.proxy.global');
+    leao.config.get<ConstructorParameters<typeof ProxyAgent>[0]>('server.proxy.fetch') ||
+    leao.config.get<string>('server.proxy.global');
 
   if (proxy) {
-    strapi.log.info(`Using proxy for Fetch requests: ${proxy}`);
-    strapiFetch.dispatcher = new ProxyAgent(proxy);
+    leao.log.info(`Using proxy for Fetch requests: ${proxy}`);
+    leaoFetch.dispatcher = new ProxyAgent(proxy);
   }
 
-  return strapiFetch;
+  return leaoFetch;
 };
 
 export type Fetch = Modules.Fetch.Fetch;

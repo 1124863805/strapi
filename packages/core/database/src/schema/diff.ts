@@ -35,9 +35,9 @@ type SchemaDiffContext = {
 
 // TODO: get that list dynamically instead
 const RESERVED_TABLE_NAMES = [
-  'strapi_migrations',
-  'strapi_migrations_internal',
-  'strapi_database_schema',
+  'leao_migrations',
+  'leao_migrations_internal',
+  'leao_database_schema',
 ];
 
 const statuses = {
@@ -424,9 +424,9 @@ export default (db: Database) => {
       return persistedTable.name;
     };
 
-    const persistedTables = helpers.hasTable(databaseSchema, 'strapi_core_store_settings')
+    const persistedTables = helpers.hasTable(databaseSchema, 'leao_core_store_settings')
       ? // TODO: replace with low level db query instead
-        ((await strapi.store.get({
+        ((await leao.store.get({
           type: 'core',
           key: 'persisted_tables',
         })) ?? [])

@@ -1,7 +1,7 @@
-import { Layouts } from '@strapi/admin/strapi-admin';
-import { Box, Main, EmptyStateLayout, LinkButton } from '@strapi/design-system';
-import { ExternalLink } from '@strapi/icons';
-import { EmptyPermissions } from '@strapi/icons/symbols';
+import { Layouts } from '@leao/admin/leao-admin';
+import { Box, Main, EmptyStateLayout, LinkButton } from '@leao/design-system';
+import { ExternalLink } from '@leao/icons';
+import { EmptyPermissions } from '@leao/icons/symbols';
 import { useIntl } from 'react-intl';
 
 const PurchaseReviewWorkflows = () => {

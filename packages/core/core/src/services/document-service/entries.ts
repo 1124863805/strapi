@@ -1,5 +1,5 @@
-import type { UID, Modules } from '@strapi/types';
-import { async } from '@strapi/utils';
+import type { UID, Modules } from '@leao/types';
+import { async } from '@leao/utils';
 import { assoc, omit } from 'lodash/fp';
 
 import * as components from './components';
@@ -14,7 +14,7 @@ const createEntriesService = (
   uid: UID.ContentType,
   entityValidator: Modules.EntityValidator.EntityValidator
 ) => {
-  const contentType = strapi.contentType(uid);
+  const contentType = leao.contentType(uid);
 
   async function createEntry(params = {} as any) {
     const { data, ...restParams } = await transformParamsDocumentId(uid, params);
@@ -42,7 +42,7 @@ const createEntriesService = (
 
     const entryData = applyTransforms(contentType, dataWithComponents);
 
-    const doc = await strapi.db.query(uid).create({ ...query, data: entryData });
+    const doc = await leao.db.query(uid).create({ ...query, data: entryData });
 
     return doc;
   }
@@ -50,7 +50,7 @@ const createEntriesService = (
   async function deleteEntry(id: number) {
     const componentsToDelete = await components.getComponents(uid, { id });
 
-    const deletedEntry = await strapi.db.query(uid).delete({ where: { id } });
+    const deletedEntry = await leao.db.query(uid).delete({ where: { id } });
 
     await components.deleteComponents(uid, componentsToDelete as any, { loadComponents: false });
 
@@ -80,7 +80,7 @@ const createEntriesService = (
 
     const entryData = applyTransforms(contentType, dataWithComponents);
 
-    return strapi.db
+    return leao.db
       .query(uid)
       .update({ ...query, where: { id: entryToUpdate.id }, data: entryData });
   }

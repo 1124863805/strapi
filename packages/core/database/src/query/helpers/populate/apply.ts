@@ -8,8 +8,8 @@ import { ID, RelationalAttribute, Relation } from '../../../types';
 
 // We must select the join column id, however whatever it is named will overwrite an attribute of the same name
 // Therefore, we will prefix with something unlikely to conflict with a user attribute
-// TODO: ...and completely restrict the strapi_ prefix for an attribute name in the future
-const joinColPrefix = '__strapi' as const;
+// TODO: ...and completely restrict the leao_ prefix for an attribute name in the future
+const joinColPrefix = '__leao' as const;
 
 type Context = {
   db: Database;

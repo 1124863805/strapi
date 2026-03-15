@@ -1,5 +1,5 @@
 import { intersection, map, isEmpty } from 'lodash/fp';
-import { yup, validateYupSchema } from '@strapi/utils';
+import { yup, validateYupSchema } from '@leao/utils';
 import { FOLDER_MODEL_UID } from '../../../constants';
 import { folderExists } from './utils';
 import { isFolderOrChild } from '../../utils/folders';
@@ -7,8 +7,8 @@ import { isFolderOrChild } from '../../utils/folders';
 const validateDeleteManyFoldersFilesSchema = yup
   .object()
   .shape({
-    fileIds: yup.array().of(yup.strapiID().required()),
-    folderIds: yup.array().of(yup.strapiID().required()),
+    fileIds: yup.array().of(yup.leaoID().required()),
+    folderIds: yup.array().of(yup.leaoID().required()),
   })
   .noUnknown()
   .required();
@@ -17,12 +17,12 @@ const validateStructureMoveManyFoldersFilesSchema = yup
   .object()
   .shape({
     destinationFolderId: yup
-      .strapiID()
+      .leaoID()
       .nullable()
       .defined()
       .test('folder-exists', 'destination folder does not exist', folderExists),
-    fileIds: yup.array().of(yup.strapiID().required()),
-    folderIds: yup.array().of(yup.strapiID().required()),
+    fileIds: yup.array().of(yup.leaoID().required()),
+    folderIds: yup.array().of(yup.leaoID().required()),
   })
   .noUnknown()
   .required();
@@ -33,12 +33,12 @@ const validateDuplicatesMoveManyFoldersFilesSchema = yup
     const { folderIds, destinationFolderId } = value;
     if (isEmpty(folderIds)) return true;
 
-    const folders = await strapi.db.query(FOLDER_MODEL_UID).findMany({
+    const folders = await leao.db.query(FOLDER_MODEL_UID).findMany({
       select: ['name'],
       where: { id: { $in: folderIds } },
     });
 
-    const existingFolders = await strapi.db.query(FOLDER_MODEL_UID).findMany({
+    const existingFolders = await leao.db.query(FOLDER_MODEL_UID).findMany({
       select: ['name'],
       where: { parent: { id: destinationFolderId } },
     });
@@ -62,12 +62,12 @@ const validateMoveFoldersNotInsideThemselvesSchema = yup
       const { folderIds, destinationFolderId } = value;
       if (destinationFolderId === null || isEmpty(folderIds)) return true;
 
-      const destinationFolder = await strapi.db.query(FOLDER_MODEL_UID).findOne({
+      const destinationFolder = await leao.db.query(FOLDER_MODEL_UID).findOne({
         select: ['path'],
         where: { id: destinationFolderId },
       });
 
-      const folders = await strapi.db.query(FOLDER_MODEL_UID).findMany({
+      const folders = await leao.db.query(FOLDER_MODEL_UID).findMany({
         select: ['name', 'path'],
         where: { id: { $in: folderIds } },
       });

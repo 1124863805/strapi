@@ -1,9 +1,9 @@
 import path from 'path';
 import fse from 'fs-extra';
 
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
-interface StrapiFS {
+interface LeaoFS {
   writeAppFile(optPath: string | string[], data: string): Promise<void>;
   writePluginFile(plugin: string, optPath: string | string[], data: string): Promise<void>;
   removeAppFile(optPath: string | string[]): Promise<void>;
@@ -11,20 +11,20 @@ interface StrapiFS {
 }
 
 /**
- * create strapi fs layer
+ * create leao fs layer
  */
-export default (strapi: Core.Strapi) => {
+export default (leao: Core.Leao) => {
   function normalizePath(optPath: string | string[]) {
     const filePath = Array.isArray(optPath) ? optPath.join('/') : optPath;
 
     const normalizedPath = path.normalize(filePath).replace(/^\/?(\.\/|\.\.\/)+/, '');
 
-    return path.resolve(strapi.dirs.app.root, normalizedPath);
+    return path.resolve(leao.dirs.app.root, normalizedPath);
   }
 
-  const strapiFS: StrapiFS = {
+  const leaoFS: LeaoFS = {
     /**
-     * Writes a file in a strapi app
+     * Writes a file in a leao app
      * @param {Array|string} optPath - file path
      * @param {string} data - content
      */
@@ -41,11 +41,11 @@ export default (strapi: Core.Strapi) => {
      */
     writePluginFile(plugin, optPath, data) {
       const newPath = ['extensions', plugin].concat(optPath).join('/');
-      return strapiFS.writeAppFile(newPath, data);
+      return leaoFS.writeAppFile(newPath, data);
     },
 
     /**
-     * Removes a file in strapi app
+     * Removes a file in leao app
      */
     removeAppFile(optPath) {
       const removePath = normalizePath(optPath);
@@ -53,7 +53,7 @@ export default (strapi: Core.Strapi) => {
     },
 
     /**
-     * Appends a file in strapi app
+     * Appends a file in leao app
      */
     appendFile(optPath, data) {
       const writePath = normalizePath(optPath);
@@ -61,5 +61,5 @@ export default (strapi: Core.Strapi) => {
     },
   };
 
-  return strapiFS;
+  return leaoFS;
 };

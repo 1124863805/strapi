@@ -1,4 +1,4 @@
-import { PaperPlane } from '@strapi/icons';
+import { PaperPlane } from '@leao/icons';
 
 import { ReleaseAction } from './components/ReleaseAction';
 import { ReleaseActionModalForm } from './components/ReleaseActionModal';
@@ -8,17 +8,17 @@ import { PERMISSIONS } from './constants';
 import { pluginId } from './pluginId';
 import { prefixPluginTranslations } from './utils/prefixPluginTranslations';
 
-import type { StrapiApp } from '@strapi/admin/strapi-admin';
+import type { LeaoApp } from '@leao/admin/leao-admin';
 import type {
   DocumentActionComponent,
   BulkActionComponent,
-} from '@strapi/content-manager/strapi-admin';
-import type { Plugin } from '@strapi/types';
+} from '@leao/content-manager/leao-admin';
+import type { Plugin } from '@leao/types';
 
 // eslint-disable-next-line import/no-default-export
 const admin: Plugin.Config.AdminInput = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  register(app: StrapiApp) {
+  register(app: LeaoApp) {
     /**
      * Hook that adds the locale column in the Release Details table
      * @constant
@@ -26,7 +26,7 @@ const admin: Plugin.Config.AdminInput = {
      */
     app.createHook('ContentReleases/pages/ReleaseDetails/add-locale-in-releases');
 
-    if (window.strapi.features.isEnabled('cms-content-releases')) {
+    if (window.leao.features.isEnabled('cms-content-releases')) {
       app.addMenuLink({
         to: `plugins/${pluginId}`,
         icon: PaperPlane,
@@ -90,8 +90,8 @@ const admin: Plugin.Config.AdminInput = {
       // Hook that adds a column into the CM's LV table
       app.registerHook('Admin/CM/pages/ListView/inject-column-in-table', addColumnToTableHook);
     } else if (
-      !window.strapi.features.isEnabled('cms-content-releases') &&
-      window.strapi?.flags?.promoteEE
+      !window.leao.features.isEnabled('cms-content-releases') &&
+      window.leao?.flags?.promoteEE
     ) {
       app.addSettingsLink('global', {
         id: pluginId,

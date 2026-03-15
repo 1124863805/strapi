@@ -27,7 +27,7 @@ export type Controller = StringSuffix<
  */
 export type Policy = StringSuffix<
   | Namespace.WithSeparator<Namespace.Admin>
-  | Namespace.WithSeparator<Namespace.Strapi>
+  | Namespace.WithSeparator<Namespace.Leao>
   | Namespace.WithSeparator<Namespace.Global>
   | Namespace.WithSeparator<Namespace.API>
   | Namespace.WithSeparator<Namespace.Plugin>
@@ -38,7 +38,7 @@ export type Policy = StringSuffix<
  */
 export type Middleware = StringSuffix<
   | Namespace.WithSeparator<Namespace.Admin>
-  | Namespace.WithSeparator<Namespace.Strapi>
+  | Namespace.WithSeparator<Namespace.Leao>
   | Namespace.WithSeparator<Namespace.Global>
   | Namespace.WithSeparator<Namespace.API>
   | Namespace.WithSeparator<Namespace.Plugin>
@@ -49,7 +49,7 @@ export type Middleware = StringSuffix<
  */
 export type ContentType = StringSuffix<
   | Namespace.WithSeparator<Namespace.Admin>
-  | Namespace.WithSeparator<Namespace.Strapi>
+  | Namespace.WithSeparator<Namespace.Leao>
   | Namespace.WithSeparator<Namespace.API>
   | Namespace.WithSeparator<Namespace.Plugin>
 >;
@@ -173,6 +173,6 @@ export type SelectUID<TUID extends AnyUID, TKey extends keyof ParseUID<TUID>> = 
 export type ExtractNamespace<TUID extends AnyUID> =
   | EnsureNamespaceMatches<TUID, Namespace.Global>
   | EnsureNamespaceMatches<TUID, Namespace.Admin>
-  | EnsureNamespaceMatches<TUID, Namespace.Strapi>
+  | EnsureNamespaceMatches<TUID, Namespace.Leao>
   | EnsureNamespaceMatches<TUID, Namespace.API>
   | EnsureNamespaceMatches<TUID, Namespace.Plugin>;

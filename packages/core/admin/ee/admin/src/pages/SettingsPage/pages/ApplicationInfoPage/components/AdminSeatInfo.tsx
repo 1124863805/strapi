@@ -1,4 +1,4 @@
-import { Flex, Typography, Grid } from '@strapi/design-system';
+import { Flex, Typography, Grid } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 

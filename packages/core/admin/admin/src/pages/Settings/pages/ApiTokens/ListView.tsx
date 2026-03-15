@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { EmptyStateLayout, LinkButton } from '@strapi/design-system';
-import { Plus } from '@strapi/icons';
-import { EmptyDocuments } from '@strapi/icons/symbols';
-import { Data } from '@strapi/types';
+import { EmptyStateLayout, LinkButton } from '@leao/design-system';
+import { Plus } from '@leao/icons';
+import { EmptyDocuments } from '@leao/icons/symbols';
+import { Data } from '@leao/types';
 import * as qs from 'qs';
 import { useIntl } from 'react-intl';
 import { Link, useNavigate } from 'react-router-dom';

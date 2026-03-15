@@ -2,7 +2,7 @@ import type { Intersect } from '../../../utils';
 import type { Attribute } from '../..';
 
 /**
- * Represents an email Strapi attribute along with its options
+ * Represents an email Leao attribute along with its options
  */
 export type Email = Intersect<
   [

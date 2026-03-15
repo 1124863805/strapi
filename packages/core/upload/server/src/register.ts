@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-import { errors, file } from '@strapi/utils';
-import type { Core } from '@strapi/types';
+import { errors, file } from '@leao/utils';
+import type { Core } from '@leao/types';
 
 import registerUploadMiddleware from './middlewares/upload';
 import spec from '../../documentation/content-api.json';
@@ -13,18 +13,18 @@ const { bytesToHumanReadable, kbytesToBytes } = file;
 /**
  * Register upload plugin
  */
-export async function register({ strapi }: { strapi: Core.Strapi }) {
-  strapi.plugin('upload').provider = createProvider(strapi.config.get<Config>('plugin::upload'));
+export async function register({ leao }: { leao: Core.Leao }) {
+  leao.plugin('upload').provider = createProvider(leao.config.get<Config>('plugin::upload'));
 
-  await registerUploadMiddleware({ strapi });
+  await registerUploadMiddleware({ leao });
 
-  if (strapi.plugin('graphql')) {
+  if (leao.plugin('graphql')) {
     const { installGraphqlExtension } = await import('./graphql.js');
-    installGraphqlExtension({ strapi });
+    installGraphqlExtension({ leao });
   }
 
-  if (strapi.plugin('documentation')) {
-    strapi
+  if (leao.plugin('documentation')) {
+    leao
       .plugin('documentation')
       .service('override')
       .registerOverride(spec, {
@@ -42,7 +42,7 @@ const createProvider = (config: Config) => {
 
   let modulePath;
   try {
-    modulePath = require.resolve(`@strapi/provider-upload-${providerName}`);
+    modulePath = require.resolve(`@leao/provider-upload-${providerName}`);
   } catch (error) {
     if (
       typeof error === 'object' &&
@@ -82,7 +82,7 @@ const createProvider = (config: Config) => {
 
   if (!providerInstance.uploadStream) {
     process.emitWarning(
-      `The upload provider "${providerName}" doesn't implement the uploadStream function. Strapi will fallback on the upload method. Some performance issues may occur.`
+      `The upload provider "${providerName}" doesn't implement the uploadStream function. Leao will fallback on the upload method. Some performance issues may occur.`
     );
   }
 

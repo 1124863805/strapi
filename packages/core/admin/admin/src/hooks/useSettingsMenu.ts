@@ -6,15 +6,15 @@ import { useSelector } from 'react-redux';
 import { SETTINGS_LINKS_CE, SettingsMenuLink } from '../constants';
 import { useAppInfo } from '../features/AppInfo';
 import { useAuth } from '../features/Auth';
-import { useStrapiApp } from '../features/StrapiApp';
+import { useLeaoApp } from '../features/LeaoApp';
 import { selectAdminPermissions } from '../selectors';
 import { PermissionMap } from '../types/permissions';
 
 import { useEnterprise } from './useEnterprise';
 
 import type {
-  StrapiAppSetting,
-  StrapiAppSettingLink as IStrapiAppSettingLink,
+  LeaoAppSetting,
+  LeaoAppSettingLink as ILeaoAppSettingLink,
 } from '../core/apis/router';
 
 const formatLinks = (menu: SettingsMenuSection[]): SettingsMenuSectionWithDisplayedLinks[] =>
@@ -28,29 +28,29 @@ const formatLinks = (menu: SettingsMenuSection[]): SettingsMenuSectionWithDispla
   });
 
 interface SettingsMenuLinkWithPermissions extends SettingsMenuLink {
-  permissions: IStrapiAppSettingLink['permissions'];
+  permissions: ILeaoAppSettingLink['permissions'];
   hasNotification?: boolean;
 }
 
-interface StrapiAppSettingsLink extends IStrapiAppSettingLink {
+interface LeaoAppSettingsLink extends ILeaoAppSettingLink {
   eeOnly?: never;
   hasNotification?: never;
 }
 
-interface SettingsMenuSection extends Omit<StrapiAppSetting, 'links'> {
-  links: Array<SettingsMenuLinkWithPermissions | StrapiAppSettingsLink>;
+interface SettingsMenuSection extends Omit<LeaoAppSetting, 'links'> {
+  links: Array<SettingsMenuLinkWithPermissions | LeaoAppSettingsLink>;
 }
 
 interface SettingsMenuLinkWithPermissionsAndDisplayed extends SettingsMenuLinkWithPermissions {
   isDisplayed: boolean;
 }
 
-interface StrapiAppSettingLinkWithDisplayed extends StrapiAppSettingsLink {
+interface LeaoAppSettingLinkWithDisplayed extends LeaoAppSettingsLink {
   isDisplayed: boolean;
 }
 
 interface SettingsMenuSectionWithDisplayedLinks extends Omit<SettingsMenuSection, 'links'> {
-  links: Array<SettingsMenuLinkWithPermissionsAndDisplayed | StrapiAppSettingLinkWithDisplayed>;
+  links: Array<SettingsMenuLinkWithPermissionsAndDisplayed | LeaoAppSettingLinkWithDisplayed>;
 }
 
 type SettingsMenu = SettingsMenuSectionWithDisplayedLinks[];
@@ -70,8 +70,8 @@ const useSettingsMenu = (): {
     'useSettingsMenu',
     (state) => state.checkUserHasPermissions
   );
-  const shouldUpdateStrapi = useAppInfo('useSettingsMenu', (state) => state.shouldUpdateStrapi);
-  const settings = useStrapiApp('useSettingsMenu', (state) => state.settings);
+  const shouldUpdateLeao = useAppInfo('useSettingsMenu', (state) => state.shouldUpdateLeao);
+  const settings = useLeaoApp('useSettingsMenu', (state) => state.settings);
   const permissions = useSelector(selectAdminPermissions);
 
   /**
@@ -163,7 +163,7 @@ const useSettingsMenu = (): {
         links: sortBy([...global.links, ...globalLinks.map(addPermissions)], (link) => link.id).map(
           (link) => ({
             ...link,
-            hasNotification: link.id === '000-application-infos' && shouldUpdateStrapi,
+            hasNotification: link.id === '000-application-infos' && shouldUpdateLeao,
           })
         ),
       },
@@ -180,7 +180,7 @@ const useSettingsMenu = (): {
     adminLinks,
     globalLinks,
     settings,
-    shouldUpdateStrapi,
+    shouldUpdateLeao,
     addPermissions,
     checkUserHasPermission,
   ]);

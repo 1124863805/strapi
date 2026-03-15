@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { has, omit, pipe, assign, curry } from 'lodash/fp';
-import type { Utils, UID, Schema, Data, Modules } from '@strapi/types';
-import { contentTypes as contentTypesUtils, async, errors } from '@strapi/utils';
+import type { Utils, UID, Schema, Data, Modules } from '@leao/types';
+import { contentTypes as contentTypesUtils, async, errors } from '@leao/utils';
 
 // type aliases for readability
 type Input<T extends UID.Schema> = Modules.Documents.Params.Data.Input<T>;
@@ -38,7 +38,7 @@ const createComponents = async <TUID extends UID.Schema, TData extends Input<TUI
   uid: TUID,
   data: TData
 ) => {
-  const { attributes = {} } = strapi.getModel(uid);
+  const { attributes = {} } = leao.getModel(uid);
 
   const componentBody: ComponentBody = {};
 
@@ -135,13 +135,13 @@ const getComponents = async <TUID extends UID.Schema>(
   uid: TUID,
   entity: { id: Modules.EntityService.Params.Attribute.ID }
 ): Promise<LoadedComponents<TUID>> => {
-  const componentAttributes = contentTypesUtils.getComponentAttributes(strapi.getModel(uid));
+  const componentAttributes = contentTypesUtils.getComponentAttributes(leao.getModel(uid));
 
   if (_.isEmpty(componentAttributes)) {
     return {} as LoadedComponents<TUID>;
   }
 
-  return strapi.db.query(uid).load(entity, componentAttributes) as Promise<LoadedComponents<TUID>>;
+  return leao.db.query(uid).load(entity, componentAttributes) as Promise<LoadedComponents<TUID>>;
 };
 
 /*
@@ -153,7 +153,7 @@ const updateComponents = async <TUID extends UID.Schema, TData extends Partial<I
   entityToUpdate: { id: Modules.EntityService.Params.Attribute.ID },
   data: TData
 ) => {
-  const { attributes = {} } = strapi.getModel(uid);
+  const { attributes = {} } = leao.getModel(uid);
 
   const componentBody: ComponentBody = {};
 
@@ -246,7 +246,7 @@ const deleteOldComponents = async <TUID extends UID.Schema>(
   attributeName: string,
   componentValue: ComponentValue
 ) => {
-  const previousValue = (await strapi.db
+  const previousValue = (await leao.db
     .query(uid)
     .load(entityToUpdate, attributeName)) as ComponentValue;
 
@@ -276,7 +276,7 @@ const deleteOldDZComponents = async <TUID extends UID.Schema>(
   attributeName: string,
   dynamiczoneValues: DynamicZoneValue
 ) => {
-  const previousValue = (await strapi.db
+  const previousValue = (await leao.db
     .query(uid)
     .load(entityToUpdate, attributeName)) as DynamicZoneValue;
 
@@ -328,7 +328,7 @@ const deleteComponents = async <TUID extends UID.Schema, TEntity extends Data.En
   entityToDelete: TEntity,
   { loadComponents = true } = {}
 ) => {
-  const { attributes = {} } = strapi.getModel(uid);
+  const { attributes = {} } = leao.getModel(uid);
 
   const attributeNames = Object.keys(attributes);
 
@@ -339,7 +339,7 @@ const deleteComponents = async <TUID extends UID.Schema, TEntity extends Data.En
       let value;
 
       if (loadComponents) {
-        value = await strapi.db.query(uid).load(entityToDelete, attributeName);
+        value = await leao.db.query(uid).load(entityToDelete, attributeName);
       } else {
         value = entityToDelete[attributeName as keyof TEntity];
       }
@@ -370,7 +370,7 @@ const deleteComponents = async <TUID extends UID.Schema, TEntity extends Data.En
 
 // components can have nested compos so this must be recursive
 const createComponent = async <TUID extends UID.Component>(uid: TUID, data: Input<TUID>) => {
-  const schema = strapi.getModel(uid);
+  const schema = leao.getModel(uid);
 
   const componentData = await createComponents(uid, data);
 
@@ -380,7 +380,7 @@ const createComponent = async <TUID extends UID.Component>(uid: TUID, data: Inpu
     assignComponentData(schema, componentData)
   );
 
-  return strapi.db.query(uid).create({ data: transform(data) });
+  return leao.db.query(uid).create({ data: transform(data) });
 };
 
 // components can have nested compos so this must be recursive
@@ -389,11 +389,11 @@ const updateComponent = async <TUID extends UID.Component>(
   componentToUpdate: { id: Modules.EntityService.Params.Attribute.ID },
   data: Input<TUID>
 ) => {
-  const schema = strapi.getModel(uid);
+  const schema = leao.getModel(uid);
 
   const componentData = await updateComponents(uid, componentToUpdate, data);
 
-  return strapi.db.query(uid).update({
+  return leao.db.query(uid).update({
     where: {
       id: componentToUpdate.id,
     },
@@ -424,7 +424,7 @@ const deleteComponent = async <TUID extends UID.Component>(
   componentToDelete: Data.Component<TUID>
 ) => {
   await deleteComponents(uid, componentToDelete);
-  await strapi.db.query(uid).delete({ where: { id: componentToDelete.id } });
+  await leao.db.query(uid).delete({ where: { id: componentToDelete.id } });
 };
 
 const assignComponentData = curry(

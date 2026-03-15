@@ -1,8 +1,8 @@
 import type { Context, Next } from 'koa';
 import passport from 'koa-passport';
 import compose from 'koa-compose';
-import '@strapi/types';
-import { errors } from '@strapi/utils';
+import '@leao/types';
+import { errors } from '@leao/utils';
 import { getService } from '../utils';
 import {
   validateRegistrationInput,
@@ -30,7 +30,7 @@ export default {
     (ctx: Context, next: Next) => {
       return passport.authenticate('local', { session: false }, (err, user, info) => {
         if (err) {
-          strapi.eventHub.emit('admin.auth.error', { error: err, provider: 'local' });
+          leao.eventHub.emit('admin.auth.error', { error: err, provider: 'local' });
           // if this is a recognized error, allow it to bubble up to user
           if (err.details?.code === 'LOGIN_NOT_ALLOWED') {
             throw err;
@@ -41,7 +41,7 @@ export default {
         }
 
         if (!user) {
-          strapi.eventHub.emit('admin.auth.error', {
+          leao.eventHub.emit('admin.auth.error', {
             error: new Error(info.message),
             provider: 'local',
           });
@@ -52,7 +52,7 @@ export default {
         query.user = user;
 
         const sanitizedUser = getService('user').sanitizeUser(user);
-        strapi.eventHub.emit('admin.auth.success', { user: sanitizedUser, provider: 'local' });
+        leao.eventHub.emit('admin.auth.success', { user: sanitizedUser, provider: 'local' });
 
         return next();
       })(ctx, next);
@@ -142,7 +142,7 @@ export default {
       roles: superAdminRole ? [superAdminRole.id] : [],
     });
 
-    strapi.telemetry.send('didCreateFirstAdmin');
+    leao.telemetry.send('didCreateFirstAdmin');
 
     ctx.body = {
       data: {
@@ -179,7 +179,7 @@ export default {
 
   logout(ctx: Context) {
     const sanitizedUser = getService('user').sanitizeUser(ctx.state.user);
-    strapi.eventHub.emit('admin.logout', { user: sanitizedUser });
+    leao.eventHub.emit('admin.logout', { user: sanitizedUser });
     ctx.body = { data: {} };
   },
 };

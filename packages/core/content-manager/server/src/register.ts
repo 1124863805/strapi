@@ -1,8 +1,8 @@
-import type { Plugin } from '@strapi/types';
+import type { Plugin } from '@leao/types';
 import history from './history';
 
-const register: Plugin.LoadedPlugin['register'] = async ({ strapi }) => {
-  await history.register?.({ strapi });
+const register: Plugin.LoadedPlugin['register'] = async ({ leao }) => {
+  await history.register?.({ leao });
 };
 
 export default register;

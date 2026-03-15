@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Box, Button, Flex, Grid, Typography, useNotifyAT } from '@strapi/design-system';
-import { Check } from '@strapi/icons';
+import { Box, Button, Flex, Grid, Typography, useNotifyAT } from '@leao/design-system';
+import { Check } from '@leao/icons';
 import {
   useAPIErrorHandler,
   Page,
@@ -11,7 +11,7 @@ import {
   useFetchClient,
   useRBAC,
   Layouts,
-} from '@strapi/strapi/admin';
+} from '@leao/leao/admin';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 

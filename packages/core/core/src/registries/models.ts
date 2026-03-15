@@ -1,4 +1,4 @@
-import { Model } from '@strapi/database';
+import { Model } from '@leao/database';
 
 export const registry = () => {
   const models: Model[] = [];

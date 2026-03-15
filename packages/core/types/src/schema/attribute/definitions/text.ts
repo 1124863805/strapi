@@ -6,7 +6,7 @@ export interface TextProperties {
 }
 
 /**
- * Represents a text Strapi attribute along with its options
+ * Represents a text Leao attribute along with its options
  */
 export type Text = Intersect<
   [

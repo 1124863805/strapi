@@ -9,7 +9,7 @@ import depthLimit from 'graphql-depth-limit';
 import bodyParser from 'koa-bodyparser';
 import cors from '@koa/cors';
 
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 import type { BaseContext, DefaultContextExtends, DefaultStateExtends } from 'koa';
 
 import { formatGraphqlError } from './format-graphql-error';
@@ -20,17 +20,17 @@ const merge = mergeWith((a, b) => {
   }
 });
 
-export async function bootstrap({ strapi }: { strapi: Core.Strapi }) {
+export async function bootstrap({ leao }: { leao: Core.Leao }) {
   // Generate the GraphQL schema for the content API
-  const schema = strapi.plugin('graphql').service('content-api').buildSchema();
+  const schema = leao.plugin('graphql').service('content-api').buildSchema();
 
   if (isEmpty(schema)) {
-    strapi.log.warn('The GraphQL schema has not been generated because it is empty');
+    leao.log.warn('The GraphQL schema has not been generated because it is empty');
 
     return;
   }
 
-  const { config } = strapi.plugin('graphql');
+  const { config } = leao.plugin('graphql');
 
   const path: string = config('endpoint');
 
@@ -40,10 +40,10 @@ export async function bootstrap({ strapi }: { strapi: Core.Strapi }) {
   let landingPage;
   if (playgroundEnabled) {
     landingPage = ApolloServerPluginLandingPageLocalDefault();
-    strapi.log.debug('Using Apollo sandbox landing page');
+    leao.log.debug('Using Apollo sandbox landing page');
   } else {
     landingPage = ApolloServerPluginLandingPageProductionDefault();
-    strapi.log.debug('Using Apollo production landing page');
+    leao.log.debug('Using Apollo production landing page');
   }
 
   type CustomOptions = {
@@ -86,13 +86,13 @@ export async function bootstrap({ strapi }: { strapi: Core.Strapi }) {
     await server.start();
   } catch (error) {
     if (error instanceof Error) {
-      strapi.log.error('Failed to start the Apollo server', error.message);
+      leao.log.error('Failed to start the Apollo server', error.message);
     }
 
     throw error;
   }
 
-  // Create the route handlers for Strapi
+  // Create the route handlers for Leao
   const handler: Core.MiddlewareHandler[] = [];
 
   // add cors middleware
@@ -106,10 +106,10 @@ export async function bootstrap({ strapi }: { strapi: Core.Strapi }) {
   } else if (serverConfig.bodyParserConfig) {
     handler.push(bodyParser());
   } else {
-    strapi.log.debug('Body parser has been disabled for Apollo server');
+    leao.log.debug('Body parser has been disabled for Apollo server');
   }
 
-  // add the Strapi auth middleware
+  // add the Leao auth middleware
   handler.push((ctx, next) => {
     ctx.state.route = {
       info: {
@@ -118,7 +118,7 @@ export async function bootstrap({ strapi }: { strapi: Core.Strapi }) {
       },
     };
 
-    return strapi.auth.authenticate(ctx, next);
+    return leao.auth.authenticate(ctx, next);
   });
 
   // add the graphql server for koa
@@ -133,7 +133,7 @@ export async function bootstrap({ strapi }: { strapi: Core.Strapi }) {
   );
 
   // now that handlers are set up, add the graphql route to our apollo server
-  strapi.server.routes([
+  leao.server.routes([
     {
       method: 'ALL',
       path,
@@ -145,9 +145,9 @@ export async function bootstrap({ strapi }: { strapi: Core.Strapi }) {
   ]);
 
   // Register destroy behavior
-  // We're doing it here instead of exposing a destroy method to the strapi-server.js
+  // We're doing it here instead of exposing a destroy method to the leao-server.js
   // file since we need to have access to the ApolloServer instance
-  strapi.plugin('graphql').destroy = async () => {
+  leao.plugin('graphql').destroy = async () => {
     await server.stop();
   };
 }

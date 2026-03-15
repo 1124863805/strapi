@@ -1,5 +1,5 @@
-import { traverse } from '@strapi/utils';
-import type { UID } from '@strapi/types';
+import { traverse } from '@leao/utils';
+import type { UID } from '@leao/types';
 
 import { type Data } from './types';
 import { transformFields } from './fields';
@@ -22,7 +22,7 @@ export const transformPopulate = async (data: Data, opts: { uid: UID.Schema }) =
 
       set(key, value);
     },
-    { schema: strapi.getModel(opts.uid), getModel: strapi.getModel.bind(strapi) },
+    { schema: leao.getModel(opts.uid), getModel: leao.getModel.bind(leao) },
     data
   );
 };

@@ -3,7 +3,7 @@ import crypto from 'crypto';
 import type { Database } from '..';
 import type { Schema } from './types';
 
-const TABLE_NAME = 'strapi_database_schema';
+const TABLE_NAME = 'leao_database_schema';
 
 export default (db: Database) => {
   const hasSchemaTable = () => db.getSchemaConnection().hasTable(TABLE_NAME);

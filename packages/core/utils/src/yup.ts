@@ -8,7 +8,7 @@ import { printValue } from './print-value';
 
 export * from 'yup';
 
-export const strapiID = (): InstanceType<typeof StrapiIDSchema> => new StrapiIDSchema();
+export const leaoID = (): InstanceType<typeof LeaoIDSchema> => new LeaoIDSchema();
 
 const isNotNilTest = (value: unknown) => !_.isNil(value);
 
@@ -91,9 +91,9 @@ yup.addMethod(
   }
 );
 
-export class StrapiIDSchema extends yup.MixedSchema {
+export class LeaoIDSchema extends yup.MixedSchema {
   constructor() {
-    super({ type: 'strapiID' });
+    super({ type: 'leaoID' });
   }
 
   _typeCheck(value: unknown): value is string | number {
@@ -102,7 +102,7 @@ export class StrapiIDSchema extends yup.MixedSchema {
 }
 
 declare module 'yup' {
-  // const strapiID: () => InstanceType<typeof StrapiIDSchema>;
+  // const leaoID: () => InstanceType<typeof LeaoIDSchema>;
 
   export interface BaseSchema {
     isFunction(message?: string): this;

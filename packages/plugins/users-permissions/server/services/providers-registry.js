@@ -141,7 +141,7 @@ const initProviders = ({ baseURL, purest }) => ({
         provider: 'github',
         defaults: {
           headers: {
-            'user-agent': 'strapi',
+            'user-agent': 'leao',
           },
         },
       });
@@ -374,7 +374,7 @@ const initProviders = ({ baseURL, purest }) => ({
               version: 'v1',
               headers: {
                 Authorization: 'Bearer {auth}',
-                'user-agent': 'strapi',
+                'user-agent': 'leao',
               },
             },
           },
@@ -443,13 +443,13 @@ const initProviders = ({ baseURL, purest }) => ({
         .then(({ body }) => {
           // CAS attribute may be in body.attributes or "FLAT", depending on CAS config
           const username = body.attributes
-            ? body.attributes.strapiusername || body.id || body.sub
-            : body.strapiusername || body.id || body.sub;
+            ? body.attributes.leaousername || body.id || body.sub
+            : body.leaousername || body.id || body.sub;
           const email = body.attributes
-            ? body.attributes.strapiemail || body.attributes.email
-            : body.strapiemail || body.email;
+            ? body.attributes.leaoemail || body.attributes.email
+            : body.leaoemail || body.email;
           if (!username || !email) {
-            strapi.log.warn(
+            leao.log.warn(
               `CAS Response Body did not contain required attributes: ${JSON.stringify(body)}`
             );
           }
@@ -531,8 +531,8 @@ const initProviders = ({ baseURL, purest }) => ({
 module.exports = () => {
   const purest = require('purest');
 
-  const apiPrefix = strapi.config.get('api.rest.prefix');
-  const baseURL = urljoin(strapi.config.server.url, apiPrefix, 'auth');
+  const apiPrefix = leao.config.get('api.rest.prefix');
+  const baseURL = urljoin(leao.config.server.url, apiPrefix, 'auth');
 
   const authProviders = initProviders({ baseURL, purest });
 

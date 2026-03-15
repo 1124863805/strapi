@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Box, Flex, Typography } from '@strapi/design-system';
-import { EmptyDocuments } from '@strapi/icons/symbols';
+import { Box, Flex, Typography } from '@leao/design-system';
+import { EmptyDocuments } from '@leao/icons/symbols';
 import PropTypes from 'prop-types';
 
 import { EmptyAssetGrid } from './EmptyAssetGrid';

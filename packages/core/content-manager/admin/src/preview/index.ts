@@ -4,11 +4,11 @@ import { PreviewSidePanel } from './components/PreviewSidePanel';
 import { FEATURE_ID } from './constants';
 
 import type { ContentManagerPlugin } from '../content-manager';
-import type { PluginDefinition } from '@strapi/admin/strapi-admin';
+import type { PluginDefinition } from '@leao/admin/leao-admin';
 
 const previewAdmin = {
   bootstrap(app) {
-    if (!window.strapi.future.isEnabled(FEATURE_ID)) {
+    if (!window.leao.future.isEnabled(FEATURE_ID)) {
       return;
     }
 

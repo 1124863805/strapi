@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 import {
-  useStrapiApp,
+  useLeaoApp,
   DescriptionComponentRenderer,
   useTable,
   useQueryParams,
-} from '@strapi/admin/strapi-admin';
-import { Box, ButtonProps, Flex, Typography } from '@strapi/design-system';
-import { WarningCircle } from '@strapi/icons';
+} from '@leao/admin/leao-admin';
+import { Box, ButtonProps, Flex, Typography } from '@leao/design-system';
+import { WarningCircle } from '@leao/icons';
 import { useIntl } from 'react-intl';
 
 import { useDocumentRBAC } from '../../../../features/DocumentRBAC';
@@ -47,7 +47,7 @@ interface BulkActionDescription {
  * -----------------------------------------------------------------------------------------------*/
 
 const BulkActionsRenderer = () => {
-  const plugins = useStrapiApp('BulkActionsRenderer', (state) => state.plugins);
+  const plugins = useLeaoApp('BulkActionsRenderer', (state) => state.plugins);
 
   const { model, collectionType } = useDoc();
   const { selectedRows } = useTable('BulkActionsRenderer', (state) => state);

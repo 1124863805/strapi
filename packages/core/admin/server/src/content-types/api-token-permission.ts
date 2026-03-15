@@ -1,5 +1,5 @@
 export default {
-  collectionName: 'strapi_api_token_permissions',
+  collectionName: 'leao_api_token_permissions',
   info: {
     name: 'API Token Permission',
     description: '',

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, Flex, SkipToContent } from '@strapi/design-system';
+import { Box, Flex, SkipToContent } from '@leao/design-system';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';
@@ -26,7 +26,7 @@ import { useOnce } from '../hooks/useOnce';
 import { useInformationQuery } from '../services/admin';
 import { hashAdminUserEmail } from '../utils/users';
 
-const strapiVersion = packageJSON.version;
+const leaoVersion = packageJSON.version;
 
 const AdminLayout = () => {
   const setGuidedTourVisibility = useGuidedTour(
@@ -40,11 +40,11 @@ const AdminLayout = () => {
 
   const { data: appInfo, isLoading: isLoadingAppInfo } = useInformationQuery();
 
-  const [tagName, setTagName] = React.useState<string>(strapiVersion);
+  const [tagName, setTagName] = React.useState<string>(leaoVersion);
 
   React.useEffect(() => {
     if (showReleaseNotification) {
-      fetch('https://api.github.com/repos/strapi/strapi/releases/latest')
+      fetch('https://api.github.com/repos/leao/leao/releases/latest')
         .then(async (res) => {
           if (!res.ok) {
             return;
@@ -60,7 +60,7 @@ const AdminLayout = () => {
         })
         .catch(() => {
           /**
-           * silence is golden & we'll use the strapiVersion as a fallback
+           * silence is golden & we'll use the leaoVersion as a fallback
            */
         });
     }
@@ -70,7 +70,7 @@ const AdminLayout = () => {
 
   React.useEffect(() => {
     if (userRoles) {
-      const isUserSuperAdmin = userRoles.find(({ code }) => code === 'strapi-super-admin');
+      const isUserSuperAdmin = userRoles.find(({ code }) => code === 'leao-super-admin');
 
       if (isUserSuperAdmin && appInfo?.autoReload) {
         setGuidedTourVisibility(true);
@@ -92,7 +92,7 @@ const AdminLayout = () => {
     isLoading: isLoadingMenu,
     generalSectionLinks,
     pluginsSectionLinks,
-  } = useMenu(checkLatestStrapiVersion(strapiVersion, tagName));
+  } = useMenu(checkLatestLeaoVersion(leaoVersion, tagName));
   const { showTutorials } = useConfiguration('Admin');
 
   /**
@@ -114,8 +114,8 @@ const AdminLayout = () => {
     <AppInfoProvider
       {...appInfo}
       userId={userId}
-      latestStrapiReleaseTag={tagName}
-      shouldUpdateStrapi={checkLatestStrapiVersion(strapiVersion, tagName)}
+      latestLeaoReleaseTag={tagName}
+      shouldUpdateLeao={checkLatestLeaoVersion(leaoVersion, tagName)}
     >
       <NpsSurvey />
       <PluginsInitializer>
@@ -150,7 +150,7 @@ const PrivateAdminLayout = () => {
   );
 };
 
-const checkLatestStrapiVersion = (
+const checkLatestLeaoVersion = (
   currentPackageVersion: string,
   latestPublishedVersion: string = ''
 ): boolean => {

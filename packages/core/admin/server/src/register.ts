@@ -1,16 +1,16 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 import registerAdminPanelRoute from './routes/serve-admin-panel';
 import adminAuthStrategy from './strategies/admin';
 import apiTokenAuthStrategy from './strategies/api-token';
 
-export default ({ strapi }: { strapi: Core.Strapi }) => {
-  const passportMiddleware = strapi.service('admin::passport').init();
+export default ({ leao }: { leao: Core.Leao }) => {
+  const passportMiddleware = leao.service('admin::passport').init();
 
-  strapi.server.api('admin').use(passportMiddleware);
-  strapi.get('auth').register('admin', adminAuthStrategy);
-  strapi.get('auth').register('content-api', apiTokenAuthStrategy);
+  leao.server.api('admin').use(passportMiddleware);
+  leao.get('auth').register('admin', adminAuthStrategy);
+  leao.get('auth').register('content-api', apiTokenAuthStrategy);
 
-  if (strapi.config.get('admin.serveAdminPanel')) {
-    registerAdminPanelRoute({ strapi });
+  if (leao.config.get('admin.serveAdminPanel')) {
+    registerAdminPanelRoute({ leao });
   }
 };

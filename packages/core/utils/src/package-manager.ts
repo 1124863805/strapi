@@ -19,7 +19,7 @@ export const getPreferred = async (pkgPath: string): Promise<SupportedPackageMan
   const isPackageManagerSupported = SUPPORTED_PACKAGE_MANAGERS.includes(pm.name);
   if (!isPackageManagerSupported) {
     process.emitWarning(
-      `We detected your package manager (${pm.name} v${pm.version}), but it's not officially supported by Strapi yet. Defaulting to npm instead.`
+      `We detected your package manager (${pm.name} v${pm.version}), but it's not officially supported by Leao yet. Defaulting to npm instead.`
     );
 
     return DEFAULT_PACKAGE_MANAGER;

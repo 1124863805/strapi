@@ -6,7 +6,7 @@ import {
   Form,
   FormHelpers,
   useAuth,
-} from '@strapi/admin/strapi-admin';
+} from '@leao/admin/leao-admin';
 import {
   Box,
   Button,
@@ -17,8 +17,8 @@ import {
   Tabs,
   Typography,
   useId,
-} from '@strapi/design-system';
-import { Pencil } from '@strapi/icons';
+} from '@leao/design-system';
+import { Pencil } from '@leao/icons';
 import { useIntl } from 'react-intl';
 
 import { Locale, UpdateLocale } from '../../../shared/contracts/locales';

@@ -2,7 +2,7 @@ import type { Intersect } from '../../../utils';
 import type { Attribute } from '../..';
 
 /**
- * Represents a float Strapi attribute along with its options
+ * Represents a float Leao attribute along with its options
  */
 export type Float = Intersect<
   [

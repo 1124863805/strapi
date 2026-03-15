@@ -5,6 +5,6 @@ export const FIELDS_TO_IGNORE = [
   'publishedAt',
   'createdBy',
   'updatedBy',
-  'strapi_stage',
-  'strapi_assignee',
+  'leao_stage',
+  'leao_assignee',
 ];

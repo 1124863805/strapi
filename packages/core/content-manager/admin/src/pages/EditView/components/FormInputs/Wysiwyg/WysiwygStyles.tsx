@@ -1,8 +1,9 @@
-import { Button, IconButton, IconButtonComponent, IconButtonGroup } from '@strapi/design-system';
+import type { ComponentType } from 'react';
+import { Button, IconButton, IconButtonComponent, IconButtonGroup } from '@leao/design-system';
 import { styled } from 'styled-components';
 
-// NAV BUTTONS
-export const MainButtons = styled(IconButtonGroup)`
+// NAV BUTTONS - explicit type avoids portable inference from vendor styled-components
+export const MainButtons: ComponentType<any> = styled(IconButtonGroup)`
   margin-left: ${({ theme }) => theme.spaces[4]};
 `;
 
@@ -12,7 +13,7 @@ export const MoreButton = styled<IconButtonComponent>(IconButton)`
 
 // NAV
 
-export const IconButtonGroupMargin = styled(IconButtonGroup)`
+export const IconButtonGroupMargin: ComponentType<any> = styled(IconButtonGroup)`
   margin-right: ${({ theme }) => `${theme.spaces[2]}`};
 `;
 

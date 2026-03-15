@@ -12,11 +12,11 @@ import {
   useQueryParams,
   useRBAC,
   isFetchError,
-  useStrapiApp,
+  useLeaoApp,
   Layouts,
   FormErrors,
-} from '@strapi/admin/strapi-admin';
-import { unstable_useDocument } from '@strapi/content-manager/strapi-admin';
+} from '@leao/admin/leao-admin';
+import { unstable_useDocument } from '@leao/content-manager/leao-admin';
 import {
   Button,
   Flex,
@@ -33,7 +33,7 @@ import {
   Dialog,
   SimpleMenu,
   MenuItem,
-} from '@strapi/design-system';
+} from '@leao/design-system';
 import {
   CheckCircle,
   More,
@@ -41,8 +41,8 @@ import {
   Trash,
   CrossCircle,
   ArrowsCounterClockwise,
-} from '@strapi/icons';
-import { EmptyDocuments } from '@strapi/icons/symbols';
+} from '@leao/icons';
+import { EmptyDocuments } from '@leao/icons/symbols';
 import format from 'date-fns/format';
 import { utcToZonedTime } from 'date-fns-tz';
 import { useIntl } from 'react-intl';
@@ -76,7 +76,7 @@ import type {
   ReleaseActionGroupBy,
   ReleaseActionEntry,
 } from '../../../shared/contracts/release-actions';
-import type { Struct, Internal } from '@strapi/types';
+import type { Struct, Internal } from '@leao/types';
 
 /* -------------------------------------------------------------------------------------------------
  * ReleaseDetailsLayout
@@ -581,7 +581,7 @@ const ReleaseDetailsBody = ({ releaseId }: ReleaseDetailsBodyProps) => {
   const {
     allowedActions: { canUpdate },
   } = useRBAC(PERMISSIONS);
-  const runHookWaterfall = useStrapiApp('ReleaseDetailsPage', (state) => state.runHookWaterfall);
+  const runHookWaterfall = useLeaoApp('ReleaseDetailsPage', (state) => state.runHookWaterfall);
 
   // TODO: Migrated displayedHeader to v5
   const { displayedHeaders, hasI18nEnabled }: { displayedHeaders: any; hasI18nEnabled: boolean } =

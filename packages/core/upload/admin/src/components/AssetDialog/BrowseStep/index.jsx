@@ -10,8 +10,8 @@ import {
   Typography,
   VisuallyHidden,
   Grid,
-} from '@strapi/design-system';
-import { GridFour as GridIcon, List, Pencil, Plus } from '@strapi/icons';
+} from '@leao/design-system';
+import { GridFour as GridIcon, List, Pencil, Plus } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

@@ -6,7 +6,7 @@ const BETWEEN_FIELD_NAME = 'between';
 export default () => ({
   fieldName: BETWEEN_FIELD_NAME,
 
-  strapiOperator: '$between',
+  leaoOperator: '$between',
 
   add(t: Nexus.blocks.ObjectDefinitionBlock<string>, type: string) {
     t.field(BETWEEN_FIELD_NAME, { type: list(type) });

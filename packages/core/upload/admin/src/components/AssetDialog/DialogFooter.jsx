@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Button, Modal } from '@strapi/design-system';
+import { Button, Modal } from '@leao/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

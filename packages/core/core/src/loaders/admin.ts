@@ -1,18 +1,18 @@
 import _ from 'lodash';
-import type { Core, Struct } from '@strapi/types';
+import type { Core, Struct } from '@leao/types';
 import { getGlobalId } from '../domain/content-type';
 
-export default async function loadAdmin(strapi: Core.Strapi) {
-  // strapi.admin = require('@strapi/admin/strapi-server');
+export default async function loadAdmin(leao: Core.Leao) {
+  // leao.admin = require('@leao/admin/leao-server');
 
-  strapi.get('services').add(`admin::`, strapi.admin?.services);
-  strapi.get('controllers').add(`admin::`, strapi.admin?.controllers);
-  strapi.get('content-types').add(`admin::`, formatContentTypes(strapi.admin?.contentTypes ?? {}));
-  strapi.get('policies').add(`admin::`, strapi.admin?.policies);
-  strapi.get('middlewares').add(`admin::`, strapi.admin?.middlewares);
+  leao.get('services').add(`admin::`, leao.admin?.services);
+  leao.get('controllers').add(`admin::`, leao.admin?.controllers);
+  leao.get('content-types').add(`admin::`, formatContentTypes(leao.admin?.contentTypes ?? {}));
+  leao.get('policies').add(`admin::`, leao.admin?.policies);
+  leao.get('middlewares').add(`admin::`, leao.admin?.middlewares);
 
-  const userAdminConfig = strapi.config.get('admin');
-  strapi.get('config').set('admin', _.merge(strapi.admin?.config, userAdminConfig));
+  const userAdminConfig = leao.config.get('admin');
+  leao.get('config').set('admin', _.merge(leao.admin?.config, userAdminConfig));
 }
 
 const formatContentTypes = (contentTypes: Record<string, { schema: Struct.ContentTypeSchema }>) => {

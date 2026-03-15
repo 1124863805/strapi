@@ -1,5 +1,5 @@
 import { merge, map, pipe, reduce } from 'lodash/fp';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 // Builders Factories
 
@@ -39,15 +39,15 @@ const buildersFactories = [
   resolvers,
 ];
 
-export default ({ strapi }: { strapi: Core.Strapi }) => {
+export default ({ leao }: { leao: Core.Leao }) => {
   const buildersMap = new Map();
 
   return {
     /**
-     * Instantiate every builder with a strapi instance & a type registry
+     * Instantiate every builder with a leao instance & a type registry
      */
     new(name: string, registry: TypeRegistry) {
-      const context = { strapi, registry };
+      const context = { leao, registry };
 
       const builders = pipe(
         // Create a new instance of every builders
@@ -78,9 +78,9 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
     },
 
     filters: {
-      operators: operators({ strapi }),
+      operators: operators({ leao }),
     },
 
-    utils: utils({ strapi }),
+    utils: utils({ leao }),
   };
 };

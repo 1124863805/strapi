@@ -10,7 +10,7 @@ const MISTAKEN_FILENAMES = {
   plugin: 'plugins',
 };
 
-// the following are restricted to prevent conflicts with existing STRAPI_* env vars or root level config options
+// the following are restricted to prevent conflicts with existing LEAO_* env vars or root level config options
 // must all be lowercase to match validator
 const RESTRICTED_FILENAMES = [
   // existing env vars
@@ -22,7 +22,7 @@ const RESTRICTED_FILENAMES = [
   'telemetry',
 
   // reserved for future internal use
-  'strapi',
+  'leao',
   'internal',
 
   // root level config options
@@ -31,7 +31,7 @@ const RESTRICTED_FILENAMES = [
   'serveAdminPanel',
   'autoReload',
   'environment',
-  'packageJsonStrapi',
+  'packageJsonLeao',
   'info',
   'autoReload',
   'dirs',
@@ -40,8 +40,8 @@ const RESTRICTED_FILENAMES = [
   ...Object.keys(MISTAKEN_FILENAMES),
 ];
 
-// Existing Strapi configuration files
-const STRAPI_CONFIG_FILENAMES = [
+// Existing Leao configuration files
+const LEAO_CONFIG_FILENAMES = [
   'admin',
   'server',
   'api',
@@ -51,7 +51,7 @@ const STRAPI_CONFIG_FILENAMES = [
   'features',
 ];
 
-// Note: we don't have access to strapi logger at this point so we can't use it
+// Note: we don't have access to leao logger at this point so we can't use it
 const logWarning = (message: string) => {
   console.warn(message);
 };
@@ -93,8 +93,8 @@ export default (dir: string) => {
       return acc;
     }
 
-    // restricted names and Strapi configs are also restricted from being prefixes
-    const restrictedPrefix = [...RESTRICTED_FILENAMES, ...STRAPI_CONFIG_FILENAMES].find(
+    // restricted names and Leao configs are also restricted from being prefixes
+    const restrictedPrefix = [...RESTRICTED_FILENAMES, ...LEAO_CONFIG_FILENAMES].find(
       (restrictedName) =>
         restrictedName.startsWith(baseNameLower) && restrictedName !== baseNameLower
     );
@@ -113,7 +113,7 @@ export default (dir: string) => {
      * for technical limitations on env variable names
      *  */
     // if (!/^[A-Za-z0-9]+$/.test(baseName)) {
-    //   logWarning("Using a non-alphanumeric config file name prevents Strapi from auto-loading it from environment variables.")
+    //   logWarning("Using a non-alphanumeric config file name prevents Leao from auto-loading it from environment variables.")
     // }
 
     // filter filenames without case-insensitive uniqueness

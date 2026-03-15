@@ -1,4 +1,4 @@
-import type { Plugin } from '@strapi/types';
+import type { Plugin } from '@leao/types';
 
 import { FEATURE_ID } from './constants';
 import { routes } from './routes';
@@ -11,11 +11,11 @@ import { getService } from './utils';
  * so that we can assume it is enabled in the other files.
  */
 const getFeature = (): Partial<Plugin.LoadedPlugin> => {
-  if (!strapi.features.future.isEnabled(FEATURE_ID)) {
+  if (!leao.features.future.isEnabled(FEATURE_ID)) {
     return {};
   }
 
-  // if (!strapi.ee.features.isEnabled('cms-content-preview')) {
+  // if (!leao.ee.features.isEnabled('cms-content-preview')) {
   //   return {};
   // }
 
@@ -24,7 +24,7 @@ const getFeature = (): Partial<Plugin.LoadedPlugin> => {
       // eslint-disable-next-line no-console -- TODO remove when we have real functionality
       console.log('Bootstrapping preview server');
 
-      const config = getService(strapi, 'preview-config');
+      const config = getService(leao, 'preview-config');
       config.validate();
     },
     routes,

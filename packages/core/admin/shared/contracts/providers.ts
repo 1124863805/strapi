@@ -1,4 +1,4 @@
-import { errors } from '@strapi/utils';
+import { errors } from '@leao/utils';
 
 /**
  * /providers/isSSOLocked

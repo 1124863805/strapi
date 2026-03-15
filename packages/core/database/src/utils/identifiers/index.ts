@@ -4,7 +4,7 @@
  * The generated names can be customized with prefixes, suffixes, and maximum length.
  * These utility functions are used throughout the codebase to ensure consistent and standardized naming conventions in the database.
  *
- * The reason for checking maxLength for suffixes and prefixes and using the long ones from Strapi 4 is so that we always
+ * The reason for checking maxLength for suffixes and prefixes and using the long ones from Leao 4 is so that we always
  * have access to the full length names, in particular for migration purposes, but also so that (in theory) the feature
  * could be disabled and stay compatible with v4 database structure.
  */

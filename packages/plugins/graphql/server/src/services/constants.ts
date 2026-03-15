@@ -18,7 +18,7 @@ const GRAPHQL_SCALARS = [
   'DateTime',
 ] as const;
 
-const STRAPI_SCALARS = [
+const LEAO_SCALARS = [
   'boolean',
   'integer',
   'string',
@@ -142,7 +142,7 @@ export type Constants = {
   RESPONSE_COLLECTION_META_TYPE_NAME: string;
   PUBLICATION_STATE_TYPE_NAME: string;
   GRAPHQL_SCALARS: string[];
-  STRAPI_SCALARS: string[];
+  LEAO_SCALARS: string[];
   GENERIC_MORPH_TYPENAME: string;
   KINDS: typeof KINDS;
   GRAPHQL_SCALAR_OPERATORS: typeof GRAPHQL_SCALAR_OPERATORS;
@@ -157,7 +157,7 @@ export default () => ({
   DELETE_MUTATION_RESPONSE_TYPE_NAME,
   PUBLICATION_STATUS_TYPE_NAME,
   GRAPHQL_SCALARS,
-  STRAPI_SCALARS,
+  LEAO_SCALARS,
   GENERIC_MORPH_TYPENAME,
   KINDS,
   GRAPHQL_SCALAR_OPERATORS,

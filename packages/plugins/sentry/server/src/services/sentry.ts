@@ -1,13 +1,13 @@
-import type { Core } from '@strapi/strapi';
+import type { Core } from '@leao/leao';
 import type { Config } from 'src/config';
 import * as Sentry from '@sentry/node';
 
-const createSentryService = (strapi: Core.Strapi) => {
+const createSentryService = (leao: Core.Leao) => {
   let isReady = false;
   let instance: typeof Sentry | null = null;
 
   // Retrieve user config and merge it with the default one
-  const config = strapi.config.get('plugin::sentry') as Config;
+  const config = leao.config.get('plugin::sentry') as Config;
 
   return {
     /**
@@ -21,14 +21,14 @@ const createSentryService = (strapi: Core.Strapi) => {
 
       // Don't init Sentry if no DSN was provided
       if (!config.dsn) {
-        strapi.log.info('@strapi/plugin-sentry is disabled because no Sentry DSN was provided');
+        leao.log.info('@leao/plugin-sentry is disabled because no Sentry DSN was provided');
         return this;
       }
 
       try {
         Sentry.init({
           dsn: config.dsn,
-          environment: strapi.config.get('environment'),
+          environment: leao.config.get('environment'),
           ...config.init,
         });
 
@@ -36,7 +36,7 @@ const createSentryService = (strapi: Core.Strapi) => {
         instance = Sentry;
         isReady = true;
       } catch (error) {
-        strapi.log.warn('Could not set up Sentry, make sure you entered a valid DSN');
+        leao.log.warn('Could not set up Sentry, make sure you entered a valid DSN');
       }
 
       return this;
@@ -55,7 +55,7 @@ const createSentryService = (strapi: Core.Strapi) => {
     sendError(error: Error, configureScope?: (scope: Sentry.Scope) => void) {
       // Make sure Sentry is ready
       if (!isReady || !instance) {
-        strapi.log.warn("Sentry wasn't properly initialized, cannot send event");
+        leao.log.warn("Sentry wasn't properly initialized, cannot send event");
         return;
       }
 
@@ -72,4 +72,4 @@ const createSentryService = (strapi: Core.Strapi) => {
   };
 };
 
-export default ({ strapi }: { strapi: Core.Strapi }) => createSentryService(strapi);
+export default ({ leao }: { leao: Core.Leao }) => createSentryService(leao);

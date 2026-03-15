@@ -1,4 +1,4 @@
-import type { Plugin } from '@strapi/types';
+import type { Plugin } from '@leao/types';
 import { createHistoryService } from './history';
 import { createLifecyclesService } from './lifecycles';
 

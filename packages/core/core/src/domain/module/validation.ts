@@ -1,6 +1,6 @@
-import { yup } from '@strapi/utils';
+import { yup } from '@leao/utils';
 
-const strapiServerSchema = yup
+const leaoServerSchema = yup
   .object()
   .shape({
     bootstrap: yup.mixed().isFunction(),
@@ -22,7 +22,7 @@ const strapiServerSchema = yup
   .noUnknown();
 
 const validateModule = (data: unknown) => {
-  return strapiServerSchema.validateSync(data, { strict: true, abortEarly: false });
+  return leaoServerSchema.validateSync(data, { strict: true, abortEarly: false });
 };
 
 export { validateModule };

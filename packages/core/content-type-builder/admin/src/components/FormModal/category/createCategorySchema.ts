@@ -1,4 +1,4 @@
-import { translatedErrors as errorsTrads } from '@strapi/admin/strapi-admin';
+import { translatedErrors as errorsTrads } from '@leao/admin/leao-admin';
 import * as yup from 'yup';
 
 import { CATEGORY_NAME_REGEX } from './regex';

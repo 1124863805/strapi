@@ -1,7 +1,7 @@
 import type { Context } from 'koa';
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
-import { async, validate } from '@strapi/utils';
+import { async, validate } from '@leao/utils';
 import { getService } from '../utils';
 import { validateUpdateStageOnEntity, validateLocale } from '../validation/review-workflows';
 import {
@@ -12,12 +12,12 @@ import {
 
 /**
  *
- * @param { Core.Strapi } strapi - Strapi instance
+ * @param { Core.Leao } leao - Leao instance
  * @param userAbility
  * @return { (Stage) => SanitizedStage }
  */
-function sanitizeStage({ strapi }: { strapi: Core.Strapi }, userAbility: unknown) {
-  const permissionChecker = strapi
+function sanitizeStage({ leao }: { leao: Core.Leao }, userAbility: unknown) {
+  const permissionChecker = leao
     .plugin('content-manager')
     .service('permission-checker')
     .create({ userAbility, model: STAGE_MODEL_UID });
@@ -34,7 +34,7 @@ export default {
     const { workflow_id: workflowId } = ctx.params;
     const { populate } = ctx.query;
     const stagesService = getService('stages');
-    const sanitizer = sanitizeStage({ strapi }, ctx.state.userAbility);
+    const sanitizer = sanitizeStage({ leao }, ctx.state.userAbility);
 
     const stages = await stagesService.find({
       workflowId,
@@ -53,7 +53,7 @@ export default {
     const { id, workflow_id: workflowId } = ctx.params;
     const { populate } = ctx.query;
     const stagesService = getService('stages');
-    const sanitizer = sanitizeStage({ strapi }, ctx.state.userAbility);
+    const sanitizer = sanitizeStage({ leao }, ctx.state.userAbility);
 
     const stage = await stagesService.findById(id, {
       workflowId,
@@ -86,14 +86,14 @@ export default {
     const { model_uid: modelUID, id: documentId } = ctx.params;
     const { body, query = {} } = ctx.request;
 
-    const { sanitizeOutput } = strapi
+    const { sanitizeOutput } = leao
       .plugin('content-manager')
       .service('permission-checker')
       .create({ userAbility: ctx.state.userAbility, model: modelUID });
 
     // Load entity
     const locale = await validateLocale(query?.locale);
-    const entity = await strapi.documents(modelUID).findOne({
+    const entity = await leao.documents(modelUID).findOne({
       documentId,
       // @ts-expect-error - locale should be also null in the doc service types
       locale,
@@ -149,7 +149,7 @@ export default {
     const { query = {} } = ctx.request;
 
     if (
-      strapi
+      leao
         .plugin('content-manager')
         .service('permission-checker')
         .create({ userAbility: ctx.state.userAbility, model: modelUID })
@@ -160,7 +160,7 @@ export default {
 
     // Load entity
     const locale = (await validateLocale(query?.locale)) ?? undefined;
-    const entity = await strapi.documents(modelUID).findOne({
+    const entity = await leao.documents(modelUID).findOne({
       documentId,
       locale,
       populate: [ENTITY_STAGE_ATTRIBUTE],

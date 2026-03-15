@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, Grid, Typography, Link } from '@strapi/design-system';
+import { Box, Button, Flex, Grid, Typography, Link } from '@leao/design-system';
 import omit from 'lodash/omit';
 import { useIntl } from 'react-intl';
 import { NavLink, Navigate, useNavigate, useMatch, useLocation } from 'react-router-dom';
@@ -218,7 +218,7 @@ const Register = ({ hasAdmin }: RegisterProps) => {
       const { roles } = res.data.user;
 
       if (roles) {
-        const isUserSuperAdmin = roles.find(({ code }) => code === 'strapi-super-admin');
+        const isUserSuperAdmin = roles.find(({ code }) => code === 'leao-super-admin');
 
         if (isUserSuperAdmin) {
           localStorage.setItem('GUIDED_TOUR_SKIPPED', JSON.stringify(false));
@@ -311,7 +311,7 @@ const Register = ({ hasAdmin }: RegisterProps) => {
           <Typography tag="h1" variant="alpha" textAlign="center">
             {formatMessage({
               id: titleId,
-              defaultMessage: isAdminRegistration ? '创建管理员账户' : '欢迎使用 Strapi!',
+              defaultMessage: isAdminRegistration ? '创建管理员账户' : '欢迎使用 Leao!',
             })}
           </Typography>
           <Typography variant="epsilon" textColor="neutral600" textAlign="center">
@@ -319,7 +319,7 @@ const Register = ({ hasAdmin }: RegisterProps) => {
               id: subtitleId,
               defaultMessage: isAdminRegistration
                 ? '设置您的第一个管理员账户，用于登录管理后台。'
-                : '凭证仅用于在 Strapi 中进行身份验证。所有保存的数据都将存储在您的数据库中。',
+                : '凭证仅用于在 Leao 中进行身份验证。所有保存的数据都将存储在您的数据库中。',
             })}
           </Typography>
           {apiError ? (

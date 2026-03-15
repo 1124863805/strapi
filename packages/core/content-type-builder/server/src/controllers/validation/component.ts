@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import { yup, validateYupSchema } from '@strapi/utils';
+import { yup, validateYupSchema } from '@leao/utils';
 
-import type { Struct } from '@strapi/types';
+import type { Struct } from '@leao/types';
 import { modelTypes, DEFAULT_TYPES } from '../../services/constants';
 import { isValidCategoryName, isValidIcon } from './common';
 import { createSchema } from './model-schema';

@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, Popover, Tag } from '@strapi/design-system';
-import { Plus, Filter as FilterIcon, Cross } from '@strapi/icons';
-import { Schema } from '@strapi/types';
+import { Box, Button, Flex, Popover, Tag } from '@leao/design-system';
+import { Plus, Filter as FilterIcon, Cross } from '@leao/icons';
+import { Schema } from '@leao/types';
 import { useIntl } from 'react-intl';
 
 import {

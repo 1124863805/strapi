@@ -15,7 +15,7 @@ import {
   isObject,
 } from 'lodash/fp';
 
-import { contentTypes, traverseEntity, traverse, validate, async, errors } from '@strapi/utils';
+import { contentTypes, traverseEntity, traverse, validate, async, errors } from '@leao/utils';
 import { ADMIN_USER_ALLOWED_FIELDS } from '../../../domain/user';
 
 const { ValidationError } = errors;
@@ -44,11 +44,11 @@ const throwInvalidKey = ({ key, path }: { key: string; path?: string | null }) =
 };
 
 export default ({ action, ability, model }: any) => {
-  const schema = strapi.getModel(model);
+  const schema = leao.getModel(model);
 
   const ctx = {
     schema,
-    getModel: strapi.getModel.bind(strapi),
+    getModel: leao.getModel.bind(leao),
   };
 
   const createValidateQuery = (options = {} as any) => {

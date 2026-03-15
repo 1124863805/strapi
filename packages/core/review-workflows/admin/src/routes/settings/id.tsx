@@ -10,10 +10,10 @@ import {
   Page,
   FormProps,
   FormHelpers,
-} from '@strapi/admin/strapi-admin';
-import { useEEInfo } from '@strapi/admin/strapi-admin/ee';
-import { Button, Dialog, Flex, Typography } from '@strapi/design-system';
-import { Check } from '@strapi/icons';
+} from '@leao/admin/leao-admin';
+import { useEEInfo } from '@leao/admin/leao-admin/ee';
+import { Button, Dialog, Flex, Typography } from '@leao/design-system';
+import { Check } from '@leao/icons';
 import { generateNKeysBetween } from 'fractional-indexing';
 import { useIntl } from 'react-intl';
 import { useNavigate, useParams } from 'react-router-dom';

@@ -14,7 +14,7 @@
   "Settings.list.actions.deleteAdditionalInfos": "Bu aktif yerel ayar versiyonlarını silecektir <em>(Uluslararasılaştırma'dan)</em>",
   "Settings.list.actions.edit": "Bir yerel ayarı düzenle",
   "Settings.list.description": "Uluslararasılaştırma eklentisinin ayarlarını düzenle",
-  "Settings.list.empty.description": "Bu beklendik bir davranış değil. Veritabanına elle müdahale olduğu anlamına geliyor. Strapinin düzgün çalışabilmesi için veritabanınızda en az bir adet yerel ayarın olduğundan emin olun.",
+  "Settings.list.empty.description": "Bu beklendik bir davranış değil. Veritabanına elle müdahale olduğu anlamına geliyor. Leaonin düzgün çalışabilmesi için veritabanınızda en az bir adet yerel ayarın olduğundan emin olun.",
   "Settings.list.empty.title": "Hiçbir yerel ayar yok.",
   "Settings.locales.default": "Varsayılan",
   "Settings.locales.list.sort.default": "Varsayılan yerel ayara göre diz",

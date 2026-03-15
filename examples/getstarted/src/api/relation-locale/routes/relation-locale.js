@@ -4,6 +4,6 @@
  * relation-locale router
  */
 
-const { createCoreRouter } = require('@strapi/strapi').factories;
+const { createCoreRouter } = require('@leao/leao').factories;
 
 module.exports = createCoreRouter('api::relation-locale.relation-locale');

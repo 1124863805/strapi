@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import slugify from '@sindresorhus/slugify';
 
-import type { Core, Schema, UID } from '@strapi/types';
+import type { Core, Schema, UID } from '@leao/types';
 
-export default ({ strapi }: { strapi: Core.Strapi }) => ({
+export default ({ leao }: { leao: Core.Leao }) => ({
   async generateUIDField({
     contentTypeUID,
     field,
@@ -15,7 +15,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
     data: Record<string, any>;
     locale?: string;
   }) {
-    const contentType = strapi.contentTypes[contentTypeUID];
+    const contentType = leao.contentTypes[contentTypeUID];
     const { attributes } = contentType;
 
     const {
@@ -58,7 +58,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
     value: string;
     locale?: string;
   }) {
-    const foundDocuments = await strapi.documents(contentTypeUID).findMany({
+    const foundDocuments = await leao.documents(contentTypeUID).findMany({
       filters: {
         [field]: { $startsWith: value },
       },
@@ -108,7 +108,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
     value: string;
     locale?: string;
   }) {
-    const documentCount = await strapi.documents(contentTypeUID).count({
+    const documentCount = await leao.documents(contentTypeUID).count({
       filters: {
         [field]: value,
       },

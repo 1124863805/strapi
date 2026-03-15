@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 
-import { useTracking } from '@strapi/admin/strapi-admin';
-import { Button, VisuallyHidden } from '@strapi/design-system';
+import { useTracking } from '@leao/admin/leao-admin';
+import { Button, VisuallyHidden } from '@leao/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

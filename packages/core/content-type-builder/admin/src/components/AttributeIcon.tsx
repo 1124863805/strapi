@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComponentType, SVGProps } from 'react';
 
-import { useStrapiApp } from '@strapi/admin/strapi-admin';
-import { Box } from '@strapi/design-system';
+import { useLeaoApp } from '@leao/admin/leao-admin';
+import { Box } from '@leao/design-system';
 import {
   BooleanField,
   CollectionType,
@@ -20,10 +21,10 @@ import {
   TextField,
   UidField,
   BlocksField,
-} from '@strapi/icons/symbols';
+} from '@leao/icons/symbols';
 import { styled } from 'styled-components';
 
-const iconByTypes: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
+const iconByTypes: Record<string, ComponentType<any>> = {
   biginteger: NumberField,
   blocks: BlocksField,
   boolean: BooleanField,
@@ -71,7 +72,7 @@ type AttributeIconProps = {
 };
 
 export const AttributeIcon = ({ type, customField = null, ...rest }: AttributeIconProps) => {
-  const getCustomField = useStrapiApp('AttributeIcon', (state) => state.customFields.get);
+  const getCustomField = useLeaoApp('AttributeIcon', (state) => state.customFields.get);
 
   let Compo: any = iconByTypes[type];
 

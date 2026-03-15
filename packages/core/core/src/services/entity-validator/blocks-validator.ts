@@ -1,4 +1,4 @@
-import { yup } from '@strapi/utils';
+import { yup } from '@leao/utils';
 
 const textNodeValidator = yup.object().shape({
   type: yup.string().equals(['text']).required(),

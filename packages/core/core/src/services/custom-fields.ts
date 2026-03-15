@@ -1,9 +1,9 @@
-import type { Core, Modules } from '@strapi/types';
+import type { Core, Modules } from '@leao/types';
 
-const createCustomFields = (strapi: Core.Strapi): Modules.CustomFields.CustomFields => {
+const createCustomFields = (leao: Core.Leao): Modules.CustomFields.CustomFields => {
   return {
     register(customField) {
-      strapi.get('custom-fields').add(customField);
+      leao.get('custom-fields').add(customField);
     },
   };
 };

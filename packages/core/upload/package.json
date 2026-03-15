@@ -1,22 +1,22 @@
 {
-  "name": "@strapi/upload",
+  "name": "@leao/upload",
   "version": "5.0.6",
-  "description": "Makes it easy to upload images and files to your Strapi Application.",
+  "description": "Makes it easy to upload images and files to your Leao Application.",
   "license": "UNLICENSED",
   "author": {
-    "name": "Strapi Solutions SAS",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "exports": {
-    "./strapi-admin": {
+    "./leao-admin": {
       "types": "./dist/admin/src/index.d.ts",
       "source": "./admin/src/index.js",
       "import": "./dist/admin/index.mjs",
@@ -30,7 +30,7 @@
       "require": "./dist/shared/index.js",
       "default": "./dist/shared/index.js"
     },
-    "./strapi-server": {
+    "./leao-server": {
       "types": "./dist/server/src/index.d.ts",
       "source": "./server/src/index.ts",
       "import": "./dist/server/index.mjs",
@@ -41,7 +41,7 @@
   },
   "files": [
     "dist/",
-    "strapi-server.js"
+    "leao-server.js"
   ],
   "scripts": {
     "build": "pack-up build",
@@ -50,10 +50,10 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
-    "@strapi/design-system": "2.0.0-rc.11",
-    "@strapi/icons": "2.0.0-rc.11",
-    "@strapi/provider-upload-local": "workspace:*",
-    "@strapi/utils": "workspace:*",
+    "@leao/design-system": "workspace:*",
+    "@leao/icons": "workspace:*",
+    "@leao/provider-upload-local": "workspace:*",
+    "@leao/utils": "workspace:*",
     "byte-size": "8.1.1",
     "cropperjs": "1.6.1",
     "date-fns": "2.30.0",
@@ -75,9 +75,9 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@strapi/admin": "workspace:*",
-    "@strapi/pack-up": "5.0.0",
-    "@strapi/types": "workspace:*",
+    "@leao/admin": "workspace:*",
+    "@leao/pack-up": "workspace:*",
+    "@leao/types": "workspace:*",
     "@types/byte-size": "8.1.2",
     "@types/fs-extra": "11.0.4",
     "@types/koa": "2.13.4",
@@ -92,7 +92,7 @@
     "styled-components": "6.1.8"
   },
   "peerDependencies": {
-    "@strapi/admin": "^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc",
+    "@leao/admin": "^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -102,7 +102,7 @@
     "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
-  "strapi": {
+  "leao": {
     "displayName": "Media Library",
     "name": "upload",
     "description": "Media file management.",

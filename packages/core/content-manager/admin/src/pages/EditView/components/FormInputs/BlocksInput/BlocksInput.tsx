@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { useField, type InputProps } from '@strapi/admin/strapi-admin';
-import { Field, Flex } from '@strapi/design-system';
+import { useField, type InputProps } from '@leao/admin/leao-admin';
+import { Field, Flex } from '@leao/design-system';
 
 import { BlocksEditor } from './BlocksEditor';
 
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 
 interface BlocksInputProps extends Omit<InputProps, 'type'> {
   labelAction?: React.ReactNode;

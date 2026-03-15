@@ -1,5 +1,5 @@
 // FIXME: to remove when migrating this package to ts
-declare module '@strapi/typescript-utils' {
+declare module '@leao/typescript-utils' {
   const utils: any;
   export = utils;
 }

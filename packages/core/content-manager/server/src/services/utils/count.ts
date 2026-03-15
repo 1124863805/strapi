@@ -1,5 +1,5 @@
-import { UID, Schema } from '@strapi/types';
-import { contentTypes } from '@strapi/utils';
+import { UID, Schema } from '@leao/types';
+import { contentTypes } from '@leao/utils';
 import type { Document } from '../document-manager';
 
 const { isVisibleAttribute } = contentTypes;
@@ -53,7 +53,7 @@ function getCountFor(
 }
 
 const getDeepRelationsCount = (entity: any, uid: UID.Schema): Document => {
-  const model = strapi.getModel(uid);
+  const model = leao.getModel(uid);
 
   return Object.keys(entity).reduce<Document>(
     (relationCountEntity, attributeName) =>

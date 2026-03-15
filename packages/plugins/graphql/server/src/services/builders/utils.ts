@@ -1,7 +1,7 @@
 import { entries, mapValues, omit } from 'lodash/fp';
 import { idArg, nonNull } from 'nexus';
-import { pagination } from '@strapi/utils';
-import type { Core, Struct } from '@strapi/types';
+import { pagination } from '@leao/utils';
+import type { Core, Struct } from '@leao/types';
 
 const { withDefaultPagination } = pagination;
 
@@ -10,8 +10,8 @@ type ContentTypeArgsOptions = {
   isNested?: boolean;
 };
 
-export default ({ strapi }: { strapi: Core.Strapi }) => {
-  const { service: getService } = strapi.plugin('graphql');
+export default ({ leao }: { leao: Core.Leao }) => {
+  const { service: getService } = leao.plugin('graphql');
 
   return {
     getContentTypeArgs(
@@ -74,10 +74,10 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
      * Filter an object entries and keep only those whose value is a unique scalar attribute
      */
     getUniqueScalarAttributes(attributes: Struct.SchemaAttributes) {
-      const { isStrapiScalar } = getService('utils').attributes;
+      const { isLeaoScalar } = getService('utils').attributes;
 
       const uniqueAttributes = entries(attributes).filter(
-        ([, attribute]) => isStrapiScalar(attribute) && 'unique' in attribute && attribute.unique
+        ([, attribute]) => isLeaoScalar(attribute) && 'unique' in attribute && attribute.unique
       );
 
       return Object.fromEntries(uniqueAttributes);
@@ -92,7 +92,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
       return mapValues((attribute) => {
         const { mappers, naming } = getService('utils');
 
-        const gqlScalar = mappers.strapiScalarToGraphQLScalar(attribute.type);
+        const gqlScalar = mappers.leaoScalarToGraphQLScalar(attribute.type);
 
         return naming.getScalarFilterInputTypeName(gqlScalar);
       }, attributes);
@@ -109,7 +109,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
       }: { contentType: Struct.ContentTypeSchema; usePagination?: boolean }
     ) {
       const { mappers } = getService('utils');
-      const { config } = strapi.plugin('graphql');
+      const { config } = leao.plugin('graphql');
       const { pagination = {}, filters = {} } = args;
 
       // Init
@@ -135,7 +135,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
       // Filters
       if (args.filters) {
         Object.assign(newArgs, {
-          filters: mappers.graphQLFiltersToStrapiQuery(filters, contentType),
+          filters: mappers.graphQLFiltersToLeaoQuery(filters, contentType),
         });
       }
 

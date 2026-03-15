@@ -1,32 +1,32 @@
 {
-  "name": "@strapi/plugin-users-permissions",
+  "name": "@leao/plugin-users-permissions",
   "version": "5.0.6",
   "description": "Protect your API with a full-authentication process based on JWT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/strapi/strapi.git"
+    "url": "git://github.com/leao/leao.git"
   },
   "license": "UNLICENSED",
   "author": {
-    "name": "Strapi Solutions SAS",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "exports": {
-    "./strapi-admin": {
+    "./leao-admin": {
       "source": "./admin/src/index.js",
       "import": "./dist/admin/index.mjs",
       "require": "./dist/admin/index.js",
       "default": "./dist/admin/index.js"
     },
-    "./strapi-server": {
+    "./leao-server": {
       "source": "./server/index.js",
       "require": "./server/index.js",
       "default": "./server/index.js"
@@ -40,9 +40,9 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
-    "@strapi/design-system": "2.0.0-rc.11",
-    "@strapi/icons": "2.0.0-rc.11",
-    "@strapi/utils": "workspace:*",
+    "@leao/design-system": "workspace:*",
+    "@leao/icons": "workspace:*",
+    "@leao/utils": "workspace:*",
     "bcryptjs": "2.4.3",
     "formik": "2.4.5",
     "grant-koa": "5.4.8",
@@ -61,15 +61,15 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@strapi/pack-up": "5.0.0",
-    "@strapi/strapi": "workspace:*",
+    "@leao/leao": "workspace:*",
+    "@leao/pack-up": "workspace:*",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-router-dom": "6.22.3",
     "styled-components": "6.1.8"
   },
   "peerDependencies": {
-    "@strapi/strapi": "^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc",
+    "@leao/leao": "^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -79,7 +79,7 @@
     "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
-  "strapi": {
+  "leao": {
     "displayName": "Roles & Permissions",
     "name": "users-permissions",
     "description": "Protect your API with a full authentication process based on JWT. This plugin comes also with an ACL strategy that allows you to manage the permissions between the groups of users.",

@@ -4,11 +4,11 @@ import { type ContentManagerPlugin } from '../content-manager';
 
 import { HistoryAction } from './components/HistoryAction';
 
-import type { StrapiApp } from '@strapi/admin/strapi-admin';
-import type { Plugin } from '@strapi/types';
+import type { LeaoApp } from '@leao/admin/leao-admin';
+import type { Plugin } from '@leao/types';
 
 const historyAdmin: Partial<Plugin.Config.AdminInput> = {
-  bootstrap(app: StrapiApp) {
+  bootstrap(app: LeaoApp) {
     const { addDocumentAction } = app.getPlugin('content-manager').apis as {
       addDocumentAction: ContentManagerPlugin['addDocumentAction'];
     };

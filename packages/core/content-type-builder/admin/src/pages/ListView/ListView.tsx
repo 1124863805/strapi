@@ -1,6 +1,6 @@
-import { BackButton, useTracking, Layouts } from '@strapi/admin/strapi-admin';
-import { Box, Button, Flex } from '@strapi/design-system';
-import { Check, Pencil, Plus } from '@strapi/icons';
+import { BackButton, useTracking, Layouts } from '@leao/admin/leao-admin';
+import { Box, Button, Flex } from '@leao/design-system';
+import { Check, Pencil, Plus } from '@leao/icons';
 import get from 'lodash/get';
 import has from 'lodash/has';
 import isEqual from 'lodash/isEqual';

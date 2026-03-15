@@ -1,11 +1,11 @@
 import { toUpper, snakeCase, pick, isEmpty } from 'lodash/fp';
-import { errors } from '@strapi/utils';
+import { errors } from '@leao/utils';
 import { unwrapResolverError } from '@apollo/server/errors';
 import { GraphQLError, type GraphQLFormattedError } from 'graphql';
 
 const { HttpError, ForbiddenError, UnauthorizedError, ApplicationError, ValidationError } = errors;
 
-const formatToCode = (name: string) => `STRAPI_${toUpper(snakeCase(name))}`;
+const formatToCode = (name: string) => `LEAO_${toUpper(snakeCase(name))}`;
 const formatErrorToExtension = (error: any) => ({
   error: pick(['name', 'message', 'details'])(error),
 });
@@ -31,7 +31,7 @@ function createFormattedError(
 /**
  * The handler for Apollo Server v4's formatError config option
  *
- * Intercepts specific Strapi error types to send custom error response codes in the GraphQL response
+ * Intercepts specific Leao error types to send custom error response codes in the GraphQL response
  */
 export function formatGraphqlError(formattedError: GraphQLFormattedError, error: unknown) {
   const originalError = unwrapResolverError(error);
@@ -60,10 +60,10 @@ export function formatGraphqlError(formattedError: GraphQLFormattedError, error:
     return formattedError;
   }
 
-  // else if originalError doesn't appear to be from Strapi or GraphQL..
+  // else if originalError doesn't appear to be from Leao or GraphQL..
 
   // Log the error
-  strapi.log.error(originalError);
+  leao.log.error(originalError);
 
   // Create a generic 500 to send so we don't risk leaking any data
   return createFormattedError(

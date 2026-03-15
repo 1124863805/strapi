@@ -53,7 +53,7 @@ interface RawForeignKey {
   on_delete: string;
 }
 
-const toStrapiType = (column: RawColumn) => {
+const toLeaoType = (column: RawColumn) => {
   const { type } = column;
 
   const rootType = type.toLowerCase().match(/[^(), ]+/)?.[0];
@@ -138,7 +138,7 @@ export default class SqliteSchemaInspector implements SchemaInspector {
     const rows = await this.db.connection.raw<RawColumn[]>(SQL_QUERIES.TABLE_INFO, [tableName]);
 
     return rows.map((row) => {
-      const { type, args = [], ...rest } = toStrapiType(row);
+      const { type, args = [], ...rest } = toLeaoType(row);
 
       return {
         type,

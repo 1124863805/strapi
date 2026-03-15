@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { useStrapiApp, useTracking, useNotification } from '@strapi/admin/strapi-admin';
-import { Button, Divider, Flex, Modal, Tabs } from '@strapi/design-system';
+import { useLeaoApp, useTracking, useNotification } from '@leao/admin/leao-admin';
+import { Button, Divider, Flex, Modal, Tabs } from '@leao/design-system';
 import get from 'lodash/get';
 import has from 'lodash/has';
 import isEqual from 'lodash/isEqual';
@@ -64,7 +64,7 @@ import { getFormInputNames } from './utils/getFormInputNames';
 
 import type { CustomFieldAttributeParams } from '../../contexts/DataManagerContext';
 import type { AttributeType } from '../../types';
-import type { Internal } from '@strapi/types';
+import type { Internal } from '@leao/types';
 
 /* eslint-disable indent */
 /* eslint-disable react/no-array-index-key */
@@ -96,8 +96,8 @@ export const FormModal = () => {
     setActiveTab,
   } = useFormModalNavigation();
 
-  const getPlugin = useStrapiApp('FormModal', (state) => state.getPlugin);
-  const getCustomField = useStrapiApp('FormModal', (state) => state.customFields.get);
+  const getPlugin = useLeaoApp('FormModal', (state) => state.getPlugin);
+  const getCustomField = useLeaoApp('FormModal', (state) => state.customFields.get);
   const customField = getCustomField(customFieldUid);
 
   const formModalSelector = React.useMemo(makeSelectFormModal, []);

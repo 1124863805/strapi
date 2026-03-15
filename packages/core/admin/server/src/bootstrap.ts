@@ -1,6 +1,6 @@
 import { merge, map, difference, uniq } from 'lodash/fp';
-import type { Core } from '@strapi/types';
-import { async } from '@strapi/utils';
+import type { Core } from '@leao/types';
+import { async } from '@leao/utils';
 import { getService } from './utils';
 import adminActions from './config/admin-actions';
 import adminConditions from './config/admin-conditions';
@@ -24,7 +24,7 @@ const registerAdminConditions = async () => {
 const registerModelHooks = () => {
   const { sendDidChangeInterfaceLanguage } = getService('metrics');
 
-  strapi.db.lifecycles.subscribe({
+  leao.db.lifecycles.subscribe({
     models: ['admin::user'],
     afterCreate: sendDidChangeInterfaceLanguage,
     afterDelete: sendDidChangeInterfaceLanguage,
@@ -37,7 +37,7 @@ const registerModelHooks = () => {
 };
 
 const syncAuthSettings = async () => {
-  const adminStore = await strapi.store({ type: 'core', name: 'admin' });
+  const adminStore = await leao.store({ type: 'core', name: 'admin' });
   const adminAuthSettings = await adminStore.get({ key: 'auth' });
   const newAuthSettings = merge(defaultAdminAuthSettings, adminAuthSettings);
 
@@ -54,22 +54,22 @@ const syncAuthSettings = async () => {
 };
 
 const syncAPITokensPermissions = async () => {
-  const validPermissions = strapi.contentAPI.permissions.providers.action.keys();
+  const validPermissions = leao.contentAPI.permissions.providers.action.keys();
   const permissionsInDB = await async.pipe(
-    strapi.db.query('admin::api-token-permission').findMany,
+    leao.db.query('admin::api-token-permission').findMany,
     map('action')
   )();
 
   const unknownPermissions = uniq(difference(permissionsInDB, validPermissions));
 
   if (unknownPermissions.length > 0) {
-    await strapi.db
+    await leao.db
       .query('admin::api-token-permission')
       .deleteMany({ where: { action: { $in: unknownPermissions } } });
   }
 };
 
-export default async ({ strapi }: { strapi: Core.Strapi }) => {
+export default async ({ leao }: { leao: Core.Leao }) => {
   await registerAdminConditions();
   await registerPermissionActions();
   registerModelHooks();
@@ -92,8 +92,8 @@ export default async ({ strapi }: { strapi: Core.Strapi }) => {
   await syncAuthSettings();
   await syncAPITokensPermissions();
 
-  await getService('metrics').sendUpdateProjectInformation(strapi);
-  getService('metrics').startCron(strapi);
+  await getService('metrics').sendUpdateProjectInformation(leao);
+  getService('metrics').startCron(leao);
 
   apiTokenService.checkSaltIsDefined();
   transferService.token.checkSaltIsDefined();

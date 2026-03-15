@@ -1,4 +1,4 @@
-import { Layout } from '@strapi/icons';
+import { Layout } from '@leao/icons';
 
 import pluginPkg from '../../package.json';
 
@@ -8,7 +8,7 @@ import { reducers } from './reducers';
 import { formsAPI } from './utils/formAPI';
 import { prefixPluginTranslations } from './utils/prefixPluginTranslations';
 
-const name = pluginPkg.strapi.name;
+const name = pluginPkg.leao.name;
 
 // eslint-disable-next-line import/no-default-export
 export default {

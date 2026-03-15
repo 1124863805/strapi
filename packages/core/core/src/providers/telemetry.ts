@@ -2,16 +2,16 @@ import { defineProvider } from './provider';
 import createTelemetry from '../services/metrics';
 
 export default defineProvider({
-  init(strapi) {
-    strapi.add('telemetry', () => createTelemetry(strapi));
+  init(leao) {
+    leao.add('telemetry', () => createTelemetry(leao));
   },
-  async register(strapi) {
-    strapi.get('telemetry').register();
+  async register(leao) {
+    leao.get('telemetry').register();
   },
-  async bootstrap(strapi) {
-    strapi.get('telemetry').bootstrap();
+  async bootstrap(leao) {
+    leao.get('telemetry').bootstrap();
   },
-  async destroy(strapi) {
-    strapi.get('telemetry').destroy();
+  async destroy(leao) {
+    leao.get('telemetry').destroy();
   },
 });

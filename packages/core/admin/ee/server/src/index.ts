@@ -10,7 +10,7 @@ import auditLogsController from './audit-logs/controllers/audit-logs';
 import { createAuditLogsService } from './audit-logs/services/audit-logs';
 import { createAuditLogsLifecycleService } from './audit-logs/services/lifecycles';
 import { auditLog } from './audit-logs/content-types/audit-log';
-import { Core } from '@strapi/types';
+import { Core } from '@leao/types';
 
 const getAdminEE = () => {
   const eeAdmin = {
@@ -29,8 +29,8 @@ const getAdminEE = () => {
 
   // Only add the other audit-logs APIs if the feature is enabled
   if (
-    strapi.config.get('admin.auditLogs.enabled', true) &&
-    strapi.ee.features.isEnabled('audit-logs')
+    leao.config.get('admin.auditLogs.enabled', true) &&
+    leao.ee.features.isEnabled('audit-logs')
   ) {
     return {
       ...eeAdmin,
@@ -42,20 +42,20 @@ const getAdminEE = () => {
         ...eeAdmin.routes,
         'audit-logs': auditLogsRoutes,
       },
-      async register({ strapi }: { strapi: Core.Strapi }) {
+      async register({ leao }: { leao: Core.Leao }) {
         // Run the the default registration
-        await eeAdmin.register({ strapi });
+        await eeAdmin.register({ leao });
         // Register an internal audit logs service
-        strapi.add('audit-logs', createAuditLogsService(strapi));
+        leao.add('audit-logs', createAuditLogsService(leao));
         // Register an internal audit logs lifecycle service
-        const auditLogsLifecycle = createAuditLogsLifecycleService(strapi);
-        strapi.add('audit-logs-lifecycle', auditLogsLifecycle);
+        const auditLogsLifecycle = createAuditLogsLifecycleService(leao);
+        leao.add('audit-logs-lifecycle', auditLogsLifecycle);
 
         await auditLogsLifecycle.register();
       },
-      async destroy({ strapi }: { strapi: Core.Strapi }) {
-        strapi.get('audit-logs-lifecycle').destroy();
-        await eeAdmin.destroy({ strapi });
+      async destroy({ leao }: { leao: Core.Leao }) {
+        leao.get('audit-logs-lifecycle').destroy();
+        await eeAdmin.destroy({ leao });
       },
     };
   }

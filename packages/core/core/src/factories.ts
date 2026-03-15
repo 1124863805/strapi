@@ -1,33 +1,33 @@
 import { pipe, omit, pick } from 'lodash/fp';
-import type { Core, UID, Utils } from '@strapi/types';
+import type { Core, UID, Utils } from '@leao/types';
 
 import { createController } from './core-api/controller';
 import { createService } from './core-api/service';
 import { createRoutes } from './core-api/routes';
 
 const symbols = {
-  CustomController: Symbol('StrapiCustomCoreController'),
+  CustomController: Symbol('LeaoCustomCoreController'),
 } as const;
 
-type WithStrapiCallback<T> = T | (<S extends { strapi: Core.Strapi }>(params: S) => T);
+type WithLeaoCallback<T> = T | (<S extends { leao: Core.Leao }>(params: S) => T);
 
 const createCoreController = <
   TUID extends UID.ContentType,
   TController extends Core.CoreAPI.Controller.Extendable<TUID>,
 >(
   uid: TUID,
-  cfg?: WithStrapiCallback<
+  cfg?: WithLeaoCallback<
     Utils.PartialWithThis<Core.CoreAPI.Controller.Extendable<TUID> & TController>
   >
 ) => {
   return ({
-    strapi,
+    leao,
   }: {
-    strapi: Core.Strapi;
+    leao: Core.Leao;
   }): TController & Core.CoreAPI.Controller.ContentType<TUID> => {
-    const baseController = createController({ contentType: strapi.contentType(uid) });
+    const baseController = createController({ contentType: leao.contentType(uid) });
 
-    const userCtrl = typeof cfg === 'function' ? cfg({ strapi }) : (cfg ?? ({} as any));
+    const userCtrl = typeof cfg === 'function' ? cfg({ leao }) : (cfg ?? ({} as any));
 
     for (const methodName of Object.keys(baseController) as Array<keyof typeof baseController>) {
       if (userCtrl[methodName] === undefined) {
@@ -55,16 +55,16 @@ function createCoreService<
   TService extends Core.CoreAPI.Service.Extendable<TUID>,
 >(
   uid: TUID,
-  cfg?: WithStrapiCallback<Utils.PartialWithThis<Core.CoreAPI.Service.Extendable<TUID> & TService>>
+  cfg?: WithLeaoCallback<Utils.PartialWithThis<Core.CoreAPI.Service.Extendable<TUID> & TService>>
 ) {
   return ({
-    strapi,
+    leao,
   }: {
-    strapi: Core.Strapi;
+    leao: Core.Leao;
   }): TService & Core.CoreAPI.Service.ContentType<TUID> => {
-    const baseService = createService({ contentType: strapi.contentType(uid) });
+    const baseService = createService({ contentType: leao.contentType(uid) });
 
-    const userService = typeof cfg === 'function' ? cfg({ strapi }) : (cfg ?? ({} as any));
+    const userService = typeof cfg === 'function' ? cfg({ leao }) : (cfg ?? ({} as any));
 
     for (const methodName of Object.keys(baseService) as Array<keyof typeof baseService>) {
       if (userService[methodName] === undefined) {
@@ -89,7 +89,7 @@ function createCoreRouter<T extends UID.ContentType>(
     prefix,
     get routes() {
       if (!routes) {
-        const contentType = strapi.contentType(uid);
+        const contentType = leao.contentType(uid);
 
         const defaultRoutes = createRoutes({ contentType });
         const keys = Object.keys(defaultRoutes) as Array<keyof typeof defaultRoutes>;

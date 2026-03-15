@@ -3,8 +3,8 @@
  * FormModalHeader
  *
  */
-import { Box, Flex, Breadcrumbs, Crumb, Link, Modal } from '@strapi/design-system';
-import { ArrowLeft } from '@strapi/icons';
+import { Box, Flex, Breadcrumbs, Crumb, Link, Modal } from '@leao/design-system';
+import { ArrowLeft } from '@leao/icons';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 
@@ -15,7 +15,7 @@ import { getTrad } from '../utils';
 import { AttributeIcon, IconByType } from './AttributeIcon';
 
 import type { SchemaType } from '../types';
-import type { Internal } from '@strapi/types';
+import type { Internal } from '@leao/types';
 
 interface Header {
   label: string;

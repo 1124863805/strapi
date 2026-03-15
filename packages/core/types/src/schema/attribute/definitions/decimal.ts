@@ -2,7 +2,7 @@ import type { Intersect } from '../../../utils';
 import type { Attribute } from '../..';
 
 /**
- * Represents a decimal Strapi attribute along with its options
+ * Represents a decimal Leao attribute along with its options
  */
 export type Decimal = Intersect<
   [

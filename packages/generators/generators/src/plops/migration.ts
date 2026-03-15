@@ -1,5 +1,5 @@
 import { NodePlopAPI } from 'plop';
-import tsUtils from '@strapi/typescript-utils';
+import tsUtils from '@leao/typescript-utils';
 import validateFileNameInput from './utils/validate-file-name-input';
 import getFormattedDate from './utils/get-formatted-date';
 

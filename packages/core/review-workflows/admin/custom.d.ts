@@ -1,15 +1,15 @@
 /// <reference types="vite/client" />
 
-import { type StrapiTheme } from '@strapi/design-system';
+import { type LeaoTheme } from '@leao/design-system';
 
-import type { Modules } from '@strapi/types';
+import type { Modules } from '@leao/types';
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface DefaultTheme extends StrapiTheme {}
+  export interface DefaultTheme extends LeaoTheme {}
 }
 
-interface BrowserStrapi {
+interface BrowserLeao {
   backendURL: string;
   isEE: boolean;
   future: {
@@ -31,6 +31,6 @@ interface BrowserStrapi {
 
 declare global {
   interface Window {
-    strapi: BrowserStrapi;
+    leao: BrowserLeao;
   }
 }

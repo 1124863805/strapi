@@ -5,9 +5,9 @@ import type { Context } from '../../types';
  * Build a map of filters type for every GraphQL scalars
  * @return {Object<string, NexusInputTypeDef>}
  */
-const buildScalarFilters = ({ strapi }: Context) => {
-  const { naming, mappers } = strapi.plugin('graphql').service('utils');
-  const { helpers } = strapi.plugin('graphql').service('internals');
+const buildScalarFilters = ({ leao }: Context) => {
+  const { naming, mappers } = leao.plugin('graphql').service('utils');
+  const { helpers } = leao.plugin('graphql').service('internals');
 
   return helpers.getEnabledScalars().reduce((acc: any, type: string) => {
     const operators = mappers.graphqlScalarToOperators(type);

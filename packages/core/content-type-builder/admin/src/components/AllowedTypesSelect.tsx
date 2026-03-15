@@ -1,4 +1,4 @@
-import { Field, MultiSelectNested } from '@strapi/design-system';
+import { Field, MultiSelectNested } from '@leao/design-system';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 

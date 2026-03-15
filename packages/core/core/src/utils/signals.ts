@@ -1,20 +1,20 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
-export const destroyOnSignal = (strapi: Core.Strapi) => {
+export const destroyOnSignal = (leao: Core.Leao) => {
   let signalReceived = false;
 
   // For unknown reasons, we receive signals 2 times.
   // As a temporary fix, we ignore the signals received after the first one.
 
-  const terminateStrapi = async () => {
+  const terminateLeao = async () => {
     if (!signalReceived) {
       signalReceived = true;
-      await strapi.destroy();
+      await leao.destroy();
       process.exit();
     }
   };
 
   ['SIGTERM', 'SIGINT'].forEach((signal) => {
-    process.on(signal, terminateStrapi);
+    process.on(signal, terminateLeao);
   });
 };

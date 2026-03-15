@@ -1,5 +1,5 @@
-import permissions from '@strapi/permissions';
-import { providerFactory, sanitize, validate } from '@strapi/utils';
+import permissions from '@leao/permissions';
+import { providerFactory, sanitize, validate } from '@leao/utils';
 
 import type { Route } from '../core';
 

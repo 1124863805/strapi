@@ -11,7 +11,7 @@ import { validateSettings } from './validation/settings';
 const settingsController = {
   async find(ctx: Koa.Context) {
     // Get settings
-    const settingsService = getService('settings', { strapi });
+    const settingsService = getService('settings', { leao });
     const settings = await settingsService.find();
 
     // Response
@@ -24,7 +24,7 @@ const settingsController = {
     const settings = (await validateSettings(settingsBody)) as Settings;
 
     // Update
-    const settingsService = getService('settings', { strapi });
+    const settingsService = getService('settings', { leao });
     const updatedSettings = await settingsService.update({ settings });
 
     // Response

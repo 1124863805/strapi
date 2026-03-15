@@ -1,13 +1,13 @@
-import type { Core, Schema, Data } from '@strapi/types';
+import type { Core, Schema, Data } from '@leao/types';
 
-import { traverseEntity } from '@strapi/utils';
+import { traverseEntity } from '@leao/utils';
 import { curry } from 'lodash/fp';
 
 import { getService } from '../../utils';
 
 const LOCALIZATION_FIELDS = ['locale', 'localizations'];
 
-const sanitize = ({ strapi }: { strapi: Core.Strapi }) => {
+const sanitize = ({ leao }: { leao: Core.Leao }) => {
   const { isLocalizedContentType } = getService('content-types');
 
   /**
@@ -26,7 +26,7 @@ const sanitize = ({ strapi }: { strapi: Core.Strapi }) => {
           remove(key);
         }
       },
-      { schema, getModel: strapi.getModel.bind(strapi) },
+      { schema, getModel: leao.getModel.bind(leao) },
       entity
     )
   );

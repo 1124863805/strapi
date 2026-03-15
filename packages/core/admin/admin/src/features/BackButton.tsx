@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Link, LinkProps } from '@strapi/design-system';
-import { ArrowLeft } from '@strapi/icons';
+import { Link, LinkProps } from '@leao/design-system';
+import { ArrowLeft } from '@leao/icons';
 import { produce } from 'immer';
 import { useIntl } from 'react-intl';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
@@ -192,7 +192,7 @@ interface BackButtonProps extends Pick<LinkProps, 'disabled'> {}
 
 /**
  * @beta
- * @description The universal back button for the Strapi application. This uses the internal history
+ * @description The universal back button for the Leao application. This uses the internal history
  * context to navigate the user back to the previous location. It can be completely disabled in a
  * specific user case.
  */

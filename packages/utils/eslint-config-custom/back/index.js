@@ -1,10 +1,10 @@
 module.exports = {
-  extends: '@strapi/eslint-config/back/javascript',
+  extends: '@leao/eslint-config/back/javascript',
   parserOptions: {
     ecmaVersion: 2021,
   },
   globals: {
-    strapi: false,
+    leao: false,
   },
   rules: {
     'prettier/prettier': 'off',

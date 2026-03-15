@@ -1,10 +1,10 @@
 import { objectType } from 'nexus';
 import { prop } from 'lodash/fp';
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 import type { Context } from '../types';
 
-export default ({ strapi }: Context) => {
-  const { naming } = strapi.plugin('graphql').service('utils');
+export default ({ leao }: Context) => {
+  const { naming } = leao.plugin('graphql').service('utils');
 
   return {
     /**

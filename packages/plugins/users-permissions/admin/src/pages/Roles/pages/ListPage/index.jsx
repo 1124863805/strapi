@@ -13,8 +13,8 @@ import {
   useFilter,
   LinkButton,
   Dialog,
-} from '@strapi/design-system';
-import { Plus } from '@strapi/icons';
+} from '@leao/design-system';
+import { Plus } from '@leao/icons';
 import {
   ConfirmDialog,
   useTracking,
@@ -25,7 +25,7 @@ import {
   useFetchClient,
   useRBAC,
   Layouts,
-} from '@strapi/strapi/admin';
+} from '@leao/leao/admin';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery } from 'react-query';
 import { NavLink } from 'react-router-dom';

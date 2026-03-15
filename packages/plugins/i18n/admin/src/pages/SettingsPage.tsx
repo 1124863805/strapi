@@ -6,9 +6,9 @@ import {
   useNotification,
   useRBAC,
   Layouts,
-} from '@strapi/admin/strapi-admin';
-import { EmptyStateLayout } from '@strapi/design-system';
-import { EmptyDocuments } from '@strapi/icons/symbols';
+} from '@leao/admin/leao-admin';
+import { EmptyStateLayout } from '@leao/design-system';
+import { EmptyDocuments } from '@leao/icons/symbols';
 import { useIntl } from 'react-intl';
 
 import { CreateLocale } from '../components/CreateLocale';

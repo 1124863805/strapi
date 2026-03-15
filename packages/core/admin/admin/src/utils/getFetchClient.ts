@@ -82,10 +82,10 @@ type FetchClient = {
  * @param {FetchConfig} [defaultOptions={}] - Fetch Configs.
  * @returns {FetchClient} A fetch client object with methods for making HTTP requests.
  * @description This is an abstraction around the native fetch exposed by a function. It provides a simple interface to handle API calls
- * to the Strapi backend.
+ * to the Leao backend.
  * @example
  * ```tsx
- * import { getFetchClient } from '@strapi/admin/admin';
+ * import { getFetchClient } from '@leao/admin/admin';
  *
  * const myFunct = () => {
  *   const { get } = getFetchClient();
@@ -98,7 +98,7 @@ type FetchClient = {
  * ```
  */
 const getFetchClient = (defaultOptions: FetchConfig = {}): FetchClient => {
-  const backendURL = window.strapi.backendURL;
+  const backendURL = window.leao.backendURL;
   const defaultHeader = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -176,7 +176,7 @@ const getFetchClient = (defaultOptions: FetchConfig = {}): FetchClient => {
       /**
        * this applies all our transformations to the URL
        * - normalizing (making sure it has the correct slash)
-       * - appending our BaseURL which comes from the window.strapi object
+       * - appending our BaseURL which comes from the window.leao object
        * - serializing our params with QS
        */
       const createRequestUrl = makeCreateRequestUrl(options);

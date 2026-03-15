@@ -2,7 +2,7 @@ import type { Intersect } from '../../../utils';
 import type { Attribute } from '../..';
 
 /**
- * Represents a password Strapi attribute along with its options
+ * Represents a password Leao attribute along with its options
  */
 export type Password = Intersect<
   [

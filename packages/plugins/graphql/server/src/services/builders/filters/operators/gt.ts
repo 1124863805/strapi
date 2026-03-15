@@ -5,7 +5,7 @@ const GT_FIELD_NAME = 'gt';
 export default () => ({
   fieldName: GT_FIELD_NAME,
 
-  strapiOperator: '$gt',
+  leaoOperator: '$gt',
 
   add(t: Nexus.blocks.ObjectDefinitionBlock<string>, type: string) {
     t.field(GT_FIELD_NAME, { type });

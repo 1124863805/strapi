@@ -4,12 +4,12 @@ import {
   Page,
   useGuidedTour,
   useTracking,
-  useStrapiApp,
+  useLeaoApp,
   useNotification,
   useAppInfo,
   useFetchClient,
   useAuth,
-} from '@strapi/admin/strapi-admin';
+} from '@leao/admin/leao-admin';
 import get from 'lodash/get';
 import groupBy from 'lodash/groupBy';
 import set from 'lodash/set';
@@ -57,7 +57,7 @@ import { serverRestartWatcher } from './utils/serverRestartWatcher';
 import { validateSchema } from './utils/validateSchema';
 
 import type { ContentType, SchemaType, Components } from '../../types';
-import type { Internal } from '@strapi/types';
+import type { Internal } from '@leao/types';
 
 interface DataManagerProviderProps {
   children: ReactNode;
@@ -85,7 +85,7 @@ const DataManagerProvider = ({ children }: DataManagerProviderProps) => {
   const { lockAppWithAutoreload, unlockAppWithAutoreload } = useAutoReloadOverlayBlocker();
   const { setCurrentStep, setStepState } = useGuidedTour('DataManagerProvider', (state) => state);
 
-  const getPlugin = useStrapiApp('DataManagerProvider', (state) => state.getPlugin);
+  const getPlugin = useLeaoApp('DataManagerProvider', (state) => state.getPlugin);
 
   const plugin = getPlugin(pluginId);
   const autoReload = useAppInfo('DataManagerProvider', (state) => state.autoReload);

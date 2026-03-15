@@ -99,7 +99,7 @@ type DeprecatedSharedPopulateClauseForPolymorphicLinks = {
   /**
    * Enables the population of all first-level links using a wildcard.
    *
-   * @deprecated The support is going to be dropped in Strapi v6
+   * @deprecated The support is going to be dropped in Leao v6
    */
   populate?: WildcardNotation;
 };

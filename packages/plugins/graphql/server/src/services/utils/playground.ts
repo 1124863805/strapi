@@ -5,7 +5,7 @@ export default (ctx: Context) => {
     isEnabled() {
       return !(
         process.env.NODE_ENV === 'production' &&
-        !ctx.strapi.plugin('graphql').config('playgroundAlways')
+        !ctx.leao.plugin('graphql').config('playgroundAlways')
       );
     },
   };

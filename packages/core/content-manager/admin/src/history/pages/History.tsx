@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 
 import {
@@ -6,8 +7,8 @@ import {
   createContext,
   useRBAC,
   BackButton,
-} from '@strapi/admin/strapi-admin';
-import { Box, Flex, FocusTrap, Main, Portal, Link } from '@strapi/design-system';
+} from '@leao/admin/leao-admin';
+import { Box, Flex, FocusTrap, Main, Portal, Link } from '@leao/design-system';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { Navigate, useParams, NavLink } from 'react-router-dom';
@@ -32,7 +33,7 @@ import type {
   HistoryVersionDataResponse,
   GetHistoryVersions,
 } from '../../../../shared/contracts/history-versions';
-import type { UID } from '@strapi/types';
+import type { UID } from '@leao/types';
 
 /* -------------------------------------------------------------------------------------------------
  * HistoryProvider

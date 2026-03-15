@@ -3,11 +3,11 @@
 const userUID = 'plugin::users-permissions.user';
 const roleUID = 'plugin::users-permissions.role';
 
-module.exports = ({ strapi }) => {
-  const { naming } = strapi.plugin('graphql').service('utils');
+module.exports = ({ leao }) => {
+  const { naming } = leao.plugin('graphql').service('utils');
 
-  const user = strapi.getModel(userUID);
-  const role = strapi.getModel(roleUID);
+  const user = leao.getModel(userUID);
+  const role = leao.getModel(roleUID);
 
   const createRole = naming.getCreateMutationTypeName(role);
   const updateRole = naming.getUpdateMutationTypeName(role);

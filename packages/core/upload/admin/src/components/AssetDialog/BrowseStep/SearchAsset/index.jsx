@@ -1,8 +1,8 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 
-import { useTracking } from '@strapi/admin/strapi-admin';
-import { IconButton, Searchbar, SearchForm } from '@strapi/design-system';
-import { Search } from '@strapi/icons';
+import { useTracking } from '@leao/admin/leao-admin';
+import { IconButton, Searchbar, SearchForm } from '@leao/design-system';
+import { Search } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

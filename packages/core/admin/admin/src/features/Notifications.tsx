@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Alert, AlertVariant, Flex, useCallbackRef, Link } from '@strapi/design-system';
+import { Alert, AlertVariant, Flex, useCallbackRef, Link } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 
 interface NotificationLink {
@@ -215,7 +215,7 @@ const Notification = ({
  *
  * @example
  * ```tsx
- * import { useNotification } from '@strapi/strapi/admin';
+ * import { useNotification } from '@leao/leao/admin';
  *
  * const MyComponent = () => {
  *  const { toggleNotification } = useNotification();

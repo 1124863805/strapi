@@ -1,12 +1,12 @@
 import { join, extname, basename } from 'path';
 import fse from 'fs-extra';
-import { importDefault } from '@strapi/utils';
+import { importDefault } from '@leao/utils';
 
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 // TODO:: allow folders with index.js inside for bigger policies
-export default async function loadPolicies(strapi: Core.Strapi) {
-  const dir = strapi.dirs.dist.policies;
+export default async function loadPolicies(leao: Core.Leao) {
+  const dir = leao.dirs.dist.policies;
 
   if (!(await fse.pathExists(dir))) {
     return;
@@ -25,5 +25,5 @@ export default async function loadPolicies(strapi: Core.Strapi) {
     }
   }
 
-  strapi.get('policies').add(`global::`, policies);
+  leao.get('policies').add(`global::`, policies);
 }

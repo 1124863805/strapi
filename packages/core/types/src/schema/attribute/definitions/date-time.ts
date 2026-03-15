@@ -2,7 +2,7 @@ import type { Intersect } from '../../../utils';
 import type { Attribute } from '../..';
 
 /**
- * Represents a date-time Strapi attribute along with its options
+ * Represents a date-time Leao attribute along with its options
  */
 export type DateTime = Intersect<
   [

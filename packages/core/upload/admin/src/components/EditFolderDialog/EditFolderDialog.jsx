@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useTracking, useNotification } from '@strapi/admin/strapi-admin';
+import { useTracking, useNotification } from '@leao/admin/leao-admin';
 import {
   Button,
   Field,
@@ -10,7 +10,7 @@ import {
   Modal,
   TextInput,
   Typography,
-} from '@strapi/design-system';
+} from '@leao/design-system';
 import { Form, Formik } from 'formik';
 import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';

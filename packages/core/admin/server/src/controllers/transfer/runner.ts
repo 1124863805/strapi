@@ -1,14 +1,14 @@
 import { Context } from 'koa';
 
-import { strapi as dataTransferStrapi } from '@strapi/data-transfer';
-import { errors } from '@strapi/utils';
+import { leao as dataTransferLeao } from '@leao/data-transfer';
+import { errors } from '@leao/utils';
 import dataTransferAuthStrategy from '../../strategies/data-transfer';
 
 const {
   remote: {
     handlers: { createPushController, createPullController },
   },
-} = dataTransferStrapi;
+} = dataTransferLeao;
 
 const { UnauthorizedError } = errors;
 
@@ -16,7 +16,7 @@ const { UnauthorizedError } = errors;
  * @param ctx the koa context
  * @param scope the scope to verify
  */
-const verify = async (ctx: Context, scope?: dataTransferStrapi.remote.constants.TransferMethod) => {
+const verify = async (ctx: Context, scope?: dataTransferLeao.remote.constants.TransferMethod) => {
   const { auth } = ctx.state;
 
   if (!auth) {

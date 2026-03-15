@@ -1,4 +1,4 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 import type { EmailConfig, SendOptions } from './types';
 
 interface EmailProvider {
@@ -20,7 +20,7 @@ const createProvider = (emailConfig: EmailConfig) => {
 
   let modulePath: string;
   try {
-    modulePath = require.resolve(`@strapi/provider-email-${providerName}`);
+    modulePath = require.resolve(`@leao/provider-email-${providerName}`);
   } catch (error) {
     if (
       error !== null &&
@@ -43,9 +43,9 @@ const createProvider = (emailConfig: EmailConfig) => {
   return provider.init(emailConfig.providerOptions, emailConfig.settings);
 };
 
-export const bootstrap = async ({ strapi }: { strapi: Core.Strapi }) => {
-  const emailConfig: EmailConfig = strapi.config.get('plugin::email');
-  strapi.plugin('email').provider = createProvider(emailConfig);
+export const bootstrap = async ({ leao }: { leao: Core.Leao }) => {
+  const emailConfig: EmailConfig = leao.config.get('plugin::email');
+  leao.plugin('email').provider = createProvider(emailConfig);
 
   // Add permissions
   const actions = [
@@ -58,5 +58,5 @@ export const bootstrap = async ({ strapi }: { strapi: Core.Strapi }) => {
     },
   ];
 
-  await strapi.service('admin::permission').actionProvider.registerMany(actions);
+  await leao.service('admin::permission').actionProvider.registerMany(actions);
 };

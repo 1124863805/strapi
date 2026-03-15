@@ -1,7 +1,7 @@
 import { defaultsDeep, mergeWith } from 'lodash/fp';
 import helmet, { KoaHelmet } from 'koa-helmet';
 
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 export type Config = NonNullable<Parameters<KoaHelmet>[0]>;
 
@@ -38,7 +38,7 @@ const mergeConfig = (existingConfig: Config, newConfig: Config) => {
 };
 
 export const security: Core.MiddlewareFactory<Config> =
-  (config, { strapi }) =>
+  (config, { leao }) =>
   (ctx, next) => {
     let helmetConfig: Config = defaultsDeep(defaults, config);
 
@@ -57,8 +57,8 @@ export const security: Core.MiddlewareFactory<Config> =
     };
 
     // if apollo graphql playground is enabled, add exceptions for it
-    if (strapi.plugin('graphql')?.service('utils').playground.isEnabled()) {
-      const { config: gqlConfig } = strapi.plugin('graphql');
+    if (leao.plugin('graphql')?.service('utils').playground.isEnabled()) {
+      const { config: gqlConfig } = leao.plugin('graphql');
       specialPaths.push(gqlConfig('endpoint'));
 
       directives['script-src'].push(`https: 'unsafe-inline'`);
@@ -91,7 +91,7 @@ export const security: Core.MiddlewareFactory<Config> =
     if (
       ['development', 'test'].includes(process.env.NODE_ENV ?? '') &&
       ctx.method === 'GET' &&
-      ctx.path.startsWith(strapi.config.get('admin.path'))
+      ctx.path.startsWith(leao.config.get('admin.path'))
     ) {
       helmetConfig = mergeConfig(helmetConfig, {
         contentSecurityPolicy: {

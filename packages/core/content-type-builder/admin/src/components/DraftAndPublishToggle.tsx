@@ -6,8 +6,8 @@
 
 import { useState } from 'react';
 
-import { ConfirmDialog } from '@strapi/admin/strapi-admin';
-import { Button, Checkbox, CheckboxProps, Dialog, Field } from '@strapi/design-system';
+import { ConfirmDialog } from '@leao/admin/leao-admin';
+import { Button, Checkbox, CheckboxProps, Dialog, Field } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 
 import { getTrad } from '../utils';

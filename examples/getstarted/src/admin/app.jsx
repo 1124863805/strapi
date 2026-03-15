@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@strapi/design-system';
+import { Button } from '@leao/design-system';
 
 const config = {
   locales: ['it', 'es', 'en', 'en-GB'],

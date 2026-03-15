@@ -1,5 +1,5 @@
-import { contentTypes as contentTypeUtils } from '@strapi/utils';
-import type { Core, Struct } from '@strapi/types';
+import { contentTypes as contentTypeUtils } from '@leao/utils';
+import type { Core, Struct } from '@leao/types';
 
 import { createSingleTypeService } from './single-type';
 import { createCollectionTypeService } from './collection-type';

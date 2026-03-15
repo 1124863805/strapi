@@ -7,7 +7,7 @@ import {
   type TrackingEvent,
   useAPIErrorHandler,
   useGuidedTour,
-} from '@strapi/admin/strapi-admin';
+} from '@leao/admin/leao-admin';
 import { useIntl, type MessageDescriptor } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
 
@@ -169,12 +169,12 @@ type IUseDocumentActs = ReturnType<UseDocumentActions>;
  * @alpha
  * @public
  * @description Contains all the operations that can be performed on a single document.
- * Designed to be able to be used anywhere within a Strapi app. The hooks will handle
+ * Designed to be able to be used anywhere within a Leao app. The hooks will handle
  * notifications should the operation fail, however the response is always returned incase
  * the user needs to handle side-effects.
  * @example
  * ```tsx
- * import { Form } from '@strapi/admin/admin';
+ * import { Form } from '@leao/admin/admin';
  *
  * const { id, model, collectionType } = useParams<{ id: string; model: string; collectionType: string }>();
  * const { update } = useDocumentActions();

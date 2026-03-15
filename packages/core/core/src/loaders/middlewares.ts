@@ -1,19 +1,19 @@
 import { join, extname, basename } from 'path';
 import fse from 'fs-extra';
-import { importDefault } from '@strapi/utils';
-import type { Core } from '@strapi/types';
+import { importDefault } from '@leao/utils';
+import type { Core } from '@leao/types';
 import { middlewares as internalMiddlewares } from '../middlewares';
 
 // TODO:: allow folders with index.js inside for bigger policies
-export default async function loadMiddlewares(strapi: Core.Strapi) {
-  const localMiddlewares = await loadLocalMiddlewares(strapi);
+export default async function loadMiddlewares(leao: Core.Leao) {
+  const localMiddlewares = await loadLocalMiddlewares(leao);
 
-  strapi.get('middlewares').add(`global::`, localMiddlewares);
-  strapi.get('middlewares').add(`strapi::`, internalMiddlewares);
+  leao.get('middlewares').add(`global::`, localMiddlewares);
+  leao.get('middlewares').add(`leao::`, internalMiddlewares);
 }
 
-const loadLocalMiddlewares = async (strapi: Core.Strapi) => {
-  const dir = strapi.dirs.dist.middlewares;
+const loadLocalMiddlewares = async (leao: Core.Leao) => {
+  const dir = leao.dirs.dist.middlewares;
 
   if (!(await fse.pathExists(dir))) {
     return {};

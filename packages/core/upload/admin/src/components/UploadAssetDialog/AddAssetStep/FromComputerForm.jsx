@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useRef, useState } from 'react';
 
-import { useTracking } from '@strapi/admin/strapi-admin';
-import { Box, Button, Flex, Modal, Typography } from '@strapi/design-system';
-import { PlusCircle as PicturePlus } from '@strapi/icons';
+import { useTracking } from '@leao/admin/leao-admin';
+import { Box, Button, Flex, Modal, Typography } from '@leao/design-system';
+import { PlusCircle as PicturePlus } from '@leao/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

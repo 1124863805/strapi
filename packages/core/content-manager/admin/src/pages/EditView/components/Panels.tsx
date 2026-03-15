@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import {
   useQueryParams,
-  useStrapiApp,
+  useLeaoApp,
   DescriptionComponentRenderer,
-} from '@strapi/admin/strapi-admin';
-import { Flex, Typography } from '@strapi/design-system';
+} from '@leao/admin/leao-admin';
+import { Flex, Typography } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 import { useMatch } from 'react-router-dom';
 
@@ -41,7 +41,7 @@ const Panels = () => {
     status: 'draft',
   });
   const { model, id, document, meta, collectionType } = useDoc();
-  const plugins = useStrapiApp('Panels', (state) => state.plugins);
+  const plugins = useLeaoApp('Panels', (state) => state.plugins);
 
   const props = {
     activeTab: status,
@@ -61,8 +61,8 @@ const Panels = () => {
         ).getEditViewSidePanels()}
       >
         {(panels) =>
-          panels.map(({ content, id, ...description }) => (
-            <Panel key={id} {...description}>
+          panels.map(({ content, id, title, ...description }) => (
+            <Panel key={id} title={title ?? String(id)} {...description}>
               {content}
             </Panel>
           ))
@@ -98,7 +98,7 @@ const ActionsPanelContent = () => {
     },
   ] = useQueryParams<{ status: 'draft' | 'published' }>();
   const { model, id, document, meta, collectionType } = useDoc();
-  const plugins = useStrapiApp('ActionsPanel', (state) => state.plugins);
+  const plugins = useLeaoApp('ActionsPanel', (state) => state.plugins);
 
   const props = {
     activeTab: status,
@@ -128,7 +128,8 @@ const ActionsPanelContent = () => {
  * Panel
  * -----------------------------------------------------------------------------------------------*/
 
-interface PanelProps extends Pick<PanelDescription, 'title'> {
+interface PanelProps {
+  title?: string;
   children: React.ReactNode;
 }
 
@@ -151,9 +152,11 @@ const Panel = React.forwardRef<any, PanelProps>(({ children, title }, ref) => {
       justifyContent="stretch"
       alignItems="flex-start"
     >
-      <Typography tag="h2" variant="sigma" textTransform="uppercase" textColor="neutral600">
-        {title}
-      </Typography>
+      {title && (
+        <Typography tag="h2" variant="sigma" textTransform="uppercase" textColor="neutral600">
+          {title}
+        </Typography>
+      )}
       {children}
     </Flex>
   );

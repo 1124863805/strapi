@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, useNotifyAT, Grid, Typography } from '@strapi/design-system';
-import { Check } from '@strapi/icons';
+import { Box, Button, Flex, useNotifyAT, Grid, Typography } from '@leao/design-system';
+import { Check } from '@leao/icons';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 import * as yup from 'yup';
@@ -85,7 +85,7 @@ const ProfilePage = () => {
     data: dataSSO,
     error,
   } = useIsSSOLockedQuery(undefined, {
-    skip: !(window.strapi.isEE && window.strapi.features.isEnabled('sso')),
+    skip: !(window.leao.isEE && window.leao.features.isEnabled('sso')),
   });
 
   React.useEffect(() => {

@@ -1,4 +1,4 @@
-import { StrapiAppPlugin } from './StrapiApp';
+import { LeaoAppPlugin } from './LeaoApp';
 
 /**
  * DO NOT REMOVE. This export is what's used to render the admin panel at all.
@@ -28,7 +28,7 @@ export { useGuidedTour } from './components/GuidedTour/Provider';
  * Features
  */
 export { useTracking, type TrackingEvent } from './features/Tracking';
-export { useStrapiApp, type StrapiAppContextValue } from './features/StrapiApp';
+export { useLeaoApp, type LeaoAppContextValue } from './features/LeaoApp';
 export {
   useNotification,
   type NotificationsContextValue,
@@ -53,10 +53,10 @@ export { useAdminUsers } from './services/users';
 /**
  * Types
  */
-export type { StrapiApp, InjectionZoneComponent } from './StrapiApp';
+export type { LeaoApp, InjectionZoneComponent } from './LeaoApp';
 export type { Store } from './core/store/configure';
 export type { Plugin, PluginConfig } from './core/apis/Plugin';
-export type { MenuItem, StrapiAppSetting, StrapiAppSettingLink } from './core/apis/router';
+export type { MenuItem, LeaoAppSetting, LeaoAppSettingLink } from './core/apis/router';
 export type {
   SanitizedAdminUser,
   AdminUser,
@@ -81,4 +81,4 @@ export type { CMAdminConfiguration } from './types/adminConfiguration';
 
 export { Layouts, type LayoutProps } from './components/Layouts/Layout';
 
-export type PluginDefinition = StrapiAppPlugin;
+export type PluginDefinition = LeaoAppPlugin;

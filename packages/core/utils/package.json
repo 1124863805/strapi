@@ -1,30 +1,30 @@
 {
-  "name": "@strapi/utils",
+  "name": "@leao/utils",
   "version": "5.0.6",
-  "description": "Shared utilities for the Strapi packages",
+  "description": "Shared utilities for the Leao packages",
   "keywords": [
-    "strapi",
+    "leao",
     "utils"
   ],
-  "homepage": "https://strapi.io",
+  "homepage": "https://leao.io",
   "bugs": {
-    "url": "https://github.com/strapi/strapi/issues"
+    "url": "https://github.com/leao/leao/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/strapi/strapi.git"
+    "url": "git://github.com/leao/leao.git"
   },
   "license": "UNLICENSED",
   "author": {
-    "name": "Strapi Solutions SAS",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "main": "./dist/index.js",
@@ -53,7 +53,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@strapi/pack-up": "5.0.0",
+    "@leao/pack-up": "workspace:*",
     "@types/http-errors": "2.0.4",
     "@types/koa": "2.13.4",
     "@types/node": "18.19.24",

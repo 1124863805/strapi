@@ -13,7 +13,7 @@ export interface ComponentProperties<
 }
 
 /**
- * Represents a component Strapi attribute along with its options
+ * Represents a component Leao attribute along with its options
  */
 export type Component<
   TComponentUID extends UID.Component = UID.Component,

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useQueryParams } from '@strapi/admin/strapi-admin';
+import { useQueryParams } from '@leao/admin/leao-admin';
 import {
   useCollator,
   useFilter,
@@ -9,7 +9,7 @@ import {
   SubNavLink,
   SubNavSection,
   SubNavSections,
-} from '@strapi/design-system';
+} from '@leao/design-system';
 import { parse, stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';

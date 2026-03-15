@@ -1,34 +1,34 @@
 {
-  "name": "@strapi/plugin-documentation",
+  "name": "@leao/plugin-documentation",
   "version": "5.0.6",
   "description": "Create an OpenAPI Document and visualize your API with SWAGGER UI.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/strapi/strapi.git",
+    "url": "https://github.com/leao/leao.git",
     "directory": "packages/plugins/documentation"
   },
   "license": "UNLICENSED",
   "author": {
-    "name": "Strapi Solutions SAS",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+    "name": "Leao Solutions SAS",
+    "email": "hi@leao.io",
+    "url": "https://leao.io"
   },
   "maintainers": [
     {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
+      "name": "Leao Solutions SAS",
+      "email": "hi@leao.io",
+      "url": "https://leao.io"
     }
   ],
   "exports": {
-    "./strapi-admin": {
+    "./leao-admin": {
       "types": "./dist/admin/src/index.d.ts",
       "source": "./admin/src/index.ts",
       "import": "./dist/admin/index.mjs",
       "require": "./dist/admin/index.js",
       "default": "./dist/admin/index.js"
     },
-    "./strapi-server": {
+    "./leao-server": {
       "types": "./dist/server/src/index.d.ts",
       "source": "./server/src/index.ts",
       "import": "./dist/server/index.mjs",
@@ -39,20 +39,20 @@
   },
   "files": [
     "dist/",
-    "strapi-server.js"
+    "leao-server.js"
   ],
   "scripts": {
-    "build": "strapi-plugin build",
+    "build": "leao-plugin build",
     "clean": "run -T rimraf ./dist",
     "lint": "run -T eslint .",
-    "watch": "strapi-plugin watch"
+    "watch": "leao-plugin watch"
   },
   "dependencies": {
+    "@leao/admin": "workspace:*",
+    "@leao/design-system": "workspace:*",
+    "@leao/icons": "workspace:*",
+    "@leao/utils": "workspace:*",
     "@reduxjs/toolkit": "1.9.7",
-    "@strapi/admin": "workspace:*",
-    "@strapi/design-system": "2.0.0-rc.11",
-    "@strapi/icons": "2.0.0-rc.11",
-    "@strapi/utils": "workspace:*",
     "bcryptjs": "2.4.3",
     "cheerio": "^1.0.0-rc.12",
     "formik": "2.4.5",
@@ -68,10 +68,10 @@
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "^10.1.0",
-    "@strapi/pack-up": "5.0.0",
-    "@strapi/sdk-plugin": "^5.0.0",
-    "@strapi/strapi": "workspace:*",
-    "@strapi/types": "workspace:*",
+    "@leao/leao": "workspace:*",
+    "@leao/pack-up": "workspace:*",
+    "@leao/sdk-plugin": "workspace:*",
+    "@leao/types": "workspace:*",
     "@types/fs-extra": "11.0.4",
     "@types/koa": "2.13.4",
     "@types/koa-session": "6.4.1",
@@ -86,7 +86,7 @@
     "styled-components": "6.1.8"
   },
   "peerDependencies": {
-    "@strapi/strapi": "^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc",
+    "@leao/leao": "^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -96,7 +96,7 @@
     "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
-  "strapi": {
+  "leao": {
     "displayName": "Documentation",
     "name": "documentation",
     "description": "Create an OpenAPI Document and visualize your API with SWAGGER UI.",

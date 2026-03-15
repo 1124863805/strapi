@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
-import { useTracking } from '@strapi/admin/strapi-admin';
-import { Button, Flex, Grid, KeyboardNavigable, Modal, Typography } from '@strapi/design-system';
+import { useTracking } from '@leao/admin/leao-admin';
+import { Button, Flex, Grid, KeyboardNavigable, Modal, Typography } from '@leao/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

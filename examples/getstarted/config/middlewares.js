@@ -3,24 +3,24 @@
 const responseHandlers = require('./src/response-handlers');
 
 module.exports = [
-  'strapi::logger',
-  'strapi::errors',
-  'strapi::security',
-  'strapi::cors',
-  'strapi::poweredBy',
-  'strapi::query',
-  'strapi::body',
-  'strapi::session',
-  // 'strapi::compression',
-  // 'strapi::ip',
+  'leao::logger',
+  'leao::errors',
+  'leao::security',
+  'leao::cors',
+  'leao::poweredBy',
+  'leao::query',
+  'leao::body',
+  'leao::session',
+  // 'leao::compression',
+  // 'leao::ip',
   {
-    name: 'strapi::responses',
+    name: 'leao::responses',
     config: {
       handlers: responseHandlers,
     },
   },
-  'strapi::favicon',
-  'strapi::public',
+  'leao::favicon',
+  'leao::public',
   {
     name: 'global::test-middleware',
     config: {

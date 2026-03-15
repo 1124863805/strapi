@@ -1,4 +1,4 @@
-import type { Logger } from '@strapi/logger';
+import type { Logger } from '@leao/logger';
 
 import { getDefaultEEInfo } from './features';
 
@@ -19,8 +19,8 @@ const ee: EE = {
 const enable = () => {
   const shouldEmitEvent = ee.enabled !== true;
   ee.enabled = true;
-  if (shouldEmitEvent && (global as any).strapi?.eventHub) {
-    (global as any).strapi.eventHub.emit('ee.enable');
+  if (shouldEmitEvent && (global as any).leao?.eventHub) {
+    (global as any).leao.eventHub.emit('ee.enable');
   }
 };
 
@@ -31,7 +31,7 @@ const init = (_dir: string, logger?: Logger) => {
   initialized = true;
   ee.logger = logger;
 
-  if (process.env.STRAPI_DISABLE_EE?.toLowerCase() === 'true') return;
+  if (process.env.LEAO_DISABLE_EE?.toLowerCase() === 'true') return;
 
   ee.info = getDefaultEEInfo();
   enable();

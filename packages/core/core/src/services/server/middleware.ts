@@ -1,16 +1,16 @@
 import path from 'path';
 import { isArray } from 'lodash/fp';
-import { importDefault } from '@strapi/utils';
-import type { Core } from '@strapi/types';
+import { importDefault } from '@leao/utils';
+import type { Core } from '@leao/types';
 
 const instantiateMiddleware = (
   middlewareFactory: Core.MiddlewareFactory,
   name: string,
   config: unknown,
-  strapi: Core.Strapi
+  leao: Core.Leao
 ) => {
   try {
-    return middlewareFactory(config, { strapi });
+    return middlewareFactory(config, { leao });
   } catch (e) {
     if (e instanceof Error) {
       throw new Error(`Middleware "${name}": ${e.message}`);
@@ -18,14 +18,14 @@ const instantiateMiddleware = (
   }
 };
 
-const resolveRouteMiddlewares = (route: Core.Route, strapi: Core.Strapi) => {
+const resolveRouteMiddlewares = (route: Core.Route, leao: Core.Leao) => {
   const middlewaresConfig = route?.config?.middlewares ?? [];
 
   if (!isArray(middlewaresConfig)) {
     throw new Error('Route middlewares config must be an array');
   }
 
-  const middlewares = resolveMiddlewares(middlewaresConfig, strapi);
+  const middlewares = resolveMiddlewares(middlewaresConfig, leao);
 
   return middlewares.map(({ handler }) => handler);
 };
@@ -37,7 +37,7 @@ const dummyMiddleware: Core.MiddlewareHandler = (_, next) => next();
  */
 const resolveMiddlewares = (
   config: Array<Core.MiddlewareName | Core.MiddlewareConfig | Core.MiddlewareHandler>,
-  strapi: Core.Strapi
+  leao: Core.Leao
 ) => {
   const middlewares: {
     name: string | null;
@@ -55,7 +55,7 @@ const resolveMiddlewares = (
     }
 
     if (typeof item === 'string') {
-      const middlewareFactory = strapi.middleware(item);
+      const middlewareFactory = leao.middleware(item);
 
       if (!middlewareFactory) {
         throw new Error(`Middleware ${item} not found.`);
@@ -63,7 +63,7 @@ const resolveMiddlewares = (
 
       middlewares.push({
         name: item,
-        handler: instantiateMiddleware(middlewareFactory, item, {}, strapi) ?? dummyMiddleware,
+        handler: instantiateMiddleware(middlewareFactory, item, {}, leao) ?? dummyMiddleware,
       });
 
       continue;
@@ -73,22 +73,22 @@ const resolveMiddlewares = (
       const { name, resolve, config = {} } = item;
 
       if (name) {
-        const middlewareFactory = strapi.middleware(name);
+        const middlewareFactory = leao.middleware(name);
         middlewares.push({
           name,
           handler:
-            instantiateMiddleware(middlewareFactory, name, config, strapi) ?? dummyMiddleware,
+            instantiateMiddleware(middlewareFactory, name, config, leao) ?? dummyMiddleware,
         });
 
         continue;
       }
 
       if (resolve) {
-        const resolvedMiddlewareFactory = resolveCustomMiddleware(resolve, strapi);
+        const resolvedMiddlewareFactory = resolveCustomMiddleware(resolve, leao);
         middlewares.push({
           name: resolve,
           handler:
-            instantiateMiddleware(resolvedMiddlewareFactory, resolve, config, strapi) ??
+            instantiateMiddleware(resolvedMiddlewareFactory, resolve, config, leao) ??
             dummyMiddleware,
         });
 
@@ -109,14 +109,14 @@ const resolveMiddlewares = (
 /**
  * Resolve middleware from package name or path
  */
-const resolveCustomMiddleware = (resolve: string, strapi: Core.Strapi) => {
+const resolveCustomMiddleware = (resolve: string, leao: Core.Leao) => {
   let modulePath;
 
   try {
     modulePath = require.resolve(resolve);
   } catch (error) {
     if (error instanceof Error && 'code' in error && error.code === 'MODULE_NOT_FOUND') {
-      modulePath = path.resolve(strapi.dirs.dist.root, resolve);
+      modulePath = path.resolve(leao.dirs.dist.root, resolve);
     } else {
       throw error;
     }

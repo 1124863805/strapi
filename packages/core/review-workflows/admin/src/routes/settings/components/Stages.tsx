@@ -8,7 +8,7 @@ import {
   useNotification,
   InputRenderer as AdminInputRenderer,
   InputProps,
-} from '@strapi/admin/strapi-admin';
+} from '@leao/admin/leao-admin';
 import {
   Box,
   Flex,
@@ -27,8 +27,8 @@ import {
   MenuItem,
   Field,
   Dialog,
-} from '@strapi/design-system';
-import { Duplicate, Drag, More, EyeStriked } from '@strapi/icons';
+} from '@leao/design-system';
+import { Duplicate, Drag, More, EyeStriked } from '@leao/icons';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
@@ -513,7 +513,7 @@ const PermissionsField = ({ disabled, name, placeholder, required }: Permissions
 
   // Super admins always have permissions to do everything and therefore
   // there is no point for this role to show up in the role combobox
-  const filteredRoles = roles?.filter((role) => role.code !== 'strapi-super-admin') ?? [];
+  const filteredRoles = roles?.filter((role) => role.code !== 'leao-super-admin') ?? [];
 
   React.useEffect(() => {
     if (

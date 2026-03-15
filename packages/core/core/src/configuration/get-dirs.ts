@@ -1,8 +1,8 @@
 import { join, resolve } from 'path';
 import { get } from 'lodash/fp';
 
-import type { Core } from '@strapi/types';
-import type { StrapiOptions } from '../Strapi';
+import type { Core } from '@leao/types';
+import type { LeaoOptions } from '../Leao';
 
 export type Options = {
   app: string;
@@ -10,9 +10,9 @@ export type Options = {
 };
 
 export const getDirs = (
-  { appDir, distDir }: StrapiOptions,
+  { appDir, distDir }: LeaoOptions,
   config: { server: Partial<Core.Config.Server> }
-): Core.StrapiDirectories => ({
+): Core.LeaoDirectories => ({
   dist: {
     root: distDir,
     src: join(distDir, 'src'),

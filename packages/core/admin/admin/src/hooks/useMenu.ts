@@ -1,17 +1,17 @@
 import * as React from 'react';
 
-import { Cog, House } from '@strapi/icons';
+import { Cog, House } from '@leao/icons';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { useTypedSelector } from '../core/store/hooks';
 import { useAuth, AuthContextValue } from '../features/Auth';
-import { StrapiAppContextValue, useStrapiApp } from '../features/StrapiApp';
+import { LeaoAppContextValue, useLeaoApp } from '../features/LeaoApp';
 
 /* -------------------------------------------------------------------------------------------------
  * useMenu
  * -----------------------------------------------------------------------------------------------*/
 
-export type MenuItem = Omit<StrapiAppContextValue['menu'][number], 'Component'>;
+export type MenuItem = Omit<LeaoAppContextValue['menu'][number], 'Component'>;
 
 export interface Menu {
   generalSectionLinks: MenuItem[];
@@ -19,9 +19,9 @@ export interface Menu {
   isLoading: boolean;
 }
 
-const useMenu = (shouldUpdateStrapi: boolean) => {
+const useMenu = (shouldUpdateLeao: boolean) => {
   const checkUserHasPermissions = useAuth('useMenu', (state) => state.checkUserHasPermissions);
-  const menu = useStrapiApp('useMenu', (state) => state.menu);
+  const menu = useLeaoApp('useMenu', (state) => state.menu);
   const permissions = useTypedSelector((state) => state.admin_app.permissions);
   const [menuWithUserPermissions, setMenuWithUserPermissions] = React.useState<Menu>({
     generalSectionLinks: [
@@ -63,7 +63,7 @@ const useMenu = (shouldUpdateStrapi: boolean) => {
 
       const authorizedGeneralSectionLinks = await getGeneralLinks(
         generalSectionLinksRef.current,
-        shouldUpdateStrapi,
+        shouldUpdateLeao,
         checkUserHasPermissions
       );
 
@@ -81,7 +81,7 @@ const useMenu = (shouldUpdateStrapi: boolean) => {
     generalSectionLinksRef,
     menu,
     permissions,
-    shouldUpdateStrapi,
+    shouldUpdateLeao,
     checkUserHasPermissions,
   ]);
 
@@ -94,7 +94,7 @@ const useMenu = (shouldUpdateStrapi: boolean) => {
 
 const getGeneralLinks = async (
   generalSectionRawLinks: MenuItem[],
-  shouldUpdateStrapi: boolean = false,
+  shouldUpdateLeao: boolean = false,
   checkUserHasPermissions: AuthContextValue['checkUserHasPermissions']
 ) => {
   const generalSectionLinksPermissions = await Promise.all(
@@ -115,7 +115,7 @@ const getGeneralLinks = async (
 
   const authorizedGeneralLinksClone = cloneDeep(authorizedGeneralSectionLinks);
 
-  authorizedGeneralLinksClone[settingsLinkIndex].notificationsCount = shouldUpdateStrapi ? 1 : 0;
+  authorizedGeneralLinksClone[settingsLinkIndex].notificationsCount = shouldUpdateLeao ? 1 : 0;
 
   return authorizedGeneralLinksClone;
 };

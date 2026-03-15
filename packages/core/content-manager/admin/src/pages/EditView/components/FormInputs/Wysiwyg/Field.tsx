@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { useField, useStrapiApp, type InputProps } from '@strapi/admin/strapi-admin';
-import { Field, Flex } from '@strapi/design-system';
+import { useField, useLeaoApp, type InputProps } from '@leao/admin/leao-admin';
+import { Field, Flex } from '@leao/design-system';
 import { EditorFromTextArea } from 'codemirror5';
 
 import { prefixFileUrlWithBackendUrl } from '../../../../../utils/urls';
@@ -18,7 +18,7 @@ import {
 import { WysiwygFooter } from './WysiwygFooter';
 import { WysiwygNav } from './WysiwygNav';
 
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 
 interface WysiwygProps extends Omit<InputProps, 'type'> {
   labelAction?: React.ReactNode;
@@ -35,7 +35,7 @@ const Wysiwyg = React.forwardRef<EditorApi, WysiwygProps>(
     const [isPreviewMode, setIsPreviewMode] = React.useState(false);
     const [mediaLibVisible, setMediaLibVisible] = React.useState(false);
     const [isExpandMode, setIsExpandMode] = React.useState(false);
-    const components = useStrapiApp('ImageDialog', (state) => state.components);
+    const components = useLeaoApp('ImageDialog', (state) => state.components);
 
     const MediaLibraryDialog = components['media-library'];
 
@@ -142,7 +142,6 @@ const Wysiwyg = React.forwardRef<EditorApi, WysiwygProps>(
           <Field.Error />
         </Flex>
         {mediaLibVisible && (
-          // @ts-expect-error – TODO: fix this way of injecting because it's not really typeable without a registry.
           <MediaLibraryDialog onClose={handleToggleMediaLib} onSelectAssets={handleSelectAssets} />
         )}
       </Field.Root>

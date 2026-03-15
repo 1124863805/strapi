@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import { useTable, useQueryParams } from '@strapi/admin/strapi-admin';
-import { ListFieldLayout, ListLayout } from '@strapi/content-manager/strapi-admin';
-import { Box, Popover, Typography, Button, Link } from '@strapi/design-system';
-import { CaretDown } from '@strapi/icons';
-import { Modules, UID } from '@strapi/types';
+import { useTable, useQueryParams } from '@leao/admin/leao-admin';
+import { ListFieldLayout, ListLayout } from '@leao/content-manager/leao-admin';
+import { Box, Popover, Typography, Button, Link } from '@leao/design-system';
+import { CaretDown } from '@leao/icons';
+import { Modules, UID } from '@leao/types';
 import { useIntl } from 'react-intl';
 
 import { useGetMappedEntriesInReleasesQuery } from '../services/release';

@@ -8,7 +8,7 @@ const resolveConfigOptions = require('../utils/resolve-config-options');
 
 module.exports = {
   /**
-   * Default TS -> JS Compilation for Strapi
+   * Default TS -> JS Compilation for Leao
    * @param {string} tsConfigPath
    * @param {Object} configOptions
    * @param {Array.<string>} configOptions.fileNames

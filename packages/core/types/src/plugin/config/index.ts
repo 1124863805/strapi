@@ -1,2 +1,2 @@
-export type * from './strapi-admin';
-export type * from './strapi-server';
+export type * from './leao-admin';
+export type * from './leao-server';

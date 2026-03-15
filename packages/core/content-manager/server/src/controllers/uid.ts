@@ -1,4 +1,4 @@
-import type { UID } from '@strapi/types';
+import type { UID } from '@leao/types';
 import { getService } from '../utils';
 import { getDocumentLocaleAndStatus } from './validation/dimensions';
 

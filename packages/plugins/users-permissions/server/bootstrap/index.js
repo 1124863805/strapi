@@ -100,20 +100,20 @@ const initAdvancedOptions = async (pluginStore) => {
   }
 };
 
-module.exports = async ({ strapi }) => {
-  const pluginStore = strapi.store({ type: 'plugin', name: 'users-permissions' });
+module.exports = async ({ leao }) => {
+  const pluginStore = leao.store({ type: 'plugin', name: 'users-permissions' });
 
   await initGrant(pluginStore);
   await initEmails(pluginStore);
   await initAdvancedOptions(pluginStore);
 
-  await strapi
+  await leao
     .service('admin::permission')
     .actionProvider.registerMany(usersPermissionsActions.actions);
 
   await getService('users-permissions').initialize();
 
-  if (!strapi.config.get('plugin::users-permissions.jwtSecret')) {
+  if (!leao.config.get('plugin::users-permissions.jwtSecret')) {
     if (process.env.NODE_ENV !== 'development') {
       throw new Error(
         `Missing jwtSecret. Please, set configuration variable "jwtSecret" for the users-permissions plugin in config/plugins.js (ex: you can generate one using Node with \`crypto.randomBytes(16).toString('base64')\`).
@@ -123,12 +123,12 @@ For security reasons, prefer storing the secret in an environment variable and r
 
     const jwtSecret = crypto.randomBytes(16).toString('base64');
 
-    strapi.config.set('plugin::users-permissions.jwtSecret', jwtSecret);
+    leao.config.set('plugin::users-permissions.jwtSecret', jwtSecret);
 
     if (!process.env.JWT_SECRET) {
       const envPath = process.env.ENV_PATH || '.env';
-      strapi.fs.appendFile(envPath, `JWT_SECRET=${jwtSecret}\n`);
-      strapi.log.info(
+      leao.fs.appendFile(envPath, `JWT_SECRET=${jwtSecret}\n`);
+      leao.log.info(
         `The Users & Permissions plugin automatically generated a jwt secret and stored it in ${envPath} under the name JWT_SECRET.`
       );
     }

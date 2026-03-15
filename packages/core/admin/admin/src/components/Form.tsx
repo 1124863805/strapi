@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button, Dialog, useCallbackRef, useComposedRefs } from '@strapi/design-system';
-import { WarningCircle } from '@strapi/icons';
+import { Button, Dialog, useCallbackRef, useComposedRefs } from '@leao/design-system';
+import { WarningCircle } from '@leao/icons';
 import { generateNKeysBetween } from 'fractional-indexing';
 import { produce } from 'immer';
 import isEqual from 'lodash/isEqual';
@@ -191,7 +191,7 @@ const Form = React.forwardRef<HTMLFormElement, FormProps>(
        * rendered before we try to focus on the first
        */
       const ref = setTimeout(() => {
-        const [firstError] = formRef.current.querySelectorAll('[data-strapi-field-error]');
+        const [firstError] = formRef.current.querySelectorAll('[data-leao-field-error]');
 
         if (firstError) {
           const errorId = firstError.getAttribute('id');

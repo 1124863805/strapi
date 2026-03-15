@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useTracking } from '@strapi/admin/strapi-admin';
+import { useTracking } from '@leao/admin/leao-admin';
 
 import { FormModalNavigationContext } from '../../contexts/FormModalNavigationContext';
 

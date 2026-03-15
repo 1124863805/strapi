@@ -139,7 +139,7 @@ class CustomFields {
       // Ensure the type is valid
       invariant(
         ALLOWED_TYPES.includes(type),
-        `Custom field type: '${type}' is not a valid Strapi type or it can't be used with a Custom Field`
+        `Custom field type: '${type}' is not a valid Leao type or it can't be used with a Custom Field`
       );
 
       // Ensure name has no special characters

@@ -1,4 +1,4 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
 import type { Settings } from '../../../shared/contracts/settings';
 
@@ -6,8 +6,8 @@ const DEFAULT_SETTINGS = {
   defaultTimezone: null,
 } satisfies Settings;
 
-const createSettingsService = ({ strapi }: { strapi: Core.Strapi }) => {
-  const getStore = async () => strapi.store({ type: 'core', name: 'content-releases' });
+const createSettingsService = ({ leao }: { leao: Core.Leao }) => {
+  const getStore = async () => leao.store({ type: 'core', name: 'content-releases' });
 
   return {
     async update({ settings }: { settings: Settings }): Promise<Settings> {

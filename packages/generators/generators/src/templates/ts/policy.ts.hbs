@@ -2,9 +2,9 @@
  * {{ id }} policy
  */
 
-export default (policyContext, config, { strapi }) => {
+export default (policyContext, config, { leao }) => {
     // Add your own logic here.
-    strapi.log.info('In {{ id }} policy.');
+    leao.log.info('In {{ id }} policy.');
 
     const canDoSomething = true;
 

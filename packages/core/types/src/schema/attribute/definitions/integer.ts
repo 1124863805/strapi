@@ -2,7 +2,7 @@ import type { Intersect } from '../../../utils';
 import type { Attribute } from '../..';
 
 /**
- * Represents an integer Strapi attribute along with its options
+ * Represents an integer Leao attribute along with its options
  */
 export type Integer = Intersect<
   [

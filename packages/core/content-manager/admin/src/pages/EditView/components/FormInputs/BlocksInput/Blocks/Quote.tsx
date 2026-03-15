@@ -1,4 +1,4 @@
-import { Quotes } from '@strapi/icons';
+import { Quotes } from '@leao/icons';
 import { styled } from 'styled-components';
 
 import { type BlocksStore } from '../BlocksEditor';

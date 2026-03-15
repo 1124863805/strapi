@@ -358,11 +358,11 @@ export interface UseTrackingReturn {
 }
 
 /**
- * @description Used to send amplitude events to the Strapi Tracking hub.
+ * @description Used to send amplitude events to the Leao Tracking hub.
  *
  * @example
  * ```tsx
- * import { useTracking } from '@strapi/strapi/admin';
+ * import { useTracking } from '@leao/leao/admin';
  *
  * const MyComponent = () => {
  *  const { trackUsage } = useTracking();

@@ -1,7 +1,7 @@
 import { forwardRef, memo } from 'react';
 
 import { getLocalTimeZone, parseAbsolute, toCalendarDate } from '@internationalized/date';
-import { DatePicker, useComposedRefs, Field } from '@strapi/design-system';
+import { DatePicker, useComposedRefs, Field } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 
 import { useFocusInputField } from '../../hooks/useFocusInputField';

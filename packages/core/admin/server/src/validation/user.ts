@@ -1,5 +1,5 @@
 import { isUndefined } from 'lodash/fp';
-import { yup, validateYupSchema } from '@strapi/utils';
+import { yup, validateYupSchema } from '@leao/utils';
 import validators from './common-validators';
 
 const userCreationSchema = yup
@@ -47,7 +47,7 @@ const userUpdateSchema = yup
 const usersDeleteSchema = yup
   .object()
   .shape({
-    ids: yup.array().of(yup.strapiID()).min(1).required(),
+    ids: yup.array().of(yup.leaoID()).min(1).required(),
   })
   .noUnknown();
 

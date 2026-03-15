@@ -1,9 +1,9 @@
-import { queryParams } from '@strapi/utils';
-import type { Core, UID } from '@strapi/types';
+import { queryParams } from '@leao/utils';
+import type { Core, UID } from '@leao/types';
 
-export default (strapi: Core.Strapi) => {
+export default (leao: Core.Leao) => {
   const { transformQueryParams } = queryParams.createTransformer({
-    getModel: (uid: string) => strapi.getModel(uid as UID.Schema),
+    getModel: (uid: string) => leao.getModel(uid as UID.Schema),
   });
 
   return {

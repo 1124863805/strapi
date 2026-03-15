@@ -1,4 +1,4 @@
-import { yup, validateYupSchema } from '@strapi/utils';
+import { yup, validateYupSchema } from '@leao/utils';
 import { schemas } from '../../../../server/src/validation/user';
 
 const ssoUserCreationInputExtension = yup
@@ -11,7 +11,7 @@ const ssoUserCreationInputExtension = yup
 export const validateUserCreationInput = (data: any) => {
   let schema = schemas.userCreationSchema;
 
-  if (strapi.ee.features.isEnabled('sso')) {
+  if (leao.ee.features.isEnabled('sso')) {
     schema = schema.concat(ssoUserCreationInputExtension);
   }
 

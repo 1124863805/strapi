@@ -1,4 +1,4 @@
-import { yup, validateYupSchema } from '@strapi/utils';
+import { yup, validateYupSchema } from '@leao/utils';
 import { isNil } from 'lodash/fp';
 import { getService } from '../../../utils';
 
@@ -7,7 +7,7 @@ const fileInfoSchema = yup.object({
   alternativeText: yup.string().nullable(),
   caption: yup.string().nullable(),
   folder: yup
-    .strapiID()
+    .leaoID()
     .nullable()
     .test('folder-exists', 'the folder does not exist', async (folderId) => {
       if (isNil(folderId)) {

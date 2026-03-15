@@ -1,4 +1,4 @@
-import type { Internal, Schema } from '@strapi/types';
+import type { Internal, Schema } from '@leao/types';
 
 export type IntlLabel = {
   id: string;

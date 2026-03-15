@@ -1,5 +1,5 @@
 export default {
-  collectionName: 'strapi_transfer_tokens',
+  collectionName: 'leao_transfer_tokens',
   info: {
     name: 'Transfer Token',
     singularName: 'transfer-token',

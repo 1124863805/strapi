@@ -1,5 +1,5 @@
-import { Modules, UID } from '@strapi/types';
-import { contentTypes } from '@strapi/utils';
+import { Modules, UID } from '@leao/types';
+import { contentTypes } from '@leao/utils';
 import { RELEASE_MODEL_UID, RELEASE_ACTION_MODEL_UID } from '../constants';
 import { getService, isEntryValid } from '../utils';
 
@@ -15,7 +15,7 @@ const updateActionsStatusAndUpdateReleaseStatus = async (
   contentType: UID.ContentType,
   entry: Modules.Documents.AnyDocument
 ) => {
-  const releases = await strapi.db.query(RELEASE_MODEL_UID).findMany({
+  const releases = await leao.db.query(RELEASE_MODEL_UID).findMany({
     where: {
       actions: {
         contentType,
@@ -25,9 +25,9 @@ const updateActionsStatusAndUpdateReleaseStatus = async (
     },
   });
 
-  const entryStatus = await isEntryValid(contentType, entry, { strapi });
+  const entryStatus = await isEntryValid(contentType, entry, { leao });
 
-  await strapi.db.query(RELEASE_ACTION_MODEL_UID).update({
+  await leao.db.query(RELEASE_ACTION_MODEL_UID).update({
     where: {
       contentType,
       entryDocumentId: entry.documentId,
@@ -39,23 +39,23 @@ const updateActionsStatusAndUpdateReleaseStatus = async (
   });
 
   for (const release of releases) {
-    getService('release', { strapi }).updateReleaseStatus(release.id);
+    getService('release', { leao }).updateReleaseStatus(release.id);
   }
 };
 
 const deleteActionsAndUpdateReleaseStatus = async (params: ReleaseActionsParams) => {
-  const releases = await strapi.db.query(RELEASE_MODEL_UID).findMany({
+  const releases = await leao.db.query(RELEASE_MODEL_UID).findMany({
     where: {
       actions: params,
     },
   });
 
-  await strapi.db.query(RELEASE_ACTION_MODEL_UID).deleteMany({
+  await leao.db.query(RELEASE_ACTION_MODEL_UID).deleteMany({
     where: params,
   });
 
   for (const release of releases) {
-    getService('release', { strapi }).updateReleaseStatus(release.id);
+    getService('release', { leao }).updateReleaseStatus(release.id);
   }
 };
 
@@ -84,7 +84,7 @@ const deleteActionsOnDelete: Middleware = async (ctx, next) => {
       ...(locale !== '*' && { locale }),
     });
   } catch (error) {
-    strapi.log.error('Error while deleting release actions after delete', {
+    leao.log.error('Error while deleting release actions after delete', {
       error,
     });
   }
@@ -112,7 +112,7 @@ const updateActionsOnUpdate: Middleware = async (ctx, next) => {
   try {
     updateActionsStatusAndUpdateReleaseStatus(contentType, result);
   } catch (error) {
-    strapi.log.error('Error while updating release actions after update', {
+    leao.log.error('Error while updating release actions after update', {
       error,
     });
   }

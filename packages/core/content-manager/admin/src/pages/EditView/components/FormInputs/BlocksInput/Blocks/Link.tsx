@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { BaseLink, Button, Field, Flex, Popover, useComposedRefs } from '@strapi/design-system';
+import { BaseLink, Button, Field, Flex, Popover, useComposedRefs } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 import { Editor, Path, Range, Transforms } from 'slate';
 import { type RenderElementProps, ReactEditor } from 'slate-react';

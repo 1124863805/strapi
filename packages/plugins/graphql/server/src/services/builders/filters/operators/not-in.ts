@@ -6,7 +6,7 @@ const NOT_IN_FIELD_NAME = 'notIn';
 export default () => ({
   fieldName: NOT_IN_FIELD_NAME,
 
-  strapiOperator: '$notIn',
+  leaoOperator: '$notIn',
 
   add(t: Nexus.blocks.ObjectDefinitionBlock<string>, type: string) {
     t.field(NOT_IN_FIELD_NAME, { type: list(type) });

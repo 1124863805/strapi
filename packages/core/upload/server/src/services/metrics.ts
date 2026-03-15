@@ -1,14 +1,14 @@
-import type { Core } from '@strapi/types';
+import type { Core } from '@leao/types';
 
-const getProviderName = () => strapi.config.get('plugin::upload.provider', 'local');
-const isProviderPrivate = async () => strapi.plugin('upload').provider.isPrivate();
+const getProviderName = () => leao.config.get('plugin::upload.provider', 'local');
+const isProviderPrivate = async () => leao.plugin('upload').provider.isPrivate();
 
-export default ({ strapi }: { strapi: Core.Strapi }) => ({
+export default ({ leao }: { leao: Core.Leao }) => ({
   async sendUploadPluginMetrics() {
     const uploadProvider = getProviderName();
     const privateProvider = await isProviderPrivate();
 
-    strapi.telemetry.send('didInitializePluginUpload', {
+    leao.telemetry.send('didInitializePluginUpload', {
       groupProperties: {
         uploadProvider,
         privateProvider,

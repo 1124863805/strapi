@@ -1,5 +1,5 @@
 import { pick } from 'lodash/fp';
-import type { UID, Modules } from '@strapi/types';
+import type { UID, Modules } from '@leao/types';
 
 const pickSelectionParams = <TUID extends UID.ContentType>(
   data: unknown

@@ -1,4 +1,4 @@
-import type { UID } from '@strapi/types';
+import type { UID } from '@leao/types';
 import type { ID } from './relations/utils/types';
 
 export type Data = {

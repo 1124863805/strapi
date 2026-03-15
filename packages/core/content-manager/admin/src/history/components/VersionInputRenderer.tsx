@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 import {
-  useStrapiApp,
+  useLeaoApp,
   useForm,
   InputRenderer as FormInputRenderer,
   useField,
   Form,
-} from '@strapi/admin/strapi-admin';
-import { Alert, Box, Field, Flex, Link, Tooltip, Typography } from '@strapi/design-system';
+} from '@leao/admin/leao-admin';
+import { Alert, Box, Field, Flex, Link, Tooltip, Typography } from '@leao/design-system';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
@@ -37,7 +37,7 @@ import { getRemaingFieldsLayout } from './VersionContent';
 import type { EditFieldLayout } from '../../hooks/useDocumentLayout';
 import type { RelationsFieldProps } from '../../pages/EditView/components/FormInputs/Relations';
 import type { RelationResult } from '../../services/relations';
-import type { Schema } from '@strapi/types';
+import type { Schema } from '@leao/types';
 import type { DistributiveOmit } from 'react-redux';
 
 const StyledAlert = styled(Alert).attrs({ closeLabel: 'Close', onClose: () => {}, shadow: 'none' })`
@@ -179,7 +179,7 @@ const CustomMediaInput = (props: VersionInputRendererProps) => {
   const meta = value ? value.meta : { missingCount: 0 };
   const { formatMessage } = useIntl();
 
-  const fields = useStrapiApp('CustomMediaInput', (state) => state.fields);
+  const fields = useLeaoApp('CustomMediaInput', (state) => state.fields);
   const MediaLibrary = fields.media as React.ComponentType<
     VersionInputRendererProps & { multiple: boolean }
   >;
@@ -302,7 +302,7 @@ const VersionInputRenderer = ({
   const canUserReadField = canUserAction(props.name, readableFields, props.type);
   const canUserEditField = canUserAction(props.name, editableFields, props.type);
 
-  const fields = useStrapiApp('InputRenderer', (app) => app.fields);
+  const fields = useLeaoApp('InputRenderer', (app) => app.fields);
   const { lazyComponentStore } = useLazyComponents(
     attributeHasCustomFieldProperty(props.attribute) ? [props.attribute.customField] : undefined
   );
@@ -404,7 +404,6 @@ const VersionInputRenderer = ({
     return (
       <CustomInput
         {...props}
-        // @ts-expect-error – TODO: fix this type error in the useLibrary hook.
         hint={hint}
         labelAction={customLabelAction}
         disabled={fieldIsDisabled}
