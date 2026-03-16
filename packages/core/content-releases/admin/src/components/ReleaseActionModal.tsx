@@ -243,8 +243,7 @@ const ReleaseActionModalForm: DocumentActionComponent = ({
     edit: { options },
   } = useDocumentLayout(model);
 
-  // Project is not EE or contentType does not have draftAndPublish enabled
-  if (!window.leao.isEE || !options?.draftAndPublish || !canCreateAction) {
+  if (!options?.draftAndPublish || !canCreateAction) {
     return null;
   }
 

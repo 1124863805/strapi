@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, Grid, Link, Typography } from '@leao1/design-system';
-import { Check, ExternalLink } from '@leao1/icons';
+import { Box, Button, Flex, Grid, Typography } from '@leao1/design-system';
+import { Check } from '@leao1/icons';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 
@@ -28,7 +28,6 @@ const ApplicationInfoPage = () => {
   const [logos, setLogos] = React.useState({ menu: serverLogos.menu, auth: serverLogos.auth });
   const { settings } = useSelector(selectAdminPermissions);
 
-  const communityEdition = useAppInfo('ApplicationInfoPage', (state) => state.communityEdition);
   const nodeVersion = useAppInfo('ApplicationInfoPage', (state) => state.nodeVersion);
   const leaoVersion = useAppInfo('ApplicationInfoPage', (state) => state.leaoVersion);
 
@@ -151,26 +150,16 @@ const ApplicationInfoPage = () => {
                     <Typography variant="sigma" textColor="neutral600" tag="dt">
                       {formatMessage({
                         id: 'Settings.application.edition-title',
-                        defaultMessage: 'current plan',
+                        defaultMessage: '版本',
                       })}
                     </Typography>
                     <Flex gap={3} direction="column" alignItems="start" tag="dd">
                       <Typography>
-                        {formatMessage(
-                          {
-                            id: 'Settings.application.ee-or-ce',
-                            defaultMessage:
-                              '{communityEdition, select, true {Community Edition} other {Enterprise Edition}}',
-                          },
-                          { communityEdition }
-                        )}
-                      </Typography>
-                      <Link href="#" endIcon={<ExternalLink />}>
                         {formatMessage({
-                          id: 'Settings.application.link-pricing',
-                          defaultMessage: 'See all pricing plans',
+                          id: 'Settings.application.free-edition',
+                          defaultMessage: '免费版',
                         })}
-                      </Link>
+                      </Typography>
                     </Flex>
                   </Grid.Item>
 

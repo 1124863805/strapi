@@ -33,7 +33,7 @@
   "pages.Releases.max-limit-reached.message": "升级以管理无限数量的发布。",
   "pages.Releases.max-limit-reached.action": "了解方案",
   "pages.PurchaseRelease.subTitle": "管理内容更新和发布。",
-  "pages.PurchaseRelease.not-available": "发布功能仅作为付费方案的一部分提供。升级以创建和管理发布。",
+  "pages.PurchaseRelease.not-available": "内容发布",
   "header.actions.add-release": "新建发布",
   "header.actions.refresh": "刷新",
   "header.actions.publish": "发布",

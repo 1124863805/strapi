@@ -6,23 +6,12 @@ import routes from './routes';
 import services from './services';
 import controllers from './controllers';
 
-const getPlugin = () => {
-  if (leao.ee.features.isEnabled('review-workflows')) {
-    return {
-      register,
-      bootstrap,
-      destroy,
-      contentTypes,
-      services,
-      controllers,
-      routes,
-    };
-  }
-
-  return {
-    // Always return contentTypes to avoid losing data when the feature is disabled
-    contentTypes,
-  };
+export default {
+  register,
+  bootstrap,
+  destroy,
+  contentTypes,
+  services,
+  controllers,
+  routes,
 };
-
-export default getPlugin();

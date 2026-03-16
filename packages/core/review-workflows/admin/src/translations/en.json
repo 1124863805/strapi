@@ -4,7 +4,7 @@
   "settings.page.isLoading": "Workflow is loading",
   "settings.page.delete.confirm.body": "All entries assigned to deleted stages will be moved to the previous stage. Are you sure you want to save?",
   "settings.stage.name.label": "Stage name",
-  "settings.not-available": "Review Workflows is only available as part of the Enterprise Edition. Upgrade to create and manage workflows.",
+  "settings.not-available": "Review Workflows",
 
   "Settings.review-workflows.list.page.title": "Review Workflows",
   "Settings.review-workflows.list.page.subtitle": "{count, plural, one {# stage} other {# stages}}",
@@ -17,7 +17,7 @@
   "Settings.review-workflows.list.page.delete.confirm.body": "All entries assigned to deleted stages will be moved to the previous stage. Are you sure you want to save?",
   "Settings.review-workflows.list.page.workflows.limit.title": "Workflow limit reached",
   "Settings.review-workflows.list.page.workflows.limit.body": "You have reached the limit of workflows for your plan.",
-  "Settings.review-workflows.not-available": "Review Workflows is only available as part of the Enterprise Edition. Upgrade to create and manage workflows.",
+  "Settings.review-workflows.not-available": "Review Workflows",
   "Settings.review-workflows.create.page.title": "Create workflow",
   "Settings.review-workflows.workflow.name.label": "Workflow name",
   "Settings.review-workflows.workflow.contentTypes.label": "Content types",

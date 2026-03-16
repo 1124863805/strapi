@@ -30,8 +30,6 @@ const mergeRoutes = (a: any, b: any, key: string) => {
   return _.isArray(a) && _.isArray(b) && key === 'routes' ? a.concat(b) : undefined;
 };
 
-if (leao.EE) {
-  admin = _.mergeWith({}, admin, getEEAdmin(), mergeRoutes);
-}
+admin = _.mergeWith({}, admin, getEEAdmin(), mergeRoutes);
 
 export default admin;

@@ -167,19 +167,6 @@ export const SETTINGS_LINKS_CE = (): SettingsMenu => ({
       to: '/settings/list-plugins',
       id: 'plugins',
     },
-    // If the Enterprise feature is not enabled and if the config doesn't disable it, we promote the Enterprise feature by displaying them in the settings menu.
-    // Disable this by adding "promoteEE: false" to your `./config/admin.js` file
-    ...(!window.leao.features.isEnabled(window.leao.features.SSO) &&
-    window.leao?.flags?.promoteEE
-      ? [
-          {
-            intlLabel: { id: 'Settings.sso.title', defaultMessage: 'Single Sign-On' },
-            to: '/settings/purchase-single-sign-on',
-            id: 'sso-purchase-page',
-            eeOnly: true,
-          },
-        ]
-      : []),
   ],
 
   admin: [
@@ -190,20 +177,8 @@ export const SETTINGS_LINKS_CE = (): SettingsMenu => ({
     },
     {
       intlLabel: { id: 'global.users', defaultMessage: 'Users' },
-      // Init the search params directly
       to: '/settings/users?pageSize=10&page=1&sort=firstname',
       id: 'users',
     },
-    ...(!window.leao.features.isEnabled(window.leao.features.AUDIT_LOGS) &&
-    window.leao?.flags?.promoteEE
-      ? [
-          {
-            intlLabel: { id: 'global.auditLogs', defaultMessage: 'Audit Logs' },
-            to: '/settings/purchase-audit-logs',
-            id: 'auditLogs-purchase-page',
-            eeOnly: true,
-          },
-        ]
-      : []),
   ],
 });

@@ -162,24 +162,4 @@ export const ROUTES_CE: RouteObject[] = [
     path: 'list-plugins',
   },
 
-  {
-    lazy: async () => {
-      const { PurchaseAuditLogs } = await import('./pages/PurchaseAuditLogs');
-
-      return {
-        Component: PurchaseAuditLogs,
-      };
-    },
-    path: 'purchase-audit-logs',
-  },
-  {
-    lazy: async () => {
-      const { PurchaseSingleSignOn } = await import('./pages/PurchaseSingleSignOn');
-
-      return {
-        Component: PurchaseSingleSignOn,
-      };
-    },
-    path: 'purchase-single-sign-on',
-  },
 ];

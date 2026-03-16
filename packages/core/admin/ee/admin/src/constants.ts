@@ -45,47 +45,35 @@ export const ADMIN_PERMISSIONS_EE = {
  * We use a function to get them so we're not looking at window
  * during build time.
  */
-export const getEERoutes = (): RouteObject[] =>
-  window.leao.isEE
-    ? [
-        {
-          path: 'auth/login/:authResponse',
-          lazy: async () => {
-            const { AuthResponse } = await import('./pages/AuthResponse');
+export const getEERoutes = (): RouteObject[] => [
+  {
+    path: 'auth/login/:authResponse',
+    lazy: async () => {
+      const { AuthResponse } = await import('./pages/AuthResponse');
 
-            return {
-              Component: AuthResponse,
-            };
-          },
-        },
-      ]
-    : [];
+      return {
+        Component: AuthResponse,
+      };
+    },
+  },
+];
 
 // TODO: the constants.js file is imported before the React application is setup and
 // therefore `window.leao` might not exist at import-time. We should probably define
 // which constant is available at which stage of the application lifecycle.
 export const SETTINGS_LINKS_EE = (): SettingsMenu => ({
   global: [
-    ...(window.leao.features.isEnabled(window.leao.features.SSO)
-      ? [
-          {
-            intlLabel: { id: 'Settings.sso.title', defaultMessage: 'Single Sign-On' },
-            to: '/settings/single-sign-on',
-            id: 'sso',
-          },
-        ]
-      : []),
+    {
+      intlLabel: { id: 'Settings.sso.title', defaultMessage: 'Single Sign-On' },
+      to: '/settings/single-sign-on',
+      id: 'sso',
+    },
   ],
-
   admin: [
-    ...(window.leao.features.isEnabled(window.leao.features.AUDIT_LOGS)
-      ? [
-          {
-            intlLabel: { id: 'global.auditLogs', defaultMessage: 'Audit Logs' },
-            to: '/settings/audit-logs?pageSize=50&page=1&sort=date:DESC',
-            id: 'auditLogs',
-          },
-        ]
-      : []),
+    {
+      intlLabel: { id: 'global.auditLogs', defaultMessage: 'Audit Logs' },
+      to: '/settings/audit-logs?pageSize=50&page=1&sort=date:DESC',
+      id: 'auditLogs',
+    },
   ],
 });

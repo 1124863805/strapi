@@ -23,15 +23,15 @@ import type {
  * A set of functions called "actions" for `Admin`
  */
 export default {
-  // TODO very temporary to check the switch ee/ce
-  // When removing this we need to update the /admin/src/index.js file
-  // whe,re we set the leao.window.isEE value
-
-  // NOTE: admin/ee/server overrides this controller, and adds the EE features
-  // This returns an empty feature list for CE
   async getProjectType() {
     const flags = leao.config.get('admin.flags', {});
-    return { data: { isEE: false, features: [], flags } };
+    return {
+      data: {
+        isEE: leao.EE,
+        features: leao.ee.features.list(),
+        flags,
+      },
+    };
   },
 
   async init() {
@@ -81,7 +81,7 @@ export default {
     const dependencies = leao.config.get('info.dependencies', {});
     const projectId = leao.config.get('uuid', null);
     const nodeVersion = process.version;
-    const communityEdition = !leao.EE;
+    const communityEdition = false;
     const useYarn: boolean = await exists(path.join(process.cwd(), 'yarn.lock'));
 
     return {

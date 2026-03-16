@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import { useNotification, useAPIErrorHandler, useQueryParams } from '@leao1/admin/leao-admin';
-import { useEEInfo } from '@leao1/admin/leao-admin/ee';
 import { unstable_useDocument } from '@leao1/content-manager/leao-admin';
 import {
   SingleSelect,
@@ -14,11 +13,6 @@ import {
 import { useIntl } from 'react-intl';
 import { useParams } from 'react-router-dom';
 
-import { LimitsModal } from '../../../../../components/LimitsModal';
-import {
-  CHARGEBEE_STAGES_PER_WORKFLOW_ENTITLEMENT_NAME,
-  CHARGEBEE_WORKFLOW_ENTITLEMENT_NAME,
-} from '../../../../../constants';
 import { useGetStagesQuery, useUpdateStageMutation } from '../../../../../services/content-manager';
 import { buildValidParams } from '../../../../../utils/api';
 import { getStageColorByHex } from '../../../../../utils/colors';
@@ -66,68 +60,29 @@ export const StageSelect = () => {
     }
   );
 
-  const { meta, stages = [] } = data ?? {};
-
-  const { getFeature } = useEEInfo();
-  const [showLimitModal, setShowLimitModal] = React.useState<'stage' | 'workflow' | null>(null);
-
-  const limits = getFeature<string>('review-workflows') ?? {};
-
+  const { stages = [] } = data ?? {};
   const activeWorkflowStage = document ? document[STAGE_ATTRIBUTE_NAME] : null;
-
   const [updateStage, { error }] = useUpdateStageMutation();
 
   const handleChange = async (stageId: Data.ID) => {
     try {
-      /**
-       * If the current license has a limit:
-       * check if the total count of workflows exceeds that limit and display
-       * the limits modal.
-       *
-       * If the current license does not have a limit (e.g. offline license):
-       * do nothing (for now).
-       *
-       */
+      if (document?.documentId) {
+        const res = await updateStage({
+          model,
+          id: document.documentId,
+          slug: collectionType,
+          params,
+          data: { id: stageId },
+        });
 
-      if (
-        limits?.[CHARGEBEE_WORKFLOW_ENTITLEMENT_NAME] &&
-        parseInt(limits[CHARGEBEE_WORKFLOW_ENTITLEMENT_NAME], 10) < (meta?.workflowCount ?? 0)
-      ) {
-        setShowLimitModal('workflow');
-
-        /**
-         * If the current license has a limit:
-         * check if the total count of stages exceeds that limit and display
-         * the limits modal.
-         *
-         * If the current license does not have a limit (e.g. offline license):
-         * do nothing (for now).
-         *
-         */
-      } else if (
-        limits?.[CHARGEBEE_STAGES_PER_WORKFLOW_ENTITLEMENT_NAME] &&
-        parseInt(limits[CHARGEBEE_STAGES_PER_WORKFLOW_ENTITLEMENT_NAME], 10) < stages.length
-      ) {
-        setShowLimitModal('stage');
-      } else {
-        if (document?.documentId) {
-          const res = await updateStage({
-            model,
-            id: document.documentId,
-            slug: collectionType,
-            params,
-            data: { id: stageId },
+        if ('data' in res) {
+          toggleNotification({
+            type: 'success',
+            message: formatMessage({
+              id: 'content-manager.reviewWorkflows.stage.notification.saved',
+              defaultMessage: 'Review stage updated',
+            }),
           });
-
-          if ('data' in res) {
-            toggleNotification({
-              type: 'success',
-              message: formatMessage({
-                id: 'content-manager.reviewWorkflows.stage.notification.saved',
-                defaultMessage: 'Review stage updated',
-              }),
-            });
-          }
         }
       }
     } catch (error) {
@@ -153,7 +108,7 @@ export const StageSelect = () => {
           stages.length === 0 &&
           formatMessage({
             id: 'content-manager.reviewWorkflows.stages.no-transition',
-            defaultMessage: 'You don’t have the permission to update this stage.',
+            defaultMessage: "You don't have the permission to update this stage.",
           })
         }
         error={(error && formatAPIError(error)) || undefined}
@@ -229,44 +184,6 @@ export const StageSelect = () => {
         <Field.Hint />
         <Field.Error />
       </Field.Root>
-
-      <LimitsModal.Root
-        open={showLimitModal === 'workflow'}
-        onOpenChange={() => setShowLimitModal(null)}
-      >
-        <LimitsModal.Title>
-          {formatMessage({
-            id: 'content-manager.reviewWorkflows.workflows.limit.title',
-            defaultMessage: 'You’ve reached the limit of workflows in your plan',
-          })}
-        </LimitsModal.Title>
-
-        <LimitsModal.Body>
-          {formatMessage({
-            id: 'content-manager.reviewWorkflows.workflows.limit.body',
-            defaultMessage: 'Delete a workflow or contact Sales to enable more workflows.',
-          })}
-        </LimitsModal.Body>
-      </LimitsModal.Root>
-
-      <LimitsModal.Root
-        open={showLimitModal === 'stage'}
-        onOpenChange={() => setShowLimitModal(null)}
-      >
-        <LimitsModal.Title>
-          {formatMessage({
-            id: 'content-manager.reviewWorkflows.stages.limit.title',
-            defaultMessage: 'You have reached the limit of stages for this workflow in your plan',
-          })}
-        </LimitsModal.Title>
-
-        <LimitsModal.Body>
-          {formatMessage({
-            id: 'content-manager.reviewWorkflows.stages.limit.body',
-            defaultMessage: 'Try deleting some stages or contact Sales to enable more stages.',
-          })}
-        </LimitsModal.Body>
-      </LimitsModal.Root>
     </>
   );
 };

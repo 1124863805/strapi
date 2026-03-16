@@ -1,14 +1,7 @@
 import { lightTheme } from '@leao1/design-system';
 
 const PLUGIN_ID = 'review-workflows';
-/**
- * EE feature name.
- */
-const FEATURE_ID = 'review-workflows';
-
-export const CHARGEBEE_WORKFLOW_ENTITLEMENT_NAME = 'numberOfWorkflows';
-export const CHARGEBEE_STAGES_PER_WORKFLOW_ENTITLEMENT_NAME = 'stagesPerWorkflow';
 
 export const STAGE_COLOR_DEFAULT = lightTheme.colors.primary600;
 
-export { FEATURE_ID, PLUGIN_ID };
+export { PLUGIN_ID };

@@ -5,32 +5,24 @@ import { RouteObject } from 'react-router-dom';
  * as such their path should not start with a `/` or include the `/settings` prefix.
  */
 export const getEERoutes = (): RouteObject[] => [
-  ...(window.leao.features.isEnabled(window.leao.features.AUDIT_LOGS)
-    ? [
-        {
-          path: 'audit-logs',
-          lazy: async () => {
-            const { ProtectedListPage } = await import('./pages/AuditLogs/ListPage');
+  {
+    path: 'audit-logs',
+    lazy: async () => {
+      const { ProtectedListPage } = await import('./pages/AuditLogs/ListPage');
 
-            return {
-              Component: ProtectedListPage,
-            };
-          },
-        },
-      ]
-    : []),
-  ...(window.leao.features.isEnabled(window.leao.features.SSO)
-    ? [
-        {
-          path: 'single-sign-on',
-          lazy: async () => {
-            const { ProtectedSSO } = await import('./pages/SingleSignOnPage');
+      return {
+        Component: ProtectedListPage,
+      };
+    },
+  },
+  {
+    path: 'single-sign-on',
+    lazy: async () => {
+      const { ProtectedSSO } = await import('./pages/SingleSignOnPage');
 
-            return {
-              Component: ProtectedSSO,
-            };
-          },
-        },
-      ]
-    : []),
+      return {
+        Component: ProtectedSSO,
+      };
+    },
+  },
 ];

@@ -15,14 +15,17 @@
     "packages/vendor/sdk-plugin"
   ],
   "scripts": {
+    "create-example": "create-leao-app",
+    "postinstall": "yarn rebuild better-sqlite3 2>/dev/null || true",
     "build": "nx run-many --target=build --nx-ignore-cycles",
-    "build:app": "cd examples/getstarted && yarn build",
-    "dev": "cd examples/getstarted && yarn develop",
-    "start": "cd examples/getstarted && yarn start",
+    "build:app": "cd examples/demo && yarn build",
+    "dev": "cd examples/demo && yarn develop",
+    "start": "cd examples/demo && yarn start",
     "clean": "nx run-many --target=clean --nx-ignore-cycles"
   },
   "resolutions": {
-    "@types/koa": "2.13.4"
+    "@types/koa": "2.13.4",
+    "better-sqlite3": "12.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",

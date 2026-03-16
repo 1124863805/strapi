@@ -30,9 +30,6 @@ const init = (_dir: string, logger?: Logger) => {
   if (initialized) return;
   initialized = true;
   ee.logger = logger;
-
-  if (process.env.LEAO_DISABLE_EE?.toLowerCase() === 'true') return;
-
   ee.info = getDefaultEEInfo();
   enable();
 };

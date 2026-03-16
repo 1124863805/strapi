@@ -13,7 +13,7 @@ const DEFAULT_FEATURES = [
   { name: 'sso' },
   { name: 'audit-logs', options: { retentionDays: null } },
   { name: 'review-workflows' },
-  { name: 'cms-content-releases' },
+  { name: 'cms-content-releases', options: { maximumReleases: 99999 } },
   { name: 'cms-content-history', options: { retentionDays: 99999 } },
 ];
 

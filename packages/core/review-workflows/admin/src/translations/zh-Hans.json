@@ -4,7 +4,7 @@
   "settings.page.isLoading": "工作流加载中",
   "settings.page.delete.confirm.body": "已分配给已删除阶段的所有条目将移至上一阶段。确定要保存吗？",
   "settings.stage.name.label": "阶段名称",
-  "settings.not-available": "审阅工作流仅在企业版中可用。升级以创建和管理工作流。",
+  "settings.not-available": "审阅工作流",
 
   "Settings.review-workflows.list.page.title": "审阅工作流",
   "Settings.review-workflows.list.page.subtitle": "{count, plural, one {# 个阶段} other {# 个阶段}}",
@@ -17,7 +17,7 @@
   "Settings.review-workflows.list.page.delete.confirm.body": "已分配给已删除阶段的所有条目将移至上一阶段。确定要保存吗？",
   "Settings.review-workflows.list.page.workflows.limit.title": "已达工作流上限",
   "Settings.review-workflows.list.page.workflows.limit.body": "您已达到当前计划的工作流数量上限。",
-  "Settings.review-workflows.not-available": "审阅工作流仅在企业版中可用。升级以创建和管理工作流。",
+  "Settings.review-workflows.not-available": "审阅工作流",
   "Settings.review-workflows.create.page.title": "创建工作流",
   "Settings.review-workflows.workflow.name.label": "工作流名称",
   "Settings.review-workflows.workflow.contentTypes.label": "内容类型",

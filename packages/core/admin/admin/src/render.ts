@@ -52,7 +52,7 @@ const renderAdmin = async (
     },
     projectType: 'Community',
     flags: {
-      promoteEE: true,
+      promoteEE: false,
     },
   };
 

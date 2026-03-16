@@ -52,8 +52,7 @@ const Panel: PanelComponent = ({
     return `success${shade}`;
   };
 
-  // Project is not EE or contentType does not have draftAndPublish enabled
-  if (!window.leao.isEE || !options?.draftAndPublish || !canRead) {
+  if (!options?.draftAndPublish || !canRead) {
     return null;
   }
 

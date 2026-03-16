@@ -11,7 +11,6 @@ import {
   FormProps,
   FormHelpers,
 } from '@leao1/admin/leao-admin';
-import { useEEInfo } from '@leao1/admin/leao-admin/ee';
 import { Button, Dialog, Flex, Typography } from '@leao1/design-system';
 import { Check } from '@leao1/icons';
 import { generateNKeysBetween } from 'fractional-indexing';
@@ -19,11 +18,6 @@ import { useIntl } from 'react-intl';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as yup from 'yup';
 
-import { LimitsModal } from '../../components/LimitsModal';
-import {
-  CHARGEBEE_WORKFLOW_ENTITLEMENT_NAME,
-  CHARGEBEE_STAGES_PER_WORKFLOW_ENTITLEMENT_NAME,
-} from '../../constants';
 import { useTypedSelector } from '../../modules/hooks';
 import { isBaseQueryError } from '../../utils/api';
 
@@ -134,17 +128,11 @@ const EditPage = () => {
     hasDeletedServerStages?: boolean;
     hasReassignedContentTypes?: boolean;
   }>({});
-  const { getFeature, isLoading: isInfoLoading } = useEEInfo();
-  const [showLimitModal, setShowLimitModal] = React.useState<'workflow' | 'stage' | null>(null);
 
   const currentWorkflow = workflows?.find((workflow) => workflow.id === parseInt(id, 10));
   const contentTypesFromOtherWorkflows = workflows
     ?.filter((workflow) => workflow.id !== parseInt(id, 10))
     .flatMap((workflow) => workflow.contentTypes);
-
-  const limits = getFeature<string>('review-workflows');
-  const numberOfWorkflows = limits?.[CHARGEBEE_WORKFLOW_ENTITLEMENT_NAME];
-  const stagesPerWorkflow = limits?.[CHARGEBEE_STAGES_PER_WORKFLOW_ENTITLEMENT_NAME];
 
   interface FormValues {
     name: string;
@@ -225,26 +213,7 @@ const EditPage = () => {
         data.stages.some((newStage) => newStage.id === stage.id)
       );
 
-    if (meta && numberOfWorkflows && meta?.workflowCount > parseInt(numberOfWorkflows, 10)) {
-      /**
-       * If the current license has a limit, check if the total count of workflows
-       * exceeds that limit and display the limits modal instead of sending the
-       * update, because it would throw an API error.
-       */
-      setShowLimitModal('workflow');
-
-      /**
-       * If the current license has a limit, check if the total count of stages
-       * exceeds that limit and display the limits modal instead of sending the
-       * update, because it would throw an API error.
-       */
-    } else if (
-      data.stages &&
-      stagesPerWorkflow &&
-      data.stages.length > parseInt(stagesPerWorkflow, 10)
-    ) {
-      setShowLimitModal('stage');
-    } else if (hasDeletedServerStages || isContentTypeReassignment) {
+    if (hasDeletedServerStages || isContentTypeReassignment) {
       if (hasDeletedServerStages) {
         setSavePrompts((prev) => ({ ...prev, hasDeletedServerStages: true }));
       }
@@ -256,41 +225,6 @@ const EditPage = () => {
       await submitForm(data, helpers);
     }
   };
-
-  /**
-   * If the current license has a limit:
-   * check if the total count of workflows or stages exceeds that limit and display
-   * the limits modal on page load. It can be closed by the user, but the
-   * API will throw an error in case they try to create a new workflow or update the
-   * stages.
-   *
-   * If the current license does not have a limit (e.g. offline license):
-   * do nothing (for now). In case they are trying to create the 201st workflow/ stage
-   * the API will throw an error.
-   *
-   */
-  React.useEffect(() => {
-    if (!isLoadingWorkflow && !isInfoLoading) {
-      if (meta && numberOfWorkflows && meta?.workflowCount > parseInt(numberOfWorkflows, 10)) {
-        setShowLimitModal('workflow');
-      } else if (
-        currentWorkflow &&
-        currentWorkflow.stages &&
-        stagesPerWorkflow &&
-        currentWorkflow.stages.length > parseInt(stagesPerWorkflow, 10)
-      ) {
-        setShowLimitModal('stage');
-      }
-    }
-  }, [
-    currentWorkflow,
-    isInfoLoading,
-    isLoadingWorkflow,
-    limits,
-    meta,
-    numberOfWorkflows,
-    stagesPerWorkflow,
-  ]);
 
   const initialValues: FormValues = React.useMemo(() => {
     if (isCreatingWorkflow || !currentWorkflow) {
@@ -418,47 +352,10 @@ const EditPage = () => {
           </>
         )}
       </Form>
-
-      <LimitsModal.Root
-        open={showLimitModal === 'workflow'}
-        onOpenChange={() => setShowLimitModal(null)}
-      >
-        <LimitsModal.Title>
-          {formatMessage({
-            id: 'review-workflows.edit.page.workflows.limit.title',
-            defaultMessage: 'You’ve reached the limit of workflows in your plan',
-          })}
-        </LimitsModal.Title>
-
-        <LimitsModal.Body>
-          {formatMessage({
-            id: 'review-workflows.edit.page.workflows.limit.body',
-            defaultMessage: 'Delete a workflow or contact Sales to enable more workflows.',
-          })}
-        </LimitsModal.Body>
-      </LimitsModal.Root>
-
-      <LimitsModal.Root
-        open={showLimitModal === 'stage'}
-        onOpenChange={() => setShowLimitModal(null)}
-      >
-        <LimitsModal.Title>
-          {formatMessage({
-            id: 'review-workflows.edit.page.stages.limit.title',
-            defaultMessage: 'You have reached the limit of stages for this workflow in your plan',
-          })}
-        </LimitsModal.Title>
-
-        <LimitsModal.Body>
-          {formatMessage({
-            id: 'review-workflows.edit.page.stages.limit.body',
-            defaultMessage: 'Try deleting some stages or contact Sales to enable more stages.',
-          })}
-        </LimitsModal.Body>
-      </LimitsModal.Root>
     </>
   );
 };
+
 
 const addTmpKeysToStages = (data: Workflow['stages']) => {
   const keys = generateNKeysBetween(undefined, undefined, data.length);

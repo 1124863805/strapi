@@ -1,0 +1,38 @@
+{
+  "name": "demo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Leao application",
+  "scripts": {
+    "build": "leao build",
+    "develop": "leao develop",
+    "leao": "leao",
+    "seed:example": "node ./scripts/seed.js",
+    "start": "leao start"
+  },
+  "dependencies": {
+    "@leao1/leao": "1.0.0",
+    "@leao1/plugin-documentation": "1.0.0",
+    "@leao1/plugin-users-permissions": "1.0.0",
+    "better-sqlite3": "12.8.0",
+    "fs-extra": "^10.0.0",
+    "mime-types": "^2.1.27",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "styled-components": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=24.x.x",
+    "npm": ">=6.0.0"
+  },
+  "leao": {
+    "uuid": "61d2c972-0ca0-4b27-ae8d-8a8f46c43119"
+  }
+}

@@ -1,5 +1,3 @@
-import { defaultsDeep } from 'lodash/fp';
-
 import type { Core } from '@leao1/types';
 
 import { getService } from './utils';
@@ -97,13 +95,10 @@ export default async ({ leao }: { leao: Core.Leao }) => {
   // Schema customization
   extendReviewWorkflowContentTypes({ leao });
 
-  const reviewWorkflowsOptions = defaultsDeep(
-    {
-      numberOfWorkflows: MAX_WORKFLOWS,
-      stagesPerWorkflow: MAX_STAGES_PER_WORKFLOW,
-    },
-    leao.ee.features.get('review-workflows')
-  );
+  const reviewWorkflowsOptions = {
+    numberOfWorkflows: MAX_WORKFLOWS,
+    stagesPerWorkflow: MAX_STAGES_PER_WORKFLOW,
+  };
   const workflowsValidationService = getService('validation', { leao });
   workflowsValidationService.register(reviewWorkflowsOptions);
 };

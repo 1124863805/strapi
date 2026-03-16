@@ -89,24 +89,6 @@ const admin: Plugin.Config.AdminInput = {
 
       // Hook that adds a column into the CM's LV table
       app.registerHook('Admin/CM/pages/ListView/inject-column-in-table', addColumnToTableHook);
-    } else if (
-      !window.leao.features.isEnabled('cms-content-releases') &&
-      window.leao?.flags?.promoteEE
-    ) {
-      app.addSettingsLink('global', {
-        id: pluginId,
-        to: '/plugins/purchase-content-releases',
-        intlLabel: {
-          id: `${pluginId}.plugin.name`,
-          defaultMessage: 'Releases',
-        },
-        permissions: [],
-        Component: () =>
-          import('./pages/PurchaseContentReleases').then((mod) => ({
-            default: mod.PurchaseContentReleases,
-          })),
-        eeOnly: true,
-      });
     }
   },
   async registerTrads({ locales }: { locales: string[] }) {

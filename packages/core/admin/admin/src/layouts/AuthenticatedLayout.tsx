@@ -12,7 +12,6 @@ import packageJSON from '../../../package.json';
 import { GuidedTourModal } from '../components/GuidedTour/Modal';
 import { useGuidedTour } from '../components/GuidedTour/Provider';
 import { LeftMenu } from '../components/LeftMenu';
-import { Onboarding } from '../components/Onboarding';
 import { Page } from '../components/PageHelpers';
 import { PluginsInitializer } from '../components/PluginsInitializer';
 import { PrivateRoute } from '../components/PrivateRoute';
@@ -91,7 +90,6 @@ const AdminLayout = () => {
               <Box flex={1}>
                 <Outlet />
                 <GuidedTourModal />
-                {showTutorials && <Onboarding />}
               </Box>
             </Flex>
           </Box>

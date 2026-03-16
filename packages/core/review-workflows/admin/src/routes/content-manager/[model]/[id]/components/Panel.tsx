@@ -25,7 +25,6 @@ const Panel: PanelComponent = () => {
   const { formatMessage } = useIntl();
 
   if (
-    !window.leao.isEE ||
     !options?.reviewWorkflows ||
     (collectionType !== 'single-types' && !id) ||
     id === 'create'
