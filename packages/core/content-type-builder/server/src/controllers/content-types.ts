@@ -3,6 +3,7 @@ import type { Context } from 'koa';
 import type {} from 'koa-body';
 import type { Internal } from '@leao1/types';
 import { getService } from '../utils';
+import { scheduleReloadAfterResponse } from '../utils/reload';
 import {
   validateContentTypeInput,
   validateUpdateContentTypeInput,
@@ -70,7 +71,7 @@ export default {
         components: body.components,
       });
 
-      setImmediate(() => leao.reload());
+      scheduleReloadAfterResponse();
 
       ctx.send({ data: { uid: contentType.uid } }, 201);
     } catch (err) {
@@ -103,7 +104,7 @@ export default {
         components: body.components,
       });
 
-      setImmediate(() => leao.reload());
+      scheduleReloadAfterResponse();
 
       ctx.send({ data: { uid: component.uid } }, 201);
     } catch (error) {
@@ -126,7 +127,7 @@ export default {
 
       const component = await contentTypeService.deleteContentType(uid);
 
-      setImmediate(() => leao.reload());
+      scheduleReloadAfterResponse();
 
       ctx.send({ data: { uid: component.uid } });
     } catch (error) {

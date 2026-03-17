@@ -129,6 +129,10 @@ const EditViewPage = () => {
     return <Page.Loading />;
   }
 
+  if (isCreatingDocument && !schema) {
+    return <Page.Loading />;
+  }
+
   if (!initialValues) {
     return <Page.Error />;
   }

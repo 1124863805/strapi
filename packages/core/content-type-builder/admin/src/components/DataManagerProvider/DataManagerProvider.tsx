@@ -52,7 +52,7 @@ import { retrieveComponentsFromSchema } from './utils/retrieveComponentsFromSche
 import { retrieveComponentsThatHaveComponents } from './utils/retrieveComponentsThatHaveComponents';
 import { retrieveNestedComponents } from './utils/retrieveNestedComponents';
 import { retrieveSpecificInfoFromComponents } from './utils/retrieveSpecificInfoFromComponents';
-import { serverRestartWatcher } from './utils/serverRestartWatcher';
+import { executeWithServerRestart } from './utils/executeWithServerRestart';
 import { validateSchema } from './utils/validateSchema';
 
 import type { ContentType, SchemaType, Components } from '../../types';
@@ -281,121 +281,103 @@ const DataManagerProvider = ({ children }: DataManagerProviderProps) => {
   };
 
   const deleteCategory = async (categoryUid: string) => {
-    try {
-      const requestURL = `/${pluginId}/component-categories/${categoryUid}`;
-      // eslint-disable-next-line no-alert
-      const userConfirm = window.confirm(
-        formatMessage({
-          id: getTrad('popUpWarning.bodyMessage.category.delete'),
-        })
-      );
-      // Close the modal
-      onCloseModal();
+    const requestURL = `/${pluginId}/component-categories/${categoryUid}`;
+    // eslint-disable-next-line no-alert
+    const userConfirm = window.confirm(
+      formatMessage({
+        id: getTrad('popUpWarning.bodyMessage.category.delete'),
+      })
+    );
+    onCloseModal();
 
-      if (userConfirm) {
-        lockAppWithAutoreload?.();
+    if (!userConfirm) return;
 
+    await executeWithServerRestart(
+      async () => {
         await del(requestURL);
-
-        // Make sure the server has restarted
-        await serverRestartWatcher(true);
-
-        // Unlock the app
-        unlockAppWithAutoreload?.();
-
-        await updatePermissions();
+      },
+      {
+        lockAppWithAutoreload,
+        unlockAppWithAutoreload,
+        getData: () => getDataRef.current(),
+        dispatch,
+        updatePermissions,
+        onError: (err) => {
+          console.error({ err });
+          toggleNotification({
+            type: 'danger',
+            message: formatMessage({ id: 'notification.error', defaultMessage: 'An error occurred' }),
+          });
+        },
       }
-    } catch (err) {
-      console.error({ err });
-      toggleNotification({
-        type: 'danger',
-        message: formatMessage({ id: 'notification.error', defaultMessage: 'An error occurred' }),
-      });
-    } finally {
-      unlockAppWithAutoreload?.();
-    }
+    );
   };
 
   const deleteData = async () => {
-    try {
-      const requestURL = `/${pluginId}/${endPoint}/${currentUid}`;
-      const isTemporary = get(modifiedData, [firstKeyToMainSchema, 'isTemporary'], false);
-      // eslint-disable-next-line no-alert
-      const userConfirm = window.confirm(
-        formatMessage({
-          id: getTrad(
-            `popUpWarning.bodyMessage.${isInContentTypeView ? 'contentType' : 'component'}.delete`
-          ),
-        })
-      );
+    const requestURL = `/${pluginId}/${endPoint}/${currentUid}`;
+    const isTemporary = get(modifiedData, [firstKeyToMainSchema, 'isTemporary'], false);
+    // eslint-disable-next-line no-alert
+    const userConfirm = window.confirm(
+      formatMessage({
+        id: getTrad(
+          `popUpWarning.bodyMessage.${isInContentTypeView ? 'contentType' : 'component'}.delete`
+        ),
+      })
+    );
 
-      // Close the modal
-      onCloseModal();
+    onCloseModal();
 
-      if (userConfirm) {
-        if (isTemporary) {
-          // Delete the not saved type
-          // Here we just need to reset the components to the initial ones and also the content types
-          // Doing so will trigging a url change since the type doesn't exist in either the contentTypes or the components
-          // so the modified and the initial data will also be reset in the useEffect...
-          dispatch({ type: DELETE_NOT_SAVED_TYPE });
+    if (!userConfirm) return;
 
-          return;
-        }
-
-        lockAppWithAutoreload?.();
-
-        await del(requestURL);
-
-        // Make sure the server has restarted
-        await serverRestartWatcher(true);
-
-        // Unlock the app
-        await unlockAppWithAutoreload?.();
-
-        // Refetch the permissions
-        await updatePermissions();
-      }
-    } catch (err) {
-      console.error({ err });
-      toggleNotification({
-        type: 'danger',
-        message: formatMessage({ id: 'notification.error', defaultMessage: 'An error occurred' }),
-      });
-    } finally {
-      unlockAppWithAutoreload?.();
+    if (isTemporary) {
+      dispatch({ type: DELETE_NOT_SAVED_TYPE });
+      return;
     }
+
+    await executeWithServerRestart(
+      async () => {
+        await del(requestURL);
+      },
+      {
+        lockAppWithAutoreload,
+        unlockAppWithAutoreload,
+        getData: () => getDataRef.current(),
+        dispatch,
+        updatePermissions,
+        onError: (err) => {
+          console.error({ err });
+          toggleNotification({
+            type: 'danger',
+            message: formatMessage({ id: 'notification.error', defaultMessage: 'An error occurred' }),
+          });
+        },
+      }
+    );
   };
 
   const editCategory = async (categoryUid: string, body: any) => {
-    try {
-      const requestURL = `/${pluginId}/component-categories/${categoryUid}`;
+    const requestURL = `/${pluginId}/component-categories/${categoryUid}`;
+    onCloseModal();
 
-      // Close the modal
-      onCloseModal();
-
-      // Lock the app
-      lockAppWithAutoreload?.();
-
-      // Update the category
-      await put(requestURL, body);
-
-      // Make sure the server has restarted
-      await serverRestartWatcher(true);
-
-      // Unlock the app
-      await unlockAppWithAutoreload?.();
-
-      await updatePermissions();
-    } catch (err) {
-      console.error({ err });
-      toggleNotification({
-        type: 'danger',
-        message: formatMessage({ id: 'notification.error', defaultMessage: 'An error occurred' }),
-      });
-    } finally {
-      unlockAppWithAutoreload?.();
-    }
+    await executeWithServerRestart(
+      async () => {
+        await put(requestURL, body);
+      },
+      {
+        lockAppWithAutoreload,
+        unlockAppWithAutoreload,
+        getData: () => getDataRef.current(),
+        dispatch,
+        updatePermissions,
+        onError: (err) => {
+          console.error({ err });
+          toggleNotification({
+            type: 'danger',
+            message: formatMessage({ id: 'notification.error', defaultMessage: 'An error occurred' }),
+          });
+        },
+      }
+    );
   };
 
   const getAllComponentsThatHaveAComponentInTheirAttributes = () => {
@@ -481,94 +463,94 @@ const DataManagerProvider = ({ children }: DataManagerProviderProps) => {
   }
 
   const submitData = async (additionalContentTypeData?: Record<string, any>) => {
-    try {
-      const isCreating = get(modifiedData, [firstKeyToMainSchema, 'isTemporary'], false);
+    const isTemporary = get(modifiedData, [firstKeyToMainSchema, 'isTemporary'], false);
+    const isContentTypeFromServer =
+      currentUid &&
+      currentUid !== 'create-content-type' &&
+      !get(contentTypes, [currentUid, 'isTemporary'], false);
+    const isCreating = !isContentTypeFromServer && (currentUid === 'create-content-type' || isTemporary);
 
-      const body: {
-        components: any[];
-        contentType?: Record<string, any>;
-        component?: any;
-      } = {
-        components: getComponentsToPost(
-          modifiedData.components as Components,
-          components as Components,
-          currentUid as Internal.UID.Schema
-        ),
-      };
+    const body: {
+      components: any[];
+      contentType?: Record<string, any>;
+      component?: any;
+    } = {
+      components: getComponentsToPost(
+        modifiedData.components as Components,
+        components as Components,
+        currentUid as Internal.UID.Schema
+      ),
+    };
 
-      if (isInContentTypeView) {
-        const PluginForms = plugin?.apis?.forms as any;
-        const contentType = PluginForms.mutateContentTypeSchema(
-          {
-            ...formatMainDataType(modifiedData.contentType),
-            ...additionalContentTypeData,
-          },
-          initialData.contentType
-        ) as ContentType;
+    if (isInContentTypeView) {
+      const PluginForms = plugin?.apis?.forms as any;
+      if (!PluginForms?.mutateContentTypeSchema) {
+        toggleNotification({
+          type: 'danger',
+          message: formatMessage({ id: 'notification.error', defaultMessage: 'An error occurred' }),
+        });
+        return;
+      }
+      const contentType = PluginForms.mutateContentTypeSchema(
+        {
+          ...formatMainDataType(modifiedData.contentType),
+          ...additionalContentTypeData,
+        },
+        initialData.contentType
+      ) as ContentType;
 
-        const isValidSchema = validateSchema(contentType);
-
-        if (!isValidSchema) {
-          toggleNotification({
-            type: 'danger',
-            message: formatMessage({
-              id: getTrad('notification.error.dynamiczone-min.validation'),
-              defaultMessage:
-                'At least one component is required in a dynamic zone to be able to save a content type',
-            }),
-          });
-
-          return;
-        }
-
-        body.contentType = contentType;
-      } else {
-        body.component = formatMainDataType(modifiedData.component, true);
+      if (!validateSchema(contentType)) {
+        toggleNotification({
+          type: 'danger',
+          message: formatMessage({
+            id: getTrad('notification.error.dynamiczone-min.validation'),
+            defaultMessage:
+              'At least one component is required in a dynamic zone to be able to save a content type',
+          }),
+        });
+        return;
       }
 
-      // Lock the app
-      lockAppWithAutoreload?.();
+      body.contentType = contentType;
+    } else {
+      body.component = formatMainDataType(modifiedData.component, true);
+    }
 
-      const baseURL = `/${pluginId}/${endPoint}`;
-      const requestURL = isCreating ? baseURL : `${baseURL}/${currentUid}`;
+    const baseURL = `/${pluginId}/${endPoint}`;
+    const requestURL = isCreating ? baseURL : `${baseURL}/${currentUid}`;
 
+    const mutation = async () => {
       if (isCreating) {
         await post(requestURL, body);
       } else {
         await put(requestURL, body);
       }
+    };
 
-      if (
-        isCreating &&
-        (initialData.contentType?.schema.kind === 'collectionType' ||
-          initialData.contentType?.schema.kind === 'singleType')
-      ) {
-        setStepState('contentTypeBuilder.success', true);
-        setCurrentStep(null);
-      }
-
-
-      // Make sure the server has restarted
-      await serverRestartWatcher(true);
-
-      // Unlock the app
-      unlockAppWithAutoreload?.();
-
-      // refetch and update initial state after the data has been saved
-      await getDataRef.current();
-      dispatch({ type: UPDATE_INITIAL_STATE });
-
-      // Update the app's permissions
-      await updatePermissions();
-    } catch (err: any) {
-      console.error({ err: err.response });
-      toggleNotification({
-        type: 'danger',
-        message: formatMessage({ id: 'notification.error', defaultMessage: 'An error occurred' }),
-      });
-    } finally {
-      unlockAppWithAutoreload?.();
-    }
+    await executeWithServerRestart(mutation, {
+      lockAppWithAutoreload,
+      unlockAppWithAutoreload,
+      getData: () => getDataRef.current(),
+      dispatch,
+      updatePermissions,
+      onError: (err: unknown) => {
+        console.error({ err });
+        toggleNotification({
+          type: 'danger',
+          message: formatMessage({ id: 'notification.error', defaultMessage: 'An error occurred' }),
+        });
+      },
+      onSuccess: () => {
+        if (
+          isCreating &&
+          (initialData.contentType?.schema.kind === 'collectionType' ||
+            initialData.contentType?.schema.kind === 'singleType')
+        ) {
+          setStepState('contentTypeBuilder.success', true);
+          setCurrentStep(null);
+        }
+      },
+    });
   };
 
   const updatePermissions = async () => {

@@ -1,5 +1,6 @@
 import type { Context } from 'koa';
 import { getService } from '../utils';
+import { scheduleReloadAfterResponse } from '../utils/reload';
 import validateComponentCategory from './validation/component-category';
 
 export default {
@@ -20,7 +21,7 @@ export default {
 
     const newName = await componentCategoryService.editCategory(name, body);
 
-    setImmediate(() => leao.reload());
+    scheduleReloadAfterResponse();
 
     ctx.send({ name: newName });
   },
@@ -34,7 +35,7 @@ export default {
 
     await componentCategoryService.deleteCategory(name);
 
-    setImmediate(() => leao.reload());
+    scheduleReloadAfterResponse();
 
     ctx.send({ name });
   },

@@ -21,7 +21,9 @@ const CreateButton = ({ variant = 'default' }: CreateButtonProps) => {
       style={{ textDecoration: 'none' }}
       to={{
         pathname: 'create',
-        search: stringify({ plugins: query.plugins }),
+        ...(query.plugins && {
+          search: stringify({ plugins: query.plugins }, { encode: false }),
+        }),
       }}
       minWidth="max-content"
       marginLeft={2}

@@ -88,10 +88,7 @@ const resolveDevelopmentConfig = async (ctx: BuildContext): Promise<InlineConfig
     server: {
       middlewareMode: true,
       open: ctx.options.open,
-      hmr: {
-        server: ctx.options.hmrServer,
-        clientPort: ctx.options.hmrClientPort,
-      },
+      hmr: false, // 禁用 HMR，避免服务器重启时 WebSocket 断开后自动刷新页面
       watch: {
         // 忽略 .env 变更，避免首次启动时 JWT_SECRET 写入触发重启并输出误导性的 "build was canceled"
         ignored: ['**/.env', '**/.env.*'],

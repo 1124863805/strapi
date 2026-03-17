@@ -60,6 +60,7 @@ const AutoReloadOverlayBlockerProvider = ({ children }: AutoReloadOverlayBlocker
   const unlockAppWithAutoreload = React.useCallback(() => {
     setIsOpen(false);
     setConfig({});
+    setFailed(false);
   }, []);
 
   // eslint-disable-next-line consistent-return
@@ -79,8 +80,7 @@ const AutoReloadOverlayBlockerProvider = ({ children }: AutoReloadOverlayBlocker
 
   let description = {
     id: config?.description || 'components.OverlayBlocker.description',
-    defaultMessage:
-      "You're using a feature that needs the server to restart. The page will reload automatically.",
+    defaultMessage: "You're using a feature that needs the server to restart. Please wait.",
   };
 
   let title = {

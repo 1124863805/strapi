@@ -2,11 +2,8 @@ import _ from 'lodash';
 import type { Context } from 'koa';
 import type { UID } from '@leao1/types';
 import { getService } from '../utils';
+import { scheduleReloadAfterResponse } from '../utils/reload';
 import { validateComponentInput, validateUpdateComponentInput } from './validation/component';
-
-/**
- * Components controller
- */
 
 export default {
   /**
@@ -68,7 +65,7 @@ export default {
         components: body.components,
       });
 
-      setImmediate(() => leao.reload());
+      scheduleReloadAfterResponse();
 
       ctx.send({ data: { uid: component.uid } }, 201);
     } catch (error) {
@@ -106,7 +103,7 @@ export default {
         components: body.components,
       })) as any;
 
-      setImmediate(() => leao.reload());
+      scheduleReloadAfterResponse();
 
       ctx.send({ data: { uid: component.uid } });
     } catch (error) {
@@ -135,7 +132,7 @@ export default {
 
       const component = await componentService.deleteComponent(uid);
 
-      setImmediate(() => leao.reload());
+      scheduleReloadAfterResponse();
 
       ctx.send({ data: { uid: component.uid } });
     } catch (error) {
