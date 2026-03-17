@@ -6,14 +6,11 @@
     "packages/*",
     "packages/*/*",
     "packages/vendor/*/packages/*",
-    "examples/*",
-    "examples/*/src/plugins/*",
     "packages/vendor/design-system",
     "packages/vendor/pack-up",
     "packages/vendor/sdk-plugin"
   ],
   "scripts": {
-    "create-example": "create-leao-app",
     "postinstall": "yarn rebuild better-sqlite3 2>/dev/null || true",
     "build": "nx run-many --target=build --nx-ignore-cycles",
     "clean": "nx run-many --target=clean --nx-ignore-cycles"
