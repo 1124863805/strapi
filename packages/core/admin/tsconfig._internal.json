@@ -1,0 +1,11 @@
+{
+  "extends": "@leao1/config/tsconfig/client.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "./dist",
+    "noEmit": false,
+    "jsx": "react-jsx"
+  },
+  "include": ["_internal", "admin/src/components/DefaultDocument.tsx", "admin/src/components/NoJavascript.tsx"]
+}

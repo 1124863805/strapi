@@ -1,0 +1,14 @@
+'use strict';
+
+/**
+ * `{{ name }}` middleware
+ */
+
+module.exports = (config, { leao }) => {
+  // Add your own logic here.
+  return async (ctx, next) => {
+    leao.log.info('In {{ name }} middleware.');
+
+    await next();
+  };
+};

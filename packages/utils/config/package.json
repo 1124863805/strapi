@@ -1,0 +1,39 @@
+{
+  "name": "@leao1/config",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared config for Leao: tsconfig, eslint, typescript-utils",
+  "main": "./typescript/index.js",
+  "types": "./typescript/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./typescript/index.d.ts",
+      "require": "./typescript/index.js",
+      "default": "./typescript/index.js"
+    },
+    "./tsconfig/base.json": "./tsconfig/base.json",
+    "./tsconfig/client.json": "./tsconfig/client.json",
+    "./tsconfigs/admin.json": "./tsconfigs/admin.json",
+    "./tsconfigs/server.json": "./tsconfigs/server.json",
+    "./back": "./back/index.js",
+    "./back/typescript": "./back/typescript.js",
+    "./front": "./front/index.js",
+    "./front/typescript": "./front/typescript.js"
+  },
+  "dependencies": {
+    "chalk": "4.1.2",
+    "cli-table3": "0.6.5",
+    "fs-extra": "11.2.0",
+    "lodash": "4.17.21",
+    "prettier": "3.3.3",
+    "typescript": "5.3.2"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "18.2.2",
+    "@types/fs-extra": "11.0.4"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=22.x.x",
+    "npm": ">=6.0.0"
+  }
+}

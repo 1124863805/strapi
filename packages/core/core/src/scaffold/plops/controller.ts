@@ -1,0 +1,21 @@
+import type { NodePlopAPI } from 'plop';
+import tsUtils from '@leao1/config';
+import getDestinationPrompts from './prompts/get-destination-prompts';
+import getFilePath from './utils/get-file-path';
+import validateInput from './utils/validate-input';
+
+export default (plop: NodePlopAPI) => {
+  plop.setGenerator('controller', {
+    description: 'Generate a controller for an API',
+    prompts: [
+      { type: 'input', name: 'id', message: 'Controller name', validate: (input) => validateInput(input) },
+      ...getDestinationPrompts('controller', plop.getDestBasePath()),
+    ],
+    actions(answers) {
+      if (!answers) return [];
+      const filePath = getFilePath(answers.destination);
+      const lang = tsUtils.isUsingTypeScriptSync(process.cwd()) ? 'ts' : 'js';
+      return [{ type: 'add', path: `${filePath}/controllers/{{ id }}.${lang}`, templateFile: `templates/${lang}/controller.${lang}.hbs` }];
+    },
+  });
+};
