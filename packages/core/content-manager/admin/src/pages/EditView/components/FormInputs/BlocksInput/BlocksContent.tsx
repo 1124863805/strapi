@@ -1,15 +1,13 @@
 import * as React from 'react';
 
-import {
-  Box,
-  BoxComponent,
-  Flex,
-  FlexComponent,
-  IconButton,
-  IconButtonComponent,
-  useComposedRefs,
-} from '@leao1/design-system';
-import { Drag } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { BoxComponent } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { FlexComponent } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { useComposedRefs } from '@leao1/design-system';
+import { IconButtonComponent } from '@leao1/design-system';
+import { Drag } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { Editor, Range, Transforms } from 'slate';
 import { ReactEditor, type RenderElementProps, type RenderLeafProps, Editable } from 'slate-react';

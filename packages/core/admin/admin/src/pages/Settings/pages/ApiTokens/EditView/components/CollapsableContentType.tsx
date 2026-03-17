@@ -1,15 +1,13 @@
 import * as React from 'react';
 
-import {
-  Accordion,
-  Box,
-  BoxComponent,
-  Checkbox,
-  Flex,
-  Grid,
-  Typography,
-} from '@leao1/design-system';
-import { Cog } from '@leao1/icons';
+import { Accordion } from '@leao1/design-system';
+import { Box } from '@leao1/design-system';
+import { BoxComponent } from '@leao1/design-system';
+import { Checkbox } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Cog } from '@leao1/design-system/icons';
 import capitalize from 'lodash/capitalize';
 import { useIntl } from 'react-intl';
 import { styled, css } from 'styled-components';

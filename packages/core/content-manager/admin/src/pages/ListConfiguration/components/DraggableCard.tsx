@@ -1,15 +1,13 @@
 import * as React from 'react';
 
-import {
-  Box,
-  BoxComponent,
-  Flex,
-  FlexComponent,
-  Modal,
-  Typography,
-  useComposedRefs,
-} from '@leao1/design-system';
-import { Cross, Drag, Pencil } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { BoxComponent } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { FlexComponent } from '@leao1/design-system';
+import { Modal } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { useComposedRefs } from '@leao1/design-system';
+import { Cross, Drag, Pencil } from '@leao1/design-system/icons';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

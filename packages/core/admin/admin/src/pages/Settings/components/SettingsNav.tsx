@@ -1,11 +1,9 @@
-import {
-  SubNav,
-  SubNavHeader,
-  SubNavLink,
-  SubNavSection,
-  SubNavSections,
-} from '@leao1/design-system';
-import { Lightning } from '@leao1/icons';
+import { SubNav } from '@leao1/design-system';
+import { SubNavHeader } from '@leao1/design-system';
+import { SubNavLink } from '@leao1/design-system';
+import { SubNavSection } from '@leao1/design-system';
+import { SubNavSections } from '@leao1/design-system';
+import { Lightning } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';

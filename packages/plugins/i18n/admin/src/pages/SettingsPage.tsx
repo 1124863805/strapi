@@ -8,7 +8,7 @@ import {
   Layouts,
 } from '@leao1/admin/leao-admin';
 import { EmptyStateLayout } from '@leao1/design-system';
-import { EmptyDocuments } from '@leao1/icons/symbols';
+import { EmptyDocuments } from '@leao1/design-system/symbols';
 import { useIntl } from 'react-intl';
 
 import { CreateLocale } from '../components/CreateLocale';

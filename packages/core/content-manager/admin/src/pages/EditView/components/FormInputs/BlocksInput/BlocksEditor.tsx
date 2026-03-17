@@ -1,8 +1,9 @@
 import * as React from 'react';
 
+import { Divider } from '@leao1/design-system';
 import { createContext, type FieldValue } from '@leao1/admin/leao-admin';
-import { IconButton, Divider, VisuallyHidden } from '@leao1/design-system';
-import { Expand } from '@leao1/icons';
+import { IconButton, VisuallyHidden } from '@leao1/design-system';
+import { Expand } from '@leao1/design-system/icons';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { Editor, type Descendant, createEditor } from 'slate';
 import { withHistory } from 'slate-history';

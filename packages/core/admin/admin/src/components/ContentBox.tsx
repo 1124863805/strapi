@@ -1,10 +1,4 @@
-import {
-  Flex,
-  FlexComponent,
-  FlexProps,
-  Typography,
-  TypographyComponent,
-} from '@leao1/design-system';
+import { Flex, FlexComponent, FlexProps, Typography, TypographyComponent } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
 interface ContentBoxProps {

@@ -1,7 +1,10 @@
 import React from 'react';
 
-import { Flex, FocusTrap, IconButton, Menu } from '@leao1/design-system';
-import { Check, Cross } from '@leao1/icons';
+import { Flex } from '@leao1/design-system';
+import { FocusTrap } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { Menu } from '@leao1/design-system';
+import { Check, Cross } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled, useTheme } from 'styled-components';

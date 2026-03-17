@@ -1,15 +1,13 @@
 import * as React from 'react';
 
-import {
-  Box,
-  Flex,
-  IconButton,
-  Typography,
-  useCollator,
-  Dialog,
-  LinkButton,
-} from '@leao1/design-system';
-import { Pencil, Trash } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { useCollator } from '@leao1/design-system';
+import { Dialog } from '@leao1/design-system';
+import { LinkButton } from '@leao1/design-system';
+import { Pencil, Trash } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';

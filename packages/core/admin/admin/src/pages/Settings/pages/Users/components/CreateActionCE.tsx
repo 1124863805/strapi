@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import { Button, ButtonProps } from '@leao1/design-system';
-import { Mail } from '@leao1/icons';
+import { Button } from '@leao1/design-system';
+import { ButtonProps } from '@leao1/design-system';
+import { Mail } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 interface CreateActionCEProps extends Pick<ButtonProps, 'onClick'> {}

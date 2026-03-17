@@ -18,8 +18,8 @@ import {
 } from '@internationalized/date';
 import { useFocusGuards } from '@radix-ui/react-focus-guards';
 import { FocusScope } from '@radix-ui/react-focus-scope';
-import { Calendar, Cross } from '@leao1/icons';
-import { composeEventHandlers } from '@leao1/ui-primitives';
+import { Calendar, Cross } from '../../_icons';
+import { composeEventHandlers } from '../../_primitives';
 import { createPortal } from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
 import { css, styled, type DefaultTheme } from 'styled-components';

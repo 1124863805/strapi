@@ -2,7 +2,7 @@
  * Simple worker queue in memory
  */
 import createDebugger from 'debug';
-import type { Logger } from '@leao1/logger';
+import type { Logger } from '@leao1/utils';
 import type { Utils } from '@leao1/types';
 
 const debug = createDebugger('leao:worker-queue');

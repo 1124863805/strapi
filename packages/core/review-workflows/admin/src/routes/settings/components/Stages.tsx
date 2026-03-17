@@ -1,33 +1,15 @@
 import * as React from 'react';
 
-import {
-  useField,
-  useForm,
-  ConfirmDialog,
-  useNotification,
-  InputRenderer as AdminInputRenderer,
-  InputProps,
-} from '@leao1/admin/leao-admin';
-import {
-  Box,
-  Flex,
-  MultiSelectOption,
-  Accordion,
-  Grid,
-  IconButton,
-  MultiSelect,
-  MultiSelectGroup,
-  SingleSelect,
-  SingleSelectOption,
-  TextInput,
-  VisuallyHidden,
-  useComposedRefs,
-  Menu,
-  MenuItem,
-  Field,
-  Dialog,
-} from '@leao1/design-system';
-import { Duplicate, Drag, More, EyeStriked } from '@leao1/icons';
+import { Flex, MultiSelectOption, Accordion, Grid, IconButton, MultiSelect, SingleSelect, SingleSelectOption } from '@leao1/design-system';
+import { TextInput } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { useComposedRefs } from '@leao1/design-system';
+import { Menu } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
+import { Dialog } from '@leao1/design-system';
+import { useField, useForm, ConfirmDialog, useNotification, InputRenderer as AdminInputRenderer, InputProps } from '@leao1/admin/leao-admin';
+import { Box, MultiSelectGroup, MenuItem } from '@leao1/design-system';
+import { Duplicate, Drag, More, EyeStriked } from '@leao1/design-system/icons';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

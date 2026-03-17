@@ -7,7 +7,7 @@
 import { SyntheticEvent } from 'react';
 
 import { Button, Flex } from '@leao1/design-system';
-import { Plus } from '@leao1/icons';
+import { Plus } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import { getTrad } from '../utils';

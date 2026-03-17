@@ -1,17 +1,13 @@
 import * as React from 'react';
 
-import {
-  Box,
-  Button,
-  Flex,
-  FlexComponent,
-  FocusTrap,
-  IconButton,
-  Portal,
-  Typography,
-  LinkButton,
-} from '@leao1/design-system';
-import { ArrowRight, Cross } from '@leao1/icons';
+import { Box, Button, Flex } from '@leao1/design-system';
+import { FlexComponent } from '@leao1/design-system';
+import { FocusTrap } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { Portal } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { LinkButton } from '@leao1/design-system';
+import { ArrowRight, Cross } from '@leao1/design-system/icons';
 import get from 'lodash/get';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';

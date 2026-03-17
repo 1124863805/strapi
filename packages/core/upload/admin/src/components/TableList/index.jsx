@@ -1,17 +1,13 @@
 import React from 'react';
 
-import {
-  Checkbox,
-  IconButton,
-  Table,
-  Th,
-  Thead,
-  Tooltip,
-  Tr,
-  Typography,
-  VisuallyHidden,
-} from '@leao1/design-system';
-import { CaretDown, CaretUp } from '@leao1/icons';
+import { Checkbox, IconButton, Table } from '@leao1/design-system';
+import { Th } from '@leao1/design-system';
+import { Thead } from '@leao1/design-system';
+import { Tooltip } from '@leao1/design-system';
+import { Tr } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { CaretDown, CaretUp } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

@@ -1,5 +1,9 @@
-import { Box, BoxProps, Flex, FlexProps, Typography } from '@leao1/design-system';
-import { Check } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { FlexProps } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { BoxProps } from '@leao1/design-system/icons';
+import { Check } from '@leao1/design-system/icons';
 
 import { STATES, States } from './constants';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Button, Grid, Modal, Breadcrumbs, Crumb, VisuallyHidden } from '@leao1/design-system';
-import { Form, InputRenderer } from '@leao1/leao/admin';
+import { Form, InputRenderer } from '@leao1/admin/leao-admin';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

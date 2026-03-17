@@ -1,5 +1,11 @@
 {
-  "extends": "tsconfig/base.json",
+  "extends": "@leao1/config/tsconfig/base.json",
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "target": "ES2020",
+    "esModuleInterop": true,
+    "moduleResolution": "Bundler"
+  },
   "include": [
     "types",
     "src",

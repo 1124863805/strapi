@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
 
+import { Field, Flex, Grid, Loader, Modal, TextInput, Typography } from '@leao1/design-system';
 import { useNotification } from '@leao1/admin/leao-admin';
 import {
-  Button,
-  Field,
-  Flex,
-  Grid,
-  Loader,
-  Modal,
-  TextInput,
-  Typography,
-} from '@leao1/design-system';
+  Button } from '@leao1/design-system';
 import { Form, Formik } from 'formik';
 import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';

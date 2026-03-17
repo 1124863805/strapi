@@ -27,3 +27,11 @@ export * as hooks from './hooks';
 export * from './zod';
 
 export * from './primitives';
+
+export {
+  createLogger,
+  winston,
+  configs,
+  type Logger,
+} from './logger';
+export * as logger from './logger';

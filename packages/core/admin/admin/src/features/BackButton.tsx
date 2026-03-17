@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import { Link, LinkProps } from '@leao1/design-system';
-import { ArrowLeft } from '@leao1/icons';
+import { Link } from '@leao1/design-system';
+import { LinkProps } from '@leao1/design-system';
+import { ArrowLeft } from '@leao1/design-system/icons';
 import { produce } from 'immer';
 import { useIntl } from 'react-intl';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
@@ -188,7 +189,7 @@ const reducer = (state: HistoryState, action: HistoryActions) =>
 /* -------------------------------------------------------------------------------------------------
  * BackButton
  * -----------------------------------------------------------------------------------------------*/
-interface BackButtonProps extends Pick<LinkProps, 'disabled'> {}
+interface BackButtonProps extends Partial<Pick<LinkProps, 'disabled'>> {}
 
 /**
  * @beta
@@ -196,7 +197,7 @@ interface BackButtonProps extends Pick<LinkProps, 'disabled'> {}
  * context to navigate the user back to the previous location. It can be completely disabled in a
  * specific user case.
  */
-const BackButton = React.forwardRef<HTMLAnchorElement, BackButtonProps>(({ disabled }, ref) => {
+const BackButton = React.forwardRef<HTMLAnchorElement, BackButtonProps>(({ disabled = false }, ref) => {
   const { formatMessage } = useIntl();
   const navigate = useNavigate();
 

@@ -1,4 +1,4 @@
-import { Information } from '@leao1/icons';
+import { Information } from '@leao1/design-system/icons';
 
 import { PERMISSIONS } from './constants';
 import { pluginId } from './pluginId';

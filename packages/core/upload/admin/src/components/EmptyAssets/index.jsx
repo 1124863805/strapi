@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Box, Flex, Typography } from '@leao1/design-system';
-import { EmptyDocuments } from '@leao1/icons/symbols';
+import { EmptyDocuments } from '@leao1/design-system/symbols';
 import PropTypes from 'prop-types';
 
 import { EmptyAssetGrid } from './EmptyAssetGrid';

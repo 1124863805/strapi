@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Typography } from '@leao1/design-system';
-import { Paragraph } from '@leao1/icons';
+import { Paragraph } from '@leao1/design-system/icons';
 import { type Text, Editor, Transforms } from 'slate';
 
 import { type BlocksStore } from '../BlocksEditor';

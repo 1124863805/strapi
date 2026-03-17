@@ -4,7 +4,7 @@ import url from 'node:url';
 import fse from 'fs-extra';
 import type { Scope } from '../types';
 
-const BUNDLED_TEMPLATES = ['example', 'example-js', 'vanilla', 'vanilla-js'];
+const BUNDLED_TEMPLATES = ['vanilla', 'vanilla-js'];
 
 // Merge template with new project being created
 // Only supports: bundled templates (handled in create-leao-impl) and local file:// or filesystem paths.
@@ -13,7 +13,7 @@ export async function copyTemplate(scope: Scope, rootPath: string) {
   const { template } = scope;
 
   if (!template) {
-    throw new Error('Missing template or example app option');
+    throw new Error('Missing template option');
   }
 
   if (BUNDLED_TEMPLATES.includes(template)) {

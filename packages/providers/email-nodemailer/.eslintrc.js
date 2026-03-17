@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ['custom/back/typescript'],
+  extends: ['@leao1/config/back/typescript'],
 };

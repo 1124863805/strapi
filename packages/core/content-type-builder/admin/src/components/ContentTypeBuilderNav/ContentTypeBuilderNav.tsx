@@ -1,16 +1,14 @@
+import { TextButton } from '@leao1/design-system';
+import { SubNav } from '@leao1/design-system';
+import { SubNavHeader } from '@leao1/design-system';
+import { SubNavLink } from '@leao1/design-system';
+import { SubNavLinkSection } from '@leao1/design-system';
+import { SubNavSection } from '@leao1/design-system';
+import { SubNavSections } from '@leao1/design-system';
 import { Fragment } from 'react';
 
-import {
-  Box,
-  TextButton,
-  SubNav,
-  SubNavHeader,
-  SubNavLink,
-  SubNavLinkSection,
-  SubNavSection,
-  SubNavSections,
-} from '@leao1/design-system';
-import { Plus } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Plus } from '@leao1/design-system/icons';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';

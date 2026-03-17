@@ -49,11 +49,10 @@
     "umzug": "3.8.1"
   },
   "devDependencies": {
+    "@leao1/config": "workspace:*",
     "@leao1/pack-up": "^1.0.0",
     "@types/debug": "4.1.12",
-    "@types/fs-extra": "11.0.4",
-    "eslint-config-custom": "workspace:*",
-    "tsconfig": "workspace:*"
+    "@types/fs-extra": "11.0.4"
   },
   "engines": {
     "node": ">=18.0.0 <=22.x.x",

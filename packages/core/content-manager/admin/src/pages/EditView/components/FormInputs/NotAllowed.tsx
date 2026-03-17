@@ -1,5 +1,6 @@
-import { Field, TextInput } from '@leao1/design-system';
-import { EyeStriked } from '@leao1/icons';
+import { Field } from '@leao1/design-system';
+import { TextInput } from '@leao1/design-system';
+import { EyeStriked } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import type { InputProps } from '@leao1/admin/leao-admin';

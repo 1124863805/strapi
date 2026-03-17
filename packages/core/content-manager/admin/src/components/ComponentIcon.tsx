@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import { Flex, FlexProps } from '@leao1/design-system';
-import * as Icons from '@leao1/icons';
-import * as Symbols from '@leao1/icons/symbols';
+import * as Icons from '@leao1/design-system/icons';
+import * as Symbols from '@leao1/design-system/symbols';
 
 import type { Struct } from '@leao1/types';
 

@@ -1,26 +1,16 @@
 import * as React from 'react';
 
-import {
-  useAPIErrorHandler,
-  useNotification,
-  useQueryParams,
-  useRBAC,
-  isFetchError,
-} from '@leao1/admin/leao-admin';
-import { unstable_useDocumentLayout as useDocumentLayout } from '@leao1/content-manager/leao-admin';
-import {
-  Box,
-  Button,
-  Flex,
-  SingleSelect,
-  SingleSelectOption,
-  EmptyStateLayout,
-  LinkButton,
-  Field,
-  Modal,
-} from '@leao1/design-system';
-import { PaperPlane } from '@leao1/icons';
-import { EmptyDocuments } from '@leao1/icons/symbols';
+import { Box, Button, Flex } from '@leao1/design-system';
+import { SingleSelect } from '@leao1/design-system';
+import { SingleSelectOption } from '@leao1/design-system';
+import { EmptyStateLayout } from '@leao1/design-system';
+import { LinkButton } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
+import { Modal } from '@leao1/design-system';
+import { useAPIErrorHandler, useNotification, useQueryParams, useRBAC, isFetchError } from '@leao1/admin/leao-admin';
+import { unstable_useDocumentLayout } from '@leao1/content-manager/leao-admin';
+import { PaperPlane } from '@leao1/design-system/icons';
+import { EmptyDocuments } from '@leao1/design-system/symbols';
 import { useFormik } from 'formik';
 import { useIntl } from 'react-intl';
 import { Link as ReactRouterLink } from 'react-router-dom';
@@ -241,7 +231,7 @@ const ReleaseActionModalForm: DocumentActionComponent = ({
 
   const {
     edit: { options },
-  } = useDocumentLayout(model);
+  } = unstable_useDocumentLayout(model);
 
   if (!options?.draftAndPublish || !canCreateAction) {
     return null;

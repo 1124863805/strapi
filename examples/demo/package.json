@@ -11,9 +11,9 @@
     "start": "leao start"
   },
   "dependencies": {
-    "@leao1/leao": "1.0.0",
-    "@leao1/plugin-documentation": "1.0.0",
-    "@leao1/plugin-users-permissions": "1.0.0",
+    "@leao1/leao": "workspace:*",
+    "@leao1/plugin-documentation": "workspace:*",
+    "@leao1/plugin-users-permissions": "workspace:*",
     "better-sqlite3": "12.8.0",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
@@ -33,6 +33,6 @@
     "npm": ">=6.0.0"
   },
   "leao": {
-    "uuid": "61d2c972-0ca0-4b27-ae8d-8a8f46c43119"
+    "uuid": "9498e4f9-c533-4fb8-92b9-681e3a56e806"
   }
 }

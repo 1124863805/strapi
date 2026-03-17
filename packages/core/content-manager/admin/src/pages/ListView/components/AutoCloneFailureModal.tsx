@@ -1,5 +1,7 @@
-import { Box, Flex, Typography } from '@leao1/design-system';
-import { ChevronRight } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { ChevronRight } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import { getTranslation } from '../../../utils/translations';

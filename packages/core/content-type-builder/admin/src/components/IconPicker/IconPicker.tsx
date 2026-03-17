@@ -1,17 +1,14 @@
+import { Field, Flex } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { inputFocusStyle } from '@leao1/design-system';
+import { Searchbar } from '@leao1/design-system';
+import { Tooltip } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
 import { useEffect, useRef, useState } from 'react';
 
-import {
-  Box,
-  Field,
-  Flex,
-  IconButton,
-  inputFocusStyle,
-  Searchbar,
-  Tooltip,
-  Typography,
-  VisuallyHidden,
-} from '@leao1/design-system';
-import { Search, Trash } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Search, Trash } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

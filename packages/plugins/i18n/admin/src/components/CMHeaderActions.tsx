@@ -1,14 +1,15 @@
 import * as React from 'react';
 
+import { Status, Typography, Button, Modal } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
+import { SingleSelect } from '@leao1/design-system';
+import { SingleSelectOption } from '@leao1/design-system';
+import { Dialog } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { type StatusVariant } from '@leao1/design-system';
 import { skipToken } from '@reduxjs/toolkit/query';
 import {
-  useNotification,
-  useQueryParams,
-  Table,
-  useAPIErrorHandler,
-  FormErrors,
-  useForm,
-} from '@leao1/admin/leao-admin';
+  useNotification, useQueryParams, useAPIErrorHandler, FormErrors, useForm, } from '@leao1/admin/leao-admin';
 import {
   type DocumentActionComponent,
   type DocumentActionProps,
@@ -17,19 +18,8 @@ import {
   buildValidParams,
   HeaderActionProps,
 } from '@leao1/content-manager/leao-admin';
-import {
-  Flex,
-  Status,
-  Typography,
-  Button,
-  Modal,
-  Field,
-  SingleSelect,
-  SingleSelectOption,
-  Dialog,
-  type StatusVariant,
-} from '@leao1/design-system';
-import { WarningCircle, ListPlus, Trash, Download, Cross, Plus } from '@leao1/icons';
+import { Table } from '@leao1/admin/leao-admin';
+import { WarningCircle, ListPlus, Trash, Download, Cross, Plus } from '@leao1/design-system/icons';
 import { Modules } from '@leao1/types';
 import { useIntl } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
@@ -222,7 +212,7 @@ const getDocumentStatus = (
   /**
    * We're viewing a draft, but the document could have a published version
    */
-  if (docStatus === 'draft' && statuses.find((doc) => doc.publishedAt !== null)) {
+  if (docStatus === 'draft' && statuses.find((doc: { publishedAt: unknown }) => doc.publishedAt !== null)) {
     return 'published';
   }
 
@@ -549,7 +539,7 @@ const BulkLocaleAction: DocumentActionComponent = ({
     const rowsFromMeta: LocaleStatus[] = documentMeta?.availableLocales.map((doc) => {
       const { locale, status } = doc;
 
-      return { locale, status };
+      return { locale, status: status ?? 'draft' } satisfies LocaleStatus;
     });
 
     rowsFromMeta.unshift({

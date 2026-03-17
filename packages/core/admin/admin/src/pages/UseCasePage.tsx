@@ -1,17 +1,6 @@
 import * as React from 'react';
 
-import {
-  Box,
-  Button,
-  Flex,
-  Main,
-  SingleSelectOption,
-  SingleSelect,
-  TextButton,
-  TextInput,
-  Typography,
-  Field,
-} from '@leao1/design-system';
+import { Box, Button, Flex, Main, SingleSelectOption, SingleSelect, TextButton, TextInput, Typography, Field } from '@leao1/design-system';
 import { parse } from 'qs';
 import { useIntl } from 'react-intl';
 import { useLocation, useNavigate } from 'react-router-dom';

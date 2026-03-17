@@ -1,47 +1,16 @@
 import * as React from 'react';
 
-import {
-  Page,
-  Pagination,
-  Table,
-  BackButton,
-  ConfirmDialog,
-  useAPIErrorHandler,
-  useNotification,
-  useQueryParams,
-  useRBAC,
-  isFetchError,
-  useLeaoApp,
-  Layouts,
-  FormErrors,
-} from '@leao1/admin/leao-admin';
+import { Flex, Main, Tr, Td, Typography, Badge, SingleSelect, SingleSelectOption, Tooltip } from '@leao1/design-system';
+import { EmptyStateLayout } from '@leao1/design-system';
+import { LinkButton } from '@leao1/design-system';
+import { Dialog } from '@leao1/design-system';
+import { SimpleMenu } from '@leao1/design-system';
+import { Button, MenuItem } from '@leao1/design-system';
+import { Page, BackButton, ConfirmDialog, useAPIErrorHandler, useNotification, useQueryParams, useRBAC, isFetchError, useLeaoApp, Layouts, FormErrors, Pagination, Table } from '@leao1/admin/leao-admin';
 import { unstable_useDocument } from '@leao1/content-manager/leao-admin';
 import {
-  Button,
-  Flex,
-  Main,
-  Tr,
-  Td,
-  Typography,
-  Badge,
-  SingleSelect,
-  SingleSelectOption,
-  Tooltip,
-  EmptyStateLayout,
-  LinkButton,
-  Dialog,
-  SimpleMenu,
-  MenuItem,
-} from '@leao1/design-system';
-import {
-  CheckCircle,
-  More,
-  Pencil,
-  Trash,
-  CrossCircle,
-  ArrowsCounterClockwise,
-} from '@leao1/icons';
-import { EmptyDocuments } from '@leao1/icons/symbols';
+  CheckCircle, More, Pencil, Trash, CrossCircle, ArrowsCounterClockwise } from '@leao1/design-system/icons';
+import { EmptyDocuments } from '@leao1/design-system/symbols';
 import format from 'date-fns/format';
 import { utcToZonedTime } from 'date-fns-tz';
 import { useIntl } from 'react-intl';

@@ -43,7 +43,7 @@ const list = async (): Promise<SanitizedTransferToken[]> => {
   });
 
   if (!tokens) return tokens;
-  return tokens.map((token) => flattenTokenPermissions(token));
+  return tokens.map((token) => flattenTokenPermissions(token)) as SanitizedTransferToken[];
 };
 
 /**
@@ -324,17 +324,17 @@ For security reasons, prefer storing the secret in an environment variable and r
 /**
  * Flatten a token's database permissions objects to an array of strings
  */
-const flattenTokenPermissions = (token: DatabaseTransferToken): TransferToken => {
+const flattenTokenPermissions = (token: DatabaseTransferToken): SanitizedTransferToken => {
   if (!token) {
-    return token;
+    return token as unknown as SanitizedTransferToken;
   }
 
   return {
     ...token,
     permissions: isArray(token.permissions)
       ? map('action', token.permissions as TransferTokenPermission[])
-      : token.permissions,
-  };
+      : (token.permissions as TransferTokenPermission['action'][]),
+  } as SanitizedTransferToken;
 };
 
 /**

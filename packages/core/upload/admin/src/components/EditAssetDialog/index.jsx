@@ -6,16 +6,7 @@
 
 import React, { useRef, useState } from 'react';
 
-import {
-  Button,
-  Field,
-  Flex,
-  Grid,
-  Loader,
-  Modal,
-  TextInput,
-  VisuallyHidden,
-} from '@leao1/design-system';
+import { Button, Field, Flex, Grid, Loader, Modal, TextInput, VisuallyHidden } from '@leao1/design-system';
 import { Form, Formik } from 'formik';
 import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';

@@ -107,9 +107,7 @@
     "@leao1/data-transfer": "^1.0.0",
     "@leao1/database": "^1.0.0",
     "@leao1/email": "^1.0.0",
-    "@leao1/generators": "^1.0.0",
     "@leao1/i18n": "^1.0.0",
-    "@leao1/logger": "^1.0.0",
     "@leao1/pack-up": "^1.0.0",
     "@leao1/permissions": "^1.0.0",
     "@leao1/review-workflows": "^1.0.0",
@@ -171,10 +169,8 @@
     "@types/node": "18.19.24",
     "@types/webpack-bundle-analyzer": "4.7.0",
     "@types/webpack-hot-middleware": "2.25.9",
-    "eslint-config-custom": "workspace:*",
     "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "tsconfig": "workspace:*"
+    "react-dom": "18.3.1"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",

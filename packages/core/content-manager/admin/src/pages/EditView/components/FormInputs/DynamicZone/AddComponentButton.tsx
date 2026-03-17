@@ -1,7 +1,10 @@
 import * as React from 'react';
 
-import { Button, Flex, Typography, TypographyComponent } from '@leao1/design-system';
-import { PlusCircle } from '@leao1/icons';
+import { Button } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { TypographyComponent } from '@leao1/design-system';
+import { PlusCircle } from '@leao1/design-system/icons';
 import { styled } from 'styled-components';
 
 interface AddComponentButtonProps {

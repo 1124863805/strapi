@@ -1,28 +1,14 @@
 import * as React from 'react';
 
-import {
-  Button,
-  Flex,
-  IconButton,
-  IconButtonGroup,
-  SingleSelectOption,
-  Popover,
-  SingleSelect,
-  Field,
-} from '@leao1/design-system';
-import {
-  Bold,
-  BulletList,
-  Code,
-  Italic,
-  Link,
-  More,
-  NumberList,
-  Image,
-  Quotes,
-  StrikeThrough,
-  Underline,
-} from '@leao1/icons';
+import { Button, Flex } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { IconButtonGroup } from '@leao1/design-system';
+import { SingleSelectOption } from '@leao1/design-system';
+import { Popover } from '@leao1/design-system';
+import { SingleSelect } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
+import { Link } from '@leao1/design-system';
+import { Bold, BulletList, Code, Italic, More, NumberList, Image, Quotes, StrikeThrough, Underline } from '@leao1/design-system/icons';
 import { EditorFromTextArea } from 'codemirror5';
 import { useIntl } from 'react-intl';
 

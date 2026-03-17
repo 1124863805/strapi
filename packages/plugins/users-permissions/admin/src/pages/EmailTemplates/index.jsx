@@ -8,7 +8,7 @@ import {
   useFetchClient,
   useRBAC,
   Layouts,
-} from '@leao1/leao/admin';
+} from '@leao1/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 

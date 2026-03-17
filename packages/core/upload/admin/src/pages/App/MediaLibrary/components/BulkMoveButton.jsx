@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import { Button, Modal } from '@leao1/design-system';
-import { Folder } from '@leao1/icons';
+import { Button } from '@leao1/design-system';
+import { Modal } from '@leao1/design-system';
+import { Folder } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

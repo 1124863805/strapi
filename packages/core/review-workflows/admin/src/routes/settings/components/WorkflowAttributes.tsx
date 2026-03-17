@@ -1,13 +1,6 @@
+import { Grid, MultiSelect, MultiSelectOption, Typography, useCollator } from '@leao1/design-system';
 import { InputRenderer, useField, useForm } from '@leao1/admin/leao-admin';
-import {
-  Field,
-  Grid,
-  MultiSelect,
-  MultiSelectGroup,
-  MultiSelectOption,
-  Typography,
-  useCollator,
-} from '@leao1/design-system';
+import { Field, MultiSelectGroup } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

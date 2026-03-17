@@ -2,7 +2,7 @@
 import React, { forwardRef } from 'react';
 
 import { Flex } from '@leao1/design-system';
-import { File, FilePdf } from '@leao1/icons';
+import { File, FilePdf } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 

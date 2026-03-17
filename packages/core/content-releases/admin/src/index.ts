@@ -1,4 +1,4 @@
-import { PaperPlane } from '@leao1/icons';
+import { PaperPlane } from '@leao1/design-system/icons';
 
 import { ReleaseAction } from './components/ReleaseAction';
 import { ReleaseActionModalForm } from './components/ReleaseActionModal';

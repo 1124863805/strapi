@@ -1,12 +1,8 @@
-import { Flex, KeyboardNavigable, Typography } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { KeyboardNavigable } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
 import {
-  ManyToMany,
-  ManyToOne,
-  ManyWays as ManyWay,
-  OneToMany,
-  OneToOne,
-  OneWay,
-} from '@leao1/icons';
+  ManyToMany, ManyToOne, ManyWays, OneToMany, OneToOne, OneWay } from '@leao1/design-system/icons';
 import get from 'lodash/get';
 import truncate from 'lodash/truncate';
 import pluralize from 'pluralize';
@@ -25,7 +21,7 @@ const relations = {
   oneToMany: OneToMany,
   manyToOne: ManyToOne,
   manyToMany: ManyToMany,
-  manyWay: ManyWay,
+  manyWay: ManyWays,
 };
 
 type RelationType = keyof typeof relations;

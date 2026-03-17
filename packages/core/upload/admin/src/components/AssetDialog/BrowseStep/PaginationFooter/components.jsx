@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Typography, VisuallyHidden } from '@leao1/design-system';
-import { ChevronLeft, ChevronRight } from '@leao1/icons';
+import { Typography } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { ChevronLeft, ChevronRight } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 

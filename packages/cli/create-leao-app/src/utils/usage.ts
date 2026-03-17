@@ -39,7 +39,6 @@ const getProperties = (scope: Scope, error?: TrackError) => {
     useTypescript: boolToString(scope.useTypescript),
     noRun: boolToString(scope.runApp),
     projectId: scope.uuid,
-    useExample: boolToString(scope.useExample),
     gitInit: boolToString(scope.gitInit),
     installDependencies: boolToString(scope.installDependencies),
   };

@@ -1,7 +1,12 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, useNotifyAT, Grid, Typography } from '@leao1/design-system';
-import { Check } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Button } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { useNotifyAT } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Check } from '@leao1/design-system/icons';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 import * as yup from 'yup';

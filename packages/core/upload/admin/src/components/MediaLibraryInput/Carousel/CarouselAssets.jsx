@@ -1,6 +1,7 @@
 import React, { forwardRef, useState } from 'react';
 
-import { CarouselInput, CarouselSlide } from '@leao1/design-system';
+import { CarouselInput } from '@leao1/design-system';
+import { CarouselSlide } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

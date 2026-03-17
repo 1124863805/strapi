@@ -1,16 +1,14 @@
 import * as React from 'react';
 
-import {
-  Box,
-  EmptyStateLayout,
-  type EmptyStateLayoutProps,
-  Flex,
-  Loader,
-  Main,
-  MainProps,
-} from '@leao1/design-system';
-import { WarningCircle } from '@leao1/icons';
-import { EmptyPermissions, EmptyDocuments } from '@leao1/icons/symbols';
+import { Box } from '@leao1/design-system';
+import { EmptyStateLayout } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Loader } from '@leao1/design-system';
+import { Main } from '@leao1/design-system';
+import { MainProps } from '@leao1/design-system';
+import { type EmptyStateLayoutProps } from '@leao1/design-system/icons';
+import { WarningCircle } from '@leao1/design-system/icons';
+import { EmptyPermissions, EmptyDocuments } from '@leao1/design-system/symbols';
 import { useIntl } from 'react-intl';
 
 import { useAuth, Permission } from '../features/Auth';

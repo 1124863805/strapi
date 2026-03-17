@@ -1,10 +1,9 @@
 import * as React from 'react';
 
+import { Flex } from '@leao1/design-system';
 import {
   Page,
-  Pagination,
   SearchInput,
-  Table,
   BackButton,
   useNotification,
   useLeaoApp,
@@ -12,15 +11,13 @@ import {
   useQueryParams,
   useRBAC,
   Layouts,
-  useTable,
+  Pagination,
+  Table,
 } from '@leao1/admin/leao-admin';
-import { Button, Flex, Typography, ButtonProps } from '@leao1/design-system';
-import { Plus } from '@leao1/icons';
 import isEqual from 'lodash/isEqual';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
-import { useNavigate, Link as ReactRouterLink, useParams } from 'react-router-dom';
-import { styled } from 'styled-components';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { InjectionZone } from '../../components/InjectionZone';
 import { HOOKS } from '../../constants/hooks';
@@ -36,13 +33,12 @@ import { usePrev } from '../../hooks/usePrev';
 import { useGetAllDocumentsQuery } from '../../services/documents';
 import { buildValidParams } from '../../utils/api';
 import { getTranslation } from '../../utils/translations';
-import { getDisplayName } from '../../utils/users';
-import { DocumentStatus } from '../EditView/components/DocumentStatus';
 
-import { BulkActionsRenderer } from './components/BulkActions/Actions';
+import { CreateButton } from './components/CreateButton';
 import { Filters } from './components/Filters';
-import { TableActions } from './components/TableActions';
-import { CellContent } from './components/TableCells/CellContent';
+import { ListViewHeader } from './components/ListViewHeader';
+import { ListViewTableRow } from './components/ListViewTableRow';
+import { TableActionsBar } from './components/TableActionsBar';
 import { ViewSettingsMenu } from './components/ViewSettingsMenu';
 
 import type { Modules } from '@leao1/types';
@@ -52,9 +48,6 @@ const { INJECT_COLUMN_IN_TABLE } = HOOKS;
 /* -------------------------------------------------------------------------------------------------
  * ListViewPage
  * -----------------------------------------------------------------------------------------------*/
-const LayoutsHeaderCustom = styled(Layouts.Header)`
-  overflow-wrap: anywhere;
-`;
 
 const ListViewPage = () => {
   const navigate = useNavigate();
@@ -69,10 +62,6 @@ const ListViewPage = () => {
 
   const listLayout = usePrev(list.layout);
   React.useEffect(() => {
-    /**
-     * ONLY update the displayedHeaders if the document
-     * layout has actually changed in value.
-     */
     if (!isEqual(listLayout, list.layout)) {
       setDisplayedHeaders(list.layout);
     }
@@ -115,9 +104,6 @@ const ListViewPage = () => {
     params: paramObject,
   });
 
-  /**
-   * If the API returns an error, display a notification
-   */
   React.useEffect(() => {
     if (error) {
       toggleNotification({
@@ -141,35 +127,28 @@ const ListViewPage = () => {
         { replace: true }
       );
     }
-  }, [pagination, formatMessage, query, navigate]);
+  }, [pagination, query, navigate]);
 
   const { canCreate } = useDocumentRBAC('ListViewPage', ({ canCreate }) => ({
     canCreate,
   }));
 
   const runHookWaterfall = useLeaoApp('ListViewPage', ({ runHookWaterfall }) => runHookWaterfall);
-  /**
-   * Run the waterfall and then inject our additional table headers.
-   */
   const tableHeaders = React.useMemo(() => {
     const headers = runHookWaterfall(INJECT_COLUMN_IN_TABLE, {
       displayedHeaders,
       layout: list,
     });
 
-    const formattedHeaders = headers.displayedHeaders.map<ListFieldLayout>((header) => {
-      return {
-        ...header,
-        label: typeof header.label === 'string' ? header.label : formatMessage(header.label),
-        name: `${header.name}${header.mainField?.name ? `.${header.mainField.name}` : ''}`,
-      };
-    });
+    const formattedHeaders = headers.displayedHeaders.map<ListFieldLayout>((header) => ({
+      ...header,
+      label: typeof header.label === 'string' ? header.label : formatMessage(header.label),
+      name: `${header.name}${header.mainField?.name ? `.${header.mainField.name}` : ''}`,
+    }));
 
     if (schema?.options?.draftAndPublish) {
       formattedHeaders.push({
-        attribute: {
-          type: 'custom',
-        },
+        attribute: { type: 'custom' },
         name: 'status',
         label: formatMessage({
           id: getTranslation(`containers.list.table-headers.status`),
@@ -202,8 +181,8 @@ const ListViewPage = () => {
 
   return (
     <Page.Main>
-      <Page.Title>{`${contentTypeTitle}`}</Page.Title>
-      <LayoutsHeaderCustom
+      <Page.Title>{contentTypeTitle}</Page.Title>
+      <ListViewHeader
         primaryAction={canCreate ? <CreateButton /> : null}
         subtitle={formatMessage(
           {
@@ -263,63 +242,16 @@ const ListViewPage = () => {
               <Table.Loading />
               <Table.Empty action={canCreate ? <CreateButton variant="secondary" /> : null} />
               <Table.Body>
-                {results.map((row) => {
-                  return (
-                    <Table.Row
-                      cursor="pointer"
-                      key={row.id}
-                      onClick={handleRowClick(row.documentId)}
-                    >
-                      <Table.CheckboxCell id={row.id} />
-                      {tableHeaders.map(({ cellFormatter, ...header }, cellIndex) => {
-                        if (header.name === 'status') {
-                          const { status } = row;
-
-                          return (
-                            <Table.Cell key={`${header.name}-${cellIndex}`}>
-                              <DocumentStatus status={status} maxWidth={'min-content'} />
-                            </Table.Cell>
-                          );
-                        }
-                        if (['createdBy', 'updatedBy'].includes(header.name.split('.')[0])) {
-                          // Display the users full name
-                          // Some entries doesn't have a user assigned as creator/updater (ex: entries created through content API)
-                          // In this case, we display a dash
-                          return (
-                            <Table.Cell key={`${header.name}-${cellIndex}`}>
-                              <Typography textColor="neutral800">
-                                {row[header.name.split('.')[0]]
-                                  ? getDisplayName(row[header.name.split('.')[0]])
-                                  : '-'}
-                              </Typography>
-                            </Table.Cell>
-                          );
-                        }
-                        if (typeof cellFormatter === 'function') {
-                          return (
-                            <Table.Cell key={`${header.name}-${cellIndex}`}>
-                              {/* @ts-expect-error – TODO: fix this TS error */}
-                              {cellFormatter(row, header, { collectionType, model })}
-                            </Table.Cell>
-                          );
-                        }
-                        return (
-                          <Table.Cell key={`${header.name}-${cellIndex}`}>
-                            <CellContent
-                              content={row[header.name.split('.')[0]]}
-                              rowId={row.documentId}
-                              {...header}
-                            />
-                          </Table.Cell>
-                        );
-                      })}
-                      {/* we stop propogation here to allow the menu to trigger it's events without triggering the row redirect */}
-                      <ActionsCell onClick={(e) => e.stopPropagation()}>
-                        <TableActions document={row} />
-                      </ActionsCell>
-                    </Table.Row>
-                  );
-                })}
+                {results.map((row) => (
+                  <ListViewTableRow
+                    key={row.id}
+                    row={row}
+                    tableHeaders={tableHeaders}
+                    collectionType={collectionType}
+                    model={model}
+                    onRowClick={handleRowClick}
+                  />
+                ))}
               </Table.Body>
             </Table.Content>
           </Table.Root>
@@ -333,83 +265,14 @@ const ListViewPage = () => {
   );
 };
 
-const ActionsCell = styled(Table.Cell)`
-  display: flex;
-  justify-content: flex-end;
-`;
-
-/* -------------------------------------------------------------------------------------------------
- * TableActionsBar
- * -----------------------------------------------------------------------------------------------*/
-
-const TableActionsBar = () => {
-  const selectRow = useTable('TableActionsBar', (state) => state.selectRow);
-  const [{ query }] = useQueryParams<{ plugins: { i18n: { locale: string } } }>();
-  const locale = query?.plugins?.i18n?.locale;
-  const prevLocale = usePrev(locale);
-
-  // TODO: find a better way to reset the selected rows when the locale changes across all the app
-  React.useEffect(() => {
-    if (prevLocale !== locale) {
-      selectRow([]);
-    }
-  }, [selectRow, prevLocale, locale]);
-
-  return (
-    <Table.ActionBar>
-      <BulkActionsRenderer />
-    </Table.ActionBar>
-  );
-};
-
-/* -------------------------------------------------------------------------------------------------
- * CreateButton
- * -----------------------------------------------------------------------------------------------*/
-
-interface CreateButtonProps extends Pick<ButtonProps, 'variant'> {}
-
-const CreateButton = ({ variant }: CreateButtonProps) => {
-  const { formatMessage } = useIntl();
-  const [{ query }] = useQueryParams<{ plugins: object }>();
-
-  return (
-    <Button
-      variant={variant}
-      tag={ReactRouterLink}
-      startIcon={<Plus />}
-      style={{ textDecoration: 'none' }}
-      to={{
-        pathname: 'create',
-        search: stringify({ plugins: query.plugins }),
-      }}
-      minWidth="max-content"
-      marginLeft={2}
-    >
-      {formatMessage({
-        id: getTranslation('HeaderLayout.button.label-add-entry'),
-        defaultMessage: 'Create new entry',
-      })}
-    </Button>
-  );
-};
-
 /* -------------------------------------------------------------------------------------------------
  * ProtectedListViewPage
  * -----------------------------------------------------------------------------------------------*/
 
 const ProtectedListViewPage = () => {
-  const { slug = '' } = useParams<{
-    slug: string;
-  }>();
-  const {
-    permissions = [],
-    isLoading,
-    error,
-  } = useRBAC(
-    PERMISSIONS.map((action) => ({
-      action,
-      subject: slug,
-    }))
+  const { slug = '' } = useParams<{ slug: string }>();
+  const { permissions = [], isLoading, error } = useRBAC(
+    PERMISSIONS.map((action) => ({ action, subject: slug }))
   );
 
   if (isLoading) {

@@ -74,7 +74,9 @@ const disableUsersAboveSeatLimit = async (numberOfUsersToDisable: number) => {
 };
 
 const syncDisabledUserRecords = async () => {
-  const disabledUsers = await leao.store.get({ type: 'ee', key: 'disabled_users' });
+  const disabledUsers = (await leao.store.get({ type: 'ee', key: 'disabled_users' })) as
+    | Array<{ id: number }>
+    | undefined;
 
   if (!disabledUsers) {
     return;

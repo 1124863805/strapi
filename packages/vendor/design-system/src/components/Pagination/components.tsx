@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ChevronLeft, ChevronRight } from '@leao1/icons';
+import { ChevronLeft, ChevronRight } from '../../_icons';
 import { styled } from 'styled-components';
 
 import { Box, BoxProps } from '../../primitives/Box';

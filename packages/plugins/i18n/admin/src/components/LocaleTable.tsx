@@ -1,16 +1,6 @@
 import * as React from 'react';
 
-import {
-  Flex,
-  Table,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  Typography,
-  VisuallyHidden,
-} from '@leao1/design-system';
+import { Flex, Table, Tbody, Td, Th, Thead, Tr, Typography, VisuallyHidden } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { getTranslation } from '../utils/getTranslation';

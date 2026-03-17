@@ -2,9 +2,13 @@
 /* eslint-disable check-file/filename-naming-convention */
 import * as React from 'react';
 
+import { Flex } from '@leao1/design-system';
+import { TFooter } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { LinkButton } from '@leao1/design-system';
 import { Page, ConfirmDialog, useRBAC, Table } from '@leao1/admin/leao-admin';
-import { Dialog, Flex, IconButton, LinkButton, TFooter, Typography } from '@leao1/design-system';
-import { Pencil, Plus, Trash } from '@leao1/icons';
+import { Dialog, Typography } from '@leao1/design-system';
+import { Pencil, Plus, Trash } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 

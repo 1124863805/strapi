@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Tag } from '@leao1/design-system';
-import { Cross } from '@leao1/icons';
+import { Cross } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

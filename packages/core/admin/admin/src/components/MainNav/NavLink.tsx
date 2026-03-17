@@ -1,12 +1,10 @@
 import * as React from 'react';
 
-import {
-  Tooltip,
-  TooltipProps as DSTooltipProps,
-  Badge,
-  BadgeProps,
-  AccessibleIcon,
-} from '@leao1/design-system';
+import { BadgeProps } from '@leao1/design-system';
+import { AccessibleIcon } from '@leao1/design-system';
+import { Tooltip } from '@leao1/design-system';
+import { Badge } from '@leao1/design-system';
+import { TooltipProps } from '@leao1/design-system/icons';
 import { NavLink as RouterLink, LinkProps } from 'react-router-dom';
 import { styled } from 'styled-components';
 

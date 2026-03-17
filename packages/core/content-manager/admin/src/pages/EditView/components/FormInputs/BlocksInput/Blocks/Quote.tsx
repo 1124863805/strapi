@@ -1,4 +1,4 @@
-import { Quotes } from '@leao1/icons';
+import { Quotes } from '@leao1/design-system/icons';
 import { styled } from 'styled-components';
 
 import { type BlocksStore } from '../BlocksEditor';

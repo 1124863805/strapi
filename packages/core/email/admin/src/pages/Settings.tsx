@@ -1,18 +1,15 @@
 import * as React from 'react';
 
+import { Button, Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { SingleSelectOption } from '@leao1/design-system';
+import { SingleSelect } from '@leao1/design-system';
+import { TextInput } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
 import { Page, useNotification, useFetchClient, Layouts } from '@leao1/admin/leao-admin';
-import {
-  Box,
-  Button,
-  Flex,
-  Grid,
-  SingleSelectOption,
-  SingleSelect,
-  TextInput,
-  Typography,
-  Field,
-} from '@leao1/design-system';
-import { Mail } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Mail } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { useQuery, useMutation } from 'react-query';
 import { styled } from 'styled-components';

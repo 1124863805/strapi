@@ -1,13 +1,10 @@
 import * as React from 'react';
 
-import {
-  useTable,
-  useNotification,
-  useAPIErrorHandler,
-  useQueryParams,
-} from '@leao1/admin/leao-admin';
-import { Button, Flex, Dialog, Typography } from '@leao1/design-system';
-import { Check, WarningCircle } from '@leao1/icons';
+import { Flex } from '@leao1/design-system';
+import { Dialog } from '@leao1/design-system';
+import { useTable, useNotification, useAPIErrorHandler, useQueryParams, } from '@leao1/admin/leao-admin';
+import { Button, Typography } from '@leao1/design-system';
+import { Check, WarningCircle } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import { useDoc } from '../../../../hooks/useDocument';

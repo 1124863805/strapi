@@ -1,14 +1,10 @@
 import * as React from 'react';
 
-import {
-  useAPIErrorHandler,
-  useNotification,
-  useAuth,
-  useRBAC,
-  isFetchError,
-} from '@leao1/admin/leao-admin';
-import { Flex, Typography, Menu, AccessibleIcon } from '@leao1/design-system';
-import { Cross, More, Pencil } from '@leao1/icons';
+import { Typography } from '@leao1/design-system';
+import { useAPIErrorHandler, useNotification, useAuth, useRBAC, isFetchError, } from '@leao1/admin/leao-admin';
+import { Flex, Menu } from '@leao1/design-system';
+import { AccessibleIcon } from '@leao1/design-system';
+import { Cross, More, Pencil } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';

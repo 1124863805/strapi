@@ -1,18 +1,13 @@
 import React from 'react';
 
-import {
-  IconButton,
-  Table,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  Typography,
-  VisuallyHidden,
-  Box,
-} from '@leao1/design-system';
-import { Check, Pencil, ArrowClockwise as Refresh } from '@leao1/icons';
+import { IconButton, Table, Tbody, Td } from '@leao1/design-system';
+import { Th } from '@leao1/design-system';
+import { Thead } from '@leao1/design-system';
+import { Tr } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { Box } from '@leao1/design-system';
+import { Check, Pencil, ArrowClockwise } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

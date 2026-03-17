@@ -1,24 +1,15 @@
 import * as React from 'react';
 
-import {
-  useNotification,
-  useAPIErrorHandler,
-  Form,
-  FormHelpers,
-  useAuth,
-} from '@leao1/admin/leao-admin';
-import {
-  Box,
-  Button,
-  Divider,
-  Flex,
-  IconButton,
-  Modal,
-  Tabs,
-  Typography,
-  useId,
-} from '@leao1/design-system';
-import { Pencil } from '@leao1/icons';
+import { Button } from '@leao1/design-system';
+import { Divider } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { Modal } from '@leao1/design-system';
+import { Tabs } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { useNotification, useAPIErrorHandler, Form, FormHelpers, useAuth, } from '@leao1/admin/leao-admin';
+import { Box, useId } from '@leao1/design-system';
+import { Pencil } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import { Locale, UpdateLocale } from '../../../shared/contracts/locales';

@@ -1,8 +1,9 @@
 /* eslint-disable check-file/filename-naming-convention */
 import * as React from 'react';
 
-import { Flex, VisuallyHidden } from '@leao1/design-system';
-import { Earth, EarthStriked } from '@leao1/icons';
+import { Flex } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { Earth, EarthStriked } from '@leao1/design-system/icons';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

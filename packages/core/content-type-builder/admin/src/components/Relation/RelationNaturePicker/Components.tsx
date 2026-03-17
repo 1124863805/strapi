@@ -1,7 +1,8 @@
+import type { ComponentType } from 'react';
 import { Box, BoxComponent, Flex, FlexComponent } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
-const Wrapper = styled<BoxComponent>(Box)`
+const Wrapper: ComponentType<any> = styled<BoxComponent>(Box)`
   position: relative;
   width: 100%;
   &::before {
@@ -15,7 +16,7 @@ const Wrapper = styled<BoxComponent>(Box)`
   }
 `;
 
-const IconWrapper = styled<BoxComponent<'button'>>(Box)<{ $isSelected: boolean }>`
+const IconWrapper: ComponentType<any> = styled<BoxComponent<'button'>>(Box)<{ $isSelected: boolean }>`
   background: ${({ theme, $isSelected }) => theme.colors[$isSelected ? 'primary100' : 'neutral0']};
   border: 1px solid
     ${({ theme, $isSelected }) => theme.colors[$isSelected ? 'primary700' : 'neutral200']};

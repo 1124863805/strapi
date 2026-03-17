@@ -1,15 +1,6 @@
 import * as React from 'react';
 
-import {
-  Box,
-  Button,
-  Flex,
-  Grid,
-  Modal,
-  Typography,
-  Breadcrumbs,
-  Crumb,
-} from '@leao1/design-system';
+import { Box, Button, Flex, Grid, Modal, Typography, Breadcrumbs, Crumb } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import * as yup from 'yup';
 

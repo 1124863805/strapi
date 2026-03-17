@@ -1,20 +1,13 @@
 import React, { useState } from 'react';
 
-import {
-  Table,
-  Th,
-  Thead,
-  Tr,
-  Typography,
-  useNotifyAT,
-  VisuallyHidden,
-  EmptyStateLayout,
-  useCollator,
-  useFilter,
-  LinkButton,
-  Dialog,
-} from '@leao1/design-system';
-import { Plus } from '@leao1/icons';
+import { Table, Th, Thead, Tr, Typography, useNotifyAT } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { EmptyStateLayout } from '@leao1/design-system';
+import { useCollator } from '@leao1/design-system';
+import { useFilter } from '@leao1/design-system';
+import { LinkButton } from '@leao1/design-system';
+import { Dialog } from '@leao1/design-system';
+import { Plus } from '@leao1/design-system/icons';
 import {
   ConfirmDialog,
   Page,
@@ -24,7 +17,7 @@ import {
   useFetchClient,
   useRBAC,
   Layouts,
-} from '@leao1/leao/admin';
+} from '@leao1/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery } from 'react-query';
 import { NavLink } from 'react-router-dom';

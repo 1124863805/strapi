@@ -1,5 +1,8 @@
-import { ButtonProps, Box, Flex, Typography } from '@leao1/design-system';
-import { Expand } from '@leao1/icons';
+import { ButtonProps } from '@leao1/design-system';
+import { Box } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Expand } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import { ExpandButton } from './WysiwygStyles';

@@ -1,26 +1,20 @@
 import * as React from 'react';
 
+import { Table, Tbody, Td, Th, Thead } from '@leao1/design-system';
+import { Tr } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { useCollator } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
 import { Layouts } from '@leao1/admin/leao-admin';
-import {
-  IconButton,
-  Table,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  Typography,
-  VisuallyHidden,
-  useCollator,
-} from '@leao1/design-system';
-import { Pencil } from '@leao1/icons';
+import { Pencil } from '@leao1/design-system/icons';
 import {
   Page,
   useAPIErrorHandler,
   useNotification,
   useFetchClient,
   useRBAC,
-} from '@leao1/leao/admin';
+} from '@leao1/admin/leao-admin';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery, useQueryClient } from 'react-query';

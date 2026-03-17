@@ -1,5 +1,5 @@
 import { useQueryParams } from '@leao1/admin/leao-admin';
-import { ClockCounterClockwise } from '@leao1/icons';
+import { ClockCounterClockwise } from '@leao1/design-system/icons';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { useNavigate } from 'react-router-dom';

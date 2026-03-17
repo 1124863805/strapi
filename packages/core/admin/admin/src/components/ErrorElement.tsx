@@ -1,13 +1,11 @@
-import {
-  Alert,
-  Button,
-  Flex,
-  Main,
-  Typography,
-  Link,
-  TypographyComponent,
-} from '@leao1/design-system';
-import { Duplicate, WarningCircle } from '@leao1/icons';
+import { Alert } from '@leao1/design-system';
+import { Button } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Main } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Link } from '@leao1/design-system';
+import { TypographyComponent } from '@leao1/design-system';
+import { Duplicate, WarningCircle } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { useRouteError } from 'react-router-dom';
 import { styled } from 'styled-components';

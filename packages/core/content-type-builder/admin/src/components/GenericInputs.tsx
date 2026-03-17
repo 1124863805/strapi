@@ -6,21 +6,14 @@
 
 import * as React from 'react';
 
-import {
-  Checkbox,
-  DatePicker,
-  DateTimePicker,
-  Field,
-  JSONInput,
-  NumberInput,
-  SingleSelect,
-  SingleSelectOption,
-  Textarea,
-  TextInput,
-  TimePicker,
-  Toggle,
-} from '@leao1/design-system';
-import { Eye, EyeStriked } from '@leao1/icons';
+import { Checkbox, DatePicker, DateTimePicker, Field, JSONInput, NumberInput } from '@leao1/design-system';
+import { SingleSelect } from '@leao1/design-system';
+import { SingleSelectOption } from '@leao1/design-system';
+import { Textarea } from '@leao1/design-system';
+import { TextInput } from '@leao1/design-system';
+import { TimePicker } from '@leao1/design-system';
+import { Toggle } from '@leao1/design-system';
+import { Eye, EyeStriked } from '@leao1/design-system/icons';
 import formatISO from 'date-fns/formatISO';
 import isEqual from 'lodash/isEqual';
 import { type MessageDescriptor, type PrimitiveType, useIntl } from 'react-intl';

@@ -134,9 +134,8 @@ export const generateAPI = ({
   pluralName,
   displayName,
 }: any) => {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const leaoGenerators = require('@leao1/generators');
-  return leaoGenerators.generate(
+  const { scaffoldGenerate } = require('@leao1/core');
+  return scaffoldGenerate(
     'content-type',
     {
       kind,

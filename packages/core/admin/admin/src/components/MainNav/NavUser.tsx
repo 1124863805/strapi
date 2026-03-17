@@ -1,7 +1,11 @@
 import * as React from 'react';
 
-import { Flex, Menu, ButtonProps, VisuallyHidden, Avatar } from '@leao1/design-system';
-import { SignOut } from '@leao1/icons';
+import { Flex } from '@leao1/design-system';
+import { Menu } from '@leao1/design-system';
+import { ButtonProps } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { Avatar } from '@leao1/design-system';
+import { SignOut } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';

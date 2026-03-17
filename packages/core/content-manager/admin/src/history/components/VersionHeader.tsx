@@ -1,14 +1,11 @@
 import * as React from 'react';
 
-import {
-  ConfirmDialog,
-  useNotification,
-  useQueryParams,
-  useRBAC,
-  Layouts,
-} from '@leao1/admin/leao-admin';
-import { Button, Typography, Flex, Link, Dialog } from '@leao1/design-system';
-import { ArrowLeft, WarningCircle } from '@leao1/icons';
+import { Typography } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Link } from '@leao1/design-system';
+import { ConfirmDialog, useNotification, useQueryParams, useRBAC, Layouts, } from '@leao1/admin/leao-admin';
+import { Button, Dialog } from '@leao1/design-system';
+import { ArrowLeft, WarningCircle } from '@leao1/design-system/icons';
 import { UID } from '@leao1/types';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';

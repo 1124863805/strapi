@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { Flex, IconButton } from '@leao1/design-system';
-import { Crop as Resize, Download as DownloadIcon, Trash } from '@leao1/icons';
+import { Flex } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { Crop, Download, Trash } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

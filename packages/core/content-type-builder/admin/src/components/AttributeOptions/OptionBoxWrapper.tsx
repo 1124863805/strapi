@@ -1,7 +1,8 @@
+import type { ComponentType } from 'react';
 import { Box } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
-export const OptionBoxWrapper = styled(Box)`
+export const OptionBoxWrapper: ComponentType<any> = styled(Box)`
   width: 100%;
   height: 100%;
   border: 1px solid ${({ theme }) => theme.colors.neutral200};

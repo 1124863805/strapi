@@ -108,14 +108,12 @@ export const generateFiles = async (
           pkgJson.peerDependencies = {
             ...pkgJson.peerDependencies,
             '@leao1/design-system': '*',
-            '@leao1/icons': '*',
             'react-intl': '^6.0.0',
           };
 
           pkgJson.devDependencies = {
             ...pkgJson.devDependencies,
             '@leao1/design-system': '*',
-            '@leao1/icons': '*',
             'react-intl': '^6.0.0',
             react: '^17.0.0 || ^18.0.0',
             'react-dom': '^17.0.0 || ^18.0.0',

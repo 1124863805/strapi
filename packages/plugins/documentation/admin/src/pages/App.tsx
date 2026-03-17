@@ -1,21 +1,14 @@
 /* eslint-disable import/no-default-export */
 import * as React from 'react';
 
-import {
-  LinkButton,
-  Flex,
-  IconButton,
-  Table,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  Typography,
-  EmptyStateLayout,
-  Dialog,
-} from '@leao1/design-system';
-import { Eye as Show, ArrowClockwise as Reload, Trash } from '@leao1/icons';
+import { LinkButton, Flex, IconButton, Table, Tbody, Td } from '@leao1/design-system';
+import { Th } from '@leao1/design-system';
+import { Thead } from '@leao1/design-system';
+import { Tr } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { EmptyStateLayout } from '@leao1/design-system';
+import { Dialog } from '@leao1/design-system';
+import { Eye, ArrowClockwise, Trash } from '@leao1/design-system/icons';
 import {
   ConfirmDialog,
   useRBAC,
@@ -23,7 +16,7 @@ import {
   useAPIErrorHandler,
   useNotification,
   Layouts,
-} from '@leao1/leao/admin';
+} from '@leao1/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 
@@ -134,7 +127,7 @@ const App = () => {
             <OpenDocLink
               disabled={!allowedActions.canRead || !data?.currentVersion || !data?.prefix}
               href={createDocumentationHref(`${data?.prefix}/v${data?.currentVersion}`)}
-              startIcon={<Show />}
+              startIcon={<Eye />}
             >
               {formatMessage({
                 id: getTrad('pages.PluginPage.Button.open'),
@@ -195,7 +188,7 @@ const App = () => {
                               { target: `${doc.version}` }
                             )}
                           >
-                            <Show />
+                            <Eye />
                           </IconButton>
                           {allowedActions.canRegenerate ? (
                             <IconButton
@@ -209,7 +202,7 @@ const App = () => {
                                 { target: `${doc.version}` }
                               )}
                             >
-                              <Reload />
+                              <ArrowClockwise />
                             </IconButton>
                           ) : null}
                           {allowedActions.canUpdate && doc.version !== data.currentVersion ? (
@@ -257,11 +250,12 @@ const createDocumentationHref = (path: string) => {
     return path;
   }
 
+  const baseUrl = (window as Window & { leao: { backendURL: string } }).leao?.backendURL ?? '';
   if (path.startsWith('/')) {
-    return `${window.leao.backendURL}${path}`;
+    return `${baseUrl}${path}`;
   }
 
-  return `${window.leao.backendURL}/${path}`;
+  return `${baseUrl}/${path}`;
 };
 
 export { App };

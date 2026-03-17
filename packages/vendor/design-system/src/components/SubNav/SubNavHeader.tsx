@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Search } from '@leao1/icons';
-import { usePrev } from '@leao1/ui-primitives';
+import { Search } from '../../_icons';
+import { usePrev } from '../../_primitives';
 import { styled } from 'styled-components';
 
 import { KeyboardKeys } from '../../helpers/keyboardKeys';

@@ -1,5 +1,7 @@
-import { Flex, FlexComponent, Typography } from '@leao1/design-system';
-import { Cross, Drag, Pencil } from '@leao1/icons';
+import { Flex } from '@leao1/design-system';
+import { FlexComponent } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Cross, Drag, Pencil } from '@leao1/design-system/icons';
 import { styled } from 'styled-components';
 
 interface CardDragPreviewProps {

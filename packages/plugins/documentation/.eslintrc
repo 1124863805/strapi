@@ -3,7 +3,7 @@
   "overrides": [
     {
       "files": ["admin/**/*"],
-      "extends": ["custom/front"],
+      "extends": ["@leao1/config/front"],
       "rules": {
         "import/extensions": "off"
       }
@@ -11,7 +11,7 @@
     {
       "files": ["**/*"],
       "excludedFiles": ["admin/**/*"],
-      "extends": ["custom/back"]
+      "extends": ["@leao1/config/back"]
     }
   ]
 }

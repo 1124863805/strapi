@@ -1,4 +1,4 @@
-import { Feather } from '@leao1/icons';
+import { Feather } from '@leao1/design-system/icons';
 
 import { PLUGIN_ID } from './constants/plugin';
 import { ContentManagerPlugin } from './content-manager';

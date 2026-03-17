@@ -1,8 +1,11 @@
 import * as React from 'react';
 
+import { Flex } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
 import { useForm } from '@leao1/admin/leao-admin';
-import { Box, Flex, VisuallyHidden, Typography, Menu } from '@leao1/design-system';
-import { Plus } from '@leao1/icons';
+import { Box, Menu } from '@leao1/design-system';
+import { Plus } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import { useDoc } from '../../../hooks/useDocument';

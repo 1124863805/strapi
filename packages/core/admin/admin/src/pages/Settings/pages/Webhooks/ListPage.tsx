@@ -1,27 +1,15 @@
 import * as React from 'react';
 
-import {
-  useNotifyAT,
-  Checkbox,
-  Button,
-  EmptyStateLayout,
-  Flex,
-  IconButton,
-  Switch,
-  Table,
-  Tbody,
-  Td,
-  TFooter,
-  Th,
-  Thead,
-  Tr,
-  Typography,
-  VisuallyHidden,
-  LinkButton,
-  Dialog,
-} from '@leao1/design-system';
-import { Pencil, Plus, Trash } from '@leao1/icons';
-import { EmptyDocuments } from '@leao1/icons/symbols';
+import { useNotifyAT, Checkbox, Button, EmptyStateLayout, Flex, IconButton, Switch, Table, Tbody, Td, Th } from '@leao1/design-system';
+import { Thead } from '@leao1/design-system';
+import { Tr } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { LinkButton } from '@leao1/design-system';
+import { Dialog } from '@leao1/design-system';
+import { TFooter } from '@leao1/design-system';
+import { Pencil, Plus, Trash } from '@leao1/design-system/icons';
+import { EmptyDocuments } from '@leao1/design-system/symbols';
 import { useIntl } from 'react-intl';
 import { NavLink, useNavigate } from 'react-router-dom';
 

@@ -1,4 +1,4 @@
-import { join, basename } from 'node:path';
+import { join, basename, dirname } from 'node:path';
 import os from 'node:os';
 import chalk from 'chalk';
 import commander from 'commander';
@@ -17,6 +17,26 @@ import type { Options, Scope } from './types';
 import { logger } from './utils/logger';
 
 const { version } = fse.readJSONSync(join(__dirname, '..', 'package.json'));
+
+function detectMonorepo(appPath: string): boolean {
+  try {
+    const parentDir = dirname(appPath);
+    const repoRoot = dirname(parentDir);
+    const pkgPath = join(repoRoot, 'package.json');
+    if (!fse.existsSync(pkgPath)) return false;
+    const pkg = fse.readJSONSync(pkgPath);
+    if (pkg.isLeaoMonorepo === true) return true;
+    const workspaces = pkg.workspaces;
+    if (!workspaces) return false;
+    const patterns = Array.isArray(workspaces) ? workspaces : workspaces.packages || [];
+    return patterns.some((p: string) => {
+      const base = p.replace(/\/\*$/, '');
+      return appPath.startsWith(join(repoRoot, base));
+    });
+  } catch {
+    return false;
+  }
+}
 
 const command = new commander.Command('create-leao-app')
   .version(version)
@@ -38,10 +58,6 @@ const command = new commander.Command('create-leao-app')
   .option('--install', 'Install dependencies')
   .option('--no-install', 'Do not install dependencies')
 
-  // Example app
-  .option('--example', 'Use an example app')
-  .option('--no-example', 'Do not use an example app')
-
   // git options
   .option('--git-init', 'Initialize a git repository')
   .option('--no-git-init', 'Do no initialize a git repository')
@@ -59,7 +75,7 @@ const command = new commander.Command('create-leao-app')
 
   .option(
     '--template <template>',
-    'Template: example, example-js, vanilla, vanilla-js, or file:///path'
+    'Template: vanilla, vanilla-js, or file:///path'
   )
 
   .description('create a new application');
@@ -88,11 +104,6 @@ async function run(args: string[]): Promise<void> {
     );
   }
 
-  // Only prompt the example app option if there is no template option
-  if (options.example === true && options.template !== undefined) {
-    logger.fatal(`You cannot use ${chalk.bold('--example')} with ${chalk.bold('--template')}`);
-  }
-
   if (options.template !== undefined && options.template.startsWith('-')) {
     logger.fatal(`Template name ${chalk.bold(`"${options.template}"`)} is invalid`);
   }
@@ -117,6 +128,9 @@ async function run(args: string[]): Promise<void> {
 
   const tmpPath = join(os.tmpdir(), `leao${crypto.randomBytes(6).toString('hex')}`);
 
+  const isMonorepo = detectMonorepo(rootPath);
+  const leaoDepVersion = isMonorepo ? 'workspace:*' : version;
+
   const scope: Scope = {
     rootPath,
     name: basename(rootPath),
@@ -124,7 +138,6 @@ async function run(args: string[]): Promise<void> {
     database: await getDatabaseInfos(options),
     template: options.template,
     isQuickstart: options.quickstart,
-    useExample: false,
     runApp: options.quickstart === true && options.run !== false,
     leaoVersion: version,
     packageJsonLeao: {
@@ -137,9 +150,9 @@ async function run(args: string[]): Promise<void> {
     gitInit: true,
     devDependencies: {},
     dependencies: {
-      '@leao1/leao': version,
-      '@leao1/plugin-documentation': version,
-      '@leao1/plugin-users-permissions': version,
+      '@leao1/leao': leaoDepVersion,
+      '@leao1/plugin-documentation': leaoDepVersion,
+      '@leao1/plugin-users-permissions': leaoDepVersion,
       // third party
       react: '^18.0.0',
       'react-dom': '^18.0.0',
@@ -147,16 +160,6 @@ async function run(args: string[]): Promise<void> {
       'styled-components': '^6.0.0',
     },
   };
-
-  if (options.template !== undefined) {
-    scope.useExample = false;
-  } else if (options.example === true) {
-    scope.useExample = true;
-  } else if (options.example === false || options.quickstart === true) {
-    scope.useExample = false;
-  } else {
-    scope.useExample = await prompts.example();
-  }
 
   if (options.javascript === true) {
     scope.useTypescript = false;

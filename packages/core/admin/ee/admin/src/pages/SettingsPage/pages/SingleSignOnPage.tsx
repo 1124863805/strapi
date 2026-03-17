@@ -1,13 +1,11 @@
-import {
-  Button,
-  Flex,
-  Grid,
-  MultiSelect,
-  MultiSelectOption,
-  Typography,
-  Field,
-} from '@leao1/design-system';
-import { Check } from '@leao1/icons';
+import { Button } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { MultiSelect } from '@leao1/design-system';
+import { MultiSelectOption } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
+import { Check } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import * as yup from 'yup';
 

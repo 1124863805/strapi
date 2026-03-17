@@ -5,9 +5,10 @@
  *
  */
 
-import { EmptyStateLayout, LinkButton } from '@leao1/design-system';
-import { ArrowRight } from '@leao1/icons';
-import { EmptyPictures } from '@leao1/icons/symbols';
+import { EmptyStateLayout } from '@leao1/design-system';
+import { LinkButton } from '@leao1/design-system';
+import { ArrowRight } from '@leao1/design-system/icons';
+import { EmptyPictures } from '@leao1/design-system/symbols';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 

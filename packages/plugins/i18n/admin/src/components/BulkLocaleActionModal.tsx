@@ -1,8 +1,13 @@
 import * as React from 'react';
 
-import { FormErrors, Table, useTable } from '@leao1/admin/leao-admin';
-import { Box, Typography, IconButton, Flex, Tooltip, Status, Modal } from '@leao1/design-system';
-import { Pencil, CheckCircle, CrossCircle, ArrowsCounterClockwise } from '@leao1/icons';
+import { Typography } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Tooltip } from '@leao1/design-system';
+import { Status } from '@leao1/design-system';
+import { FormErrors, useTable, Table } from '@leao1/admin/leao-admin';
+import { Box, Modal } from '@leao1/design-system';
+import { Pencil, CheckCircle, CrossCircle, ArrowsCounterClockwise } from '@leao1/design-system/icons';
 import { Modules } from '@leao1/types';
 import { stringify } from 'qs';
 import { type MessageDescriptor, useIntl, PrimitiveType } from 'react-intl';

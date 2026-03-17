@@ -1,17 +1,13 @@
 import * as React from 'react';
 
-import {
-  Box,
-  Button,
-  Field,
-  Flex,
-  Grid,
-  Main,
-  Textarea,
-  TextInput,
-  Typography,
-} from '@leao1/design-system';
-import { Check } from '@leao1/icons';
+import { Box, Button, Field } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { Main } from '@leao1/design-system';
+import { Textarea } from '@leao1/design-system';
+import { TextInput } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Check } from '@leao1/design-system/icons';
 import { format } from 'date-fns';
 import { Formik, Form, FormikHelpers } from 'formik';
 import { useIntl } from 'react-intl';

@@ -1,32 +1,16 @@
 import * as React from 'react';
 
-import {
-  Page,
-  Pagination,
-  useAPIErrorHandler,
-  useNotification,
-  useQueryParams,
-  useRBAC,
-  isFetchError,
-  Layouts,
-} from '@leao1/admin/leao-admin';
+import { Badge, Box, Button, Divider, EmptyStateLayout, Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { Main } from '@leao1/design-system';
+import { Tabs } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Link } from '@leao1/design-system';
+import { Alert } from '@leao1/design-system';
+import { Page, useAPIErrorHandler, useNotification, useQueryParams, useRBAC, isFetchError, Layouts, Pagination } from '@leao1/admin/leao-admin';
 import { useEEInfo } from '@leao1/admin/leao-admin/ee';
-import {
-  Alert,
-  Badge,
-  Box,
-  Button,
-  Divider,
-  EmptyStateLayout,
-  Flex,
-  Grid,
-  Main,
-  Tabs,
-  Typography,
-  Link,
-} from '@leao1/design-system';
-import { Plus } from '@leao1/icons';
-import { EmptyDocuments } from '@leao1/icons/symbols';
+import { Plus } from '@leao1/design-system/icons';
+import { EmptyDocuments } from '@leao1/design-system/symbols';
 import { format } from 'date-fns';
 import { useIntl } from 'react-intl';
 import { useNavigate, useLocation, NavLink } from 'react-router-dom';

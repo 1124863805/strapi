@@ -1,7 +1,12 @@
 import React from 'react';
 
-import { Checkbox, Flex, IconButton, Tbody, Td, Tr } from '@leao1/design-system';
-import { Eye, Pencil } from '@leao1/icons';
+import { Checkbox } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { Tbody } from '@leao1/design-system';
+import { Td } from '@leao1/design-system';
+import { Tr } from '@leao1/design-system';
+import { Eye, Pencil } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';

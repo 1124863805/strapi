@@ -1,4 +1,4 @@
-import type { Logger } from '@leao1/logger';
+import type { Logger } from '@leao1/utils';
 import type { Database } from '@leao1/database';
 
 import type { PropertyPath } from 'lodash';

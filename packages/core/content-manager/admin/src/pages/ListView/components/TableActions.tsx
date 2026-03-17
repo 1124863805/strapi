@@ -1,13 +1,9 @@
 import * as React from 'react';
 
-import {
-  DescriptionComponentRenderer,
-  useNotification,
-  useLeaoApp,
-  useQueryParams,
-} from '@leao1/admin/leao-admin';
-import { Button, LinkButton, Modal } from '@leao1/design-system';
-import { Duplicate, Pencil } from '@leao1/icons';
+import { LinkButton } from '@leao1/design-system';
+import { DescriptionComponentRenderer, useNotification, useLeaoApp, useQueryParams, } from '@leao1/admin/leao-admin';
+import { Button, Modal } from '@leao1/design-system';
+import { Duplicate, Pencil } from '@leao1/design-system/icons';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { NavLink, useNavigate } from 'react-router-dom';

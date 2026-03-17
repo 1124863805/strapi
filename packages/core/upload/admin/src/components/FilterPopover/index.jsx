@@ -6,15 +6,13 @@
 
 import React, { useState } from 'react';
 
-import {
-  Box,
-  Button,
-  Flex,
-  SingleSelectOption,
-  Popover,
-  SingleSelect,
-} from '@leao1/design-system';
-import { Plus } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Button } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { SingleSelectOption } from '@leao1/design-system';
+import { Popover } from '@leao1/design-system';
+import { SingleSelect } from '@leao1/design-system';
+import { Plus } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

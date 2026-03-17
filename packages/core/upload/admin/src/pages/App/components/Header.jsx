@@ -1,8 +1,9 @@
 import React from 'react';
 
+import { Flex } from '@leao1/design-system';
 import { useQueryParams, Layouts } from '@leao1/admin/leao-admin';
-import { Button, Flex, Link } from '@leao1/design-system';
-import { ArrowLeft, Plus } from '@leao1/icons';
+import { Button, Link } from '@leao1/design-system';
+import { ArrowLeft, Plus } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';

@@ -1,23 +1,16 @@
 import React, { useRef, useState } from 'react';
 
+import { Box } from '@leao1/design-system';
+import { Divider } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { Page, SearchInput, useQueryParams, Layouts, Pagination } from '@leao1/admin/leao-admin';
 import {
-  Page,
-  SearchInput,
-  Pagination,
-  useQueryParams,
-  Layouts,
-} from '@leao1/admin/leao-admin';
-import {
-  Checkbox,
-  Box,
-  Divider,
-  Flex,
-  IconButton,
-  Typography,
-  VisuallyHidden,
-  Grid,
-} from '@leao1/design-system';
-import { Cog, GridFour as GridIcon, List, Pencil } from '@leao1/icons';
+  Checkbox } from '@leao1/design-system';
+import { Cog, GridFour as GridIcon, List, Pencil } from '@leao1/design-system/icons';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { Link as ReactRouterLink, useNavigate, useLocation } from 'react-router-dom';

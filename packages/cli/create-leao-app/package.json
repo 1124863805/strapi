@@ -60,11 +60,11 @@
     "sort-package-json": "2.10.0"
   },
   "devDependencies": {
+    "@leao1/config": "workspace:*",
     "@leao1/pack-up": "^1.0.0",
     "@types/fs-extra": "11.0.4",
     "@types/inquirer": "8.2.5",
-    "eslint-config-custom": "workspace:*",
-    "tsconfig": "workspace:*"
+    "@types/semver": "7.5.0"
   },
   "engines": {
     "node": ">=18.0.0 <=24.x.x",

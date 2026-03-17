@@ -1,23 +1,12 @@
-import {
-  Form,
-  Layouts,
-  Page,
-  useAPIErrorHandler,
-  isFetchError,
-  useNotification,
-  useField,
-  useRBAC,
-} from '@leao1/admin/leao-admin';
-import {
-  Button,
-  Combobox,
-  ComboboxOption,
-  Field,
-  Flex,
-  Grid,
-  Typography,
-} from '@leao1/design-system';
-import { Check } from '@leao1/icons';
+import { Combobox } from '@leao1/design-system';
+import { ComboboxOption } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Form, Layouts, Page, useAPIErrorHandler, isFetchError, useNotification, useField, useRBAC, } from '@leao1/admin/leao-admin';
+import { Button } from '@leao1/design-system';
+import { Check } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import { useTypedSelector } from '../modules/hooks';

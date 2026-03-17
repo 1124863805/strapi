@@ -1,19 +1,15 @@
 import * as React from 'react';
 
+import { Box, Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { useComposedRefs } from '@leao1/design-system';
+import { Link } from '@leao1/design-system';
+import { Menu } from '@leao1/design-system';
 import { useField, useForm } from '@leao1/admin/leao-admin';
-import {
-  Modal,
-  Box,
-  Flex,
-  Grid,
-  IconButton,
-  IconButtonComponent,
-  Typography,
-  useComposedRefs,
-  Link,
-  Menu,
-} from '@leao1/design-system';
-import { Cog, Cross, Drag, Pencil, Plus } from '@leao1/icons';
+import { Modal, IconButtonComponent } from '@leao1/design-system';
+import { Cog, Cross, Drag, Pencil, Plus } from '@leao1/design-system/icons';
 import { generateNKeysBetween as generateNKeysBetweenImpl } from 'fractional-indexing';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';

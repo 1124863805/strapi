@@ -49,18 +49,18 @@
     "node-machine-id": "1.1.12",
     "p-map": "4.0.0",
     "preferred-pm": "3.1.2",
+    "winston": "3.10.0",
     "yup": "0.32.9",
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@leao1/config": "workspace:*",
     "@leao1/pack-up": "^1.0.0",
     "@types/http-errors": "2.0.4",
     "@types/koa": "2.13.4",
     "@types/node": "18.19.24",
-    "eslint-config-custom": "workspace:*",
     "koa": "2.15.2",
-    "koa-body": "6.0.1",
-    "tsconfig": "workspace:*"
+    "koa-body": "6.0.1"
   },
   "engines": {
     "node": ">=18.0.0 <=22.x.x",

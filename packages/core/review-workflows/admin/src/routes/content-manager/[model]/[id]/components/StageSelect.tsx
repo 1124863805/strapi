@@ -1,15 +1,9 @@
 import * as React from 'react';
 
+import { SingleSelectOption, Field, Flex, Loader, Typography } from '@leao1/design-system';
 import { useNotification, useAPIErrorHandler, useQueryParams } from '@leao1/admin/leao-admin';
 import { unstable_useDocument } from '@leao1/content-manager/leao-admin';
-import {
-  SingleSelect,
-  SingleSelectOption,
-  Field,
-  Flex,
-  Loader,
-  Typography,
-} from '@leao1/design-system';
+import { SingleSelect } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { useParams } from 'react-router-dom';
 

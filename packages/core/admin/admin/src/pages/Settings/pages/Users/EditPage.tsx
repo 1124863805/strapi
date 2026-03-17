@@ -1,7 +1,11 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, Grid, Typography } from '@leao1/design-system';
-import { Check } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Button } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Check } from '@leao1/design-system/icons';
 import pick from 'lodash/pick';
 import { useIntl } from 'react-intl';
 import { useMatch, useNavigate } from 'react-router-dom';

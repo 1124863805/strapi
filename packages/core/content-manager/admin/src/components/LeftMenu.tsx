@@ -1,15 +1,8 @@
 import * as React from 'react';
 
+import { useFilter, SubNav, SubNavHeader, SubNavLink, SubNavSection, SubNavSections } from '@leao1/design-system';
 import { useQueryParams } from '@leao1/admin/leao-admin';
-import {
-  useCollator,
-  useFilter,
-  SubNav,
-  SubNavHeader,
-  SubNavLink,
-  SubNavSection,
-  SubNavSections,
-} from '@leao1/design-system';
+import { useCollator } from '@leao1/design-system';
 import { parse, stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';

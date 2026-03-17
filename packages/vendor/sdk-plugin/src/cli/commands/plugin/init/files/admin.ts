@@ -3,7 +3,7 @@ import { outdent } from 'outdent';
 import type { TemplateFile } from '../../../utils/init/types';
 
 const PLUGIN_ICON_CODE = outdent`
-import { PuzzlePiece } from '@leao1/icons';
+import { PuzzlePiece } from '@leao1/design-system/icons';
 
 const PluginIcon = () => <PuzzlePiece />;
 

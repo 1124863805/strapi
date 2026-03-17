@@ -1,13 +1,9 @@
 import React, { useReducer, useState } from 'react';
 
-import {
-  ConfirmDialog,
-  useNotification,
-  Page,
-  Layouts,
-} from '@leao1/admin/leao-admin';
-import { Button, Dialog, Link } from '@leao1/design-system';
-import { ArrowLeft, Check } from '@leao1/icons';
+import { Dialog } from '@leao1/design-system';
+import { ConfirmDialog, useNotification, Page, Layouts, } from '@leao1/admin/leao-admin';
+import { Button, Link } from '@leao1/design-system';
+import { ArrowLeft, Check } from '@leao1/design-system/icons';
 import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';

@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Box, Flex } from '@leao1/design-system';
-import { File, FilePdf } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { File, FilePdf } from '@leao1/design-system/icons';
 import { styled } from 'styled-components';
 
 import { AssetDefinition, AssetType } from '../../../constants';

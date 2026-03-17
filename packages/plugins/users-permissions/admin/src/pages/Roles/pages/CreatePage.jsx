@@ -1,17 +1,14 @@
 import * as React from 'react';
 
-import {
-  Button,
-  Flex,
-  Grid,
-  Main,
-  Textarea,
-  TextInput,
-  Typography,
-  Field,
-} from '@leao1/design-system';
-import { Check } from '@leao1/icons';
-import { Page, useNotification, useFetchClient, Layouts } from '@leao1/leao/admin';
+import { Button, Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { Main } from '@leao1/design-system';
+import { Textarea } from '@leao1/design-system';
+import { TextInput } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
+import { Check } from '@leao1/design-system/icons';
+import { Page, useNotification, useFetchClient, Layouts } from '@leao1/admin/leao-admin';
 import { Formik, Form } from 'formik';
 import { useIntl } from 'react-intl';
 import { useMutation } from 'react-query';

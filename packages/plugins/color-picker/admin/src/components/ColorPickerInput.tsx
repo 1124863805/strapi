@@ -1,16 +1,14 @@
 import * as React from 'react';
 
-import {
-  Button,
-  Box,
-  Field,
-  Flex,
-  Popover,
-  Typography,
-  useComposedRefs,
-} from '@leao1/design-system';
-import { CaretDown } from '@leao1/icons';
-import { useField, type InputProps, type FieldValue } from '@leao1/leao/admin';
+import { Button } from '@leao1/design-system';
+import { Box } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Popover } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { useComposedRefs } from '@leao1/design-system';
+import { CaretDown } from '@leao1/design-system/icons';
+import { useField, type InputProps, type FieldValue } from '@leao1/admin/leao-admin';
 import { HexColorPicker } from 'react-colorful';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

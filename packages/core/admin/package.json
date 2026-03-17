@@ -64,7 +64,6 @@
     "@casl/ability": "6.5.0",
     "@internationalized/date": "3.5.4",
     "@leao1/design-system": "^1.0.0",
-    "@leao1/icons": "^1.0.0",
     "@leao1/permissions": "^1.0.0",
     "@leao1/types": "^1.0.0",
     "@leao1/typescript-utils": "^1.0.0",

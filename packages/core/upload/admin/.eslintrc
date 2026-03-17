@@ -3,7 +3,7 @@
   "overrides": [
     {
       "files": ["**/*.js", "**/*.jsx"],
-      "extends": ["custom/front"],
+      "extends": ["@leao1/config/front"],
       "rules": {
         "import/extensions": "off"
       }

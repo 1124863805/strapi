@@ -53,12 +53,12 @@
     {
       "name": "David Doe",
       "email": "daviddoe@example.com",
-      "avatar": "daviddoe@leao.io.jpg"
+      "avatar": "daviddoe@strapi.io.jpg"
     },
     {
       "name": "Sarah Baker",
       "email": "sarahbaker@example.com",
-      "avatar": "sarahbaker@leao.io.jpg"
+      "avatar": "sarahbaker@strapi.io.jpg"
     }
   ],
   "articles": [

@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import Table from 'cli-table3';
 import { Command, Option } from 'commander';
-import { configs, createLogger, type winston } from '@leao1/logger';
+import { configs, createLogger, type winston } from '@leao1/utils';
 import { createLeao, compileLeao } from '@leao1/core';
 import ora from 'ora';
 import { merge } from 'lodash/fp';

@@ -11,6 +11,12 @@ export default defineConfig({
       types: './dist/index.d.ts',
       runtime: 'node',
     },
+    {
+      source: './src/scaffold/plopfile.ts',
+      require: './dist/scaffold/plopfile.js',
+      import: './dist/scaffold/plopfile.mjs',
+      runtime: 'node',
+    },
   ],
   exports: {},
   dist: './dist',

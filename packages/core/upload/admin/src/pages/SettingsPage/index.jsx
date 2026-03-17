@@ -1,8 +1,13 @@
 import React, { useReducer } from 'react';
 
+import { Button } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { Toggle } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
 import { Page, useNotification, useFetchClient, Layouts } from '@leao1/admin/leao-admin';
-import { Box, Button, Flex, Grid, Toggle, Typography, Field } from '@leao1/design-system';
-import { Check } from '@leao1/icons';
+import { Box, Field } from '@leao1/design-system';
+import { Check } from '@leao1/design-system/icons';
 import isEqual from 'lodash/isEqual';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery } from 'react-query';

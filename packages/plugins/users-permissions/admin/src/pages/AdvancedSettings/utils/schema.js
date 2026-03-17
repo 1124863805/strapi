@@ -1,4 +1,4 @@
-import { translatedErrors } from '@leao1/leao/admin';
+import { translatedErrors } from '@leao1/admin/leao-admin';
 import * as yup from 'yup';
 
 // eslint-disable-next-line prefer-regex-literals

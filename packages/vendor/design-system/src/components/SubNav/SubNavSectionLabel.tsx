@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { CaretDown } from '@leao1/icons';
+import { CaretDown } from '../../_icons';
 
 import { Box } from '../../primitives/Box';
 import { Flex } from '../../primitives/Flex';

@@ -1,4 +1,4 @@
-import { Trash } from '@leao1/icons';
+import { Trash } from '../../_icons';
 import { render, screen } from '@test/utils';
 
 import { IconButton } from '../IconButton';

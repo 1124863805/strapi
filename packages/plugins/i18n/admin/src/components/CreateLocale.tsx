@@ -1,32 +1,15 @@
 import * as React from 'react';
 
-import {
-  Form,
-  type InputProps,
-  InputRenderer,
-  useField,
-  type FormHelpers,
-  useForm,
-  useAPIErrorHandler,
-  useNotification,
-  useAuth,
-} from '@leao1/admin/leao-admin';
-import {
-  Box,
-  Button,
-  ButtonProps,
-  Divider,
-  Field,
-  Flex,
-  Grid,
-  Modal,
-  SingleSelect,
-  SingleSelectOption,
-  Tabs,
-  Typography,
-  useId,
-} from '@leao1/design-system';
-import { Check, Plus } from '@leao1/icons';
+import { Button, ButtonProps, Divider, Field, Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { Modal } from '@leao1/design-system';
+import { SingleSelect } from '@leao1/design-system';
+import { SingleSelectOption } from '@leao1/design-system';
+import { Tabs } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Form, type InputProps, InputRenderer, useField, type FormHelpers, useForm, useAPIErrorHandler, useNotification, useAuth, } from '@leao1/admin/leao-admin';
+import { Box, useId } from '@leao1/design-system';
+import { Check, Plus } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import * as yup from 'yup';
 

@@ -21,7 +21,7 @@ import {
   TextField,
   UidField,
   BlocksField,
-} from '@leao1/icons/symbols';
+} from '@leao1/design-system/symbols';
 import { styled } from 'styled-components';
 
 const iconByTypes: Record<string, ComponentType<any>> = {

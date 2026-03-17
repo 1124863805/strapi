@@ -1,24 +1,15 @@
 import * as React from 'react';
 
-import {
-  useForm,
-  useNotification,
-  NotificationConfig,
-  useAPIErrorHandler,
-  useQueryParams,
-} from '@leao1/admin/leao-admin';
-import {
-  Button,
-  Dialog,
-  Flex,
-  Modal,
-  Radio,
-  Typography,
-  VisuallyHidden,
-  Menu,
-  ButtonProps,
-} from '@leao1/design-system';
-import { Cross, More, WarningCircle } from '@leao1/icons';
+import { Dialog, Flex } from '@leao1/design-system';
+import { Modal } from '@leao1/design-system';
+import { Radio } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { Menu } from '@leao1/design-system';
+import { ButtonProps } from '@leao1/design-system';
+import { useForm, useNotification, NotificationConfig, useAPIErrorHandler, useQueryParams, } from '@leao1/admin/leao-admin';
+import { Button } from '@leao1/design-system';
+import { Cross, More, WarningCircle } from '@leao1/design-system/icons';
 import mapValues from 'lodash/fp/mapValues';
 import { useIntl } from 'react-intl';
 import { useMatch, useNavigate } from 'react-router-dom';

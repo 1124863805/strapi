@@ -40,9 +40,8 @@
     "sift": "16.0.1"
   },
   "devDependencies": {
-    "@leao1/pack-up": "^1.0.0",
-    "eslint-config-custom": "workspace:*",
-    "tsconfig": "workspace:*"
+    "@leao1/config": "workspace:*",
+    "@leao1/pack-up": "^1.0.0"
   },
   "engines": {
     "node": ">=18.0.0 <=22.x.x",

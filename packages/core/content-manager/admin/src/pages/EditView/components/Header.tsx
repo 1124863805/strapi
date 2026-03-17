@@ -1,24 +1,15 @@
 // @ts-nocheck
 import * as React from 'react';
 
-import {
-  DescriptionComponentRenderer,
-  useForm,
-  BackButton,
-  useNotification,
-  useLeaoApp,
-  useQueryParams,
-} from '@leao1/admin/leao-admin';
-import {
-  Box,
-  Flex,
-  SingleSelect,
-  SingleSelectOption,
-  Typography,
-  IconButton,
-  Dialog,
-} from '@leao1/design-system';
-import { ListPlus, Pencil, Trash, WarningCircle } from '@leao1/icons';
+import { Flex } from '@leao1/design-system';
+import { SingleSelect } from '@leao1/design-system';
+import { SingleSelectOption } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { Dialog } from '@leao1/design-system';
+import { DescriptionComponentRenderer, useForm, BackButton, useNotification, useLeaoApp, useQueryParams, } from '@leao1/admin/leao-admin';
+import { Box } from '@leao1/design-system';
+import { ListPlus, Pencil, Trash, WarningCircle } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { useMatch, useNavigate } from 'react-router-dom';
 

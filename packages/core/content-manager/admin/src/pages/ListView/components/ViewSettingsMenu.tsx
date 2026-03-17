@@ -1,17 +1,15 @@
 import * as React from 'react';
 
+import { IconButton } from '@leao1/design-system';
+import { Popover } from '@leao1/design-system';
+import { Checkbox } from '@leao1/design-system';
+import { TextButton } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { useCollator } from '@leao1/design-system';
+import { LinkButton } from '@leao1/design-system';
 import { useRBAC, useQueryParams } from '@leao1/admin/leao-admin';
-import {
-  Flex,
-  IconButton,
-  Popover,
-  Checkbox,
-  TextButton,
-  Typography,
-  useCollator,
-  LinkButton,
-} from '@leao1/design-system';
-import { Cog, ListPlus } from '@leao1/icons';
+import { Flex } from '@leao1/design-system';
+import { Cog, ListPlus } from '@leao1/design-system/icons';
 import { stringify } from 'qs';
 import { useIntl } from 'react-intl';
 import { NavLink } from 'react-router-dom';

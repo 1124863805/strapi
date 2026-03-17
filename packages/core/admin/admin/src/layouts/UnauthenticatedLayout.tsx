@@ -1,13 +1,6 @@
 import * as React from 'react';
 
-import {
-  Box,
-  BoxComponent,
-  Flex,
-  FlexComponent,
-  SingleSelect,
-  SingleSelectOption,
-} from '@leao1/design-system';
+import { Box, BoxComponent, Flex, FlexComponent, SingleSelect, SingleSelectOption } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

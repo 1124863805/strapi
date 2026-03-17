@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { CaretDown, Cross } from '@leao1/icons';
-import { Select } from '@leao1/ui-primitives';
+import { CaretDown, Cross } from '../../_icons';
+import { Select } from '../../_primitives';
 import { styled, css } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';

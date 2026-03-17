@@ -1,13 +1,10 @@
 import * as React from 'react';
 
-import {
-  useLeaoApp,
-  DescriptionComponentRenderer,
-  useTable,
-  useQueryParams,
-} from '@leao1/admin/leao-admin';
-import { Box, ButtonProps, Flex, Typography } from '@leao1/design-system';
-import { WarningCircle } from '@leao1/icons';
+import { ButtonProps } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { useLeaoApp, DescriptionComponentRenderer, useTable, useQueryParams, } from '@leao1/admin/leao-admin';
+import { Box, Typography } from '@leao1/design-system';
+import { WarningCircle } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import { useDocumentRBAC } from '../../../../features/DocumentRBAC';

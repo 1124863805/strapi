@@ -17,7 +17,7 @@ import {
   RelationField,
   TextField,
   UidField,
-} from '@leao1/icons/symbols';
+} from '@leao1/design-system/symbols';
 
 import type { Schema } from '@leao1/types';
 

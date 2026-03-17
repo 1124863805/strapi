@@ -30,21 +30,6 @@ async function typescript() {
   return useTypescript;
 }
 
-async function example() {
-  const { useExample } = await inquirer.prompt<{
-    useExample: boolean;
-  }>([
-    {
-      type: 'confirm',
-      name: 'useExample',
-      message: 'Start with an example structure & data?',
-      default: false,
-    },
-  ]);
-
-  return useExample;
-}
-
 async function gitInit() {
   const { gitInit } = await inquirer.prompt<{
     gitInit: boolean;
@@ -75,4 +60,4 @@ async function installDependencies(packageManager: string) {
   return installDependencies;
 }
 
-export { directory, typescript, example, gitInit, installDependencies };
+export { directory, typescript, gitInit, installDependencies };

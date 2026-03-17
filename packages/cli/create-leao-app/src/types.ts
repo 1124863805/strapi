@@ -17,7 +17,6 @@ export interface Options {
   typescript?: boolean;
   javascript?: boolean;
   install?: boolean;
-  example?: boolean;
   gitInit?: boolean;
   templateBranch?: string;
   templatePath?: string;
@@ -60,7 +59,6 @@ export interface Scope {
   tmpPath?: string;
   packageJsonLeao?: Record<string, unknown>;
   useTypescript?: boolean;
-  useExample?: boolean;
   gitInit?: boolean;
 }
 

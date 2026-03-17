@@ -48,7 +48,6 @@
   },
   "dependencies": {
     "@leao1/design-system": "^1.0.0",
-    "@leao1/icons": "^1.0.0",
     "@leao1/provider-email-sendmail": "^1.0.0",
     "@leao1/utils": "^1.0.0",
     "lodash": "4.17.21",

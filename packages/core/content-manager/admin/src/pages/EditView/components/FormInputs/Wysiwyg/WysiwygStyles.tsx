@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react';
-import { Button, IconButton, IconButtonComponent, IconButtonGroup } from '@leao1/design-system';
+import { Button, IconButton, IconButtonGroup } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
 // NAV BUTTONS - explicit type avoids portable inference from vendor styled-components
@@ -7,7 +7,7 @@ export const MainButtons: ComponentType<any> = styled(IconButtonGroup)`
   margin-left: ${({ theme }) => theme.spaces[4]};
 `;
 
-export const MoreButton = styled<IconButtonComponent>(IconButton)`
+export const MoreButton: ComponentType<any> = styled(IconButton)`
   margin: ${({ theme }) => `0 ${theme.spaces[2]}`};
 `;
 

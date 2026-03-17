@@ -1,6 +1,9 @@
-import { Box, Flex, Typography, LinkButton } from '@leao1/design-system';
-import { Plus } from '@leao1/icons';
-import { EmptyDocuments } from '@leao1/icons/symbols';
+import { Box } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { LinkButton } from '@leao1/design-system';
+import { Plus } from '@leao1/design-system/icons';
+import { EmptyDocuments } from '@leao1/design-system/symbols';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';

@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  Field,
-  Flex,
-  Grid,
-  Textarea,
-  TextInput,
-  Typography,
-} from '@leao1/design-system';
+import { Box, Button, Field, Flex, Grid, Textarea, TextInput, Typography } from '@leao1/design-system';
 import { FormikProps } from 'formik';
 import { useIntl } from 'react-intl';
 

@@ -1,16 +1,13 @@
 import * as React from 'react';
 
-import {
-  Main,
-  Button,
-  Flex,
-  TextInput,
-  Textarea,
-  Typography,
-  Grid,
-  Field,
-} from '@leao1/design-system';
-import { Check } from '@leao1/icons';
+import { Main, Button } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { TextInput } from '@leao1/design-system';
+import { Textarea } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
+import { Check } from '@leao1/design-system/icons';
 import {
   Page,
   BackButton,
@@ -18,7 +15,7 @@ import {
   useNotification,
   useFetchClient,
   Layouts,
-} from '@leao1/leao/admin';
+} from '@leao1/admin/leao-admin';
 import { Formik, Form } from 'formik';
 import { useIntl } from 'react-intl';
 import { useQuery, useMutation } from 'react-query';

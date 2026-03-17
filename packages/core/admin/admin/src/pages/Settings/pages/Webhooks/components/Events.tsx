@@ -3,17 +3,17 @@ import * as React from 'react';
 import {
   Checkbox,
   Flex,
-  RawTable as Table,
-  RawTbody as Tbody,
-  RawTd as Td,
-  RawTh as Th,
-  RawThead as Thead,
-  RawTr as Tr,
+  RawTable,
+  RawTbody,
+  RawTd,
+  RawTh,
+  RawThead,
+  RawTr,
   Typography,
-  VisuallyHidden,
-  Field,
-  CheckboxProps,
 } from '@leao1/design-system';
+import { CheckboxProps } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

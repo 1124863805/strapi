@@ -40,8 +40,8 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
+    "@leao1/admin": "^1.0.0",
     "@leao1/design-system": "^1.0.0",
-    "@leao1/icons": "^1.0.0",
     "@leao1/utils": "^1.0.0",
     "bcryptjs": "2.4.3",
     "formik": "2.4.5",

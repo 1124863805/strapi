@@ -1,20 +1,13 @@
 import React from 'react';
 
-import {
-  Box,
-  Card,
-  CardAction,
-  CardBadge,
-  CardBody,
-  CardCheckbox,
-  CardContent,
-  CardHeader,
-  CardSubtitle,
-  CardTitle,
-  Flex,
-  IconButton,
-} from '@leao1/design-system';
-import { Pencil, Trash } from '@leao1/icons';
+import { Box, Card, CardAction, CardBadge, CardBody, CardCheckbox, CardContent } from '@leao1/design-system';
+import { CardHeader } from '@leao1/design-system';
+import { CardSubtitle } from '@leao1/design-system';
+import { CardTitle } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { } from '@leao1/design-system';
+import { Pencil, Trash } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

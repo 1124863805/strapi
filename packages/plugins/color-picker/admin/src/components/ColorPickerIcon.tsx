@@ -1,5 +1,5 @@
 import { Flex } from '@leao1/design-system';
-import { PaintBrush } from '@leao1/icons';
+import { PaintBrush } from '@leao1/design-system/icons';
 import { styled } from 'styled-components';
 
 const IconBox = styled(Flex)`

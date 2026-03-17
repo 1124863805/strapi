@@ -1,9 +1,12 @@
 import * as React from 'react';
 
+import { Popover } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Button } from '@leao1/design-system';
 import { useTable, useQueryParams } from '@leao1/admin/leao-admin';
 import { ListFieldLayout, ListLayout } from '@leao1/content-manager/leao-admin';
-import { Box, Popover, Typography, Button, Link } from '@leao1/design-system';
-import { CaretDown } from '@leao1/icons';
+import { Box, Link } from '@leao1/design-system';
+import { CaretDown } from '@leao1/design-system/icons';
 import { Modules, UID } from '@leao1/types';
 import { useIntl } from 'react-intl';
 

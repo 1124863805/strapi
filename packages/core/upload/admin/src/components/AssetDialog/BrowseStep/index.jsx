@@ -1,17 +1,13 @@
 import React from 'react';
 
-import {
-  Checkbox,
-  Box,
-  Button,
-  Divider,
-  Flex,
-  IconButton,
-  Typography,
-  VisuallyHidden,
-  Grid,
-} from '@leao1/design-system';
-import { GridFour as GridIcon, List, Pencil, Plus } from '@leao1/icons';
+import { Checkbox, Box, Button } from '@leao1/design-system';
+import { Divider } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { GridFour as GridIcon, List, Pencil, Plus } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

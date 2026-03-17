@@ -44,7 +44,6 @@
     "@koa/cors": "5.0.0",
     "@koa/router": "12.0.2",
     "@leao1/database": "^1.0.0",
-    "@leao1/logger": "^1.0.0",
     "@leao1/permissions": "^1.0.0",
     "@leao1/utils": "^1.0.0",
     "commander": "8.3.0",
@@ -53,13 +52,12 @@
     "node-schedule": "2.1.1"
   },
   "devDependencies": {
+    "@leao1/config": "workspace:*",
     "@leao1/pack-up": "^1.0.0",
     "@types/koa": "2.13.4",
     "@types/koa__router": "12.0.0",
     "@types/node-schedule": "2.1.7",
-    "eslint-config-custom": "workspace:*",
     "lodash": "4.17.21",
-    "tsconfig": "workspace:*",
     "typescript": "5.3.2",
     "undici": "6.19.2"
   },

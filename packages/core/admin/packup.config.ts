@@ -8,6 +8,7 @@ const config: Config = defineConfig({
       require: './dist/_internal.js',
       types: './dist/_internal/index.d.ts',
       runtime: 'web',
+      tsconfig: './tsconfig._internal.json',
     },
     {
       source: './server/src/index.ts',

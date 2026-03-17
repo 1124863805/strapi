@@ -1,20 +1,15 @@
+import { Button, EmptyStateLayout, Table } from '@leao1/design-system';
+import { Tbody } from '@leao1/design-system';
+import { Td } from '@leao1/design-system';
+import { Th } from '@leao1/design-system';
+import { Thead } from '@leao1/design-system';
+import { Tr } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
 import { ComponentType, Fragment } from 'react';
 
-import {
-  Box,
-  Button,
-  EmptyStateLayout,
-  Table,
-  Tbody,
-  Td,
-  TFooter,
-  Th,
-  Thead,
-  Tr,
-  Typography,
-} from '@leao1/design-system';
-import { Plus } from '@leao1/icons';
-import { EmptyDocuments } from '@leao1/icons/symbols';
+import { Box, TFooter } from '@leao1/design-system';
+import { Plus } from '@leao1/design-system/icons';
+import { EmptyDocuments } from '@leao1/design-system/symbols';
 import { useIntl } from 'react-intl';
 
 import { useDataManager } from '../hooks/useDataManager';

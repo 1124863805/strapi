@@ -1,7 +1,8 @@
+import { useComposedRefs } from '@leao1/design-system';
 import { forwardRef, memo, useState } from 'react';
 
-import { TextInput, useComposedRefs, Field } from '@leao1/design-system';
-import { Eye, EyeStriked } from '@leao1/icons';
+import { TextInput, Field } from '@leao1/design-system';
+import { Eye, EyeStriked } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import { useFocusInputField } from '../../hooks/useFocusInputField';

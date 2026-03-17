@@ -45,12 +45,11 @@
     "fs-extra": "11.2.0"
   },
   "devDependencies": {
+    "@leao1/config": "workspace:*",
     "@leao1/pack-up": "^1.0.0",
     "@leao1/types": "^1.0.0",
     "@types/fs-extra": "11.0.4",
-    "eslint-config-custom": "workspace:*",
-    "memfs": "4.6.0",
-    "tsconfig": "workspace:*"
+    "memfs": "4.6.0"
   },
   "engines": {
     "node": ">=18.0.0 <=22.x.x",

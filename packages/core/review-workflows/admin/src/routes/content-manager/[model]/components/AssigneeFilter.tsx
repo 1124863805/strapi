@@ -1,7 +1,8 @@
 import * as React from 'react';
 
 import { type Filters, useAdminUsers, useField } from '@leao1/admin/leao-admin';
-import { Combobox, ComboboxOption, ComboboxProps } from '@leao1/design-system';
+import { Combobox, ComboboxOption } from '@leao1/design-system';
+import { ComboboxProps } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
 import { getDisplayName } from '../../../../utils/users';

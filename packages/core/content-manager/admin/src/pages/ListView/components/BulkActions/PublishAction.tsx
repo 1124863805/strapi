@@ -1,24 +1,15 @@
 import * as React from 'react';
 
-import {
-  useQueryParams,
-  Table,
-  useTable,
-  getYupValidationErrors,
-  FormErrors,
-} from '@leao1/admin/leao-admin';
-import {
-  Box,
-  Button,
-  Typography,
-  Modal,
-  IconButton,
-  Flex,
-  Tooltip,
-  Loader,
-  TypographyComponent,
-} from '@leao1/design-system';
-import { Pencil, CrossCircle, CheckCircle, ArrowsCounterClockwise } from '@leao1/icons';
+import { Button, Typography } from '@leao1/design-system';
+import { Modal } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Tooltip } from '@leao1/design-system';
+import { Loader } from '@leao1/design-system';
+import { TypographyComponent } from '@leao1/design-system';
+import { useQueryParams, useTable, getYupValidationErrors, FormErrors, Table } from '@leao1/admin/leao-admin';
+import { Box } from '@leao1/design-system';
+import { Pencil, CrossCircle, CheckCircle, ArrowsCounterClockwise } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { Link, useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';

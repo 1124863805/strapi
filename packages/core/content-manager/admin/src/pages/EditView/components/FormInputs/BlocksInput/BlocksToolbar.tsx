@@ -1,16 +1,8 @@
 import * as React from 'react';
 
 import * as Toolbar from '@radix-ui/react-toolbar';
-import {
-  Flex,
-  Tooltip,
-  SingleSelect,
-  SingleSelectOption,
-  Box,
-  FlexComponent,
-  BoxComponent,
-} from '@leao1/design-system';
-import { Link } from '@leao1/icons';
+import { Flex, Tooltip, SingleSelect, SingleSelectOption, Box, FlexComponent, BoxComponent } from '@leao1/design-system';
+import { Link } from '@leao1/design-system';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { Editor, Transforms, Element as SlateElement, Node, type Ancestor } from 'slate';
 import { ReactEditor } from 'slate-react';

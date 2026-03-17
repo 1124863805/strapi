@@ -1,19 +1,15 @@
 import * as React from 'react';
 
+import { Box, Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { useComposedRefs } from '@leao1/design-system';
+import { Menu } from '@leao1/design-system';
+import { BoxComponent } from '@leao1/design-system';
 import { useForm, useField } from '@leao1/admin/leao-admin';
-import {
-  Accordion,
-  Box,
-  Flex,
-  Grid,
-  IconButton,
-  VisuallyHidden,
-  useComposedRefs,
-  Menu,
-  MenuItem,
-  BoxComponent,
-} from '@leao1/design-system';
-import { Drag, More, Trash } from '@leao1/icons';
+import { Accordion, MenuItem } from '@leao1/design-system';
+import { Drag, More, Trash } from '@leao1/design-system/icons';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

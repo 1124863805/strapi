@@ -1,7 +1,12 @@
 import * as React from 'react';
 
-import { Box, Flex, FocusTrap, Portal, IconButton, FlexComponent } from '@leao1/design-system';
-import { Collapse } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { FocusTrap } from '@leao1/design-system';
+import { Portal } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { FlexComponent } from '@leao1/design-system';
+import { Collapse } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { css, styled } from 'styled-components';
 

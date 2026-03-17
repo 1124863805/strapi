@@ -5,261 +5,146 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e3bcce7-5e9b-4373-a980-6aeec33336df" name="Changes" comment="完全变更">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/.env.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/.npmrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/.strapi-updater.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/.strapi/client/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/.strapi/client/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/config/admin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/config/api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/config/database.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/config/features.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/config/middlewares.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/config/plugins.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/config/server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/config/src/cron-tasks.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/config/src/response-handlers.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/data.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/uploads/a-bug-is-becoming-a-meme-on-the-internet.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/uploads/beautiful-picture.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/uploads/coffee-art.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/uploads/coffee-beans.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/uploads/coffee-shadow.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/uploads/daviddoe@strapi.io.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/uploads/default-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/uploads/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/uploads/sarahbaker@strapi.io.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/uploads/the-internet-s-own-boy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/uploads/this-shrimp-is-awesome.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/uploads/we-love-pizza.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/data/uploads/what-s-inside-a-black-hole.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/ecosystem.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/jsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/public/uploads/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/admin/app.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/admin/webpack.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/address/content-types/address/lifecycles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/address/content-types/address/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/address/controllers/address.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/address/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/address/middlewares/address-middleware.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/address/policies/address.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/address/routes/address.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/address/services/address.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/category/content-types/category/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/category/controllers/category.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/category/routes/category.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/category/services/category.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/country/content-types/country/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/country/controllers/country.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/country/routes/country.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/country/services/country.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/homepage/content-types/homepage/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/homepage/controllers/homepage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/homepage/routes/homepage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/homepage/services/homepage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/kitchensink/content-types/kitchensink/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/kitchensink/controllers/kitchensink.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/kitchensink/routes/kitchensink.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/kitchensink/services/kitchensink.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/like/content-types/like/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/like/controllers/like.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/like/routes/like.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/like/services/like.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/menu/content-types/menu/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/menu/controllers/menu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/menu/routes/menu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/menu/services/menu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/menusection/content-types/menusection/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/menusection/controllers/menusection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/menusection/routes/menusection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/menusection/services/menusection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/relation-locale/content-types/relation-locale/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/relation-locale/controllers/relation-locale.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/relation-locale/routes/relation-locale.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/relation-locale/services/relation-locale.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/restaurant/content-types/restaurant/lifecycles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/restaurant/content-types/restaurant/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/restaurant/controllers/restaurant.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/restaurant/routes/restaurant.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/restaurant/services/restaurant.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/review/content-types/review/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/review/controllers/review.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/review/routes/review.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/review/services/review.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/tag/content-types/tag/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/tag/controllers/tag.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/tag/routes/tag.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/tag/services/tag.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/temp/content-types/temp/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/temp/controllers/temp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/temp/routes/temp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/api/temp/services/temp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/components/basic/relation.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/components/basic/simple.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/components/blog/test-como.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/components/default/apple.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/components/default/car.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/components/default/closingperiod.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/components/default/dish.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/components/default/openingtimes.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/components/default/restaurantservice.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/components/default/temp.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/custom/middleware.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/extensions/myplugin/content-types/test/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/extensions/users-permissions/content-types/user/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/extensions/users-permissions/leao-server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/middlewares/test-middleware.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/admin/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/admin/src/pages/App/index.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/admin/src/pluginId.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/admin/src/translations/en.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/admin/src/translations/es.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/admin/src/translations/tr.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/admin/src/utils/getTrad.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/admin/src/utils/prefixPluginTranslations.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/leao-admin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/leao-server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/server/config/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/server/content-types/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/server/content-types/test/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/server/content-types/test/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/server/controllers/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/server/controllers/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/server/graphql.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/server/register.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/plugins/local-plugin/server/routes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/getstarted/src/policies/test-policy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/.env.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/.leao-updater.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/.leao/client/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/.leao/client/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/config/admin.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/config/api.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/config/database.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/config/middlewares.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/config/plugins.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/config/server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/data.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/uploads/a-bug-is-becoming-a-meme-on-the-internet.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/uploads/beautiful-picture.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/uploads/coffee-art.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/uploads/coffee-beans.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/uploads/coffee-shadow.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/uploads/daviddoe@strapi.io.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/uploads/default-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/uploads/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/uploads/sarahbaker@strapi.io.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/uploads/the-internet-s-own-boy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/uploads/this-shrimp-is-awesome.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/uploads/we-love-pizza.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/data/uploads/what-s-inside-a-black-hole.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/database/migrations/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/public/uploads/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/scripts/seed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/admin/app.example.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/admin/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/admin/vite.config.example.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/about/content-types/about/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/about/controllers/about.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/about/routes/about.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/about/services/about.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/article/content-types/article/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/article/controllers/article.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/article/routes/article.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/article/services/article.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/author/content-types/author/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/author/controllers/author.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/author/routes/author.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/author/services/author.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/category/content-types/category/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/category/controllers/category.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/category/routes/category.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/category/services/category.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/global/content-types/global/schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/global/controllers/global.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/global/routes/global.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/api/global/services/global.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/components/shared/media.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/components/shared/quote.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/components/shared/rich-text.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/components/shared/seo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/components/shared/slider.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/extensions/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/extensions/documentation/documentation/1.0.0/full_documentation.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/extensions/documentation/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/src/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/types/generated/components.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/my-demo/types/generated/contentTypes.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.yarnrc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.yarnrc.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/cli/create-leao-app/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cli/create-leao-app/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/cli/create-leao-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cli/create-leao-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/cli/create-leao-app/src/utils/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cli/create-leao-app/src/utils/database.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/cli/create-leao-app/src/utils/engines.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cli/create-leao-app/src/utils/engines.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/upload/documentation/content-api.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/upload/documentation/content-api.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-amazon-ses/.eslintignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-amazon-ses/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-amazon-ses/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-amazon-ses/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-amazon-ses/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-amazon-ses/packup.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-amazon-ses/src/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-amazon-ses/tsconfig.build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-amazon-ses/tsconfig.eslint.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-amazon-ses/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-mailgun/.eslintignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-mailgun/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-mailgun/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-mailgun/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-mailgun/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-mailgun/packup.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-mailgun/src/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-mailgun/tsconfig.build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-mailgun/tsconfig.eslint.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-mailgun/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-sendgrid/.eslintignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-sendgrid/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-sendgrid/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-sendgrid/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-sendgrid/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-sendgrid/packup.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-sendgrid/src/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-sendgrid/tsconfig.build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-sendgrid/tsconfig.eslint.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/email-sendgrid/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-aws-s3/.eslintignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-aws-s3/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-aws-s3/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-aws-s3/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-aws-s3/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-aws-s3/packup.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-aws-s3/src/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-aws-s3/src/utils.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-aws-s3/tsconfig.build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-aws-s3/tsconfig.eslint.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-aws-s3/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-cloudinary/.eslintignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-cloudinary/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-cloudinary/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-cloudinary/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-cloudinary/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-cloudinary/packup.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-cloudinary/src/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-cloudinary/tsconfig.build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-cloudinary/tsconfig.eslint.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/providers/upload-cloudinary/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/cli/create-leao-app/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/cli/create-leao-app/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/cli/create-leao/bin/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/cli/create-leao/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/admin/admin/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/admin/admin/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/admin/ee/server/src/services/seat-enforcement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/admin/ee/server/src/services/seat-enforcement.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/admin/ee/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/admin/ee/server/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/admin/packup.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/admin/packup.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/admin/server/src/services/transfer/token.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/admin/server/src/services/transfer/token.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/admin/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/admin/server/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/core/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/core/src/LeaoCore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/core/src/LeaoCore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/core/src/ee/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/core/src/ee/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/core/src/services/webhook-runner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/core/src/services/webhook-runner.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/core/src/services/worker-queue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/core/src/services/worker-queue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/data-transfer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/data-transfer/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/data-transfer/src/leao/remote/handlers/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/data-transfer/src/leao/remote/handlers/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/data-transfer/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/data-transfer/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/database/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/database/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/database/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/database/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/database/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/database/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/email/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/email/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/email/admin/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/email/admin/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/email/admin/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/email/admin/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/email/server/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/email/server/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/email/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/email/server/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/leao/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/leao/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/leao/src/cli/utils/data-transfer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/leao/src/cli/utils/data-transfer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/permissions/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/permissions/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/permissions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/permissions/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/permissions/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/permissions/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/types/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/types/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/types/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/types/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/types/src/core/leao.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/types/src/core/leao.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/types/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/types/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/upload/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/upload/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/upload/admin/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/upload/admin/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/upload/admin/tsconfig.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/upload/admin/tsconfig.build.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/upload/admin/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/upload/admin/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/upload/server/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/upload/server/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/upload/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/upload/server/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/utils/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/utils/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/utils/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/utils/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/utils/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/utils/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/utils/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/utils/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generators/generators/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generators/generators/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generators/generators/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generators/generators/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generators/generators/src/plops/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generators/generators/src/plops/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generators/generators/src/plops/content-type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generators/generators/src/plops/content-type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generators/generators/src/plops/controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generators/generators/src/plops/controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generators/generators/src/plops/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generators/generators/src/plops/middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generators/generators/src/plops/migration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generators/generators/src/plops/migration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generators/generators/src/plops/policy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generators/generators/src/plops/policy.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generators/generators/src/plops/service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generators/generators/src/plops/service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/generators/generators/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/generators/generators/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/color-picker/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/color-picker/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/color-picker/admin/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/color-picker/admin/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/color-picker/admin/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/color-picker/admin/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/color-picker/server/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/color-picker/server/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/color-picker/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/color-picker/server/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/documentation/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/documentation/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/documentation/admin/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/documentation/admin/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/documentation/admin/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/documentation/admin/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/documentation/server/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/documentation/server/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/documentation/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/documentation/server/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/graphql/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/graphql/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/graphql/admin/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/graphql/admin/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/graphql/admin/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/graphql/admin/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/graphql/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/graphql/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/graphql/server/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/graphql/server/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/graphql/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/graphql/server/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/plugins/users-permissions/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/plugins/users-permissions/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/providers/email-nodemailer/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/providers/email-nodemailer/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/providers/email-nodemailer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/providers/email-nodemailer/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/providers/email-nodemailer/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/providers/email-nodemailer/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/providers/email-sendmail/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/providers/email-sendmail/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/providers/email-sendmail/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/providers/email-sendmail/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/providers/email-sendmail/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/providers/email-sendmail/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/providers/upload-local/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/providers/upload-local/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/providers/upload-local/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/providers/upload-local/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/providers/upload-local/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/providers/upload-local/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/eslint-config-custom/back/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/eslint-config-custom/back/typescript.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/eslint-config-custom/front/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/eslint-config-custom/front/typescript.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/eslint-config-custom/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/.eslintignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/packup.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/src/configs/default-configuration.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/src/configs/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/src/configs/output-file-configuration.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/src/constants.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/src/formats/exclude-colors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/src/formats/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/src/formats/level-filter.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/src/formats/log-errors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/src/formats/pretty-print.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/tsconfig.build.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/tsconfig.eslint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/logger/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/tsconfig/base.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/tsconfig/client.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/tsconfig/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/.eslintignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/compile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/compilers/basic.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/compilers/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/generators/common/imports.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/generators/common/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/generators/common/models/attributes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/generators/common/models/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/generators/common/models/mappers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/generators/common/models/schema.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/generators/common/models/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/generators/components/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/generators/constants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/generators/content-types/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/generators/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/generators/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/utils/format-host.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/utils/get-config-path.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/utils/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/utils/is-using-typescript-sync.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/utils/is-using-typescript.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/utils/report-diagnostics.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/utils/resolve-config-options.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/lib/utils/resolve-outdir.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/tsconfigs/admin.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/utils/typescript/tsconfigs/server.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -358,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773583628335</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="完全变更">
+      <option name="closed" value="true" />
+      <created>1773630219297</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1773630219297</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

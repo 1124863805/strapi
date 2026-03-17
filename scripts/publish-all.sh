@@ -21,7 +21,6 @@ PACKAGES=(
   "packages/core/utils"
   "packages/core/database"
   "packages/core/data-transfer"
-  "packages/generators/generators"
   "packages/vendor/icons"
   "packages/vendor/primitives"
   "packages/vendor/design-system"
@@ -43,7 +42,6 @@ PACKAGES=(
   "packages/providers/upload-local"
   "packages/vendor/sdk-plugin"
   "packages/cli/create-leao-app"
-  "packages/cli/create-leao"
   "packages/core/leao"
 )
 

@@ -1,6 +1,7 @@
+import { Button } from '@leao1/design-system';
 import { BackButton, Layouts } from '@leao1/admin/leao-admin';
-import { Box, Button, Flex } from '@leao1/design-system';
-import { Check, Pencil, Plus } from '@leao1/icons';
+import { Box, Flex } from '@leao1/design-system';
+import { Check, Pencil, Plus } from '@leao1/design-system/icons';
 import get from 'lodash/get';
 import has from 'lodash/has';
 import isEqual from 'lodash/isEqual';

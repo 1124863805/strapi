@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Information, CheckCircle, WarningCircle, Cross } from '@leao1/icons';
+import { Information, CheckCircle, WarningCircle, Cross } from '../../_icons';
 import { styled } from 'styled-components';
 
 import { Box, BoxComponent, BoxProps } from '../../primitives/Box';

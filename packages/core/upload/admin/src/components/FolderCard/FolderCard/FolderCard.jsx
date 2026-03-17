@@ -1,7 +1,9 @@
 import React, { forwardRef, useMemo } from 'react';
 
-import { Box, CardAction, Flex } from '@leao1/design-system';
-import { Folder } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { CardAction } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Folder } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';

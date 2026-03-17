@@ -8,27 +8,15 @@
 
 import * as React from 'react';
 
-import {
-  Flex,
-  Typography,
-  Th,
-  Tbody,
-  Td,
-  Tooltip,
-  IconButton,
-  Thead,
-  Tr,
-  RawTrProps,
-  Checkbox,
-  Loader,
-  Table as DSTable,
-  EmptyStateLayout,
-  EmptyStateLayoutProps,
-  TableProps,
-  RawTdProps,
-} from '@leao1/design-system';
-import { CaretDown } from '@leao1/icons';
-import { EmptyDocuments } from '@leao1/icons/symbols';
+import { Flex, Typography, Th, Tbody, Td, Tooltip, IconButton, Thead, Tr, RawTrProps } from '@leao1/design-system';
+import { Checkbox } from '@leao1/design-system';
+import { Loader } from '@leao1/design-system';
+import { EmptyStateLayout } from '@leao1/design-system';
+import { EmptyStateLayoutProps } from '@leao1/design-system';
+import { TableProps } from '@leao1/design-system';
+import { RawTdProps } from '@leao1/design-system';
+import { CaretDown } from '@leao1/design-system/icons';
+import { EmptyDocuments } from '@leao1/design-system/symbols';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 
@@ -36,6 +24,7 @@ import { useControllableState } from '../hooks/useControllableState';
 import { useQueryParams } from '../hooks/useQueryParams';
 
 import { createContext } from './Context';
+import { TableWrapper } from './Table/TablePrimitive';
 
 /* -------------------------------------------------------------------------------------------------
  * Root
@@ -147,9 +136,9 @@ const Content = ({ children }: Table.ContentProps) => {
   const footer = useTable('Content', (state) => state.footer);
 
   return (
-    <DSTable rowCount={rowCount} colCount={colCount} footer={footer}>
+    <TableWrapper rowCount={rowCount} colCount={colCount} footer={footer}>
       {children}
-    </DSTable>
+    </TableWrapper>
   );
 };
 

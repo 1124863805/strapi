@@ -1,7 +1,9 @@
 import * as React from 'react';
 
-import { IconButton, Searchbar, SearchForm } from '@leao1/design-system';
-import { Search as SearchIcon } from '@leao1/icons';
+import { IconButton } from '@leao1/design-system';
+import { Searchbar } from '@leao1/design-system';
+import { SearchForm } from '@leao1/design-system';
+import { Search } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import { useQueryParams } from '../hooks/useQueryParams';
@@ -79,7 +81,7 @@ const SearchInput = ({
       label={formatMessage({ id: 'global.search', defaultMessage: 'Search' })}
       onClick={handleToggle}
     >
-      <SearchIcon />
+      <Search />
     </IconButton>
   );
 };

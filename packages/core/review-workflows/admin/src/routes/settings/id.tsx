@@ -1,18 +1,10 @@
 import * as React from 'react';
 
-import {
-  ConfirmDialog,
-  BackButton,
-  useNotification,
-  useAPIErrorHandler,
-  useRBAC,
-  Form,
-  Page,
-  FormProps,
-  FormHelpers,
-} from '@leao1/admin/leao-admin';
-import { Button, Dialog, Flex, Typography } from '@leao1/design-system';
-import { Check } from '@leao1/icons';
+import { Dialog } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { ConfirmDialog, BackButton, useNotification, useAPIErrorHandler, useRBAC, Form, Page, FormProps, FormHelpers, } from '@leao1/admin/leao-admin';
+import { Button, Typography } from '@leao1/design-system';
+import { Check } from '@leao1/design-system/icons';
 import { generateNKeysBetween } from 'fractional-indexing';
 import { useIntl } from 'react-intl';
 import { useNavigate, useParams } from 'react-router-dom';

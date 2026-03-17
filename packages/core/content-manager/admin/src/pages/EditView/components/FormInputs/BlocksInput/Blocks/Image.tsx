@@ -1,8 +1,9 @@
 import * as React from 'react';
 
+import { Flex } from '@leao1/design-system';
 import { useLeaoApp } from '@leao1/admin/leao-admin';
-import { Box, Flex, FlexComponent } from '@leao1/design-system';
-import { Image as Picture } from '@leao1/icons';
+import { Box, FlexComponent } from '@leao1/design-system';
+import { Image as Picture } from '@leao1/design-system/icons';
 import { type Element, Transforms, Editor } from 'slate';
 import { useFocused, type RenderElementProps, useSelected } from 'slate-react';
 import { styled, css } from 'styled-components';

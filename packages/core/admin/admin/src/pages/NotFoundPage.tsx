@@ -4,9 +4,10 @@
  * This is the page we show when the user visits a url that doesn't have a route
  *
  */
-import { LinkButton, EmptyStateLayout } from '@leao1/design-system';
-import { ArrowRight } from '@leao1/icons';
-import { EmptyPictures } from '@leao1/icons/symbols';
+import { LinkButton } from '@leao1/design-system';
+import { EmptyStateLayout } from '@leao1/design-system';
+import { ArrowRight } from '@leao1/design-system/icons';
+import { EmptyPictures } from '@leao1/design-system/symbols';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 

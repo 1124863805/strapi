@@ -1,17 +1,14 @@
 import * as React from 'react';
 
-import {
-  Box,
-  Flex,
-  Grid,
-  TextButton,
-  ComboboxOption,
-  Combobox,
-  ComboboxProps,
-  IconButton,
-  Field as DSField,
-} from '@leao1/design-system';
-import { Minus, Plus } from '@leao1/icons';
+import { Box, Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { TextButton } from '@leao1/design-system';
+import { ComboboxOption } from '@leao1/design-system';
+import { Combobox } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
+import { ComboboxProps } from '@leao1/design-system/icons';
+import { Minus, Plus } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

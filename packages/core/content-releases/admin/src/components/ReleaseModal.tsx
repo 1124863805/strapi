@@ -1,19 +1,6 @@
 import * as React from 'react';
 
-import {
-  Button,
-  Modal,
-  TextInput,
-  Typography,
-  Checkbox,
-  Flex,
-  Box,
-  DatePicker,
-  TimePicker,
-  Combobox,
-  ComboboxOption,
-  Field,
-} from '@leao1/design-system';
+import { Button, Modal, TextInput, Typography, Checkbox, Flex, Box, DatePicker, TimePicker, Combobox, ComboboxOption, Field } from '@leao1/design-system';
 import { formatISO } from 'date-fns';
 import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz';
 import { Formik, Form, useFormikContext } from 'formik';

@@ -4,7 +4,7 @@
 
 import createdDebugger from 'debug';
 import _ from 'lodash';
-import type { Logger } from '@leao1/logger';
+import type { Logger } from '@leao1/utils';
 
 import type { Modules } from '@leao1/types';
 import WorkerQueue from './worker-queue';

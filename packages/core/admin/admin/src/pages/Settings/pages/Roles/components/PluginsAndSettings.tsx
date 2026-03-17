@@ -1,15 +1,6 @@
 import * as React from 'react';
 
-import {
-  Accordion,
-  Box,
-  BoxComponent,
-  Checkbox,
-  Flex,
-  Grid,
-  Modal,
-  Typography,
-} from '@leao1/design-system';
+import { Accordion, Box, BoxComponent, Checkbox, Flex, Grid, Modal, Typography } from '@leao1/design-system';
 import get from 'lodash/get';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

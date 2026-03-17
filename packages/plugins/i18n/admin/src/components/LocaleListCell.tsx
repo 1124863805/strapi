@@ -1,6 +1,10 @@
-import { unstable_useDocument as useDocument } from '@leao1/content-manager/leao-admin';
-import { Box, Flex, Popover, Typography, useCollator, Button } from '@leao1/design-system';
-import { CaretDown } from '@leao1/icons';
+import { Flex, Popover } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { useCollator } from '@leao1/design-system';
+import { Button } from '@leao1/design-system';
+import { Box } from '@leao1/design-system';
+import { CaretDown } from '@leao1/design-system/icons';
+import { unstable_useDocument } from '@leao1/content-manager/leao-admin';
 import { useIntl } from 'react-intl';
 
 import { Locale } from '../../../shared/contracts/locales';
@@ -20,7 +24,7 @@ const LocaleListCell = ({
   model,
 }: LocaleListCellProps) => {
   // TODO: avoid loading availableLocales for each row but get that from the BE
-  const { meta, isLoading } = useDocument({
+  const { meta, isLoading } = unstable_useDocument({
     documentId,
     collectionType,
     model,

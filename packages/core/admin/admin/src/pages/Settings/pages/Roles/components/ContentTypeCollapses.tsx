@@ -1,7 +1,12 @@
 import * as React from 'react';
 
-import { Checkbox, Box, BoxComponent, Flex, FlexComponent, Modal } from '@leao1/design-system';
-import { ChevronDown, ChevronUp } from '@leao1/icons';
+import { Checkbox } from '@leao1/design-system';
+import { Box } from '@leao1/design-system';
+import { BoxComponent } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { FlexComponent } from '@leao1/design-system';
+import { Modal } from '@leao1/design-system';
+import { ChevronDown, ChevronUp } from '@leao1/design-system/icons';
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import omit from 'lodash/omit';

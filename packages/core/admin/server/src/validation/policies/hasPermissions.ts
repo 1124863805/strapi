@@ -15,7 +15,7 @@ const hasPermissionsSchema = yup.object({
 
       return yup.object().shape({
         action: yup.string().required(),
-        subject: yup.string(),
+        subject: yup.string().nullable(),
       });
     })
   ),

@@ -1,18 +1,14 @@
 import * as React from 'react';
 
-import {
-  Button,
-  Dialog,
-  Table,
-  Tbody,
-  TFooter,
-  Th,
-  Thead,
-  Tr,
-  Typography,
-  VisuallyHidden,
-} from '@leao1/design-system';
-import { Duplicate, Pencil, Plus, Trash } from '@leao1/icons';
+import { Button, Dialog, Table } from '@leao1/design-system';
+import { Tbody } from '@leao1/design-system';
+import { Th } from '@leao1/design-system';
+import { Thead } from '@leao1/design-system';
+import { Tr } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { TFooter } from '@leao1/design-system';
+import { Duplicate, Pencil, Plus, Trash } from '@leao1/design-system/icons';
 import { produce } from 'immer';
 import { useIntl } from 'react-intl';
 import { useNavigate } from 'react-router-dom';

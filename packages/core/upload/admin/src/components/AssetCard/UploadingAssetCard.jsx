@@ -1,17 +1,7 @@
 import React, { useEffect } from 'react';
 
-import {
-  Box,
-  Card,
-  CardBadge,
-  CardBody,
-  CardContent,
-  CardHeader,
-  CardSubtitle,
-  CardTitle,
-  Flex,
-  Typography,
-} from '@leao1/design-system';
+import { Box, Card, Flex, Typography } from '@leao1/design-system';
+import { CardBadge, CardBody, CardContent, CardHeader, CardSubtitle, CardTitle } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

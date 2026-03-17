@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useQueryParams } from '@leao1/admin/leao-admin';
 import { Button, Popover } from '@leao1/design-system';
-import { Filter } from '@leao1/icons';
+import { Filter } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import FilterList from '../../../../components/FilterList';

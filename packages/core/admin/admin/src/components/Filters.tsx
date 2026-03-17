@@ -1,7 +1,11 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, Popover, Tag } from '@leao1/design-system';
-import { Plus, Filter as FilterIcon, Cross } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Button } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Popover } from '@leao1/design-system';
+import { Tag } from '@leao1/design-system';
+import { Plus, Filter, Cross } from '@leao1/design-system/icons';
 import { Schema } from '@leao1/types';
 import { useIntl } from 'react-intl';
 
@@ -93,7 +97,7 @@ const Trigger = React.forwardRef<HTMLButtonElement, Filters.TriggerProps>(
         <Button
           variant="tertiary"
           ref={forwardedRef}
-          startIcon={<FilterIcon />}
+          startIcon={<Filter />}
           size="S"
           disabled={disabled}
         >

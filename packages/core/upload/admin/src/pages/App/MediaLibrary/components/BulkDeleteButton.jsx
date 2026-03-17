@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { ConfirmDialog } from '@leao1/admin/leao-admin';
 import { Button, Dialog } from '@leao1/design-system';
-import { Trash } from '@leao1/icons';
+import { Trash } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

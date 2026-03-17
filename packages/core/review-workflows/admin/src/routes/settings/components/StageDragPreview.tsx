@@ -1,5 +1,6 @@
-import { Flex, Typography } from '@leao1/design-system';
-import { CaretDown } from '@leao1/icons';
+import { Flex } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { CaretDown } from '@leao1/design-system/icons';
 
 interface StageDragPreviewType {
   name: string | null;

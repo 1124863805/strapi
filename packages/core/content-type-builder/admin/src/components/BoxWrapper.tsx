@@ -1,7 +1,8 @@
+import type { ComponentType } from 'react';
 import { Box } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
-export const BoxWrapper = styled(Box)`
+export const BoxWrapper: ComponentType<any> = styled(Box)`
   table {
     width: 100%;
     white-space: nowrap;

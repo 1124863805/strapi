@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 import { useQueryParams } from '@leao1/admin/leao-admin';
-import { CrumbSimpleMenu, Loader, MenuItem } from '@leao1/design-system';
+import { Loader } from '@leao1/design-system';
+import { CrumbSimpleMenu, MenuItem } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { NavLink, useLocation } from 'react-router-dom';

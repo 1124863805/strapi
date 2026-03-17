@@ -3,8 +3,13 @@
  * FormModalHeader
  *
  */
-import { Box, Flex, Breadcrumbs, Crumb, Link, Modal } from '@leao1/design-system';
-import { ArrowLeft } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Breadcrumbs } from '@leao1/design-system';
+import { Crumb } from '@leao1/design-system';
+import { Link } from '@leao1/design-system';
+import { Modal } from '@leao1/design-system';
+import { ArrowLeft } from '@leao1/design-system/icons';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 

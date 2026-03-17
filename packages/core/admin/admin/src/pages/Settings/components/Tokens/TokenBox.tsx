@@ -1,5 +1,5 @@
 import { IconButton } from '@leao1/design-system';
-import { Duplicate, Key } from '@leao1/icons';
+import { Duplicate, Key } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import { ContentBox } from '../../../../components/ContentBox';

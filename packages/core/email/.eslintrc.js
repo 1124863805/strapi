@@ -4,7 +4,7 @@ module.exports = {
     {
       files: ['**/*'],
       excludedFiles: ['admin/**/*', 'server/**/*'],
-      extends: ['custom/back'],
+      extends: ['@leao1/config/back'],
     },
   ],
 };

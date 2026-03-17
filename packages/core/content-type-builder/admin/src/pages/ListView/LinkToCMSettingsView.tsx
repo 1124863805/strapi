@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import { type Permission, useRBAC } from '@leao1/admin/leao-admin';
 import { Button } from '@leao1/design-system';
-import { ListPlus } from '@leao1/icons';
+import { ListPlus } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
 

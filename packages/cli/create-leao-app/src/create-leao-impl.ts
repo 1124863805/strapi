@@ -32,7 +32,6 @@ async function createApp(scope: Scope) {
   const {
     rootPath,
     useTypescript,
-    useExample,
     installDependencies,
     isQuickstart,
     template,
@@ -40,8 +39,6 @@ async function createApp(scope: Scope) {
     gitInit,
     runApp,
   } = scope;
-
-  const shouldRunSeed = useExample && installDependencies;
 
   await trackUsage({ event: 'willCreateProject', scope });
 
@@ -53,14 +50,10 @@ async function createApp(scope: Scope) {
     await trackUsage({ event: 'didChooseQuickstart', scope });
   }
 
-  const BUNDLED_TEMPLATES = ['example', 'example-js', 'vanilla', 'vanilla-js'];
+  const BUNDLED_TEMPLATES = ['vanilla', 'vanilla-js'];
 
   if (!template) {
-    let templateName = useExample ? 'example' : 'vanilla';
-
-    if (!useTypescript) {
-      templateName = `${templateName}-js`;
-    }
+    const templateName = useTypescript ? 'vanilla' : 'vanilla-js';
 
     const internalTemplatePath = join(__dirname, '../templates', templateName);
     if (await fse.exists(internalTemplatePath)) {
@@ -164,22 +157,6 @@ async function createApp(scope: Scope) {
     logger.success('Initialized a git repository.');
   }
 
-  if (shouldRunSeed) {
-    if (await fse.exists(join(rootPath, 'scripts/seed.js'))) {
-      logger.title('Seed', 'Seeding your database with sample data');
-
-      try {
-        await execa(packageManager, ['run', 'seed:example'], {
-          stdio: 'inherit',
-          cwd: rootPath,
-        });
-        logger.success('Sample data added to your database');
-      } catch (error) {
-        logger.error('Failed to seed your database. Skipping');
-      }
-    }
-  }
-
   const cmd = chalk.cyan(`${packageManager} run`);
 
   logger.title('Leao', `Your application was created!`);
@@ -201,10 +178,6 @@ async function createApp(scope: Scope) {
     '',
   ]);
 
-  if (useExample) {
-    logger.log(['Seed your database with sample data.', `${cmd} seed:example`, '']);
-  }
-
   logger.log(['Display all available commands.', `${cmd} leao\n`]);
 
   if (installDependencies) {
@@ -212,7 +185,7 @@ async function createApp(scope: Scope) {
       'To get started run',
       '',
       `${chalk.cyan('cd')} ${rootPath}`,
-      !shouldRunSeed && useExample ? `${cmd} seed:example && ${cmd} develop` : `${cmd} develop`,
+      `${cmd} develop`,
     ]);
   } else {
     logger.log([
@@ -220,7 +193,7 @@ async function createApp(scope: Scope) {
       '',
       `${chalk.cyan('cd')} ${rootPath}`,
       `${chalk.cyan(packageManager)} install`,
-      !shouldRunSeed && useExample ? `${cmd} seed:example && ${cmd} develop` : `${cmd} develop`,
+      `${cmd} develop`,
     ]);
   }
 

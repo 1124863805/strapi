@@ -1,4 +1,4 @@
-import { PlusCircle } from '@leao1/icons';
+import { PlusCircle } from '../../_icons';
 import { render as renderRTL } from '@test/utils';
 
 import { Field } from '../Field';

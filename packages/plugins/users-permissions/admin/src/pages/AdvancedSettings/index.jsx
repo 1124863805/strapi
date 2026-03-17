@@ -1,7 +1,12 @@
 import React from 'react';
 
-import { Box, Button, Flex, Grid, Typography, useNotifyAT } from '@leao1/design-system';
-import { Check } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Button } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { useNotifyAT } from '@leao1/design-system';
+import { Check } from '@leao1/design-system/icons';
 import {
   useAPIErrorHandler,
   Page,
@@ -11,7 +16,7 @@ import {
   useFetchClient,
   useRBAC,
   Layouts,
-} from '@leao1/leao/admin';
+} from '@leao1/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 

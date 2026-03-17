@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import { EmptyStateLayout, LinkButton } from '@leao1/design-system';
-import { Plus } from '@leao1/icons';
-import { EmptyDocuments } from '@leao1/icons/symbols';
+import { EmptyStateLayout } from '@leao1/design-system';
+import { LinkButton } from '@leao1/design-system';
+import { Plus } from '@leao1/design-system/icons';
+import { EmptyDocuments } from '@leao1/design-system/symbols';
 import { Data } from '@leao1/types';
 import * as qs from 'qs';
 import { useIntl } from 'react-intl';

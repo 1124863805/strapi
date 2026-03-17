@@ -1,32 +1,14 @@
 import * as React from 'react';
 
+import { Box, Button, ButtonProps, Card, CardAsset, CarouselActions, CarouselInput, Field, Flex, IconButton, Modal, Tabs, TextInput, TextInputProps, CardBadge, CardBody, CardContent } from '@leao1/design-system';
+import { CardHeader } from '@leao1/design-system';
+import { CardSubtitle } from '@leao1/design-system';
+import { CardTitle } from '@leao1/design-system';
+import { CarouselInputProps } from '@leao1/design-system';
+import { CarouselSlide } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { PlusCircle, Plus, ArrowClockwise } from '@leao1/design-system/icons';
 import { createContext } from '@radix-ui/react-context';
-import {
-  Box,
-  Button,
-  ButtonProps,
-  Card,
-  CardAsset,
-  CardBadge,
-  CardBody,
-  CardContent,
-  CardHeader,
-  CardSubtitle,
-  CardTitle,
-  CarouselActions,
-  CarouselInput,
-  CarouselInputProps,
-  CarouselSlide,
-  Field,
-  Flex,
-  IconButton,
-  Modal,
-  Tabs,
-  TextInput,
-  TextInputProps,
-  Typography,
-} from '@leao1/design-system';
-import { PlusCircle, Plus, ArrowClockwise } from '@leao1/icons';
 import axios, { AxiosError } from 'axios';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

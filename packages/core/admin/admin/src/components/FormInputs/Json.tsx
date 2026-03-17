@@ -1,11 +1,9 @@
 import * as React from 'react';
 
-import {
-  JSONInput as JSONInputImpl,
-  useComposedRefs,
-  Field,
-  JSONInputRef,
-} from '@leao1/design-system';
+import { JSONInput } from '@leao1/design-system';
+import { useComposedRefs } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
+import { JSONInputRef } from '@leao1/design-system/icons';
 
 import { useFocusInputField } from '../../hooks/useFocusInputField';
 import { useField } from '../Form';

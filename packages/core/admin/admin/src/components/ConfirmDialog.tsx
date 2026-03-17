@@ -1,7 +1,9 @@
 import * as React from 'react';
 
-import { Button, ButtonProps, Dialog } from '@leao1/design-system';
-import { WarningCircle } from '@leao1/icons';
+import { Button } from '@leao1/design-system';
+import { ButtonProps } from '@leao1/design-system';
+import { Dialog } from '@leao1/design-system';
+import { WarningCircle } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

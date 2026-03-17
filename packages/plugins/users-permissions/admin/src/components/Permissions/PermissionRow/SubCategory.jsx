@@ -1,7 +1,12 @@
 import React, { useCallback, useMemo } from 'react';
 
-import { Box, Checkbox, Flex, Typography, Grid, VisuallyHidden } from '@leao1/design-system';
-import { Cog } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { Checkbox } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { VisuallyHidden } from '@leao1/design-system';
+import { Cog } from '@leao1/design-system/icons';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';

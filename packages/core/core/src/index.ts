@@ -6,6 +6,7 @@ import { destroyOnSignal, resolveWorkingDirectories, createUpdateNotifier } from
 
 export { default as compileLeao } from './compile';
 export * as factories from './factories';
+export { runCLI as scaffoldRunCLI, generate as scaffoldGenerate } from './scaffold';
 
 export const createLeao = (options: Partial<LeaoOptions> = {}): Core.Leao => {
   const leao = new Leao({

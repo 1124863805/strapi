@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useClipboard, useNotification } from '@leao1/admin/leao-admin';
 import { Button, Flex, IconButton } from '@leao1/design-system';
-import { Link as LinkIcon } from '@leao1/icons';
+import { Link as LinkIcon } from '@leao1/design-system';
 import { UID } from '@leao1/types';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import { Cross } from '@leao1/icons';
+import { Cross } from '../../_icons';
 
 import { screen, render } from '../../../test/utils';
 

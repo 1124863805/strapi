@@ -1,14 +1,9 @@
 import * as React from 'react';
 
-import { Typography, TypographyComponent } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { TypographyComponent } from '@leao1/design-system';
 import {
-  HeadingFive,
-  HeadingFour,
-  HeadingOne,
-  HeadingSix,
-  HeadingThree,
-  HeadingTwo,
-} from '@leao1/icons';
+  HeadingFive, HeadingFour, HeadingOne, HeadingSix, HeadingThree, HeadingTwo } from '@leao1/design-system/icons';
 import { Editor } from 'slate';
 import { styled } from 'styled-components';
 

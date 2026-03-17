@@ -1,15 +1,13 @@
 import * as React from 'react';
 
-import {
-  Checkbox,
-  Box,
-  BoxComponent,
-  Flex,
-  FlexComponent,
-  Typography,
-  TypographyComponent,
-} from '@leao1/design-system';
-import { CaretDown } from '@leao1/icons';
+import { Checkbox } from '@leao1/design-system';
+import { Box } from '@leao1/design-system';
+import { BoxComponent } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { FlexComponent } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { TypographyComponent } from '@leao1/design-system';
+import { CaretDown } from '@leao1/design-system/icons';
 import get from 'lodash/get';
 import { useIntl } from 'react-intl';
 import { styled, DefaultTheme, css } from 'styled-components';

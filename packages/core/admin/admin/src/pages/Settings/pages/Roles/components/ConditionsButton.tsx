@@ -1,7 +1,10 @@
 import * as React from 'react';
 
-import { Box, BoxComponent, Button, ButtonProps } from '@leao1/design-system';
-import { Cog } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { BoxComponent } from '@leao1/design-system';
+import { Button } from '@leao1/design-system';
+import { ButtonProps } from '@leao1/design-system';
+import { Cog } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

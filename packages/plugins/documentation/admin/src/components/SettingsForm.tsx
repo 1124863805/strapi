@@ -1,18 +1,15 @@
 import * as React from 'react';
 
-import {
-  Box,
-  Button,
-  Flex,
-  Grid,
-  TextInput,
-  Toggle,
-  Typography,
-  Field,
-} from '@leao1/design-system';
+import { Box, Button } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Grid } from '@leao1/design-system';
+import { TextInput } from '@leao1/design-system';
+import { Toggle } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Field } from '@leao1/design-system';
 // Leao Icons
-import { Check, Eye as Show, EyeStriked as Hide } from '@leao1/icons';
-import { translatedErrors, useRBAC, Layouts } from '@leao1/leao/admin';
+import { Check, Eye, EyeStriked } from '@leao1/design-system/icons';
+import { translatedErrors, useRBAC, Layouts } from '@leao1/admin/leao-admin';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
@@ -191,7 +188,7 @@ export const SettingsForm = ({ data, onSubmit }: SettingsFormProps) => {
                                       }
                                 )}
                               >
-                                {passwordShown ? <Show /> : <Hide />}
+                                {passwordShown ? <EyeStriked /> : <Eye />}
                               </FieldActionWrapper>
                             }
                           />

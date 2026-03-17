@@ -1,7 +1,9 @@
 import React from 'react';
 
-import { Flex, ProgressBar, Typography } from '@leao1/design-system';
-import { Cross } from '@leao1/icons';
+import { Flex } from '@leao1/design-system';
+import { ProgressBar } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { Cross } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';

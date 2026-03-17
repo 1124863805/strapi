@@ -1,7 +1,8 @@
+import { Flex } from '@leao1/design-system';
 import { useState } from 'react';
 
-import { Box, Flex, Typography } from '@leao1/design-system';
-import { Plus } from '@leao1/icons';
+import { Box, Typography } from '@leao1/design-system';
+import { Plus } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 

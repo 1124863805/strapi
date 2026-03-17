@@ -9,8 +9,8 @@ export default {
         policies: [
           'admin::isAuthenticatedAdmin',
           {
-            name: 'plugin::content-manager.hasPermissions',
-            config: { actions: ['plugin::i18n.locale.read'] },
+            name: 'admin::hasPermissions',
+            config: { actions: [{ action: 'plugin::i18n.locale.read', subject: null }] },
           },
         ],
       },
@@ -31,8 +31,8 @@ export default {
         policies: [
           'admin::isAuthenticatedAdmin',
           {
-            name: 'plugin::content-manager.hasPermissions',
-            config: { actions: ['plugin::i18n.locale.create'] },
+            name: 'admin::hasPermissions',
+            config: { actions: [{ action: 'plugin::i18n.locale.create', subject: null }] },
           },
         ],
       },
@@ -45,8 +45,8 @@ export default {
         policies: [
           'admin::isAuthenticatedAdmin',
           {
-            name: 'plugin::content-manager.hasPermissions',
-            config: { actions: ['plugin::i18n.locale.update'] },
+            name: 'admin::hasPermissions',
+            config: { actions: [{ action: 'plugin::i18n.locale.update', subject: null }] },
           },
         ],
       },
@@ -59,8 +59,8 @@ export default {
         policies: [
           'admin::isAuthenticatedAdmin',
           {
-            name: 'plugin::content-manager.hasPermissions',
-            config: { actions: ['plugin::i18n.locale.delete'] },
+            name: 'admin::hasPermissions',
+            config: { actions: [{ action: 'plugin::i18n.locale.delete', subject: null }] },
           },
         ],
       },

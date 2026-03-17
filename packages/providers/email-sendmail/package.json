@@ -45,10 +45,9 @@
     "sendmail": "^1.6.1"
   },
   "devDependencies": {
+    "@leao1/config": "workspace:*",
     "@leao1/pack-up": "^1.0.0",
-    "@types/sendmail": "1.4.4",
-    "eslint-config-custom": "workspace:*",
-    "tsconfig": "workspace:*"
+    "@types/sendmail": "1.4.4"
   },
   "engines": {
     "node": ">=18.0.0 <=22.x.x",

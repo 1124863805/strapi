@@ -1,5 +1,9 @@
-import { Box, BoxComponent, ButtonProps, Flex, Typography } from '@leao1/design-system';
-import { PlusCircle } from '@leao1/icons';
+import { Box } from '@leao1/design-system';
+import { BoxComponent } from '@leao1/design-system';
+import { ButtonProps } from '@leao1/design-system';
+import { Flex } from '@leao1/design-system';
+import { Typography } from '@leao1/design-system';
+import { PlusCircle } from '@leao1/design-system/icons';
 import { styled } from 'styled-components';
 
 export const AddStage = ({ children, ...props }: ButtonProps) => {

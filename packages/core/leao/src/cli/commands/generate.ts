@@ -13,7 +13,7 @@ const command: LeaoCommand = ({ argv }) => {
       argv.splice(2, 1);
 
       // NOTE: this needs to be lazy loaded in order for plop to work correctly
-      import('@leao1/generators').then((gen) => gen.runCLI());
+      import('@leao1/core').then((core) => core.scaffoldRunCLI());
     });
 };
 

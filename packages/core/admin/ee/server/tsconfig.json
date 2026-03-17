@@ -1,8 +1,10 @@
 {
-  "extends": "tsconfig/base.json",
+  "extends": "@leao1/config/tsconfig/base.json",
   "include": ["src"],
   "compilerOptions": {
     "rootDir": "../../",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "target": "ES2022"
   }
 }

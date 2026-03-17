@@ -1,7 +1,10 @@
+import type { ComponentType } from 'react';
+import { Flex } from '@leao1/design-system';
+import { IconButton } from '@leao1/design-system';
 import { memo } from 'react';
 
-import { Box, Flex, IconButton, Typography } from '@leao1/design-system';
-import { Lock, Pencil, Trash } from '@leao1/icons';
+import { Box, Typography } from '@leao1/design-system';
+import { Lock, Pencil, Trash } from '@leao1/design-system/icons';
 import get from 'lodash/get';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
@@ -14,7 +17,7 @@ import { AttributeIcon, IconByType } from './AttributeIcon';
 import { DisplayedType } from './DisplayedType';
 import { UpperFirst } from './UpperFirst';
 
-export const BoxWrapper = styled(Box)`
+export const BoxWrapper: ComponentType<any> = styled(Box)`
   position: relative;
 `;
 

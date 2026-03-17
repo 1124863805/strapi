@@ -49,7 +49,6 @@
   "dependencies": {
     "@leao1/database": "^1.0.0",
     "@leao1/design-system": "^1.0.0",
-    "@leao1/icons": "^1.0.0",
     "@leao1/types": "^1.0.0",
     "@leao1/utils": "^1.0.0",
     "@reduxjs/toolkit": "1.9.7",

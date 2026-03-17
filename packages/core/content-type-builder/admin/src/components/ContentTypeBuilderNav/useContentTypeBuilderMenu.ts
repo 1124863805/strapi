@@ -1,7 +1,8 @@
 import { useState, MouseEvent } from 'react';
 
 import { useNotification } from '@leao1/admin/leao-admin';
-import { useCollator, useFilter } from '@leao1/design-system';
+import { useCollator } from '@leao1/design-system';
+import { useFilter } from '@leao1/design-system';
 import isEqual from 'lodash/isEqual';
 import { useIntl } from 'react-intl';
 
