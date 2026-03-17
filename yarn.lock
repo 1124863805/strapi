@@ -11046,9 +11046,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"demo@workspace:examples/demo":
+"demo-1@workspace:examples/demo1":
   version: 0.0.0-use.local
-  resolution: "demo@workspace:examples/demo"
+  resolution: "demo-1@workspace:examples/demo1"
   dependencies:
     "@leao1/leao": "workspace:*"
     "@leao1/plugin-documentation": "workspace:*"
@@ -11061,6 +11061,7 @@ __metadata:
     react-dom: "npm:^18.0.0"
     react-router-dom: "npm:^6.0.0"
     styled-components: "npm:^6.0.0"
+    tailwindcss: "npm:^4"
     typescript: "npm:^5"
   languageName: unknown
   linkType: soft
