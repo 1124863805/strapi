@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ffffs",
+  "info": {
+    "singularName": "ffff",
+    "pluralName": "ffffs",
+    "displayName": "ffff"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ddd": {
+      "type": "string"
+    }
+  }
+}
