@@ -16,9 +16,6 @@
     "create-example": "create-leao-app",
     "postinstall": "yarn rebuild better-sqlite3 2>/dev/null || true",
     "build": "nx run-many --target=build --nx-ignore-cycles",
-    "build:app": "cd examples/demo && yarn build",
-    "dev": "yarn workspace @leao1/plugin-documentation build && cd examples/demo && yarn develop",
-    "start": "cd examples/demo && yarn start",
     "clean": "nx run-many --target=clean --nx-ignore-cycles"
   },
   "resolutions": {
