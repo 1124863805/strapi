@@ -1,7 +1,6 @@
 {
   "name": "@leao1/config",
   "version": "1.0.0",
-  "private": true,
   "description": "Shared config for Leao: tsconfig, eslint, typescript-utils",
   "main": "./typescript/index.js",
   "types": "./typescript/index.d.ts",
@@ -31,6 +30,9 @@
   "devDependencies": {
     "@tsconfig/node18": "18.2.2",
     "@types/fs-extra": "11.0.4"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "engines": {
     "node": ">=18.0.0 <=22.x.x",

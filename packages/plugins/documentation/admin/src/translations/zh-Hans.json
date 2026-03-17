@@ -1,4 +1,5 @@
 {
+  "plugin.name": "API 文档",
   "coming-soon": "此内容目前正在建设中,将在几周内重新上线!",
   "pages.PluginPage.Button.open": "打开文档",
   "pages.PluginPage.header.description": "配置文档插件",

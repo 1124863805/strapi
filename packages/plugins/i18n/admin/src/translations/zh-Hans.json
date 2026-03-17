@@ -1,4 +1,5 @@
 {
+  "plugin.name": "多语言",
   "CMEditViewCopyLocale.copy-failure": "语言复制失败",
   "CMEditViewCopyLocale.copy-success": "语言已被复制",
   "CMEditViewCopyLocale.copy-text": "从另一个语言获取内容",

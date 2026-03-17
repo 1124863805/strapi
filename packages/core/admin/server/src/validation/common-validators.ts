@@ -18,6 +18,10 @@ export const firstname = yup.string().trim().min(1);
 
 export const lastname = yup.string();
 
+export const name = yup.string().trim().min(1);
+
+export const companyName = yup.string().trim().nullable();
+
 export const username = yup.string().min(1);
 
 export const password = yup
@@ -201,6 +205,8 @@ export default {
   email,
   firstname,
   lastname,
+  name,
+  companyName,
   username,
   password,
   roles,

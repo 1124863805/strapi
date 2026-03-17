@@ -4,7 +4,7 @@ import { useAuth } from '../../features/Auth';
 import { useEnterprise } from '../../hooks/useEnterprise';
 import { useInitQuery } from '../../services/admin';
 
-import { Login as LoginCE } from './components/Login';
+import { Login as LoginCE } from './components/LoginShadcn';
 import { FORMS, FormDictionary } from './constants';
 
 /* -------------------------------------------------------------------------------------------------

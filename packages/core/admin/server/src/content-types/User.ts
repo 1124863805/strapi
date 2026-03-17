@@ -30,6 +30,19 @@ export default {
       configurable: false,
       required: false,
     },
+    name: {
+      type: 'string',
+      unique: false,
+      minLength: 1,
+      configurable: false,
+      required: false,
+    },
+    companyName: {
+      type: 'string',
+      unique: false,
+      configurable: false,
+      required: false,
+    },
     username: {
       type: 'string',
       unique: false,

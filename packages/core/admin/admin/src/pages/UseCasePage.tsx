@@ -6,7 +6,6 @@ import { useIntl } from 'react-intl';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { PrivateRoute } from '../components/PrivateRoute';
-import { Logo } from '../components/UnauthenticatedLogo';
 import { useAuth } from '../features/Auth';
 import { useNotification } from '../features/Notifications';
 import { LayoutContent, UnauthenticatedLayout } from '../layouts/UnauthenticatedLayout';
@@ -91,7 +90,6 @@ const UseCasePage = () => {
         <LayoutContent>
           <form onSubmit={(e) => handleSubmit(e, false)}>
             <Flex direction="column" paddingBottom={7}>
-              <Logo />
               <Box paddingTop={6} paddingBottom={1} width={`25rem`}>
                 <Typography textAlign="center" variant="alpha" tag="h1" id="usecase-title">
                   {formatMessage({

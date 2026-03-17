@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Cog, House } from '@leao1/design-system/icons';
+import { HomeIcon, SettingsIcon } from '../components/MainNav/SidebarIcons';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { useTypedSelector } from '../core/store/hooks';
@@ -26,20 +26,20 @@ const useMenu = (shouldUpdateLeao: boolean) => {
   const [menuWithUserPermissions, setMenuWithUserPermissions] = React.useState<Menu>({
     generalSectionLinks: [
       {
-        icon: House,
+        icon: HomeIcon,
         intlLabel: {
           id: 'global.home',
-          defaultMessage: 'Home',
+          defaultMessage: '工作台',
         },
         to: '/',
         permissions: [],
         position: 0,
       },
       {
-        icon: Cog,
+        icon: SettingsIcon,
         intlLabel: {
           id: 'global.settings',
-          defaultMessage: 'Settings',
+          defaultMessage: '系统设置',
         },
         to: '/settings',
         // Permissions of this link are retrieved in the init phase

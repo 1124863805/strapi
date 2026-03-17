@@ -1,12 +1,6 @@
 import * as React from 'react';
 
-import { Divider } from '@leao1/design-system';
-import { Flex } from '@leao1/design-system';
-import { FlexComponent } from '@leao1/design-system';
-import { useCollator } from '@leao1/design-system';
-import { Lightning } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
-import { useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { useAuth } from '../features/Auth';
@@ -17,44 +11,47 @@ import { MainNav } from './MainNav/MainNav';
 import { NavBrand } from './MainNav/NavBrand';
 import { NavLink } from './MainNav/NavLink';
 import { NavUser } from './MainNav/NavUser';
+import { LockIcon } from './MainNav/SidebarIcons';
+import { sidebarTheme } from './MainNav/sidebarTheme';
+
+const NavList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: ${sidebarTheme.spacing.md}px ${sidebarTheme.spacing.sm}px;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+`;
+
+const NavListItem = styled.li`
+  margin: 0;
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  background: ${sidebarTheme.colors.border};
+  margin: 0 ${sidebarTheme.spacing.lg}px;
+`;
 
 const sortLinks = (links: MenuItem[]) => {
-  return links.sort((a, b) => {
-    // if no position is defined, we put the link in the position of the external plugins, before the plugins list
+  return [...links].sort((a, b) => {
     const positionA = a.position ?? 6;
     const positionB = b.position ?? 6;
-
-    if (positionA < positionB) {
-      return -1;
-    } else {
-      return 1;
-    }
+    return positionA - positionB;
   });
 };
-
-const NavLinkBadgeCounter = styled(NavLink.Badge)`
-  span {
-    color: ${({ theme }) => theme.colors.neutral0};
-  }
-`;
-
-const NavLinkBadgeLock = styled(NavLink.Badge)`
-  background-color: transparent;
-`;
-
-const NavListWrapper = styled<FlexComponent<'ul'>>(Flex)`
-  overflow-y: auto;
-`;
-
-interface LeftMenuProps extends Pick<Menu, 'generalSectionLinks' | 'pluginsSectionLinks'> {}
 
 const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }: LeftMenuProps) => {
   const user = useAuth('AuthenticatedApp', (state) => state.user);
   const userDisplayName = getDisplayName(user);
   const { formatMessage, locale } = useIntl();
-  const formatter = useCollator(locale, {
-    sensitivity: 'base',
-  });
+
+  const formatter = React.useMemo(
+    () => new Intl.Collator(locale, { sensitivity: 'base' }),
+    [locale]
+  );
 
   const initials = userDisplayName
     .split(' ')
@@ -70,62 +67,43 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }: LeftMenuProps) =
   return (
     <MainNav>
       <NavBrand />
-
       <Divider />
+      <NavList>
+        {listLinks.map((link) => {
+          const LinkIcon = link.icon;
+          const labelValue = formatMessage(link.intlLabel);
+          const badgeLock = link?.eeOnly ? <LockIcon style={{ color: '#d97706' }} /> : null;
+          const badgeNumeric =
+            link.notificationsCount && link.notificationsCount > 0
+              ? link.notificationsCount.toString()
+              : undefined;
 
-      <NavListWrapper tag="ul" gap={3} direction="column" flex={1} paddingTop={3} paddingBottom={3}>
-        {listLinks.length > 0
-          ? listLinks.map((link) => {
-              const LinkIcon = link.icon;
-              const badgeContentLock = link?.eeOnly ? (
-                <Lightning fill="warning500" />
-              ) : undefined;
-
-              const badgeContentNumeric =
-                link.notificationsCount && link.notificationsCount > 0
-                  ? link.notificationsCount.toString()
-                  : undefined;
-
-              const labelValue = formatMessage(link.intlLabel);
-              return (
-                <Flex tag="li" key={link.to}>
-                  <NavLink.Tooltip label={labelValue}>
-                    <NavLink.Link
-                      to={link.to}
-                      aria-label={labelValue}
-                    >
-                      <NavLink.Icon label={labelValue}>
-                        <LinkIcon width="20" height="20" fill="neutral500" />
-                      </NavLink.Icon>
-                      {badgeContentLock ? (
-                        <NavLinkBadgeLock
-                          label="locked"
-                          textColor="neutral500"
-                          paddingLeft={0}
-                          paddingRight={0}
-                        >
-                          {badgeContentLock}
-                        </NavLinkBadgeLock>
-                      ) : badgeContentNumeric ? (
-                        <NavLinkBadgeCounter
-                          label={badgeContentNumeric}
-                          backgroundColor="primary600"
-                          width="2.3rem"
-                          color="neutral0"
-                        >
-                          {badgeContentNumeric}
-                        </NavLinkBadgeCounter>
-                      ) : null}
-                    </NavLink.Link>
-                  </NavLink.Tooltip>
-                </Flex>
-              );
-            })
-          : null}
-      </NavListWrapper>
+          const toPath = link.to.startsWith('/') ? link.to : `/${link.to}`;
+          return (
+            <NavListItem key={link.to}>
+              <NavLink.Link
+                to={toPath}
+                end={toPath === '/'}
+                label={labelValue}
+                icon={
+                  <LinkIcon
+                    width={20}
+                    height={20}
+                    style={{ stroke: 'currentColor', flexShrink: 0 }}
+                  />
+                }
+                badge={badgeLock}
+                badgeNumeric={badgeNumeric}
+              />
+            </NavListItem>
+          );
+        })}
+      </NavList>
       <NavUser initials={initials}>{userDisplayName}</NavUser>
     </MainNav>
   );
 };
+
+interface LeftMenuProps extends Pick<Menu, 'generalSectionLinks' | 'pluginsSectionLinks'> {}
 
 export { LeftMenu };

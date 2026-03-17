@@ -17,6 +17,7 @@ import type {
   ForgotPassword,
   Login,
   Register,
+  RegisterAdmin,
   RegistrationInfo,
   RenewToken,
   ResetPassword,
@@ -117,7 +118,7 @@ export default {
   },
 
   async registerAdmin(ctx: Context) {
-    const input = ctx.request.body as Register.Request['body'];
+    const input = ctx.request.body as RegisterAdmin.Request['body'];
 
     await validateAdminRegistrationInput(input);
 

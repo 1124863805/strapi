@@ -170,18 +170,24 @@ const exists = async (attributes = {} as unknown): Promise<boolean> => {
 /**
  * Returns a user registration info
  * @param registrationToken - a user registration token
- * @returns - Returns user email, firstname and lastname
+ * @returns - Returns user email, name and companyName
  */
 const findRegistrationInfo = async (
   registrationToken: string
-): Promise<Pick<AdminUser, 'email' | 'firstname' | 'lastname'> | undefined> => {
+): Promise<Pick<AdminUser, 'email' | 'name' | 'companyName'> | undefined> => {
   const user = await leao.db.query('admin::user').findOne({ where: { registrationToken } });
 
   if (!user) {
     return undefined;
   }
 
-  return _.pick(user, ['email', 'firstname', 'lastname']);
+  const { email, name, companyName, firstname, lastname } = user;
+  const fallbackName = [firstname, lastname].filter(Boolean).join(' ').trim() || undefined;
+  return {
+    email,
+    name: name ?? fallbackName,
+    companyName,
+  };
 };
 
 /**
@@ -207,8 +213,7 @@ const register = async ({
 
   return getService('user').updateById(matchingUser.id, {
     password: userInfo.password,
-    firstname: userInfo.firstname,
-    lastname: userInfo.lastname,
+    name: userInfo.name,
     registrationToken: null,
     isActive: true,
   });

@@ -1,124 +1,109 @@
 import * as React from 'react';
-
-import { BadgeProps } from '@leao1/design-system';
-import { AccessibleIcon } from '@leao1/design-system';
-import { Tooltip } from '@leao1/design-system';
-import { Badge } from '@leao1/design-system';
-import { TooltipProps } from '@leao1/design-system/icons';
 import { NavLink as RouterLink, LinkProps } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-/* -------------------------------------------------------------------------------------------------
- * Link
- * -----------------------------------------------------------------------------------------------*/
-const MainNavLinkWrapper = styled(RouterLink)`
-  text-decoration: none;
-  display: flex;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  background: ${({ theme }) => theme.colors.neutral0};
-  color: ${({ theme }) => theme.colors.neutral500};
-  position: relative;
-  width: fit-content;
-  padding-block: 0.6rem;
-  padding-inline: 0.6rem;
+import { useSidebar } from './SidebarContext';
+import { sidebarTheme } from './sidebarTheme';
 
-  &:hover,
-  &.active {
-    background: ${({ theme }) => theme.colors.neutral100};
-  }
+const LinkWrapper = styled(RouterLink)<{ $collapsed: boolean }>`
+  display: flex;
+  align-items: center;
+  gap: ${sidebarTheme.spacing.md}px;
+  padding: ${sidebarTheme.spacing.md}px ${sidebarTheme.spacing.lg}px;
+  text-decoration: none;
+  color: ${sidebarTheme.colors.textMuted};
+  border-radius: ${sidebarTheme.radius}px;
+  transition: background ${sidebarTheme.transition}, color ${sidebarTheme.transition};
+  min-height: 44px;
+  justify-content: ${(p) => (p.$collapsed ? 'center' : 'flex-start')};
+  position: relative;
 
   &:hover {
-    svg path {
-      fill: ${({ theme }) => theme.colors.neutral600};
-    }
-    color: ${({ theme }) => theme.colors.neutral700};
+    background: ${sidebarTheme.colors.bgHover};
+    color: ${sidebarTheme.colors.text};
   }
 
   &.active {
-    svg path {
-      fill: ${({ theme }) => theme.colors.primary600};
-    }
+    background: rgba(5, 150, 105, 0.08);
+    color: ${sidebarTheme.colors.primary};
+  }
 
-    color: ${({ theme }) => theme.colors.primary600};
-    font-weight: 500;
+  &.active svg {
+    stroke: ${sidebarTheme.colors.primary};
+    fill: ${sidebarTheme.colors.primary};
+  }
+
+  svg {
+    flex-shrink: 0;
+    stroke: currentColor;
+    fill: currentColor;
   }
 `;
 
-const LinkImpl = ({ children, ...props }: LinkProps) => {
-  return <MainNavLinkWrapper {...props}>{children}</MainNavLinkWrapper>;
-};
-
-/* -------------------------------------------------------------------------------------------------
- * Tooltip
- * -----------------------------------------------------------------------------------------------*/
-const TooltipImpl = ({ children, label, position = 'right' }: NavLink.TooltipProps) => {
-  return (
-    <Tooltip side={position} label={label} delayDuration={0}>
-      <span>{children}</span>
-    </Tooltip>
-  );
-};
-
-/* -------------------------------------------------------------------------------------------------
- * Icon
- * -----------------------------------------------------------------------------------------------*/
-const IconImpl = ({ label, children }: { label: string; children: React.ReactNode }) => {
-  if (!children) {
-    return null;
-  }
-  return <AccessibleIcon label={label}>{children}</AccessibleIcon>;
-};
-
-/* -------------------------------------------------------------------------------------------------
- * Badge
- * -----------------------------------------------------------------------------------------------*/
-const CustomBadge = styled(Badge)`
-  /* override default badge styles to change the border radius of the Base element in the Design System */
-  border-radius: ${({ theme }) => theme.spaces[10]};
-  height: 2rem;
+const LinkLabel = styled.span<{ $visible: boolean }>`
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: ${(p) => (p.$visible ? 1 : 0)};
+  width: ${(p) => (p.$visible ? 'auto' : 0)};
+  transition: opacity ${sidebarTheme.transition};
 `;
 
-const BadgeImpl = ({ children, label, ...props }: NavLink.NavBadgeProps) => {
-  if (!children) {
-    return null;
-  }
+const Badge = styled.span`
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  background: ${sidebarTheme.colors.primary};
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+interface NavLinkProps extends Omit<LinkProps, 'to'> {
+  to: string;
+  end?: boolean;
+  label: string;
+  icon: React.ReactNode;
+  badge?: React.ReactNode;
+  badgeNumeric?: string;
+}
+
+const LinkImpl = ({ to, label, icon, badge, badgeNumeric, ...props }: NavLinkProps) => {
+  const { collapsed } = useSidebar();
   return (
-    <CustomBadge
-      position="absolute"
-      top="-0.8rem"
-      left="1.7rem"
+    <LinkWrapper
+      to={to}
+      $collapsed={collapsed}
+      title={collapsed ? label : undefined}
       aria-label={label}
-      active={false}
       {...props}
     >
-      {children}
-    </CustomBadge>
+      <span aria-hidden style={{ position: 'relative' }}>
+        {icon}
+        {badgeNumeric && collapsed && (
+          <Badge style={{ top: -4, right: -6, minWidth: 16, height: 16, fontSize: 10 }}>
+            {badgeNumeric}
+          </Badge>
+        )}
+      </span>
+      <LinkLabel $visible={!collapsed}>{label}</LinkLabel>
+      {!collapsed && badge}
+      {badgeNumeric && !collapsed && <Badge>{badgeNumeric}</Badge>}
+    </LinkWrapper>
   );
 };
-
-/* -------------------------------------------------------------------------------------------------
- * EXPORTS
- * -----------------------------------------------------------------------------------------------*/
 
 const NavLink = {
   Link: LinkImpl,
-  Tooltip: TooltipImpl,
-  Icon: IconImpl,
-  Badge: BadgeImpl,
 };
-
-// eslint-disable-next-line @typescript-eslint/no-namespace
-namespace NavLink {
-  export interface NavBadgeProps extends BadgeProps {
-    children: React.ReactNode;
-    label: string;
-  }
-
-  export interface TooltipProps {
-    children: React.ReactNode;
-    label?: string;
-    position?: DSTooltipProps['side'];
-  }
-}
 
 export { NavLink };

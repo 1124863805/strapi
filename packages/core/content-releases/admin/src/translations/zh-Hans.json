@@ -26,7 +26,7 @@
   "content-manager-list-view.add-to-release.notification.success.message": "{entriesAlreadyInRelease} / {totalEntries} 个条目已在发布中",
   "content-manager.notification.entry-error": "获取条目数据失败",
   "content-manager.list-view.releases-number": "{number} {number, plural, one {个发布} other {个发布}}",
-  "plugin.name": "发布",
+  "plugin.name": "内容发布",
   "pages.Releases.title": "发布",
   "pages.Releases.header-subtitle": "创建和管理内容更新",
   "pages.Releases.max-limit-reached.title": "您已达到 {number} 个待处理 {number, plural, one {发布} other {发布}} 的上限",

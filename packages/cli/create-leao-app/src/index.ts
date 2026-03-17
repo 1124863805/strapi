@@ -148,7 +148,9 @@ async function run(args: string[]): Promise<void> {
     deviceId: machineID(),
     tmpPath,
     gitInit: true,
-    devDependencies: {},
+    devDependencies: {
+      tailwindcss: '^4',
+    },
     dependencies: {
       '@leao1/leao': leaoDepVersion,
       '@leao1/plugin-documentation': leaoDepVersion,

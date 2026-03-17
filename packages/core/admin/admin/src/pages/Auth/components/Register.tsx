@@ -15,7 +15,6 @@ import {
 import { Form, FormHelpers } from '../../../components/Form';
 import { InputRenderer } from '../../../components/FormInputs/Renderer';
 import { useGuidedTour } from '../../../components/GuidedTour/Provider';
-import { Logo } from '../../../components/UnauthenticatedLogo';
 import { useTypedDispatch } from '../../../core/store/hooks';
 import { useNotification } from '../../../features/Notifications';
 import { useAPIErrorHandler } from '../../../hooks/useAPIErrorHandler';
@@ -291,8 +290,6 @@ const Register = ({ hasAdmin }: RegisterProps) => {
     <UnauthenticatedLayout>
       <LayoutContent>
         <Flex direction="column" alignItems="center" gap={3}>
-          <Logo />
-
           <Typography tag="h1" variant="alpha" textAlign="center">
             {formatMessage({
               id: titleId,

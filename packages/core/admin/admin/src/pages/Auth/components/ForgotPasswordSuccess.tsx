@@ -1,56 +1,54 @@
-import { Box, Flex, Main, Typography, Link } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
-import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
-import { Logo } from '../../../components/UnauthenticatedLogo';
 import {
-  Column,
-  LayoutContent,
-  UnauthenticatedLayout,
-} from '../../../layouts/UnauthenticatedLayout';
+  AuthCard,
+  AuthLink,
+  AuthStack,
+  AuthSubtitle,
+  AuthTitle,
+} from '../../../components/Auth';
+import { authTheme } from '../../../components/Auth/theme';
+import { UnauthenticatedLayout } from '../../../layouts/UnauthenticatedLayout';
+
+const FooterLinks = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: ${authTheme.spacing.xl}px;
+`;
 
 const ForgotPasswordSuccess = () => {
   const { formatMessage } = useIntl();
 
   return (
     <UnauthenticatedLayout>
-      <Main>
-        <LayoutContent>
-          <Column>
-            <Logo />
-            <Box paddingTop={6} paddingBottom={7}>
-              <Typography tag="h1" variant="alpha">
-                {formatMessage({
-                  id: 'app.containers.AuthPage.ForgotPasswordSuccess.title',
-                  defaultMessage: 'Email sent',
-                })}
-              </Typography>
-            </Box>
-            <Typography>
-              {formatMessage({
-                id: 'app.containers.AuthPage.ForgotPasswordSuccess.text.email',
-                defaultMessage: 'It can take a few minutes to receive your password recovery link.',
-              })}
-            </Typography>
-            <Box paddingTop={4}>
-              <Typography>
-                {formatMessage({
-                  id: 'app.containers.AuthPage.ForgotPasswordSuccess.text.contact-admin',
-                  defaultMessage:
-                    'If you do not receive this link, please contact your administrator.',
-                })}
-              </Typography>
-            </Box>
-          </Column>
-        </LayoutContent>
-        <Flex justifyContent="center">
-          <Box paddingTop={4}>
-            <Link tag={NavLink} to="/auth/login">
-              {formatMessage({ id: 'Auth.link.signin', defaultMessage: 'Sign in' })}
-            </Link>
-          </Box>
-        </Flex>
-      </Main>
+      <AuthCard>
+        <AuthStack gap={authTheme.spacing.lg}>
+          <AuthTitle>
+            {formatMessage({
+              id: 'app.containers.AuthPage.ForgotPasswordSuccess.title',
+              defaultMessage: '邮件已发送',
+            })}
+          </AuthTitle>
+          <AuthSubtitle>
+            {formatMessage({
+              id: 'app.containers.AuthPage.ForgotPasswordSuccess.text.email',
+              defaultMessage: '密码重置链接可能需要几分钟才能到达您的邮箱。',
+            })}
+          </AuthSubtitle>
+          <AuthSubtitle>
+            {formatMessage({
+              id: 'app.containers.AuthPage.ForgotPasswordSuccess.text.contact-admin',
+              defaultMessage: '如未收到链接，请联系管理员。',
+            })}
+          </AuthSubtitle>
+        </AuthStack>
+      </AuthCard>
+      <FooterLinks>
+        <AuthLink to="/auth/login">
+          {formatMessage({ id: 'Auth.link.signin', defaultMessage: '返回登录' })}
+        </AuthLink>
+      </FooterLinks>
     </UnauthenticatedLayout>
   );
 };

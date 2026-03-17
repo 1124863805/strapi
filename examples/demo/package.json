@@ -7,7 +7,6 @@
     "build": "leao build",
     "develop": "leao develop",
     "leao": "leao",
-    "seed:example": "node ./scripts/seed.js",
     "start": "leao start"
   },
   "dependencies": {
@@ -15,8 +14,6 @@
     "@leao1/plugin-documentation": "workspace:*",
     "@leao1/plugin-users-permissions": "workspace:*",
     "better-sqlite3": "12.8.0",
-    "fs-extra": "^10.0.0",
-    "mime-types": "^2.1.27",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -33,6 +30,6 @@
     "npm": ">=6.0.0"
   },
   "leao": {
-    "uuid": "9498e4f9-c533-4fb8-92b9-681e3a56e806"
+    "uuid": "2178974c-abbc-4ed3-b666-e9dd5d023165"
   }
 }

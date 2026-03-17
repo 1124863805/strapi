@@ -21,6 +21,8 @@ export interface Permission extends Entity {
 export interface AdminUser extends Entity {
   firstname?: string;
   lastname?: string;
+  name?: string;
+  companyName?: string;
   username?: string;
   email?: string;
   password?: string;

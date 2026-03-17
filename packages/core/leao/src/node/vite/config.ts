@@ -1,6 +1,7 @@
 import type { InlineConfig, UserConfig } from 'vite';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import react from '@vitejs/plugin-react-swc';
+import tailwindcss from '@tailwindcss/vite';
 
 import { getUserConfig } from '../core/config';
 import { loadLeaoMonorepo } from '../core/monorepo';
@@ -40,7 +41,7 @@ const resolveBaseConfig = async (ctx: BuildContext): Promise<InlineConfig> => {
       // https://react.dev/warnings/invalid-hook-call-warning#duplicate-react
       dedupe: ['react', 'react-dom', 'react-router-dom', 'styled-components'],
     },
-    plugins: [react(), buildFilesPlugin(ctx)],
+    plugins: [react(), tailwindcss(), buildFilesPlugin(ctx)],
   };
 };
 

@@ -3,7 +3,7 @@ import type { ComponentType } from 'react';
 import { ForgotPassword } from './components/ForgotPassword';
 import { ForgotPasswordSuccess } from './components/ForgotPasswordSuccess';
 import { Oops } from './components/Oops';
-import { Register, RegisterProps } from './components/Register';
+import { Register, RegisterProps } from './components/RegisterShadcn';
 import { ResetPassword } from './components/ResetPassword';
 
 export type AuthType =

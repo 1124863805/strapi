@@ -1,4 +1,5 @@
 {
+  "plugin.name": "内容管理",
   "Analytics": "分析",
   "Auth.components.Oops.text": "您的账户已被暂停。",
   "Auth.components.Oops.text.admin": "如果这是一个错误,请联系您的管理员。",

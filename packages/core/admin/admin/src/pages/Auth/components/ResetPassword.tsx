@@ -1,21 +1,25 @@
 import * as React from 'react';
 
-import { Box, Button, Flex, Main, Typography, Link } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
-import { NavLink, useNavigate, Navigate, useLocation } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 import * as yup from 'yup';
 
-import { ResetPassword } from '../../../../../shared/contracts/authentication';
+import type { ResetPassword as ResetPasswordContract } from '../../../../../shared/contracts/authentication';
+import {
+  AuthButton,
+  AuthCard,
+  AuthError,
+  AuthLink,
+  AuthPassword,
+  AuthStack,
+  AuthTitle,
+} from '../../../components/Auth';
+import { authTheme } from '../../../components/Auth/theme';
 import { Form } from '../../../components/Form';
-import { InputRenderer } from '../../../components/FormInputs/Renderer';
-import { Logo } from '../../../components/UnauthenticatedLogo';
 import { useTypedDispatch } from '../../../core/store/hooks';
 import { useAPIErrorHandler } from '../../../hooks/useAPIErrorHandler';
-import {
-  Column,
-  LayoutContent,
-  UnauthenticatedLayout,
-} from '../../../layouts/UnauthenticatedLayout';
+import { UnauthenticatedLayout } from '../../../layouts/UnauthenticatedLayout';
 import { login } from '../../../reducer';
 import { useResetPasswordMutation } from '../../../services/auth';
 import { isBaseQueryError } from '../../../utils/baseQuery';
@@ -65,6 +69,12 @@ const RESET_PASSWORD_SCHEMA = yup.object().shape({
     .nullable(),
 });
 
+const FooterLinks = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: ${authTheme.spacing.xl}px;
+`;
+
 const ResetPassword = () => {
   const { formatMessage } = useIntl();
   const dispatch = useTypedDispatch();
@@ -75,7 +85,7 @@ const ResetPassword = () => {
 
   const [resetPassword, { error }] = useResetPasswordMutation();
 
-  const handleSubmit = async (body: ResetPassword.Request['body']) => {
+  const handleSubmit = async (body: ResetPasswordContract.Request['body']) => {
     const res = await resetPassword(body);
 
     if ('data' in res) {
@@ -83,96 +93,73 @@ const ResetPassword = () => {
       navigate('/');
     }
   };
-  /**
-   * If someone doesn't have a reset password token
-   * then they should just be redirected back to the login page.
-   */
+
   if (!query.get('code')) {
     return <Navigate to="/auth/login" />;
   }
 
+  const apiError = error
+    ? isBaseQueryError(error)
+      ? formatAPIError(error)
+      : formatMessage({ id: 'notification.error', defaultMessage: 'An error occurred' })
+    : null;
+
   return (
     <UnauthenticatedLayout>
-      <Main>
-        <LayoutContent>
-          <Column>
-            <Logo />
-            <Box paddingTop={6} paddingBottom={7}>
-              <Typography tag="h1" variant="alpha">
-                {formatMessage({
-                  id: 'global.reset-password',
-                  defaultMessage: 'Reset password',
-                })}
-              </Typography>
-            </Box>
-            {error ? (
-              <Typography id="global-form-error" role="alert" tabIndex={-1} textColor="danger600">
-                {isBaseQueryError(error)
-                  ? formatAPIError(error)
-                  : formatMessage({
-                      id: 'notification.error',
-                      defaultMessage: 'An error occurred',
-                    })}
-              </Typography>
-            ) : null}
-          </Column>
-          <Form
-            method="POST"
-            initialValues={{
-              password: '',
-              confirmPassword: '',
-            }}
-            onSubmit={(values) => {
-              // We know query.code is defined because we check for it above.
-              handleSubmit({ password: values.password, resetPasswordToken: query.get('code')! });
-            }}
-            validationSchema={RESET_PASSWORD_SCHEMA}
-          >
-            <Flex direction="column" alignItems="stretch" gap={6}>
-              {[
-                {
-                  hint: formatMessage({
-                    id: 'Auth.form.password.hint',
-                    defaultMessage:
-                      'Password must contain at least 8 characters, 1 uppercase, 1 lowercase and 1 number',
-                  }),
-                  label: formatMessage({
-                    id: 'global.password',
-                    defaultMessage: 'Password',
-                  }),
-                  name: 'password',
-                  required: true,
-                  type: 'password' as const,
-                },
-                {
-                  label: formatMessage({
-                    id: 'Auth.form.confirmPassword.label',
-                    defaultMessage: 'Confirm Password',
-                  }),
-                  name: 'confirmPassword',
-                  required: true,
-                  type: 'password' as const,
-                },
-              ].map((field) => (
-                <InputRenderer key={field.name} {...field} />
-              ))}
-              <Button fullWidth type="submit">
-                {formatMessage({
-                  id: 'global.change-password',
-                  defaultMessage: 'Change password',
-                })}
-              </Button>
-            </Flex>
-          </Form>
-        </LayoutContent>
-        <Flex justifyContent="center">
-          <Box paddingTop={4}>
-            <Link tag={NavLink} to="/auth/login">
-              {formatMessage({ id: 'Auth.link.ready', defaultMessage: 'Ready to sign in?' })}
-            </Link>
-          </Box>
-        </Flex>
-      </Main>
+      <AuthCard>
+        <AuthStack gap={authTheme.spacing.lg}>
+          <AuthTitle>
+            {formatMessage({
+              id: 'global.reset-password',
+              defaultMessage: '重置密码',
+            })}
+          </AuthTitle>
+          {apiError ? <AuthError>{apiError}</AuthError> : null}
+        </AuthStack>
+        <Form
+          method="POST"
+          initialValues={{ password: '', confirmPassword: '' }}
+          onSubmit={(values) => {
+            handleSubmit({
+              password: values.password,
+              resetPasswordToken: query.get('code')!,
+            });
+          }}
+          validationSchema={RESET_PASSWORD_SCHEMA}
+        >
+          <AuthStack gap={authTheme.spacing.lg} style={{ marginTop: authTheme.spacing.xl }}>
+            <AuthPassword
+              name="password"
+              label={formatMessage({ id: 'global.password', defaultMessage: '密码' })}
+              required
+              hint={formatMessage({
+                id: 'Auth.form.password.hint',
+                defaultMessage:
+                  '密码至少 8 位，包含 1 个大写、1 个小写和 1 个数字',
+              })}
+            />
+            <AuthPassword
+              name="confirmPassword"
+              label={formatMessage({
+                id: 'Auth.form.confirmPassword.label',
+                defaultMessage: '确认密码',
+              })}
+              required
+            />
+            <AuthButton>
+              {formatMessage({
+                id: 'global.change-password',
+                defaultMessage: '修改密码',
+              })}
+            </AuthButton>
+          </AuthStack>
+        </Form>
+      </AuthCard>
+      <FooterLinks>
+        <AuthLink to="/auth/login">
+          {formatMessage({ id: 'Auth.link.ready', defaultMessage: '准备好登录？' })}
+        </AuthLink>
+      </FooterLinks>
     </UnauthenticatedLayout>
   );
 };

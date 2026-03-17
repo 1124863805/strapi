@@ -3,7 +3,6 @@ import { useIntl } from 'react-intl';
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-import { Logo } from '../../../../../../admin/src/components/UnauthenticatedLogo';
 import {
   Column,
   LayoutContent,
@@ -36,7 +35,6 @@ const Providers = () => {
       <Main>
         <LayoutContent>
           <Column>
-            <Logo />
             <Box paddingTop={6} paddingBottom={1}>
               <Typography tag="h1" variant="alpha">
                 {formatMessage({ id: 'Auth.form.welcome.title' })}

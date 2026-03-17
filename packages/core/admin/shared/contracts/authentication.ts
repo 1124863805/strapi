@@ -52,8 +52,8 @@ export declare namespace RegistrationInfo {
   export interface Response {
     data: {
       email?: string;
-      firstname?: string;
-      lastname?: string;
+      name?: string;
+      companyName?: string;
     };
     errors?: errors.ApplicationError | errors.ValidationError<'Invalid registrationToken'>;
   }
@@ -66,7 +66,7 @@ export declare namespace Register {
   export interface Request {
     body: {
       registrationToken: string;
-      userInfo: Pick<AdminUser, 'firstname' | 'lastname' | 'email' | 'password'>;
+      userInfo: Pick<AdminUser, 'name' | 'email' | 'password'>;
     };
   }
 
@@ -84,7 +84,7 @@ export declare namespace Register {
  */
 export declare namespace RegisterAdmin {
   export interface Request {
-    body: Pick<AdminUser, 'email' | 'firstname' | 'lastname' | 'password'>;
+    body: Pick<AdminUser, 'email' | 'name' | 'companyName' | 'password'>;
   }
 
   export interface Response {
