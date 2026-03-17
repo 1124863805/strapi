@@ -1,0 +1,2 @@
+# examples 不参与主项目构建，可随时删除
+examples/

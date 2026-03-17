@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e3bcce7-5e9b-4373-a980-6aeec33336df" name="Changes" comment="完全变更1">
-      <change beforePath="$PROJECT_DIR$/packages/core/content-manager/server/src/services/utils/configuration/layouts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/content-manager/server/src/services/utils/configuration/layouts.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/leao/src/node/vite/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/leao/src/node/vite/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="5e3bcce7-5e9b-4373-a980-6aeec33336df" name="Changes" comment="完全变更1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,7 +157,23 @@
       <option name="project" value="LOCAL" />
       <updated>1773751290597</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="完全变更1">
+      <option name="closed" value="true" />
+      <created>1773751891693</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1773751891693</updated>
+    </task>
+    <task id="LOCAL-00014" summary="完全变更1">
+      <option name="closed" value="true" />
+      <created>1773751971825</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1773751971825</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
