@@ -12,6 +12,15 @@ export default [
   },
   {
     method: 'GET',
+    path: '/v:major(\\d+).:minor(\\d+).:patch(\\d+)/spec.json',
+    handler: 'documentation.getSpec',
+    config: {
+      auth: false,
+      middlewares: [restrictAccess],
+    },
+  },
+  {
+    method: 'GET',
     path: '/v:major(\\d+).:minor(\\d+).:patch(\\d+)',
     handler: 'documentation.index',
     config: {

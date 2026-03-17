@@ -206,15 +206,27 @@ const createService = ({ leao }: { leao: Core.Leao }) => {
         ? produce(generatedDocumentation, userMutatesDocumentation)
         : generatedDocumentation;
 
-      // Get the file path for the final documentation
+      // Write to app.extensions (primary)
       const fullDocJsonPath = path.join(
         this.getFullDocumentationPath(),
         version,
         'full_documentation.json'
       );
-      // Write the documentation to the file system
-      await fs.ensureFile(fullDocJsonPath);
+      await fs.ensureDir(path.dirname(fullDocJsonPath));
       await fs.writeJson(fullDocJsonPath, finalDocumentation, { spaces: 2 });
+
+      // Also write to dist.extensions when it exists (for develop mode)
+      const distDocPath = path.join(
+        leao.dirs.dist.extensions,
+        'documentation',
+        'documentation',
+        version,
+        'full_documentation.json'
+      );
+      if (await fs.pathExists(leao.dirs.dist.extensions)) {
+        await fs.ensureDir(path.dirname(distDocPath));
+        await fs.writeJson(distDocPath, finalDocumentation, { spaces: 2 });
+      }
     },
   };
 };

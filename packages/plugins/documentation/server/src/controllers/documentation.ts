@@ -29,6 +29,38 @@ const validation = {
 };
 
 export default {
+  async getSpec(ctx: Koa.Context) {
+    const { major, minor, patch } = ctx.params;
+    const version = `${major}.${minor}.${patch}`;
+    const docDir = path.join(
+      leao.dirs.app.extensions,
+      'documentation',
+      'documentation',
+      version
+    );
+    const distDocDir = path.join(
+      leao.dirs.dist.extensions,
+      'documentation',
+      'documentation',
+      version
+    );
+    const openAPISpecsPath = path.join(docDir, 'full_documentation.json');
+    const distOpenAPISpecsPath = path.join(distDocDir, 'full_documentation.json');
+    const specsPath = fs.existsSync(openAPISpecsPath)
+      ? openAPISpecsPath
+      : fs.existsSync(distOpenAPISpecsPath)
+        ? distOpenAPISpecsPath
+        : openAPISpecsPath;
+    try {
+      const documentation = fs.readFileSync(specsPath, 'utf8');
+      ctx.type = 'application/json';
+      ctx.body = documentation;
+    } catch (e) {
+      leao.log.error('Documentation: failed to read spec', e);
+      ctx.throw(500, 'Documentation file not found. Try regenerating from the plugin settings.');
+    }
+  },
+
   async getInfos(ctx: Koa.Context) {
     try {
       const docService = getService('documentation');
@@ -59,55 +91,59 @@ export default {
           ? `${major}.${minor}.${patch}`
           : getService('documentation').getDocumentationVersion();
 
-      const openAPISpecsPath = path.join(
+      const docDir = path.join(
         leao.dirs.app.extensions,
         'documentation',
         'documentation',
-        version,
-        'full_documentation.json'
+        version
       );
+      const distDocDir = path.join(
+        leao.dirs.dist.extensions,
+        'documentation',
+        'documentation',
+        version
+      );
+      const openAPISpecsPath = path.join(docDir, 'full_documentation.json');
+      const distOpenAPISpecsPath = path.join(distDocDir, 'full_documentation.json');
+
+      const specsPath = fs.existsSync(openAPISpecsPath)
+        ? openAPISpecsPath
+        : fs.existsSync(distOpenAPISpecsPath)
+          ? distOpenAPISpecsPath
+          : openAPISpecsPath;
 
       try {
-        const documentation = fs.readFileSync(openAPISpecsPath, 'utf8');
+        if (!fs.existsSync(specsPath)) {
+          throw new Error(`Spec file not found at ${specsPath}`);
+        }
 
         const layout = (await import('../public/index.html?raw')).default;
 
+        const specUrl = `${leao.config.server.url}/documentation/v${version}/spec.json`;
+
         const filledLayout = _.template(layout)({
           backendUrl: leao.config.server.url,
-          spec: JSON.stringify(JSON.parse(documentation)),
+          specUrl,
         });
 
-        try {
-          const layoutPath = path.resolve(
-            leao.dirs.app.extensions,
-            'documentation',
-            'public',
-            'index.html'
-          );
-          await fs.ensureFile(layoutPath);
-          await fs.writeFile(layoutPath, filledLayout);
+        const layoutPath = path.resolve(
+          leao.dirs.app.extensions,
+          'documentation',
+          'public',
+          'index.html'
+        );
+        await fs.ensureFile(layoutPath);
+        await fs.writeFile(layoutPath, filledLayout);
 
-          // Serve the file.
-          ctx.url = path.basename(`${ctx.url}/index.html`);
-
-          try {
-            const staticFolder = path.resolve(
-              leao.dirs.app.extensions,
-              'documentation',
-              'public'
-            );
-            return koaStatic(staticFolder)(ctx, next);
-          } catch (e) {
-            leao.log.error(e);
-          }
-        } catch (e) {
-          leao.log.error(e);
-        }
+        ctx.type = 'text/html';
+        ctx.body = filledLayout;
       } catch (e) {
-        leao.log.error(e);
+        leao.log.error('Documentation: failed to read or serve spec', e);
+        ctx.throw(500, 'Documentation file not found. Try regenerating from the plugin settings.');
       }
     } catch (e) {
-      leao.log.error(e);
+      leao.log.error('Documentation: index error', e);
+      throw e;
     }
   },
 
@@ -139,7 +175,7 @@ export default {
         await fs.ensureFile(layoutPath);
         await fs.writeFile(layoutPath, $.html());
 
-        ctx.url = path.basename(`${ctx.url}/login.html`);
+        ctx.path = '/login.html';
 
         try {
           const staticFolder = path.resolve(leao.dirs.app.extensions, 'documentation', 'public');

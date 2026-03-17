@@ -1,8 +1,10 @@
 import path from 'path';
-import koaStatic from 'koa-static';
+import send from 'koa-send';
 import swaggerUi from 'swagger-ui-dist';
 
 import type { Core } from '@leao1/types';
+
+const SWAGGER_UI_ROOT = swaggerUi.getAbsoluteFSPath();
 
 export const addDocumentMiddlewares = async ({ leao }: { leao: Core.Leao }) => {
   leao.server.routes([
@@ -10,12 +12,18 @@ export const addDocumentMiddlewares = async ({ leao }: { leao: Core.Leao }) => {
       method: 'GET',
       path: '/plugins/documentation/(.*)',
       async handler(ctx, next) {
-        ctx.url = path.basename(ctx.url);
+        const filename = path.basename(ctx.path);
+        if (!filename) return next();
 
-        return koaStatic(swaggerUi.getAbsoluteFSPath(), {
-          maxage: 86400000,
-          defer: true,
-        })(ctx, next);
+        try {
+          await send(ctx, filename, {
+            root: SWAGGER_UI_ROOT,
+            maxage: 86400000,
+          });
+        } catch (err: any) {
+          if (err?.status === 404) return next();
+          throw err;
+        }
       },
       config: {
         auth: false,
