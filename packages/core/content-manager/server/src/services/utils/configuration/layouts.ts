@@ -39,7 +39,9 @@ async function createDefaultLayouts(schema: any) {
 
 function createDefaultListLayout(schema: any) {
   const attrKeys = Object.keys(schema.attributes || {})
-    .filter((name) => isListable(schema, name))
+    .filter(
+      (name) => isListable(schema, name) && name !== SYSTEM_FIELDS.DOCUMENT_ID
+    )
     .slice(0, DEFAULT_LIST_LENGTH);
   if (schema.modelType === 'contentType') {
     return [SYSTEM_FIELDS.DOCUMENT_ID, ...attrKeys].slice(0, DEFAULT_LIST_LENGTH + 1);
@@ -62,7 +64,9 @@ function syncLayouts(configuration: any, schema: any) {
 
   const { list = [], edit = [] } = configuration.layouts || {};
 
-  let cleanList = list.filter((attr: any) => isListable(schema, attr));
+  let cleanList: string[] = _.uniq(
+    list.filter((attr: any) => isListable(schema, attr))
+  ) as string[];
   if (
     schema.modelType === 'contentType' &&
     !cleanList.includes(SYSTEM_FIELDS.DOCUMENT_ID)

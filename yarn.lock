@@ -11046,9 +11046,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"demo-1@workspace:examples/demo1":
+"demo@workspace:examples/demo":
   version: 0.0.0-use.local
-  resolution: "demo-1@workspace:examples/demo1"
+  resolution: "demo@workspace:examples/demo"
   dependencies:
     "@leao1/leao": "workspace:*"
     "@leao1/plugin-documentation": "workspace:*"

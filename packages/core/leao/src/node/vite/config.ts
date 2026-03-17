@@ -92,6 +92,10 @@ const resolveDevelopmentConfig = async (ctx: BuildContext): Promise<InlineConfig
         server: ctx.options.hmrServer,
         clientPort: ctx.options.hmrClientPort,
       },
+      watch: {
+        // 忽略 .env 变更，避免首次启动时 JWT_SECRET 写入触发重启并输出误导性的 "build was canceled"
+        ignored: ['**/.env', '**/.env.*'],
+      },
     },
     appType: 'custom',
   };
