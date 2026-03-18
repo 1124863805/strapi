@@ -13,15 +13,6 @@
   "attributes": {
     "test1": {
       "type": "string"
-    },
-    "test2": {
-      "type": "string"
-    },
-    "test3": {
-      "type": "string"
-    },
-    "test4": {
-      "type": "string"
     }
   }
 }

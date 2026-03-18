@@ -6,7 +6,6 @@ import { CardSubtitle } from '@leao1/design-system';
 import { CardTitle } from '@leao1/design-system';
 import { Flex } from '@leao1/design-system';
 import { IconButton } from '@leao1/design-system';
-import { } from '@leao1/design-system';
 import { Pencil, Trash } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
@@ -37,16 +36,16 @@ const CardContainer = styled(Card)`
 `;
 
 export const AssetCardBase = ({
-  children,
+  children = undefined,
   extension,
-  isSelectable,
+  isSelectable = true,
   name,
-  onSelect,
-  onRemove,
-  onEdit,
-  selected,
-  subtitle,
-  variant,
+  onSelect = undefined,
+  onRemove = undefined,
+  onEdit = undefined,
+  selected = false,
+  subtitle = '',
+  variant = 'Image',
 }) => {
   const { formatMessage } = useIntl();
 
@@ -124,17 +123,6 @@ export const AssetCardBase = ({
       </CardBody>
     </CardContainer>
   );
-};
-
-AssetCardBase.defaultProps = {
-  children: undefined,
-  isSelectable: true,
-  onEdit: undefined,
-  onSelect: undefined,
-  onRemove: undefined,
-  selected: false,
-  subtitle: '',
-  variant: 'Image',
 };
 
 AssetCardBase.propTypes = {

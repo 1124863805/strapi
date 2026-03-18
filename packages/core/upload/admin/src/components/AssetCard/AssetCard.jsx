@@ -10,7 +10,15 @@ import { DocAssetCard } from './DocAssetCard';
 import { ImageAssetCard } from './ImageAssetCard';
 import { VideoAssetCard } from './VideoAssetCard';
 
-export const AssetCard = ({ asset, isSelected, onSelect, onEdit, onRemove, size, local }) => {
+export const AssetCard = ({
+  asset,
+  isSelected = false,
+  onSelect = undefined,
+  onEdit = undefined,
+  onRemove = undefined,
+  size = 'M',
+  local = false,
+}) => {
   const handleSelect = onSelect ? () => onSelect(asset) : undefined;
 
   const commonAssetCardProps = {
@@ -51,16 +59,6 @@ export const AssetCard = ({ asset, isSelected, onSelect, onEdit, onRemove, size,
   }
 
   return <DocAssetCard {...commonAssetCardProps} />;
-};
-
-AssetCard.defaultProps = {
-  isSelected: false,
-  // Determine if the asset is loaded locally or from a remote resource
-  local: false,
-  onSelect: undefined,
-  onEdit: undefined,
-  onRemove: undefined,
-  size: 'M',
 };
 
 AssetCard.propTypes = {

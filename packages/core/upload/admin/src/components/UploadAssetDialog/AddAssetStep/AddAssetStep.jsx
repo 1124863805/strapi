@@ -9,7 +9,11 @@ import { getTrad } from '../../../utils';
 import { FromComputerForm } from './FromComputerForm';
 import { FromUrlForm } from './FromUrlForm';
 
-export const AddAssetStep = ({ onClose, onAddAsset, trackedLocation }) => {
+export const AddAssetStep = ({
+  onClose,
+  onAddAsset,
+  trackedLocation = undefined,
+}) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -63,10 +67,6 @@ export const AddAssetStep = ({ onClose, onAddAsset, trackedLocation }) => {
       </Tabs.Root>
     </>
   );
-};
-
-AddAssetStep.defaultProps = {
-  trackedLocation: undefined,
 };
 
 AddAssetStep.propTypes = {

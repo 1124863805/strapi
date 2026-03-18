@@ -12,7 +12,11 @@ import { useFolderStructure } from '../../hooks/useFolderStructure';
 import { getTrad, normalizeAPIError } from '../../utils';
 import SelectTree from '../SelectTree';
 
-export const BulkMoveDialog = ({ onClose, selected, currentFolder }) => {
+export const BulkMoveDialog = ({
+  onClose,
+  selected = [],
+  currentFolder = undefined,
+}) => {
   const { formatMessage } = useIntl();
   const { data: folderStructure, isLoading } = useFolderStructure();
   const { move } = useBulkMove();
@@ -127,11 +131,6 @@ export const BulkMoveDialog = ({ onClose, selected, currentFolder }) => {
       </Formik>
     </Modal.Content>
   );
-};
-
-BulkMoveDialog.defaultProps = {
-  currentFolder: undefined,
-  selected: [],
 };
 
 BulkMoveDialog.propTypes = {

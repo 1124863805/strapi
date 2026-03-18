@@ -3,7 +3,7 @@ import React from 'react';
 import { Box, Grid, KeyboardNavigable, Typography } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 
-export const FolderGridList = ({ title, children }) => {
+export const FolderGridList = ({ title = null, children }) => {
   return (
     <KeyboardNavigable tagName="article">
       {title && (
@@ -17,10 +17,6 @@ export const FolderGridList = ({ title, children }) => {
       <Grid.Root gap={4}>{children}</Grid.Root>
     </KeyboardNavigable>
   );
-};
-
-FolderGridList.defaultProps = {
-  title: null,
 };
 
 FolderGridList.propTypes = {

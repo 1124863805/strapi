@@ -16,7 +16,7 @@ const BoxTextDecoration = styled(BoxOutline)`
   text-decoration: none;
 `;
 
-export const FolderCardBodyAction = ({ to, ...props }) => {
+export const FolderCardBodyAction = ({ to = undefined, ...props }) => {
   if (to) {
     return (
       <BoxTextDecoration
@@ -32,10 +32,6 @@ export const FolderCardBodyAction = ({ to, ...props }) => {
   }
 
   return <BoxOutline padding={1} tag="button" type="button" maxWidth="100%" {...props} />;
-};
-
-FolderCardBodyAction.defaultProps = {
-  to: undefined,
 };
 
 FolderCardBodyAction.propTypes = {

@@ -41,7 +41,7 @@ const CancelButton = styled.button`
   }
 `;
 
-export const UploadProgress = ({ onCancel, progress, error }) => {
+export const UploadProgress = ({ onCancel, progress = 0, error = undefined }) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -68,11 +68,6 @@ export const UploadProgress = ({ onCancel, progress, error }) => {
       )}
     </BoxWrapper>
   );
-};
-
-UploadProgress.defaultProps = {
-  error: undefined,
-  progress: 0,
 };
 
 UploadProgress.propTypes = {

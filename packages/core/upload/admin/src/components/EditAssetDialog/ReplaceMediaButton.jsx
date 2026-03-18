@@ -6,7 +6,12 @@ import { useIntl } from 'react-intl';
 
 import { getTrad } from '../../utils';
 
-export const ReplaceMediaButton = ({ onSelectMedia, acceptedMime, trackedLocation, ...props }) => {
+export const ReplaceMediaButton = ({
+  onSelectMedia,
+  acceptedMime,
+  trackedLocation = undefined,
+  ...props
+}) => {
   const { formatMessage } = useIntl();
   const inputRef = useRef(null);
 
@@ -42,10 +47,6 @@ export const ReplaceMediaButton = ({ onSelectMedia, acceptedMime, trackedLocatio
       </VisuallyHidden>
     </>
   );
-};
-
-ReplaceMediaButton.defaultProps = {
-  trackedLocation: undefined,
 };
 
 ReplaceMediaButton.propTypes = {

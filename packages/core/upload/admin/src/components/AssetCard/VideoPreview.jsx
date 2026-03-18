@@ -8,7 +8,14 @@ import PropTypes from 'prop-types';
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState#value
 const HAVE_FUTURE_DATA = 3;
 
-export const VideoPreview = ({ url, mime, onLoadDuration, alt, ...props }) => {
+export const VideoPreview = ({
+  url,
+  mime,
+  onLoadDuration = () => {},
+  alt,
+  size = 'M',
+  ...props
+}) => {
   const handleTimeUpdate = (e) => {
     if (e.target.currentTime > 0) {
       const video = e.target;
@@ -45,11 +52,6 @@ export const VideoPreview = ({ url, mime, onLoadDuration, alt, ...props }) => {
       <VisuallyHidden tag="figcaption">{alt}</VisuallyHidden>
     </Box>
   );
-};
-
-VideoPreview.defaultProps = {
-  onLoadDuration() {},
-  size: 'M',
 };
 
 VideoPreview.propTypes = {

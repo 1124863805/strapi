@@ -9,7 +9,7 @@ import { useIntl } from 'react-intl';
 
 import { getTrad } from '../../../../utils';
 
-const SearchAsset = ({ onChangeSearch, queryValue }) => {
+const SearchAsset = ({ onChangeSearch, queryValue = null }) => {
   const { formatMessage } = useIntl();
   const [isOpen, setIsOpen] = useState(!!queryValue);
   const [value, setValue] = useState(queryValue || '');
@@ -69,10 +69,6 @@ const SearchAsset = ({ onChangeSearch, queryValue }) => {
       <Search />
     </IconButton>
   );
-};
-
-SearchAsset.defaultProps = {
-  queryValue: null,
 };
 
 SearchAsset.propTypes = {

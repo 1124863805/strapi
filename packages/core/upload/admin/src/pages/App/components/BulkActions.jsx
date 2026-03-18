@@ -10,7 +10,11 @@ import { getTrad } from '../../../utils';
 import { BulkDeleteButton } from './BulkDeleteButton';
 import { BulkMoveButton } from './BulkMoveButton';
 
-export const BulkActions = ({ selected, onSuccess, currentFolder }) => {
+export const BulkActions = ({
+  selected,
+  onSuccess,
+  currentFolder = undefined,
+}) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -33,10 +37,6 @@ export const BulkActions = ({ selected, onSuccess, currentFolder }) => {
       <BulkMoveButton currentFolder={currentFolder} selected={selected} onSuccess={onSuccess} />
     </Flex>
   );
-};
-
-BulkActions.defaultProps = {
-  currentFolder: undefined,
 };
 
 BulkActions.propTypes = {

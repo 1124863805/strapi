@@ -13,7 +13,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2026-03-17T14:21:58.678Z"
+    "x-generation-date": "2026-03-18T02:39:48.737Z"
   },
   "openapi": "3.0.0",
   "x-leao-config": {
@@ -2008,15 +2008,6 @@
               "test1": {
                 "type": "string"
               },
-              "test2": {
-                "type": "string"
-              },
-              "test3": {
-                "type": "string"
-              },
-              "test4": {
-                "type": "string"
-              },
               "locale": {
                 "type": "string"
               },
@@ -2105,15 +2096,6 @@
             "type": "string"
           },
           "test1": {
-            "type": "string"
-          },
-          "test2": {
-            "type": "string"
-          },
-          "test3": {
-            "type": "string"
-          },
-          "test4": {
             "type": "string"
           },
           "createdAt": {
@@ -2423,15 +2405,6 @@
                   "type": "string"
                 },
                 "test1": {
-                  "type": "string"
-                },
-                "test2": {
-                  "type": "string"
-                },
-                "test3": {
-                  "type": "string"
-                },
-                "test4": {
                   "type": "string"
                 },
                 "createdAt": {

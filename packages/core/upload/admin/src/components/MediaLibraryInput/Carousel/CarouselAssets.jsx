@@ -17,21 +17,21 @@ export const CarouselAssets = forwardRef(
   (
     {
       assets,
-      disabled,
-      error,
-      hint,
+      disabled = false,
+      error = undefined,
+      hint = undefined,
       label,
-      labelAction,
+      labelAction = undefined,
       onAddAsset,
       onDeleteAsset,
       onDeleteAssetFromMediaLibrary,
-      onDropAsset,
+      onDropAsset = undefined,
       onEditAsset,
       onNext,
       onPrevious,
-      required,
+      required = false,
       selectedAssetIndex,
-      trackedLocation,
+      trackedLocation = undefined,
     },
     forwardedRef
   ) => {
@@ -125,16 +125,6 @@ export const CarouselAssets = forwardRef(
     );
   }
 );
-
-CarouselAssets.defaultProps = {
-  disabled: false,
-  error: undefined,
-  hint: undefined,
-  labelAction: undefined,
-  onDropAsset: undefined,
-  required: false,
-  trackedLocation: undefined,
-};
 
 CarouselAssets.propTypes = {
   assets: PropTypes.arrayOf(AssetDefinition).isRequired,

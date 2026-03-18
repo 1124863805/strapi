@@ -12,7 +12,11 @@ const STEPS = {
   FolderCreate: 'FolderCreate',
 };
 
-export const MediaLibraryDialog = ({ onClose, onSelectAssets, allowedTypes }) => {
+export const MediaLibraryDialog = ({
+  onClose,
+  onSelectAssets,
+  allowedTypes = ['files', 'images', 'videos', 'audios'],
+}) => {
   const [step, setStep] = useState(STEPS.AssetSelect);
   const [folderId, setFolderId] = useState(null);
 
@@ -46,10 +50,6 @@ export const MediaLibraryDialog = ({ onClose, onSelectAssets, allowedTypes }) =>
         <UploadAssetDialog open onClose={() => setStep(STEPS.AssetSelect)} folderId={folderId} />
       );
   }
-};
-
-MediaLibraryDialog.defaultProps = {
-  allowedTypes: ['files', 'images', 'videos', 'audios'],
 };
 
 MediaLibraryDialog.propTypes = {

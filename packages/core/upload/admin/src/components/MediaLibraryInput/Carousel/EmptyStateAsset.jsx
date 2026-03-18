@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Flex } from '@leao1/design-system';
 import { Typography } from '@leao1/design-system';
-import { PlusCircle } from '@leao1/design-system/icons';
+import { Images } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
@@ -14,7 +14,7 @@ const TextAlignTypography = styled(Typography)`
   align-items: center;
 `;
 
-export const EmptyStateAsset = ({ disabled, onClick, onDropAsset }) => {
+export const EmptyStateAsset = ({ disabled = false, onClick, onDropAsset }) => {
   const { formatMessage } = useIntl();
   const [dragOver, setDragOver] = useState(false);
 
@@ -74,7 +74,7 @@ export const EmptyStateAsset = ({ disabled, onClick, onDropAsset }) => {
       gap={3}
       style={{ cursor: disabled ? 'not-allowed' : 'pointer' }}
     >
-      <PicturePlus
+      <Images
         aria-hidden
         width="3.2rem"
         height="3.2rem"
@@ -94,11 +94,6 @@ export const EmptyStateAsset = ({ disabled, onClick, onDropAsset }) => {
       </TextAlignTypography>
     </Flex>
   );
-};
-
-EmptyStateAsset.defaultProps = {
-  disabled: false,
-  onDropAsset: undefined,
 };
 
 EmptyStateAsset.propTypes = {

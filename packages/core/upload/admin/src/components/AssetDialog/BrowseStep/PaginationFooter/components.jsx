@@ -12,7 +12,7 @@ const PaginationText = styled(Typography)`
   line-height: revert;
 `;
 
-const LinkWrapper = styled.button`
+const LinkWrapper = styled.button.attrs({ type: 'button' })`
   padding: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: ${({ $active, theme }) => ($active ? theme.shadows.filterShadow : undefined)};
@@ -49,8 +49,6 @@ const LinkWrapper = styled.button`
     }
   }
 `;
-
-LinkWrapper.defaultProps = { type: 'button' };
 
 const PageLinkWrapper = styled(LinkWrapper)`
   color: ${({ theme, $active }) => ($active ? theme.colors.primary700 : theme.colors.neutral800)};

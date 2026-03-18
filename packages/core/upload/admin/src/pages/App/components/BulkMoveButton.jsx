@@ -9,7 +9,11 @@ import { useIntl } from 'react-intl';
 import { BulkMoveDialog } from '../../../components/BulkMoveDialog';
 import { AssetDefinition, FolderDefinition } from '../../../constants';
 
-export const BulkMoveButton = ({ selected, onSuccess, currentFolder }) => {
+export const BulkMoveButton = ({
+  selected,
+  onSuccess,
+  currentFolder = undefined,
+}) => {
   const { formatMessage } = useIntl();
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
@@ -32,10 +36,6 @@ export const BulkMoveButton = ({ selected, onSuccess, currentFolder }) => {
       />
     </Modal.Root>
   );
-};
-
-BulkMoveButton.defaultProps = {
-  currentFolder: undefined,
 };
 
 BulkMoveButton.propTypes = {

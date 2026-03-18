@@ -13,7 +13,12 @@ import getValuesToClose from './utils/getValuesToClose';
 
 const hasParent = (option) => !option.parent;
 
-const SelectTree = ({ options: defaultOptions, maxDisplayDepth, defaultValue, ...props }) => {
+const SelectTree = ({
+  options: defaultOptions,
+  maxDisplayDepth = 5,
+  defaultValue = undefined,
+  ...props
+}) => {
   const flatDefaultOptions = useMemo(() => flattenTree(defaultOptions), [defaultOptions]);
   const optionsFiltered = useMemo(() => flatDefaultOptions.filter(hasParent), [flatDefaultOptions]);
   const [options, setOptions] = useState(optionsFiltered);
@@ -69,7 +74,13 @@ const SelectTree = ({ options: defaultOptions, maxDisplayDepth, defaultValue, ..
   );
 };
 
-const Select = ({ components, styles, error, ariaErrorMessage, ...props }) => {
+const Select = ({
+  components = {},
+  styles = {},
+  error = undefined,
+  ariaErrorMessage = '',
+  ...props
+}) => {
   const theme = useTheme();
   const customStyles = getSelectStyles(theme, error);
 
@@ -89,13 +100,6 @@ const Select = ({ components, styles, error, ariaErrorMessage, ...props }) => {
       {...props}
     />
   );
-};
-
-Select.defaultProps = {
-  ariaErrorMessage: '',
-  components: {},
-  error: undefined,
-  styles: {},
 };
 
 Select.propTypes = {
@@ -282,11 +286,6 @@ OptionShape.children = PropTypes.arrayOf(PropTypes.shape(OptionShape));
 
 OptionShape.defaultProps = {
   children: undefined,
-};
-
-SelectTree.defaultProps = {
-  defaultValue: undefined,
-  maxDisplayDepth: 5,
 };
 
 SelectTree.propTypes = {

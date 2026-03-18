@@ -16,11 +16,11 @@ const Steps = {
 };
 
 export const UploadAssetDialog = ({
-  initialAssetsToAdd,
-  folderId,
-  onClose,
-  addUploadedFiles,
-  trackedLocation,
+  initialAssetsToAdd = undefined,
+  folderId = null,
+  onClose = () => {},
+  addUploadedFiles = undefined,
+  trackedLocation = undefined,
   open,
   validateAssetsTypes = (_, cb) => cb(),
 }) => {
@@ -135,15 +135,6 @@ export const UploadAssetDialog = ({
       )}
     </Modal.Root>
   );
-};
-
-UploadAssetDialog.defaultProps = {
-  addUploadedFiles: undefined,
-  folderId: null,
-  initialAssetsToAdd: undefined,
-  onClose() {},
-  trackedLocation: undefined,
-  validateAssetsTypes: undefined,
 };
 
 UploadAssetDialog.propTypes = {

@@ -24,8 +24,8 @@ export const UploadingAssetCard = ({
   asset,
   onCancel,
   onStatusChange,
-  addUploadedFiles,
-  folderId,
+  addUploadedFiles = undefined,
+  folderId = null,
 }) => {
   const { upload, cancel, error, progress, status } = useUpload();
   const { formatMessage } = useIntl();
@@ -117,11 +117,6 @@ export const UploadingAssetCard = ({
       ) : undefined}
     </Flex>
   );
-};
-
-UploadingAssetCard.defaultProps = {
-  addUploadedFiles: undefined,
-  folderId: null,
 };
 
 UploadingAssetCard.propTypes = {

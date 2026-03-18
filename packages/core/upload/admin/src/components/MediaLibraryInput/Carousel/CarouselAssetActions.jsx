@@ -10,7 +10,12 @@ import { AssetDefinition } from '../../../constants';
 import { getTrad, prefixFileUrlWithBackendUrl } from '../../../utils';
 import { CopyLinkButton } from '../../CopyLinkButton';
 
-export const CarouselAssetActions = ({ asset, onDeleteAsset, onAddAsset, onEditAsset }) => {
+export const CarouselAssetActions = ({
+  asset,
+  onDeleteAsset = undefined,
+  onAddAsset = undefined,
+  onEditAsset = undefined,
+}) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -54,12 +59,6 @@ export const CarouselAssetActions = ({ asset, onDeleteAsset, onAddAsset, onEditA
       )}
     </CarouselActions>
   );
-};
-
-CarouselAssetActions.defaultProps = {
-  onAddAsset: undefined,
-  onDeleteAsset: undefined,
-  onEditAsset: undefined,
 };
 
 CarouselAssetActions.propTypes = {

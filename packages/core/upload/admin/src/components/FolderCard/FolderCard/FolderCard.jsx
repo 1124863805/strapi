@@ -45,7 +45,19 @@ const Card = styled(Box)`
 `;
 
 export const FolderCard = forwardRef(
-  ({ children, id, startAction, cardActions, ariaLabel, onClick, to, ...props }, ref) => {
+  (
+    {
+      children,
+      id = undefined,
+      startAction = null,
+      cardActions = null,
+      ariaLabel,
+      onClick = undefined,
+      to = undefined,
+      ...props
+    },
+    ref
+  ) => {
     const generatedId = useId(id);
     const fodlerCtxValue = useMemo(() => ({ id: generatedId }), [generatedId]);
 
@@ -98,14 +110,6 @@ export const FolderCard = forwardRef(
     );
   }
 );
-
-FolderCard.defaultProps = {
-  id: undefined,
-  cardActions: null,
-  startAction: null,
-  to: undefined,
-  onClick: undefined,
-};
 
 FolderCard.propTypes = {
   ariaLabel: PropTypes.string.isRequired,

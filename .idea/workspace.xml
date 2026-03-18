@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e3bcce7-5e9b-4373-a980-6aeec33336df" name="Changes" comment="完全变更1" />
+    <list default="true" id="5e3bcce7-5e9b-4373-a980-6aeec33336df" name="Changes" comment="完全变更" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773752300555</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="完全变更">
+      <option name="closed" value="true" />
+      <created>1773757355001</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1773757355001</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,9 +206,9 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="完全变更" />
     <MESSAGE value="完全变更1" />
-    <option name="LAST_COMMIT_MESSAGE" value="完全变更1" />
+    <MESSAGE value="完全变更" />
+    <option name="LAST_COMMIT_MESSAGE" value="完全变更" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>

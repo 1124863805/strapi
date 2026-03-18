@@ -14,8 +14,6 @@ export const AudioPreview = ({ url, alt }) => {
   );
 };
 
-AudioPreview.defaultProps = {};
-
 AudioPreview.propTypes = {
   alt: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,

@@ -39,11 +39,11 @@ const fileInfoSchema = yup.object({
 
 export const EditAssetContent = ({
   onClose,
-  asset,
-  canUpdate,
-  canCopyLink,
-  canDownload,
-  trackedLocation,
+  asset = {},
+  canUpdate = false,
+  canCopyLink = false,
+  canDownload = false,
+  trackedLocation = undefined,
 }) => {
   const { formatMessage, formatDate } = useIntl();
   const submitButtonRef = useRef(null);
@@ -330,14 +330,6 @@ export const EditAssetContent = ({
   );
 };
 
-EditAssetContent.defaultProps = {
-  asset: {},
-  trackedLocation: undefined,
-  canUpdate: false,
-  canCopyLink: false,
-  canDownload: false,
-};
-
 EditAssetContent.propTypes = {
   asset: AssetDefinition,
   canUpdate: PropTypes.bool,
@@ -347,22 +339,31 @@ EditAssetContent.propTypes = {
   trackedLocation: PropTypes.string,
 };
 
-export const EditAssetDialog = ({ open, onClose, ...restProps }) => {
+export const EditAssetDialog = ({
+  open,
+  onClose,
+  asset = {},
+  trackedLocation = undefined,
+  canUpdate = false,
+  canCopyLink = false,
+  canDownload = false,
+  ...restProps
+}) => {
   return (
     <Modal.Root open={open} onOpenChange={onClose}>
       <Modal.Content>
-        <EditAssetContent onClose={onClose} {...restProps} />
+        <EditAssetContent
+          onClose={onClose}
+          asset={asset}
+          trackedLocation={trackedLocation}
+          canUpdate={canUpdate}
+          canCopyLink={canCopyLink}
+          canDownload={canDownload}
+          {...restProps}
+        />
       </Modal.Content>
     </Modal.Root>
   );
-};
-
-EditAssetDialog.defaultProps = {
-  asset: {},
-  trackedLocation: undefined,
-  canUpdate: false,
-  canCopyLink: false,
-  canDownload: false,
 };
 
 EditAssetDialog.propTypes = {

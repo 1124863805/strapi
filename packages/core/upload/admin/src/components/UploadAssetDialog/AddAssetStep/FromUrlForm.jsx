@@ -7,7 +7,7 @@ import { useIntl } from 'react-intl';
 
 import { getTrad, urlsToAssets, urlSchema } from '../../../utils';
 
-export const FromUrlForm = ({ onClose, onAddAsset, trackedLocation }) => {
+export const FromUrlForm = ({ onClose, onAddAsset, trackedLocation = undefined }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(undefined);
   const { formatMessage } = useIntl();
@@ -75,10 +75,6 @@ export const FromUrlForm = ({ onClose, onAddAsset, trackedLocation }) => {
       )}
     </Formik>
   );
-};
-
-FromUrlForm.defaultProps = {
-  trackedLocation: undefined,
 };
 
 FromUrlForm.propTypes = {

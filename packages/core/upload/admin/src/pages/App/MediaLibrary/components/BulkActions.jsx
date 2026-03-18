@@ -10,7 +10,11 @@ import { getTrad } from '../../../../utils';
 import { BulkDeleteButton } from './BulkDeleteButton';
 import { BulkMoveButton } from './BulkMoveButton';
 
-export const BulkActions = ({ selected, onSuccess, currentFolder }) => {
+export const BulkActions = ({
+  selected = [],
+  onSuccess,
+  currentFolder = undefined,
+}) => {
   const { formatMessage } = useIntl();
   const numberAssets = selected.reduce(function (_this, val) {
     return val?.type === 'folder' ? _this + val.files.count : _this + 1;
@@ -36,11 +40,6 @@ export const BulkActions = ({ selected, onSuccess, currentFolder }) => {
       <BulkMoveButton currentFolder={currentFolder} selected={selected} onSuccess={onSuccess} />
     </Flex>
   );
-};
-
-BulkActions.defaultProps = {
-  currentFolder: undefined,
-  selected: [],
 };
 
 BulkActions.propTypes = {

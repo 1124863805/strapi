@@ -36,8 +36,8 @@ export const PreviewBox = ({
   onCropFinish,
   onCropStart,
   onCropCancel,
-  replacementFile,
-  trackedLocation,
+  replacementFile = undefined,
+  trackedLocation = undefined,
 }) => {
   const previewRef = useRef(null);
   const [isCropImageReady, setIsCropImageReady] = useState(false);
@@ -165,7 +165,7 @@ export const PreviewBox = ({
                 })}
                 onClick={() => downloadFile(assetUrl, asset.name)}
               >
-                <DownloadIcon />
+                <Download />
               </IconButton>
             )}
 
@@ -176,7 +176,7 @@ export const PreviewBox = ({
                 label={formatMessage({ id: getTrad('control-card.crop'), defaultMessage: 'Crop' })}
                 onClick={handleCropStart}
               >
-                <Resize />
+                <Crop />
               </IconButton>
             )}
           </Flex>
@@ -238,11 +238,6 @@ export const PreviewBox = ({
       />
     </>
   );
-};
-
-PreviewBox.defaultProps = {
-  replacementFile: undefined,
-  trackedLocation: undefined,
 };
 
 PreviewBox.propTypes = {

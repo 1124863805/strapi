@@ -32,7 +32,12 @@ const folderSchema = yup.object({
     .nullable(true),
 });
 
-export const EditFolderContent = ({ onClose, folder, location, parentFolderId }) => {
+export const EditFolderContent = ({
+  onClose,
+  folder = undefined,
+  location = undefined,
+  parentFolderId = null,
+}) => {
   const { data: folderStructure, isLoading: folderStructureIsLoading } = useFolderStructure({
     enabled: true,
   });
@@ -267,12 +272,6 @@ export const EditFolderContent = ({ onClose, folder, location, parentFolderId })
   );
 };
 
-EditFolderContent.defaultProps = {
-  folder: undefined,
-  location: undefined,
-  parentFolderId: null,
-};
-
 EditFolderContent.propTypes = {
   folder: FolderDefinition,
   location: PropTypes.string,
@@ -280,20 +279,27 @@ EditFolderContent.propTypes = {
   parentFolderId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
-export const EditFolderDialog = ({ open, onClose, ...restProps }) => {
+export const EditFolderDialog = ({
+  open,
+  onClose,
+  folder = undefined,
+  location = undefined,
+  parentFolderId = null,
+  ...restProps
+}) => {
   return (
     <Modal.Root open={open} onOpenChange={onClose}>
       <Modal.Content>
-        <EditFolderContent {...restProps} onClose={onClose} />
+        <EditFolderContent
+          folder={folder}
+          location={location}
+          parentFolderId={parentFolderId}
+          {...restProps}
+          onClose={onClose}
+        />
       </Modal.Content>
     </Modal.Root>
   );
-};
-
-EditFolderDialog.defaultProps = {
-  folder: undefined,
-  location: undefined,
-  parentFolderId: null,
 };
 
 EditFolderDialog.propTypes = {

@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 
 import FilterTag from './FilterTag';
 
-const FilterList = ({ appliedFilters, filtersSchema, onRemoveFilter }) => {
+const FilterList = ({ appliedFilters, filtersSchema = [], onRemoveFilter }) => {
   const handleClick = (filter) => {
     const nextFilters = appliedFilters.filter((prevFilter) => {
       const name = Object.keys(filter)[0];
@@ -74,10 +74,6 @@ const FilterList = ({ appliedFilters, filtersSchema, onRemoveFilter }) => {
       />
     );
   });
-};
-
-FilterList.defaultProps = {
-  filtersSchema: [],
 };
 
 FilterList.propTypes = {

@@ -5,7 +5,12 @@ import PropTypes from 'prop-types';
 
 import { PaginationContext } from './PaginationContext';
 
-export const Pagination = ({ children, label, activePage, pageCount }) => {
+export const Pagination = ({
+  children,
+  label = 'pagination',
+  activePage,
+  pageCount,
+}) => {
   const paginationValue = useMemo(() => ({ activePage, pageCount }), [activePage, pageCount]);
 
   return (
@@ -17,10 +22,6 @@ export const Pagination = ({ children, label, activePage, pageCount }) => {
       </Box>
     </PaginationContext.Provider>
   );
-};
-
-Pagination.defaultProps = {
-  label: 'pagination',
 };
 
 Pagination.propTypes = {

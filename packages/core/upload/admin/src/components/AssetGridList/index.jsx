@@ -8,14 +8,14 @@ import { AssetCard } from '../AssetCard/AssetCard';
 import { Draggable } from './Draggable';
 
 export const AssetGridList = ({
-  allowedTypes,
+  allowedTypes = ['images', 'files', 'videos', 'audios'],
   assets,
-  onEditAsset,
+  onEditAsset = undefined,
   onSelectAsset,
   selectedAssets,
-  size,
-  onReorderAsset,
-  title,
+  size = 'M',
+  onReorderAsset = undefined,
+  title = null,
 }) => {
   return (
     <KeyboardNavigable tagName="article">
@@ -65,14 +65,6 @@ export const AssetGridList = ({
       </Grid.Root>
     </KeyboardNavigable>
   );
-};
-
-AssetGridList.defaultProps = {
-  allowedTypes: ['images', 'files', 'videos', 'audios'],
-  onEditAsset: undefined,
-  size: 'M',
-  onReorderAsset: undefined,
-  title: null,
 };
 
 AssetGridList.propTypes = {

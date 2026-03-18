@@ -48,12 +48,12 @@ const ActionContainer = styled(Box)`
 `;
 
 export const BrowseStep = ({
-  allowedTypes,
+  allowedTypes = [],
   assets: rawAssets,
   canCreate,
   canRead,
-  folders,
-  multiple,
+  folders = [],
+  multiple = false,
   onAddAsset,
   onChangeFilters,
   onChangePage,
@@ -63,7 +63,7 @@ export const BrowseStep = ({
   onChangeFolder,
   onEditAsset,
   onEditFolder,
-  onSelectAllAsset,
+  onSelectAllAsset = undefined,
   onSelectAsset,
   pagination,
   queryObject,
@@ -382,12 +382,6 @@ export const BrowseStep = ({
   );
 };
 
-BrowseStep.defaultProps = {
-  allowedTypes: [],
-  folders: [],
-  multiple: false,
-  onSelectAllAsset: undefined,
-};
 BrowseStep.propTypes = {
   allowedTypes: PropTypes.arrayOf(PropTypes.string),
   assets: PropTypes.arrayOf(AssetDefinition).isRequired,

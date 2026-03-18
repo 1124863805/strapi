@@ -6,7 +6,13 @@ import PropTypes from 'prop-types';
 
 import { EmptyAssetGrid } from './EmptyAssetGrid';
 
-export const EmptyAssets = ({ icon: Icon = EmptyDocuments, content, action, size, count }) => {
+export const EmptyAssets = ({
+  icon: Icon = EmptyDocuments,
+  content,
+  action,
+  size = 'M',
+  count = 12,
+}) => {
   return (
     <Box position="relative">
       <EmptyAssetGrid size={size} count={count} />
@@ -26,13 +32,6 @@ export const EmptyAssets = ({ icon: Icon = EmptyDocuments, content, action, size
       </Box>
     </Box>
   );
-};
-
-EmptyAssets.defaultProps = {
-  action: undefined,
-  icon: undefined,
-  size: 'M',
-  count: 12,
 };
 
 EmptyAssets.propTypes = {

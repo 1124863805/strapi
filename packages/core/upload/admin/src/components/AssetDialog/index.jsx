@@ -26,16 +26,16 @@ const LoadingBody = styled(Flex)`
 `;
 
 export const AssetContent = ({
-  allowedTypes,
-  folderId,
+  allowedTypes = [],
+  folderId = null,
   onClose,
   onAddAsset,
   onAddFolder,
   onChangeFolder,
   onValidate,
-  multiple,
-  initiallySelectedAssets,
-  trackedLocation,
+  multiple = false,
+  initiallySelectedAssets = [],
+  trackedLocation = undefined,
 }) => {
   const [assetToEdit, setAssetToEdit] = useState(undefined);
   const [folderToEdit, setFolderToEdit] = useState(undefined);
@@ -287,14 +287,6 @@ export const AssetContent = ({
   );
 };
 
-AssetContent.defaultProps = {
-  allowedTypes: [],
-  folderId: null,
-  initiallySelectedAssets: [],
-  multiple: false,
-  trackedLocation: undefined,
-};
-
 AssetContent.propTypes = {
   allowedTypes: PropTypes.arrayOf(PropTypes.string),
   folderId: PropTypes.number,
@@ -308,23 +300,31 @@ AssetContent.propTypes = {
   trackedLocation: PropTypes.string,
 };
 
-export const AssetDialog = ({ open, onClose, ...restProps }) => {
+export const AssetDialog = ({
+  open = false,
+  onClose,
+  allowedTypes = [],
+  folderId = null,
+  initiallySelectedAssets = [],
+  multiple = false,
+  trackedLocation = undefined,
+  ...restProps
+}) => {
   return (
     <Modal.Root open={open} onOpenChange={onClose}>
       <Modal.Content>
-        <AssetContent onClose={onClose} {...restProps} />
+        <AssetContent
+          onClose={onClose}
+          allowedTypes={allowedTypes}
+          folderId={folderId}
+          initiallySelectedAssets={initiallySelectedAssets}
+          multiple={multiple}
+          trackedLocation={trackedLocation}
+          {...restProps}
+        />
       </Modal.Content>
     </Modal.Root>
   );
-};
-
-AssetDialog.defaultProps = {
-  allowedTypes: [],
-  folderId: null,
-  initiallySelectedAssets: [],
-  multiple: false,
-  open: false,
-  trackedLocation: undefined,
 };
 
 AssetDialog.propTypes = {

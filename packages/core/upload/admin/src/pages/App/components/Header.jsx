@@ -14,9 +14,9 @@ import { BreadcrumbsDefinition, FolderDefinition } from '../../../constants';
 import { getTrad } from '../../../utils';
 
 export const Header = ({
-  breadcrumbs,
+  breadcrumbs = false,
   canCreate,
-  folder,
+  folder = null,
   onToggleEditFolderDialog,
   onToggleUploadAssetDialog,
 }) => {
@@ -82,11 +82,6 @@ export const Header = ({
       }
     />
   );
-};
-
-Header.defaultProps = {
-  breadcrumbs: false,
-  folder: null,
 };
 
 Header.propTypes = {

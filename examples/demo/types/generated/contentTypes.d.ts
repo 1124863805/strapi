@@ -12,9 +12,6 @@ export interface ApiTest1Test1 extends Struct.CollectionTypeSchema {
   };
   attributes: {
     test1: Schema.Attribute.String;
-    test2: Schema.Attribute.String;
-    test3: Schema.Attribute.String;
-    test4: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

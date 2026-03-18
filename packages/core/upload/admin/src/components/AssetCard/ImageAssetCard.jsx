@@ -7,32 +7,42 @@ import { appendSearchParamsToUrl } from '../../utils';
 
 import { AssetCardBase } from './AssetCardBase';
 
-export const ImageAssetCard = ({ height, width, thumbnail, size, alt, isUrlSigned, ...props }) => {
+export const ImageAssetCard = ({
+  height = undefined,
+  width = undefined,
+  thumbnail,
+  size = 'M',
+  alt,
+  isUrlSigned,
+  selected = false,
+  onEdit = undefined,
+  onSelect = undefined,
+  onRemove = undefined,
+  updatedAt = undefined,
+  ...props
+}) => {
   // appending the updatedAt param to the thumbnail URL prevents it from being cached by the browser (cache busting)
   // applied only if the url is not signed to prevent the signature from being invalidated
   const thumbnailUrl = isUrlSigned
     ? thumbnail
     : appendSearchParamsToUrl({
         url: thumbnail,
-        params: { updatedAt: props.updatedAt },
+        params: { updatedAt },
       });
 
   return (
-    <AssetCardBase {...props} subtitle={height && width && ` - ${width}✕${height}`} variant="Image">
+    <AssetCardBase
+      {...props}
+      selected={selected}
+      onEdit={onEdit}
+      onSelect={onSelect}
+      onRemove={onRemove}
+      subtitle={height && width && ` - ${width}✕${height}`}
+      variant="Image"
+    >
       <CardAsset src={thumbnailUrl} size={size} alt={alt} />
     </AssetCardBase>
   );
-};
-
-ImageAssetCard.defaultProps = {
-  height: undefined,
-  width: undefined,
-  selected: false,
-  onEdit: undefined,
-  onSelect: undefined,
-  onRemove: undefined,
-  size: 'M',
-  updatedAt: undefined,
 };
 
 ImageAssetCard.propTypes = {

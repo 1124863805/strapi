@@ -17,19 +17,19 @@ import { getTrad } from '../../utils';
 import { TableRows } from './TableRows';
 
 export const TableList = ({
-  assetCount,
-  folderCount,
-  indeterminate,
-  onChangeSort,
-  onChangeFolder,
-  onEditAsset,
-  onEditFolder,
+  assetCount = 0,
+  folderCount = 0,
+  indeterminate = false,
+  onChangeSort = null,
+  onChangeFolder = null,
+  onEditAsset = null,
+  onEditFolder = null,
   onSelectAll,
   onSelectOne,
-  rows,
-  selected,
-  shouldDisableBulkSelect,
-  sortQuery,
+  rows = [],
+  selected = [],
+  shouldDisableBulkSelect = false,
+  sortQuery = '',
 }) => {
   const { formatMessage } = useIntl();
   const [sortBy, sortOrder] = sortQuery.split(':');
@@ -125,20 +125,6 @@ export const TableList = ({
       />
     </Table>
   );
-};
-
-TableList.defaultProps = {
-  assetCount: 0,
-  folderCount: 0,
-  indeterminate: false,
-  onChangeSort: null,
-  onChangeFolder: null,
-  onEditAsset: null,
-  onEditFolder: null,
-  rows: [],
-  selected: [],
-  shouldDisableBulkSelect: false,
-  sortQuery: '',
 };
 
 TableList.propTypes = {

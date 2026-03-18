@@ -16,9 +16,26 @@ const AudioPreviewWrapper = styled(Box)`
   }
 `;
 
-export const AudioAssetCard = ({ name, url, size, ...restProps }) => {
+export const AudioAssetCard = ({
+  name,
+  url,
+  size = 'M',
+  onSelect = undefined,
+  onEdit = undefined,
+  onRemove = undefined,
+  selected = false,
+  ...restProps
+}) => {
   return (
-    <AssetCardBase name={name} {...restProps} variant="Audio">
+    <AssetCardBase
+      name={name}
+      onSelect={onSelect}
+      onEdit={onEdit}
+      onRemove={onRemove}
+      selected={selected}
+      {...restProps}
+      variant="Audio"
+    >
       <CardAsset size={size}>
         <AudioPreviewWrapper size={size}>
           <AudioPreview url={url} alt={name} />
@@ -26,14 +43,6 @@ export const AudioAssetCard = ({ name, url, size, ...restProps }) => {
       </CardAsset>
     </AssetCardBase>
   );
-};
-
-AudioAssetCard.defaultProps = {
-  onSelect: undefined,
-  onEdit: undefined,
-  onRemove: undefined,
-  selected: false,
-  size: 'M',
 };
 
 AudioAssetCard.propTypes = {

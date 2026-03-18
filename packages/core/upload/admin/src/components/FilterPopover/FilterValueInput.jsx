@@ -4,7 +4,13 @@ import { DateTimePicker, SingleSelectOption, SingleSelect } from '@leao1/design-
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
-const FilterValueInput = ({ label, onChange, options, type, value }) => {
+const FilterValueInput = ({
+  label = '',
+  onChange,
+  options = [],
+  type,
+  value = '',
+}) => {
   const { formatMessage } = useIntl();
 
   if (type === 'date') {
@@ -37,12 +43,6 @@ const FilterValueInput = ({ label, onChange, options, type, value }) => {
       })}
     </SingleSelect>
   );
-};
-
-FilterValueInput.defaultProps = {
-  label: '',
-  options: [],
-  value: '',
 };
 
 FilterValueInput.propTypes = {

@@ -9,7 +9,12 @@ import { BreadcrumbsDefinition } from '../../constants';
 
 import { CrumbSimpleMenuAsync } from './CrumbSimpleMenuAsync';
 
-export const Breadcrumbs = ({ breadcrumbs, onChangeFolder, currentFolderId, ...props }) => {
+export const Breadcrumbs = ({
+  breadcrumbs,
+  onChangeFolder = undefined,
+  currentFolderId = undefined,
+  ...props
+}) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -55,11 +60,6 @@ export const Breadcrumbs = ({ breadcrumbs, onChangeFolder, currentFolderId, ...p
       })}
     </BaseBreadcrumbs>
   );
-};
-
-Breadcrumbs.defaultProps = {
-  currentFolderId: undefined,
-  onChangeFolder: undefined,
 };
 
 Breadcrumbs.propTypes = {

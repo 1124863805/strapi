@@ -7,7 +7,7 @@ import { useIntl } from 'react-intl';
 import { sortOptions } from '../../constants';
 import { getTrad } from '../../utils';
 
-const SortPicker = ({ onChangeSort, value }) => {
+const SortPicker = ({ onChangeSort, value = undefined }) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -31,10 +31,6 @@ const SortPicker = ({ onChangeSort, value }) => {
       ))}
     </SingleSelect>
   );
-};
-
-SortPicker.defaultProps = {
-  value: undefined,
 };
 
 SortPicker.propTypes = {

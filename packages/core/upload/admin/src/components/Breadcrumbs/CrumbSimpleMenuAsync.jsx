@@ -10,7 +10,11 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { useFolderStructure } from '../../hooks/useFolderStructure';
 import { getFolderParents, getFolderURL, getTrad } from '../../utils';
 
-export const CrumbSimpleMenuAsync = ({ parentsToOmit, currentFolderId, onChangeFolder }) => {
+export const CrumbSimpleMenuAsync = ({
+  parentsToOmit = [],
+  currentFolderId = undefined,
+  onChangeFolder = undefined,
+}) => {
   const [shouldFetch, setShouldFetch] = useState(false);
   const { data, isLoading } = useFolderStructure({ enabled: shouldFetch });
   const { pathname } = useLocation();
@@ -72,12 +76,6 @@ export const CrumbSimpleMenuAsync = ({ parentsToOmit, currentFolderId, onChangeF
         })}
     </CrumbSimpleMenu>
   );
-};
-
-CrumbSimpleMenuAsync.defaultProps = {
-  currentFolderId: undefined,
-  onChangeFolder: undefined,
-  parentsToOmit: [],
 };
 
 CrumbSimpleMenuAsync.propTypes = {

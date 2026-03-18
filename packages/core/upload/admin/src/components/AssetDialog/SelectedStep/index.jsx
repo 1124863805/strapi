@@ -7,7 +7,11 @@ import { useIntl } from 'react-intl';
 import { getTrad } from '../../../utils';
 import { AssetGridList } from '../../AssetGridList';
 
-export const SelectedStep = ({ selectedAssets, onSelectAsset, onReorderAsset }) => {
+export const SelectedStep = ({
+  selectedAssets,
+  onSelectAsset,
+  onReorderAsset = undefined,
+}) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -40,10 +44,6 @@ export const SelectedStep = ({ selectedAssets, onSelectAsset, onReorderAsset }) 
       />
     </Flex>
   );
-};
-
-SelectedStep.defaultProps = {
-  onReorderAsset: undefined,
 };
 
 SelectedStep.propTypes = {

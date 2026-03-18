@@ -19,12 +19,21 @@ const STEPS = {
 
 export const MediaLibraryInput = forwardRef(
   (
-    { attribute: { allowedTypes, multiple }, label, hint, disabled, labelAction, name, required },
+    {
+      attribute = { allowedTypes: ['videos', 'files', 'images', 'audios'], multiple: false },
+      label,
+      hint = undefined,
+      disabled = false,
+      labelAction = undefined,
+      name,
+      required = false,
+    },
     forwardedRef
   ) => {
     const { formatMessage } = useIntl();
     const { onChange, value, error } = useField(name);
-    const fieldAllowedTypes = allowedTypes || ['files', 'images', 'videos', 'audios'];
+    const { allowedTypes: attrAllowedTypes, multiple: attrMultiple } = attribute;
+    const fieldAllowedTypes = attrAllowedTypes || ['files', 'images', 'videos', 'audios'];
     const [uploadedFiles, setUploadedFiles] = useState([]);
     const [step, setStep] = useState(undefined);
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -41,6 +50,7 @@ export const MediaLibraryInput = forwardRef(
 
     let selectedAssets = [];
 
+    const multiple = attrMultiple;
     if (Array.isArray(value)) {
       selectedAssets = value;
     } else if (value) {
@@ -220,15 +230,6 @@ export const MediaLibraryInput = forwardRef(
     );
   }
 );
-
-MediaLibraryInput.defaultProps = {
-  attribute: { allowedTypes: ['videos', 'files', 'images', 'audios'], multiple: false },
-  disabled: false,
-  hint: undefined,
-  label: undefined,
-  labelAction: undefined,
-  required: false,
-};
 
 MediaLibraryInput.propTypes = {
   attribute: PropTypes.shape({

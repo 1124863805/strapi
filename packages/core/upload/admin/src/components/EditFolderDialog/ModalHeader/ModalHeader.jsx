@@ -6,7 +6,7 @@ import { useIntl } from 'react-intl';
 
 import { getTrad } from '../../../utils';
 
-export const EditFolderModalHeader = ({ isEditing }) => {
+export const EditFolderModalHeader = ({ isEditing = false }) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -26,10 +26,6 @@ export const EditFolderModalHeader = ({ isEditing }) => {
       </Modal.Title>
     </Modal.Header>
   );
-};
-
-EditFolderModalHeader.defaultProps = {
-  isEditing: false,
 };
 
 EditFolderModalHeader.propTypes = {

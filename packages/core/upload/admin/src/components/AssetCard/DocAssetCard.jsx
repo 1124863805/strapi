@@ -18,9 +18,27 @@ const CardAsset = styled(Flex)`
   background: linear-gradient(180deg, #ffffff 0%, #f6f6f9 121.48%);
 `;
 
-export const DocAssetCard = ({ name, extension, size, ...restProps }) => {
+export const DocAssetCard = ({
+  name,
+  extension,
+  size = 'M',
+  selected = false,
+  onEdit = undefined,
+  onSelect = undefined,
+  onRemove = undefined,
+  ...restProps
+}) => {
   return (
-    <AssetCardBase name={name} extension={extension} {...restProps} variant="Doc">
+    <AssetCardBase
+      name={name}
+      extension={extension}
+      selected={selected}
+      onEdit={onEdit}
+      onSelect={onSelect}
+      onRemove={onRemove}
+      {...restProps}
+      variant="Doc"
+    >
       <CardAsset width="100%" height={size === 'S' ? `8.8rem` : `16.4rem`} justifyContent="center">
         <IconWrapper>
           {extension === 'pdf' ? <FilePdf aria-label={name} /> : <File aria-label={name} />}
@@ -28,14 +46,6 @@ export const DocAssetCard = ({ name, extension, size, ...restProps }) => {
       </CardAsset>
     </AssetCardBase>
   );
-};
-
-DocAssetCard.defaultProps = {
-  selected: false,
-  onEdit: undefined,
-  onSelect: undefined,
-  onRemove: undefined,
-  size: 'M',
 };
 
 DocAssetCard.propTypes = {

@@ -17,12 +17,12 @@ import { getTrad } from '../../utils';
 import { CellContent } from './CellContent';
 
 export const TableRows = ({
-  onChangeFolder,
+  onChangeFolder = null,
   onEditAsset,
   onEditFolder,
   onSelectOne,
-  rows,
-  selected,
+  rows = [],
+  selected = [],
 }) => {
   const { formatMessage } = useIntl();
 
@@ -44,7 +44,10 @@ export const TableRows = ({
         );
 
         return (
-          <Tr key={id} onClick={() => handleRowClickFn(element, contentType, id, path)}>
+          <Tr
+            key={`${contentType}-${id}`}
+            onClick={() => handleRowClickFn(element, contentType, id, path)}
+          >
             <Td onClick={(e) => e.stopPropagation()}>
               <Checkbox
                 aria-label={formatMessage(
@@ -108,12 +111,6 @@ export const TableRows = ({
       })}
     </Tbody>
   );
-};
-
-TableRows.defaultProps = {
-  onChangeFolder: null,
-  rows: [],
-  selected: [],
 };
 
 TableRows.propTypes = {

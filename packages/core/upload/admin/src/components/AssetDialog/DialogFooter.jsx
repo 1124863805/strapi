@@ -4,7 +4,7 @@ import { Button, Modal } from '@leao1/design-system';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
-export const DialogFooter = ({ onClose, onValidate }) => {
+export const DialogFooter = ({ onClose, onValidate = undefined }) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -19,10 +19,6 @@ export const DialogFooter = ({ onClose, onValidate }) => {
       )}
     </Modal.Footer>
   );
-};
-
-DialogFooter.defaultProps = {
-  onValidate: undefined,
 };
 
 DialogFooter.propTypes = {

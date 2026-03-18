@@ -13,7 +13,11 @@ import { getTrad } from '../../../utils';
 
 import { CroppingActionRow } from './components';
 
-export const CroppingActions = ({ onCancel, onValidate, onDuplicate }) => {
+export const CroppingActions = ({
+  onCancel,
+  onValidate,
+  onDuplicate = undefined,
+}) => {
   const { formatMessage } = useIntl();
   const theme = useTheme();
 
@@ -99,10 +103,6 @@ const Trigger = styled(Menu.Trigger)`
     }
   }
 `;
-
-CroppingActions.defaultProps = {
-  onDuplicate: undefined,
-};
 
 CroppingActions.propTypes = {
   onCancel: PropTypes.func.isRequired,

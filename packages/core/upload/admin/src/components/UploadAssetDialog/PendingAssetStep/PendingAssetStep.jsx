@@ -16,8 +16,8 @@ const Status = {
 };
 
 export const PendingAssetStep = ({
-  addUploadedFiles,
-  folderId,
+  addUploadedFiles = undefined,
+  folderId = null,
   onClose,
   onEditAsset,
   onRemoveAsset,
@@ -25,7 +25,7 @@ export const PendingAssetStep = ({
   onClickAddAsset,
   onCancelUpload,
   onUploadSucceed,
-  trackedLocation,
+  trackedLocation = undefined,
 }) => {
   const assetCountRef = useRef(0);
   const { formatMessage } = useIntl();
@@ -152,12 +152,6 @@ export const PendingAssetStep = ({
       </Modal.Footer>
     </>
   );
-};
-
-PendingAssetStep.defaultProps = {
-  addUploadedFiles: undefined,
-  folderId: null,
-  trackedLocation: undefined,
 };
 
 PendingAssetStep.propTypes = {

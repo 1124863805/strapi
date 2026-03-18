@@ -19,13 +19,31 @@ const VideoPreviewWrapper = styled(Box)`
   }
 `;
 
-export const VideoAssetCard = ({ name, url, mime, size, ...props }) => {
+export const VideoAssetCard = ({
+  name,
+  url,
+  mime,
+  size = 'M',
+  onSelect = undefined,
+  onEdit = undefined,
+  onRemove = undefined,
+  selected = false,
+  ...props
+}) => {
   const [duration, setDuration] = useState();
 
   const formattedDuration = duration && formatDuration(duration);
 
   return (
-    <AssetCardBase name={name} {...props} variant="Video">
+    <AssetCardBase
+      name={name}
+      onSelect={onSelect}
+      onEdit={onEdit}
+      onRemove={onRemove}
+      selected={selected}
+      {...props}
+      variant="Video"
+    >
       <CardAsset size={size}>
         <VideoPreviewWrapper size={size}>
           <VideoPreview url={url} mime={mime} onLoadDuration={setDuration} alt={name} />
@@ -34,14 +52,6 @@ export const VideoAssetCard = ({ name, url, mime, size, ...props }) => {
       <CardTimer>{formattedDuration || '...'}</CardTimer>
     </AssetCardBase>
   );
-};
-
-VideoAssetCard.defaultProps = {
-  onSelect: undefined,
-  onEdit: undefined,
-  onRemove: undefined,
-  selected: false,
-  size: 'M',
 };
 
 VideoAssetCard.propTypes = {

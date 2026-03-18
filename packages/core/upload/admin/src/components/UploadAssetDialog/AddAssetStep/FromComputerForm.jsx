@@ -6,7 +6,7 @@ import { Button } from '@leao1/design-system';
 import { Flex } from '@leao1/design-system';
 import { Modal } from '@leao1/design-system';
 import { Typography } from '@leao1/design-system';
-import { PlusCircle } from '@leao1/design-system/icons';
+import { CloudUpload } from '@leao1/design-system/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
@@ -35,7 +35,7 @@ const OpaqueBox = styled(Box)`
   cursor: pointer;
 `;
 
-export const FromComputerForm = ({ onClose, onAddAssets, trackedLocation }) => {
+export const FromComputerForm = ({ onClose, onAddAssets, trackedLocation = undefined }) => {
   const { formatMessage } = useIntl();
   const [dragOver, setDragOver] = useState(false);
   const inputRef = useRef(null);
@@ -110,7 +110,7 @@ export const FromComputerForm = ({ onClose, onAddAssets, trackedLocation }) => {
             <Flex justifyContent="center">
               <Wrapper>
                 <IconWrapper>
-                  <PicturePlus aria-hidden width="3.2rem" height="3.2rem" />
+                  <CloudUpload aria-hidden width="3.2rem" height="3.2rem" />
                 </IconWrapper>
 
                 <Box paddingTop={3} paddingBottom={5}>
@@ -163,10 +163,6 @@ export const FromComputerForm = ({ onClose, onAddAssets, trackedLocation }) => {
       </Modal.Footer>
     </form>
   );
-};
-
-FromComputerForm.defaultProps = {
-  trackedLocation: undefined,
 };
 
 FromComputerForm.propTypes = {
