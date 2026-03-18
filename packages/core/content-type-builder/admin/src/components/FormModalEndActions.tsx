@@ -4,13 +4,16 @@
  *
  */
 
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, useEffect, useRef, useState } from 'react';
 
-import { Button, Flex } from '@leao1/design-system';
+import { ConfirmDialog } from '@leao1/admin/leao-admin';
+import { Button, Dialog, Flex } from '@leao1/design-system';
 import { Plus } from '@leao1/design-system/icons';
 import { useIntl } from 'react-intl';
 
 import { getTrad } from '../utils';
+
+type DeleteConfirmType = 'contentType' | 'component' | 'category';
 
 type FormModalEndActionsProps = {
   categoryName?: string;
@@ -82,6 +85,49 @@ export const FormModalEndActions = ({
   onClickFinish,
 }: FormModalEndActionsProps) => {
   const { formatMessage } = useIntl();
+  const [deleteConfirm, setDeleteConfirm] = useState<DeleteConfirmType | null>(null);
+  const isMountedRef = useRef(true);
+
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
+
+  const handleDeleteConfirm = async () => {
+    try {
+      if (deleteConfirm === 'contentType') {
+        await deleteContentType();
+      } else if (deleteConfirm === 'component') {
+        await deleteComponent();
+      } else if (deleteConfirm === 'category' && categoryName) {
+        await deleteCategory(categoryName);
+      }
+    } catch (err) {
+      throw err;
+    } finally {
+      if (isMountedRef.current) {
+        setDeleteConfirm(null);
+      }
+    }
+  };
+
+  const deleteConfirmMessage =
+    deleteConfirm === 'contentType'
+      ? '您确定要删除此 Content Type 吗'
+      : deleteConfirm === 'component'
+        ? formatMessage({
+            id: getTrad('popUpWarning.bodyMessage.component.delete'),
+            defaultMessage: 'Are you sure you want to delete this component?',
+          })
+        : deleteConfirm === 'category'
+          ? formatMessage({
+              id: getTrad('popUpWarning.bodyMessage.category.delete'),
+              defaultMessage:
+                'Are you sure you want to delete this category? All the components will also be deleted.',
+            })
+          : '';
 
   if (isComponentToDzModal) {
     if (isCreatingComponentInDz) {
@@ -284,22 +330,23 @@ export const FormModalEndActions = ({
 
   if (isContentTypeModal) {
     return (
-      <Flex gap={2}>
-        {!isCreatingContentType && (
-          <>
-            <Button
-              type="button"
-              variant="danger"
-              onClick={(e: SyntheticEvent) => {
-                e.preventDefault();
-                deleteContentType();
-              }}
-            >
-              {formatMessage({
-                id: 'global.delete',
-                defaultMessage: 'Delete',
-              })}
-            </Button>
+      <>
+        <Flex gap={2}>
+          {!isCreatingContentType && (
+            <>
+              <Button
+                type="button"
+                variant="danger"
+                onClick={(e: SyntheticEvent) => {
+                  e.preventDefault();
+                  setDeleteConfirm('contentType');
+                }}
+              >
+                {formatMessage({
+                  id: 'global.delete',
+                  defaultMessage: 'Delete',
+                })}
+              </Button>
             <Button
               type="submit"
               variant="default"
@@ -332,28 +379,33 @@ export const FormModalEndActions = ({
             })}
           </Button>
         )}
-      </Flex>
+        </Flex>
+        <Dialog.Root open={deleteConfirm === 'contentType'} onOpenChange={(open) => !open && setDeleteConfirm(null)}>
+          <ConfirmDialog onConfirm={handleDeleteConfirm}>{deleteConfirmMessage}</ConfirmDialog>
+        </Dialog.Root>
+      </>
     );
   }
 
   if (isComponentModal) {
     return (
-      <Flex gap={2}>
-        {!isCreatingComponent && (
-          <>
-            <Button
-              type="button"
-              variant="danger"
-              onClick={(e: SyntheticEvent) => {
-                e.preventDefault();
-                deleteComponent();
-              }}
-            >
-              {formatMessage({
-                id: 'global.delete',
-                defaultMessage: 'Delete',
-              })}
-            </Button>
+      <>
+        <Flex gap={2}>
+          {!isCreatingComponent && (
+            <>
+              <Button
+                type="button"
+                variant="danger"
+                onClick={(e: SyntheticEvent) => {
+                  e.preventDefault();
+                  setDeleteConfirm('component');
+                }}
+              >
+                {formatMessage({
+                  id: 'global.delete',
+                  defaultMessage: 'Delete',
+                })}
+              </Button>
             <Button
               type="submit"
               variant="default"
@@ -386,28 +438,33 @@ export const FormModalEndActions = ({
             })}
           </Button>
         )}
-      </Flex>
+        </Flex>
+        <Dialog.Root open={deleteConfirm === 'component'} onOpenChange={(open) => !open && setDeleteConfirm(null)}>
+          <ConfirmDialog onConfirm={handleDeleteConfirm}>{deleteConfirmMessage}</ConfirmDialog>
+        </Dialog.Root>
+      </>
     );
   }
 
   if (isEditingCategory) {
     return (
-      <Flex gap={2}>
-        <Button
-          type="button"
-          variant="danger"
-          onClick={(e: SyntheticEvent) => {
-            e.preventDefault();
-            if (categoryName) {
-              deleteCategory(categoryName);
-            }
-          }}
-        >
-          {formatMessage({
-            id: 'global.delete',
-            defaultMessage: 'Delete',
-          })}
-        </Button>
+      <>
+        <Flex gap={2}>
+          <Button
+            type="button"
+            variant="danger"
+            onClick={(e: SyntheticEvent) => {
+              e.preventDefault();
+              if (categoryName) {
+                setDeleteConfirm('category');
+              }
+            }}
+          >
+            {formatMessage({
+              id: 'global.delete',
+              defaultMessage: 'Delete',
+            })}
+          </Button>
         <Button
           type="submit"
           variant="default"
@@ -422,7 +479,11 @@ export const FormModalEndActions = ({
             defaultMessage: 'finish',
           })}
         </Button>
-      </Flex>
+        </Flex>
+        <Dialog.Root open={deleteConfirm === 'category'} onOpenChange={(open) => !open && setDeleteConfirm(null)}>
+          <ConfirmDialog onConfirm={handleDeleteConfirm}>{deleteConfirmMessage}</ConfirmDialog>
+        </Dialog.Root>
+      </>
     );
   }
 

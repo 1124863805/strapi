@@ -621,8 +621,11 @@ const useDocumentActions: UseDocumentActions = () => {
           }),
         });
 
-        // Redirect to normal edit view
-        navigate(`../../${res.data.data.documentId}`, { relative: 'path' });
+        // Clone page is at .../clone/:origin, need ../../ to reach model root
+        const doc = res.data as { documentId?: string };
+        if (doc?.documentId) {
+          navigate(`../../${doc.documentId}`, { replace: true, relative: 'path' });
+        }
 
         return res.data;
       } catch (err) {

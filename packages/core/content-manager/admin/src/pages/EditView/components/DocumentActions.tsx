@@ -401,6 +401,7 @@ const DocumentActionConfirmDialog = ({
   variant = 'secondary',
 }: DocumentActionConfirmDialogProps) => {
   const { formatMessage } = useIntl();
+  const [isConfirming, setIsConfirming] = React.useState(false);
 
   const handleClose = async () => {
     if (onCancel) {
@@ -410,12 +411,25 @@ const DocumentActionConfirmDialog = ({
     onClose();
   };
 
-  const handleConfirm = async () => {
-    if (onConfirm) {
-      await onConfirm();
+  const handleConfirm = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!onConfirm) {
+      onClose();
+      return;
     }
 
-    onClose();
+    setIsConfirming(true);
+    try {
+      await onConfirm();
+      onClose();
+    } catch (err) {
+      // Error already handled by onConfirm (e.g. toggleNotification)
+      // Keep dialog open so user can retry or cancel
+    } finally {
+      setIsConfirming(false);
+    }
   };
 
   return (
@@ -425,14 +439,23 @@ const DocumentActionConfirmDialog = ({
         <Dialog.Body>{content}</Dialog.Body>
         <Dialog.Footer>
           <Dialog.Cancel>
-            <Button variant="tertiary" fullWidth>
+            <Button variant="tertiary" fullWidth type="button">
               {formatMessage({
                 id: 'app.components.Button.cancel',
                 defaultMessage: 'Cancel',
               })}
             </Button>
           </Dialog.Cancel>
-          <Button onClick={handleConfirm} variant={variant} fullWidth>
+          <Button
+            type="button"
+            onClick={(e) => {
+              handleConfirm(e);
+            }}
+            variant={variant}
+            fullWidth
+            loading={isConfirming}
+            disabled={isConfirming}
+          >
             {formatMessage({
               id: 'app.components.Button.confirm',
               defaultMessage: 'Confirm',
@@ -655,12 +678,9 @@ const PublishAction: DocumentActionComponent = ({
         transformData(formValues)
       );
 
-      if ('data' in res && collectionType !== SINGLE_TYPES) {
-        /**
-         * TODO: refactor the router so we can just do `../${res.data.documentId}` instead of this.
-         */
+      if (res && 'documentId' in res && collectionType !== SINGLE_TYPES) {
         navigate({
-          pathname: `../${collectionType}/${model}/${res.data.documentId}`,
+          pathname: `../${collectionType}/${model}/${res.documentId}`,
           search: rawQuery,
         });
       } else if (
@@ -809,21 +829,14 @@ const UpdateAction: DocumentActionComponent = ({
             transformData(document)
           );
 
-          if ('data' in res) {
-            navigate(
-              {
-                pathname: `../${res.data.documentId}`,
-                search: rawQuery,
-              },
-              { relative: 'path' }
-            );
-          } else if (
+          if (
             'error' in res &&
             isBaseQueryError(res.error) &&
             res.error.name === 'ValidationError'
           ) {
             setErrors(formatValidationErrors(res.error));
           }
+          // clone() navigates internally via useDocumentActions
         } else if (documentId || collectionType === SINGLE_TYPES) {
           const res = await update(
             {
@@ -852,16 +865,18 @@ const UpdateAction: DocumentActionComponent = ({
             },
             transformData(document)
           );
+          const resDoc = res as { documentId?: string };
 
-          if ('data' in res && collectionType !== SINGLE_TYPES) {
+          if (resDoc && 'documentId' in resDoc && collectionType !== SINGLE_TYPES) {
             navigate(
               {
-                pathname: `../${res.data.documentId}`,
+                pathname: `../${resDoc.documentId}`,
                 search: rawQuery,
               },
               { replace: true, relative: 'path' }
             );
-          } else if (
+          }
+          if (
             'error' in res &&
             isBaseQueryError(res.error) &&
             res.error.name === 'ValidationError'

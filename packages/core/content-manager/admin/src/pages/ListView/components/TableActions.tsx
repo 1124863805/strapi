@@ -167,8 +167,8 @@ const CloneAction: DocumentActionComponent = ({ model, documentId }) => {
 
       const res = await autoClone({ model, sourceId: documentId });
 
-      if ('data' in res) {
-        navigate(res.data.documentId);
+      if (res && 'documentId' in res) {
+        navigate(res.documentId);
 
         /**
          * We return true because we don't need to show a modal anymore.
@@ -177,6 +177,7 @@ const CloneAction: DocumentActionComponent = ({ model, documentId }) => {
       }
 
       if (
+        'error' in res &&
         isBaseQueryError(res.error) &&
         res.error.details &&
         typeof res.error.details === 'object' &&

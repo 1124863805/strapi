@@ -187,6 +187,7 @@
   "popUpWarning.bodyMessage.component.delete": "您确定要删除此组件吗？",
   "popUpWarning.bodyMessage.contentType.delete": "您确定要删除此 Content Type 吗?",
   "prompt.unsaved": "您确定要离开吗？您所有的修改都将丢失。",
+  "window.confirm.close-modal.file": "您确定吗？您的修改将丢失。",
   "relation.attributeName.placeholder": "例如: author, category, tag",
   "relation.manyToMany": "有并属于许多",
   "relation.manyToOne": "有很多",

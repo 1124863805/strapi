@@ -187,6 +187,7 @@
   "popUpWarning.draft-publish.message": "If you disable the Draft & publish, your drafts will be deleted.",
   "popUpWarning.draft-publish.second-message": "Are you sure you want to disable it?",
   "prompt.unsaved": "Are you sure you want to leave? All your modifications will be lost.",
+  "window.confirm.close-modal.file": "Are you sure? Your changes will be lost.",
   "relation.attributeName.placeholder": "Ex: author, category, tag",
   "relation.manyToMany": "has and belongs to many",
   "relation.manyToOne": "has many",

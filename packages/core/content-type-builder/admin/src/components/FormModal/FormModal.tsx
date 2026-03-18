@@ -812,7 +812,7 @@ export const FormModal = () => {
     // eslint-disable-next-line no-alert
     const confirm = window.confirm(
       formatMessage({
-        id: 'window.confirm.close-modal.file',
+        id: getTrad('window.confirm.close-modal.file'),
         defaultMessage: 'Are you sure? Your changes will be lost.',
       })
     );
@@ -1055,7 +1055,7 @@ export const FormModal = () => {
               </Tabs.Root>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="tertiary" onClick={handleClosed}>
+              <Button type="button" variant="tertiary" onClick={handleClosed}>
                 {formatMessage({ id: 'app.components.Button.cancel', defaultMessage: 'Cancel' })}
               </Button>
               {/* TODO: refactor this component. Nuf said. */}

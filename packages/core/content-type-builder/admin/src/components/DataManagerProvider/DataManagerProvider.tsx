@@ -15,7 +15,7 @@ import set from 'lodash/set';
 import size from 'lodash/size';
 import { useIntl } from 'react-intl';
 import { useSelector, useDispatch } from 'react-redux';
-import { Navigate, useLocation, useMatch } from 'react-router-dom';
+import { Navigate, useLocation, useMatch, useNavigate } from 'react-router-dom';
 
 import { DataManagerContext } from '../../contexts/DataManagerContext';
 import { useFormModalNavigation } from '../../hooks/useFormModalNavigation';
@@ -91,6 +91,7 @@ const DataManagerProvider = ({ children }: DataManagerProviderProps) => {
   const { formatMessage } = useIntl();
   const refetchPermissions = useAuth('DataManagerProvider', (state) => state.refetchPermissions);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const { onCloseModal } = useFormModalNavigation();
   const contentTypeMatch = useMatch(`/plugins/${pluginId}/content-types/:uid`);
   const componentMatch = useMatch(
@@ -282,15 +283,7 @@ const DataManagerProvider = ({ children }: DataManagerProviderProps) => {
 
   const deleteCategory = async (categoryUid: string) => {
     const requestURL = `/${pluginId}/component-categories/${categoryUid}`;
-    // eslint-disable-next-line no-alert
-    const userConfirm = window.confirm(
-      formatMessage({
-        id: getTrad('popUpWarning.bodyMessage.category.delete'),
-      })
-    );
     onCloseModal();
-
-    if (!userConfirm) return;
 
     await executeWithServerRestart(
       async () => {
@@ -315,22 +308,17 @@ const DataManagerProvider = ({ children }: DataManagerProviderProps) => {
 
   const deleteData = async () => {
     const requestURL = `/${pluginId}/${endPoint}/${currentUid}`;
-    const isTemporary = get(modifiedData, [firstKeyToMainSchema, 'isTemporary'], false);
-    // eslint-disable-next-line no-alert
-    const userConfirm = window.confirm(
-      formatMessage({
-        id: getTrad(
-          `popUpWarning.bodyMessage.${isInContentTypeView ? 'contentType' : 'component'}.delete`
-        ),
-      })
+    const schemaInStore = get(
+      isInContentTypeView ? contentTypes : components,
+      currentUid ?? '',
+      {}
     );
-
+    const isTemporary = get(schemaInStore, 'isTemporary', false);
     onCloseModal();
-
-    if (!userConfirm) return;
 
     if (isTemporary) {
       dispatch({ type: DELETE_NOT_SAVED_TYPE });
+      navigate(`/plugins/${pluginId}/content-types/create-content-type`, { replace: true });
       return;
     }
 

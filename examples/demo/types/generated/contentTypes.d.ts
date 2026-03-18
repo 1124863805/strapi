@@ -1,35 +1,5 @@
 import type { Struct, Schema } from '@leao1/leao';
 
-export interface ApiTest1Test1 extends Struct.CollectionTypeSchema {
-  collectionName: 'test1s';
-  info: {
-    singularName: 'test1';
-    pluralName: 'test1s';
-    displayName: 'test1';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    test1: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::test1.test1'> &
-      Schema.Attribute.Private;
-    leao_stage: Schema.Attribute.Relation<
-      'oneToOne',
-      'plugin::review-workflows.workflow-stage'
-    >;
-    leao_assignee: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
-  };
-}
-
 export interface PluginUploadFile extends Struct.CollectionTypeSchema {
   collectionName: 'files';
   info: {
@@ -944,7 +914,6 @@ export interface AdminAuditLog extends Struct.CollectionTypeSchema {
 declare module '@leao1/leao' {
   export module Public {
     export interface ContentTypeSchemas {
-      'api::test1.test1': ApiTest1Test1;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
