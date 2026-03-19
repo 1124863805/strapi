@@ -1,0 +1,651 @@
+/* ============================================
+   Content Type Builder - 设计系统
+   完全独立于 design-system，精致现代风格
+   ============================================ */
+
+.ctb-plugin-root,
+.ctb-theme,
+.ctb-layout {
+  /* 主色 */
+  --ctb-primary: #0d9488;
+  --ctb-primary-hover: #0b8277;
+  --ctb-primary-active: #0a7066;
+  --ctb-primary-soft: rgba(13, 148, 136, 0.1);
+  --ctb-primary-soft-hover: rgba(13, 148, 136, 0.16);
+
+  /* 危险/错误色 */
+  --ctb-danger: #dc2626;
+  --ctb-danger-hover: #b91c1c;
+
+  /* 文字 */
+  --ctb-text: #0f172a;
+  --ctb-text-secondary: #475569;
+  --ctb-text-muted: #64748b;
+  --ctb-text-disabled: #94a3b8;
+
+  /* 背景 */
+  --ctb-bg: #f8fafc;
+  --ctb-bg-elevated: #ffffff;
+  --ctb-bg-hover: #f1f5f9;
+  --ctb-bg-active: #e2e8f0;
+
+  /* 边框 */
+  --ctb-border: #e2e8f0;
+  --ctb-border-subtle: #f1f5f9;
+
+  /* 圆角 */
+  --ctb-radius: 12px;
+  --ctb-radius-sm: 8px;
+  --ctb-radius-lg: 16px;
+
+  /* 阴影 */
+  --ctb-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --ctb-shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06);
+  --ctb-shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.08);
+  --ctb-shadow-xl: 0 24px 48px rgba(15, 23, 42, 0.12);
+
+  /* 弹窗层级 */
+  --ctb-z-overlay: 9990;
+  --ctb-z-modal: 9991;
+  --ctb-z-dropdown: 100;
+
+  /* 间距 */
+  --ctb-space-1: 4px;
+  --ctb-space-2: 8px;
+  --ctb-space-3: 12px;
+  --ctb-space-4: 16px;
+  --ctb-space-5: 20px;
+  --ctb-space-6: 24px;
+  --ctb-space-8: 32px;
+
+  /* 字体 */
+  --ctb-font: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", -apple-system, sans-serif;
+  --ctb-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* 主色/危险色上的文字 */
+  --ctb-text-on-primary: #ffffff;
+  --ctb-text-on-danger: #ffffff;
+
+  /* 字号 */
+  --ctb-font-size-xs: 11px;
+  --ctb-font-size-sm: 12px;
+  --ctb-font-size-base: 14px;
+  --ctb-font-size-md: 16px;
+  --ctb-font-size-lg: 18px;
+  --ctb-font-size-xl: 20px;
+
+  /* 图标/控件尺寸 */
+  --ctb-icon-size: 36px;
+  --ctb-input-min-height: 40px;
+  --ctb-textarea-min-height: 80px;
+}
+
+/* ---------- 左侧 Sider 高度 100vh ---------- */
+.ctb-plugin-root .ant-layout-sider {
+  height: 100vh !important;
+}
+
+/* ---------- 左侧 Tab 选中颜色与主色统一 ---------- */
+.ctb-plugin-root .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--ctb-primary) !important;
+}
+
+.ctb-plugin-root .ant-tabs-ink-bar {
+  background: var(--ctb-primary) !important;
+}
+
+/* ---------- 右侧内容区：移除 padding-block-end，禁止外层滚动 ---------- */
+.ctb-plugin-root main,
+.ctb-plugin-root [class*="Layout"][class*="Content"],
+.ctb-plugin-root .ant-layout-content,
+.ctb-plugin-root [style*="padding-block-end"],
+.ctb-plugin-root .ant-layout-sider + * {
+  padding-block-end: 0 !important;
+  overflow: hidden !important;
+}
+
+.ctb-theme,
+.ctb-layout,
+.ctb-root,
+.ctb-table-wrapper,
+.ctb-icon-btn,
+.ctb-card,
+.ctb-empty-state,
+.ctb-modal {
+  font-family: var(--ctb-font);
+}
+
+/* ---------- 全站不显示省略号，完整展示文字 ---------- */
+.ctb-plugin-root .ant-menu-item,
+.ctb-plugin-root .ant-menu-submenu-title,
+.ctb-plugin-root .ant-tabs-tab,
+.ctb-plugin-root .ant-btn,
+.ctb-plugin-root .ant-input,
+.ctb-layout .ant-menu-item,
+.ctb-layout .ant-menu-submenu-title,
+.ctb-layout .ant-tabs-tab,
+.ctb-layout .ant-btn,
+.ctb-card *:not(.ctb-list-scroll),
+.ctb-table-wrapper td,
+.ctb-table-wrapper th {
+  overflow: visible !important;
+  text-overflow: unset !important;
+  white-space: normal !important;
+  word-break: break-word;
+}
+
+/* ---------- 右侧主内容区：高度 100vh 与左侧一致 ---------- */
+.ctb-layout {
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--ctb-space-6) var(--ctb-space-8);
+}
+
+/* ---------- 主卡片：限制最大高度，内容超出滚动 ---------- */
+.ctb-card {
+  background: var(--ctb-bg-elevated);
+  border-radius: var(--ctb-radius);
+  box-shadow: var(--ctb-shadow);
+  border: 1px solid var(--ctb-border-subtle);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  max-height: calc(100vh - 2 * var(--ctb-space-6));
+}
+
+/* ---------- 卡片头部：配置视图 + 按钮 + 输入 ---------- */
+.ctb-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--ctb-space-4);
+  padding: var(--ctb-space-4) var(--ctb-space-5);
+  border-bottom: 1px solid var(--ctb-border-subtle);
+  flex-shrink: 0;
+}
+
+.ctb-card-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ctb-space-3);
+}
+
+.ctb-card-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--ctb-space-3);
+  flex-wrap: wrap;
+}
+
+.ctb-schema-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ctb-text);
+  line-height: 1.3;
+}
+
+/* 全站输入框：浅灰背景，与白色区域区分 */
+.ctb-plugin-root .ant-input,
+.ctb-plugin-root .ant-input-affix-wrapper,
+.ctb-plugin-root .ant-select-selector,
+.ctb-plugin-root .ant-picker,
+.ctb-plugin-root input[type="text"],
+.ctb-plugin-root input[type="number"],
+.ctb-plugin-root input[type="search"],
+.ctb-plugin-root input[type="date"],
+.ctb-plugin-root input[type="time"],
+.ctb-plugin-root input[type="datetime-local"],
+.ctb-plugin-root select,
+.ctb-plugin-root textarea {
+  background: var(--ctb-bg) !important;
+}
+
+.ctb-tab-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ctb-text-muted);
+}
+
+/* ---------- 字段列表：内容超出可滚动 ---------- */
+.ctb-list-scroll {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ---------- 表格：卡片式行 ---------- */
+.ctb-table-wrapper {
+  width: 100%;
+  line-height: 1.5;
+  padding: 0 var(--ctb-space-4) var(--ctb-space-4);
+}
+
+.ctb-table-wrapper table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 var(--ctb-space-3);
+}
+
+.ctb-table-wrapper thead th {
+  padding: 0 var(--ctb-space-5) var(--ctb-space-3);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ctb-text-secondary);
+  text-transform: uppercase;
+  text-align: left;
+  border: none;
+}
+
+.ctb-table-wrapper tbody tr {
+  cursor: pointer;
+  background: var(--ctb-bg-elevated);
+  border-radius: var(--ctb-radius-sm);
+  box-shadow: var(--ctb-shadow);
+  border: 1px solid var(--ctb-border-subtle);
+  transition: all 0.2s var(--ctb-ease);
+}
+
+.ctb-table-wrapper tbody tr:hover {
+  box-shadow: var(--ctb-shadow-md);
+  border-color: var(--ctb-border);
+  transform: translateY(-1px);
+}
+
+.ctb-table-wrapper tbody tr:active {
+  transform: translateY(0);
+}
+
+.ctb-table-wrapper tbody tr.ctb-row-empty {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  cursor: default;
+}
+
+.ctb-table-wrapper tbody tr.ctb-row-empty:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.ctb-table-wrapper tbody td {
+  padding: var(--ctb-space-4) var(--ctb-space-5);
+  font-size: 15px;
+  color: var(--ctb-text);
+  vertical-align: middle;
+  border: none;
+}
+
+.ctb-table-wrapper tbody td:first-child {
+  border-radius: var(--ctb-radius-sm) 0 0 var(--ctb-radius-sm);
+}
+
+.ctb-table-wrapper tbody td:last-child {
+  border-radius: 0 var(--ctb-radius-sm) var(--ctb-radius-sm) 0;
+}
+
+/* ---------- 图标按钮 ---------- */
+.ctb-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ctb-icon-size);
+  height: var(--ctb-icon-size);
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--ctb-text-muted);
+  cursor: pointer;
+  border-radius: var(--ctb-radius-sm);
+  transition: all 0.2s var(--ctb-ease);
+}
+
+.ctb-icon-btn:hover {
+  background: var(--ctb-bg-hover);
+  color: var(--ctb-text);
+}
+
+.ctb-icon-btn:focus-visible,
+.ctb-theme button:focus-visible {
+  outline: 2px solid var(--ctb-primary);
+  outline-offset: 2px;
+}
+
+/* ---------- 空状态 ---------- */
+.ctb-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--ctb-space-6) + var(--ctb-space-8)) var(--ctb-space-6);
+  text-align: center;
+  color: var(--ctb-text-secondary);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.ctb-empty-state .ant-empty-description {
+  color: var(--ctb-text-secondary) !important;
+  font-size: 15px !important;
+}
+
+.ctb-empty-state p {
+  margin: 0 0 var(--ctb-space-6);
+  max-width: 20rem;
+}
+
+/* ========== 弹窗 ========== */
+/* 弹窗可能 portaled 到 body，需在 .ctb-modal 上重复定义变量以保证继承 */
+.ctb-modal.ant-modal {
+  --ctb-text-on-primary: #ffffff;
+  --ctb-text-on-danger: #ffffff;
+  --ctb-font-size-xs: 11px;
+  --ctb-font-size-sm: 12px;
+  --ctb-font-size-base: 14px;
+  --ctb-font-size-md: 16px;
+  --ctb-font-size-lg: 18px;
+  --ctb-font-size-xl: 20px;
+  --ctb-primary: #0d9488;
+  --ctb-primary-hover: #0b8277;
+  --ctb-primary-soft: rgba(13, 148, 136, 0.1);
+  --ctb-danger: #dc2626;
+  --ctb-danger-hover: #b91c1c;
+  --ctb-text: #0f172a;
+  --ctb-text-muted: #64748b;
+  --ctb-bg: #f8fafc;
+  --ctb-bg-elevated: #ffffff;
+  --ctb-bg-hover: #f1f5f9;
+  --ctb-border: #e2e8f0;
+  --ctb-border-subtle: #f1f5f9;
+  --ctb-radius-sm: 8px;
+  --ctb-space-1: 4px;
+  --ctb-space-2: 8px;
+  --ctb-space-3: 12px;
+  --ctb-space-4: 16px;
+  --ctb-space-5: 20px;
+  --ctb-space-6: 24px;
+  --ctb-font: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", -apple-system, sans-serif;
+  --ctb-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.ctb-modal.ant-modal .ant-modal-body {
+  padding: 0;
+}
+
+.ctb-modal .ctb-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ctb-space-4);
+  padding: var(--ctb-space-4) var(--ctb-space-6);
+  border-bottom: 1px solid var(--ctb-border);
+}
+
+/* 弹窗标题：统一样式 */
+.ctb-modal .ctb-modal-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ctb-text);
+}
+
+/* 选择字段弹窗：header 标题对齐与样式 */
+.ctb-modal-choose-attribute .ctb-modal-header {
+  padding: var(--ctb-space-5) var(--ctb-space-6);
+}
+.ctb-modal-choose-attribute .ctb-modal-header .ctb-modal-title,
+.ctb-modal-choose-attribute .ctb-modal-header [class*="Breadcrumb"] {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.ctb-modal .ctb-modal-body {
+  padding: var(--ctb-space-5) var(--ctb-space-6);
+}
+
+/* 选择字段弹窗：更紧凑，减少滚动 */
+.ctb-modal-choose-attribute .ctb-modal-body {
+  padding: var(--ctb-space-4) var(--ctb-space-5);
+}
+/* 选择字段弹窗 body 内标题：位置与样式 */
+.ctb-modal-choose-attribute .ctb-modal-body h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ctb-text);
+}
+
+/* 弹窗操作按钮：专用 view，非 Button 组件 */
+.ctb-modal-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ctb-space-2);
+  padding: var(--ctb-space-3) var(--ctb-space-6);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: var(--ctb-radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s var(--ctb-ease);
+}
+
+.ctb-modal-action-icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.ctb-modal-action-text {
+  line-height: 1.2;
+}
+
+.ctb-modal-action.primary {
+  background: var(--ctb-primary);
+  color: var(--ctb-text-on-primary);
+}
+
+.ctb-modal-action.primary:hover:not(:disabled) {
+  background: var(--ctb-primary-hover);
+}
+
+.ctb-modal-action.secondary {
+  background: var(--ctb-bg);
+  color: var(--ctb-text);
+  border: 1px solid var(--ctb-border);
+}
+
+.ctb-modal-action.secondary:hover:not(:disabled) {
+  background: var(--ctb-bg-hover);
+}
+
+.ctb-modal-action.tertiary {
+  background: transparent;
+  color: var(--ctb-text-muted);
+}
+
+.ctb-modal-action.tertiary:hover:not(:disabled) {
+  background: var(--ctb-bg-hover);
+  color: var(--ctb-text);
+}
+
+.ctb-modal-action.danger {
+  background: var(--ctb-danger);
+  color: var(--ctb-text-on-danger);
+}
+
+.ctb-modal-action.danger:hover:not(:disabled) {
+  background: var(--ctb-danger-hover);
+}
+
+.ctb-modal-action:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 底部按钮区 */
+.ctb-modal .ctb-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--ctb-space-2);
+  margin-top: var(--ctb-space-6);
+  padding: var(--ctb-space-4) var(--ctb-space-6) var(--ctb-space-6);
+  border-top: 1px solid var(--ctb-border-subtle);
+}
+
+/* 输入框：浅灰背景 + 圆角，与白色弹窗区分，无 focus 高亮 */
+.ctb-modal input:not([type="checkbox"]):not([type="radio"]),
+.ctb-modal select,
+.ctb-modal .ant-input,
+.ctb-modal .ant-input-affix-wrapper,
+.ctb-modal .ant-select-selector,
+.ctb-modal .ant-picker {
+  font-size: 14px !important;
+  min-height: var(--ctb-input-min-height) !important;
+  color: var(--ctb-text) !important;
+  background: var(--ctb-bg) !important;
+  border: 1px solid var(--ctb-border) !important;
+  border-radius: var(--ctb-radius-sm) !important;
+}
+
+.ctb-modal textarea {
+  font-size: 14px !important;
+  min-height: var(--ctb-textarea-min-height) !important;
+  color: var(--ctb-text) !important;
+  background: var(--ctb-bg) !important;
+  border: 1px solid var(--ctb-border) !important;
+  border-radius: var(--ctb-radius-sm) !important;
+}
+
+.ctb-modal input:focus,
+.ctb-modal textarea:focus,
+.ctb-modal select:focus,
+.ctb-modal .ant-input:focus,
+.ctb-modal .ant-select-selector:focus,
+.ctb-modal .ant-picker:focus {
+  outline: none;
+  border-color: var(--ctb-border) !important;
+}
+
+.ctb-modal input::placeholder,
+.ctb-modal textarea::placeholder {
+  color: var(--ctb-text-muted) !important;
+}
+
+/* 表单项区块间距 */
+.ctb-modal .ctb-form-section {
+  margin-bottom: var(--ctb-space-6);
+}
+
+.ctb-modal .ctb-form-section:last-child {
+  margin-bottom: 0;
+}
+
+.ctb-modal .ctb-form-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ctb-text);
+  margin-bottom: var(--ctb-space-2);
+  display: block;
+}
+
+.ctb-modal .ctb-form-hint {
+  font-size: 12px;
+  color: var(--ctb-text-muted);
+  margin-top: var(--ctb-space-2);
+  line-height: 1.5;
+}
+
+.ctb-modal .ctb-form-field {
+  margin-bottom: var(--ctb-space-5);
+}
+
+.ctb-modal .ctb-form-field:last-child {
+  margin-bottom: 0;
+}
+
+/* 弹窗内部组件间距 */
+.ctb-modal .ctb-modal-body > div > div[style*="display: grid"] {
+  gap: var(--ctb-space-5) !important;
+}
+
+.ctb-modal .ctb-modal-body div[style*="display: flex"][style*="flex-direction: column"] {
+  gap: var(--ctb-space-5) !important;
+}
+
+.ctb-modal .ctb-modal-body > div {
+  margin-bottom: var(--ctb-space-4);
+}
+
+.ctb-modal .ctb-modal-body > div:last-child {
+  margin-bottom: 0;
+}
+
+/* ========== 按钮 ========== */
+.ctb-btn {
+  border: none;
+}
+
+.ctb-btn-primary,
+.ctb-btn-default {
+  background: var(--ctb-primary);
+  color: var(--ctb-text-on-primary);
+}
+
+.ctb-btn-primary:hover:not(:disabled),
+.ctb-btn-default:hover:not(:disabled) {
+  background: var(--ctb-primary-hover);
+}
+
+.ctb-btn-primary:active:not(:disabled),
+.ctb-btn-default:active:not(:disabled) {
+  background: var(--ctb-primary-active);
+}
+
+.ctb-btn-secondary {
+  background: var(--ctb-bg-elevated);
+  color: var(--ctb-text);
+  border: 1px solid var(--ctb-border);
+}
+
+.ctb-btn-secondary:hover:not(:disabled) {
+  background: var(--ctb-bg-hover);
+  border-color: var(--ctb-text-muted);
+}
+
+.ctb-btn-tertiary {
+  background: transparent;
+  color: var(--ctb-primary);
+}
+
+.ctb-btn-tertiary:hover:not(:disabled) {
+  background: var(--ctb-primary-soft);
+}
+
+.ctb-btn-ghost {
+  background: transparent;
+  color: var(--ctb-text-muted);
+}
+
+.ctb-btn-ghost:hover:not(:disabled) {
+  background: var(--ctb-bg-hover);
+  color: var(--ctb-text);
+}
+
+.ctb-btn-danger {
+  background: var(--ctb-danger);
+  color: var(--ctb-text-on-danger);
+}
+
+.ctb-btn-danger:hover:not(:disabled) {
+  background: var(--ctb-danger-hover);
+}

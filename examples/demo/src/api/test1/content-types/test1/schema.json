@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test1s",
+  "info": {
+    "singularName": "test1",
+    "pluralName": "test1s",
+    "displayName": "test1",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test1": {
+      "type": "string"
+    },
+    "test2": {
+      "type": "string"
+    },
+    "test3": {
+      "type": "string"
+    },
+    "test4": {
+      "type": "string"
+    },
+    "test5": {
+      "type": "string"
+    },
+    "test6": {
+      "type": "string"
+    },
+    "test7": {
+      "type": "string"
+    },
+    "test8": {
+      "type": "string"
+    },
+    "teest19": {
+      "type": "string"
+    },
+    "test11": {
+      "type": "string"
+    },
+    "test12": {
+      "type": "string"
+    },
+    "test13": {
+      "type": "string"
+    },
+    "test14": {
+      "type": "string"
+    },
+    "test18": {
+      "type": "string"
+    },
+    "test19": {
+      "type": "string"
+    }
+  }
+}
