@@ -1,19 +1,10 @@
-import { Button, EmptyStateLayout, Table } from '@leao1/design-system';
-import { Tbody } from '@leao1/design-system';
-import { Td } from '@leao1/design-system';
-import { Th } from '@leao1/design-system';
-import { Thead } from '@leao1/design-system';
-import { Tr } from '@leao1/design-system';
-import { Typography } from '@leao1/design-system';
-import { ComponentType, Fragment } from 'react';
-
-import { Box, TFooter } from '@leao1/design-system';
-import { Plus } from '@leao1/design-system/icons';
-import { EmptyDocuments } from '@leao1/design-system/symbols';
+ import type { ComponentType } from 'react';
+import { Fragment } from 'react';
 import { useIntl } from 'react-intl';
 
 import { useDataManager } from '../hooks/useDataManager';
 import { useFormModalNavigation } from '../hooks/useFormModalNavigation';
+import { Box, Button, EmptyState, EmptyDocuments, Plus, Typography } from '../ui';
 import { getTrad } from '../utils/getTrad';
 
 import { BoxWrapper } from './BoxWrapper';
@@ -59,120 +50,100 @@ export const List = ({
     onOpenModalAddField({ forTarget: editTarget, targetUid });
   };
 
+  const tableHeader = (
+    <thead>
+      <tr>
+        <th>
+          <Typography variant="sigma" textColor="neutral600">
+            {formatMessage({ id: 'global.name', defaultMessage: 'Name' })}
+          </Typography>
+        </th>
+        <th colSpan={2}>
+          <Typography variant="sigma" textColor="neutral600">
+            {formatMessage({ id: 'global.type', defaultMessage: 'Type' })}
+          </Typography>
+        </th>
+      </tr>
+    </thead>
+  );
+
   if (!targetUid) {
     return (
-      <Table colCount={2} rowCount={2}>
-        <Thead>
-          <Tr>
-            <Th>
-              <Typography variant="sigma" textColor="neutral600">
-                {formatMessage({ id: 'global.name', defaultMessage: 'Name' })}
-              </Typography>
-            </Th>
-            <Th>
-              <Typography variant="sigma" textColor="neutral600">
-                {formatMessage({ id: 'global.type', defaultMessage: 'Type' })}
-              </Typography>
-            </Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          <Tr>
-            <Td colSpan={2}>
-              <EmptyStateLayout
-                content={formatMessage({
-                  id: getTrad('table.content.create-first-content-type'),
-                  defaultMessage: 'Create your first Collection-Type',
-                })}
-                hasRadius
-                icon={<EmptyDocuments width="16rem" />}
-              />
-            </Td>
-          </Tr>
-        </Tbody>
-      </Table>
+      <BoxWrapper className="ctb-table-wrapper">
+        <table>
+          {tableHeader}
+          <tbody>
+            <tr className="ctb-row-empty">
+              <td colSpan={2}>
+                <EmptyState
+                  icon={<EmptyDocuments width="48px" />}
+                  content={formatMessage({
+                    id: getTrad('table.content.create-first-content-type'),
+                    defaultMessage: 'Create your first Collection-Type',
+                  })}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </BoxWrapper>
     );
   }
 
   if (items.length === 0 && isMain) {
     return (
-      <Table colCount={2} rowCount={2}>
-        <Thead>
-          <Tr>
-            <Th>
-              <Typography variant="sigma" textColor="neutral600">
-                {formatMessage({ id: 'global.name', defaultMessage: 'Name' })}
-              </Typography>
-            </Th>
-            <Th>
-              <Typography variant="sigma" textColor="neutral600">
-                {formatMessage({ id: 'global.type', defaultMessage: 'Type' })}
-              </Typography>
-            </Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          <Tr>
-            <Td colSpan={2}>
-              <EmptyStateLayout
-                action={
-                  <Button
-                    onClick={onClickAddField}
-                    size="L"
-                    startIcon={<Plus />}
-                    variant="secondary"
-                  >
-                    {formatMessage({
-                      id: getTrad('table.button.no-fields'),
-                      defaultMessage: 'Add new field',
-                    })}
-                  </Button>
-                }
-                content={formatMessage(
-                  isInContentTypeView
-                    ? {
-                        id: getTrad('table.content.no-fields.collection-type'),
-                        defaultMessage: 'Add your first field to this Collection-Type',
-                      }
-                    : {
-                        id: getTrad('table.content.no-fields.component'),
-                        defaultMessage: 'Add your first field to this component',
-                      }
-                )}
-                hasRadius
-                icon={<EmptyDocuments width="16rem" />}
-              />
-            </Td>
-          </Tr>
-        </Tbody>
-      </Table>
+      <BoxWrapper className="ctb-table-wrapper">
+        <table>
+          {tableHeader}
+          <tbody>
+            <tr className="ctb-row-empty">
+              <td colSpan={2}>
+                <EmptyState
+                  icon={<Plus style={{ width: 28, height: 28 }} />}
+                  content={formatMessage(
+                    isInContentTypeView
+                      ? {
+                          id: getTrad('table.content.no-fields.collection-type'),
+                          defaultMessage: 'Add your first field to this Collection-Type',
+                        }
+                      : {
+                          id: getTrad('table.content.no-fields.component'),
+                          defaultMessage: 'Add your first field to this component',
+                        }
+                  )}
+                  action={
+                    <Button
+                      onClick={onClickAddField}
+                      size="L"
+                      startIcon={<Plus />}
+                      variant="secondary"
+                    >
+                      {formatMessage({
+                        id: getTrad('table.button.no-fields'),
+                        defaultMessage: 'Add new field',
+                      })}
+                    </Button>
+                  }
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </BoxWrapper>
     );
   }
 
   return (
-    <BoxWrapper>
+    <BoxWrapper className="ctb-table-wrapper">
       <Box
-        paddingLeft={6}
-        paddingRight={isMain ? 6 : 0}
-        {...(isMain && { style: { overflowX: 'auto' } })}
+        style={{
+          paddingLeft: isMain ? 0 : 20,
+          paddingRight: isMain ? 0 : 0,
+          overflowX: isMain ? 'auto' : undefined,
+        }}
       >
         <table>
-          {isMain && (
-            <thead>
-              <tr>
-                <th>
-                  <Typography variant="sigma" textColor="neutral800">
-                    {formatMessage({ id: 'global.name', defaultMessage: 'Name' })}
-                  </Typography>
-                </th>
-                <th colSpan={2}>
-                  <Typography variant="sigma" textColor="neutral800">
-                    {formatMessage({ id: 'global.type', defaultMessage: 'Type' })}
-                  </Typography>
-                </th>
-              </tr>
-            </thead>
-          )}
+          {isMain && tableHeader}
           <tbody>
             {items.map((item) => {
               const { type } = item;
@@ -216,20 +187,6 @@ export const List = ({
         </table>
       </Box>
 
-      {isMain && isInDevelopmentMode && (
-        <TFooter icon={<Plus />} onClick={onClickAddField}>
-          {formatMessage({
-            id: getTrad(
-              `form.button.add.field.to.${
-                modifiedData.contentType
-                  ? modifiedData.contentType.schema.kind
-                  : editTarget || 'collectionType'
-              }`
-            ),
-            defaultMessage: 'Add another field',
-          })}
-        </TFooter>
-      )}
       {isSub && isInDevelopmentMode && !isFromDynamicZone && (
         <NestedTFooter
           icon={<Plus />}

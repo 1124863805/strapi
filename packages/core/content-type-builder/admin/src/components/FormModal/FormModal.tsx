@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { useLeaoApp, useNotification } from '@leao1/admin/leao-admin';
-import { Button, Divider, Flex, Modal, Tabs } from '@leao1/design-system';
+import { Divider, Flex, Modal, ModalActionView, Tabs } from '../../ui';
 import get from 'lodash/get';
 import has from 'lodash/has';
 import isEqual from 'lodash/isEqual';
@@ -967,7 +967,13 @@ export const FormModal = () => {
   const handleClickFinish = () => {};
 
   return (
-    <Modal.Root open={isOpen} onOpenChange={handleClosed}>
+    <Modal.Root
+      open={isOpen}
+      onOpenChange={handleClosed}
+      width={isPickingAttribute ? 840 : 640}
+      bodyMaxHeight={isPickingAttribute ? '88vh' : '70vh'}
+      className={isPickingAttribute ? 'ctb-modal-choose-attribute' : undefined}
+    >
       <Modal.Content>
         <FormModalHeader
           actionType={actionType}
@@ -981,6 +987,7 @@ export const FormModal = () => {
           attributeType={attributeType as IconByType}
           customFieldUid={customFieldUid}
           showBackLink={showBackLink}
+          onClose={handleClosed}
         />
         {isPickingAttribute && (
           <AttributeOptions
@@ -995,7 +1002,7 @@ export const FormModal = () => {
               <Tabs.Root
                 variant="simple"
                 value={activeTab}
-                onValueChange={(value) => {
+                onValueChange={(value: string) => {
                   setActiveTab(value);
                   sendAdvancedTabEvent(value);
                 }}
@@ -1055,9 +1062,9 @@ export const FormModal = () => {
               </Tabs.Root>
             </Modal.Body>
             <Modal.Footer>
-              <Button type="button" variant="tertiary" onClick={handleClosed}>
-                {formatMessage({ id: 'app.components.Button.cancel', defaultMessage: 'Cancel' })}
-              </Button>
+              <ModalActionView type="button" variant="tertiary" onClick={handleClosed}>
+                {formatMessage({ id: getTrad('form.button.cancel'), defaultMessage: '取消' })}
+              </ModalActionView>
               {/* TODO: refactor this component. Nuf said. */}
               <FormModalEndActions
                 deleteCategory={deleteCategory}

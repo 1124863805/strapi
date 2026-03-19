@@ -1,4 +1,4 @@
-import { SingleSelectOption, SingleSelect, Field } from '@leao1/design-system';
+import { SingleSelectOption, SingleSelect, Field } from '../ui';
 import { useIntl } from 'react-intl';
 
 import { MAX_COMPONENT_DEPTH } from '../constants';

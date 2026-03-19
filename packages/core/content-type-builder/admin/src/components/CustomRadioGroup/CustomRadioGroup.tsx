@@ -1,4 +1,4 @@
-import { Box, Flex, Typography } from '@leao1/design-system';
+import { Box, Flex, Typography } from '../../ui';
 import { useIntl } from 'react-intl';
 
 import { Wrapper } from './Styles';
@@ -47,14 +47,16 @@ export const CustomRadioGroup = ({
                 onChange={onChange}
                 type="radio"
               />
-              <Box className="option" padding={4}>
-                <Flex>
-                  <Box paddingRight={4}>
+              <Box className="option">
+                <Flex alignItems="center" gap={3}>
+                  <Box paddingRight={0} style={{ flexShrink: 0 }}>
                     <span className="checkmark" />
                   </Box>
-                  <Flex direction="column" alignItems="stretch" gap={2}>
-                    <Typography fontWeight="bold">{formatMessage(radio.title)}</Typography>
-                    <Typography variant="pi" textColor="neutral600">
+                  <Flex direction="column" alignItems="stretch" gap={2} style={{ minWidth: 0 }}>
+                    <Typography fontWeight="bold" className="ctb-radio-title">
+                      {formatMessage(radio.title)}
+                    </Typography>
+                    <Typography variant="pi" className="ctb-radio-description">
                       {formatMessage(radio.description)}
                     </Typography>
                   </Flex>

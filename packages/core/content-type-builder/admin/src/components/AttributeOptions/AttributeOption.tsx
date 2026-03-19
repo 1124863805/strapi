@@ -4,10 +4,7 @@
  *
  */
 
-import { Box } from '@leao1/design-system';
-import { Flex } from '@leao1/design-system';
-import { Typography } from '@leao1/design-system';
-import { Sparkle } from '@leao1/design-system/icons';
+import { Box, Flex, Typography, Sparkle } from '../../ui';
 import { useIntl } from 'react-intl';
 
 import { useFormModalNavigation } from '../../hooks/useFormModalNavigation';
@@ -20,9 +17,9 @@ const newAttributes: string[] = [];
 
 const NewBadge = () => (
   <Flex grow={1} justifyContent="flex-end">
-    <Flex gap={1} hasRadius background="alternative100" padding={`0.2rem 0.4rem`}>
-      <Sparkle width={`1rem`} height={`1rem`} fill="alternative600" />
-      <Typography textColor="alternative600" variant="sigma">
+    <Flex gap={1} hasRadius background="alternative100" padding={`var(--ctb-space-1) var(--ctb-space-2)`}>
+      <Sparkle width="1rem" height="1rem" fill="var(--ctb-primary)" />
+      <Typography variant="sigma" style={{ color: 'var(--ctb-primary)' }}>
         New
       </Typography>
     </Flex>
@@ -48,10 +45,10 @@ export const AttributeOption = ({ type = 'text' }: AttributeOptionProps) => {
   };
 
   return (
-    <OptionBoxWrapper padding={4} tag="button" hasRadius type="button" onClick={handleClick}>
-      <Flex>
+    <OptionBoxWrapper tag="button" type="button" onClick={handleClick}>
+      <Flex gap={3} alignItems="flex-start">
         <AttributeIcon type={type} />
-        <Box paddingLeft={4} width="100%">
+        <Box width="100%" style={{ minWidth: 0 }}>
           <Flex justifyContent="space-between">
             <Typography fontWeight="bold" textColor="neutral800">
               {formatMessage({ id: getTrad(`attribute.${type}`), defaultMessage: type })}

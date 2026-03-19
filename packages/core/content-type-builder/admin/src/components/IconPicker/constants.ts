@@ -1,5 +1,5 @@
-import * as Icons from '@leao1/design-system/icons';
-import * as Symbols from '@leao1/design-system/symbols';
+import * as Icons from '../../ui/icons-ext';
+import * as Symbols from '../../ui/symbols';
 
 export type Icon = (typeof Icons)[keyof typeof Icons] | (typeof Symbols)[keyof typeof Symbols];
 

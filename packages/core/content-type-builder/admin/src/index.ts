@@ -1,6 +1,7 @@
-import { Layout } from '@leao1/design-system/icons';
-
 import pluginPkg from '../../package.json';
+
+import { Layout } from './ui';
+import './ui/styles.css';
 
 import { PERMISSIONS } from './constants';
 import { pluginId } from './pluginId';

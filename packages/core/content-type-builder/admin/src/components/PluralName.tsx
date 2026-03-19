@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import { Field, TextInput } from '@leao1/design-system';
+import { Field, TextInput } from '../ui';
 import pluralize from 'pluralize';
 import { useIntl } from 'react-intl';
 

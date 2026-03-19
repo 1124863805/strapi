@@ -1,10 +1,4 @@
-import type { ComponentType } from 'react';
-import { Flex } from '@leao1/design-system';
-import { IconButton } from '@leao1/design-system';
 import { memo } from 'react';
-
-import { Box, Typography } from '@leao1/design-system';
-import { Lock, Pencil, Trash } from '@leao1/design-system/icons';
 import get from 'lodash/get';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
@@ -12,12 +6,13 @@ import { styled } from 'styled-components';
 import { useDataManager } from '../hooks/useDataManager';
 import { Curve } from '../icons/Curve';
 import { getTrad } from '../utils/getTrad';
+import { Flex, Typography, Lock, Pencil, Trash } from '../ui';
 
 import { AttributeIcon, IconByType } from './AttributeIcon';
 import { DisplayedType } from './DisplayedType';
 import { UpperFirst } from './UpperFirst';
 
-export const BoxWrapper: ComponentType<any> = styled(Box)`
+const RowWrapper = styled.tr`
   position: relative;
 `;
 
@@ -103,13 +98,12 @@ export const ListRow = memo(
     }
 
     return (
-      <BoxWrapper
-        tag="tr"
+      <RowWrapper
         onClick={isInDevelopmentMode && configurable && !isMorph ? handleClick : undefined}
       >
         <td style={{ position: 'relative' }}>
           {loopNumber !== 0 && <Curve color={isFromDynamicZone ? 'primary200' : 'neutral150'} />}
-          <Flex paddingLeft={2} gap={4}>
+          <Flex style={{ paddingLeft: 'var(--ctb-space-2)' }} gap={4}>
             <AttributeIcon type={src} customField={customField} />
             <Typography textColor="neutral800" fontWeight="bold">
               {name}
@@ -146,18 +140,21 @@ export const ListRow = memo(
               {configurable ? (
                 <Flex gap={1}>
                   {!isMorph && (
-                    <IconButton
+                    <button
+                      type="button"
+                      className="ctb-icon-btn"
                       onClick={handleClick}
-                      label={`${formatMessage({
+                      title={`${formatMessage({
                         id: 'app.utils.edit',
                         defaultMessage: 'Edit',
                       })} ${name}`}
-                      variant="ghost"
                     >
                       <Pencil />
-                    </IconButton>
+                    </button>
                   )}
-                  <IconButton
+                  <button
+                    type="button"
+                    className="ctb-icon-btn"
                     onClick={(e) => {
                       e.stopPropagation();
                       removeAttribute(
@@ -166,29 +163,23 @@ export const ListRow = memo(
                         secondLoopComponentUid || firstLoopComponentUid || ''
                       );
                     }}
-                    label={`${formatMessage({
+                    title={`${formatMessage({
                       id: 'global.delete',
                       defaultMessage: 'Delete',
                     })} ${name}`}
-                    variant="ghost"
                   >
                     <Trash />
-                  </IconButton>
+                  </button>
                 </Flex>
               ) : (
                 <Lock />
               )}
             </Flex>
           ) : (
-            /*
-            In production mode the edit icons aren't visible, therefore
-            we need to reserve the same space, otherwise the height of the
-            row might collapse, leading to bad positioned curve icons
-          */
-            <Box height="3.2rem" />
+            <div style={{ height: 'var(--ctb-space-8)' }} />
           )}
         </td>
-      </BoxWrapper>
+      </RowWrapper>
     );
   }
 );

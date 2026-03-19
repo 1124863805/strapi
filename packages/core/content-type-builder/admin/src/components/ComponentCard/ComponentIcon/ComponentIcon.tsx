@@ -1,4 +1,4 @@
-import { Flex } from '@leao1/design-system';
+import { Flex } from '../../../ui';
 
 import { COMPONENT_ICONS } from '../../IconPicker/constants';
 

@@ -1,33 +1,44 @@
 import type { ReactNode } from 'react';
-
-import { Box, Flex, Typography } from '@leao1/design-system';
 import { styled } from 'styled-components';
 
-const IconBox = styled(Box)`
+import { Flex, Typography } from '../ui';
+
+const IconBox = styled.div<{ color: string }>`
   height: 2.4rem;
   width: 2.4rem;
-  border-radius: 50%;
+  border-radius: var(--ctb-radius-sm);
   display: flex;
   justify-content: center;
   align-items: center;
+  background: ${({ color }) =>
+    color === 'primary' ? 'var(--ctb-primary-soft)' : 'var(--ctb-bg-hover)'};
+  color: ${({ color }) => (color === 'primary' ? 'var(--ctb-primary)' : 'var(--ctb-text-muted)')};
 
   svg {
     height: 1rem;
     width: 1rem;
   }
-
-  svg path {
-    fill: ${({ theme, color }) => theme.colors[`${color}600`]};
-  }
 `;
 
-const ButtonBox = styled(Box)`
-  border-radius: 0 0 ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius};
+const ButtonBox = styled.button`
+  border-radius: 0 0 var(--ctb-radius) var(--ctb-radius);
   display: block;
   width: 100%;
   border: none;
   position: relative;
   left: -0.4rem;
+  padding: var(--ctb-space-4) var(--ctb-space-5);
+  min-height: 52px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--ctb-font);
+  transition: background 180ms ease;
+  border-top: 1px dashed var(--ctb-border);
+
+  &:hover {
+    background: var(--ctb-bg);
+  }
 `;
 
 interface NestedTFooterProps {
@@ -37,19 +48,17 @@ interface NestedTFooterProps {
   onClick?: () => void;
 }
 
-export const NestedTFooter = ({ children, icon, color, ...props }: NestedTFooterProps) => {
-  return (
-    <ButtonBox paddingBottom={4} paddingTop={4} tag="button" type="button" {...props}>
-      <Flex>
-        <IconBox color={color} aria-hidden background={`${color}200`}>
-          {icon}
-        </IconBox>
-        <Box paddingLeft={3}>
-          <Typography variant="pi" fontWeight="bold" textColor={`${color}600`}>
-            {children}
-          </Typography>
-        </Box>
-      </Flex>
-    </ButtonBox>
-  );
-};
+export const NestedTFooter = ({ children, icon, color, ...props }: NestedTFooterProps) => (
+  <ButtonBox type="button" {...props}>
+    <Flex>
+      <IconBox color={color} aria-hidden>
+        {icon}
+      </IconBox>
+      <div style={{ paddingLeft: 'var(--ctb-space-4)' }}>
+        <Typography variant="pi" fontWeight="bold" textColor={color === 'primary' ? 'primary600' : 'neutral600'}>
+          {children}
+        </Typography>
+      </div>
+    </Flex>
+  </ButtonBox>
+);

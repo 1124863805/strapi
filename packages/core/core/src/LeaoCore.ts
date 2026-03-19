@@ -355,8 +355,7 @@ class Leao extends Container implements Core.Leao {
 
   async load() {
     const trace = (s: string) =>
-      (process.env.LEAO_TRACE || process.env.NODE_ENV === 'development') &&
-      process.stderr.write(`[leao] ${s}\n`);
+      process.env.LEAO_TRACE && process.stderr.write(`[leao] ${s}\n`);
     trace('load:start');
     await this.register();
     trace('load:register done');
@@ -370,8 +369,7 @@ class Leao extends Container implements Core.Leao {
 
   async register() {
     const trace = (s: string) =>
-      (process.env.LEAO_TRACE || process.env.NODE_ENV === 'development') &&
-      process.stderr.write(`[leao] ${s}\n`);
+      process.env.LEAO_TRACE && process.stderr.write(`[leao] ${s}\n`);
     trace('register:start');
     // @ts-expect-error: init is internal
     this.ee.init(this.dirs.app.root, this.log);
@@ -394,8 +392,7 @@ class Leao extends Container implements Core.Leao {
 
   async bootstrap() {
     const trace = (s: string) =>
-      (process.env.LEAO_TRACE || process.env.NODE_ENV === 'development') &&
-      process.stderr.write(`[leao] ${s}\n`);
+      process.env.LEAO_TRACE && process.stderr.write(`[leao] ${s}\n`);
     trace('bootstrap:start');
     this.configureGlobalProxy();
 

@@ -1,9 +1,4 @@
-import { Box } from '@leao1/design-system';
-import { Flex } from '@leao1/design-system';
-import { Typography } from '@leao1/design-system';
-import { LinkButton } from '@leao1/design-system';
-import { Plus } from '@leao1/design-system/icons';
-import { EmptyDocuments } from '@leao1/design-system/symbols';
+import { Box, Flex, Typography, Plus, EmptyDocuments, LinkButton } from '../../ui';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
@@ -11,9 +6,8 @@ import { styled } from 'styled-components';
 import { getTrad } from '../../utils';
 
 const EmptyCard = styled(Box)`
-  background: ${({ theme }) =>
-    `linear-gradient(180deg, rgba(234, 234, 239, 0) 0%, ${theme.colors.neutral150} 100%)`};
-  opacity: 0.33;
+  background: linear-gradient(180deg, transparent 0%, var(--ctb-bg) 100%);
+  opacity: 0.5;
 `;
 
 export const EmptyCardGrid = () => {

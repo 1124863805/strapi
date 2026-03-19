@@ -1,29 +1,18 @@
-import { Button } from '@leao1/design-system';
-import { BackButton, Layouts } from '@leao1/admin/leao-admin';
-import { Box, Flex } from '@leao1/design-system';
-import { Check, Pencil, Plus } from '@leao1/design-system/icons';
+import * as React from 'react';
 import get from 'lodash/get';
 import has from 'lodash/has';
 import isEqual from 'lodash/isEqual';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 import { unstable_usePrompt as usePrompt, useMatch } from 'react-router-dom';
-import { styled } from 'styled-components';
 
+import { Button, Flex, Check, IconButton, Pencil, Plus } from '../../ui';
 import { List } from '../../components/List';
 import { ListRow } from '../../components/ListRow';
 import { useDataManager } from '../../hooks/useDataManager';
 import { useFormModalNavigation } from '../../hooks/useFormModalNavigation';
 import { getAttributeDisplayedType } from '../../utils/getAttributeDisplayedType';
 import { getTrad } from '../../utils/getTrad';
-
-import { LinkToCMSettingsView } from './LinkToCMSettingsView';
-
-/* eslint-disable indent */
-
-const LayoutsHeaderCustom = styled(Layouts.Header)`
-  overflow-wrap: anywhere;
-`;
 
 const ListView = () => {
   const { initialData, modifiedData, isInDevelopmentMode, isInContentTypeView, submitData } =
@@ -114,76 +103,56 @@ const ListView = () => {
   });
 
   return (
-    <>
-      <LayoutsHeaderCustom
-        id="title"
-        primaryAction={
-          isInDevelopmentMode && (
-            <Flex gap={2} marginLeft={2}>
-              {/* DON'T display the add field button when the content type has not been created */}
-              {!isCreatingFirstContentType && (
-                <Button
-                  startIcon={<Plus />}
-                  variant="secondary"
-                  minWidth="max-content"
-                  onClick={() => {
-                    onOpenModalAddField({ forTarget, targetUid });
-                  }}
-                >
-                  {formatMessage({
-                    id: getTrad('button.attributes.add.another'),
-                    defaultMessage: 'Add another field',
-                  })}
-                </Button>
+    <div className="ctb-layout">
+      <div className="ctb-card">
+        <div className="ctb-card-header">
+          <div className="ctb-card-header-left">
+              <h1 className="ctb-schema-title">
+                {upperFirst(label)}
+                {!isFromPlugin && !isCreatingFirstContentType && isInDevelopmentMode && (
+                  <IconButton
+                    label={formatMessage({ id: 'app.utils.edit', defaultMessage: '编辑' })}
+                    onClick={onEdit}
+                    style={{ marginLeft: 'var(--ctb-space-2)', verticalAlign: 'middle' }}
+                  >
+                    <Pencil />
+                  </IconButton>
+                )}
+              </h1>
+              <span className="ctb-tab-label">
+                {formatMessage({ id: getTrad('listView.fields'), defaultMessage: '全部字段' })}
+              </span>
+          </div>
+          <div className="ctb-card-header-right">
+              {isInDevelopmentMode && (
+                <Flex gap={2}>
+                  {!isCreatingFirstContentType && (
+                    <Button
+                      startIcon={<Plus />}
+                      variant="secondary"
+                      size="S"
+                      onClick={() => onOpenModalAddField({ forTarget, targetUid })}
+                    >
+                      {formatMessage({
+                        id: getTrad('button.attributes.add.another'),
+                        defaultMessage: '添加字段',
+                      })}
+                    </Button>
+                  )}
+                  <Button
+                    startIcon={<Check />}
+                    size="S"
+                    onClick={async () => await submitData()}
+                    type="submit"
+                    disabled={isEqual(modifiedData, initialData)}
+                  >
+                    {formatMessage({ id: 'global.save', defaultMessage: '保存' })}
+                  </Button>
+                </Flex>
               )}
-              <Button
-                startIcon={<Check />}
-                onClick={async () => await submitData()}
-                type="submit"
-                disabled={isEqual(modifiedData, initialData)}
-              >
-                {formatMessage({
-                  id: 'global.save',
-                  defaultMessage: 'Save',
-                })}
-              </Button>
-            </Flex>
-          )
-        }
-        secondaryAction={
-          isInDevelopmentMode &&
-          !isFromPlugin &&
-          !isCreatingFirstContentType && (
-            <Button startIcon={<Pencil />} variant="tertiary" onClick={onEdit}>
-              {formatMessage({
-                id: 'app.utils.edit',
-                defaultMessage: 'Edit',
-              })}
-            </Button>
-          )
-        }
-        title={upperFirst(label)}
-        subtitle={formatMessage({
-          id: getTrad('listView.headerLayout.description'),
-          defaultMessage: 'Build the data architecture of your content',
-        })}
-        navigationAction={<BackButton />}
-      />
-      <Layouts.Content>
-        <Flex direction="column" alignItems="stretch" gap={4}>
-          <Flex justifyContent="flex-end">
-            <Flex gap={2}>
-              <LinkToCMSettingsView
-                key="link-to-cm-settings-view"
-                targetUid={targetUid}
-                isTemporary={isTemporary}
-                isInContentTypeView={isInContentTypeView}
-                contentTypeKind={contentTypeKind}
-                disabled={isCreatingFirstContentType}
-              />
-            </Flex>
-          </Flex>
-          <Box background="neutral0" shadow="filterShadow" hasRadius>
+          </div>
+        </div>
+        <div className="ctb-list-scroll">
             <List
               items={attributes}
               customRowComponent={(props) => <ListRow {...props} onClick={handleClickEditField} />}
@@ -192,12 +161,10 @@ const ListView = () => {
               editTarget={forTarget}
               isMain
             />
-          </Box>
-        </Flex>
-      </Layouts.Content>
-    </>
+        </div>
+      </div>
+    </div>
   );
 };
 
-// eslint-disable-next-line import/no-default-export
 export default ListView;

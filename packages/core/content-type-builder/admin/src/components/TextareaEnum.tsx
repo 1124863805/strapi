@@ -1,6 +1,6 @@
 import { ReactNode, ChangeEvent } from 'react';
 
-import { Field, Textarea } from '@leao1/design-system';
+import { Field, Textarea } from '../ui';
 import { useIntl } from 'react-intl';
 
 import type { IntlLabel } from '../types';

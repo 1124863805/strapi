@@ -1,7 +1,4 @@
-import { Box } from '@leao1/design-system';
-import { Flex } from '@leao1/design-system';
-import { Typography } from '@leao1/design-system';
-import { Cross } from '@leao1/design-system/icons';
+import { Box, Flex, Typography, Cross } from '../../ui';
 import get from 'lodash/get';
 import { styled } from 'styled-components';
 
@@ -29,7 +26,7 @@ const CloseButton = styled(Box)`
     height: 1rem;
 
     path {
-      fill: ${({ theme }) => theme.colors.primary600};
+      fill: var(--ctb-primary);
     }
   }
 `;
@@ -38,31 +35,28 @@ const ComponentBox = styled(Flex)`
   width: 14rem;
   height: 8rem;
   position: relative;
-  border: 1px solid ${({ theme }) => theme.colors.neutral200};
-  background: ${({ theme }) => theme.colors.neutral100};
-  border-radius: ${({ theme }) => theme.borderRadius};
+  border: 1px solid var(--ctb-border);
+  background: var(--ctb-bg);
+  border-radius: var(--ctb-radius-sm);
   max-width: 100%;
 
   &.active,
   &:focus,
   &:hover {
-    border: 1px solid ${({ theme }) => theme.colors.primary200};
-    background: ${({ theme }) => theme.colors.primary100};
-    color: ${({ theme }) => theme.colors.primary600};
+    border: 1px solid var(--ctb-primary);
+    background: var(--ctb-primary-soft);
+    color: var(--ctb-primary);
 
     ${CloseButton} {
       display: block;
     }
 
-    /* > ComponentIcon */
     > div:first-child {
-      background: ${({ theme }) => theme.colors.primary200};
-      color: ${({ theme }) => theme.colors.primary600};
+      background: var(--ctb-primary-soft);
+      color: var(--ctb-primary);
 
-      svg {
-        path {
-          fill: ${({ theme }) => theme.colors.primary600};
-        }
+      svg path {
+        fill: var(--ctb-primary);
       }
     }
   }
@@ -91,7 +85,6 @@ export const ComponentCard = ({
       alignItems="center"
       direction="column"
       className={isActive ? 'active' : ''}
-      borderRadius="borderRadius"
       justifyContent="center"
       paddingLeft={4}
       paddingRight={4}
@@ -107,7 +100,7 @@ export const ComponentCard = ({
       <ComponentIcon icon={icon} isActive={isActive} />
 
       <Box marginTop={1} maxWidth="100%">
-        <Typography variant="pi" fontWeight="bold" ellipsis>
+        <Typography variant="pi" fontWeight="bold">
           {displayName}
         </Typography>
       </Box>

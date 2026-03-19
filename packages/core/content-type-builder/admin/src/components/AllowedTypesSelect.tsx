@@ -1,4 +1,4 @@
-import { Field, MultiSelectNested } from '@leao1/design-system';
+import { Field, MultiSelectNested } from '../ui';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 

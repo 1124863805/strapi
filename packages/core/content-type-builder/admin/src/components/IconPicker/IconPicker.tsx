@@ -1,14 +1,18 @@
-import { Field, Flex } from '@leao1/design-system';
-import { IconButton } from '@leao1/design-system';
-import { inputFocusStyle } from '@leao1/design-system';
-import { Searchbar } from '@leao1/design-system';
-import { Tooltip } from '@leao1/design-system';
-import { Typography } from '@leao1/design-system';
-import { VisuallyHidden } from '@leao1/design-system';
 import { useEffect, useRef, useState } from 'react';
 
-import { Box } from '@leao1/design-system';
-import { Search, Trash } from '@leao1/design-system/icons';
+import {
+  Box,
+  Field,
+  Flex,
+  IconButton,
+  inputFocusStyle,
+  Searchbar,
+  Tooltip,
+  Typography,
+  VisuallyHidden,
+  Search,
+  Trash,
+} from '../../ui';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 
@@ -21,8 +25,8 @@ import type { IntlLabel } from '../../types';
 const IconPickerWrapper = styled(Flex)`
   label {
     ${(inputFocusStyle as any)()}
-    border-radius: ${({ theme }) => theme.borderRadius};
-    border: 1px solid ${({ theme }) => theme.colors.neutral100};
+    border-radius: var(--ctb-radius-sm);
+    border: 1px solid var(--ctb-border);
   }
 `;
 

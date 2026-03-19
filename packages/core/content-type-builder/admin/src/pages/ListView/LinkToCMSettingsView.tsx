@@ -1,8 +1,7 @@
 import { memo } from 'react';
 
 import { type Permission, useRBAC } from '@leao1/admin/leao-admin';
-import { Button } from '@leao1/design-system';
-import { ListPlus } from '@leao1/design-system/icons';
+import { Button, ListPlus } from '../../ui';
 import { useIntl } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
 
@@ -49,7 +48,7 @@ export const LinkToCMSettingsView = memo(
       cmPermissions;
     const label = formatMessage({
       id: 'content-type-builder.form.button.configure-view',
-      defaultMessage: 'Configure the view',
+      defaultMessage: '配置视图',
     });
     let permissionsToApply = collectionTypesConfigurations;
 

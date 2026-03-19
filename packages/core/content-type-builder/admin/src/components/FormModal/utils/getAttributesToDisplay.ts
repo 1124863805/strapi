@@ -28,9 +28,15 @@ export const getAttributesToDisplay = (
   const isPickingAttributeForAContentType = dataTarget === 'contentType';
 
   if (isPickingAttributeForAContentType) {
+    const row1 = [...defaultAttributes.slice(0, -1), 'uid', ...defaultAttributes.slice(-1)];
     return [
-      // Insert UID before the last item (richtext)
-      [...defaultAttributes.slice(0, -1), 'uid', ...defaultAttributes.slice(-1)],
+      [row1[0], row1[1]],
+      [row1[2], row1[3]],
+      [row1[4], row1[5]],
+      [row1[6], row1[7]],
+      [row1[8], row1[9]],
+      [row1[10], row1[11]],
+      [row1[12], row1[13]],
       ['component', 'dynamiczone'],
     ];
   }
@@ -42,9 +48,18 @@ export const getAttributesToDisplay = (
     const canAddComponentInAnotherComponent =
       !isPickingAttributeForAContentType && !isNestedInAnotherComponent;
     if (canAddComponentInAnotherComponent) {
-      return [defaultAttributes, ['component']];
+      const rows: IconByType[][] = [];
+      for (let i = 0; i < defaultAttributes.length; i += 2) {
+        rows.push(defaultAttributes.slice(i, i + 2));
+      }
+      rows.push(['component']);
+      return rows;
     }
   }
 
-  return [defaultAttributes];
+  const rows: IconByType[][] = [];
+  for (let i = 0; i < defaultAttributes.length; i += 2) {
+    rows.push(defaultAttributes.slice(i, i + 2));
+  }
+  return rows;
 };

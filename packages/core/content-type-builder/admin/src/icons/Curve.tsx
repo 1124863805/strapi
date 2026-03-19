@@ -1,7 +1,7 @@
-import { Box } from '@leao1/design-system';
+import { Box } from '../ui';
 import { styled } from 'styled-components';
 
-const StyledBox = styled(Box)`
+const StyledBox = styled(Box)<{ color?: string }>`
   position: absolute;
   left: -1.8rem;
   top: 0px;
@@ -10,18 +10,20 @@ const StyledBox = styled(Box)`
     content: '';
     width: 0.4rem;
     height: 1.2rem;
-    background: ${({ theme, color }) => theme.colors[color!]};
+    background: ${({ color }) =>
+      color === 'primary200' ? 'var(--ctb-primary-soft)' : 'var(--ctb-border)'};
     display: block;
   }
 `;
 
-const Svg = styled.svg`
+const Svg = styled.svg<{ color?: string }>`
   position: relative;
   flex-shrink: 0;
   transform: translate(-0.5px, -1px);
 
   * {
-    fill: ${({ theme, color }) => theme.colors[color!]};
+    fill: ${({ color }) =>
+      color === 'primary200' ? 'var(--ctb-primary-soft)' : 'var(--ctb-border)'};
   }
 `;
 
@@ -29,15 +31,16 @@ interface CurveProps {
   color: string;
 }
 
-export const Curve = (props: CurveProps) => (
-  <StyledBox>
+export const Curve = ({ color, ...rest }: CurveProps) => (
+  <StyledBox color={color}>
     <Svg
+      color={color}
       width="20"
       height="23"
       viewBox="0 0 20 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      {...rest}
     >
       <path
         fillRule="evenodd"

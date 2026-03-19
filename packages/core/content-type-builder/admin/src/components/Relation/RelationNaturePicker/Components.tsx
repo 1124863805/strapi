@@ -1,8 +1,8 @@
 import type { ComponentType } from 'react';
-import { Box, BoxComponent, Flex, FlexComponent } from '@leao1/design-system';
+import { Box, Flex } from '../../../ui';
 import { styled } from 'styled-components';
 
-const Wrapper: ComponentType<any> = styled<BoxComponent>(Box)`
+const Wrapper: ComponentType<any> = styled(Box)`
   position: relative;
   width: 100%;
   &::before {
@@ -11,16 +11,15 @@ const Wrapper: ComponentType<any> = styled<BoxComponent>(Box)`
     top: calc(50% - 0px);
     height: 2px;
     width: 100%;
-    background-color: ${({ theme }) => theme.colors.primary600};
+    background-color: var(--ctb-border);
     z-index: 0;
   }
 `;
 
-const IconWrapper: ComponentType<any> = styled<BoxComponent<'button'>>(Box)<{ $isSelected: boolean }>`
-  background: ${({ theme, $isSelected }) => theme.colors[$isSelected ? 'primary100' : 'neutral0']};
-  border: 1px solid
-    ${({ theme, $isSelected }) => theme.colors[$isSelected ? 'primary700' : 'neutral200']};
-  border-radius: ${({ theme }) => theme.borderRadius};
+const IconWrapper: ComponentType<any> = styled(Box)<{ $isSelected?: boolean }>`
+  background: ${({ $isSelected }) => ($isSelected ? 'var(--ctb-primary-soft)' : 'var(--ctb-bg-elevated)')};
+  border: 1px solid ${({ $isSelected }) => ($isSelected ? 'var(--ctb-primary)' : 'var(--ctb-border)')};
+  border-radius: var(--ctb-radius-sm);
   z-index: 1;
   flex: 0 0 2.4rem;
   svg {
@@ -28,7 +27,7 @@ const IconWrapper: ComponentType<any> = styled<BoxComponent<'button'>>(Box)<{ $i
     height: 2.4rem;
     max-width: unset;
     path {
-      fill: ${({ theme, $isSelected }) => theme.colors[$isSelected ? 'primary700' : 'neutral500']};
+      fill: ${({ $isSelected }) => ($isSelected ? 'var(--ctb-primary)' : 'var(--ctb-text-muted)')};
     }
   }
   &:disabled {
@@ -36,7 +35,7 @@ const IconWrapper: ComponentType<any> = styled<BoxComponent<'button'>>(Box)<{ $i
   }
 `;
 
-const InfosWrapper = styled<FlexComponent>(Flex)`
+const InfosWrapper = styled(Flex)`
   position: absolute;
   bottom: 0;
   left: 0;

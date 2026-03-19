@@ -1,4 +1,4 @@
-import { Box, Divider, Flex, Typography } from '@leao1/design-system';
+import { Box, Divider, Flex, Typography } from '../../../ui';
 
 import { getTrad } from '../../../utils/getTrad';
 import { GenericInput } from '../../GenericInputs';

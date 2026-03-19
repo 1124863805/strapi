@@ -1,8 +1,12 @@
-import { Flex } from '@leao1/design-system';
-import { KeyboardNavigable } from '@leao1/design-system';
-import { Typography } from '@leao1/design-system';
+import { Flex, KeyboardNavigable, Typography } from '../../../ui';
 import {
-  ManyToMany, ManyToOne, ManyWays, OneToMany, OneToOne, OneWay } from '@leao1/design-system/icons';
+  ManyToMany,
+  ManyToOne,
+  ManyWays,
+  OneToMany,
+  OneToOne,
+  OneWay,
+} from '../../../ui/icons-ext';
 import get from 'lodash/get';
 import truncate from 'lodash/truncate';
 import pluralize from 'pluralize';

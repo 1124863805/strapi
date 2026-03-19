@@ -1,5 +1,5 @@
 import { LeaoAppContextValue } from '@leao1/admin/leao-admin';
-import { Flex, Typography } from '@leao1/design-system';
+import { Flex, Typography } from '../ui';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 
@@ -74,7 +74,7 @@ export const FormModalSubHeader = ({
       : { id: getTrad(`attribute.${attributeType}`) };
 
   return (
-    <Flex direction="column" alignItems="flex-start" paddingBottom={1} gap={1}>
+    <Flex direction="column" alignItems="flex-start" gap={2}>
       <Typography tag="h2" variant="beta">
         {formatMessage(
           {
@@ -94,7 +94,7 @@ export const FormModalSubHeader = ({
           }
         )}
       </Typography>
-      <Typography variant="pi" textColor="neutral600">
+      <Typography variant="pi" textColor="neutral600" style={{ marginTop: 2 }}>
         {formatMessage({
           id: getTrad(`attribute.${attributeType}.description`),
           defaultMessage: 'A type for modeling data',

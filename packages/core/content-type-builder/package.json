@@ -48,10 +48,14 @@
     "watch": "pack-up watch"
   },
   "dependencies": {
-    "@leao1/design-system": "^1.0.0",
+    "@ant-design/icons": "^5.5.1",
     "@leao1/utils": "^1.0.0",
+    "@radix-ui/react-alert-dialog": "1.0.5",
+    "@radix-ui/react-dialog": "1.0.5",
+    "@radix-ui/react-tabs": "1.0.4",
     "@reduxjs/toolkit": "1.9.7",
     "@sindresorhus/slugify": "1.1.0",
+    "antd": "^5.25.0",
     "date-fns": "2.30.0",
     "fs-extra": "11.2.0",
     "immer": "9.0.21",

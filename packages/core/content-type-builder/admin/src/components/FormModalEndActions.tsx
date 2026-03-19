@@ -6,9 +6,8 @@
 
 import { SyntheticEvent, useEffect, useRef, useState } from 'react';
 
-import { ConfirmDialog } from '@leao1/admin/leao-admin';
-import { Button, Dialog, Flex } from '@leao1/design-system';
-import { Plus } from '@leao1/design-system/icons';
+import { Dialog, Flex, ModalActionView, Plus } from '../ui';
+import { ConfirmDialog } from '../ConfirmDialog';
 import { useIntl } from 'react-intl';
 
 import { getTrad } from '../utils';
@@ -132,31 +131,29 @@ export const FormModalEndActions = ({
   if (isComponentToDzModal) {
     if (isCreatingComponentInDz) {
       return (
-        <Button
+        <ModalActionView
           variant="secondary"
           type="submit"
           onClick={(e: SyntheticEvent) => {
             e.preventDefault();
-
             onSubmitAddComponentToDz(e, true);
           }}
-          startIcon={<Plus />}
+          icon={<Plus />}
         >
           {formatMessage({
             id: getTrad('form.button.add-first-field-to-created-component'),
             defaultMessage: 'Add first field to the component',
           })}
-        </Button>
+        </ModalActionView>
       );
     }
 
     return (
-      <Button
-        variant="default"
+      <ModalActionView
+        variant="primary"
         type="submit"
         onClick={(e: SyntheticEvent) => {
           e.preventDefault();
-
           onSubmitAddComponentToDz(e, false);
         }}
       >
@@ -164,18 +161,17 @@ export const FormModalEndActions = ({
           id: 'global.finish',
           defaultMessage: 'Finish',
         })}
-      </Button>
+      </ModalActionView>
     );
   }
 
   if (isAttributeModal && isDzAttribute && !isCreatingDz) {
     return (
-      <Button
-        variant="default"
+      <ModalActionView
+        variant="primary"
         type="submit"
         onClick={(e: SyntheticEvent) => {
           e.preventDefault();
-
           onClickFinish();
           onSubmitEditDz(e, false);
         }}
@@ -184,28 +180,27 @@ export const FormModalEndActions = ({
           id: 'global.finish',
           defaultMessage: 'Finish',
         })}
-      </Button>
+      </ModalActionView>
     );
   }
 
   if (isAttributeModal && isDzAttribute && isCreatingDz) {
     return (
       <>
-        <Button
+        <ModalActionView
           variant="secondary"
           type="submit"
           onClick={(e: SyntheticEvent) => {
             e.preventDefault();
-
             onSubmitCreateDz(e, true);
           }}
-          startIcon={<Plus />}
+          icon={<Plus />}
         >
           {formatMessage({
             id: getTrad('form.button.add-components-to-dynamiczone'),
             defaultMessage: 'Add components to the zone',
           })}
-        </Button>
+        </ModalActionView>
         {/* // TO FIX fix doesnt close the modal */}
         {/* <Button
           variant="default"
@@ -228,12 +223,11 @@ export const FormModalEndActions = ({
   if (isAttributeModal && isComponentAttribute) {
     if (isInFirstComponentStep) {
       return (
-        <Button
+        <ModalActionView
           variant="secondary"
           type="submit"
           onClick={(e: SyntheticEvent) => {
             e.preventDefault();
-
             onSubmitAddComponentAttribute(e, true);
           }}
         >
@@ -246,21 +240,20 @@ export const FormModalEndActions = ({
                 id: getTrad('form.button.select-component'),
                 defaultMessage: 'Configure the component',
               })}
-        </Button>
+        </ModalActionView>
       );
     }
 
     return (
-      <Flex gap={2}>
-        <Button
+      <Flex gap={3}>
+        <ModalActionView
           variant="secondary"
           type="submit"
           onClick={(e: SyntheticEvent) => {
             e.preventDefault();
-
             onSubmitAddComponentAttribute(e, true);
           }}
-          startIcon={<Plus />}
+          icon={<Plus />}
         >
           {isCreatingComponentWhileAddingAField
             ? formatMessage({
@@ -271,13 +264,12 @@ export const FormModalEndActions = ({
                 id: getTrad('form.button.add-field'),
                 defaultMessage: 'Add another field',
               })}
-        </Button>
-        <Button
-          variant="default"
+        </ModalActionView>
+        <ModalActionView
+          variant="primary"
           type="button"
           onClick={(e: SyntheticEvent) => {
             e.preventDefault();
-
             onClickFinish();
             onSubmitAddComponentAttribute(e, false);
           }}
@@ -286,35 +278,33 @@ export const FormModalEndActions = ({
             id: 'global.finish',
             defaultMessage: 'Finish',
           })}
-        </Button>
+        </ModalActionView>
       </Flex>
     );
   }
 
   if (isAttributeModal && !isComponentAttribute && !isDzAttribute) {
     return (
-      <Flex gap={2}>
-        <Button
+      <Flex gap={3}>
+        <ModalActionView
           type={isEditingAttribute ? 'button' : 'submit'}
           variant="secondary"
           onClick={(e: SyntheticEvent) => {
             e.preventDefault();
-
             onSubmitEditAttribute(e, true);
           }}
-          startIcon={<Plus />}
+          icon={<Plus />}
         >
           {formatMessage({
             id: getTrad('form.button.add-field'),
             defaultMessage: 'Add another field',
           })}
-        </Button>
-        <Button
+        </ModalActionView>
+        <ModalActionView
           type={isEditingAttribute ? 'submit' : 'button'}
-          variant="default"
+          variant="primary"
           onClick={(e: SyntheticEvent) => {
             e.preventDefault();
-
             onClickFinish();
             onSubmitEditAttribute(e, false);
           }}
@@ -323,7 +313,7 @@ export const FormModalEndActions = ({
             id: 'global.finish',
             defaultMessage: 'Finish',
           })}
-        </Button>
+        </ModalActionView>
       </Flex>
     );
   }
@@ -331,10 +321,10 @@ export const FormModalEndActions = ({
   if (isContentTypeModal) {
     return (
       <>
-        <Flex gap={2}>
+        <Flex gap={3}>
           {!isCreatingContentType && (
             <>
-              <Button
+              <ModalActionView
                 type="button"
                 variant="danger"
                 onClick={(e: SyntheticEvent) => {
@@ -346,42 +336,42 @@ export const FormModalEndActions = ({
                   id: 'global.delete',
                   defaultMessage: 'Delete',
                 })}
-              </Button>
-            <Button
+              </ModalActionView>
+              <ModalActionView
+                type="submit"
+                variant="primary"
+                onClick={(e: SyntheticEvent) => {
+                  e.preventDefault();
+                  onSubmitEditContentType(e, false);
+                }}
+              >
+                {formatMessage({
+                  id: 'global.finish',
+                  defaultMessage: 'Finish',
+                })}
+              </ModalActionView>
+            </>
+          )}
+          {isCreatingContentType && (
+            <ModalActionView
               type="submit"
-              variant="default"
+              variant="secondary"
               onClick={(e: SyntheticEvent) => {
                 e.preventDefault();
-
-                onSubmitEditContentType(e, false);
+                onSubmitCreateContentType(e, true);
               }}
             >
               {formatMessage({
-                id: 'global.finish',
-                defaultMessage: 'Finish',
+                id: 'global.continue',
+                defaultMessage: 'Continue',
               })}
-            </Button>
-          </>
-        )}
-        {isCreatingContentType && (
-          <Button
-            type="submit"
-            variant="secondary"
-            onClick={(e: SyntheticEvent) => {
-              e.preventDefault();
-
-              onSubmitCreateContentType(e, true);
-            }}
-          >
-            {formatMessage({
-              id: 'global.continue',
-              defaultMessage: 'Continue',
-            })}
-          </Button>
-        )}
+            </ModalActionView>
+          )}
         </Flex>
-        <Dialog.Root open={deleteConfirm === 'contentType'} onOpenChange={(open) => !open && setDeleteConfirm(null)}>
-          <ConfirmDialog onConfirm={handleDeleteConfirm}>{deleteConfirmMessage}</ConfirmDialog>
+        <Dialog.Root open={deleteConfirm === 'contentType'} onOpenChange={(open: boolean) => !open && setDeleteConfirm(null)}>
+          <ConfirmDialog onConfirm={handleDeleteConfirm} onCancel={() => setDeleteConfirm(null)}>
+            {deleteConfirmMessage}
+          </ConfirmDialog>
         </Dialog.Root>
       </>
     );
@@ -390,10 +380,10 @@ export const FormModalEndActions = ({
   if (isComponentModal) {
     return (
       <>
-        <Flex gap={2}>
+        <Flex gap={3}>
           {!isCreatingComponent && (
             <>
-              <Button
+              <ModalActionView
                 type="button"
                 variant="danger"
                 onClick={(e: SyntheticEvent) => {
@@ -405,42 +395,42 @@ export const FormModalEndActions = ({
                   id: 'global.delete',
                   defaultMessage: 'Delete',
                 })}
-              </Button>
-            <Button
+              </ModalActionView>
+              <ModalActionView
+                type="submit"
+                variant="primary"
+                onClick={(e: SyntheticEvent) => {
+                  e.preventDefault();
+                  onSubmitEditComponent(e, false);
+                }}
+              >
+                {formatMessage({
+                  id: 'global.finish',
+                  defaultMessage: 'Finish',
+                })}
+              </ModalActionView>
+            </>
+          )}
+          {isCreatingComponent && (
+            <ModalActionView
               type="submit"
-              variant="default"
+              variant="secondary"
               onClick={(e: SyntheticEvent) => {
                 e.preventDefault();
-
-                onSubmitEditComponent(e, false);
+                onSubmitCreateComponent(e, true);
               }}
             >
               {formatMessage({
-                id: 'global.finish',
-                defaultMessage: 'Finish',
+                id: 'global.continue',
+                defaultMessage: 'Continue',
               })}
-            </Button>
-          </>
-        )}
-        {isCreatingComponent && (
-          <Button
-            type="submit"
-            variant="secondary"
-            onClick={(e: SyntheticEvent) => {
-              e.preventDefault();
-
-              onSubmitCreateComponent(e, true);
-            }}
-          >
-            {formatMessage({
-              id: 'global.continue',
-              defaultMessage: 'Continue',
-            })}
-          </Button>
-        )}
+            </ModalActionView>
+          )}
         </Flex>
-        <Dialog.Root open={deleteConfirm === 'component'} onOpenChange={(open) => !open && setDeleteConfirm(null)}>
-          <ConfirmDialog onConfirm={handleDeleteConfirm}>{deleteConfirmMessage}</ConfirmDialog>
+        <Dialog.Root open={deleteConfirm === 'component'} onOpenChange={(open: boolean) => !open && setDeleteConfirm(null)}>
+          <ConfirmDialog onConfirm={handleDeleteConfirm} onCancel={() => setDeleteConfirm(null)}>
+            {deleteConfirmMessage}
+          </ConfirmDialog>
         </Dialog.Root>
       </>
     );
@@ -449,8 +439,8 @@ export const FormModalEndActions = ({
   if (isEditingCategory) {
     return (
       <>
-        <Flex gap={2}>
-          <Button
+        <Flex gap={3}>
+          <ModalActionView
             type="button"
             variant="danger"
             onClick={(e: SyntheticEvent) => {
@@ -464,24 +454,25 @@ export const FormModalEndActions = ({
               id: 'global.delete',
               defaultMessage: 'Delete',
             })}
-          </Button>
-        <Button
-          type="submit"
-          variant="default"
-          onClick={(e: SyntheticEvent) => {
-            e.preventDefault();
-
-            onSubmitEditCategory(e);
-          }}
-        >
-          {formatMessage({
-            id: 'global.finish',
-            defaultMessage: 'finish',
-          })}
-        </Button>
+          </ModalActionView>
+          <ModalActionView
+            type="submit"
+            variant="primary"
+            onClick={(e: SyntheticEvent) => {
+              e.preventDefault();
+              onSubmitEditCategory(e);
+            }}
+          >
+            {formatMessage({
+              id: 'global.finish',
+              defaultMessage: 'Finish',
+            })}
+          </ModalActionView>
         </Flex>
-        <Dialog.Root open={deleteConfirm === 'category'} onOpenChange={(open) => !open && setDeleteConfirm(null)}>
-          <ConfirmDialog onConfirm={handleDeleteConfirm}>{deleteConfirmMessage}</ConfirmDialog>
+        <Dialog.Root open={deleteConfirm === 'category'} onOpenChange={(open: boolean) => !open && setDeleteConfirm(null)}>
+          <ConfirmDialog onConfirm={handleDeleteConfirm} onCancel={() => setDeleteConfirm(null)}>
+            {deleteConfirmMessage}
+          </ConfirmDialog>
         </Dialog.Root>
       </>
     );
@@ -489,28 +480,26 @@ export const FormModalEndActions = ({
 
   if (isCustomFieldModal) {
     return (
-      <Flex gap={2}>
-        <Button
+      <Flex gap={3}>
+        <ModalActionView
           type={isEditingAttribute ? 'button' : 'submit'}
           variant="secondary"
           onClick={(e: SyntheticEvent) => {
             e.preventDefault();
-
             onSubmitEditCustomFieldAttribute(e, true);
           }}
-          startIcon={<Plus />}
+          icon={<Plus />}
         >
           {formatMessage({
             id: getTrad('form.button.add-field'),
             defaultMessage: 'Add another field',
           })}
-        </Button>
-        <Button
+        </ModalActionView>
+        <ModalActionView
           type={isEditingAttribute ? 'submit' : 'button'}
-          variant="default"
+          variant="primary"
           onClick={(e: SyntheticEvent) => {
             e.preventDefault();
-
             onClickFinish();
             onSubmitEditCustomFieldAttribute(e, false);
           }}
@@ -519,7 +508,7 @@ export const FormModalEndActions = ({
             id: 'global.finish',
             defaultMessage: 'Finish',
           })}
-        </Button>
+        </ModalActionView>
       </Flex>
     );
   }

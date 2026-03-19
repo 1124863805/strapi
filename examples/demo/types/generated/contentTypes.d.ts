@@ -1,5 +1,83 @@
 import type { Struct, Schema } from '@leao1/leao';
 
+export interface ApiTest1Test1 extends Struct.CollectionTypeSchema {
+  collectionName: 'test1s';
+  info: {
+    singularName: 'test1';
+    pluralName: 'test1s';
+    displayName: 'test1';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test1: Schema.Attribute.String;
+    test2: Schema.Attribute.String;
+    test3: Schema.Attribute.String;
+    test4: Schema.Attribute.String;
+    test5: Schema.Attribute.String;
+    test6: Schema.Attribute.String;
+    test7: Schema.Attribute.String;
+    test8: Schema.Attribute.String;
+    teest19: Schema.Attribute.String;
+    test11: Schema.Attribute.String;
+    test12: Schema.Attribute.String;
+    test13: Schema.Attribute.String;
+    test14: Schema.Attribute.String;
+    test18: Schema.Attribute.String;
+    test19: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::test1.test1'> &
+      Schema.Attribute.Private;
+    leao_stage: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::review-workflows.workflow-stage'
+    >;
+    leao_assignee: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
+  };
+}
+
+export interface ApiTest11Test11 extends Struct.SingleTypeSchema {
+  collectionName: 'test11s';
+  info: {
+    singularName: 'test11';
+    pluralName: 'test11s';
+    displayName: 'test11';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test2: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::test11.test11'
+    > &
+      Schema.Attribute.Private;
+    leao_stage: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::review-workflows.workflow-stage'
+    >;
+    leao_assignee: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
+  };
+}
+
 export interface PluginUploadFile extends Struct.CollectionTypeSchema {
   collectionName: 'files';
   info: {
@@ -450,7 +528,6 @@ export interface PluginUsersPermissionsUser
     displayName: 'User';
   };
   options: {
-    timestamps: true;
     draftAndPublish: false;
   };
   attributes: {
@@ -914,6 +991,8 @@ export interface AdminAuditLog extends Struct.CollectionTypeSchema {
 declare module '@leao1/leao' {
   export module Public {
     export interface ContentTypeSchemas {
+      'api::test1.test1': ApiTest1Test1;
+      'api::test11.test11': ApiTest11Test11;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;

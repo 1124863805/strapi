@@ -1,8 +1,6 @@
-import { useState, MouseEvent } from 'react';
+import React, { useState, MouseEvent } from 'react';
 
 import { useNotification } from '@leao1/admin/leao-admin';
-import { useCollator } from '@leao1/design-system';
-import { useFilter } from '@leao1/design-system';
 import isEqual from 'lodash/isEqual';
 import { useIntl } from 'react-intl';
 
@@ -29,13 +27,23 @@ export const useContentTypeBuilderMenu = () => {
   const { onOpenModalCreateSchema, onOpenModalEditCategory } = useFormModalNavigation();
   const { locale } = useIntl();
 
-  const { startsWith } = useFilter(locale, {
-    sensitivity: 'base',
-  });
-
-  const formatter = useCollator(locale, {
-    sensitivity: 'base',
-  });
+  const collator = React.useMemo(
+    () => new Intl.Collator(locale, { sensitivity: 'base', usage: 'search' }),
+    [locale]
+  );
+  const formatter = React.useMemo(
+    () => new Intl.Collator(locale, { sensitivity: 'base' }),
+    [locale]
+  );
+  const startsWith = React.useCallback(
+    (string: string, substring: string) => {
+      if (substring.length === 0) return true;
+      const s = string.normalize('NFC');
+      const sub = substring.normalize('NFC');
+      return collator.compare(s.slice(0, sub.length), sub) === 0;
+    },
+    [collator]
+  );
 
   const canOpenModalCreateCTorComponent =
     !Object.keys(contentTypes).some((ct) => contentTypes[ct].isTemporary === true) &&

@@ -1,6 +1,4 @@
-import { Menu } from '@leao1/design-system';
 import { useDispatch } from 'react-redux';
-import { styled } from 'styled-components';
 
 import { useDataManager } from '../../../../hooks/useDataManager';
 import { isAllowedContentTypesForRelations } from '../../../../utils';
@@ -17,7 +15,6 @@ export const RelationTargetPicker = ({
 }: RelationTargetPickerProps) => {
   const { contentTypes, sortedContentTypesList } = useDataManager();
   const dispatch = useDispatch();
-  // TODO: replace with an obj { relation: 'x', bidirctional: true|false }
   const allowedContentTypesForRelation = sortedContentTypesList.filter(
     isAllowedContentTypesForRelations
   );
@@ -25,57 +22,44 @@ export const RelationTargetPicker = ({
   const { plugin = null, schema: { displayName } = { displayName: 'error' } } =
     contentTypes?.[target] ?? {};
 
-  const handleSelect =
-    ({
-      uid,
-      plugin,
-      title,
-      restrictRelationsTo,
-    }: {
-      uid: string;
-      plugin: boolean;
-      title: string;
-      restrictRelationsTo: any;
-    }) =>
-    () => {
-      const selectedContentTypeFriendlyName = plugin ? `${plugin}_${title}` : title;
-
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const uid = e.target.value;
+    const selected = allowedContentTypesForRelation.find((ct) => ct.uid === uid);
+    if (selected) {
+      const selectedContentTypeFriendlyName = selected.plugin
+        ? `${selected.plugin}_${selected.title}`
+        : selected.title;
       dispatch({
         type: ON_CHANGE_RELATION_TARGET,
         target: {
           value: uid,
           oneThatIsCreatingARelationWithAnother,
           selectedContentTypeFriendlyName,
-          targetContentTypeAllowedRelations: restrictRelationsTo,
+          targetContentTypeAllowedRelations: selected.restrictRelationsTo,
         },
       });
-    };
+    }
+  };
 
-  /**
-   * TODO: This should be a Select but the design doesn't match the
-   * styles of the select component and there isn't the ability to
-   * change it correctly.
-   */
   return (
-    <Menu.Root>
-      <MenuTrigger>{`${displayName} ${plugin ? `(from: ${plugin})` : ''}`}</MenuTrigger>
-      <Menu.Content zIndex="popover">
-        {allowedContentTypesForRelation.map(({ uid, title, restrictRelationsTo, plugin }) => (
-          <Menu.Item key={uid} onSelect={handleSelect({ uid, plugin, title, restrictRelationsTo })}>
-            {title}&nbsp;
-            {plugin && <>(from: {plugin})</>}
-          </Menu.Item>
-        ))}
-      </Menu.Content>
-    </Menu.Root>
+    <select
+      value={target}
+      onChange={handleChange}
+      style={{
+        maxWidth: '16.8rem',
+        padding: 'var(--ctb-space-2) var(--ctb-space-3)',
+        border: '1px solid var(--ctb-border)',
+        borderRadius: 'var(--ctb-radius-sm)',
+        fontSize: 14,
+        backgroundColor: 'var(--ctb-bg)',
+      }}
+    >
+      {allowedContentTypesForRelation.map(({ uid, title, plugin: p }) => (
+        <option key={uid} value={uid}>
+          {title}
+          {p && ` (from: ${p})`}
+        </option>
+      ))}
+    </select>
   );
 };
-
-const MenuTrigger = styled(Menu.Trigger)`
-  max-width: 16.8rem;
-  span {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-`;

@@ -6,14 +6,21 @@
 
 import * as React from 'react';
 
-import { Checkbox, DatePicker, DateTimePicker, Field, JSONInput, NumberInput } from '@leao1/design-system';
-import { SingleSelect } from '@leao1/design-system';
-import { SingleSelectOption } from '@leao1/design-system';
-import { Textarea } from '@leao1/design-system';
-import { TextInput } from '@leao1/design-system';
-import { TimePicker } from '@leao1/design-system';
-import { Toggle } from '@leao1/design-system';
-import { Eye, EyeStriked } from '@leao1/design-system/icons';
+import {
+  Checkbox,
+  DatePicker,
+  DateTimePicker,
+  Field,
+  JSONInput,
+  NumberInput,
+  SingleSelect,
+  SingleSelectOption,
+  Textarea,
+  TextInput,
+  TimePicker,
+  Toggle,
+} from '../ui';
+import { Eye, EyeStriked } from '../ui/icons-ext';
 import formatISO from 'date-fns/formatISO';
 import isEqual from 'lodash/isEqual';
 import { type MessageDescriptor, type PrimitiveType, useIntl } from 'react-intl';
@@ -364,7 +371,7 @@ const GenericInput = ({
                 }}
                 type="button"
               >
-                {showPassword ? <Eye fill="neutral500" /> : <EyeStriked fill="neutral500" />}
+                {showPassword ? <Eye fill="var(--ctb-text-muted)" /> : <EyeStriked fill="var(--ctb-text-muted)" />}
               </button>
             }
             onChange={(e) => {

@@ -1,10 +1,7 @@
 import * as React from 'react';
 
-import { Box } from '@leao1/design-system';
-import { Flex } from '@leao1/design-system';
-import { Typography } from '@leao1/design-system';
-import { Link } from '@leao1/design-system';
-import { Clock, ArrowClockwise } from '@leao1/design-system/icons';
+import { Box, Flex, Typography, Link } from '../ui';
+import { Clock, ArrowClockwise } from '../ui/icons-ext';
 import { createPortal } from 'react-dom';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { styled, keyframes } from 'styled-components';

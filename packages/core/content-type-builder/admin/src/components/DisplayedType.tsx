@@ -1,6 +1,6 @@
-import { Typography } from '@leao1/design-system';
 import { useIntl } from 'react-intl';
 
+import { Typography } from '../ui';
 import { getTrad } from '../utils/getTrad';
 
 type DisplayedTypeProps = {

@@ -15,28 +15,23 @@ export const Tr = styled.tr<{
     }
 
     > td:first-of-type {
-      padding: 0 0 0 2rem;
+      padding: 0 0 0 var(--ctb-space-8);
       position: relative;
 
       &::before {
         content: '';
-        width: 0.4rem;
-        height: calc(100% - 40px);
+        width: var(--ctb-space-2);
+        height: calc(100% - 2 * var(--ctb-space-5));
         position: absolute;
-        top: -7px;
-        left: 2.6rem;
-        border-radius: 4px;
+        top: calc(-1 * var(--ctb-space-2));
+        left: calc(var(--ctb-space-8) + var(--ctb-space-2));
+        border-radius: var(--ctb-radius-sm);
 
-        ${({ $isFromDynamicZone, $isChildOfDynamicZone, theme }) => {
-          if ($isChildOfDynamicZone) {
-            return `background-color: ${theme.colors.primary200};`;
+        ${({ $isFromDynamicZone, $isChildOfDynamicZone }) => {
+          if ($isChildOfDynamicZone || $isFromDynamicZone) {
+            return `background-color: var(--ctb-primary-soft);`;
           }
-
-          if ($isFromDynamicZone) {
-            return `background-color: ${theme.colors.primary200};`;
-          }
-
-          return `background: ${theme.colors.neutral150};`;
+          return `background: var(--ctb-bg-active);`;
         }}
       }
     }

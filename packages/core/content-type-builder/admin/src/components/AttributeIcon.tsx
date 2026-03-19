@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ComponentType, SVGProps } from 'react';
+import type { ComponentType } from 'react';
 
 import { useLeaoApp } from '@leao1/admin/leao-admin';
-import { Box } from '@leao1/design-system';
 import {
   BooleanField,
   CollectionType,
@@ -21,8 +20,25 @@ import {
   TextField,
   UidField,
   BlocksField,
-} from '@leao1/design-system/symbols';
+} from '../ui/symbols';
 import { styled } from 'styled-components';
+
+import { Box } from '../ui';
+
+const IconBox = styled(Box)`
+  width: 3.6rem;
+  height: 3.6rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ctb-radius-sm);
+  background: var(--ctb-bg);
+  svg {
+    height: 2.6rem;
+    width: 2.6rem;
+  }
+`;
 
 const iconByTypes: Record<string, ComponentType<any>> = {
   biginteger: NumberField,
@@ -57,13 +73,6 @@ const iconByTypes: Record<string, ComponentType<any>> = {
   uid: UidField,
 };
 
-const IconBox = styled(Box)`
-  svg {
-    height: 100%;
-    width: 100%;
-  }
-`;
-
 export type IconByType = keyof typeof iconByTypes;
 
 type AttributeIconProps = {
@@ -89,8 +98,8 @@ export const AttributeIcon = ({ type, customField = null, ...rest }: AttributeIc
   }
 
   return (
-    <IconBox width="3.2rem" shrink={0} {...rest} aria-hidden>
-      <Box tag={Compo} />
+    <IconBox {...rest} aria-hidden>
+      <Compo />
     </IconBox>
   );
 };

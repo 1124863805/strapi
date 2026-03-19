@@ -1,120 +1,138 @@
-import { TextButton } from '@leao1/design-system';
-import { SubNav } from '@leao1/design-system';
-import { SubNavHeader } from '@leao1/design-system';
-import { SubNavLink } from '@leao1/design-system';
-import { SubNavLinkSection } from '@leao1/design-system';
-import { SubNavSection } from '@leao1/design-system';
-import { SubNavSections } from '@leao1/design-system';
-import { Fragment } from 'react';
-
-import { Box } from '@leao1/design-system';
-import { Plus } from '@leao1/design-system/icons';
+import { useState } from 'react';
+import { Layout, Menu, Tabs } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
-import { NavLink } from 'react-router-dom';
-import { styled } from 'styled-components';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { getTrad } from '../../utils/getTrad';
 
 import { useContentTypeBuilderMenu } from './useContentTypeBuilderMenu';
 
-const SubNavLinkCustom = styled(SubNavLink)`
-  div {
-    width: inherit;
-    span:nth-child(2) {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: inherit;
-    }
-  }
-`;
+const { Sider } = Layout;
+
+type TabKey = 'all' | 'models' | 'singleTypes' | 'components';
 
 export const ContentTypeBuilderNav = () => {
-  const { menu, searchValue, onSearchChange } = useContentTypeBuilderMenu();
+  const { menu } = useContentTypeBuilderMenu();
   const { formatMessage } = useIntl();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState<TabKey>('all');
 
   const pluginName = formatMessage({
     id: getTrad('plugin.name'),
     defaultMessage: 'Content-Type Builder',
   });
 
-  return (
-    <SubNav aria-label={pluginName}>
-      <SubNavHeader
-        searchable
-        value={searchValue}
-        onClear={() => onSearchChange('')}
-        onChange={(e) => onSearchChange(e.target.value)}
-        label={pluginName}
-        searchLabel={formatMessage({
-          id: 'global.search',
-          defaultMessage: 'Search',
-        })}
-      />
-      <SubNavSections>
-        {menu.map((section) => (
-          <Fragment key={section.name}>
-            <SubNavSection
-              label={formatMessage({
-                id: section.title.id,
-                defaultMessage: section.title.defaultMessage,
-              })}
-              collapsable
-              badgeLabel={section.linksCount.toString()}
-            >
-              {section.links.map((link) => {
-                if (link.links) {
-                  return (
-                    <SubNavLinkSection key={link.name} label={upperFirst(link.title)}>
-                      {link.links.map((subLink: any) => (
-                        <SubNavLink
-                          tag={NavLink}
-                          to={subLink.to}
-                          active={subLink.active}
-                          key={subLink.name}
-                          isSubSectionChild
-                        >
-                          {upperFirst(
-                            formatMessage({ id: subLink.name, defaultMessage: subLink.title })
-                          )}
-                        </SubNavLink>
-                      ))}
-                    </SubNavLinkSection>
-                  );
-                }
+  const filteredMenu =
+    activeTab === 'all'
+      ? menu
+      : menu.filter((s) => s.name === activeTab);
 
-                return (
-                  <SubNavLinkCustom
-                    tag={NavLink}
-                    to={link.to}
-                    active={link.active}
-                    key={link.name}
-                    width="100%"
-                  >
-                    {upperFirst(formatMessage({ id: link.name, defaultMessage: link.title }))}
-                  </SubNavLinkCustom>
-                );
-              })}
-            </SubNavSection>
-            {section.customLink && (
-              <Box paddingLeft={7}>
-                <TextButton
-                  onClick={section.customLink.onClick}
-                  startIcon={<Plus width="0.8rem" height="0.8rem" />}
-                  marginTop={2}
-                  cursor="pointer"
-                >
-                  {formatMessage({
-                    id: section.customLink.id,
-                    defaultMessage: section.customLink.defaultMessage,
-                  })}
-                </TextButton>
-              </Box>
-            )}
-          </Fragment>
-        ))}
-      </SubNavSections>
-    </SubNav>
+  const buildMenuItems = () => {
+    return filteredMenu.map((section) => {
+      const sectionLabel = formatMessage(section.title);
+      const hasNested = section.links.some((l: any) => Array.isArray(l.links));
+
+      if (hasNested) {
+        const children = section.links.flatMap((link: any) =>
+          (link.links || []).map((sub: any) => ({
+            key: sub.to,
+            label: upperFirst(formatMessage({ id: sub.name, defaultMessage: sub.title })),
+          }))
+        );
+        return {
+          key: `group-${section.name}`,
+          label: sectionLabel,
+          type: 'group' as const,
+          children: children.length
+            ? children.map((c) => ({
+                key: c.key,
+                label: c.label,
+              }))
+            : undefined,
+        };
+      }
+
+      const items = section.links.map((link: any) => ({
+        key: link.to,
+        label: upperFirst(formatMessage({ id: link.name, defaultMessage: link.title })),
+      }));
+      return {
+        key: `group-${section.name}`,
+        label: sectionLabel,
+        type: 'group' as const,
+        children: items,
+      };
+    });
+  };
+
+  const tabItems = [
+    { key: 'all', label: formatMessage({ id: getTrad('menu.section.all'), defaultMessage: '全部' }) },
+    { key: 'models', label: formatMessage({ id: getTrad('menu.section.models.name'), defaultMessage: '集合' }) },
+    { key: 'singleTypes', label: formatMessage({ id: getTrad('menu.section.single-types.name'), defaultMessage: '单一' }) },
+    { key: 'components', label: formatMessage({ id: getTrad('menu.section.components.name'), defaultMessage: '组件' }) },
+  ];
+
+  return (
+    <Sider
+      width={260}
+      style={{
+        height: '100vh',
+        background: 'var(--ctb-bg-elevated)',
+        borderRight: '1px solid var(--ctb-border-subtle)',
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <div style={{ padding: 'var(--ctb-space-4) var(--ctb-space-4) var(--ctb-space-2)', flexShrink: 0 }}>
+        <span style={{ fontSize: 16, fontWeight: 600, color: 'var(--ctb-text)' }}>{pluginName}</span>
+      </div>
+      <Tabs
+        activeKey={activeTab}
+        onChange={(k) => setActiveTab(k as TabKey)}
+        size="small"
+        items={tabItems}
+        style={{ padding: '0 var(--ctb-space-3) var(--ctb-space-2)', flexShrink: 0 }}
+      />
+      <div style={{ flex: 1, minHeight: 0, overflow: 'auto' }}>
+        <Menu
+          mode="inline"
+          defaultOpenKeys={['group-models', 'group-singleTypes', 'group-components']}
+          selectedKeys={[location.pathname]}
+          style={{ border: 'none', paddingLeft: 'var(--ctb-space-2)' }}
+          items={buildMenuItems()}
+          onClick={({ key }) => navigate(key)}
+        />
+        {filteredMenu.map((section) => {
+          const link = section.customLink;
+          if (!link || typeof link !== 'object' || !('onClick' in link)) return null;
+          return (
+            <div key={section.name} style={{ padding: 'var(--ctb-space-2) var(--ctb-space-4) var(--ctb-space-3)', borderTop: '1px solid var(--ctb-border-subtle)' }}>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  link.onClick();
+                }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 'var(--ctb-space-2)',
+                  color: 'var(--ctb-primary)',
+                  fontSize: 14,
+                  fontWeight: 500,
+                }}
+              >
+                <PlusOutlined />
+                {formatMessage(link)}
+              </a>
+            </div>
+          );
+        })}
+      </div>
+    </Sider>
   );
 };

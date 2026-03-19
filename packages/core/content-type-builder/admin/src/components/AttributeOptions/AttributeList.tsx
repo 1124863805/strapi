@@ -1,4 +1,4 @@
-import { Flex, Grid, KeyboardNavigable } from '@leao1/design-system';
+import { Grid, KeyboardNavigable } from '../../ui';
 
 import { IconByType } from '../AttributeIcon';
 
@@ -8,21 +8,17 @@ type AttributeListProps = {
   attributes: IconByType[][];
 };
 
-export const AttributeList = ({ attributes }: AttributeListProps) => (
-  <KeyboardNavigable tagName="button">
-    <Flex direction="column" alignItems="stretch" gap={8}>
-      {attributes.map((attributeRow, index) => {
-        return (
-          // eslint-disable-next-line react/no-array-index-key
-          <Grid.Root key={index} gap={3}>
-            {attributeRow.map((attribute) => (
-              <Grid.Item key={attribute} col={6} direction="column" alignItems="stretch">
-                <AttributeOption type={attribute} />
-              </Grid.Item>
-            ))}
-          </Grid.Root>
-        );
-      })}
-    </Flex>
-  </KeyboardNavigable>
-);
+export const AttributeList = ({ attributes }: AttributeListProps) => {
+  const flatAttributes = attributes.flat();
+  return (
+    <KeyboardNavigable tagName="button">
+      <Grid.Root gap={2}>
+        {flatAttributes.map((attribute) => (
+          <Grid.Item key={attribute} col={4} direction="column" alignItems="stretch">
+            <AttributeOption type={attribute} />
+          </Grid.Item>
+        ))}
+      </Grid.Root>
+    </KeyboardNavigable>
+  );
+};

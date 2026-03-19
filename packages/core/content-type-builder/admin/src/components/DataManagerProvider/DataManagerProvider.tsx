@@ -39,6 +39,7 @@ import {
   REMOVE_COMPONENT_FROM_DYNAMIC_ZONE,
   REMOVE_FIELD,
   REMOVE_FIELD_FROM_DISPLAYED_COMPONENT,
+  REMOVE_FIELD_FROM_CONTENT_TYPE,
   SET_MODIFIED_DATA,
   UPDATE_SCHEMA,
   UPDATE_INITIAL_STATE,
@@ -270,13 +271,18 @@ const DataManagerProvider = ({ children }: DataManagerProviderProps) => {
     attributeToRemoveName: string,
     componentUid = ''
   ) => {
-    const type =
-      mainDataKey === 'components' ? REMOVE_FIELD_FROM_DISPLAYED_COMPONENT : REMOVE_FIELD;
+    let type = REMOVE_FIELD;
+    if (mainDataKey === 'components') {
+      type = REMOVE_FIELD_FROM_DISPLAYED_COMPONENT;
+    } else if (mainDataKey === 'contentTypes') {
+      type = REMOVE_FIELD_FROM_CONTENT_TYPE;
+    }
 
     dispatch({
       type,
       mainDataKey,
       attributeToRemoveName,
+      contentTypeUid: componentUid,
       componentUid,
     });
   };

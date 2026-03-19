@@ -6,8 +6,8 @@
 
 import { useState } from 'react';
 
-import { ConfirmDialog } from '@leao1/admin/leao-admin';
-import { Button, Checkbox, CheckboxProps, Dialog, Field } from '@leao1/design-system';
+import { Button, Checkbox, Dialog, Field } from '../ui';
+import { ConfirmDialog } from '../ConfirmDialog';
 import { useIntl } from 'react-intl';
 
 import { getTrad } from '../utils';
@@ -61,7 +61,7 @@ export const DraftAndPublishToggle = ({
     setShowWarning(false);
   };
 
-  const handleChange: CheckboxProps['onCheckedChange'] = (checked) => {
+  const handleChange = (checked: boolean) => {
     if (!checked && !isCreating) {
       setShowWarning(true);
 
@@ -82,6 +82,7 @@ export const DraftAndPublishToggle = ({
 
       <Dialog.Root open={showWarning} onOpenChange={(isOpen) => setShowWarning(isOpen)}>
         <ConfirmDialog
+          onCancel={() => setShowWarning(false)}
           endAction={
             <Button onClick={handleConfirm} variant="danger" width="100%" justifyContent="center">
               {formatMessage({

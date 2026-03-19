@@ -656,6 +656,23 @@ const reducer = (state = initialState, action: Action) =>
 
         break;
       }
+      case actions.REMOVE_FIELD_FROM_CONTENT_TYPE: {
+        const { attributeToRemoveName, contentTypeUid } = action;
+
+        const attributeToRemoveIndex = findAttributeIndex(
+          state.contentTypes?.[contentTypeUid],
+          attributeToRemoveName
+        );
+
+        if (attributeToRemoveIndex >= 0 && draftState.contentTypes?.[contentTypeUid]) {
+          draftState.contentTypes[contentTypeUid].schema.attributes.splice(
+            attributeToRemoveIndex,
+            1
+          );
+        }
+
+        break;
+      }
       case actions.SET_MODIFIED_DATA: {
         draftState.isLoadingForDataToBeSet = false;
         draftState.initialData = action.schemaToSet;

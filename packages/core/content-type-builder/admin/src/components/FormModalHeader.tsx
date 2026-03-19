@@ -1,15 +1,9 @@
 /**
  *
- * FormModalHeader
+ * FormModalHeader - 符合中国用户习惯的弹窗头部
  *
  */
-import { Box } from '@leao1/design-system';
-import { Flex } from '@leao1/design-system';
-import { Breadcrumbs } from '@leao1/design-system';
-import { Crumb } from '@leao1/design-system';
-import { Link } from '@leao1/design-system';
-import { Modal } from '@leao1/design-system';
-import { ArrowLeft } from '@leao1/design-system/icons';
+import { Box, Flex, Breadcrumbs, Crumb, Link, Modal, ArrowLeft, Cross } from '../ui';
 import upperFirst from 'lodash/upperFirst';
 import { useIntl } from 'react-intl';
 
@@ -39,6 +33,7 @@ interface FormModalHeaderProps {
   targetUid: Internal.UID.Schema;
   customFieldUid?: string | null;
   showBackLink?: boolean;
+  onClose?: () => void;
 }
 
 export const FormModalHeader = ({
@@ -53,6 +48,7 @@ export const FormModalHeader = ({
   targetUid,
   customFieldUid = null,
   showBackLink = false,
+  onClose,
 }: FormModalHeaderProps) => {
   const { formatMessage } = useIntl();
   const { modifiedData } = useDataManager();
@@ -87,14 +83,15 @@ export const FormModalHeader = ({
 
     return (
       <Modal.Header>
-        <Flex>
-          <Box>
-            <AttributeIcon type={icon} />
-          </Box>
-          <Box paddingLeft={3}>
-            <Modal.Title>{formatMessage({ id: headerId }, { name: displayName })}</Modal.Title>
-          </Box>
+        <Flex gap={3} alignItems="center" style={{ flex: 1, minWidth: 0 }}>
+          <AttributeIcon type={icon} />
+          <Modal.Title>{formatMessage({ id: headerId }, { name: displayName })}</Modal.Title>
         </Flex>
+        <Modal.Close asChild onClose={onClose}>
+          <Modal.CloseButton aria-label={formatMessage({ id: getTrad('modalForm.header.close'), defaultMessage: '关闭' })}>
+            <Cross />
+          </Modal.CloseButton>
+        </Modal.Close>
       </Modal.Header>
     );
   }
@@ -131,7 +128,7 @@ export const FormModalHeader = ({
 
   return (
     <Modal.Header>
-      <Flex gap={3}>
+      <Flex gap={3} alignItems="center" style={{ flex: 1, minWidth: 0 }}>
         {showBackLink && (
           // This is a workaround and should use the LinkButton with a variant that currently doesn't exist
           <Link
@@ -169,6 +166,11 @@ export const FormModalHeader = ({
           })}
         </Breadcrumbs>
       </Flex>
+      <Modal.Close asChild onClose={onClose}>
+        <Modal.CloseButton aria-label={formatMessage({ id: getTrad('modalForm.header.close'), defaultMessage: '关闭' })}>
+          <Cross />
+        </Modal.CloseButton>
+      </Modal.Close>
     </Modal.Header>
   );
 };

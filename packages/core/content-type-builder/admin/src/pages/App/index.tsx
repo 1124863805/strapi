@@ -3,6 +3,10 @@
 /* eslint-disable check-file/no-index */
 import { lazy, Suspense, useEffect, useRef } from 'react';
 
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/locale/zh_CN';
+
+import { antdThemeConfig } from '../../config/antdTheme';
 import { Page, useGuidedTour, Layouts } from '@leao1/admin/leao-admin';
 import { useIntl } from 'react-intl';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -33,29 +37,37 @@ const App = () => {
   }, []);
 
   return (
-    <Page.Protect permissions={PERMISSIONS.main}>
-      <Page.Title>{title}</Page.Title>
-      <AutoReloadOverlayBlockerProvider>
-        <FormModalNavigationProvider>
-          {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-          {/* @ts-ignore */}
-          <DataManagerProvider>
-            <Layouts.Root sideNav={<ContentTypeBuilderNav />}>
-              <Suspense fallback={<Page.Loading />}>
-                <Routes>
-                  <Route
-                    index
-                    element={<Navigate to="content-types/create-content-type" replace />}
-                  />
-                  <Route path="content-types/:uid" element={<ListView />} />
-                  <Route path={`component-categories/:categoryUid/*`} element={<RecursivePath />} />
-                </Routes>
-              </Suspense>
-            </Layouts.Root>
-          </DataManagerProvider>
-        </FormModalNavigationProvider>
-      </AutoReloadOverlayBlockerProvider>
-    </Page.Protect>
+    <ConfigProvider locale={zhCN} theme={antdThemeConfig}>
+      <Page.Protect permissions={PERMISSIONS.main}>
+        <Page.Title>{title}</Page.Title>
+        <AutoReloadOverlayBlockerProvider>
+          <FormModalNavigationProvider>
+            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+            {/* @ts-ignore */}
+            <DataManagerProvider>
+              <div className="ctb-plugin-root" style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
+                <Layouts.Root sideNav={<ContentTypeBuilderNav />}>
+                <Layouts.Content>
+                  <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                    <Suspense fallback={<Page.Loading />}>
+                      <Routes>
+                      <Route
+                        index
+                        element={<Navigate to="content-types/create-content-type" replace />}
+                      />
+                      <Route path="content-types/:uid" element={<div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}><ListView /></div>} />
+                      <Route path={`component-categories/:categoryUid/*`} element={<div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}><RecursivePath /></div>} />
+                      </Routes>
+                    </Suspense>
+                  </div>
+                </Layouts.Content>
+                </Layouts.Root>
+              </div>
+            </DataManagerProvider>
+          </FormModalNavigationProvider>
+        </AutoReloadOverlayBlockerProvider>
+      </Page.Protect>
+    </ConfigProvider>
   );
 };
 

@@ -1,5 +1,5 @@
 import { useLeaoApp } from '@leao1/admin/leao-admin';
-import { Flex, Grid, KeyboardNavigable, Link } from '@leao1/design-system';
+import { Flex, Grid, KeyboardNavigable, Link } from '../../ui';
 import { useIntl } from 'react-intl';
 
 import { getTrad } from '../../utils';
@@ -22,10 +22,10 @@ export const CustomFieldsList = () => {
 
   return (
     <KeyboardNavigable tagName="button">
-      <Flex direction="column" alignItems="stretch" gap={3}>
-        <Grid.Root gap={3}>
+      <Flex direction="column" alignItems="stretch" gap={2}>
+        <Grid.Root gap={2}>
           {sortedCustomFields.map(([uid, customField]) => (
-            <Grid.Item key={uid} col={6} direction="column" alignItems="stretch">
+            <Grid.Item key={uid} col={4} direction="column" alignItems="stretch">
               <CustomFieldOption key={uid} customFieldUid={uid} customField={customField} />
             </Grid.Item>
           ))}

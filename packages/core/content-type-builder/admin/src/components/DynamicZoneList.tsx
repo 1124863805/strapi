@@ -1,8 +1,8 @@
-import { Flex } from '@leao1/design-system';
+import { Flex } from '../ui';
 import { useState } from 'react';
 
-import { Box, Typography } from '@leao1/design-system';
-import { Plus } from '@leao1/design-system/icons';
+import { Box, Typography } from '../ui';
+import { PlusOutlined } from '@ant-design/icons';
 import { useIntl } from 'react-intl';
 import { styled } from 'styled-components';
 
@@ -23,14 +23,18 @@ interface DynamicZoneListProps {
   targetUid: Internal.UID.Component;
 }
 
-const StyledAddIcon = styled(Plus)`
+const StyledAddIconWrapper = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 3.2rem;
   height: 3.2rem;
   padding: 0.9rem;
   border-radius: 6.4rem;
   background: ${({ theme }) => theme.colors.primary100};
-  path {
-    fill: ${({ theme }) => theme.colors.primary600};
+  .anticon {
+    color: ${({ theme }) => theme.colors.primary600};
+    font-size: 2.4rem;
   }
 `;
 
@@ -88,7 +92,9 @@ export const DynamicZoneList = ({
             {isInDevelopmentMode && (
               <button type="button" onClick={handleClickAdd}>
                 <ComponentStack direction="column" alignItems="stretch" gap={1}>
-                  <StyledAddIcon />
+                  <StyledAddIconWrapper>
+                    <PlusOutlined />
+                  </StyledAddIconWrapper>
                   <Typography variant="pi" fontWeight="bold" textColor="primary600">
                     {formatMessage({
                       id: getTrad('button.component.add'),

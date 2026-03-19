@@ -16,6 +16,8 @@ export const GET_DATA_SUCCEEDED = 'ContentTypeBuilder/DataManagerProvider/GET_DA
 export const RELOAD_PLUGIN = 'ContentTypeBuilder/DataManagerProvider/RELOAD_PLUGIN';
 export const REMOVE_FIELD_FROM_DISPLAYED_COMPONENT =
   'ContentTypeBuilder/DataManagerProvider/REMOVE_FIELD_FROM_DISPLAYED_COMPONENT';
+export const REMOVE_FIELD_FROM_CONTENT_TYPE =
+  'ContentTypeBuilder/DataManagerProvider/REMOVE_FIELD_FROM_CONTENT_TYPE';
 export const REMOVE_COMPONENT_FROM_DYNAMIC_ZONE =
   'ContentTypeBuilder/DataManagerProvider/REMOVE_COMPONENT_FROM_DYNAMIC_ZONE';
 export const REMOVE_FIELD = 'ContentTypeBuilder/DataManagerProvider/REMOVE_FIELD';

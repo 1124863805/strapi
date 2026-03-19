@@ -1,4 +1,4 @@
-import { Flex, inputFocusStyle } from '@leao1/design-system';
+import { Flex, inputFocusStyle } from '../../ui';
 import { styled } from 'styled-components';
 
 const Wrapper = styled(Flex)`
@@ -6,15 +6,19 @@ const Wrapper = styled(Flex)`
   align-items: stretch;
 
   label {
-    border-radius: 4px;
+    border-radius: var(--ctb-radius-sm);
     max-width: 50%;
     cursor: pointer;
     user-select: none;
     flex: 1;
-    border-radius: 4px;
-    border: 1px solid ${({ theme }) => theme.colors.neutral200};
+    border: 1px solid var(--ctb-border);
+    transition: border-color 0.2s var(--ctb-ease), background 0.2s var(--ctb-ease);
 
-    ${(inputFocusStyle as any)()}
+    ${inputFocusStyle()}
+  }
+
+  label.container:has(input:checked) {
+    border-color: var(--ctb-primary);
   }
 
   input {
@@ -22,50 +26,66 @@ const Wrapper = styled(Flex)`
     opacity: 0;
   }
 
+  .ctb-radio-description {
+    color: var(--ctb-text-muted);
+  }
+
   .option {
     height: 100%;
-    border-radius: 4px;
+    padding: var(--ctb-space-5) var(--ctb-space-4);
+    border-radius: var(--ctb-radius-sm);
     will-change: transform, opacity;
-    background: ${({ theme }) => theme.colors.neutral0};
+    background: var(--ctb-bg-elevated);
+    transition: background 0.2s var(--ctb-ease);
 
     .checkmark {
       position: relative;
       display: block;
       will-change: transform;
-      background: ${({ theme }) => theme.colors.neutral0};
-      width: ${({ theme }) => theme.spaces[5]};
-      height: ${({ theme }) => theme.spaces[5]};
-      border: solid 1px ${({ theme }) => theme.colors.neutral300};
+      background: var(--ctb-bg-elevated);
+      width: var(--ctb-space-5);
+      height: var(--ctb-space-5);
+      border: 1px solid var(--ctb-border);
       border-radius: 50%;
+      flex-shrink: 0;
 
       &:before,
       &:after {
         content: '';
         display: block;
         border-radius: 50%;
-        width: ${({ theme }) => theme.spaces[3]};
-        height: ${({ theme }) => theme.spaces[3]};
+        width: var(--ctb-space-3);
+        height: var(--ctb-space-3);
         position: absolute;
-        top: 3px;
-        left: 3px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
 
       &:after {
-        transform: scale(0);
-        transition: inherit;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.2s var(--ctb-ease);
         will-change: transform;
       }
     }
   }
 
-  .container input:checked ~ div {
-    background: ${({ theme }) => theme.colors.primary100};
-    color: ${({ theme }) => theme.colors.primary600};
+  .container input:checked ~ div.option {
+    background: var(--ctb-primary-soft);
+
+    .ctb-radio-title {
+      color: var(--ctb-primary);
+    }
+
+    .ctb-radio-description {
+      color: var(--ctb-text-secondary);
+    }
+
     .checkmark {
-      border: solid 1px ${({ theme }) => theme.colors.primary600};
+      border-color: var(--ctb-primary);
       &::after {
-        background: ${({ theme }) => theme.colors.primary600};
-        transform: scale(1);
+        background: var(--ctb-primary);
+        transform: translate(-50%, -50%) scale(1);
       }
     }
   }
